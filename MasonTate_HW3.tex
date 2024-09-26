@@ -1,0 +1,143 @@
+%%% Homework 3 - Advanced Micro %%%
+\documentclass[10pt, a4paper]{article}
+\usepackage[top=3cm, bottom=4cm, left=3.5cm, right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage[math-style=ISO]{unicode-math}
+\DeclareSymbolFont{\mathnormal}{letters}
+\usepackage{lastpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
+\newcommand\course{ECON - 8010}                            % <-- course name   
+\newcommand\hwnumber{ 3}                                 % <-- homework number
+\newcommand\Information{Tate Mason}                        % <-- personal information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Page setup
+\pagestyle{fancy}
+\headheight 35pt
+\lhead{\today}
+\rhead{}
+\lfoot{}
+\pagenumbering{arabic}
+\cfoot{\small\thepage}
+\rfoot{}
+\headsep 1.2em
+\renewcommand{\baselinestretch}{1.25}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add new commands here
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\DeclareMathOperator{\Mod}{Mod} 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem{case}{Case}
+\newcommand{\assign}{:=}
+\newcommand{\infixiff}{\text{ iff }}
+\newcommand{\nobracket}{}
+\newcommand{\backassign}{=:}
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextbf}[1]{\text{{\bfseries{#1}}}}
+\newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
+
+\newenvironment{itemizedot}{\begin{itemize} \renewcommand{\labelitemi}{$\bullet$}\renewcommand{\labelitemii}{$\bullet$}\renewcommand{\labelitemiii}{$\bullet$}\renewcommand{\labelitemiv}{$\bullet$}}{\end{itemize}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Begin now!
+
+\begin{document}
+  \begin{titlepage}
+    \begin{center}
+      \vspace*{3cm}
+            
+        \vspace{1cm}
+        \huge
+        Homework \hwnumber
+            
+        \vspace{1.5cm}
+        \Large
+            
+        \textbf{\Information}                      % <-- author
+            
+        \vfill
+        
+        An \course \ Homework Assignment
+            
+        \vspace{1cm}
+        \Large
+
+        
+        \today
+            
+    \end{center}
+  \end{titlepage}
+
+  \newpage
+
+  \section{Question 3.I.5}
+    \subsection{Problem}
+      Show that if $u(x)$ is quasilinear with respect to the first good ($p_1$ fixed at 1), then $CV(p^0,p^1,w)=EV(p^0,p^1,w)$ for any $(p^0,p^1,w)$.
+    \subsection{Solution}
+  \section{Question 5.C.9}
+    \subsection{Problem}
+      Derive the profit function $\pi(p)$ and supply function $y(p)$ for the single output technologies whose production functions $f(z)$ are given by:
+
+      (b) $f(z)=\sqrt{\min\{z_1,z_2\}}$
+
+      (c) $f(z)=(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}}$ for $\rho\leq1$ 
+  \section{Question 5.C.10}
+    \subsection{Problem}
+      Derive the cost function $c(w,q)$ and conditional function demand functions (or correspondences) $z(w,q)$ for each of the following single-output constant return technologies with production functions:
+
+      (b) $f(z)=\min\{z_1,z_2\}$ (Leontief technology)
+
+      (c) $f(z)=(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}}$ for $\rho\leq1$ (CES technology) 
+  \section{Question 5.C.11}
+    \subsection{Problem}
+      Show that $\frac{\partial z_l(w,q)}{\partial q}>0$ if and only if marginal cost at q is increasing in $w_l$.
+  \section{Question 5}
+    \subsection{Problem}
+      A firm uses 2 inputs, $z_1$ and $z_2$, which it purchases at prices $w_1$ and $w_2$ to produce a single output. The firm's technology is described by production function $f$ which is strictly increasing and obeys the Inada conditions ${\lim\atop{z_1\righarrow0}}\frac{\partial f(z_1,z_2)}{\partial z_1}={\lim\atop{z_1\rightarrow0}}\frac{\partial f(z_1, z_2)}{\partial z_2}=\infty$ for each $x$. (Hence, the firm will always choose to use a strictly positive quantity of each input.)
+
+      (a) Set up firm's cost minimization problem, write down its Lagrangian, find firm's first order conditions for cost minimization.
+
+      (b) Use the envelope theorm to five an expression (possibly involving a Lagrange multiplier) for the firm's marginal cost $\frac{\partial c(w,q)}{\partial q}$.
+
+      (c) An economist wishes to measure the firm's markup-ratio of price of output, p, to its marginal cost $\frac{\partial c(w,q)}{\partial q}$. However, she does not know what kind of competition the firm faces inthe production market. In fact, the only data she has are:
+        
+        - the marginal product of input 1 at the input fix selected by the firm:
+        \begin{center}
+          $\frac{\partial f(z(w,q))}{\partial z_1}$
+        \end{center}
+
+        - the price of input 1, $w_1$
+
+        - the price of firm's output $p$.
+
+      How can she use these data to recover the firm's markup?
+  \section{Question 6.B.2}
+    \subsection{Problem}
+      Show that if the preference relation $\succeq$ on $\mathcal{L}$ is represented by a utility function $U(\cdot)$ that has the expected utility form, then $\succeq$ satisfies the independence axiom. 
+
+\end{document}

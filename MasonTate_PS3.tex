@@ -1,0 +1,219 @@
+%%% Problem Set 3 - Advanced Macro %%%
+\documentclass[10pt, a4paper]{article}
+\usepackage[top=3cm, bottom=4cm, left=3.5cm, right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage[math-style=ISO]{unicode-math}
+\DeclareSymbolFont{\mathnormal}{letters}
+\usepackage{lastpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
+\newcommand\course{ECON - 8040}                            % <-- course name   
+\newcommand\hwnumber{ 3}                                 % <-- homework number
+\newcommand\Information{Tate Mason}                        % <-- personal information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Page setup
+\pagestyle{fancy}
+\headheight 35pt
+\lhead{\today}
+\rhead{}
+\lfoot{}
+\pagenumbering{arabic}
+\cfoot{\small\thepage}
+\rfoot{}
+\headsep 1.2em
+\renewcommand{\baselinestretch}{1.25}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add new commands here
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\DeclareMathOperator{\Mod}{Mod} 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem{case}{Case}
+\newcommand{\assign}{:=}
+\newcommand{\infixiff}{\text{ iff }}
+\newcommand{\nobracket}{}
+\newcommand{\backassign}{=:}
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextbf}[1]{\text{{\bfseries{#1}}}}
+\newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
+
+\newenvironment{itemizedot}{\begin{itemize} \renewcommand{\labelitemi}{$\bullet$}\renewcommand{\labelitemii}{$\bullet$}\renewcommand{\labelitemiii}{$\bullet$}\renewcommand{\labelitemiv}{$\bullet$}}{\end{itemize}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Begin now!
+
+\begin{document}
+  \begin{titlepage}
+    \begin{center}
+      \vspace*{3cm}
+            
+        \vspace{1cm}
+        \huge
+        Homework \hwnumber
+            
+        \vspace{1.5cm}
+        \Large
+            
+        \textbf{\Information}                      % <-- author
+            
+        \vfill
+        Collaboration to varying degrees with Timothy Duhon, Josephine Hughes, Abdul Khan, Kasra Lak, Rachel Lobo, Mingzhou Wang, Wenyi Wang
+        
+        \vspace{1cm}
+
+        An \course \ Homework Assignment
+            
+        \vspace{1cm}
+        \Large
+
+        
+        \today
+            
+    \end{center}
+  \end{titlepage}
+
+  \newpage
+\section{Question 1}
+  \subsection{Problem}
+    Consider the following finite horizon planning problem
+    \begin{center}
+      ${\max\atop{\{k_{t+1}_{t=0}^T\}, k_{t+1}\geq0,k_0=\bar{k_0}}}\sum^T_{t=0}\beta^t\log(Ak^{\alpha}_t-k_{t+1})$
+    \end{center}
+
+    (a) Solve for the optimal path of $k_t$. First, derive the Euler equation from the first order conditions. Then make the following change of variable
+    \begin{center}
+      $z_t=\frac{k_{t+1}}{Ak_t^{\alpha}}$
+    \end{center}
+    Note that $z_T=0$. So you find all $z_t$ by backward induction.
+
+    (b) Find $\lim_{T\rightarrow\infty}z_0$ and $\lim_{T\rightarrow\infty}z_1$. What do you notice?
+
+  \subsection{Solution}
+    (a) First, let's find the Euler equation from FOC with respect to $k_{t+1}$
+
+    \begin{center}
+      $\log(Ak_t^{\alpha}-k_{t+1})+\beta^t\log(Ak_{t+1}^{\alpha}-k_{t+2})$ \\
+      $-\frac{1}{Ak^{\alpha}_t-k_{t+1}}+\beta\frac{1}{Ak^{\alpha}_{t+1}-k_{t+2}}\cdot\alpha Ak_{t+1}^{\alpha-1}$  \\
+      $\Aboxed{\frac{1}{Ak_t^{\alpha}-k_{t+1}}=\alpha\beta\frac{1}{Ak_{t+1}^{\alpha}-k_{t+2}}\cdot Ak_{t+1}^{\alpha-1}}$
+    \end{center}
+    
+    Next, we are given the identity $z_t=\frac{k_{t+1}}{Ak_t^{\alpha}}$. We should find all $z_t$ by backwards induction 
+    
+    To solve, we need to rearrange the Euler equation to get $z_t=\frac{k_{t+1}}{Ak_t^{\alpha}}$
+    \begin{center}
+      $Ak_{t+1}^{\alpha}-k_{t+2}=\beta(Ak_t^{\alpha}-k_{t+1})(\alpha Ak_{t+1}^{\alpha-1})$ \\
+      $1 = \frac{\beta(Ak_t^{\alpha}-k_{t+1})(\alpha Ak_{t+1}^{\alpha-1})}{Ak_{t+1}^{\alpha}}+\frac{k_{t+2}}{Ak_{t+!}^{\alpha}}$ \\
+      $1 = \alpha\beta\frac{Ak^{\alpha}_t-k_{t+1}}{k_{t+1}}+\frac{k_{t+2}}{Ak_{t+!}^{\alpha}}$ \\
+      $1 = \alpha\beta(\frac{1}{z_t})+z_{t+1} \Rightarrow 1 = \frac{\alpha\beta}{z_t}-\alpha\beta+z_{t+1}$ \\
+      $z_t = \frac{\alpha\beta}{1+\alpha\beta-z_{t+1}}$ \\
+      $z_T = 0$ \\
+      $z_{T-1} = \frac{\alpha\beta}{1+\alpha\beta}$ \\
+      $z_{T-2} = \frac{\alpha\beta}{1+\alpha\beta-\frac{\alpha\beta}{1+\alpha\beta}}$ \\
+      $ = \frac{\alpha\beta(1+\alpha\beta)}{1+\alpha\beta+(\alpha\beta)^2}$ \\
+      $\therefore z_{T-t}=\frac{\alpha\beta(1+\alpha\beta+...+(\alpha\beta)^t)}{1+\alpha\beta+...+(\alpha\beta)^{t+1}}$ \\
+      $ = \frac{\alpha\beta(1-(\alpha\beta)^t)}{1-\alpha\beta^{T-t}}$ \\
+      $\Aboxed{z_{t+1} = \frac{\alpha\beta(1-(\alpha\beta)^{T-t})}{1-(\alpha\beta)^{T-t+1}}}$ \\ 
+    \end{center} 
+
+    (b) Now, finding the limits of $z_0$ and $z_1$ as $T\rightarrow\infty$ should be informative:
+    \begin{center}
+      ${\lim\atop{T\rightarrow\infty}}z_1 = {\lim\atop{T\rightarrow\infty}}\frac{\alpha\beta(1-(\alpha\beta)^{T-1})}{1-(\alpha\beta)^{T-2}}$ \\
+      $ = \frac{\alpha\beta(1-0)}{(1-0)} = \Aboxed{\alpha\beta}$ \\
+      ${\lim\atop{T\rightarrow\infty}}z_0 = {\lim\atop{T\rightarrow\infty}} \frac{\alpha\beta(1-(\alpha\beta)^T)}{1-(\alpha\beta)^{T+1}}$ \\
+      $ = \frac{\alpha\beta(1-0)}{(1-0)} = \Aboxed{\alpha\beta}$ \\
+    \end{center}
+
+    As the $T\rightarrow\infty$, the savings rate, $z_t$, becomes a constant $\alpha\beta$. This makes sense, as in the long run, saving would become constant once steady state is reached. 
+\section{Question 2}
+  \subsection{Problem}
+    Consider a more general version of consumption-saving problem we studied in class. Let $a_t$ be asset position in period $t$. Let $r$ be exogenous net return on asset, and let $e_t$ be exogenous endowment in period $t$. The consumer solves the following decision problem
+    \begin{center}
+      ${\max\atop{\{c_t,a_{t+1}\}_{t=0}^{\infty}}}\sum_{t=0}^T\beta^t\frac{c_t^{1-\sigma}}{1-\sigma}$
+    \end{center}
+    s.t.
+    \begin{center}
+      $c_t+a_{t+1}=(1+r)a_t+e_t$ \\
+      $c_t\geq0$ \\
+      $a_0$ given
+    \end{center}
+
+    where $\sigma>0$ and $0<\beta<1$. Basically, every period the consumer has endowment $e_t$, assets $a_t$, and asset income $r\cdot a_t$. She can split these resources to consumption $c_t$ or future asset position $a_{t+1}$ Ignore the last constraint for now (assume $\bar{A}$ is large enough that it never binds).
+
+    (a) Derive the Euler equation, i.e., the equation that describes intertemporal optimality condition.
+    
+    \vspace(9mm)
+    
+    (b) Show that
+    \begin{center}
+      $\frac{\partial\log(\frac{c_{t+1}}{c_t})}{\partial\log(1+r)}=\frac{1}{\sigma}$
+    \end{center}
+    $\frac{1}{\sigma}$ is called "inter-temporal elasticity of substitution". Can you explain in one sentence why this label is appropriate?
+
+    (c) Find the optimal sequence of consumption as function of initial asset $a_0$ and present value of endowment (hint: write the "lifetime budget constraint". You only need to solve for $c_0$. The future consumption follows from Euler equation).
+
+  \subsection{Solution}
+    (a) Derivation of the Euler equation is as follows:
+    \begin{center}
+      ${\max\atop{\{c_t,a_{t+1}\}_{t=0}^{\infty}}}\sum_{t=0}^T\beta^t\frac{c_t^{1-\sigma}}{1-\sigma}$ \\
+      $\frac{\partial{\max\atop{\{c_t,a_{t+1}\}_{t=0}^{\infty}}}\sum_{t=0}^T\beta^t\frac{c_t^{1-\sigma}}{1-\sigma}}{\partial a_{t+1}}$ \\
+      $-((1+r)a_t+e_t-a_{t+1})^{-\sigma}+\beta(1+r)((1+r)a_{t+1}+e_{t+1}-a_{t+2})^{-\sigma}$ \\
+      $\Aboxed{((1+r)a_t+e_t-a_{t+1})^{-\sigma}=\beta(1+r)((1+r)a_{t+1}+e_{t+1}-a_{t+2})^{-\sigma}}$
+    \end{center}
+
+    (b) To prove 
+    \begin{center}
+      $\frac{\partial\log(\frac{c_{t+1}}{c_t})}{\partial\log(1+r)}=\frac{1}{\sigma}$
+    \end{center}
+
+    we must first define $\frac{c_{t+1}}{c_t}$
+
+    \begin{center}
+      $\frac{c_{t+1}}{c_t}=(\beta^t)^{\frac{1}{\sigma}}(1+r)^{\frac{1}{\sigma}}$ \\
+    \end{center}
+
+    Next, let's plug this into the desired function
+    \begin{center}
+      $\frac{\partial\log{\frac{c_{t+1}}{c_t}}}{\partial\log(1+r)}$ \\
+      $\frac{\partial\log(\beta^t)^{\frac{1}{\sigma}}(1+r)^{\frac{1}{\sigma}}}{\partial\log(1+r)}$ \\
+      $\frac{\partial\frac{1}{\sigma}\log(\beta^t)+\frac{1}{\sigma}\log(1+r)}{\partial\log(1+r)}$  \\
+      $\Aboxed{\frac{1}{\sigma}}$
+    \end{center}
+    $\frac{1}{\sigma}$ is called the intertemporal elasticity of substitution because it relies upon consumption choices as well as the exogenous return on asset across time periods, thus making it intertemporal.
+
+    (c) Now, lets find the lifetime budget constraint by solving for consumption as a function of $a_0$ and $e_0$.
+
+    \begin{center}
+      $c_0+a_1=e_0+(1+r)a_0$ \\
+      $\frac{c_1}{1+r}+\frac{a_2}{1+r}=\frac{e_1}{1+r}+a_1$ \\
+      $\frac{c_2}{(1+r)^2}+\frac{a_3}{(1+r)^2}=\frac{e}{(1+r)^2}+\frac{a_2}{(1+r)}$ \\
+    \end{center}
+    and so on. But, we can sum across these and cancel terms yielding us
+    \begin{center}
+      $\Aboxed{\frac{c_t}{(1+r)^t}=\sum^T_{t=0}\frac{e_t}{(1+r)^t}+(1+r)a_0-\frac{a_{t+1}}{(1+r)^t}}$
+    \end{center}
+
+\end{document}

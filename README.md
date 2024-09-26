@@ -1,2 +1,4 @@
 # Semester1
-LaTeX, R, MatLab files for Semester 1 of UGA PhD
+
+This will serve as a repository for all R, LaTeX, and MatLab files used in semester 1 of UGA econ PhD.
+

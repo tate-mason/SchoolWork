@@ -1,0 +1,190 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[top=3cm, bottom=4cm, left=3.5cm, right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage[math-style=ISO]{unicode-math}
+\DeclareSymbolFont{\mathnormal}{letters}
+\usepackage{lastpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
+\newcommand\course{ECON - 8070}                            % <-- course name   
+\newcommand\hwnumber{ 2}                                 % <-- homework number
+\newcommand\Information{Tate Mason}                        % <-- personal information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Page setup
+\pagestyle{fancy}
+\headheight 35pt
+\rhead{Problem Set 2}
+\lhead{\today}
+\lfoot{}
+\pagenumbering{arabic}
+\cfoot{\small\thepage}
+\rfoot{}
+\headsep 1.2em
+\renewcommand{\baselinestretch}{1.25}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add new commands here
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\DeclareMathOperator{\Mod}{Mod} 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem{case}{Case}
+\newcommand{\assign}{:=}
+\newcommand{\infixiff}{\text{ iff }}
+\newcommand{\nobracket}{}
+\newcommand{\backassign}{=:}
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextbf}[1]{\text{{\bfseries{#1}}}}
+\newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
+
+\newenvironment{itemizedot}{\begin{itemize} \renewcommand{\labelitemi}{$\bullet$}\renewcommand{\labelitemii}{$\bullet$}\renewcommand{\labelitemiii}{$\bullet$}\renewcommand{\labelitemiv}{$\bullet$}}{\end{itemize}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Begin now!
+
+\begin{document}
+  \begin{titlepage}
+    \begin{center}
+      \vspace*{3cm}
+            
+        \vspace{1cm}
+        \huge
+        Homework \hwnumber
+            
+        \vspace{1.5cm}
+        \Large
+            
+        \textbf{\Information}                      % <-- author
+            
+        \vfill
+        
+        An \course \ Homework Assignment
+            
+        \vspace{1cm}
+        \Large
+        
+        \today
+            
+    \end{center}
+  \end{titlepage}
+
+  \newpage
+
+  \section{Question 6.8}
+    \subsection{Solution}
+
+    \begin{center}
+      $\sigma^2=\frac{1}{n}\sum^n_{i=1}X_i^2-(\frac{1}{n}\sum^n_{i=1}X_i)^2$ \\
+      $\Rightarrow \frac{1}{n}\sum^n_{i=1}(X_i-\bar{X_n})^2$ \\
+      $\Rightarrow \tilde{\sigma}^2=\frac{1}{n}\sum^n_{i=1}(X_i-\mu)^2 \Rightarrow E[\tilde{\sigma}^2]=E[(X_i-\mu)^2]=\sigma^2$
+    \end{center}
+    this shows that $\tilde{\sigma}^2$ is unbiased.
+
+    \begin{center}
+      $\hat{\sigma}^2=\frac{1}{n}\sum^n_{i=1}(X_i-\mu)^2-(\bar{X_n}-\mu)^2$ \\
+      $\hat{\sigma}^2=\tilde{\sigma}^2-(\bar{X_n}-\mu)^2$
+    \end{center}
+
+  \section{Question 6.14}
+    \subsection{Solution}
+    \begin{center}
+      $E[\bar{X_n}] = \frac{1}{n}\sum^n_{i=1}\mu_i$ \\
+      $\mathrm{var}[\bar{X_n}]=\frac{1}{n}\sum^n_{i=1}\sigma_i^2$
+    \end{center}
+  \section{Question 7.7}
+    \subsection{Solutions}
+    (a) 
+    \begin{center}
+      $E[\bar{X_n^*}]=\mathrm{var}(\frac{1}{n}\sum^n_{i=1}w_iX_i)=\frac{1}{n^2}\sum^i_{n=1}w_i^2\mathrm{var}(X_i)$ \\ 
+      $\Rightarrow \frac{1}{n}\sum^n_{i=1}w_i\mu$ \\
+      $\Rightarrow \frac{\mu}{n}\sum_{i=1}^nw_i=\mu$
+    \end{center}
+    because $\sum_{i=1}^nw_i=1$.
+
+    (b) 
+    \begin{center}
+      $\mathrm{var}(\bar{X_n}^*)=\mathrm{var}(\frac{1}{n}\sum^n_{i=1}w_iX_i)=\frac{1}{n^2}\sum^{n}_{i=1}w_i^2\mathrm{var}(X_i)$ \\
+      $X_i$ are i.i.d, therefore $=\frac{\sigma^2}{n^2}\sum_{i=1}^nw_i^2$ 
+    \end{center}
+
+    (c)
+    $\bar{X_n}^*-\mu{p\atop{\rightarrow}}0$ if $\mathrm{var}(\bar{X_n}^*-\mu)\rightarrow0$ as $n\rightarrow\infty$
+    \begin{center}
+      $\mathrm{var}(\bar{X_n}^*-\mu)=\mathrm{var}(\bar{X_n}^*)=(\frac{\sigma}{n})^2\sum^n_{i=1}w_i^2$ \\
+    \end{center}
+    if $\frac{1}{n^2}\sum^n_{i=1}w_i^2\rightarrow0$ as $n\rightarrow\infty$, $\mathrm{var}(\bar{X_i}^*-\mu)\rightarrow0$. Therefore, $\bar{X_n}^*-\mu{p\atop{\rightarrow}}0$ 
+
+    (d)
+    \begin{center}
+      $\frac{1}{n^2}\sum^n_{i=1}w_i^2\leq\frac{1}{n_2}({\mathrm{max}\atop{i\leq n}}w_i)^2=\frac{1}{n^2}\cdot n\cdot({\mathrm\atop{i\leq n}}w_i)^2=\frac{1}{n}\cdot({\mathrm{max}\atop{i\leq n}}w_i)^2$
+    \end{center}
+    if ${\mathrm{max}\atop{i\leq n}}w_i\rightarrow0$ as $n\rightarrow\infty$, $\frac{1}{n}({\mathrm\atop{i\leq n}}w_i)^2\rightarrow0$ as $n\rightarrow\infty$. Therefore, $\frac{1}{n^2}\sum_{i=1}^nw_i^2\rightarrow0$ as $n\rightarrow\infty$. 
+  \section{Question 7.8}
+    \subsection{Solution}
+    Argument will be shown for $\bar X_{1n}$ but is identical to that of $\bar X_{2n}$ 
+    \begin{proof}
+      $E[\bar X_{1n}]=\mu$, 
+      $\var(\bar X_{1n})=\frac{2\sigma^2}{n}$,
+      $P(|\bar X_{1n}-\mu|>\epsilon)\leq\frac{\mathrm{var}(\bar X_{1n})}{\epsilon^2} = (\frac{2\sigma^2}{n\epsilon^2})$.
+      As $n\rightarrow\infty$, $(\frac{2\sigma^2}{n\epsilon^2})\rightarrow0$ for any fixed $\epsilon>0$. Therefore, $P(|\bar X_{1n}-\mu|>\epsilon)\rightarrow0$ as $n\rightarrow\infty$, meaning $\bar X_{1n}$ is consistent for $\mu$. The same process would be applied for $\bar X_{2n}$, implying that $\bar X_{1n}, \bar X_{2n}$ are consistent for $E[X]=\mu$. 
+    \end{proof}
+  \section{Question 8.1}
+    \subsection{Solution}
+
+    (a)
+    \begin{center}
+      $E[X]=1\cdot p(X=1)+0\cdot p(X=0) = p + 0\cdot(1-p) = p$
+    \end{center}
+
+    (b) 
+    \begin{center}
+      $\hat{p}=(\frac{1}{n})\sum_{i=1}^n X_i$
+    \end{center}
+
+    (c)
+    \begin{center}
+      $\mathrm{var}[\hat{p}] = \mathrm{var}[\frac{1}{n}\sum^n_{i=1}X_i]=\frac{1}{n^2}\sum_{i=1}^n\mathrm{var}[X_i]$
+    \end{center}
+    because $X_i$ are i.i.d, $=\frac{1}{n}\mathrm{var}[X]$.
+    \begin{center}
+      $\mathrm{var}[X]=p(1-p)\Rightarrow\mathrm{var}=\frac{p(1-p)}{n}$
+    \end{center}
+
+    (d)
+    As $n\rightarrow\infty$, $\sqrt{n(\hat{p}-p)}\sim N(0,\sigma^2)$ such that $\sigma^2=p(1-p)=\mathrm{var}[X]\therefore \\ n\rightarrow\infty, \ \sqrt{n(\hat{p}-p)}\sim N(0,p(1-p))$. 
+  \section{Question 8.7 - (a) \& (c)}
+    \subsection{Solution}
+
+    (a) Let $g(\theta)=\theta^2g'(\theta)=2\theta$. Then, by the Delta method:
+    \begin{center}
+      $\sqrt{n(\hat{\theta}^2-\theta^2)}{d\atop{\rightarrow}}N(0,4\theta^2v^2)$ \\
+      $\therefore\hat{\theta}^2{d\atop{\rightarrow}}N(\theta^2,\frac{4\theta^2v^2}{n})$
+    \end{center}
+
+    (c) Let $g(\theta)=\theta^kg'(\theta)=k\theta^{k-1}$. Then, by the delta method:
+    \begin{center}
+      $\sqrt{n(\hat{\theta}^k-\theta^k)}{d\atop{\rightarrow}}N(\theta^k,\frac{k^2\theta^{2k-2}v^2}{n})$ \\
+      $\therefore \hat{\theta^k} {d\atop{\rightarrow}}N(\theta^k,\frac{k^2\theta^{2k-2}v^2}{n})$
+\end{document}
