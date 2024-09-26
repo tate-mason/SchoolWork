@@ -45,7 +45,7 @@ raw_data <- data_raw %>%
          vietnamese = ifelse(raced == 640, 1, 0),
          japanese = ifelse(raced == 500, 1, 0),
          black = ifelse(race == 2, 1, 0),
-         renter = ifelse(ownershipd %in% c(21, 22), 1, 0))
+         renter = ifelse(ownershpd %in% c(21, 22), 1, 0))
 
 ## Keep only head of household
 head_vars <- c("renter", "rent", "rentgrs", "valueh", "age", "chinese", "japanese",
