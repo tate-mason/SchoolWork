@@ -1,22 +1,38 @@
-## Learning how to use R via translating from Stata
+---
+itle: "Breaking Down a Monolith"
+subtitile: "An Analysis of Asian Housing Outcomes in the United States"
+author: "Tate Mason"
+date: "2024-5-28"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    df_print: paged
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
 
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE)
 library(pacman)
   p_load(tidyverse,
         foreign,
         haven,
         quantreg,
         ggplot2)
+```
 
+```{r dataintake, include=FALSE}
 root_path <- "/Users/tate/Library/CloudStorage/Dropbox/Schoolwork/OldAssignments/RM/"
 data_path <- file.path(root_path, "Data/RM2-Data/")
 output_path <- file.path(root_path, "RM2/RM2-Output/")
 
 data_raw <- read_dta(file.path(data_path,"usa_00035.dta"))
+```
 
-head(data_raw)
-
-## Filtering out those in group quarters
+First, we will need to take some care to format the data appropriately.
+```{r datasetup, include=FALSE}
 data_raw <- data_raw%>%filter(gq%in% c(1,2,5))
 
 ## Managing missing values
@@ -70,7 +86,10 @@ ipums_data <- ipums_data %>%
 races <- c('asian', 'chinese', 'japanese', 'filipino', 'korean', 'indian', 'vietnamese', 'black')
 years <- c(1980, 2019)
 nq <- 30
+```
 
+Next, let's focus on plotting
+```{r}
 for (r in races) {
   for (y in years){
     ## Rent-to-Income
@@ -94,3 +113,19 @@ for (r in races) {
     ggsave(file.path(output_path, paste0(r, '_extend_ownsumm', y, '.pdf')), p3, device='pdf')
   }
 }
+```
+
+Here is the plot of rent to income ratio
+```{r}
+p1
+```
+
+Home value to income ratio
+```{r}
+p2
+```
+
+As well as Ownership rates
+```{r}
+p3
+```
