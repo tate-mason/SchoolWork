@@ -1,0 +1,147 @@
+%%% Computational Exercise 2- Advanced Macro %%%
+\documentclass[10pt, a4paper]{article}
+\usepackage[top=3cm, bottom=4cm, left=3.5cm, right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage[math-style=ISO]{unicode-math}
+\DeclareSymbolFont{\mathnormal}{letters}
+\usepackage{lastpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
+\newcommand\course{ECON - 8040}                            % <-- course name   
+\newcommand\hwnumber{ 3}                                 % <-- homework number
+\newcommand\Information{Tate Mason}                        % <-- personal information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Page setup
+\pagestyle{fancy}
+\headheight 35pt
+\lhead{\today}
+\rhead{}
+\lfoot{}
+\pagenumbering{arabic}
+\cfoot{\small\thepage}
+\rfoot{}
+\headsep 1.2em
+\renewcommand{\baselinestretch}{1.25}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add new commands here
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\DeclareMathOperator{\Mod}{Mod} 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem{case}{Case}
+\newcommand{\assign}{:=}
+\newcommand{\infixiff}{\text{ iff }}
+\newcommand{\nobracket}{}
+\newcommand{\backassign}{=:}
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextbf}[1]{\text{{\bfseries{#1}}}}
+\newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
+
+\newenvironment{itemizedot}{\begin{itemize} \renewcommand{\labelitemi}{$\bullet$}\renewcommand{\labelitemii}{$\bullet$}\renewcommand{\labelitemiii}{$\bullet$}\renewcommand{\labelitemiv}{$\bullet$}}{\end{itemize}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Begin now!
+
+\begin{document}
+  \begin{titlepage}
+    \begin{center}
+      \vspace*{3cm}
+            
+        \vspace{1cm}
+        \huge
+        Homework \hwnumber
+            
+        \vspace{1.5cm}
+        \Large
+            
+        \textbf{\Information}                      % <-- author
+            
+        \vfill
+        Collaboration to varying degrees with Timothy Duhon, Josephine Hughes, Abdul Khan, Kasra Lak, Rachel Lobo, Mingzhou Wang, Wenyi Wang
+        
+        \vspace{1cm}
+
+        An \course \ Homework Assignment
+            
+        \vspace{1cm}
+        \Large
+
+        
+        \today
+            
+    \end{center}
+  \end{titlepage}
+
+  \newpage
+\section{Question 1}
+  \subsection{Problem}
+    Consider the following two period planning problem
+    \begin{center}
+      $w(\bar k_1)={\max\atop{c_t,k_{t+1}\geq0}}\frac{c_1^{1-\sigma}}{1-\sigma}+\beta\frac{c_2^{1-\sigma}}{1-\sigma}$
+    \end{center}
+    s.t.
+    \begin{center}
+      $c_1+k_2=k_1^{\alpha}+(1-\delta)k_1$ \\ 
+      $c_2=k_2^{\alpha}+(1-\delta)k_2$ \\ 
+      $k_1=\bar k_1$ \\ 
+    \end{center}
+    The first order conditions for this problem is
+    \begin{center}
+      $c_1^{-\sigma}=\beta c_2^{-\sigma}(1-\delta+\alpha k_2^{\alpha-1})$.
+    \end{center}
+    Use the following parameters
+    \begin{center}
+      \begin{tabular}{|c c c c|}
+        \hline
+        \beta & \sigma & \alpha & \delta \\
+        \hline\hline
+        0.95 & 2 & 0.4 & 0.1 \\
+        \hline
+      \end{tabular}
+    \end{center}
+    Define 
+    \begin{center}
+      $k_{ss}=(\frac{\frac{1}{\beta}-1+\delta}{\alpha})^{\frac{1}{\alpha-1}}$
+    \end{center}
+
+    (a) Assume $\bar k_1=k_{ss}$. Solve allocation of consumption and capital stock $c_1, c_2, k_2$. Note, you need to solve the following system of equations 
+    \begin{center}
+      $c_1+k_2=k_1^{\alpha}+(1-\delta)k_1$ \\ 
+      $c_2=k_2^{\alpha}+(1-\delta)k_2$ \\
+      $c_1^{-\sigma}=c_2^{-\sigma}\beta(1-\delta+\alpha k_2^{\alpha-1})$ \\
+    \end{center}
+q   using the Newton method.
+
+    (b) Now, make the following grid $\mathcal{K}=\{\frac{1}{2} k_{ss}, \frac{3}{4}k_{ss}, k_{ss}, \frac{3}{2}k_{ss}, 2k_{ss}\}$ for $\bar k_0$. Solve allocations $c_1, c_2, k_2$ for all points on the grid. Using your answers, find value of $w(\bar k_1)$ for every point on the grid and plot $w(\bar k_1)$.
+  \subsection{Solution}
+\section{Question 2}
+  \subsection{Problem}
+    
+
+
+
+\end{document}
