@@ -33,7 +33,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Add new commands here
 \renewcommand{\labelenumi}{\alph{enumi})}
-\newcommand{\L}{\mathcal L}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\R}{\mathbb R}
 \newcommand{\Q}{\mathbb Q}
@@ -108,32 +107,16 @@
 
       (c) $f(z)=(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}}$ for $\rho\leq1$ 
     \subsection{Solution}
-      (c) 
-      \begin{center}
-        ${\max \atop{z_1,z_2}} p((z_1z_2)^{\rho})^{\frac{1}{\rho}}-w_1z_1-w_2z_2$ \\ 
-      \end{center}
-      F.O.C's
-      \begin{center}
-        $p(\frac{1}{\rho})(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}-1}\cdot(\rho z_1^{\rho-1}z_2^{\rho})-w_1 \Rightarrow$ \\
-        $w_1 = p(\frac{1}{\rho})(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}-1}\cdot(\rho z_1^{\rho-1}z_2^{\rho})$ \\
-        $w_2 = p(\frac{1}{\rho})(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}-1}\cdot(\rho z_1^{\rho}z_2^{\rho-1})$ \\ 
-        $\frac{w_1}{w_2}=\frac{z_1^{-1}}{z_2^{-1}}$ \\
-        $\frac{w_1}{w_2}=\frac{z_2}{z_1}$ \\
-        $z_2 = \frac{w_1z_1}{w_2}$ \\
-      \end{center}
-      Plugging into the FOC for $z_1$, we get the following
-      \begin{center}
-        $p(\frac{1}{\rho})(z_1^{\rho}(\frac{w_1z_1}{w_2})^{\rho})^{\frac{1}{\rho}-1}\cdot(\rho z_1^{\rho-1}(\frac{w_1z_1}{w_2})^{\rho})=w_1$ \\
-        
-
+      
   \section{Question 5.C.10}
     \subsection{Problem}
-      
       Derive the cost function $c(w,q)$ and conditional function demand functions (or correspondences) $z(w,q)$ for each of the following single-output constant return technologies with production functions:
 
       (b) $f(z)=\min\{z_1,z_2\}$ (Leontief technology)
 
       (c) $f(z)=(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}}$ for $\rho\leq1$ (CES technology) 
+    \subsection{Solution}
+      (c) ${\max \atop{\vec{z}\geq0}}$
   \section{Question 5.C.11}
     \subsection{Problem}
       Show that $\frac{\partial z_l(w,q)}{\partial q}>0$ if and only if marginal cost at q is increasing in $w_l$.
