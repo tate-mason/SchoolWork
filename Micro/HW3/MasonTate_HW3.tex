@@ -116,17 +116,50 @@
 
       (c) $f(z)=(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}}$ for $\rho\leq1$ (CES technology) 
     \subsection{Solution}
-      (c) ${\max \atop{\vec{z}\geq0}}$
+      (c) Derive cost function and conditional demand functions:
+      \begin{center}
+        ${\max \atop{\vec{z}\geq0}} -\vec{w}\cdot\vec{z}$ \\
+      \end{center}
+      s.t.
+      \begin{center}
+        $-(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}}\geq q$ \\
+        $-\vec{z}\leq0$
+      \end{center}
+      
+      \begin{center}
+        $\vec{w}=\lambda\begin{bmatrix} p(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}-1}\cdot(z_1^{\rho-1}z_2^{\rho}) \\ 
+        p(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}-1}\cdot(z_1^{\rho}z_2^{\rho-1}) \end{bmatrix} + \vec{\mu}$
+      \end{center}
+      s.t. 
+      \begin{center}
+        $\vec{\mu}\cdot\vec{z}=0$ \\
+        $\lambda(q-f(\vec{z}))=0$
+      \end{center}
+      From FOC's
+      \begin{center}
+        $\frac{w_1}{w_2}=\frac{z_2}{z_1}\Rightarrow z_2=z_1(\frac{w_1}{w_2})$
+      \end{center}
+      Now, plug into $f(\vec{z})$
+      \begin{center}
+        $z_1^{\rho}(z_1(\frac{w_1}{w_2}))^{\rho}=q$ \\
+        $z_1^2 = q^{\frac{1}{\rho}}(\frac{w_2}{w_1})$ \\
+        $z_1(w,q) = q^{\frac{2}{\rho}}(\frac{w_2}{w_1})^{\frac{1}{2}}$ \\
+        $z_2(w,q) = q^{\frac{2}{\rho}}$
+      \end{center}
   \section{Question 5.C.11}
     \subsection{Problem}
       Show that $\frac{\partial z_l(w,q)}{\partial q}>0$ if and only if marginal cost at q is increasing in $w_l$.
+    \subsection{Solution}
+      \begin{proof}
+        This can be proven using Shephard's Lemma such that $z_l(w,q) = \frac{\partial C(w,q)}{\partial w_l}$. Marginal cost, then, is given as $\frac{\partial c(w,q)}{\partial q}$. So, we should show that $\frac{\partial z_l (w,q)}{\partial q}\Leftrightarrow \frac{\partial^2c(w,q)}{\partial q\partial w_l}$. Using Shephard's Lemma and symmetry of second derivatives, it can be shown that $\frac{\partial z_l(w,q)}{\partial q} = \frac{\partial^2 c(w,q)}{\partial w_l\partial q}=\frac{\partial^2 c(w,q)}{\patial q\partial w_l}$. Thus, $\frac{\partial z_l(w,q)}{\partial q}>0\Leftrightarrow \frac{\partial^2c(w,q)}{\partial q\partial w_l}>0$, showing that conditional factor demand for input $l$ increases with output if and only if the marginal cost is increasing in the price of input $l$.
+      \end{proof}
   \section{Question 5}
     \subsection{Problem}
       A firm uses 2 inputs, $z_1$ and $z_2$, which it purchases at prices $w_1$ and $w_2$ to produce a single output. The firm's technology is described by production function $f$ which is strictly increasing and obeys the Inada conditions ${\lim\atop{z_1\righarrow0}}\frac{\partial f(z_1,z_2)}{\partial z_1}={\lim\atop{z_1\rightarrow0}}\frac{\partial f(z_1, z_2)}{\partial z_2}=\infty$ for each $x$. (Hence, the firm will always choose to use a strictly positive quantity of each input.)
 
       (a) Set up firm's cost minimization problem, write down its Lagrangian, find firm's first order conditions for cost minimization.
 
-      (b) Use the envelope theorm to five an expression (possibly involving a Lagrange multiplier) for the firm's marginal cost $\frac{\partial c(w,q)}{\partial q}$.
+      (b) Use the envelope theorem to find an expression (possibly involving a Lagrange multiplier) for the firm's marginal cost $\frac{\partial c(w,q)}{\partial q}$.
 
       (c) An economist wishes to measure the firm's markup-ratio of price of output, p, to its marginal cost $\frac{\partial c(w,q)}{\partial q}$. However, she does not know what kind of competition the firm faces inthe production market. In fact, the only data she has are:
         
@@ -140,6 +173,8 @@
         - the price of firm's output $p$.
 
       How can she use these data to recover the firm's markup?
+    \subsection{Solution}
+      
   \section{Question 6.B.2}
     \subsection{Problem}
       Show that if the preference relation $\succeq$ on $\mathcal{L}$ is represented by a utility function $U(\cdot)$ that has the expected utility form, then $\succeq$ satisfies the independence axiom. 
