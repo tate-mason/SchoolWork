@@ -99,6 +99,8 @@
     \subsection{Problem}
       Show that if $u(x)$ is quasilinear with respect to the first good ($p_1$ fixed at 1), then $CV(p^0,p^1,w)=EV(p^0,p^1,w)$ for any $(p^0,p^1,w)$.
     \subsection{Solution}
+    \begin{proof}
+      
   \section{Question 5.C.9}
     \subsection{Problem}
       Derive the profit function $\pi(p)$ and supply function $y(p)$ for the single output technologies whose production functions $f(z)$ are given by:
@@ -113,38 +115,57 @@
       Derive the cost function $c(w,q)$ and conditional function demand functions (or correspondences) $z(w,q)$ for each of the following single-output constant return technologies with production functions:
 
       (b) $f(z)=\min\{z_1,z_2\}$ (Leontief technology)
-
+        
       (c) $f(z)=(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}}$ for $\rho\leq1$ (CES technology) 
     \subsection{Solution}
-      (c) Derive cost function and conditional demand functions:
+      (b) 
       \begin{center}
-        ${\max \atop{\vec{z}\geq0}} -\vec{w}\cdot\vec{z}$ \\
+        ${\max\atop{\vec{z}\geq0}}-\vec{w}\cdot\vec{z}$
       \end{center}
       s.t.
       \begin{center}
-        $-(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}}\geq q$ \\
-        $-\vec{z}\leq0$
+        $\min\{z_1,z_2\}\geq q$ \\
+        $-\vec{z}\leq0$ \\
       \end{center}
-      
+
       \begin{center}
-        $\vec{w}=\lambda\begin{bmatrix} p(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}-1}\cdot(z_1^{\rho-1}z_2^{\rho}) \\ 
-        p(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}-1}\cdot(z_1^{\rho}z_2^{\rho-1}) \end{bmatrix} + \vec{\mu}$
+
+      (c)
+      \begin{center}
+        ${\max\atop{\vec{z}\geq0}}-\vec{w}\cdot\vec{z}$ \\
       \end{center}
-      s.t. 
+      s.t.
+      \begin{center}
+        $-z_1^{\rho}z_2^{\rho}\geq q$ \\
+        $-\vec{z}\leq 0$
+      \end{center}
+
+      \begin{center}
+        $\vec{w}=\lambda\begin{bmatrix}p(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}-1}\cdot(z_1^{\rho-1}z_2^{\rho}) \\ p(z_1^{\rho}z_2^{\rho})^{\frac{1}{\rho}-1}\cdot(z_1^{\rho}z_2^{\rho-1})\end{bmatrix} + \vec{\mu}$
+      \end{center}
+      s.t.
       \begin{center}
         $\vec{\mu}\cdot\vec{z}=0$ \\
-        $\lambda(q-f(\vec{z}))=0$
+        $\lambda(q-f(\vec{z}))=0$ \\
       \end{center}
-      From FOC's
+      Solving for $z_2$
       \begin{center}
-        $\frac{w_1}{w_2}=\frac{z_2}{z_1}\Rightarrow z_2=z_1(\frac{w_1}{w_2})$
+        $\frac{w_1}{w_2}=\frac{z_2}{z_1}\Rightarrow z_2 = \frac{w_1}{w_2}z_1$
       \end{center}
-      Now, plug into $f(\vec{z})$
+      Plug back into $f(\vec{z})$
       \begin{center}
-        $z_1^{\rho}(z_1(\frac{w_1}{w_2}))^{\rho}=q$ \\
-        $z_1^2 = q^{\frac{1}{\rho}}(\frac{w_2}{w_1})$ \\
-        $z_1(w,q) = q^{\frac{2}{\rho}}(\frac{w_2}{w_1})^{\frac{1}{2}}$ \\
-        $z_2(w,q) = q^{\frac{2}{\rho}}$
+        $(z_1^{\rho}(z_1(\frac{w_1}{w_2}))^{\rho})^{\frac{1}{\rho}}=q$ \\
+        $(z_1^2(\frac{w_1}{w_2}))^{\rho} = q^{\rho}$ \\
+        $z_1^2=q(\frac{w_2}{w_1})$ \\
+        $\Aboxed{z_1(w,q) = \sqrt{q(\frac{w_2}{w_1})}}$ \\
+      \end{center}
+      By extension, $z_2$ is
+      \begin{center}
+        $\Aboxed{z_2(w,q) = \sqrt{q(\frac{w_1}{w_2})}}$ \\
+      \end{center}
+      Thus, plugging back in for $C(\vec{w},q)$ we get
+      \begin{center}
+        $\Aboxed{C(\vec{w},q) = q^{\frac{1}{2}}(w_2^{\frac{1}{2}} + w_1^{\frac{1}{2}})}$
       \end{center}
   \section{Question 5.C.11}
     \subsection{Problem}
@@ -178,5 +199,8 @@
   \section{Question 6.B.2}
     \subsection{Problem}
       Show that if the preference relation $\succeq$ on $\mathcal{L}$ is represented by a utility function $U(\cdot)$ that has the expected utility form, then $\succeq$ satisfies the independence axiom. 
-
+    \subsection{Solution}
+      \begin{proof}
+        Assume there exists a lottery with utility of the form $U(L)=\sum p_iu(x_i)$ such that $u(x_i)$ is the utility of outcome $x_i$. Next, allow for $L, L', L''\in \mathcal{L}$ and $\alpha\in(0,1)$. Now, assume $L\succeq L'$. This implies $U(L)\gew U(L')$. Consider a compound lottery in which $\alpha L+(1-\alpha)L'' \Rightarrow \alpha U(L)+(1-\alpha)U(L'')$. Then, consider the compound lottery $\alpha L' +(1-\alpha)L''\Rightarrow \alpha U(L')+(1-\alpha)U(L'')$. Because $U(L)\geq U(L')$, we can say that $\alpha U(L)+(1-\alpha)U(L'')\geq \alpha U(L')+(1-\alpha)U(L'')$. Then, $\alpha L+(1-\alpha)L''\succeq \alpha L'+(1-\alpha) L''$. The reverse can be shown via the same process. This shows that if one lottery is preferred to another, the compound lottery in which a third, less preferred, lottery is included will not change the preference ordering.  
+      \end{proof}
 \end{document}

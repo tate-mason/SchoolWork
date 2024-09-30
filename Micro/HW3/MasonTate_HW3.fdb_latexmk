@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1727635189.1046 "MasonTate_HW3.tex" "MasonTate_HW3.pdf" "MasonTate_HW3" 1727635189.71067 2
+["pdflatex"] 1727650503.40617 "MasonTate_HW3.tex" "MasonTate_HW3.pdf" "MasonTate_HW3" 1727650504.023 2
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1136768653 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -83,8 +83,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726531688.57061 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726531591 8221416 a0a37a22ef1e1daff65ca6313af8730d ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "MasonTate_HW3.aux" 1727635189.65736 1747 a2948be9abb694753dfdb332eaafec5c "pdflatex"
-  "MasonTate_HW3.tex" 1727635188.60362 8176 f1302e75a69dd08870eea9a4d6b9915e ""
+  "MasonTate_HW3.aux" 1727650503.94556 1848 e76152d8a670829d97b15e9aa2763b5a "pdflatex"
+  "MasonTate_HW3.tex" 1727650502.57946 9608 934532eca9ab2f2516e9fc3f1cb86183 ""
   (generated)
   "MasonTate_HW3.aux"
   "MasonTate_HW3.log"
