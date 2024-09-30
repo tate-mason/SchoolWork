@@ -1,0 +1,187 @@
+%% ECON 8040 - Macro: Problem Set 4 %%
+\documentclass[10pt, a4paper]{article}
+\usepackage[top=3cm, bottom=4cm, left=3.5cm, right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage[math-style=ISO]{unicode-math}
+\DeclareSymbolFont{\mathnormal}{letters}
+\usepackage{lastpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
+\newcommand\course{ECON - 8040}                            % <-- course name   
+\newcommand\hwnumber{ 4}                                 % <-- homework number
+\newcommand\Information{Tate Mason}                        % <-- personal information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Page setup
+\pagestyle{fancy}
+\headheight 35pt
+\lhead{\today}
+\rhead{}
+\lfoot{}
+\pagenumbering{arabic}
+\cfoot{\small\thepage}
+\rfoot{}
+\headsep 1.2em
+\renewcommand{\baselinestretch}{1.25}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add new commands here
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\DeclareMathOperator{\Mod}{Mod} 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem{case}{Case}
+\newcommand{\assign}{:=}
+\newcommand{\infixiff}{\text{ iff }}
+\newcommand{\nobracket}{}
+\newcommand{\backassign}{=:}
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextbf}[1]{\text{{\bfseries{#1}}}}
+\newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
+
+\newenvironment{itemizedot}{\begin{itemize} \renewcommand{\labelitemi}{$\bullet$}\renewcommand{\labelitemii}{$\bullet$}\renewcommand{\labelitemiii}{$\bullet$}\renewcommand{\labelitemiv}{$\bullet$}}{\end{itemize}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Begin now!
+
+\begin{document}
+  \begin{titlepage}
+    \begin{center}
+      \vspace*{3cm}
+            
+        \vspace{1cm}
+        \huge
+        Homework \hwnumber
+            
+        \vspace{1.5cm}
+        \Large
+            
+        \textbf{\Information}                      % <-- author
+            
+        \vfill
+        Collaboration to varying degrees with Timothy Duhon, Josephine Hughes, Abdul Khan, Kasra Lak, Rachel Lobo, Mingzhou Wang, Wenyi Wang
+        
+        \vspace{1cm}
+
+        An \course \ Homework Assignment
+            
+        \vspace{1cm}
+        \Large
+
+        
+        \today
+            
+    \end{center}
+  \end{titlepage}
+
+  \newpage
+\section{Question 1}
+  \subsection{Problem}
+    Consider the following planning problem
+    \begin{center}
+      $w(k_0)={\max\atop{k_{t+1}, c_t\geq0}}\sum_{t=0}^{\infty}\beta^t\frac{c_t^{\1-\sigma}}{1-\sigma}$
+    \end{center}
+    s.t.
+    \begin{center}
+      $c_t+k_{t+1}\leq zk_t+(1-\delta)k_t$  \\
+      $k_0$ given 
+    \end{center}
+
+    (a) Write this problem as a dynamic programming problem.
+
+    (b) Solve the Bellman equation you wrote using guess-and-verify method (hint: try $v(k)=A\frac{k_t^{1-\sigma}}{1-\sigma}$).
+
+    (c) What is the growth rate of $k_t$ and $c_t$ in this economy? (use you answer in part (b) to answer this). Under what condition does the economy grow?
+\section{Question 2}
+  \subsection{Problem}
+    Let $n_t$ denote hours worked. Consider the following planning problem ($n_t$ is hours worked)
+    \begin{center}
+      $w(k_0) = \max\sum_{t=0}^{\infty}\beta^t[\theta\log c_t+(1-\theta)\log(1-n_t)]$
+    \end{center}
+    s.t.
+    \begin{center}
+      $c_t+k_{t+1}\leq zk_t^{\alpha}n_t^{1-\alpha}+(1-\delta)k_t$ \\
+      $k_{t+1},c_t\geq 0$ \\
+      $1\geq n_t\geq 0$ \\
+      $k_0$ given
+    \end{center}
+
+    We want to transform this problem to a formulation that we can solve using dynamic programming (Note that if $\alpha=1$ this problem is a special case of question 1. Also, if $\theta=1$ and $\delta=1$ this transforms to the example we solved in class). To do this, we break it down to few steps. Consider the problem of choosing optimal hours worked, given current capital $k$ and future capital $k'$. Write down the optimality condition for $n$ in the following
+    \begin{center}
+      $F(k,k')={\max\atop{n}}\theta\log(zk^{\alpha}n^{1-\alpha}+(1-\delta)k-k')+(1-\theta)\log(1-n)$
+    \end{center}
+    you won't be able to find a closed form solution for $n$ (yet). Call the optimal solution to the above problem $n(k,k')$.
+
+    (a) Write the planning problem as a dynamic programming problem (hint: utilize the function $F(k,k')$ above which is equivalent to period utility function for optimally chosen $c$ and $n$, taking $k$ and $k'$ as given).
+
+    (b) From now on, assume $\delta=1$. Now guess the value function $V(k)=A+B\log k$. Derive optimal condition for $k'$ (just like we did for example with $\theta=1$ in class). Solve for $k'$ as function of parameters of $B$ and $n$.
+
+    (c) Rewrite the optimality condition in (a), replace for $k'$ from (c) and solve for optimal $n$ (this won't depend on $k$, only on parameters and $B$). Remember to impose $\delta=1$.
+
+    (d) Now, replace optimal $k'$ and $n$ in the Bellman equation and solve for coefficient $B$.
+
+    (e) Write the optimal policy functions for $n,k',$ and $c$ as a function of $k$.
+\section{Question 3}
+  \subsection{Problem}
+    Consider an economy with two types of capital. Let $k_t$ denote physical capital and $h_t$ denote human capital. Output is produced using physical and human capital
+    \begin{center}
+      $y_t=zk_t^{\alpha}h_t^{1-\alpha}$.
+    \end{center}
+    The final good can be consumed, or can be invested in making physical or human capital. Assume both types of capital depreciate at rate $\delta$. Assume households have log preferences over consumption (and labor is inelastically supplied).
+
+    (a) Write the planning problem that maximizes the welfare of the representative household for an initial stock of physical and human capital ($k_0,h_0$). Denote the value to the planner as $w(k_0,h_0)$.
+
+    (b) Write the planning problem recursively. This means write a Bellman equation that corresponds to the planning problem in part (a).
+
+    (c) Assume full depreciation $\delta=1$. Solve the Bellman equation using guess and verify. Find the optimal policy functions for future physical and human capital as function of current physical and human capital.
+\section{Question 4}
+  \subsection{Problem}
+    Consider the following planning problem
+    \begin{center}
+      $w(\bar k_0)={\max\atop{\{(c_t,k_{t+1},x_t)\}_{t=0}^{\infty}}}\sum^{\infty}{t=0}\beta^t\theta_t\log c_t$
+    \end{center}
+    s.t.
+    \begin{center}
+      $c_t+k_{t+1} = k_t$ \\
+      $k_0=\bar k_0$
+    \end{center}
+    and
+    \begin{center}
+      $\theta_t = \begin{cases} 
+        \theta_H & t \ {is even} \\
+        \theta_L & t \ {is odd} \\
+      \end{cases}$
+    \end{center}
+    
+    (a) Write this problem only in terms of a sequence of capital $\{k_{t+1}\}_{t=0}^{\infty}$.
+
+    (b) Write the problem in part (a) as a Bellman equation(s). (hint: Note that we have an additional (exogenous) state variable $\theta_t$. So you need to write two equations, one for $v(k,\theta_L)$ and one for $v(k,\theta_H)$. Also, we know how $\theta_t$ evolves.)
+
+    (c) Solve the Bellman equation in part (b) using guess and verify method.
+
+    (d) Write the formula for optimal policy functions $g(k,\theta_L)$ and $g(k,\theta_H)$.
+
+    (e) Start from $k_0=1$. Describe how you will simulate the optimal path of capital stock $\{k_{t+1}\}_0^{\infty}$. Write down $k_t$ for $k=1,2,3$. 
+\end{document}
