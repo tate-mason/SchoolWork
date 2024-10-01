@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  30 SEP 2024 20:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  1 OCT 2024 09:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -395,14 +395,14 @@ Overfull \hbox (15.25015pt too wide) in paragraph at lines 100--101
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
  []
 
-./MasonTate_HW3.tex:124: Misplaced alignment tab character &.
+./MasonTate_HW3.tex:125: Misplaced alignment tab character &.
 \@tempa ->\kern \wd \z@ &
                          \kern -86.29185pt\fboxsep 3.0pt\fboxrule 0.4pt
-l.124 ...$\Aboxed{\pi(p) = \frac{p^2}{4(w_1+w_2)}}
+l.125 ...$\Aboxed{\pi(p) = \frac{p^2}{4(w_1+w_2)}}
                                                   $
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -415,25 +415,13 @@ might try typing `S' now just to see what is salvageable.
 
 Package amsmath Warning: Foreign command \atop;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 139.
-
-./MasonTate_HW3.tex:149: Misplaced alignment tab character &.
-\@tempa ->\kern \wd \z@ &
-                         \kern -97.18251pt\fboxsep 3.0pt\fboxrule 0.4pt
-l.149         $\Aboxed{C(w,q)=q(w_1+w_2)}
-                                         $ \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
+(amsmath)                 on input line 140.
 
 ./MasonTate_HW3.tex:150: Misplaced alignment tab character &.
 \@tempa ->\kern \wd \z@ &
-                         \kern -66.81142pt\fboxsep 3.0pt\fboxrule 0.4pt
-l.150         $\Aboxed{z_1(w,q) = w_1q}
-                                       $ \\
+                         \kern -97.18251pt\fboxsep 3.0pt\fboxrule 0.4pt
+l.150         $\Aboxed{C(w,q)=q(w_1+w_2)}
+                                         $ \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -444,7 +432,7 @@ might try typing `S' now just to see what is salvageable.
 ./MasonTate_HW3.tex:151: Misplaced alignment tab character &.
 \@tempa ->\kern \wd \z@ &
                          \kern -66.81142pt\fboxsep 3.0pt\fboxrule 0.4pt
-l.151         $\Aboxed{z_2(w,q) = w_2q}
+l.151         $\Aboxed{z_1(w,q) = w_1q}
                                        $ \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -453,20 +441,11 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-./MasonTate_HW3.tex:164: Undefined control sequence.
-l.164 ...z_2^{\rho})^{\frac{1}{\rho}-1}\cdot(\rhoz
-                                                  _1^{\rho-1}) \\ p\frac{1}{...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MasonTate_HW3.tex:181: Misplaced alignment tab character &.
+./MasonTate_HW3.tex:152: Misplaced alignment tab character &.
 \@tempa ->\kern \wd \z@ &
-                         \kern -109.56116pt\fboxsep 3.0pt\fboxrule 0.4pt
-l.181 ... (\frac{w_2}{w_1})^{\frac{1}{\rho-1}}q-1}
-                                                  $ \\
+                         \kern -66.81142pt\fboxsep 3.0pt\fboxrule 0.4pt
+l.152         $\Aboxed{z_2(w,q) = w_2q}
+                                       $ \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -474,10 +453,19 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
+./MasonTate_HW3.tex:165: Undefined control sequence.
+l.165 ...z_2^{\rho})^{\frac{1}{\rho}-1}\cdot(\rhoz
+                                                  _1^{\rho-1}) \\ p\frac{1}{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 ./MasonTate_HW3.tex:182: Misplaced alignment tab character &.
 \@tempa ->\kern \wd \z@ &
                          \kern -109.56116pt\fboxsep 3.0pt\fboxrule 0.4pt
-l.182 ... (\frac{w_1}{w_2})^{\frac{1}{\rho-1}}q-1}
+l.182 ... (\frac{w_2}{w_1})^{\frac{1}{\rho-1}}q-1}
                                                   $ \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -488,8 +476,8 @@ might try typing `S' now just to see what is salvageable.
 
 ./MasonTate_HW3.tex:183: Misplaced alignment tab character &.
 \@tempa ->\kern \wd \z@ &
-                         \kern -188.75043pt\fboxsep 3.0pt\fboxrule 0.4pt
-l.183 ...+w_2(\frac{w_2}{w_1})^{\frac{1}{\rho-1}}}
+                         \kern -109.56116pt\fboxsep 3.0pt\fboxrule 0.4pt
+l.183 ... (\frac{w_1}{w_2})^{\frac{1}{\rho-1}}q-1}
                                                   $ \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -499,10 +487,22 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 [2]
-./MasonTate_HW3.tex:190: Undefined control sequence.
+./MasonTate_HW3.tex:184: Misplaced alignment tab character &.
+\@tempa ->\kern \wd \z@ &
+                         \kern -188.75043pt\fboxsep 3.0pt\fboxrule 0.4pt
+l.184 ...+w_2(\frac{w_2}{w_1})^{\frac{1}{\rho-1}}}
+                                                  $ \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./MasonTate_HW3.tex:191: Undefined control sequence.
 <argument> \patial 
                    q\partial w_l
-l.190 ...\partial^2 c(w,q)}{\patial q\partial w_l}
+l.191 ...\partial^2 c(w,q)}{\patial q\partial w_l}
                                                   $. Thus, $\frac{\partial z...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -510,8 +510,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MasonTate_HW3.tex:194: Undefined control sequence.
-l.194 ...nada conditions ${\lim\atop{z_1\righarrow
+./MasonTate_HW3.tex:195: Undefined control sequence.
+l.195 ...nada conditions ${\lim\atop{z_1\righarrow
                                                   0}}\frac{\partial f(z_1,z_...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -520,10 +520,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [3]
-./MasonTate_HW3.tex:235: Misplaced alignment tab character &.
+./MasonTate_HW3.tex:236: Misplaced alignment tab character &.
 \@tempa ->\kern \wd \z@ &
                          \kern -89.5877pt\fboxsep 3.0pt\fboxrule 0.4pt
-l.235 ...}=\frac{\mathcal{L}}{\partial q}=\lambda}
+l.236 ...}=\frac{\mathcal{L}}{\partial q}=\lambda}
                                                   $
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -532,10 +532,10 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-./MasonTate_HW3.tex:248: Misplaced alignment tab character &.
+./MasonTate_HW3.tex:249: Misplaced alignment tab character &.
 \@tempa ->\kern \wd \z@ &
                          \kern -37.87788pt\fboxsep 3.0pt\fboxrule 0.4pt
-l.248 ...ac{\frac{\partial f}{\partial z_1}}{w_1}}
+l.249 ...ac{\frac{\partial f}{\partial z_1}}{w_1}}
                                                   $
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -544,8 +544,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-./MasonTate_HW3.tex:257: Undefined control sequence.
-l.257 ...ume $L\succeq L'$. This implies $U(L)\gew
+./MasonTate_HW3.tex:258: Undefined control sequence.
+l.258 ...ume $L\succeq L'$. This implies $U(L)\gew
                                                    U(L')$. Consider a compou...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -553,7 +553,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[4] (./MasonTate_HW3.aux)
+[4] [5] (./MasonTate_HW3.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -562,16 +562,16 @@ L3 programming layer <2024-02-20>
 Here is how much of TeX's memory you used:
  4910 strings out of 474116
  78643 string characters out of 5743682
- 1943187 words of memory out of 5000000
+ 1942187 words of memory out of 5000000
  27175 multiletter control sequences out of 15000+600000
  563180 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 65i,11n,79p,899b,288s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 65i,12n,79p,899b,300s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on MasonTate_HW3.pdf (5 pages, 174711 bytes).
+Output written on MasonTate_HW3.pdf (6 pages, 175810 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 98 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
