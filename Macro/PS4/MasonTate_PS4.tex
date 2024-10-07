@@ -97,7 +97,7 @@
   \end{titlepage}
 
   \newpage
-\section{Question 1}
+\section*{Question 1}
   \subsection*{Problem}
     Consider the following planning problem
     \begin{center}
@@ -138,12 +138,23 @@
       $k_1((\beta A)^{\frac{1}{-\sigma}}+1)=zk_0+(1-\delta)k_0$ \\
       $k_1 = \frac{zk_0+(1-\delta)k_0}{1+(\beta A)^{\frac{1}{-\sigma}}}$ \\
     \end{center}
-    Plug back into maximization
+    A quick simplification:
     \begin{center}
-      ${\max\atop{k_t}} \{\frac{zk_t+(1-\delta)k_t-zk_t+(1-\delta)k_t(1+(\beta A))^{\frac{1}{\sigma}}}{1-\sigma}+\beta\frac{A}{1-\sigma}\frac{zk_t+(1-\delta)k_t(1+(\beta A)^{\frac{1}{\sigma}})}{1-\sigma}\}$ \\ 
-      $ =  $
+      $R\equiv z+(1-\delta)$ \\
     \end{center}
-\section{Question 2}
+    Plug back into maximization and solve for $A$
+    \begin{center}
+      $A\frac{k_0^{1-\sigma}}{1-\sigma}=\frac{(Rk_0-k_1)^{1-\sigma}}{1-\sigma}+\beta A\frac{k_1^{1-\sigma}}{1-\sigma}$ \\
+      $A = (\frac{R}{(1+\beta A)^{\frac{1}{\sigma}}})^{1-\sigma}+(\frac{\beta A}{1+(\beta A)^{\frac{1}{\sigma}}})^{1-\sigma}$ \\
+    \end{center}
+    (c) Growth rate of capital:
+    \begin{center}
+      $g(k) = \frac{k_1}{k_0}$ \\
+      $k_1 = k_0\times\frac{R}{1+(\beta A)^{\frac{1}{\sigma}}}$ \\
+      $\therefore g(k) = \frac{R}{1+(\beta A)^{\frac{1}{\sigma}}}$ \\
+    \end{center}
+    Because consumption only relies on capital in this equation, it is reasonable to assume that $g(c)=g(k)$. This would imply growth occurs when $R>1+(\beta A)^{\frac{1}{\sigma}}$.
+\section*{Question 2}
   \subsection*{Problem}
     Let $n_t$ denote hours worked. Consider the following planning problem ($n_t$ is hours worked)
     \begin{center}
@@ -172,8 +183,24 @@
     (d) Now, replace optimal $k'$ and $n$ in the Bellman equation and solve for coefficient $B$.
 
     (e) Write the optimal policy functions for $n,k',$ and $c$ as a function of $k$.
-\section{Question 3}
-  \subsection{Problem}
+  \subsection*{Solution}
+    (a) The Bellman equation is as follows
+    \begin{center}
+      $v(k_0) = {\max\atop{k}}\{F(k,k')+\beta v(k')\}$
+    \end{center}
+    s.t.
+    \begin{center}
+      $c_t+k'\leq zk^{\alpha}n_t{1-\alpha}+(1-\delta)k$
+    \end{center}
+    (b) Now, let's find optimal $k'$
+    \begin{center}
+      $\theta\log(zk^{\alpha}n^{1-\alpha}+(1-\delta)k-k')+(1-\theta)\log(1-n)+\beta(A+B\log(k'))$ \\
+      $-\frac{\theta}{zk^{\alpha}n^{1-\alpha}-k'}+\frac{\beta B}{k'}=0$ \\
+      $\frac{\theta}{zk^{\alpha}n^{1-\alpha}-k'}=\frac{\beta B}{k'}$ \\
+      $as$
+    \end{center}
+\section*{Question 3}
+  \subsection*{Problem}
     Consider an economy with two types of capital. Let $k_t$ denote physical capital and $h_t$ denote human capital. Output is produced using physical and human capital
     \begin{center}
       $y_t=zk_t^{\alpha}h_t^{1-\alpha}$.
@@ -185,8 +212,8 @@
     (b) Write the planning problem recursively. This means write a Bellman equation that corresponds to the planning problem in part (a).
 
     (c) Assume full depreciation $\delta=1$. Solve the Bellman equation using guess and verify. Find the optimal policy functions for future physical and human capital as function of current physical and human capital.
-\section{Question 4}
-  \subsection{Problem}
+\section*{Question 4}
+  \subsection*{Problem}
     Consider the following planning problem
     \begin{center}
       $w(\bar k_0)={\max\atop{\{(c_t,k_{t+1},x_t)\}_{t=0}^{\infty}}}\sum^{\infty}_{t=0}\beta^t\theta_t\log c_t$
