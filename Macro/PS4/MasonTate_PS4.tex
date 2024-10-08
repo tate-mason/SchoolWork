@@ -115,7 +115,7 @@
 
     (c) What is the growth rate of $k_t$ and $c_t$ in this economy? (use you answer in part (b) to answer this). Under what condition does the economy grow?
   \subsection*{Solution}
-    (a) The Bellman equation can be written as such
+    \subsubsection*{(a) The Bellman equation can be written as such}
     \begin{center}
       $v(k_0)={\max\atop{k_1\geq0}}\{\frac{c_t^{1-\sigma}}{1-\sigma}+\beta v(k_1)\}$ \\
     \end{center}
@@ -123,7 +123,8 @@
     \begin{center}
       $c_t + k_1 \leq zk_0+(1-\delta)k_0$ \\
     \end{center}
-    (b) Solving the Bellman equation. First, let's plug in $v(k_1) = A\frac{k_1^{1-\sigma}}{1-\sigma}$
+    \subsubsection*{(b) Solving the Bellman equation.}
+    First, let's plug in $v(k_1) = A\frac{k_1^{1-\sigma}}{1-\sigma}$
     \begin{center}
       ${\max\atop{k_1\geq0}}\{\frac{(zk_0+(1-\delta)k_0-k_1)^{1-\sigma}}{1-\sigma}+\beta A\frac{k_1^{1-\sigma}}{1-\sigma}\}$ \\
     \end{center}
@@ -147,7 +148,7 @@
       $A\frac{k_0^{1-\sigma}}{1-\sigma}=\frac{(Rk_0-k_1)^{1-\sigma}}{1-\sigma}+\beta A\frac{k_1^{1-\sigma}}{1-\sigma}$ \\
       $A = (\frac{R}{(1+\beta A)^{\frac{1}{\sigma}}})^{1-\sigma}+(\frac{\beta A}{1+(\beta A)^{\frac{1}{\sigma}}})^{1-\sigma}$ \\
     \end{center}
-    (c) Growth rate of capital:
+    \subsubsection{(c) Growth rate of capital:}
     \begin{center}
       $g(k) = \frac{k_1}{k_0}$ \\
       $k_1 = k_0\times\frac{R}{1+(\beta A)^{\frac{1}{\sigma}}}$ \\
@@ -184,7 +185,7 @@
 
     (e) Write the optimal policy functions for $n,k',$ and $c$ as a function of $k$.
   \subsection*{Solution}
-    (a) The Bellman equation is as follows
+    \subsubsection*{(a) The Bellman equation is as follows}
     \begin{center}
       $v(k_0) = {\max\atop{k}}\{F(k,k')+\beta v(k')\}$
     \end{center}
@@ -192,7 +193,7 @@
     \begin{center}
       $c_t+k'\leq zk^{\alpha}n_t{1-\alpha}+(1-\delta)k$
     \end{center}
-    (b) Now, let's find optimal $k'$
+    \subsubsection*{(b) Now, let's find optimal $k'$}
     \begin{center}
       $\theta\log(zk^{\alpha}n^{1-\alpha}+(1-\delta)k-k')+(1-\theta)\log(1-n)+\beta(A+B\log(k'))$ \\
       $-\frac{\theta}{zk^{\alpha}n^{1-\alpha}-k'}+\frac{\beta B}{k'}=0$ \\
@@ -212,6 +213,27 @@
     (b) Write the planning problem recursively. This means write a Bellman equation that corresponds to the planning problem in part (a).
 
     (c) Assume full depreciation $\delta=1$. Solve the Bellman equation using guess and verify. Find the optimal policy functions for future physical and human capital as function of current physical and human capital.
+  \subsection*{Solution}
+    \subsubsection*{(a) Planning Problem}
+    \begin{center}
+      $w(k_0,h_0)={\max\atop{k',h'}}\sum^{\infty}_{t=0}\beta^t(\log c_t)$ \\
+    \end{center}
+    s.t.
+    \begin{center}
+      $c_t+k_{t+1}h_{t+1}\leq y+(1-\delta)k_t+(1-\delta)h_t$ \\
+      $y=zk^{\alpha}h^{1-\alpha}$ \\
+      $h,k>0$
+    \end{center}
+    \subsubsection*{(b) Bellman Equation}
+    \begin{center}
+      $v(k_0,h_0) = {\max\atop{k_{t+1},h_{t+1}}}\{\log y_t+(1-\delta)(k_t+h_t)-k_{t+1}-h_{t+1}+\beta V(k_{t+1},h_{t+1})\}$ \\
+      $v(k_0,h_0) = {\max\atop{k_{t+1},h_{t+1}}}\{\log(zk^{\alpha}h^{1-\alpha}+(1-\delta)(k_t+h_t)-k_{t+1}-h_{t+1})+\beta V(k_{t+1},h_{t+1})\}$
+    \end{center}
+    \subsubsection*{(c) Guess and Verify}
+    With $\delta=1$, the Bellman equation is as follows
+    \begin{center}
+      $v(k_0,h_0) = {\max\atop{k_{t+1},h_{t+1}}}\{\log(zk^{\alpha}h^{1-\alpha}-k_{t+1}-h_{t+1})+\beta V(k_{t+1},h_{t+1})\}$
+    \end{center}
 \section*{Question 4}
   \subsection*{Problem}
     Consider the following planning problem
@@ -240,4 +262,22 @@
     (d) Write the formula for optimal policy functions $g(k,\theta_L)$ and $g(k,\theta_H)$.
 
     (e) Start from $k_0=1$. Describe how you will simulate the optimal path of capital stock $\{k_{t+1}\}_0^{\infty}$. Write down $k_t$ for $k=1,2,3$. 
+  \subsection*{Solution}
+    \subsubsection*{(a) Planning Problem}
+    \begin{center}
+      $w(\bar{k}_0) = {\max\atop{\{k_t+1}^{\infty}_{t=0}\}} \sum_{t=0}^{\infty}\beta^t\theta_t\log(k_t-k_{t+1})$
+    \end{center}
+    s.t.
+    \begin{center}
+      $0\leq k_{t+1}\leq k_t$ \\
+      $k_0=\bar{k}_0$
+    \end{center}
+    \subsubsection*{(b) Bellman Equations}
+    \begin{center}
+      $v(k,\theta_H) = {\max\atop{k}}\{\theta_{H}\log(k_t-k_{t+1})+\beta V(k_{t+1},\theta_L)\}$ \\
+      $v(k,\theta_L) = {\max\atop{k}}\{\theta_{L}\log(k_t-k_{t+1})+\beta V(k_{t+1},\theta_H)\}$ \\
+    \end{center}
+    \subsubsection*{(c) Solving with Guess and Verify}
+    
 \end{document}
+
