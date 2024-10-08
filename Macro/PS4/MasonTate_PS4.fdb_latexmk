@@ -1,6 +1,10 @@
 # Fdb version 4
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ["pdflatex"] 1728343318.66187 "MasonTate_PS4.tex" "MasonTate_PS4.pdf" "MasonTate_PS4" 1728343319.29303 2
+=======
+["pdflatex"] 1728403868.37373 "MasonTate_PS4.tex" "MasonTate_PS4.pdf" "MasonTate_PS4" 1728403868.96918 2
+>>>>>>> Stashed changes
 =======
 ["pdflatex"] 1728403868.37373 "MasonTate_PS4.tex" "MasonTate_PS4.pdf" "MasonTate_PS4" 1728403868.96918 2
 >>>>>>> Stashed changes
@@ -88,8 +92,13 @@
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726531591 8221416 a0a37a22ef1e1daff65ca6313af8730d ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "MasonTate_PS4.aux" 1728343319.21276 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
   "MasonTate_PS4.tex" 1728238883.20282 10928 7f606d4ea358173058853f40e5325394 ""
+=======
+  "MasonTate_PS4.aux" 1728403868.90951 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
+  "MasonTate_PS4.tex" 1728403868.12969 10928 7f606d4ea358173058853f40e5325394 ""
+>>>>>>> Stashed changes
 =======
   "MasonTate_PS4.aux" 1728403868.90951 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
   "MasonTate_PS4.tex" 1728403868.12969 10928 7f606d4ea358173058853f40e5325394 ""
