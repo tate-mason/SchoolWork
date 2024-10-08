@@ -1,5 +1,9 @@
 # Fdb version 4
+<<<<<<< Updated upstream
 ["pdflatex"] 1728343318.66187 "MasonTate_PS4.tex" "MasonTate_PS4.pdf" "MasonTate_PS4" 1728343319.29303 2
+=======
+["pdflatex"] 1728403868.37373 "MasonTate_PS4.tex" "MasonTate_PS4.pdf" "MasonTate_PS4" 1728403868.96918 2
+>>>>>>> Stashed changes
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1136768653 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -83,8 +87,13 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726531688.57061 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726531591 8221416 a0a37a22ef1e1daff65ca6313af8730d ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
+<<<<<<< Updated upstream
   "MasonTate_PS4.aux" 1728343319.21276 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
   "MasonTate_PS4.tex" 1728238883.20282 10928 7f606d4ea358173058853f40e5325394 ""
+=======
+  "MasonTate_PS4.aux" 1728403868.90951 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
+  "MasonTate_PS4.tex" 1728403868.12969 10928 7f606d4ea358173058853f40e5325394 ""
+>>>>>>> Stashed changes
   (generated)
   "MasonTate_PS4.aux"
   "MasonTate_PS4.log"
