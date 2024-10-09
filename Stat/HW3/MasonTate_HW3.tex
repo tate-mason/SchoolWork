@@ -37,6 +37,8 @@
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\NN}{\mathbb N}
 \newcommand{\PP}{\mathbb P}
+\newcommand{\EE}{\mathbb E}
+\newcommand{\var}{\text{var}}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator{\Mod}{Mod} 
@@ -179,9 +181,9 @@
       \end{center}
       The method of moments for p, here, is the sample mean
       \begin{center}
-        $\boxed{hat p = \frac{1}{n}\sum_{i=1}^nX_i}$
+        $\boxed{\hat p = \frac{1}{n}\sum_{i=1}^nX_i}$
       \end{center}
-      (b) For a Bernoulli distribution $\var(X)=p(1-p)$. We can use central limit theorem to deduce $\sqrt{n(\hat p-p)}\rightarrow N(0,\sigma^2)$. We can put these together since $\sigma^2 = \var(X)$. So, the asymptotic distribution is $\sqrt{n(p\hat p-p)} \rightarrow N(0,p(1-p))$ 
+      (b) For a Bernoulli distribution $\text{var}(X)=p(1-p)$. We can use central limit theorem to deduce $\sqrt{n(\hat p-p)}\rightarrow N(0,\sigma^2)$. We can put these together since $\sigma^2 = \text{var}(X)$. So, the asymptotic distribution is $\sqrt{n(p\hat p-p)} \rightarrow N(0,p(1-p))$ 
   \section*{11.4}
     \subsection*{Problem}
       Propse a moment estimator $\hat\lambda$ for the parameter $\lambda$ of a Poisson distribution.  
@@ -196,9 +198,28 @@
 
       (a) Develop a test based on the sample mean $\bar X_n$.
     \subsection*{Solution}
-
+      For an exponential distribution, $\EE[X]=\frac{1}{\lambda}$ and $\text{var}(X)=\frac{1}{\lambda^2}$.
+      $H_0$:
+      \begin{center}
+        $\lambda=1\Rightarrow \EE[X]=1$ and $\text{var}(X)=1$
+      \end{center}
+      By central limit theorem,
+      \begin{center}
+        $\sqrt{n(\bar{X}_n- \EE[X])}\rightarrow \text{N}(0,\text{var}(X))$ \\ 
+        $\sqrt{n(\bar{X}_n-1)}\rightarrow N(0,1)$
+      \end{center}
+      Thus, we can use $Z = \sqrt{n(\bar{X}_n-1}$ due to its following the normal distribution. We would set the test to reject $H_0$ if $|Z|>z_{(\frac{\alpha}{2})}$ such that z is the $(1-\frac{\alpha}{2})$ quantile of the standard normal.
   \section*{13.5}
     \subsection*{Problem}
-      Take the model $X\dist N(\mu,\sigma^2)$. Propose a test for $\mathbb{H}_0:\mu=1$ against $\mathbb{H}_1:\mu\ne1$. 
+      Take the model $X\sim N(\mu,\sigma^2)$. Propose a test for $\mathbb{H}_0:\mu=1$ against $\mathbb{H}_1:\mu\ne1$. 
     \subsection*{Solution}
+      There are two main options. If $\sigma^2$ is known, a Z test can be used. If not, a t-test should be used. The t-test would look like
+      \begin{center}
+        $t = \frac{\bar{X}_n-\mu_0}{\frac{s}{\sqrt{n}}}$  
+      \end{center}
+      The Z test would look like
+      \begin{center}
+        $Z = \frac{\bar{X}_n-\mu_0}{\frac{\sigma}{\sqrt{n}}}$
+      \end{center}
+      We would reject $H_0$ if $T>t$ such that $t$ is the $\frac{1-\alpha}{2}$ quantile with $n-1$ degrees of freedom. Similarly, for the Z test, we reject $H_0$ if $Z>z$ such that $z$ is the $\frac{1-\alpha}{2}$. 
 \end{document}
