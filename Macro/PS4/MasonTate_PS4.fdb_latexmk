@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1728418392.14503 "MasonTate_PS4.tex" "MasonTate_PS4.pdf" "MasonTate_PS4" 1728418392.80083 2
+["pdflatex"] 1728433533.01711 "MasonTate_PS4.tex" "MasonTate_PS4.pdf" "MasonTate_PS4" 1728433533.77961 2
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1136768653 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -32,7 +32,6 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
-  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty" 1644112042 7237 bdd120a32c8fdb4b433cf9ca2e7cd98a ""
   "/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty" 1572645307 1057 525c2192b5febbd8c1f662c9468335bb ""
@@ -85,8 +84,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726531775.59856 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726531728 8221416 7622689328259d61c3c9d6e7fe6e013f ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "MasonTate_PS4.aux" 1728418392.7308 157 faa2ce93bd643d09a95d5a02a7df0a63 "pdflatex"
-  "MasonTate_PS4.tex" 1728418390.70432 12616 1b299be423d491639d45d449aab730da ""
+  "MasonTate_PS4.aux" 1728433533.67169 157 d054a719d04baeed1dda822e25d71935 "pdflatex"
+  "MasonTate_PS4.tex" 1728433531.18883 17994 6d2a774c1f53328ca53af8a0cd13881f ""
   (generated)
   "MasonTate_PS4.aux"
   "MasonTate_PS4.log"

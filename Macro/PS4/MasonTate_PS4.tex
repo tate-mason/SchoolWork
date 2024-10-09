@@ -137,7 +137,7 @@
     \begin{center}
       $(\beta A)^{\frac{1}{-\sigma}}k_1 = zk_0+(1-\delta)k_0-k_1$ \\
       $k_1((\beta A)^{\frac{1}{-\sigma}}+1)=zk_0+(1-\delta)k_0$ \\
-      $k_1 = \frac{zk_0+(1-\delta)k_0}{1+(\beta A)^{\frac{1}{-\sigma}}}$ \\
+      $\boxed{k_1 = \frac{zk_0+(1-\delta)k_0}{1+(\beta A)^{\frac{1}{-\sigma}}}}$ \\
     \end{center}
     A quick simplification:
     \begin{center}
@@ -146,13 +146,13 @@
     Plug back into maximization and solve for $A$
     \begin{center}
       $A\frac{k_0^{1-\sigma}}{1-\sigma}=\frac{(Rk_0-k_1)^{1-\sigma}}{1-\sigma}+\beta A\frac{k_1^{1-\sigma}}{1-\sigma}$ \\
-      $A = (\frac{R}{(1+\beta A)^{\frac{1}{\sigma}}})^{1-\sigma}+(\frac{\beta A}{1+(\beta A)^{\frac{1}{\sigma}}})^{1-\sigma}$ \\
+      $\boxed{A = (\frac{R}{(1+\beta A)^{\frac{1}{\sigma}}})^{1-\sigma}+(\frac{\beta A}{1+(\beta A)^{\frac{1}{\sigma}}})^{1-\sigma}}$ \\
     \end{center}
     \subsubsection{(c) Growth rate of capital:}
     \begin{center}
       $g(k) = \frac{k_1}{k_0}$ \\
       $k_1 = k_0\times\frac{R}{1+(\beta A)^{\frac{1}{\sigma}}}$ \\
-      $\therefore g(k) = \frac{R}{1+(\beta A)^{\frac{1}{\sigma}}}$ \\
+      $\boxed{g(k) = \frac{R}{1+(\beta A)^{\frac{1}{\sigma}}}}$ \\
     \end{center}
     Because consumption only relies on capital in this equation, it is reasonable to assume that $g(c)=g(k)$. This would imply growth occurs when $R>1+(\beta A)^{\frac{1}{\sigma}}$.
 \section*{Question 2}
@@ -198,9 +198,36 @@
       $\theta\log(zk^{\alpha}n^{1-\alpha}+(1-\delta)k-k')+(1-\theta)\log(1-n)+\beta(A+B\log(k'))$ \\
       $-\frac{\theta}{zk^{\alpha}n^{1-\alpha}-k'}+\frac{\beta B}{k'}=0$ \\
       $\frac{\theta}{zk^{\alpha}n^{1-\alpha}-k'}=\frac{\beta B}{k'}$ \\
-      $as$
+      $\boxed{k' = \frac{(\beta B(zk^{\alpha}n^{1-\alpha}))}{\theta+\beta B}}$
     \end{center}
-\section*{Question 3}
+    \subsubsection*{(c) Solving for optimal n}
+    \begin{center}
+      $n(k,k') = \theta\log(zk^{\alpha}n^{1-\alpha}-\frac{(\beta B(zk^{\alpha}n^{1-\alpha}))}{\theta+\beta B})+(1-\theta)\log(1-n)$ \\
+    \end{center}
+    First order condition with respect to n
+    \begin{center}
+      $\frac{\theta(1-\alpha)(zk^{\alpha}n^{1-\alpha})}{zk^{\alpha}n^{1-\alpha}} = \frac{1-\theta}{1-n}$ \\
+      $\frac{\theta(1-\alpha)}{\theta+\beta B}=\frac{1-\theta}{1-n}$ \\
+      $\boxed{n = \frac{\theta(1-\alpha)+\beta B}{\theta+\beta B}}$
+    \end{center}
+    \subsubsection*{(d) Solving for B}
+    \begin{center}
+      $A+B\log k = \theta\log(\frac{\theta zk^{\alpha}n^{1-\alpha}}{\theta+\beta B}) + (1-\theta)\log(1-n)+\beta A +\beta B\log(\frac{\beta Bzk^{\alpha}n^{1-\alpha}}{\theta+\beta B})$ \\
+      $ = \theta\alpha\log(k)+\theta\log(z)+\theta(1-\alpha)\log(n)-\theta\log(\theta+\beta B)+(1-\theta)\log(1-n)+\beta A+\beta B\alpha\log(k)+\beta B\log(z)+(1-\alpha)\beta B\log(n)-\beta B\log(\theta+\beta B)$ \\
+    \end{center}
+    After many steps of simplification and grouping, we arrive at 
+    \begin{center}
+      $\boxed{B = \frac{\theta\alpha}{1-\alpha\beta}}$ 
+    \end{center}
+    \subsubsection*{(e) Optimal Policy Functions}
+    \begin{center}
+      $g(n) = \frac{\theta(1-\alpha)+\beta B}{\theta +\beta B}$ \\ 
+      $\boxed{g(n) = \frac{\theta(1-\alpha)+\beta \frac{\theta\alpha}{1-\alpha\beta}}{\theta+\beta\frac{\theta\alpha}{1-\alpha\beta}}}$ \\
+      $g(k) = \frac{\beta Bzk^{\alpha}n^{1-\alpha}}{\theta+\beta B}$ \\
+      $\boxed{g(k) = \frac{\beta\frac{\theta\alpha}{1-\alpha\beta}zk^{\alpha}n^{1-\alpha}}{\theta+\beta\frac{\theta\alpha}{10-\alpha\beta}}}$ \\
+      $\boxed{g(c) = zk^{\alpha}(\frac{\theta(1-\alpha)+\beta \frac{\theta\alpha}{1-\alpha\beta}}{\theta+\beta\frac{\theta\alpha}{1-\alpha\beta}})^{1-\alpha}-\frac{\beta\frac{\theta\alpha}{1-\alpha\beta}zk^{\alpha}n^{1-\alpha}}{\theta+\beta\frac{\theta\alpha}{10-\alpha\beta}}}$
+    \end{center}
+  \section*{Problem 3}
   \subsection*{Problem}
     Consider an economy with two types of capital. Let $k_t$ denote physical capital and $h_t$ denote human capital. Output is produced using physical and human capital
     \begin{center}
@@ -232,8 +259,34 @@
     \subsubsection*{(c) Guess and Verify}
     With $\delta=1$, the Bellman equation is as follows
     \begin{center}
-      $v(k_0,h_0) = {\max\atop{k_{t+1},h_{t+1}}}\{\log(zk^{\alpha}h^{1-\alpha}-k_{t+1}-h_{t+1})+\beta V(k_{t+1},h_{t+1})\}$
+      $v(k_0,h_0) = {\max\atop{k_{t+1},h_{t+1}}}\{\log(zk^{\alpha}h^{1-\alpha}-k_{t+1}-h_{t+1})+\beta(A+B\log(k_{t+1})+C\log(h_{t+1}))\}$
     \end{center}
+    Taking derivatives with respect to $k_t+1$ and $h_{t+1}$
+    \begin{center}
+      $\boxed{\frac{\partial v}{\partial k_{t+1}}: \ \frac{1}{zk^{\alpha}h^{1-\alpha}-h_{t+1}-k_{t+1}} = \frac{\beta B}{k_{t+1}}}$ \\
+      $\boxed{\frac{\partial v}{\partial h_{t+1}}: \ \frac{1}{zk^{\alpha}h^{1-\alpha}-k_{t+1}-h_{t+1}} = \frac{\beta C}{h_{t+1}}}$ \\
+    \end{center}
+    Simplifying and Solving
+    \begin{center}
+      $\boxed{h_{t+1} = \frac{\beta C(zk^{\alpha}h^{1-\alpha})}{1+\beta(B+C)}}$ \\
+      $\boxed{k_{t+1} = \frac{\beta B(zk^{\alpha}h^{1-\alpha})}{1+\beta(B+C)}}$
+    \end{center}
+    Plugging back into Bellman and simplifying logs
+    \begin{center}
+      $A + B\log k + C\log h = \log z +\alpha\log k+(1-\alpha)\log h-\log(1+\beta(B+C))+\beta A +\beta B\log(\beta Bz)+\beta B(\alpha\log k+(1-\alpha)\log h) - \beta B(1+\beta(B+C))+\beta C\log(\beta Cz)+\beta C(\alpha\log k+(1-\alpha)\log h))-\beta C(1+\beta(B+C))$ \\
+    \end{center}
+    After a bunch of algebra and grouping,
+    \begin{center}
+      $\boxed{B = \frac{\alpha}{1-\beta}}$ \\
+      $\boxed{C = \frac{(1-\alpha)}{1-\beta}}$
+    \end{center}
+    Next, solutions
+    \begin{center}
+      $\boxed{V(k,h) = A + \frac{\alpha}{1-\beta}\log k + \frac{1-\alpha}{1-\beta}\log h}$ \\ 
+      $\boxed{k_{t+1} = \frac{\beta\alpha zk^{\alpha}h^{1-\alpha}}{1+\beta}}$ \\
+      $\boxed{h_{t+1} = \frac{\beta(1-\alpha)zk^{\alpha}h^{1-\alpha}}{1+\beta}}$
+    \end{center}
+    
 \section*{Question 4}
   \subsection*{Problem}
     Consider the following planning problem
@@ -274,10 +327,40 @@
     \end{center}
     \subsubsection*{(b) Bellman Equations}
     \begin{center}
-      $v(k,\theta_H) = {\max\atop{k}}\{\theta_{H}\log(k_t-k_{t+1})+\beta V(k_{t+1},\theta_L)\}$ \\
-      $v(k,\theta_L) = {\max\atop{k}}\{\theta_{L}\log(k_t-k_{t+1})+\beta V(k_{t+1},\theta_H)\}$ \\
+      $v(k,\theta_H) = {\max\atop{k_{t+1}}}\{\theta_{H}\log(k_t-k_{t+1})+\beta V(k_{t+1},\theta_L)\}$ \\
+      $v(k,\theta_L) = {\max\atop{k_{t+1}}}\{\theta_{L}\log(k_t-k_{t+1})+\beta V(k_{t+1},\theta_H)\}$ \\
     \end{center}
     \subsubsection*{(c) Solving with Guess and Verify}
+    Find the first order conditions for both Bellman Equations
+    \begin{center}
+      $v(k,\theta_H) = {\max\atop{k_{t+1}}}\{\theta_H\log(k_t-k_{t+1})+\beta(A+B\log(k_{t+1}))\}$ \\
+      $v(k,\theta_L) = {\max\atop{k_{t+1}}}\{\theta_L\log(k_t-k_{t+1})+\beta(C+D\log(k_{t+1}))\}$ \\
+      $\boxed{\frac{\theta_H}{(k_t-k_{t+1})}=\frac{\beta D}{k_{t+1}}}$ \\
+      $\boxed{\frac{\theta_L}{(k_t-k_{t+1})}=\frac{\beta B}{k_{t+1}}}$
+    \end{center}
+    Now, solving for $k_{t+1}$ in both FOC's
+    \begin{center}
+      $\boxed{k_{t+1} = \frac{\beta Dk}{\theta_H+\beta D}$ for $v(k,\theta_H)}$\\
+      $\boxed{k_{t+1} = \frac{\beta Bk}{\theta_L+\beta B}$ for $v(k,\theta_L)}$ \\
+    \end{center}
+    Finally, solving for $B$ and $D$
+    \begin{center}
+      $\boxed{D = \theta_L + \beta\theta_H}$\\
+      $\boxed{B = \theta_H+\beta\theta_L}$
+    \end{center}
+    \subsubsection*{(d) Solving the Optimal policy function}
+    Solve for $k_{t+1}$ with the solved $B$ and $D$.
+    \begin{center}
+      $g(k,\theta_H) = \frac{\beta(\theta_H+\beta\theta_L)k}{\theta_H+\beta(\theta_L+\beta\theta_H)}$ \\
+      $g(k,\theta_L) = \frac{\beta(\theta_H+\beta\theta_L)k}{\theta_L+\beta(\theta_H+\beta\theta_L)}$
+    \end{center}
+    \subsubsection*{(e) Simulation}
+    Given $k_0 = 1$ and assuming $k_1$ is an odd day: 
+    \begin{center}
+      $k_1 = g(1, \theta_L) = \frac{(\beta(\theta_H+\beta\theta_L))}{(\theta_L+\beta(\theta_H+\beta\theta_L))}$ \\
+      $k_2 = g(k_1,\theta_H) = \frac{\beta(\theta_L+\beta\theta_H)\frac{(\beta(\theta_H+\beta\theta_L))}{(\theta_L+\beta(\theta_H+\beta\theta_L))}}{(\theta_H+\beta(\theta_L+\beta\theta_H))} = \beta^2$ \\
+      $k_3 = g(k_2, \theta_L) = \frac{\beta(\theta_H+\beta\theta_L)\beta^2}{(\theta_L+\beta(\theta_H+\beta\theta_L))} = \frac{\beta^3(\theta_H+\beta\theta_L)}{\theta_L+\beta(\theta_H+\beta\theta_L)}$
+    \end{center}
     
 \end{document}
 
