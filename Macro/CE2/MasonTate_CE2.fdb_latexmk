@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1727467659.39717 "MasonTate_CE2.tex" "MasonTate_CE2.pdf" "MasonTate_CE2" 1727467659.94538 2
+["pdflatex"] 1728700371.65893 "MasonTate_CE2.tex" "MasonTate_CE2.pdf" "MasonTate_CE2" 1728700372.31721 2
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -16,6 +16,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1229303445 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm" 1229303445 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1248133631 37912 77d683123f92148345f3fc36a38d9ab1 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
@@ -80,8 +81,11 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726531688.57061 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726531591 8221416 a0a37a22ef1e1daff65ca6313af8730d ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "MasonTate_CE2.aux" 1727467659.88258 529 a07e3ec1fa6bdf9483f1f6b0b72e92ff "pdflatex"
-  "MasonTate_CE2.tex" 1727467659.2651 5168 1ad1866e15b19b247cf881a9c1f75326 ""
+  "1b.png" 1728680686.18097 10517 5ccb87fcbce7c4252967fbc5b865ee0a ""
+  "2d.png" 1728700282.41363 12293 a1045f57d9f112f26501e9ea6d2596a6 ""
+  "2e.png" 1728690677.16897 16405 1f8204462b101a7b7a64cb2f956e6b14 ""
+  "MasonTate_CE2.aux" 1728700372.23974 32 77e0dffd05b653a64f0caf3eb9bb454a "pdflatex"
+  "MasonTate_CE2.tex" 1728700369.85411 8648 33a76ef5420dae2b5128b15ca55a6457 ""
   (generated)
   "MasonTate_CE2.aux"
   "MasonTate_CE2.log"

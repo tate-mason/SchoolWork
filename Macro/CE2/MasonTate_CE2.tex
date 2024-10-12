@@ -97,8 +97,8 @@
   \end{titlepage}
 
   \newpage
-\section{Question 1}
-  \subsection{Problem}
+\section*{Question 1}
+  \subsection*{Problem}
     Consider the following two period planning problem
     \begin{center}
       $w(\bar k_1)={\max\atop{c_t,k_{t+1}\geq0}}\frac{c_1^{1-\sigma}}{1-\sigma}+\beta\frac{c_2^{1-\sigma}}{1-\sigma}$
@@ -137,11 +137,92 @@
 q   using the Newton method.
 
     (b) Now, make the following grid $\mathcal{K}=\{\frac{1}{2} k_{ss}, \frac{3}{4}k_{ss}, k_{ss}, \frac{3}{2}k_{ss}, 2k_{ss}\}$ for $\bar k_0$. Solve allocations $c_1, c_2, k_2$ for all points on the grid. Using your answers, find value of $w(\bar k_1)$ for every point on the grid and plot $w(\bar k_1)$.
-  \subsection{Solution}
-\section{Question 2}
-  \subsection{Problem}
-    
+  \subsection*{Solution}
+    (a) Consumption in period 1 ($c_1$) is 3.7364
+
+    Consumption in period 2 ($c_2$) is 3.8593
+
+    Capital in period 2 ($k_2$) is 2.6478
+
+    (b) \includegraphics*[width=0.9\textwidth]{1b.png}
+  \begin{align*}
+    \begin{array}{|ccccc|}
+     \hline
+      k_1 & c_1 & c_2 & k_2 & w(k_1) \\
+      \hline
+      2.4907 & 2.2577 & 2.4341 & 1.4245 & -0.8332 \\
+      3.7361 & 3.0159 & 3.1670 & 2.0408 & -0.6315 \\
+      4.9815 & 3.7364 & 3.8593 & 2.6478 & -0.5138 \\
+      7.4722 & 5.1141 & 5.1759 & 3.8465 & -0.3791 \\
+      9.9630 & 6.4416 & 6.4387 & 5.0333 & -0.3028 \\
+      \hline
+    \end{array}
+  \end{align*}
+
+\section*{Question 2}
+  \subsection*{Problem}
+    Consider the following infinite horizon planning problem
+    \begin{align*}
+      \max_{c_t, k_{t+1} \geq 0} \sum_{t=0}^{\infty} \beta^t \frac{\left( \frac{C_t}{N_t} \right)^{1-\sigma}}{1 - \sigma}
+    \end{align*}
+    s.t.
+    \begin{align*}
+      C_t + K_{t+1} = A K_t^\alpha \left( (1 + \gamma)^t N_t \right)^{1 - \alpha} + (1 - \delta) K_t \\
+      N_{t+1} = (1 + \eta) N_t \\
+      K_0 \quad \text{is given.}
+    \end{align*}
+    Where $N_t$ is population, $\eta$ is population growth rate, and $\gamma$ is rate of growth of technology. $A$ if TFP.
+
+    (a) Write this problem such that all variables are stationary.
+
+    (b) Write the problem in (a) recursively (as a Bellman). Write down the formula that determines steady state capita (per efficient units of labor).
+
+    (c) Assume $\sigma = 2, \eta = 0.01, \gamma=0.02$. Choose parameters $\beta, \alpha, \delta$ such that in the long run
+    \begin{align*}
+      \frac{K_{t+1}-(1-\delta)K_t}{Y_t} = 0.21, \\
+      \frac{K_t}{Y_t} = 3, \\
+      \text{Capital share of income} = \frac{1}{3}.
+    \end{align*}
+
+    Choose $A$ such that steady state capital (per efficient units of labor) is normalized to 1.
+
+    (d) Use a discretized grid for current stock of capital that has 100 nodes. For minimum and maximum capital, use $0.1k_{ss}$ and $2k_{ss}$. Solve the Bellman equation in part (b) using value function iteration.
+
+    (e) Start from $k_0=0.5k_{ss}$. Simulate the path of capital, consumption and output for 50 periods.
+  \subsection*{Solution}
+  (a) 
+  \begin{align*}
+    c_t = \frac{C_t}{(1+\eta)(1+\gamma)N_0} \\
+    k_t = \frac{K_t}{(1+\eta)(1+\gamma)N_0} \\
+  \end{align*}
+  With this in mind, our new formula can be written as such
+  \begin{align*}
+    {\max\atop{c_t, k_{t+1}\geq0}} \sum_{t+0}^{\infty}\beta^t\frac{c_t^{1-\sigma}}{1-\sigma}
+  \end{align*}
+  s.t.
+  \begin{align*}
+    c_t = Ak_t^{\alpha}+(1-\delta)-(1+\gamma)(1+\eta)k_{t+1}
+  \end{align*}
+
+  (b) 
+  \begin{align*}
+    {\max\atop{k_{t+1}}}(\frac{(Ak_t^{\alpha}+(1-\delta)-(1+\gamma)(1+\eta)k_{t+1})^{1-\sigma}}{1-\sigma}+\beta(\frac{k_{t+1}^{1-\sigma}}{1-\sigma})) \\
+    A\alpha k_{ss}^{\alpha-1} = \frac{(1+\gamma)(1+\eta)}{\beta}-(1-\delta)
+  \end{align*}
 
 
+  (c) 
+  \begin{align*}
+    \alpha = \frac{1}{3} \\
+    \delta \approx 0.0767 \\
+    \beta \approx 0.9804 \\
+    A \approx 0.5226
+  \end{align*}
+  
+  (d) \includegraphics*[width = 0.9\textwidth]{2d.png}
 
+  (e) \includegraphics*[width = 0.9\textwidth]{2e.png}
+  
+\subsection*{Note}
+  I am fairly certain I am off in my calculations in the above parameters. Going to be tinkering over the weekend with it because I want to get good at these problems, but wanted to at least submit what I had. The VFI graph especially looks bad. The analytical and VFI are both concave, but not near each other like they are in your example code. Again, will keep working on this.
 \end{document}

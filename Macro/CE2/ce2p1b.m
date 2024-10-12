@@ -37,7 +37,7 @@ for i=1:n
 
   c1 = x(1);
   c2 = x(2);
-  w(i) = c1^(1-sigma)/1-sigma + beta*c2^(1-sigma)/(1-sigma);
+  w(i) = c1^(1-sigma)/(1-sigma) + beta*c2^(1-sigma)/(1-sigma);
 end
 
 % Results
