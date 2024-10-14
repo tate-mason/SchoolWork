@@ -1,0 +1,134 @@
+%!TeX root = ~/Semester1/Stat/MTR/CheatSheet.tex
+%% Homework 3 - ECON 8070 %%
+\documentclass[3pt, a4paper]{article}
+\usepackage[top=0.1cm, bottom=0.1cm, left=3.5cm, right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{mdframed}
+\usepackage[math-style=ISO]{unicode-math}
+\DeclareSymbolFont{\mathnormal}{letters}
+\usepackage{lastpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
+\newcommand\course{ECON - 8070}                            % <-- course name   
+%\newcommand\hwnumber{ 3}                                 % <-- homework number
+\newcommand\Information{Tate Mason}                        % <-- personal information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Page setup
+\lfoot{}
+\pagenumbering{arabic}
+\rfoot{}
+\renewcommand{\baselinestretch}{1.25}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add new commands here
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\EE}{\mathbb E}
+\newcommand{\var}{\text{var}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\Mod}{Mod} 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem{case}{Case}
+\newcommand{\assign}{:=}
+\newcommand{\infixiff}{\text{ iff }}
+\newcommand{\nobracket}{}
+\newcommand{\backassign}{=:}
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextbf}[1]{\text{{\bfseries{#1}}}}
+\newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
+
+\newenvironment{itemizedot}{\begin{itemize} \renewcommand{\labelitemi}{$\bullet$}\renewcommand{\labelitemii}{$\bullet$}\renewcommand{\labelitemiii}{$\bullet$}\renewcommand{\labelitemiv}{$\bullet$}}{\end{itemize}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Begin now!
+
+\begin{document}
+  \begin{titlepage}
+    \begin{center}
+      \vspace*{3cm}
+            
+        \vspace{1cm}
+        \huge
+        Midterm Cheat Sheet
+            
+        \vspace{1.5cm}
+        \Large
+            
+        \textbf{\Information}                      % <-- author
+            
+        \vfill
+            
+        \vspace{1cm}
+        \Large
+        
+        \today
+            
+    \end{center}
+  \end{titlepage}
+
+  \newpage
+
+    \textbf{Monotone Probability Inequality} If $A\subset B$ then $\PP[A]\leq\PP[B]$\\
+    \textbf{Inclusion-Exclusion Principle} $\PP[A\cup B]=\PP[A]+\PP[B]-\PP[A\cap B]$\\
+    \textbf{Boole's Inequality} $\PP[A\cup B]\leq\PP[A]+\PP[B]$ \\
+    \textbf{Bonferroni's Inequality} $\PP[A\cap B]\geq\PP[A]+\PP[B]-1$\\
+    \textbf{Disjoint Events} $\PP[\bigcup\limits^{\infty}_{j=1}A_j] = \sum\limits^{\infty}_{j=1}\PP[A_j]$\\
+    \textbf{Conditional Probability} $\PP[A|B]=\frac{\PP[A\cup B]}{\PP[B]}$\\
+    \textbf{Statistical Independence} $\PP[A\cup B] = \PP[A]\PP[B]$ \\ 
+    \textbf{Law of Total Probability} $\PP[A] = \sum\limits^{\infty}_{i=1}\PP[A|B_j]\PP[B_j]$ \\
+    \textbf{Bayes Rule} $\PP[A|B] = \frac{\PP[B|A]\PP[A]}{\PP[B]}$ \\
+    \textbf{Permutation} $P(N,K) = \frac{N!}{(N_K)!}$ \\
+    \textbf{Combination} $\binom{N}{K} = \frac{N!}{K!(N-K)!}$ \\
+    \textbf{CDF} $F(x_i) = \sum\limits_{k=1}^i \pi_k$ or a sum of PDF's \\ 
+    \textbf{PDF} $P(a\leq x\leq b) = \int\limits_a^bf(x)dx$ \\
+    \textbf{Exp Cont Rand Var} $E(X) = \int\limits_{-\infty}^{\infty}xdF(x)$ \\
+    \textbf{Variance} $Var(X) = E(X^2)-[E(X)]^2$ \\
+    \textbf{Bernoulli} $f(x|p) = px+(1-p)(1-x)$\\
+    \textbf{Binomial} $\binom{n}{x}p^x(1-p)^{1-x}$ \\
+    \textbf{Multinomial} $f(x|p_1,...,p_K) = \sum\limits_{i=1}^Kp_j=1$ \\
+    \textbf{Poisson} $\frac{e^{-\lambda}\lambda^x}{x!}$\\
+    \textbf{Uniform} $f(x|a,b)=\frac{1}{b-a},\ a\leq x\leq b$\\
+      - $E(X) = \frac{a+b}{2}$, $Var(X) = \frac{(b-a)^2}{12}$ \\ 
+    \textbf{Exponential} $f(x|\lambda)=\frac{1}{\lambda}e^{-x/\lambda}, x\geq0, \lambda>0$\\
+      - $E(X) = \lambda,\ Var(X) = \lambda^2$ \\ 
+    \textbf{Normal} $f(x|\mu,\sigma^2)=\frac{1}{\sqrt{w\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$ \\
+    \textbf{Student t} $f(x|r) = \frac{\Gamma(\frac{r+1}{2})}{\sqrt{r\pi\Gamma(\frac{r}{2})}}(1+\frac{x^2}{r})^{-\frac{r+1}{2}}, x\in R$\\
+    \textbf{Logistic} $F(x) = \frac{1}{1+e^{-x}}$, $f(x) = F(x)[1-F(x)]$\\
+    \textbf{Chi-Square} $f(x|r)=\frac{1}{2^{r/2}\Gamma(r/2)}x^{r/2-1}e^{-x/2}$\\
+    \textbf{Independence} $E(XY)=E(X)E(Y)$\\
+    \textbf{Covariance and Correlation} $cov(X,Y)=E(XY)-E(X)E(Y),\ corr(X,Y)=\frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}$
+    \textbf{Sample Mean} $\bar X_n=\frac{1}{n}\sum\limits^n_{i=1}X_i$\\
+    \textbf{Sample Variance} $s^2=\frac{\sum\limits^n_{i=1}(x_i-\bar{x})^2}{n-1}$\\
+    \textbf{Estimation Bias} $bias(\hat{\theta})=E(\hat{\theta})-\theta$\\
+    \textbf{Estimation Variance} $var(\sum\limits^n_{i=1}X_i)=\sum\limits^n_{i=1}Var(X_i)$\\
+    \textbf{Mean Squared Error} $MSE(\hat{\theta})=E[(\hat{\theta}-\theta)^2]$\\
+    \textbf{T-Ratio} $T = \frac{\sqrt{n}(\bar{X_n}-\mu)}{s}\sim t_{n-1}$
+    \textbf{WLLN} $\bar{X}_n=\frac{1}{n}\sum\limits^n_{i=1}X_i{p\atop\rightarrow}E(X)$\\
+    \textbf{CLT} $\sqrt{n}(\bar{X}_n-\mu){d\atop\rightarrow}N(0,\sigma^2)$\\
+    \textbf{Slutsky's Theorem} $Z_n+c_n{d\atop\rightarrow}Z+c,\ Z_nc_n{d\atop\rightarrow}Zc$ and same with division\\ 
+    \textbf{Joint Density} $F(x,y) = \int\limits_{-\infty}^x\int\limits_{-\infty}^yf(u,v)dvdu$\\
+    \textbf{Multivariate} $\hat{\mu}=\frac{1}{n}\sum^n_{i=1}X_i$
+\end{document}
