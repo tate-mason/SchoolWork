@@ -111,22 +111,45 @@
 
   \subsection*{Solution}
   \subsubsection*{(a)}
+  \subsubsubsection{(i)}
     \begin{gather*}
-      V(k,n) = \log(Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k')-\psi\frac{n^{1+\frac{1}{\epsilon}}}{1+\frac{1}{\epsilon}}+\beta(A+B\log(k'))\\
+      v(k) = \{\log(Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k')-\psi\frac{n^{1+\frac{1}{\epsilon}}}{1+\frac{1}{\epsilon}}+\betav(k')\}
     \end{gather*}
     FOC's
     
     k':
     \begin{gather*}
-      -\frac{1}{Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k'}+\frac{\beta B}{k'}\\
-      \frac{1}{Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k'}+\frac{\beta B}{k'} \\
-      k'\frac{1}{\beta B}+k' = Ak^{\alpha}n^{1-\alpha}+(1-\delta)k\\
-      \text{Simplify}: z = Ak^{\alpha}n^{1-\alpha}+(1-\delta)k\\
-      k' = \frac{\beta Bz}{1+\beta B}
+      \frac{1}{Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k'} = \beta v'(k')
     \end{gather*}
     
     n:
+    \begin{gather*}
+      \frac{(1-\alpha)Ak^{\alpha}n^{-\alpha}}{Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k'} = \psi n^{\frac{1}{\epsilon}}
+    \end{gather*}
+
+    Envelope Condition:
+    \begin{gather*}
+      v'(k) = \frac{\alpha Ak^{\alpha-1}n^{1-\alpha}+(1-\delta)}{Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k'}\\
+      v'(k') = \frac{\alpha Ak'^{\alpha-1}n^{1-\alpha}+(1-\delta)}{Ak'^{\alpha}n^{1-\alpha}+(1-\delta)k'-k''}
+    \end{gather*}
+    \subsubsubsection{(ii)}
     
+  \subsubsection*{(b)}
+    \begin{gather*}
+      k=k'=k''\\
+      1 = \beta(\alpha Ak^{\alpha-1}n^{1-\alpha}+(1-\delta))\\
+      \frac{1}{\beta} +\delta - 1 = \alpha Ak^{\alpha-1}n^{1-\alpha}\\
+      \boxed{k = n(\frac{1 + \beta(\delta-1)}{\beta\alpha A})^{\frac{1}{\alpha-1}}} \\
+      \boxed{\therefore\frac{k}{n}=\frac{1 + \beta(\delta-1)}{\beta\alpha A})^{\frac{1}{\alpha-1}}}
+    \end{gather*}
+    With this result, we can find $\frac{c}{n}$ using feasibility 
+    \begin{gather*}
+      \boxed{\frac{c}{n} = A(\frac{k}{n}^{\alpha})-\delta(\frac{k}{n})}
+    \end{gather*}
+    To find steady state n we can use
+    \begin{gather*}
+      (1-\alpha)A(\frac{k}{n})^{\alpha}=\psi n^{1+\frac{1}{\epsilon}}(A(\frac{k}{n})^{\alpha}-\delta(\frac{k}{n}))
+    \end{gather*}
 \section*{Question 2}
   \subsection*{Problem}
     Consider the following problem faced by Martin, who is selling his BMW. Martin places an ad in the local newspaper with his telephone number asking interested individuals to make him offers he can't refuse. Individuals making offers are drawn independently and identically from a distribution given by the cumulative distribution function $F(p) = \text{Prob}(p_t \leq p)$. Assume $F(0) = 0$ and $F(B) = 1$ for $B < \infty$. Martin receives one offer each day, and must decide whether to accept or reject it. Martin knows he misplaces things so he does not bother to write down the callers' phone numbers. For this reason, he cannot call a person back the next day and tell them he changed his mind. If he accepts the offer, he received a one time payment $p$ and the car is sold. If he rejects, he will have a chance to entertain future offers.
@@ -141,5 +164,28 @@
     (Remember for a uniformly distributed variable over the interval $[a, b]$, $F(p) = (p-a)/(b-a)$, and the density function $f(p) = 1/(b-a)$).
 
   \subsection*{Solution}
-    
+  \subsubsection*{(a)}
+    \begin{gather*}
+      v(p) = \max\limits_p\{p, \beta\mathbb{E}[v(p')]\}
+    \end{gather*}
+  \subsubsection*{(b)}
+    Monotonicity:
+    \begin{proof}
+      $T(v(p)) = \{p, \beta\mathbb{E}[f(p')]\}\geq\{p,\beta\mathbb{E}[u(p')]\}=T(u(p))$
+    \end{proof}
+    Discounting:
+    \begin{proof}
+      For any $T(v(p)+a) = \max\limits_p\{p, \beta\mathbb{E}[f(p')]+\beta a\}\leq\{p, \beta\mathbb{E}[v(p')]\}+\beta a=T(v(p)+a)$
+    \end{proof}
+  \subsubsection*{(c)}
+    \begin{gather*}
+      p^* = \beta\mathbb{E}[v(p')]\\
+      \mathbb{E}[v(p')] = \beta\int\limits_0^{p^*}\mathbb{E}[v(p')]\frac{1}{B}dp + \int\limits_{p^*}^{B}p(\frac{1}{B})dp\\
+      \beta\mathbb{E}[v(p')](\frac{p^*}{B}) + (\frac{B}{2}-\frac{p^{*2}}{2B}) \\
+      \frac{p^*}{\beta} = p^*(\frac{p^*}{B})+(\frac{B}{2}-\frac{p^{*2}}{2B}) \\
+      \beta p^{*2} -2Bp^*+\beta B^2 = 0 \\
+      p^* = \frac{2B - \sqrt{-2B^2 - 4(\beta - (\beta B)^2 )}}{2\beta} \\
+      p^* = \frac{2B - 2B\sqrt{(1-\beta^2)}}{2\beta}\\
+      \boxed{p^* = \frac{B\sqrt{1-(1-\beta^2)}}{\beta}}
+    \end{gather*}
 \end{document}
