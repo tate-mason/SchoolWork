@@ -82,6 +82,9 @@
             
         \vfill
         
+
+        Collaboration to varying degrees with Timothy Duhon, Josephine Hughes, Abdul Khan, Kasra Lak, Rachel Lobo, Mingzhou Wang, Wenyi Wang
+        
         \vspace{1cm}
 
         An \course \ Homework Assignment
@@ -132,9 +135,43 @@
       v'(k) = \frac{\alpha Ak^{\alpha-1}n^{1-\alpha}+(1-\delta)}{Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k'}\\
       v'(k') = \frac{\alpha Ak'^{\alpha-1}n^{1-\alpha}+(1-\delta)}{Ak'^{\alpha}n^{1-\alpha}+(1-\delta)k'-k''}
     \end{gather*}
-    \subsubsubsection{(ii)}
+  \subsubsubsection{(ii)}
+    \begin{gather*}
+      v(k) = \{\phi\log(Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k')+(1-\phi)\log(1-n)+\beta v(k')\}
+    \end{gather*}
+    FOC's
+
+    k':
+    \begin{gather*}
+      \frac{\phi}{Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k'}=\beta v(k')
+    \end{gather*}
+    n:
+    \begin{gather*}
+      \frac{(1-\alpha)Ak^{\alpha}n^{-\alpha}}{Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k'} = \frac{(1-\phi)}{(1-n)}
+    \end{gather*}
+
+    Envelope Condition:
+    \begin{gather*}
+      \frac{\alpha\phi Ak'^{\alpha-1}n^{1-\alpha}+(1-\delta)}{Ak'^{\alpha}n^{1-\alpha}+(1-\delta)k'-k''}
+    \end{gather*}
+    \subsubsubsection{(iii)}
+    FOC's
     
+    k':
+    \begin{gather*}
+      \phi((Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k')^{\phi}(1-n)^{1-\phi})^{-\sigma} (Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k')^{\phi-1}(1-n)^{1-\phi} = \beta v(k')
+    \end{gather*}
+    n:
+    \begin{gather*}
+      \phi(1-\alpha)Ak^{\alpha}n^{-\alpha}(1-n)=(1-\phi)(Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k')
+    \end{gather*}
+
+    Envelope Condition:
+    \begin{gather*}
+      v'(k') = \phi ((Ak^\alpha n^{1-\alpha} + (1-\delta)k - k')^\phi (1-n)^{1-\phi})^{-\sigma}\\ \times(Ak^\alpha n^{1-\alpha} + (1-\delta)k - k')^{\phi-1} (1-n)^{1-\phi} [\alpha Ak^{\alpha-1}n^{1-\alpha} + (1-\delta)]
+    \end{gather*}
   \subsubsection*{(b)}
+  \subsubsubsection{(i)}
     \begin{gather*}
       k=k'=k''\\
       1 = \beta(\alpha Ak^{\alpha-1}n^{1-\alpha}+(1-\delta))\\
@@ -148,8 +185,36 @@
     \end{gather*}
     To find steady state n we can use
     \begin{gather*}
-      (1-\alpha)A(\frac{k}{n})^{\alpha}=\psi n^{1+\frac{1}{\epsilon}}(A(\frac{k}{n})^{\alpha}-\delta(\frac{k}{n}))
+      \boxed{(1-\alpha)A(\frac{k}{n})^{\alpha}=\psi n^{1+\frac{1}{\epsilon}}(A(\frac{k}{n})^{\alpha}-\delta(\frac{k}{n}))}
     \end{gather*}
+  \subsubsubsection{(ii)}
+    \begin{gather*}
+      \frac{\phi}{Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k} = \frac{\phi\beta}{Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k'} \cdot A\alphak^{\alpha-1}n^{1-\alpha}+(1-\delta)\\
+      1 = \beta A\alpha k^{\alpha-1}n^{1-\alpha}+(1-\delta)\\
+      \frac{1}{\beta}-1+\delta = A\alpha (\frac{k}{n})^{\alpha-1} \\
+      \boxed{\frac{k}{n} = (\frac{1+\beta(\delta-1)}{A\alpha\beta})^{\frac{1}{\alpha-1}}}
+    \end{gather*}
+    As in the first equation:
+    \begin{gather*}
+      \boxed{\frac{c}{n} = A(\frac{k}{n})^{\alpha}-\delta(\frac{k}{n})}
+    \end{gather*}
+    Steady state n:
+    \begin{gather*}
+      \frac{\phi(1-\alpha)A}{n}(\frac{k}{n})^{\alpha} = \frac{1-\phi}{1-n}(A(\frac{k}{n})^{\alpha}-\delta(\frac{k}{n}))\\
+      \boxed{n = \frac{\phi A(1-\alpha)(\frac{k}{n})^{\alpha}}{(1-\alpha+\delta(\frac{k}{n})(1-\delta))}}
+    \end{gather*}
+  \subsubsubsection{(iii)}
+    \begin{gather*}
+      \boxed{\frac{k}{n} = (\frac{1+\beta(\delta-1)}{A\alpha\beta})^{\frac{1}{\alpha-1}}}
+    \end{gather*}
+    \begin{gather*}
+      \boxed{\frac{c}{n} = A(\frac{k}{n})^{\alpha}-\delta(\frac{k}{n})}
+    \end{gather*}
+    \begin{gather*}
+      \phi(1-\alpha)A(\frac{k}{n})^{\alpha}(1-n) = (1-\phi)(Ak^{\alpha}n^{1-\alpha}+(1-\delta)k-k')\\
+      \boxed{n = 1-\frac{(1-\phi)(A(\frac{k}{n})^{\alpha}-\delta{k}{n})}{\phi(1-\alpha)A(\frac{k}{n})^{\alpha}}}
+    \end{gather*}
+
 \section*{Question 2}
   \subsection*{Problem}
     Consider the following problem faced by Martin, who is selling his BMW. Martin places an ad in the local newspaper with his telephone number asking interested individuals to make him offers he can't refuse. Individuals making offers are drawn independently and identically from a distribution given by the cumulative distribution function $F(p) = \text{Prob}(p_t \leq p)$. Assume $F(0) = 0$ and $F(B) = 1$ for $B < \infty$. Martin receives one offer each day, and must decide whether to accept or reject it. Martin knows he misplaces things so he does not bother to write down the callers' phone numbers. For this reason, he cannot call a person back the next day and tell them he changed his mind. If he accepts the offer, he received a one time payment $p$ and the car is sold. If he rejects, he will have a chance to entertain future offers.
