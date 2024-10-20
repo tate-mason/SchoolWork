@@ -33,6 +33,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Add new commands here
 \renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\var}{\text{var}}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\R}{\mathbb R}
 \newcommand{\Q}{\mathbb Q}
@@ -130,7 +131,7 @@
       \begin{center}
         $U(F) = $ (mean of F) - r(variance of F)
       \end{center}
-      where $r>0$. Argue that unless the set of possible distributions is further restricted (see, e.g., Exercise 6.C.19), $U(\cdot)$ cannot be compatiblee with any Bernoulli utility function. Give an example of two lotteries $L$ and $L'$ over the same two amounts of money, say $x'$ and $x''>x'$, such that $L$ gives a higher probability to $x''$ than does $L'$ and yet according to $U(\cdot), L'$ is preferred to $L$. 
+      where $r>0$. Argue that unless the set of possible distributions is further restricted (see, e.g., Exercise 6.C.19), $U(\cdot)$ cannot be compatible with any Bernoulli utility function. Give an example of two lotteries $L$ and $L'$ over the same two amounts of money, say $x'$ and $x''>x'$, such that $L$ gives a higher probability to $x''$ than does $L'$ and yet according to $U(\cdot), L'$ is preferred to $L$. 
     \subsection*{Solution}
       \subsubsection*{(a)}
         \begin{gather*}
@@ -142,8 +143,8 @@
           \beta<0\\
           x < -\frac{\gamma}{2\beta} 
         \end{gather*}
-      \subsubsection{(b)}
-      
+      \subsubsection*{(b)}
+        Assume there exist two lotteries $L = \{0, 100; 0.01, 0.99\}$ and $L' = \{0, 100; 0.5, 0.5\}$. For $L$, the mean can be calculated as $0.01\cdot0 + 0.99\cdot100 = 99$. Next, the variance can be discerned by ... . Thus, $U(L) = 99 - r\cdot$. For $L'$, the mean is $0.5\cdot 0 + 0.5\cdot100 = 50$, the variance is 
   \section*{6.C.15}
     \subsection*{Problem}
       Assume that in a world with uncertainty, there are two assets. The first is a riskless asset that pays one dollar. The second pays amounts $a$ and $b$ with probabilities $\pi$ and $1-\pi$, respectively. Denote the demand for the two assets $(x_1,x_2)$. \\
@@ -166,8 +167,18 @@
 
       (f) Can you prove your conjecture in (e) by analyzing the first-order conditions?
     \subsection*{Solution}
-      \subsubsection{(a)}
-      
+      \subsubsection*{(a)}
+        $a,b < 1$
+      \subsubsection*{(b)}
+        $\pi\cdot a + (1-\pi)b > 1$
+      \subsubsection*{(c)}
+        $u'(x_1+ax_2)\pi + u'(x_1 + bx_2)(1-\pi) = u'(x_1)$
+      \subsubsection*{(d)}
+        If $a<1$, any increase in $a$ makes the risky asset more desirable. Thus $\frac{dx_1}{da}\leq 0$
+      \subsubsection*{(e)}
+        $\frac{dx_1}{d\pi}<0$ is what is expected. With an increase in $\pi$, the risky asset becomes more attractive when $a>b$.
+      \subsubsection{(f)}
+        
 
   \section*{6.C.16}
     \subsection*{Problem}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  20 OCT 2024 13:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  20 OCT 2024 15:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -260,25 +260,25 @@ control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
 
-./MasonTate_HW4.tex:42: LaTeX Error: Command \lstlistingname undefined.
+./MasonTate_HW4.tex:43: LaTeX Error: Command \lstlistingname undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.42 \renewcommand\lstlistingname
+l.43 \renewcommand\lstlistingname
                                  {Algorithm}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./MasonTate_HW4.tex:43: LaTeX Error: Command \lstlistlistingname undefined.
+./MasonTate_HW4.tex:44: LaTeX Error: Command \lstlistlistingname undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.43 \renewcommand\lstlistlistingname
+l.44 \renewcommand\lstlistlistingname
                                      {Algorithms}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -287,20 +287,20 @@ If that doesn't work, type  X <return>  to quit.
 (./MasonTate_HW4.aux)
 \openout1 = `MasonTate_HW4.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -378,92 +378,25 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 101.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 102.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 101.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 102.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 101.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 102.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [1]
-./MasonTate_HW4.tex:144: Undefined control sequence.
-<argument> ...(x)) = \beta (E[X^2]) + E[X]\\ \var 
-                                                  (X) = E[X^2] - E[X]^2 \Rig...
-l.144         \end{gather*}
-                           
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MasonTate_HW4.tex:144: Undefined control sequence.
-<argument> ... - E[X]^2 \Rightarrow E[X^2] = \var 
-                                                  (X) + E[X]\\ E(u(x)) = \be...
-l.144         \end{gather*}
-                           
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MasonTate_HW4.tex:144: Undefined control sequence.
-<argument> ... (X) + E[X]\\ E(u(x)) = \beta (\var 
-                                                  (X)+E[X]^2) + \gamma E[X] ...
-l.144         \end{gather*}
-                           
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MasonTate_HW4.tex:144: Undefined control sequence.
-<argument> ...(x)) = \beta (E[X^2]) + E[X]\\ \var 
-                                                  (X) = E[X^2] - E[X]^2 \Rig...
-l.144         \end{gather*}
-                           
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MasonTate_HW4.tex:144: Undefined control sequence.
-<argument> ... - E[X]^2 \Rightarrow E[X^2] = \var 
-                                                  (X) + E[X]\\ E(u(x)) = \be...
-l.144         \end{gather*}
-                           
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MasonTate_HW4.tex:144: Undefined control sequence.
-<argument> ... (X) + E[X]\\ E(u(x)) = \beta (\var 
-                                                  (X)+E[X]^2) + \gamma E[X] ...
-l.144         \end{gather*}
-                           
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[2]
-Overfull \hbox (14.5454pt too wide) in paragraph at lines 193--194
+) [1] [2] [3]
+Overfull \hbox (14.5454pt too wide) in paragraph at lines 204--205
 []\OT1/cmr/m/n/10 (c) Cal-cu-late the cer-tainty equiv-a-lent and the prob-a-bil-ity pre-mium for a gam-ble $(36\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 16; []\OML/cmm/m/it/10 ; []\OT1/cmr/m/n/10 )$.
  []
 
-[3] [4]
-./MasonTate_HW4.tex:240: Undefined control sequence.
-l.240       Let $g: S\rightarrow \RR
+[4]
+./MasonTate_HW4.tex:251: Undefined control sequence.
+l.251       Let $g: S\rightarrow \RR
                                     _+$ be a random variable with mean $E(g)...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -471,8 +404,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MasonTate_HW4.tex:240: Undefined control sequence.
-l.240 ...ew random variable $g^*: S\rightarrow \RR
+./MasonTate_HW4.tex:251: Undefined control sequence.
+l.251 ...ew random variable $g^*: S\rightarrow \RR
                                                   _+$ by $g^*(s) = \alpha g(...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -480,7 +413,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[5] (./MasonTate_HW4.aux)
+[5] [6] (./MasonTate_HW4.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -489,16 +422,16 @@ L3 programming layer <2024-02-20>
 Here is how much of TeX's memory you used:
  4912 strings out of 474116
  78661 string characters out of 5743682
- 1940187 words of memory out of 5000000
+ 1939187 words of memory out of 5000000
  27176 multiletter control sequences out of 15000+600000
  563488 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 65i,12n,79p,458b,303s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on MasonTate_HW4.pdf (6 pages, 153074 bytes).
+ 65i,12n,79p,457b,303s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on MasonTate_HW4.pdf (7 pages, 164274 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 93 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
