@@ -14,7 +14,7 @@
 %Fill in the appropriate information below
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
 \newcommand\course{ECON - 8010}                            % <-- course name   
-\newcommand\hwnumber{ 3}                                 % <-- homework number
+\newcommand\hwnumber{ 4}                                 % <-- homework number
 \newcommand\Information{Tate Mason}                        % <-- personal information
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,25 +96,150 @@
   \newpage
   \section*{6.B.5}
     \subsection*{Problem}
-    \subsection*{Solution}
+    The purpose of this exercise is to show that the Allais paradox is compatible with a weaker version of the independence axiom. We consider the following axiom, known as the \textit{betweeness axiom} [see Dekel (1986)]:
+    \begin{center}
+      $\forall L,L' / \text{and} \ \lambda \in(0,1), if L\ \sim L', then\ \lambda L+(1-\lambda)L'\sim L$
+    \end{center}
+    Suppose that there are three possible outcomes.
 
+    (a) Show that a preference relation on lotteries satisfying the independence axiom also satisfies the betweenness axiom.
+
+    (b) Using a simplex representation for lotteries similar to the one in Figure 6.B.1(b), show that if the continuity and betweenness axioms are satisfied, then the independence curves of a preference relation on lotteries are straight lines. Conversely, show that if the indifference curves are straight lines, then the betweenness axiom is satisfied. Do these straight lines need to be parallel?
+
+    (c) Using (b), show that the betweenness axiom is weaker (less restrictive) than the independence axiom.
+
+    (d) Using figure 6.B.7, show that the choices of the Allais paradox are compatible with the betweenness axiom by exhibiting an indifference map satisfying the betweenness axiom that yields the choices of the Allais paradox.
+    \subsection*{Solution}
+      \subsubsection*{(a)}
+        The independence axiom states that for any $L,L',L''$ and $\lambda\in(0,1)$, $L\succ L'$ implies $\lambda L+(1-\lambda L'')\succ \lambda L'+(1-\lambda)L''$. The betweenness axiom stated above is a relaxed version of independence, stating that $L\sim\lambda L+(1-\lambda)L'\sim L'$ 
+      \subsubsection*{(b)}
+        Because betweenness defines a relationship of indifference, we can extend it to say that any point on the line must also be indifferent to other points. If we were to assume they were not straight, there would be a point of preference under the convex combination of lotteries which would violate betweenness. 
+      \subsubsection*{(c)}
+        While independence requires both linearity and parallelism to be satisfied, betweenness only requires linearity. This relaxed requirement makes betweenness weaker.
+      \subsubsection*{(d)}
+      
   \section*{6.C.2}
     \subsection*{Problem}
-    \subsection*{Solution}
+      (a) Show that if an individual Bernoulli utility function $u(\cdot)$ with the quadratic form
+      \begin{center}
+        $u(x) = \beta x^2+\gamma x$,
+      \end{center}
+      then his utility from a distribution is determined by the mean and variance of the distribution and, in fact, by these moments alone. [Note: the number $\beta$ should be taken to be negative in order to get the concavity of $u(\cdot)$. Since $u(\cdot)$ is then decreasing as $x>-\gamma/2\beta$, $u(\cdot)$ is useful only when the distribution cannot take values larger than $-\gamma/2\beta$.] 
 
+      (b) Suppose that a utility function $U(\cdot)$ over distributions is given by 
+      \begin{center}
+        $U(F) = $ (mean of F) - r(variance of F)
+      \end{center}
+      where $r>0$. Argue that unless the set of possible distributions is further restricted (see, e.g., Exercise 6.C.19), $U(\cdot)$ cannot be compatiblee with any Bernoulli utility function. Give an example of two lotteries $L$ and $L'$ over the same two amounts of money, say $x'$ and $x''>x'$, such that $L$ gives a higher probability to $x''$ than does $L'$ and yet according to $U(\cdot), L'$ is preferred to $L$. 
+    \subsection*{Solution}
+      \subsubsection*{(a)}
+        \begin{gather*}
+          u(x) = \beta x^2 + \gamma x\\
+          E(u(x)) = \beta(E[X^2]) + E[X]\\
+          \var(X) = E[X^2] - E[X]^2 \Rightarrow E[X^2] = \var(X) + E[X]\\
+          E(u(x)) = \beta(\var(X)+E[X]^2) + \gamma E[X] \\
+          s.t. \\
+          \beta<0\\
+          x < -\frac{\gamma}{2\beta} 
+        \end{gather*}
+      \subsubsection{(b)}
+      
   \section*{6.C.15}
     \subsection*{Problem}
+      Assume that in a world with uncertainty, there are two assets. The first is a riskless asset that pays one dollar. The second pays amounts $a$ and $b$ with probabilities $\pi$ and $1-\pi$, respectively. Denote the demand for the two assets $(x_1,x_2)$. \\
+      Suppose that a decision maker's preferences satisfy the axioms of expected utility theory and that he is a risk averter. The decision maker's wealth is 1, and so are the prices of the assets. Therefore, the decision maker's budget constraint is given by 
+      \begin{center}
+        $x_1+x_2=1$, $x_1,x_2\in[0,1]$.
+      \end{center}
+
+      (a) Give a simple \textit{necessary} condition (involving $a$ and $b$ only) for the demand for the riskless asset to be strictly positive.
+
+      (b) Give a simple \textit{necessary} condition (involving $a,b$ and $\pi$ only) for the demand for the risky asset to be strictly positive.
+     
+      In the next three parts, assume that the conditions obtained in (a) and (b) are satisfied.
+
+      (c) Write down the first order conditions for utility maximization in this asset demand problem.
+
+      (d) Assume that $a<1$. Show by analyzing the first order conditions that $dx_1/da\leq0$
+
+      (e) Which sign do you conjecture for $dx_1/d\pi$? Give an economic interpretation.
+
+      (f) Can you prove your conjecture in (e) by analyzing the first-order conditions?
     \subsection*{Solution}
+      \subsubsection{(a)}
+      
 
   \section*{6.C.16}
     \subsection*{Problem}
+      An individual has Bernoulli utility function $u(\cdot)$ and initial wealth $w$. Let lottery $L$ offer a payoff of $G$ with probability $p$ and a payoff of $B$ with probability $1-p$.
+
+      (a) If the individual owns the lottery, what is the minimum price he would sell it for?
+
+      (b) If he does not own it, what is the maximum price he would be willing to pay for it?
+
+      (c) Are buying and selling prices equal? Give an economic interpretation for your answer. Find conditions on the parameters of the problem under which buying and selling prices are equal.
+
+      (d) Let $G=10, B=5, w=10$ and $u(x) = \sqrt{x}$. Compute the buying and selling prices for this lottery and the utility function. 
     \subsection*{Solution}
 
   \section*{6.C.18}
     \subsection*{Problem}
-    \subsection*{Solution}
+      Suppose that an individual has a Bernoulli utility function $u(x) = \sqrt{x}$.
 
+      (a) Calculate the Arrow-Pratt coefficients of absolute and relative risk aversion at the level of wealth $w=5$.
+
+      (b) Calculate the certainty equivalent and probability premium for a gamble $(16,4;\frac{1}{2},\frac{1}{2})$.
+
+      (c) Calculate the certainty equivalent and the probability premium for a gamble $(36, 16; \frac{1}{2}, \frac{1}{2})$. Compare this result with the one in (b) and interpret.
+    \subsection*{Solution}
+      \subsubsection*{(a)}
+        Absolute risk aversion at $w=5$
+          \begin{gather*}
+            u'(x) = \frac{1}{2\sqrt{x}}\\
+            u''(x) = -\frac{1}{4x\sqrt{x}}\\
+            \text{ARA} = -\frac{u'(x)}{u''(x)} \\
+            = -\frac{-\frac{1}{4x\sqrt{x}}}{\frac{1}{2\sqrt{x}}}
+            = \frac{1}{2x}
+            = \frac{1}{10}
+          \end{gather*}
+        Relative risk aversion
+          \begin{gather*}
+            \text{RRA} = -\frac{u''(x)}{u'(x)}\\
+            = x(\frac{1}{2x})\\
+            =\frac{1}{2}
+          \end{gather*}
+      \subsubsection*{(b)}
+        Certainty equivalent
+          \begin{gather*}
+            u(CE) = E[u(x)]\\
+            \sqrt{CE} = 0.5\sqrt{16} + 0.5\sqrt{4}\\
+            \sqrt{CE} = 2 + 1 = 3
+            CE = 9
+          \end{gather*}
+        Probability premium
+          \begin{gather*}
+            \text{Premium} = E[X] - CE \\
+            E[X] = 0.5(16) + 0.5(4) = 10 \\
+            \text{Premium} = 10 - 9 = 1
+          \end{gather*}
+      \subsubsection*{(c)}
+        Certainty equivalent
+          \begin{gather*}
+            \sqrt{CE} = 0.5\sqrt{36} + 0.5\sqrt{16} \\
+            \sqrt{CE} = 0.5(6) + 0.5(4) = 5 \\
+            CE = 25
+          \end{gather*}
+        Probability premium
+          \begin{gather*}
+            E[X] = 0.5(36) + 0.5(16) = 26 \\
+            \text{Premium} = 26-25 = 1 \\
+          \end{gather*}
+        The risk premium is the same for both despite the change in payoffs. This means 1 unit of utility is the amount that would be given up to avoid risk.
   \section*{6.E.3}
     \subsection*{Problem}
+      Let $g: S\rightarrow \RR_+$ be a random variable with mean $E(g) = 1$. For $\alpha\in(0,1)$, define a new random variable $g^*: S\rightarrow \RR_+$ by $g^*(s) = \alpha g(s) + (1-\alpha)$. Note that $E(g^*)=1$. Denote the $G(\cdot)$ and $G^*(\cdot)$ the distribution functions of $g(\cdot)$ and $g^*(\cdot)$, respectively. Show that $G^*(\cdot)$ second order stochastically dominates $G(\cdot)$. Interpret  
     \subsection*{Solution}
+      \begin{proof}
+        $g^*$ is a convex combination of $g$ and constant 1. Thus, for any concave function h: $E[h(g^*)] = E[h(\alpha g+(1-\alpha))]\geq\alpha E[h(g)]+(1-\alpha)h(1)\geq E[h(g)]$. Therefore, $G^*$ second-order stochastically dominates $G$. This implies that $g^*$ is less risky than $g$ while maintaining the same mean. 
+      \end{proof}
 \end{document}
