@@ -118,7 +118,8 @@
       \subsubsection*{(c)}
         While independence requires both linearity and parallelism to be satisfied, betweenness only requires linearity. This relaxed requirement makes betweenness weaker.
       \subsubsection*{(d)}
-      
+        \includegraphics[width = 0.9\textwidth]{6.b.3d.png}
+        Sorry it's really rough. I basically wanted to show it could be satisfied via the fact that we can make it such that the indifference curves are no longer parallel.
   \section*{6.C.2}
     \subsection*{Problem}
       (a) Show that if an individual Bernoulli utility function $u(\cdot)$ with the quadratic form
@@ -144,7 +145,7 @@
           x < -\frac{\gamma}{2\beta} 
         \end{gather*}
       \subsubsection*{(b)}
-        Assume there exist two lotteries $L = \{0, 100; 0.01, 0.99\}$ and $L' = \{0, 100; 0.5, 0.5\}$. For $L$, the mean can be calculated as $0.01\cdot0 + 0.99\cdot100 = 99$. Next, the variance can be discerned by ... . Thus, $U(L) = 99 - r\cdot$. For $L'$, the mean is $0.5\cdot 0 + 0.5\cdot100 = 50$, the variance is 
+        Assume there exist two lotteries $L = \{0, 100; 0.01, 0.99\}$ and $L' = \{0, 100; 0.5, 0.5\}$. For $L$, the mean can be calculated as $0.01\cdot0 + 0.99\cdot100 = 99$. Next, the variance is $0.0099$. Thus, $U(L) = 99 - r\cdot0.0099$. For $L'$, the mean is $0.5\cdot 0 + 0.5\cdot100 = 50$, the variance is $0.25$. Then, $U(L') = 50 - r\cdot0.5$.For sufficiently large $r$, $L'\succeq L$, violating expected utility theory as $L$ provides better payoff odds than $L'$, and thus higher utility to the agent. 
   \section*{6.C.15}
     \subsection*{Problem}
       Assume that in a world with uncertainty, there are two assets. The first is a riskless asset that pays one dollar. The second pays amounts $a$ and $b$ with probabilities $\pi$ and $1-\pi$, respectively. Denote the demand for the two assets $(x_1,x_2)$. \\
@@ -172,14 +173,17 @@
       \subsubsection*{(b)}
         $\pi\cdot a + (1-\pi)b > 1$
       \subsubsection*{(c)}
-        $u'(x_1+ax_2)\pi + u'(x_1 + bx_2)(1-\pi) = u'(x_1)$
-      \subsubsection*{(d)}
-        If $a<1$, any increase in $a$ makes the risky asset more desirable. Thus $\frac{dx_1}{da}\leq 0$
-      \subsubsection*{(e)}
-        $\frac{dx_1}{d\pi}<0$ is what is expected. With an increase in $\pi$, the risky asset becomes more attractive when $a>b$.
-      \subsubsection*{(f)}
-        
+        $u'(x_1+ax_2)\pi + u'(x_1 + bx_2)(1-\pi) = u'(x_1)$ \\
 
+        $u'(x_1+ax_2)\pi + u'(x_1 + bx_2)(1-\pi) = u'(x_2)$ \\
+
+        $MRS = 1$
+      \subsubsection*{(d)}
+        $\frac{dx_1}{da} = -\pi x_2u''(x_1+ax_2)/[\pi u''(x_1+ax_2)(1-a) + (1-\pi)u''(x_1+bx_2)(1-b) - u''(x_1)]$. Our numerator is negative due to his risk averse tendencies, but the denominator is positive. Thus, we can show that $\frac{dx_1}{da}\leq 0$
+      \subsubsection*{(e)}
+          Negative. This is because as $\pi$ increases, there is a higher probability of getting outcome a, making the risky asset more desired, reducing demand for the riskless asset. 
+      \subsubsection*{(f)}
+        $\frac{dx_2}{d\pi} = -\frac{dx_1}{d\pi} = -[u'(x_1+bx_2) - u'(x_1+ax_2)]/[\pi u''(x_1 + ax_2)(1-a)+(1-\pi)u''(x_1+bx_2)(1-b)-u''(x_1)]$. When $a>b$, the numerator is positive due to concavity and the denominator is positive due to risk aversion. Thus, we can show that $\frac{dx_1}{d\pi}<0$.
   \section*{6.C.16}
     \subsection*{Problem}
       An individual has Bernoulli utility function $u(\cdot)$ and initial wealth $w$. Let lottery $L$ offer a payoff of $G$ with probability $p$ and a payoff of $B$ with probability $1-p$.
@@ -192,7 +196,14 @@
 
       (d) Let $G=10, B=5, w=10$ and $u(x) = \sqrt{x}$. Compute the buying and selling prices for this lottery and the utility function. 
     \subsection*{Solution}
-
+      \subsubsection*{(a)}
+        Denote selling price by $\Gamma$. Thus, we can write the maximum sale price as such $u(w+\Gamma) = pu(w+G) + (1-p)u(w+B)$
+      \subsubsection*{(b)}
+        Denote buying price as $\pi$. Then, we can fine the maximum purchase price as such $pu(w-\pi+G)+(1-p)u(w-\pi+B) = u(w)$
+      \subsubsection*{(c)}
+        Normally, selling price is higher than buying price. They are equal when the utility is risk neutral.
+      \subsubsection*{(d)}
+        First, assume $p=0.5$. Then, for selling price $\Gamma$, we can solve as such $\sqrt{(10+\Gamma)}=0.5(\sqrt{20}) + 0.5(\sqrt{15})$. After simplifying, we get $\Gamma = 7.39$. For buying price $\pi$, we can solve via $0.5\sqrt{20-\pi}+0.5\sqrt{(15-\pi)} = \sqrt{10}$. After simplifying, we get $\pi = 7.21$. This makes sense as selling price should be higher than buying price. 
   \section*{6.C.18}
     \subsection*{Problem}
       Suppose that an individual has a Bernoulli utility function $u(x) = \sqrt{x}$.

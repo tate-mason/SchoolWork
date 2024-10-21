@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  20 OCT 2024 15:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  20 OCT 2024 20:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -389,14 +389,35 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 102.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [1] [2] [3]
-Overfull \hbox (14.5454pt too wide) in paragraph at lines 204--205
-[]\OT1/cmr/m/n/10 (c) Cal-cu-late the cer-tainty equiv-a-lent and the prob-a-bil-ity pre-mium for a gam-ble $(36\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 16; []\OML/cmm/m/it/10 ; []\OT1/cmr/m/n/10 )$.
+)
+<6.b.3d.png, id=9, 689.07437pt x 735.24687pt>
+File: 6.b.3d.png Graphic file (type png)
+<use 6.b.3d.png>
+Package pdftex.def Info: 6.b.3d.png  used on input line 121.
+(pdftex.def)             Requested size: 358.50229pt x 382.52129pt.
+
+Overfull \hbox (1.66377pt too wide) in paragraph at lines 121--123
+[] \OT1/cmr/m/n/10 Sorry it's
+ []
+
+[1] [2 <./6.b.3d.png>] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
+
  []
 
 [4]
-./MasonTate_HW4.tex:251: Undefined control sequence.
-l.251       Let $g: S\rightarrow \RR
+Overfull \hbox (14.5454pt too wide) in paragraph at lines 215--216
+[]\OT1/cmr/m/n/10 (c) Cal-cu-late the cer-tainty equiv-a-lent and the prob-a-bil-ity pre-mium for a gam-ble $(36\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 16; []\OML/cmm/m/it/10 ; []\OT1/cmr/m/n/10 )$.
+ []
+
+[5] [6]
+./MasonTate_HW4.tex:262: Undefined control sequence.
+l.262       Let $g: S\rightarrow \RR
                                     _+$ be a random variable with mean $E(g)...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -404,8 +425,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MasonTate_HW4.tex:251: Undefined control sequence.
-l.251 ...ew random variable $g^*: S\rightarrow \RR
+./MasonTate_HW4.tex:262: Undefined control sequence.
+l.262 ...ew random variable $g^*: S\rightarrow \RR
                                                   _+$ by $g^*(s) = \alpha g(...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -413,25 +434,25 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[5] [6] (./MasonTate_HW4.aux)
+[7] (./MasonTate_HW4.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4912 strings out of 474116
- 78661 string characters out of 5743682
- 1939187 words of memory out of 5000000
- 27176 multiletter control sequences out of 15000+600000
+ 4919 strings out of 474116
+ 78779 string characters out of 5743682
+ 1940187 words of memory out of 5000000
+ 27183 multiletter control sequences out of 15000+600000
  563488 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 65i,12n,79p,457b,303s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on MasonTate_HW4.pdf (7 pages, 164274 bytes).
+ 65i,12n,79p,551b,250s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on MasonTate_HW4.pdf (8 pages, 401387 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 104 PDF objects out of 1000 (max. 8388607)
+ 63 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
