@@ -1,0 +1,192 @@
+%% ECON 8040 - Macro: Problem Set 6 %%
+\documentclass[10pt, a4paper]{article}
+\usepackage[top=3cm, bottom=4cm, left=3.5cm, right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage[math-style=ISO]{unicode-math}
+\DeclareSymbolFont{\mathnormal}{letters}
+\usepackage{lastpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
+\newcommand\course{ECON - 8040}                            
+\newcommand\hwnumber{6}                                 
+\newcommand\Information{Tate Mason}                        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Page setup
+\pagestyle{fancy}
+\headheight 35pt
+\lhead{\today}
+\rhead{}
+\lfoot{}
+\pagenumbering{arabic}
+\cfoot{\small\thepage}
+\rfoot{}
+\headsep 1.2em
+\renewcommand{\baselinestretch}{1.25}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add new commands here
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\DeclareMathOperator{\Mod}{Mod}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newcommand{\assign}{:=}
+
+\begin{document}
+  \begin{titlepage}
+    \begin{center}
+      \vspace*{3cm}
+            
+      \vspace{1cm}
+      \huge
+      Homework \hwnumber
+            
+      \vspace{1.5cm}
+      \Large
+            
+      \textbf{\Information}
+            
+      \vfill
+      
+      Collaboration to varying degrees with Timothy Duhon, Josephine Hughes, Abdul Khan, Kasra Lak, Rachel Lobo, Mingzhou Wang, Wenyi Wang
+      \vspace{1cm}
+      
+      Due on Tuesday October 29, by 11:49pm
+
+      \vspace{1cm}
+
+      An \course \ Homework Assignment
+            
+      \vspace{1cm}
+      \Large
+      
+      \today
+            
+    \end{center}
+  \end{titlepage}
+
+\section*{Question 1}
+\subsection*{Problem}
+Consider the example of our endowment economy with two types of households. Assume utility function is
+\begin{gather*}
+  u(c) = \frac{c^{1-\sigma}-1}{1-\sigma} \text{ for } \sigma > 0
+\end{gather*}
+
+Also assume endowments growth at constant rate, i.e.,
+\begin{gather*}
+  e^1_t = \begin{cases}
+    2\gamma^t & \text{if t is even}\\
+    0 & \text{if t is odd}
+  \end{cases}\\
+  e^2_t = \begin{cases}
+    0 & \text{if t is even}\\
+    2\gamma^t & \text{if t is odd}
+  \end{cases}
+\end{gather*}
+
+Let $0 < \beta < 1$ be discount rate and assume $\beta\gamma^{1-\sigma} < 1$. (Note: for $\sigma = 1$, $u(c) = \log(c)$. Therefore the example we studied in class was a special case of this problem with $\gamma = 1$ and $\sigma = 1$)
+
+\subsection*{Parts}
+\subsubsection*{(a)}
+Define (Arrow-Debreu) competitive equilibrium.
+
+\subsubsection*{(b)}
+Drive household's Euler equation.
+
+\subsubsection*{(c)}
+Write down a social planner problem for some Pareto weights and solve for Pareto efficient allocations (treat Pareto weights as parameters). hint: it is easier to solve everything in terms of the ratio of weights $\alpha \equiv \frac{\alpha_2}{\alpha_1}$.
+
+\subsubsection*{(d)}
+Use Negishi Method to solve for competitive equilibrium allocations and prices.
+
+\subsubsection*{(e)}
+Find Pareto weights that generate the following allocation $(c^1_t, c^2_t) = (\gamma^t, \gamma^t)$. Find transfers needed to implement this allocation in a competitive equilibrium.
+
+\subsubsection*{(f)}
+How does growth rate of consumption depend on $\gamma$ and $\sigma$? How do equilibrium prices depend on $\gamma$ and $\sigma$?
+
+\subsubsection*{(g)}
+Define a sequential market competitive equilibrium. Find interest rate in this equilibrium. How do equilibrium interest rate depend on $\gamma$ and $\sigma$?
+
+\section*{Question 2}
+\subsection*{Problem}
+Consider the economy in question 1. Assume $\sigma = 1$ (so log utility) and $\gamma = 1$. Assume the following endowments
+\begin{gather*}
+  e^1_t = (2,0,2,0,2,\ldots)\\
+  e^2_t = (2,2,2,2,2,\ldots)
+\end{gather*}
+
+\subsection*{Parts}
+\subsubsection*{(a)}
+Find equilibrium allocations and prices. Are prices different than the one we derived during lecture? Why?
+
+\subsubsection*{(b)}
+Define a sequential market competitive equilibrium. Find interest rate in this equilibrium.
+
+\section*{Question 3}
+\subsection*{Problem}
+Consider the economy in question 2. Assume the following endowments
+\begin{gather*}
+  e^1_t = (2,1,2,1,2,\ldots)\\
+  e^2_t = (2,1,2,1,2,\ldots)
+\end{gather*}
+
+Find equilibrium allocations and prices. Does any trade happen in this equilibrium? Why?
+
+\section*{Question 4}
+\subsection*{Problem}
+Consider an economy with two types of household with the following preferences
+\begin{gather*}
+  \sum_{t=0}^{\infty} \beta_i^t \log(c^i_t) \text{ for } i = 1,2
+\end{gather*}
+
+The households are different in their discount factor $0 < \beta_1 < \beta_2 < 1$. Both households have endowment of $e_t = 1$ every period.
+
+\subsection*{Parts}
+\subsubsection*{(a)}
+Define (Arrow-Debreu) competitive equilibrium. And derive household's Euler equation.
+
+\subsubsection*{(b)}
+Write down a social planner problem for some Pareto weights and solve for Pareto efficient allocations (treat Pareto weights as parameters).
+
+\subsubsection*{(c)}
+Use Negishi Method to solve for competitive equilibrium allocations and prices. (hint: you can find weights that correspond to equilibrium by examining feasibility at $t = 0$ (or $t = \infty$))
+
+\subsubsection*{(d)}
+How does $\frac{c^1_t}{c^2_t}$ move over time? What it its limit?
+
+\subsubsection*{(e)}
+Explain what is happening here.
+
+\section*{Question 5 (Bonus)}
+\subsection*{Problem}
+Consider a two period endowment economy with a single consumption good, $c$. The economy is comprised of 2 types of households with identical preferences over consumption in periods $t = 0,1$
+\begin{gather*}
+  u(c^k_0) + u(c^k_1), k = 1,2
+\end{gather*}
+
+Fraction $\eta$ of households are of type 1 and have endowments $(e^1_0, e^2_1) = (1,0)$. The rest of the households are of type 2 and have endowments $(e^2_1, e^2_1) = (0,1)$. There is no production technology and consumption good is non-storable.
+
+\subsection*{Parts}
+\subsubsection*{(a)}
+Let $a_k$ be one period arrow security in this economy $(k = 1,2)$ with associate interest rate $i$. Households have no initial assets. There are no other assets in the economy. Define sequential market competitive equilibrium.
+
+\subsubsection*{(b)}
+Assume $u(c) = \log c$. Find interest rate $i$ as function of $\eta$. What happens to interest rate as $\eta$ increases?
+
+\subsubsection*{(c)}
+Discuss your answer to part (b). What is the intuition?
+
+\end{document}
