@@ -78,101 +78,133 @@
   \end{titlepage}
 
 \section*{Question 1}
-\subsection*{Problem}
-Consider the example of our endowment economy with two types of households. Assume utility function is
-\begin{gather*}
-  u(c) = \frac{c^{1-\sigma}-1}{1-\sigma} \text{ for } \sigma > 0
-\end{gather*}
-
-Also assume endowments growth at constant rate, i.e.,
-\begin{gather*}
-  e^1_t = \begin{cases}
-    2\gamma^t & \text{if t is even}\\
-    0 & \text{if t is odd}
-  \end{cases}\\
-  e^2_t = \begin{cases}
-    0 & \text{if t is even}\\
-    2\gamma^t & \text{if t is odd}
-  \end{cases}
-\end{gather*}
-
-Let $0 < \beta < 1$ be discount rate and assume $\beta\gamma^{1-\sigma} < 1$. (Note: for $\sigma = 1$, $u(c) = \log(c)$. Therefore the example we studied in class was a special case of this problem with $\gamma = 1$ and $\sigma = 1$)
-
-\subsection*{Parts}
-\subsubsection*{(a)}
-Define (Arrow-Debreu) competitive equilibrium.
-
-\subsubsection*{(b)}
-Drive household's Euler equation.
-
-\subsubsection*{(c)}
-Write down a social planner problem for some Pareto weights and solve for Pareto efficient allocations (treat Pareto weights as parameters). hint: it is easier to solve everything in terms of the ratio of weights $\alpha \equiv \frac{\alpha_2}{\alpha_1}$.
-
-\subsubsection*{(d)}
-Use Negishi Method to solve for competitive equilibrium allocations and prices.
-
-\subsubsection*{(e)}
-Find Pareto weights that generate the following allocation $(c^1_t, c^2_t) = (\gamma^t, \gamma^t)$. Find transfers needed to implement this allocation in a competitive equilibrium.
-
-\subsubsection*{(f)}
-How does growth rate of consumption depend on $\gamma$ and $\sigma$? How do equilibrium prices depend on $\gamma$ and $\sigma$?
-
-\subsubsection*{(g)}
-Define a sequential market competitive equilibrium. Find interest rate in this equilibrium. How do equilibrium interest rate depend on $\gamma$ and $\sigma$?
-
-\subsection*{Solutions}
-\subsubsection*{(a)}
-\begin{gather*}
-  {\max\atop{\{c^i_t\}^{\infty}_{t=0}}} \sum\limits_{t=0}^{\infty}\beta^t(\frac{c_t^i^{1-\sigma}-1}{1-\sigma})
-\end{gather*}
-s.t.
-\begin{gather*}
-  \sum\limits^{\infty}_{t=0} \hat{p}_tc_t^i \leq \sum\limits_{t=0}^{\infty}\hat{p}_te_t^i \\
-  \hat{c}_t^i \geq 0 \\
-  0 < \beta < 1\\
-\end{gather*}
-Markets Clear:
-\begin{gather*}
-  \hat{c}_t^1+\hat{c}_t^2 = \hat{e}_t^1+\hat{e}_t^2 \ \forall \ t
-\end{gather*}
-
-\subsubsection*{(b)}
-\begin{gather*}
-  u'(c_t^i) = \frac{p_{t+1}}{p_t}\beta(u'(c_{t+1}))
-\end{gather*}
-
-\subsubsection*{(c)}
-\begin{gather*}
-  {\max\atop{\{c^1_t, c^2_t\}_{t=0}^{\infty}}}\sum\limits_{t=0}^{\infty}\beta^t[\alpha_1\frac{c^1_t^{1-\sigma}-1}{1-\sigma}+\alpha_2\frac{c^2_t^{1-\sigma}}{1-\sigma}] \\
-\end{gather*}
-s.t. 
-\begin{gather*}
-  c_t^1+c_t^2=e_t^1+e_t^2 = 2\gamma^t; \lambda
-\end{gather*}
+  \subsection*{Problem}
+      Consider the example of our endowment economy with two types of households. Assume utility function is
+      \begin{gather*}
+        u(c) = \frac{c^{1-\sigma}-1}{1-\sigma} \text{ for } \sigma > 0
+      \end{gather*}
+      Also assume endowments growth at constant rate, i.e.,
+      \begin{gather*}
+        e^1_t = \begin{cases}
+          2\gamma^t & \text{if t is even}\\
+          0 & \text{if t is odd}
+        \end{cases}\\
+        e^2_t = \begin{cases}
+          0 & \text{if t is even}\\
+          2\gamma^t & \text{if t is odd}
+        \end{cases}
+      \end{gather*}
+      Let $0 < \beta < 1$ be discount rate and assume $\beta\gamma^{1-\sigma} < 1$. (Note: for $\sigma = 1$, $u(c) = \log(c)$. Therefore the example we studied in class was a special case of this problem with $\gamma = 1$ and $\sigma = 1$)
+  \subsection*{Parts}
+    \subsubsection*{(a)}
+      Define (Arrow-Debreu) competitive equilibrium.
+    \subsubsection*{(b)}
+      Drive household's Euler equation.
+    \subsubsection*{(c)}
+      Write down a social planner problem for some Pareto weights and solve for Pareto efficient allocations (treat Pareto weights as parameters). hint: it is easier to solve everything in terms of the ratio of weights $\alpha \equiv \frac{\alpha_2}{\alpha_1}$.
+    \subsubsection*{(d)}
+      Use Negishi Method to solve for competitive equilibrium allocations and prices.
+    \subsubsection*{(e)}
+      Find Pareto weights that generate the following allocation $(c^1_t, c^2_t) = (\gamma^t, \gamma^t)$. Find transfers needed to implement this allocation in a competitive equilibrium.
+    \subsubsection*{(f)}
+      How does growth rate of consumption depend on $\gamma$ and $\sigma$? How do equilibrium prices depend on $\gamma$ and $\sigma$?
+    \subsubsection*{(g)}
+      Define a sequential market competitive equilibrium. Find interest rate in this equilibrium. How do equilibrium interest rate depend on $\gamma$ and $\sigma$?
+  \subsection*{Solutions}
+    \subsubsection*{(a)}
+      \begin{gather*}
+        {\max\atop{\{c^i_t\}^{\infty}_{t=0}}} \sum\limits_{t=0}^{\infty}\beta^t(\frac{c_t^i^{1-\sigma}-1}{1-\sigma})
+      \end{gather*}
+      s.t.
+      \begin{gather*}
+        \sum\limits^{\infty}_{t=0} \hat{p}_tc_t^i \leq \sum\limits_{t=0}^{\infty}\hat{p}_te_t^i \\
+        \hat{c}_t^i \geq 0 \\
+        0 < \beta < 1\\
+      \end{gather*}
+      Markets Clear:
+      \begin{gather*}
+        \hat{c}_t^1+\hat{c}_t^2 = \hat{e}_t^1+\hat{e}_t^2 \ \forall \ t
+      \end{gather*}
+    \subsubsection*{(b)}
+      \begin{gather*}
+        c^i_t: \frac{\beta^t}{{c_t^i}^{\sigma}} - \lambda p_t \\
+        c_{t+1}^i: \frac{\beta^{t+1}}{{c_{t+1}^i}^{\sigma}} - \lambda p_{t+1} \\
+        \beta\frac{{c_{t+1}^i}^{\sigma}}{{c_t^i}^{\sigma}} = \frac{p_t}{p_{t+1}} \\
+        {c_{t+1}^i}^{\sigma}p_{t+1} = \beta {c_t^i}^{\sigma}p_t
+      \end{gather*}
+    \subsubsection*{(c)}
+      \begin{gather*}
+        {\max\atop{\{c^1_t, c^2_t\}_{t=0}^{\infty}}}\sum\limits_{t=0}^{\infty}\beta^t[\alpha_1\frac{c^1_t^{1-\sigma}-1}{1-\sigma}+\alpha_2\frac{c^2_t^{1-\sigma}}{1-\sigma}] \\
+      \end{gather*}
+      s.t. 
+      \begin{gather*}
+        c_t^1+c_t^2=e_t^1+e_t^2 = 2\gamma^t; \lambda
+      \end{gather*}
+      Lagrangian:
+      \begin{gather*}
+        \mathcal{L} = \sum\limits_{t=0}^{\infty}\alpha\sum\limits_{t=0}^{\infty}\beta^t\frac{{c_t^i}^{1-\sigma}-1}{1-\sigma} + \frac{\mu}{2}[\sum\limits_{t=0}^{\infty} e_t^i - \sum\limits_{t=0}^{\infty} c_t^i] \\
+        \mathcal{L}_c = \alpha\beta c^{-\sigma}-\frac{\mu}{2} = 0 \\
+        c_t^1: \alpha_1\beta {c_t^1}^{-\sigma}-\frac{\mu}{2} \\
+        c_t^2: \alpha_2\beta {c_t^2}^{-\sigma}-\frac{\mu}{2} \\
+      \end{gather*}
+    \subsubsection*{(d)}
+      Divide the two FOC's
+      \begin{gather*}
+        \frac{\alpha_1\beta {c_t^1}^{-\sigma}-\frac{\mu}{2}}{\alpha_2\beta {c_t^2}^{-\sigma}-\frac{\mu}{2}} \\
+        1 = \frac{\alpha_1}{\alpha_2} (\frac{c_t^1}{c_t^2})^{-\sigma} \\
+        (\frac{\alpha_2}{\alpha_1})^{\sigma} = \frac{c_t^1}{c_t^2} \\
+        \alpha\equiv\frac{\alpha_2}{\alpha_1} \Rightarrow c_t^1 = c_t^2 \alpha^{\sigma} \\
+        \alpha^{\sigma}c_t^2+c_t^2 = 2\gamma \\
+        c_t^2 = \frac{2\gamma}{1+\alpha^{\sigma}} \\
+        c_t^1 = \frac{2\gamma}{1+\alpha^{-\sigma}} \\
+      \end{gather*}
+      Solving for $\mu$
+      \begin{gather*}
+        \mu_1 = 2(\alpha\beta[\frac{2\gamma}{\alpha^{-\sigma}-1}]^{-\sigma}) \\
+        \mu_2 = 2(\alpha\beta[\frac{2\gamma}{\alpha^{\sigma}-1}]^{-\sigma}) \\
+      \end{gather*}
 \section*{Question 2}
-\subsection*{Problem}
-Consider the economy in question 1. Assume $\sigma = 1$ (so log utility) and $\gamma = 1$. Assume the following endowments
-\begin{gather*}
-  e^1_t = (2,0,2,0,2,\ldots)\\
-  e^2_t = (2,2,2,2,2,\ldots)
-\end{gather*}
+  \subsection*{Problem}
+    Consider the economy in question 1. Assume $\sigma = 1$ (so log utility) and $\gamma = 1$. Assume the following endowments
+    \begin{gather*}
+      e^1_t = (2,0,2,0,2,\ldots)\\
+      e^2_t = (2,2,2,2,2,\ldots)
+    \end{gather*}
 
-\subsection*{Parts}
-\subsubsection*{(a)}
-Find equilibrium allocations and prices. Are prices different than the one we derived during lecture? Why?
+  \subsection*{Parts}
+    \subsubsection*{(a)}
+      Find equilibrium allocations and prices. Are prices different than the one we derived during lecture? Why?
 
-\subsubsection*{(b)}
-Define a sequential market competitive equilibrium. Find interest rate in this equilibrium.
+    \subsubsection*{(b)}
+      Define a sequential market competitive equilibrium. Find interest rate in this equilibrium.
 
+  \subsection*{Solutions}
+    \subsubsection*{(a)}
+      \begin{gather*}
+        {\max\atop{c_t^i}_{t=0}^{\infty}}\sum\limits_{t=0}^{\infty}\beta^t\text{ln}(c_t^i)
+      \end{gather*}
+      s.t.
+      \begin{gather*}
+        \sum\limits_{t=0}^{\infty}\hat{p}_tc_t^i\leq\sum\limits_{t=0}^{\infty}\hat{p}_te_t^i \\
+        \hat{c}_t^i\geq0 \\
+        0<\beta<1 \\
+      \end{gather*}
+      Markets Clear:
+      \begin{gather*}
+        e_t^1+e_t^2 = c_t^1+c_t^2 = \begin{cases}
+          4, \text{if $t$ is odd} \\
+          2, \text{if $t$ is even} \\
+        \end{cases}
+      \end{gather*}
 \section*{Question 3}
-\subsection*{Problem}
-Consider the economy in question 2. Assume the following endowments
-\begin{gather*}
-  e^1_t = (2,1,2,1,2,\ldots)\\
-  e^2_t = (2,1,2,1,2,\ldots)
-\end{gather*}
+  \subsection*{Problem}
+    Consider the economy in question 2. Assume the following endowments
+    \begin{gather*}
+      e^1_t = (2,1,2,1,2,\ldots)\\
+      e^2_t = (2,1,2,1,2,\ldots)
+    \end{gather*}
 
-Find equilibrium allocations and prices. Does any trade happen in this equilibrium? Why?
+    Find equilibrium allocations and prices. Does any trade happen in this equilibrium? Why?
 
 \section*{Question 4}
 \subsection*{Problem}
