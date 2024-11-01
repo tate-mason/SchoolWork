@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  31 OCT 2024 13:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  1 NOV 2024 18:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -378,55 +378,242 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 109.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 110.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 109.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 110.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 109.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 110.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1]
+./hw5.tex:124: Missing } inserted.
+<inserted text> 
+                }
+l.124       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+./hw5.tex:124: LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.124       \end{gather*}
+                         
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 124.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 124.
+
+./hw5.tex:124: Missing { inserted.
+<inserted text> 
+                {
+l.124       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./hw5.tex:124: Missing } inserted.
+<inserted text> 
+                }
+l.124       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./hw5.tex:124: Missing $ inserted.
+<inserted text> 
+                $
+l.124       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./hw5.tex:124: Missing { inserted.
+<inserted text> 
+                {
+l.124       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./hw5.tex:124: Extra }, or forgotten $.
+<recently read> }
+                 
+l.124       \end{gather*}
+                         
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./hw5.tex:124: Missing $ inserted.
+<inserted text> 
+                $
+l.124       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./hw5.tex:124: Missing } inserted.
+<inserted text> 
+                }
+l.124       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./hw5.tex:124: Missing } inserted.
+<inserted text> 
+                }
+l.124       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+./hw5.tex:124: LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.124       \end{gather*}
+                         
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./hw5.tex:124: Missing { inserted.
+<inserted text> 
+                {
+l.124       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./hw5.tex:124: Missing } inserted.
+<inserted text> 
+                }
+l.124       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./hw5.tex:124: Missing $ inserted.
+<inserted text> 
+                $
+l.124       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./hw5.tex:124: Missing { inserted.
+<inserted text> 
+                {
+l.124       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./hw5.tex:124: Extra }, or forgotten $.
+<recently read> }
+                 
+l.124       \end{gather*}
+                         
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./hw5.tex:124: Missing $ inserted.
+<inserted text> 
+                $
+l.124       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./hw5.tex:124: Missing } inserted.
+<inserted text> 
+                }
+l.124       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
 <PS1-5.png, id=19, 254.9525pt x 108.405pt>
 File: PS1-5.png Graphic file (type png)
 <use PS1-5.png>
-Package pdftex.def Info: PS1-5.png  used on input line 118.
+Package pdftex.def Info: PS1-5.png  used on input line 129.
 (pdftex.def)             Requested size: 159.333pt x 67.7513pt.
 <PS1-7.png, id=21, 476.78125pt x 179.67125pt>
 File: PS1-7.png Graphic file (type png)
 <use PS1-7.png>
-Package pdftex.def Info: PS1-7.png  used on input line 128.
+Package pdftex.def Info: PS1-7.png  used on input line 139.
 (pdftex.def)             Requested size: 286.80426pt x 108.08594pt.
-<PS2-1.png, id=22, 265.99374pt x 109.40875pt>
+[2 <./PS1-5.png>]
+<PS2-1.png, id=26, 265.99374pt x 109.40875pt>
 File: PS2-1.png Graphic file (type png)
 <use PS2-1.png>
-Package pdftex.def Info: PS2-1.png  used on input line 134.
+Package pdftex.def Info: PS2-1.png  used on input line 145.
 (pdftex.def)             Requested size: 159.333pt x 65.5389pt.
- [2 <./PS1-5.png> <./PS1-7.png> <./PS2-1.png>]
-<PS2-2.png, id=29, 261.97874pt x 126.4725pt>
+<PS2-2.png, id=27, 261.97874pt x 126.4725pt>
 File: PS2-2.png Graphic file (type png)
 <use PS2-2.png>
-Package pdftex.def Info: PS2-2.png  used on input line 140.
+Package pdftex.def Info: PS2-2.png  used on input line 151.
 (pdftex.def)             Requested size: 159.333pt x 76.92038pt.
- [3 <./PS2-2.png>] (./hw5.aux)
+ [3 <./PS1-7.png> <./PS2-1.png> <./PS2-2.png>] (./hw5.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4934 strings out of 474116
- 78852 string characters out of 5743682
- 1934187 words of memory out of 5000000
- 27199 multiletter control sequences out of 15000+600000
+ 4957 strings out of 474116
+ 79285 string characters out of 5743682
+ 1933187 words of memory out of 5000000
+ 27219 multiletter control sequences out of 15000+600000
  563142 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 65i,11n,79p,922b,303s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 65i,11n,79p,922b,308s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on hw5.pdf (4 pages, 138689 bytes).
+Output written on hw5.pdf (4 pages, 140770 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  41 compressed objects within 1 object stream

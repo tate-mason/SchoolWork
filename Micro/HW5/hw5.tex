@@ -103,9 +103,6 @@
 
     Suppose that player i values the object at vi dollars, and that all players’ valuations are commonly known. Show that it is a weakly dominant strategy for player i to bid his valuation.
   \subsection*{Solution}
-    \begin{proof}
-      If player $i$ were to bid $v_i$ on the object, all other players would bid equal to their valuation $v_i$ due to the fact that the winner will always pay whatever the next lowest bid is. Since there is common knowledge of player strategies, bidding at valuation implies that the player either receives a place in the lottery for victory or does not overpay for the item.  
-    \end{proof}
 \section*{PS1 - Question 4}
   \subsection*{Problem}
     Two travelers returning home from a remote island where they bought identical antiques discover that the airline has managed to smash them. The airline manager decides to use the following scheme to determine the compensation that the airline will give each traveler: Each traveler will separately report the cost of the antique, stating an integer number of dollars between 2 and 500. If both report the same number of dollars, then the airline will give each of them that number of dollars. If they report different numbers of dollars, then the traveler who stated the smaller number will be given the amount he stated plus a bonus of 2 dollars; the traveler who stated the higher number will be given the amount stated by the other traveler minus a penalty of 2 dollars. Suppose that each traveler cares only about maximizing the expected number of dollars he receives from the airline.
@@ -117,7 +114,14 @@
       If there is a common knowledge of rationality between the players, what is the appropriate prediction of play in $G$?
   \subsection*{Solutions}
     \subsubsection*{(i)}
-      
+      \begin{gather*}
+        $\mathcal{P} = \{1,2\}$\\
+        $S_i \in [2,500]$ \\ 
+        \text{Payoffs:}\\
+          s_1 = s_2: u(s_1, s_2) = s_i \ for \ i \in [1,2] \\
+          s_1 > s_2: u(s_1, s_2) = s_2 - 2 \\
+          s_1 < s_2: u(s_1, s_2) = s_1 + 2 \\
+      \end{gather*}
 \section*{PS1 - Question 5}
   \subsection*{Problem}
     Consider the following normal form game:
