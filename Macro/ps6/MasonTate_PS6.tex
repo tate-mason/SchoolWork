@@ -130,12 +130,9 @@
         c^i_t: \frac{\beta^t}{{c_t^i}^{\sigma}} - \lambda p_t \\
         c_{t+1}^i: \frac{\beta^{t+1}}{{c_{t+1}^i}^{\sigma}} - \lambda p_{t+1} \\
         \beta\frac{{c_{t+1}^i}^{\sigma}}{{c_t^i}^{\sigma}} = \frac{p_t}{p_{t+1}} \\
-<<<<<<< HEAD
         {c_{t+1}^i}^{\sigma}p_{t+1} = \beta {c_t^i}^{\sigma}p_t \\
-        {c_{t+1}^i}^{\sigma} = \beta\frac{p_t}{p_{t+1}}{c_t^i}^{\sigma}
-=======
+        {c_{t+1}^i}^{\sigma} = \beta\frac{p_t}{p_{t+1}}{c_t^i}^{\sigma} \\
         {c_{t+1}^i}^{\sigma} = \beta \frac{p_t}{p_{t+1}}{c_t^i}^{\sigma}
->>>>>>> 9176d0f066c99492f90177ff1154f1153280797b
       \end{gather*}
     \subsubsection*{(c)}
       \begin{gather*}
@@ -165,10 +162,20 @@
     \subsubsection*{(d)}
       Solving for $\mu$
       \begin{gather*}
-        c_t^i: \frac{\mu_{t}}{2\alpha} = \frac{\beta^t}{c_t^{\sigma}} \\
-        c_{t+1}^i: \frac{\mu_{t+1}}{2\alpha} = \frac{\beta^{t+1}}{c_{t+1}^{\sigma}} \\
-        \\
-        \frac{\mu_{t+1}}{\mu_t} = \beta\frac{c_t}{c_{t+1}} = 
+        c_t^1: \frac{\mu_t}{2\alpha_1} = \frac{\beta^t}{c_t^{1\sigma}} \\
+        c_{t+1}^1: \frac{\mu_{t+1}}{2\alpha_1} = \frac{\beta^{t+1}}{c_{t+1}^{1^{\sigma}}} \\
+        \frac{\mu_{t+1}}{mu_t} = \frac{\beta^{t+1}}{c_{t+1}^{\sigma}}\cdot\frac{c_t^{1\sigma}}{\beta_t} \rightarrow \frac{\mu_{t+1}}{\mu_t} = \beta(\frac{\frac{2\gamma^t\alpha^{\sigma}}{1+\alpha^{\sigma}}}{\frac{2\gamma^{t+1}\alpha^{\sigma}}{1+\alpha^{\sigma}}}) \\
+        \frac{\mu_{t+1}}{\mu} = \beta\gamma^{\sigma} \rightarrow \mu_t = \beta^t\gamma^{t\sigma}\mu_0 \\
+      \end{gather*}
+      Finding C.E. allocations:
+      \begin{gather*}
+        \sum\limits_{t=0}^{\infty}\beta^t\gamma^{t\sigma}\mu_0\cdot\frac{2\gamma\alpha^{\sigma}}{1+\alpha^{\sigma}} = \sum\limits_{t=0}^{\infty}\beta^{2t}\gamma^{t\sigma}\mu_0\cdot2\gamma \\
+        \gamma^{t\sigma}\mu_0\cdot\frac{2\gamma\alpha^{\sigma}}{1+\alpha^{\sigma}}\sum\limits_{t=0}^{\infty}\beta^t = 2\gamma^t\cdot\gamma^{t\sigma}\mu_0\sum\limits_{t=0}^{\infty}\beta^2t \\
+        \frac{\alpha^{\sigma}}{1+\alpha^{\sigma}}  = \frac{1}{1+\beta} \\
+        \alpha_1^{\sigma} = \frac{1+\alpha^{\sigma}}{1+\beta} \\
+        \alpha_2^{\sigma} = -\frac{1+\alpha^{\sigma}}{1+\beta} \\
+        c_1 = (\frac{2\gamma^t\alpha^\sigma}{1+\beta})^{\frac{1}{\sigma}} \\
+        c_2 = (\frac{2\gamma^t}{1+\beta})^{\frac{1}{\sigma}}
       \end{gather*}
       
 \section*{Question 2}
