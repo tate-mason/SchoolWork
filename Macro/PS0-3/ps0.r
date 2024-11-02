@@ -6,7 +6,7 @@ library(readxl)     # for Excel file reading
 library(zoo)        # for time series operations
 
 # Set working directory paths
-root_path <- "~/Dropbox/Schoolwork/Macro1/ProblemSets/PS0"
+root_path <- "~/Library/CloudStorage/Dropbox/Schoolwork/Macro1/ProblemSets/PS0"
 code_path <- file.path(root_path, "code")
 data_path <- file.path(root_path, "Data")
 output_path <- file.path(root_path, "Output")
