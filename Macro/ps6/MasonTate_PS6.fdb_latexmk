@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1730503345.36937 "MasonTate_PS6.tex" "MasonTate_PS6.pdf" "MasonTate_PS6" 1730503345.9412 2
+["pdflatex"] 1730504532.19047 "MasonTate_PS6.tex" "MasonTate_PS6.pdf" "MasonTate_PS6" 1730504532.82567 2
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -79,11 +79,11 @@
   "/usr/local/texlive/2024/texmf-dist/tex/latex/trimspaces/trimspaces.sty" 1253232110 1380 971a51b00a14503ddf754cab24c3f209 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/unicode-math/unicode-math.sty" 1691956686 1474 b42cfbe849cb22ed1c0632800327884f ""
   "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1708706663 41649 5d6ae549fbbcb850a863f69aa41f3d10 ""
-  "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726531688.57061 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
-  "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726531591 8221416 a0a37a22ef1e1daff65ca6313af8730d ""
+  "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726531775.59856 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
+  "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726531728 8221416 7622689328259d61c3c9d6e7fe6e013f ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "MasonTate_PS6.aux" 1730503345.86562 32 4d1825978335c8847f72f7c473f9edc8 "pdflatex"
-  "MasonTate_PS6.tex" 1730503344.84271 10798 ac7df05fa750110dfa0295d889b023cc ""
+  "MasonTate_PS6.aux" 1730504532.75354 32 4d1825978335c8847f72f7c473f9edc8 "pdflatex"
+  "MasonTate_PS6.tex" 1730504531.31612 11007 0b164dfd22b6a6e7613066829c58fc06 ""
   (generated)
   "MasonTate_PS6.aux"
   "MasonTate_PS6.log"
