@@ -109,7 +109,7 @@
     \subsubsection*{(i)}
       Define the normal form game $G$ corresponding to the story above specifying the set of players $\mathcal{P}$, their strategy sets  $S_i$, and their payoff functions $u_i$.
     \subsubsection*{(ii)}
-      Fix player 1's beliefs $\mu_1\in\Delta S_2$, ans suppose that the highest strategy in $S_2$ that receives positive probability under $\mu_1$ is $\bar{s}_2>2$. Show that player 1's best response given his beliefs must be less than $\bar{s}_2$. (Hint: Start by computing player 1's payoff from choosing a strategy greater than $\bar{s}_2$, and notice that answering the question does not necessarily require you to compute player 1's best response to $\mu_1$)
+      Fix player 1's beliefs $\mu_1\in\Delta S_2$, and suppose that the highest strategy in $S_2$ that receives positive probability under $\mu_1$ is $\bar{s}_2>2$. Show that player 1's best response given his beliefs must be less than $\bar{s}_2$. (Hint: Start by computing player 1's payoff from choosing a strategy greater than $\bar{s}_2$, and notice that answering the question does not necessarily require you to compute player 1's best response to $\mu_1$)
     \subsubsection*{(iii)}
       If there is a common knowledge of rationality between the players, what is the appropriate prediction of play in $G$?
   \subsection*{Solutions}
@@ -123,7 +123,13 @@
           s_1 < s_2: u(s_1, s_2) = s_1 + 2 \\
       \end{gather*}
     \subsubsection*{(ii)}
-      
+      \begin{proof}
+        $s_1 > \bar{s}_2$ would result in player 1 receiving payoff $\bar{s}_2-2$. If they were to bid $\bar{s}_2$, the two players would receive equal payoffs. So, by bidding less than $\bar{s}_2$, player 1 will receive their bid + 2 dollars, while the opponent will receive player 1's bid -2 dollars.
+      \end{proof}
+    \subsubsection*{(iii)}
+      \begin{proof}
+        Bidding 500 would be dominated by bidding 499. Then, bidding 499 becomes dominated by 498. This iterative elimination process continues until the only option remaining is to bid the minimum, 2 dollars. Thus, under common knowledge, both players bid 2 dollars, receiving an equal payoff.
+      \end{proof}
 \section*{PS1 - Question 5}
   \subsection*{Problem}
     Consider the following normal form game:
@@ -134,23 +140,36 @@
       Are any pure strategies in this game strictly dominated? If so, then for each such strategy $s_i$, identify all dominating strategies that do not put positive probability on $s_i$.
     \subsubsection*{(ii)}
       If there is common knowledge of rationality between the players, what should our prediction of play in this game be?
+  \subsection*{Solutions}
+    \subsubsection*{(i)}
+      For both players, there is no strictly dominated strategy.
+    \subsubsection*{(ii)}
+      All strategies could played if there is common knowledge of rationality.
 \section*{PS1 - Question 7}
   \subsection*{Problem}
     Which pure strategies are rationalizable in the following normal form game? Explain.
     \begin{center}
       \includegraphics[width = 0.72\textwidth]{PS1-7.png}
     \end{center}
+  \subsection*{Solution}
+    Player 1: Strategy E is dominated by other strategies, and thus can be eliminated. Then, eliminate D for the same reason. Finally, eliminate C. This leaves A and B as rationalizable strategies for player 1. \\
+    Player 2: Player 2 will go through the same process, eliminating e, d, and c, leaving a and b as rationalizable strategies. \\
+    This leaves $S_1 = [A,B]$ and $S_1 = [a,b]$. 
 \section*{PS2 - Question 1}
   \subsection*{Problem}
     Compute all Nash equilibria in the following game:
     \begin{center}
       \includegraphics[width = 0.4\textwidth]{PS2-1.png}
     \end{center}
+  \subsection*{Solution}
+    (T,R) is a pure strategy nash equilibrium. 
 \section*{PS2 - Question 2}
   \subsection*{Problem}
     Find all Nash equilibria in the following game: 
     \begin{center}
       \includegraphics[width=0.4\textwidth]{PS2-2.png}
     \end{center}
+  \subsection*{Solution}
+    
 \end{document}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  1 NOV 2024 18:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  3 NOV 2024 10:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -580,23 +580,23 @@ my insertion and my current dilemma will both disappear.
 <PS1-5.png, id=19, 254.9525pt x 108.405pt>
 File: PS1-5.png Graphic file (type png)
 <use PS1-5.png>
-Package pdftex.def Info: PS1-5.png  used on input line 129.
+Package pdftex.def Info: PS1-5.png  used on input line 137.
 (pdftex.def)             Requested size: 159.333pt x 67.7513pt.
-<PS1-7.png, id=21, 476.78125pt x 179.67125pt>
+[2 <./PS1-5.png>]
+<PS1-7.png, id=26, 476.78125pt x 179.67125pt>
 File: PS1-7.png Graphic file (type png)
 <use PS1-7.png>
-Package pdftex.def Info: PS1-7.png  used on input line 139.
+Package pdftex.def Info: PS1-7.png  used on input line 147.
 (pdftex.def)             Requested size: 286.80426pt x 108.08594pt.
-[2 <./PS1-5.png>]
-<PS2-1.png, id=26, 265.99374pt x 109.40875pt>
+<PS2-1.png, id=27, 265.99374pt x 109.40875pt>
 File: PS2-1.png Graphic file (type png)
 <use PS2-1.png>
-Package pdftex.def Info: PS2-1.png  used on input line 145.
+Package pdftex.def Info: PS2-1.png  used on input line 153.
 (pdftex.def)             Requested size: 159.333pt x 65.5389pt.
-<PS2-2.png, id=27, 261.97874pt x 126.4725pt>
+<PS2-2.png, id=28, 261.97874pt x 126.4725pt>
 File: PS2-2.png Graphic file (type png)
 <use PS2-2.png>
-Package pdftex.def Info: PS2-2.png  used on input line 151.
+Package pdftex.def Info: PS2-2.png  used on input line 159.
 (pdftex.def)             Requested size: 159.333pt x 76.92038pt.
  [3 <./PS1-7.png> <./PS2-1.png> <./PS2-2.png>] (./hw5.aux)
  ***********
@@ -605,18 +605,18 @@ L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4957 strings out of 474116
- 79285 string characters out of 5743682
- 1933187 words of memory out of 5000000
- 27219 multiletter control sequences out of 15000+600000
- 563142 words of font info for 55 fonts, out of 8000000 for 9000
+ 4961 strings out of 474116
+ 79360 string characters out of 5743682
+ 1936187 words of memory out of 5000000
+ 27222 multiletter control sequences out of 15000+600000
+ 563488 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 65i,11n,79p,922b,308s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on hw5.pdf (4 pages, 140770 bytes).
+ 65i,11n,79p,922b,252s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on hw5.pdf (4 pages, 152235 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+ 81 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
