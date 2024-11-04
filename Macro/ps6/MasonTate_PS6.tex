@@ -356,7 +356,41 @@
       Explain what is happening here.
   \subsection*{Solutions}
     \subsubsection*{(a)}
-      
+      \begin{gather*}
+        {\max\atop{\{c_t^i\}_{t=0}^{\infty}}}\sum\limits_{t=0}^{\infty}\beta_i^t\log{c_t^i}
+      \end{gather*}
+      s.t.
+      \begin{gather*}
+        \sum\limits_{t=0}^{\infty}\hat{p}_tc_t^i \leq\sum\limits_{t=0}^{\infty}\hat{p}_te_t^i \\
+        c_t^i\geq0 \\
+        0<\beta_1<\beta_2<1
+      \end{gather*}
+      Markets clear:
+      \begin{gather*}
+        \sum\limits_{i=1}^2\hat{c}_t^i = \sum\limits_{i=1}^2e_t^i
+      \end{gather*}
+      Lagrangian and FOC's:
+      \begin{gather*}
+        \mathcal{L} = \beta_i^t\log(c_t^i) + \lambda(p_t(e_t^i-c_t^i)) \\
+        \mathcal{L}_{c_t} = \beta_i^t\frac{1}{c_t^i} = \lambda p_t \\
+        \mathcal{L}_{c_{t+1}} = \beta_i^{t+1}\frac{1}{c_{t+1}^i} = \lambda p_{t+1} \\
+      \end{gather*}
+      Divide the two:
+      \begin{gather*}
+        \frac{\beta_t}{\beat_{t+1}} \frac{c_{t+1}}{c_t} = \frac{p_t}{p_{t+1}} \\
+        c_{t+1}^i = \beta_i\frac{p_t}{p_{t+1}}c_t^i \\
+        \boxed{c_{t}^i = \beta^t_i\frac{p_0}{p_{t}}c^i_0}
+      \end{gather*}
+    \subsubsection*{(b)}
+      \begin{gather*}
+        {\max\atop{\{c_t^1,c_t^2\}_{t=0}^{\infty}}} \sum\limits_{i=1}^{2}\alpha\sum\limits_{t=0}^{\infty}\beta_i^t\log(c_t^i) \\
+      \end{gather*}
+      s.t.
+      \begin{gather*}
+        \sum\limits_{t=0}^{\infty}c_t^i = \sum\limits_{t=0}^{\infty}e_t^i \ \forall t\\
+        c_t^i \geq 0 \ \forall t \ \text{and} \ i = 1,2 \\
+      \end{gather}
+
 \section*{Question 5 (Bonus)}
   \subsection*{Problem}
     Consider a two period endowment economy with a single consumption good, $c$. The economy is comprised of 2 types of households with identical preferences over consumption in periods $t = 0,1$
