@@ -103,6 +103,12 @@
 
     Suppose that player i values the object at vi dollars, and that all players’ valuations are commonly known. Show that it is a weakly dominant strategy for player i to bid his valuation.
   \subsection*{Solution}
+    \begin{proof}
+      1. $v_i>x_i$. In this case, player $i$ would win given $u_i(v_i, s_{-i}) > u_i(x_i, s_{-i})$ and $u_i(x_i, s_{-i})$ , or lose if $u_i(x_i, s_{-i}) = 0$ \\
+      2. $v_i < x_i$. In this case, player $i$ would win if $u_i(v_i, s_{-i})<u_i(x_i, s_{-i})$ and $u_i(x_i, s_{-i})$ or lose if $u_i(x_i, s_{-i}) = 0$. \\
+      3. $v_i = x_i$. In this case, player $i$ would win if $u_i(v_i, s_{-i}) = u_i(x_i, s_{-i})$ and $u_i(x_i, x_{-i}) < 0$ and loses if $u_i(x_i, s_{-i}) = 0$. \\
+      Bidding $v_i=x_i$ is a weakly dominated strategy because utility is at least as good as bidding $x_i>v_i$. 
+    \end{proof}
 \section*{PS1 - Question 4}
   \subsection*{Problem}
     Two travelers returning home from a remote island where they bought identical antiques discover that the airline has managed to smash them. The airline manager decides to use the following scheme to determine the compensation that the airline will give each traveler: Each traveler will separately report the cost of the antique, stating an integer number of dollars between 2 and 500. If both report the same number of dollars, then the airline will give each of them that number of dollars. If they report different numbers of dollars, then the traveler who stated the smaller number will be given the amount he stated plus a bonus of 2 dollars; the traveler who stated the higher number will be given the amount stated by the other traveler minus a penalty of 2 dollars. Suppose that each traveler cares only about maximizing the expected number of dollars he receives from the airline.
@@ -142,9 +148,23 @@
       If there is common knowledge of rationality between the players, what should our prediction of play in this game be?
   \subsection*{Solutions}
     \subsubsection*{(i)}
-      For both players, there is no strictly dominated strategy.
+      No matter $P_1$'s strategy, $P_2$ will never choose the center column. Thus, a mixed strategy of L and R exist which strictly dominate C. \\
+      $P_1$ chooses T: 
+      \begin{gather*}
+        3P + (1-P)6 > 4 \\
+        6 - 3P > 4 \\
+        3P < 2 \\
+        P < \frac{2}{3} 
+      \end{gather*}
+      $P_1$ chooses B:
+      \begin{gather*}
+        2P + (1-P)0 > 1 \\
+        2P > 1 \\
+        P > \frac{1}{2}
+      \end{gather*}
+      So, a strategy of choosing L with probability $\frac{1}{2} < P < \frac{2}{3}$ and R with probability $(1-p)$ strictly dominates. 
     \subsubsection*{(ii)}
-      All strategies could played if there is common knowledge of rationality.
+      Common knowledge will see strategy $(T,R)$ chosen. 
 \section*{PS1 - Question 7}
   \subsection*{Problem}
     Which pure strategies are rationalizable in the following normal form game? Explain.
@@ -152,9 +172,7 @@
       \includegraphics[width = 0.72\textwidth]{PS1-7.png}
     \end{center}
   \subsection*{Solution}
-    Player 1: Strategy E is dominated by other strategies, and thus can be eliminated. Then, eliminate D for the same reason. Finally, eliminate C. This leaves A and B as rationalizable strategies for player 1. \\
-    Player 2: Player 2 will go through the same process, eliminating e, d, and c, leaving a and b as rationalizable strategies. \\
-    This leaves $S_1 = [A,B]$ and $S_1 = [a,b]$. 
+    All pure strategies for both players are rationalizable.
 \section*{PS2 - Question 1}
   \subsection*{Problem}
     Compute all Nash equilibria in the following game:
@@ -162,14 +180,69 @@
       \includegraphics[width = 0.4\textwidth]{PS2-1.png}
     \end{center}
   \subsection*{Solution}
-    (T,R) is a pure strategy nash equilibrium. 
-\section*{PS2 - Question 2}
+    $\{(T,R), (B,L)\}$ are pure strategy Nash equilibria. \\
+    C is not a pure strategy, so we should look for mixed strategy of L and R which strictly dominates pure strategy C.
+    $P_1$ chooses T:
+    \begin{gather*}
+      $4p + (1-p)7 > 6$ \\
+      $7 - 3P > 6$ \\
+      $3P < 1$ \\
+      $P < \frac{1}{3}$
+    \end{gather*}
+    $P_1$ chooses B:
+    \begin{gather*}
+      $9P + (1-P)1 > 5$ \\
+      $8P > 4$ \\
+      $P > \frac{1}{2}$
+    \end{gather*}
+    This probability of a mixed strategy is not feasible, so we can infer that $P_2$ is at least indifferent between two strategies. So when $P_1$ mixes their strategies:
+    \begin{gather*}
+      U_2(L,\sigma_1) = 4P + (1-P)9 = 9 - 5P \\
+      U_2(C, \sigma_1) = 6P + (1-P)5 = 5 + P \\
+      U_2(R, \sigma_1) = 7P + (1-P)1 = 1 + 6P \\
+      \\
+      9-5P = 5 + P \rightarrow 4 = 6P \rightarrow P = \frac{2}{3} \\
+      9-5P = 1 + 6P \rightarrow 8 = 11P \rightarrow P = \frac{8}{11} \\
+      5+P = 1 + 6P \rightarrow 4 = 5P \rightarrow P = \frac{4}{5}
+    \end{gather*}
+    If $U_2(R, \sigma_1)=U_2(C, \sigma_1)$, $P = \frac{4}{5}$ and $U_1(T,\sigma_2) = U_1(B,\sigma_2)$, giving us the following:
+    \begin{gather*}
+      5P + (1-P)8 = 6P + (1-P)5 \\
+      8 - 3P = 5 + P \\
+      3 = 4P \\
+      P = \frac{3}{4} \\
+    \end{gather*}
+    Thus, we can see mixed strategy Nash is $(\frac{4}{5}T + \frac{1}{5}B, \frac{3}{4}C + \frac{1}{4}R)$. \\
+    \\
+    In conclusion, the full list of Nash equilibria is $\{(T,R), (B,L), (\frac{4}{5}T + \frac{1}{5}B, \frac{3}{4}C + \frac{1}{4}R)\}$.
+\section*{PS2 - Question 2} 
   \subsection*{Problem}
     Find all Nash equilibria in the following game: 
     \begin{center}
       \includegraphics[width=0.4\textwidth]{PS2-2.png}
     \end{center}
   \subsection*{Solution}
-    
+    Pure Nash equilibria are $\{(A, Y), (A, Z)\}$. The mixed strategy is calculated as following:
+    \begin{gather*}
+      \sigma_1 = \{C,D\} \\
+      U_2(W, \sigma_1) = 7P + (1-P)7 = 7 \\
+      U_2(Y, \sigma_1) = 8P + (1-P)0 = 8P \\
+      U_2(Z, \sigma_1) = 0P + (1-P)24 = 24 - 24P \\
+      \\
+      7 = 8P \rightarrow P = \frac{7}{8} \\
+      7 = 24 - 24P \rightarrow P = \frac{17}{24} \\
+      8P = 24 - 24P \rightarrow 32P = 24 \rightarrow P = \frac{3}{4} \\
+      \\
+      U_2(Y, \sigma_1) = U_2(Z, \sigma_1) = \frac{3}{4}\\
+      U_1(C, \sigma_2) = U_1(D, \sigma_2): \\
+      \\
+      24P + (1-P)0 = 0P + (1-P)8 \\
+      24P = 8 - 8P \\
+      32P = 8 \\
+      P = \frac{1}{4}
+    \end{gather*}
+    So, there is also mixed strategy Nash equilibrium $(\frac{3}{4}C + \frac{1}{4}D, \frac{1}{4}Y + \frac{3}{4}Z)$. \\
+    \\
+    In conclusion, all Nash equilibria are $\{(A,Y), (A,Z), (\frac{3}{4}C + \frac{1}{4}D, \frac{1}{4}Y + \frac{3}{4}Z)\}$.
 \end{document}
 
