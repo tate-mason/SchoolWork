@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1730665100.01069 "MasonTate_PS6.tex" "MasonTate_PS6.pdf" "MasonTate_PS6" 1730665100.69597 2
+["pdflatex"] 1730734802.75072 "MasonTate_PS6.tex" "MasonTate_PS6.pdf" "MasonTate_PS6" 1730734803.34281 2
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -82,8 +82,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726531775.59856 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726531728 8221416 7622689328259d61c3c9d6e7fe6e013f ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "MasonTate_PS6.aux" 1730665100.63389 32 f852561997c05a7d986acd1deeb530ec "pdflatex"
-  "MasonTate_PS6.tex" 1730665098.2801 12069 6e0db25b51fe89634854bf6f0a8f6b1d ""
+  "MasonTate_PS6.aux" 1730734803.29968 33 cd8a9e253be16178be412705367a589a "pdflatex"
+  "MasonTate_PS6.tex" 1730734800.79356 17306 d56393b9b98c2eb0f6fc4b6dd188f25f ""
   (generated)
   "MasonTate_PS6.aux"
   "MasonTate_PS6.log"

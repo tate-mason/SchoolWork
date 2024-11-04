@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  3 NOV 2024 15:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  4 NOV 2024 10:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -412,7 +412,76 @@ l.140       \end{gather*}
                          
 I treat `x^1^2' essentially like `x^1{}^2'.
 
-[2] [3] [4] [5] [6] [7] (./MasonTate_PS6.aux)
+[2] [3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 214--217
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--228
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--236
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 239--242
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--248
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--255
+
+ []
+
+[6] [7]
+./MasonTate_PS6.tex:327: Missing { inserted.
+<to be read again> 
+                   }
+l.327     \end{gather*}
+                       
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./MasonTate_PS6.tex:327: Missing } inserted.
+<inserted text> 
+                }
+l.327     \end{gather*}
+                       
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./MasonTate_PS6.tex:327: Missing { inserted.
+<to be read again> 
+                   }
+l.327     \end{gather*}
+                       
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./MasonTate_PS6.tex:327: Missing } inserted.
+<inserted text> 
+                }
+l.327     \end{gather*}
+                       
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+[8] [9] [10] (./MasonTate_PS6.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -427,10 +496,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  65i,19n,79p,300b,252s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on MasonTate_PS6.pdf (8 pages, 167763 bytes).
+Output written on MasonTate_PS6.pdf (11 pages, 177084 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

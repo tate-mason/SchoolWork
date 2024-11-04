@@ -178,7 +178,7 @@
         c_2 = (\frac{2\gamma^t}{1+\beta})^{\frac{1}{\sigma}}
       \end{gather*}
     \subsubsection*{(e)}
-      
+           
 \section*{Question 2}
   \subsection*{Problem}
     Consider the economy in question 1. Assume $\sigma = 1$ (so log utility) and $\gamma = 1$. Assume the following endowments
@@ -211,6 +211,104 @@
           4, \text{if $t$ is odd} \\
           2, \text{if $t$ is even} \\
         \end{cases}
+      \end{gather*} \\
+      \\
+      Lagrange and FOC's: 
+      \begin{gather*}
+        \mathcal{L} = \sum\limits_{t=0}^{\infty}\beta^t\ln(c_t^i) + \lambda[p(e_t-c_t)] \\
+        \mathcal{L}_{c_t} = \frac{\beta^t}{c_t^i} = \lambda p_t \\
+        \mathcal{L}_{c_{t+1}} = \frac{\beta^{t+1}}{c_{t+1}^i} = \lambda p_{t+1} \\
+        \frac{p_t}{p_{t+1}} = \frac{\beta^tc_{t+1}}{\beta^{t+1}c_t} \\
+        p_{t+1}c_{t+1}^i = \beta p_tc_t^i \\
+        c_{t+1}^i = \beta\frac{p_t}{p_{t+1}}c_t^i \\
+        c_t^i = \beta^t\frac{p_0}{p_t}c_0^i
+      \end{gather*} \\
+      \\
+      Plug back into constraint
+      \begin{gather*}
+        \sum\limits_{t=0}^{\infty}p_t\beta\frac{p_0}{p_t}c_0^i = \sum\limits_{t=0}^{\infty}p_te_t^i \\
+        p_0c_0^i\sum\limits_{t=0}^{\infty}\beta^t = p_te_t^i \\
+        c_0^i = \frac{\sum\limits_{t=0}^{\infty}p_te_t^i}{p_0\sum\limits_{t=0}^{\infty}\beta^t} \\
+        c_0^i = \frac{(1-\beta)}{p_0}\sum\limits_{t=0}^{\infty}p_te_t^i \\
+      \end{gather*} \\
+      \\
+      Plug back into solution for $c_t^i$
+      \begin{gather*}
+        c_t^i =\beta^t \frac{p_0}{p_t}\frac{(1-\beta)}{p_0}\sum\limits_{t=0}^{\infty}p_te_t^i \\
+        c_t^i = \frac{\beta^t(1-\beta)}{p_t}\sum\limits_{t=0}^{\infty}p_te_t^i\\
+      \end{gather*} \\
+      \\
+      Plug into market clearing
+      \begin{gather*}
+        \frac{\beta^t(1-\beta)}{p_t}\sum\limits_{t=0}^{\infty}p_te_t^1 + \frac{\beta^t(1-\beta)}{p_t}\sum\limits_{t=0}^{\infty}p_te_t^2 = e_t^1+e_t^2 \\
+        \frac{\beta^{t+1}(1-\beta)}{p_{t+1}}\sum\limits_{t=0}^{\infty}p_{t}e_{t}^1 + \frac{\beta^{t+1}(1-\beta)}{p_{t+1}}\sum\limits_{t=0}^{\infty}p_te_{t}^2 = e_{t+1}^1 + e_{t+1}^2 \\
+      \end{gather*} \\
+      \\
+      Divide the two
+      \begin{gather*}
+        \frac{p_{t+1}}{\beta p_t} = \frac{e_t^1+e_t^2}{e_{t+1}^1+e_{t+1}^2} \\
+        p_{t+1} = \beta p_t\frac{e_t^1+e_t^2}{e_{t+1}^1+e_{t+1}^2} \\
+        \boxed{p_t = \beta p_0\frac{e_0^1+e_0^2}{e_{t}^1+e_{t}^2}}
+      \end{gather*} \\
+      \\
+      If t is even:
+      \begin{gather*}
+        p_t = \beta^tp_0\frac{2}{2} \\
+        \boxed{p_t = \beta^tp_0} \\
+        c_t^i = \frac{\beta^t(1-\beta)}{\beta^tp_0}\sum\limits_{t=0}^{\infty}\beta^tp_0e_t^i \\
+        c_t^i = (1-\beta)\sum\limits_{t=0}^{\infty}\beta^te_t^i \\
+      \end{gather*}
+      If t is odd: 
+      \begin{gather*}
+        p_t = \beta^tp_0\frac{4}{2} \\
+        \boxed{p_t = 2\beta^tp_0} \\
+        c_t^i = \frac{\beta^t(1-\beta)}{2\beta^tp_0}\sum\limits_{t=0}^{\infty}2\beta^tp_0e_t^i \\
+        c_t^i = (1-\beta)\sum\limits_{t=0}^{\infty}\beta^te_i^t \\
+      \end{gather*}
+      Prices are different due to different endowments being listed. Thus, prices will vary depending on if the period is an odd or even one due to the different endowments.
+    \subsubsection*{(b)}
+      Equilibrium:
+      \begin{gather*}
+        {\max\atop{\{c_t^i, a_t^i\}^{\infty}_{t=0}}} \sum\limits_{t=0}^{\infty} \beta^t\ln(c_t^i) \\
+      \end{gather*}
+      s.t.
+      \begin{gather*}
+        c_t^i  +\frac{a_{t+1}^i}{(1+\hat{r}_{t+1})} \leq e_t^i+a_t^i \\
+        c_t^i \geq 0 \\
+        a_{t+1}^i \geq -\bar{A}^i \\
+      \end{gather*}
+      Markets clear:
+      \begin{gather*}
+        \hat{c}_t^1 + \hat{c}_t^2 = \hat{e}_t^1 + \hat{e}_t^2 \forall t \\
+        \hat{a}_{t+1}^1 + \hat{a}_{t+1}^2 = 0 \\
+      \end{gather*}
+      Lagrangian and FOC's: 
+      \begin{gather*}
+        \mathcal{L} = \beta^t\ln(c_t^i) + \lambda_t(e_t^i+a_t^i-c_t^i-\frac{a_{t+1}^i}{1+r_{t+1}}) \\
+        \mathcal{L}_{c_t} = \beta^t\frac{1}{c_t^i} = \lambda_t \\
+        \mathcal{L}_{c_{t+1}} = \beta^{t+1}\frac{1}{c_{t+1}} = \lambda_{t+1} \\
+        \mathcal{L}_{a_{t+1}} = -\lambda_t\frac{1}{1+r_{t+1}} + \lambda_{t+1} \\
+      \end{gather*}
+      Put equations together:
+      \begin{gather*}
+        \beta^t\frac{1}{c_t^i} = \frac{1}{1+r_{t+1}}+\beta^{t+1}\frac{1}{c_{t+1}} \\
+        \boxed{c_{t+1}^i = \beta(1+r_{t+1})c_t^i} \\
+      \end{gather*}
+      From intertemporal budget equation:
+      \begin{gather*}
+        \frac{c_t^1+c_t^2}{c_{t+1}^1+c_{t+1}^2} = \frac{e_t^1+e_t^2}{e_{t+1}^1+e_{t+1}^2} \\
+        \frac{c_t^1+c_t^2}{\beta(1+r_{t+1}(c_t^1+c_t^2)}) = \frac{e_t^1+e_t^2}{e_{t+1}^1+e_{t+1}^2} \\
+        \boxed{r_{t+1} = \frac{1}{\beta}\frac{e_t^1+e_t^2}{e_{t+1}^1+e_{t+1}^2}-1} \\
+      \end{gather*}
+      If t is odd:
+      \begin{gather*}
+        r_{t+1} = \frac{1}{\beta}\frac{2}{4} - 1 \\ 
+        \boxed{= \frac{1}{2\beta}-1}
+      \end{gather*}
+      If t is even:
+      \begin{gather*}
+        r_{t+1} = \frac{1}{\beta}\frac{4}{2} - 1 \\
+        \boxed{\frac{2}{\beta}-1}
       \end{gather*}
 \section*{Question 3}
   \subsection*{Problem}
@@ -222,7 +320,22 @@
 
     Find equilibrium allocations and prices. Does any trade happen in this equilibrium? Why?
   \subsection*{Solution}
-    Trade is not beneficial since prices are equal for both agents. Thus, they are able to be self-sufficient, not requiring the other to consumption smooth.
+    Given this problem is identical to the last, just with different endowments, I will skip ahead for the sake of brevity. 
+    \begin{gather*}
+      p_t = \frac{e_0^1 + e_0^2}{e_t^1+e_t^}\beta^tp_0 \\
+      c_t^i = \frac{\beta^t(1-\beta)}{p_t}\sum\limits_{t=0}^{\infty} p_te_t^i 
+    \end{gather*}
+    When t is odd:
+    \begin{gather*}
+      \boxed{p_t = 2\beta^tp_0} \\
+      \boxed{c_t^i = (1-\beta)\sum\limits_{t=0}^{\infty}}
+    \end{gather*}
+    When t is even:
+    \begin{gather*}
+      \boxed{p_t = \beta^tp_0} \\
+      \boxed{c_t^i = (1-\beta)\sum\limits_{t=0}^{\infty}\beta^te_t^i}
+    \end{gather*}
+    Prices are the same as in 2a. Trade is not beneficial since endowments equal for both agents in each period. Thus, they are able to be self-sufficient, not requiring the other to consumption smooth.
 \section*{Question 4}
   \subsection*{Problem}
     Consider an economy with two types of household with the following preferences
