@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  4 NOV 2024 12:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  4 NOV 2024 22:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -412,80 +412,80 @@ l.140       \end{gather*}
                          
 I treat `x^1^2' essentially like `x^1{}^2'.
 
-[2] [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 214--217
+[2] [3] [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 266--269
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 277--280
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 225--228
+Underfull \hbox (badness 10000) in paragraph at lines 285--288
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--236
+Underfull \hbox (badness 10000) in paragraph at lines 291--294
 
  []
 
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 239--242
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 245--248
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 297--300
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 252--255
+Underfull \hbox (badness 10000) in paragraph at lines 304--307
 
  []
-
-[6] [7]
-./MasonTate_PS6.tex:327: Missing { inserted.
-<to be read again> 
-                   }
-l.327     \end{gather*}
-                       
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-./MasonTate_PS6.tex:327: Missing } inserted.
-<inserted text> 
-                }
-l.327     \end{gather*}
-                       
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-./MasonTate_PS6.tex:327: Missing { inserted.
-<to be read again> 
-                   }
-l.327     \end{gather*}
-                       
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-./MasonTate_PS6.tex:327: Missing } inserted.
-<inserted text> 
-                }
-l.327     \end{gather*}
-                       
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
 
 [8] [9]
-./MasonTate_PS6.tex:383: Undefined control sequence.
+./MasonTate_PS6.tex:379: Missing { inserted.
+<to be read again> 
+                   }
+l.379     \end{gather*}
+                       
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./MasonTate_PS6.tex:379: Missing } inserted.
+<inserted text> 
+                }
+l.379     \end{gather*}
+                       
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./MasonTate_PS6.tex:379: Missing { inserted.
+<to be read again> 
+                   }
+l.379     \end{gather*}
+                       
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./MasonTate_PS6.tex:379: Missing } inserted.
+<inserted text> 
+                }
+l.379     \end{gather*}
+                       
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+[10] [11]
+./MasonTate_PS6.tex:435: Undefined control sequence.
 <argument> \beat 
                  _{t+1}
-l.383       \end{gather*}
+l.435       \end{gather*}
                          
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -493,10 +493,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MasonTate_PS6.tex:383: Undefined control sequence.
+./MasonTate_PS6.tex:435: Undefined control sequence.
 <argument> \beat 
                  _{t+1}
-l.383       \end{gather*}
+l.435       \end{gather*}
                          
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -504,7 +504,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[10] [11] (./MasonTate_PS6.aux)
+[12] [13] [14] [15] (./MasonTate_PS6.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -513,16 +513,16 @@ L3 programming layer <2024-02-20>
 Here is how much of TeX's memory you used:
  4890 strings out of 474116
  78452 string characters out of 5743682
- 1946187 words of memory out of 5000000
+ 1947187 words of memory out of 5000000
  27156 multiletter control sequences out of 15000+600000
  562379 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  65i,19n,79p,300b,252s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on MasonTate_PS6.pdf (12 pages, 179209 bytes).
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on MasonTate_PS6.pdf (16 pages, 206937 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+ 136 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

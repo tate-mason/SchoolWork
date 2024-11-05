@@ -169,16 +169,68 @@
       \end{gather*}
       Finding C.E. allocations:
       \begin{gather*}
-        \sum\limits_{t=0}^{\infty}\beta^t\gamma^{t\sigma}\mu_0\cdot\frac{2\gamma\alpha^{\sigma}}{1+\alpha^{\sigma}} = \sum\limits_{t=0}^{\infty}\beta^{2t}\gamma^{t\sigma}\mu_0\cdot2\gamma \\
-        \gamma^{t\sigma}\mu_0\cdot\frac{2\gamma\alpha^{\sigma}}{1+\alpha^{\sigma}}\sum\limits_{t=0}^{\infty}\beta^t = 2\gamma^t\cdot\gamma^{t\sigma}\mu_0\sum\limits_{t=0}^{\infty}\beta^2t \\
-        \frac{\alpha^{\sigma}}{1+\alpha^{\sigma}}  = \frac{1}{1+\beta} \\
-        \alpha_1^{\sigma} = \frac{1+\alpha^{\sigma}}{1+\beta} \\
-        \alpha_2^{\sigma} = -\frac{1+\alpha^{\sigma}}{1+\beta} \\
-        c_1 = (\frac{2\gamma^t\alpha^\sigma}{1+\beta})^{\frac{1}{\sigma}} \\
-        c_2 = (\frac{2\gamma^t}{1+\beta})^{\frac{1}{\sigma}}
+        t^1(\alpha) = \frac{2\alpha^{\sigma}}{(1+\alpha^{\sigma})}\sum\limits_{t=0}^{\infty}(\beta\gamma^{\sigma})^t - 2\sum\limits_{t=0}^{\infty}(\beta\gamma^{\sigma})^{2t} \\
+        = \frac{2\alpha^{\sigma}}{(1+\alpha^{\sigma})}\frac{1}{(1-\beta\gamma^{\sigma})} - \frac{2\beta\gamma^{\sigma}}{(1-\beta\gamma^{\sigma})^2} \\
+        t^2{\alpha} = \frac{2}{1+\alpha^{\sigma}}\frac{1}{(1-\beta\gamma^{\sigma})} - \frac{2}{(1-\beta\gamma^{\sigma})^2} \\
+        \frac{1}{1+\alpha^{\sigma}} = \frac{1}{1+\beta\gamma^{\sigma}} \rightarrow \alpha = \beta^{\frac{1}{\sigma}}\gamma \\
+        \boxed{c^1_t = \frac{2\gamma^t\beta^{\frac{1}{\sigma}}\gamma}{1+\beta^{\frac{1}{\sigma}}\gamma}} \\
+        \boxed{c_t^2 = \frac{2\gamma^t}{1+\beta^{\frac{1}{\sigma}}\gamma}}
       \end{gather*}
     \subsubsection*{(e)}
-           
+      \begin{gather*}
+        c_t^2 = \frac{2\gamma^t}{1+\alpha^{\sigma}} = \gamma^t \\
+        \frac{2}{1+\alpha^{\sigma}} = 1 \\
+        2 = 1+\alpha^{\sigma} \\
+        \alpha = 1 \\
+        t^2(1) = \frac{1}{(1-\beta\gamma^{\sigma})} - \frac{2}{(1-\beta\gamma^{\sigma})^2} \\
+         = \frac{1+\beta\gamma^{\sigma}-2}{(1-\beta\gamma^{\sigma})(1+\beta\gamma^{\sigma})} \\
+        \boxed{t^2(1)= -\frac{2}{1-\beta\gamma^{\sigma}}} \\
+        \boxed{t^1(1) = \frac{2}{1-\beta\gamma^{\sigma}}}
+      \end{gather*}
+      This is the case since the transfers must add to 0.
+    \subsubsection*{(f)}
+      \begin{gather*}
+        g_t = \frac{c_{t+1}^1 + c_{t+1}^2}{c_t^1+c_t^2} \\
+        = \frac{2\gamma^{t+1}(1+\beta^{\frac{1}{\sigma}}\gamma)}{2\gamma^t(1+\beta^{\frac{1}{\sigma}}\gamma)} \\
+        = \gamma
+      \end{gather*}
+      The first order condition of the growth formula w.r.t $\gamma$ is 1, thus showing that growth is positively correlated with an increase in endowment. The first order condition of the growth formula with respect to $\sigma$ is 0, showing that risk aversion plays no part. 
+    \subsubsection*{(g)}
+      \begin{gather*}
+        {\max\atop{\{c_t^i,a_t^i\}_{t=0}^{\infty}}}\sum\limits_{t=0}^{\infty}\beta^t(\frac{c_t^{i, 1-\sigma}-1}{1-\sigma})
+      \end{gather*}
+      s.t.
+      \begin{gather*}
+        c_t^i + \frac{a_{t+1}^i}{(1+r_{t+1})} \leq e_t^ia_t^i \\
+        c_t^i\geq 0 \\
+        a_{t+1}^i\geq -\bar{A}^i \\
+      \end{gather*}
+      Markets clear:
+      \begin{gather*}
+        \sum\limits_{i=1}^2\hat{c}_t^i = \sum\limits_{i=1}^2\hat{e}_t^i \ \forall \ t\\
+        \sum\limits_{i=1}^2 \hat{a}_{t+1}^i = 0 \\
+      \end{gather*}
+      Lagrangian and FOC's:
+      \begin{gather*}
+        \mathcal{L} = \beta^t(\frac{c_t^{i, 1-\sigma}-1}{1-\sigma}) + \lambda_t(e_t^i + a_t^i - c_t^i - \frac{a_{t+1}^i}{1+r_{t+1}}) \\
+        \mathcal{L}_{c_t} = \beta^tc_t^{-\sigma} = \lambda_t \\
+        \mathcal{L}_{c_{t+1}} = \beta^{t+1}c_{t+1}^{-\sigma} = \lambda_{t+1} \\
+        \mathcal{L}_{a_{t+1}} = -\lambda_t\frac{1}{1+r_{t+1}}+\lambda_{t+1}
+      \end{gather*}
+      Put equations together:
+      \begin{gather*}
+        \beta^t\frac{1}{c_t^{\sigma}} = \frac{1}{1+r_{t+1}} + \beta^{t+1}\frac{1}{c_{t+1}^{\sigma}} \\
+        c_{t+1} = [\beta(1+r_{t+1})]^{-\sigma} c_t \\
+      \end{gather*}
+      From intemporal budget constraint:
+      \begin{gather*}
+        \frac{c_t^1+c_t^2}{c_{t+1}^1+c_{t+1}^2} = \frac{e_t^1+e_t^2}{e_{t+1}^1+e_{t+1}^2} \\
+        \frac{c_t^1+c_t^2}{(\beta(1+r_{t+1}))^{-\sigma}(c_1+c_2)} = \frac{e_t^1+e_t^2}{e_{t+1}^1+e_{t+1}^2} \\
+        \boxed{r_{t+1} = \frac{1}{\beta}(\frac{e_{t+1}^1+e_{t+1}^2}{e_t^1+e_t^2})^{\frac{1}{\sigma}}-1} \\
+        \boxed{r_{t+1} = \frac{(2\gamma)^{\frac{1}{\sigma}}}{\beta}-1} \\
+      \end{gather*}
+      So interest rate depends on endowment and risk aversion in this case. Endowment effects are weighted by level of risk aversion in the exponent. Thus, it can be said that regardless of level of endowment, risk aversion will determine interest rates.
+        
 \section*{Question 2}
   \subsection*{Problem}
     Consider the economy in question 1. Assume $\sigma = 1$ (so log utility) and $\gamma = 1$. Assume the following endowments
@@ -391,7 +443,52 @@
         c_t^i \geq 0 \ \forall t \ \text{and} \ i = 1,2 \\
       \end{gather*}
       Lagrangian and FOC's:
-
+      \begin{gather*}
+        \mathcal{L} = \sum\limits_{i=1}^2\alpha_i\sum\limits_{t=0}^{\infty}\beta_i^t\log(c_i^t) + \frac{\mu}{2}(\sum\limits_{t=0}^{\infty}e_t^i-\sum\limits_{t=0}^{\infty}c_t^i) \\
+        \mathcal{L}_{c_t} = \alpha_i\beta_i^t\frac{1}{c_t^i} = \frac{\mu}{2} \\
+        \frac{\alpha_1}{\alpha_2}\frac{\beta_1}{\beta_2}\frac{c_t^2}{c_t^1} = 1 \\
+        \alpha\equiv\frac{\alpha_1}{\alpha_2}; \ \beta\equiv\frac{\beta_1}{\beta_2} \\
+        c_t^1 = \alpha\beta c_t^2 \\
+      \end{gather*}
+      Plugging into constraint:
+      \begin{gather*}
+        \alpha\beta c_t^2 + c_t^2 = 2 \\
+        \boxed{c_t^2 = \frac{2}{1+\alpha\beta}} \\
+        \boxed{c_t^1 = \frac{2\alpha\beta}{1+\alpha\beta}}
+      \end{gather*}
+    \subsubsection*{(c)}
+      Solving for $\mu$:
+      \begin{gather*}
+        c_t^i: \frac{\mu_t}{2\alpha_i} = \frac{\beta_i^t}{c_t^i} \\
+        c_{t+1}: \frac{\mu_{t+1}}{2\alpha_i} = \frac{\beta_i^{t+1}}{c_{t+1}^i} \\
+        \frac{\mu_{t+1}}{\mu_t} = \frac{\beta_i^{t+1}}{\beta_i^{t}}\frac{c_t^i}{c_{t+1}^i} \\
+        \mu_{t} = \beta_i^t(\frac{1+\alpha(\frac{\beta_1}{\beta_2})^t}{1+\alpha})\mu_0
+      \end{gather*}
+      Normalizing $\mu_0 = 1$ and making the conjecture $\mu_t = p_t$, we can use the transfer function to find our allocations:
+      \begin{gather*}
+        t^2(\alpha) = \sum\limits_{t=0}^{\infty}\beta_2^t(\frac{1+\alpha(\frac{\beta_1}{\beta_2})^t}{1+\alpha})\frac{2}{1+\alpha\beta} - \sum\limits_{t=0}^{\infty}\beta_2^t(\frac{1+\alpha(\frac{\beta_1}{\beta_2})^t}{1+\alpha})\mu_0 \\
+        = \frac{2}{1+\alpha}\sum\limits_{t=0}^{\infty}\beta_2^t - \frac{1}{1+\alpha}\sum\limits_{t=0}^{\infty}\beta_2^t - \frac{\alpha}{1+\alpha}\sum\limits_{t=0}^{\infty}\beta_1^t \\
+        = \frac{1}{1+\alpha}\sum\limits_{t=0}^{\infty} -\frac{\alpha}{1+\alpha}\sum\limits_{t=0}^{\infty}\beta_1^t \\
+        =\frac{1}{1+\alpha}\frac{1}{1-\beta_2^t} = \frac{\alpha}{1+\alpha}\frac{1}{1-\beta_1^t} \\
+        = \frac{1}{\alpha} = \frac{1-\beta_2^t}{1-\beta_1^t} \\
+        \boxed{\alpha = \frac{1-\beta_1^t}{1-\beta_2^t}}
+        \therefore \\
+        \boxed{c_t^2 = \frac{2}{1+\frac{\beta_1(1-\beta_1)}{\beta_2(1-\beta_2)}}} \\
+        \boxed{c_t^1 = \frac{2\frac{\beta_1(1-\beta_1)}{\beta_2(1-\beta_2)}}{1+\frac{\beta_1(1-\beta_1)}{\beta_2(1-\beta_2)}}} \\
+      \end{gather*}
+    \subsubsection*{(d)}
+      Taking the ratio:
+      \begin{gather*}
+        \frac{c_t^1}{c_t^2} = \frac{\frac{2\frac{\beta_1(1-\beta_1)}{\beta_2(1-\beta_2)}}{1+\frac{\beta_1(1-\beta_1)}{\beta_2(1-\beta_2)}}}{\frac{2}{1+\frac{\beta_1(1-\beta_1)}{\beta_2(1-\beta_2)}}} \\
+        \frac{c_t^1}{c_t^2} = \frac{\beta_1(1-\beta_1)}{\beta_2(1-\beta_2)} \\
+        \boxed{= (\frac{\beta_1}{\beta_2})^t\frac{1-\beta_1}{1-\beta_2}} \\
+      \end{gather*}
+      Since $\beta_1<\beta_2$:
+      \begin{gather*}
+        {\lim\atop{t\rightarrow\infty}} \ \frac{c_t^1}{c_t^2} = {\lim\atop{t\rightarrow\infty}} \ (\frac{\beta_1}{\beta_2})^t\frac{1-\beta_1}{1-\beta_2} = 0
+      \end{gather*}
+    \subsubsection*{(e)}
+      HH1 will have lower consumption through their lifetime since $\beta_1$ is perpetually lower and since their consumption is weighted by the ratio of $\beta_i$. 
 \section*{Question 5 (Bonus)}
   \subsection*{Problem}
     Consider a two period endowment economy with a single consumption good, $c$. The economy is comprised of 2 types of households with identical preferences over consumption in periods $t = 0,1$
@@ -406,4 +503,22 @@
       Assume $u(c) = \log c$. Find interest rate $i$ as function of $\eta$. What happens to interest rate as $\eta$ increases?
     \subsubsection*{(c)}
       Discuss your answer to part (b). What is the intuition?
+  \subsection*{Solutions}
+    \subsubsection*{(a)}
+      \begin{gather*}
+        {\max\atop{c_0,c_1,u}}u(c_0)+\beta u(c_1) \\
+      \end{gather*}
+      s.t.
+      \begin{gather*}
+        c_0 + \frac{a}{1+i} = e_0^k \\
+        c_1 = e_1^k + a \\
+        c_0,c_1\geq 0
+      \end{gather*}
+      Markets clear:
+      \begin{gather*}
+        \eta c_0^1 + (1-\eta)c_0^2 = \eta e_0^1 + (1-\eta)e_0^2 \\
+        \eta c_1^1 + (1-\eta)c_1^2 = \eta e_1^1 + (1-\eta)e_1^2 \\
+        \eta a^1 + (1-\eta) a^2 = 0
+      \end{gather*}
+  Got kind of lost on how to proceed. I know this was an exam question, so will look at how it solved in the key.
 \end{document}
