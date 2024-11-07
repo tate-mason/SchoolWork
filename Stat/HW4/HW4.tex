@@ -1,0 +1,136 @@
+%% Homework 3 - ECON 8070 %%
+\documentclass[10pt, a4paper]{article}
+\usepackage[top=3cm, bottom=4cm, left=3.5cm, right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage[math-style=ISO]{unicode-math}
+\DeclareSymbolFont{\mathnormal}{letters}
+\usepackage{lastpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
+\newcommand\course{ECON - 8070}                            % <-- course name   
+\newcommand\hwnumber{ 3}                                 % <-- homework number
+\newcommand\Information{Tate Mason}                        % <-- personal information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Page setup
+\pagestyle{fancy}
+\headheight 35pt
+\rhead{Problem Set 3}
+\lhead{\today}
+\lfoot{}
+\pagenumbering{arabic}
+\cfoot{\small\thepage}
+\rfoot{}
+\headsep 1.2em
+\renewcommand{\baselinestretch}{1.25}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add new commands here
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\EE}{\mathbb E}
+\newcommand{\var}{\text{var}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\Mod}{Mod} 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem{case}{Case}
+\newcommand{\assign}{:=}
+\newcommand{\infixiff}{\text{ iff }}
+\newcommand{\nobracket}{}
+\newcommand{\backassign}{=:}
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextbf}[1]{\text{{\bfseries{#1}}}}
+\newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
+
+\newenvironment{itemizedot}{\begin{itemize} \renewcommand{\labelitemi}{$\bullet$}\renewcommand{\labelitemii}{$\bullet$}\renewcommand{\labelitemiii}{$\bullet$}\renewcommand{\labelitemiv}{$\bullet$}}{\end{itemize}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Begin now!
+
+\begin{document}
+  \begin{titlepage}
+    \begin{center}
+      \vspace*{3cm}
+            
+        \vspace{1cm}
+        \huge
+        Homework \hwnumber
+            
+        \vspace{1.5cm}
+        \Large
+            
+        \textbf{\Information}                      % <-- author
+            
+        \vfill
+        
+        An \course \ Homework Assignment
+            
+        \vspace{1cm}
+        \Large
+        
+        \today
+            
+    \end{center}
+  \end{titlepage}
+
+  \newpage
+  \section*{Question 4.2}
+    \subsection*{Problem}
+      \subsubsection*{(a)}
+        Show that, under random sampling and the zero conditional mean assumption $\EE(u|\textbf{x})=0$, $\EE(\textbf{\hat\beta}|\textbf{X})=\beta$ if $\textbf{XX'}$ is nonsingular. (Hint: use property CE.5 in the appendix of chapter 2)
+      \subsubsection*{(b)}
+        In addition to the assumption from part a, assume that $\var(u|\textbf{x}) = \sigma^2$. Show that $\var(\hat{\beta}|\textbf{X}) = \sigma^2(\textbf{(XX')}^{-1})$
+  \subsection*{Solutions}
+\section*{Question 4.3}
+  \subsection*{Problem}
+    Suppose that in the linear model 4.5, $\EE(\textbf{x'}u)=\textbf{0}$ (where $\textbf{x}$ contains unity), $\var(u|\textbf{x})=\sigma^2$, but $\EE(u|\textbf{x})\ne\EE(u)$. 
+    \subsubsection*{(a)}
+      Is it true that $\EE(u^2|\textbf{x}) = \sigma^2$?
+    \subsubsection*{(b)}
+      What relevance does part a have for OLS estimation?
+  \subsection*{Solutions}
+\section*{Question 4.17}
+  \subsection*{Problem}
+     
+\section*{Question 5.1}
+  \subsection*{Problem}
+    In this problem you are to establish the algebraic equivalence between 2SLS
+    and OLS estimation of an equation containing an additional regressor. Although the
+    result is completely general, for simplicity consider a model with a single (suspected) endogenous variable:
+    \begin{gather*}
+      y_1 = \textbf{z_1\delta_1} + \alpha_1y_2 + u_1\\
+      y_2 = \textbf{z\pi}_2 + v_2 
+    \end{gather*}
+    For notational clarity, we use y2 as the suspected endogenous variable and z as the
+    vector of all exogenous variables. The second equation is the reduced form for y2.
+    Assume that z has at least one more element than z1. \\
+    \\
+    We know that one estimator of $(\delta_1,\alpha_1)$ is the 2SLS estimator using instruments $\textbf{x}$. Consider an alternative estimator of ðd1; a1Þ: (a) estimate the reduced form by OLS, and save the residuals $\hat{v}_2$; (b) estimate the following equation by OLS:
+    \begin{gather*}
+      y_1 = \textbf{z_1\delta_1} + \alpha_1y_2 + \rho_1\textbf{\hat{v}}_2 + error
+    \end{gather*}
+    Show that the OLS estimates of $\textbf{\delta_1}$ and $\alpha_1$ from this regression are identical to the 2SLS estimators.  
+\section*{Question }
+\end{document}
