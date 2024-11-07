@@ -113,24 +113,59 @@
   \subsection*{Solutions}
 \section*{Question 4.17}
   \subsection*{Problem}
-     
+    Consider the standard linear model $y = \boldsymbol{x}\boldsymbol{\beta} + \boldsymbol{u}$ under Assumptions OLS.1 and OLS.2. Define $h(\boldsymbol{x}) \equiv \mathbb{E}[u^2 | \boldsymbol{x}]$. Let $\hat{\boldsymbol{\beta}}$ be the OLS estimator, and show that we can always write:
+    \begin{align}
+    \text{Avar}\sqrt{N}(\hat{\boldsymbol{\beta}} - \boldsymbol{\beta}) = \left[\mathbb{E}[\boldsymbol{x}'\boldsymbol{x}]\right]^{-1} \mathbb{E}[h(\boldsymbol{x})\boldsymbol{x}'\boldsymbol{x}]\left[\mathbb{E}[\boldsymbol{x}'\boldsymbol{x}]\right]^{-1}
+    \end{align}
+    This expression is useful when $\mathbb{E}[\boldsymbol{u} | \boldsymbol{x}] = \boldsymbol{0}$ for comparing the asymptotic variances of OLS and weighted least squares estimators; see, for example, Wooldridge (1994b).
 \section*{Question 5.1}
   \subsection*{Problem}
-    In this problem you are to establish the algebraic equivalence between 2SLS
-    and OLS estimation of an equation containing an additional regressor. Although the
-    result is completely general, for simplicity consider a model with a single (suspected) endogenous variable:
-    \begin{gather*}
-      y_1 = \textbf{z_1\delta_1} + \alpha_1y_2 + u_1\\
-      y_2 = \textbf{z\pi}_2 + v_2 
-    \end{gather*}
-    For notational clarity, we use y2 as the suspected endogenous variable and z as the
-    vector of all exogenous variables. The second equation is the reduced form for y2.
-    Assume that z has at least one more element than z1. \\
-    \\
-    We know that one estimator of $(\delta_1,\alpha_1)$ is the 2SLS estimator using instruments $\textbf{x}$. Consider an alternative estimator of ðd1; a1Þ: (a) estimate the reduced form by OLS, and save the residuals $\hat{v}_2$; (b) estimate the following equation by OLS:
-    \begin{gather*}
-      y_1 = \textbf{z_1\delta_1} + \alpha_1y_2 + \rho_1\textbf{\hat{v}}_2 + error
-    \end{gather*}
-    Show that the OLS estimates of $\textbf{\delta_1}$ and $\alpha_1$ from this regression are identical to the 2SLS estimators.  
-\section*{Question }
+    In this problem you are to establish the algebraic equivalence between 2SLS and OLS estimation of an equation containing an additional regressor. Although the result is completely general, for simplicity consider a model with a single (suspected) endogenous variable:
+    \begin{align*}
+    y_1 &= z_1\delta_1 + \alpha_1 y_2 + u_1, \\
+    y_2 &= z\pi_2 + v_2.
+    \end{align*}
+    For notational clarity, we use $y_2$ as the suspected endogenous variable and $z$ as the vector of all exogenous variables. The second equation is the reduced form for $y_2$.
+    Assume that $z$ has at least one more element than $z_1$.
+    We know that one estimator of $(\delta_1, \alpha_1)$ is the 2SLS estimator using instruments $x$. Consider an alternative estimator of $(\delta_1, \alpha_1)$:
+    (a) estimate the reduced form by OLS, and save the residuals $\hat{v}_2$;
+    (b) estimate the following equation by OLS:
+    \begin{equation}
+    y_1 = z_1\delta_1 + \alpha_1 y_2 + \rho\hat{v}_2 + \text{error}. \tag{5.52}
+    \end{equation}
+    Show that the OLS estimates of $\delta_1$ and $\alpha_1$ from this regression are identical to the 2SLS estimators. (Hint: Use the partitioned regression algebra of OLS. In particular, if $\hat{y} = x_1\beta_1 + x_2\beta_2$ is an OLS regression, $\beta_1$ can be obtained by first regressing $x_1$ on $x_2$, getting the residuals, say $\hat{x}_1$, and then regressing $y$ on $\hat{x}_1$; see, for example, Davidson and MacKinnon (1993, Section 1.4). You must also use the fact that $z_1$ and $\hat{v}_2$ are orthogonal in the sample.)
+\section*{Question 5.2}
+  \subsection*{Problem}
+    Consider a model for the health of an individual:
+    \begin{gather}
+      \text{health} = \beta_0 + \beta_1\text{age} + \beta_2\text{weight} + \beta_3\text{height} \nonumber \\
+      + \beta_4\text{male} + \beta_5\text{work} + \beta_6\text{exercise} + u_1, \label{eq:health-model}
+    \end{gather}
+    where \textit{health} is some quantitative measure of the person's health; \textit{age}, \textit{weight}, \textit{height}, and \textit{male} are self-explanatory; \textit{work} is weekly hours worked; and \textit{exercise} is the hours of exercise per week.
+  \subsection*{Parts}
+    \subsubsection*{(a)}
+      Why might you be concerned about \textit{exercise} being correlated with the error term $u_1$?
+    \subsubsection*{(b)}
+      Suppose you can collect data on two additional variables, \textit{disthome} and \textit{distwork}, the distances from home and from work to the nearest health club or gym. Discuss whether these are likely to be uncorrelated with $u_1$.
+    \subsubsection*{(c)}
+      Now assume that \textit{disthome} and \textit{distwork} are in fact uncorrelated with $u_1$, as are all variables in equation \eqref{eq:health-model} with the exception of \textit{exercise}. Write down the reduced form for \textit{exercise}, and state the conditions under which the parameters of equation \eqref{eq:health-model} are identified.
+    \subsubsection*{(d)}
+      How can the identification assumption in part c be tested?
+\section*{Question 5.11}
+  \subsection*{Problem}
+    A model with a single endogenous explanatory variable can be written as
+    \begin{gather}
+      y_1 = z_1 \delta_1 + \alpha_1 y_2 + u_1, \\
+      E(z'u_1) = 0,
+    \end{gather}
+    where $z = (z_1, z_2)$. Consider the following two-step method, intended to mimic 2SLS:
+  \subsubsection*{(a)}
+    Regress $y_2$ on $z_2$, and obtain fitted values, $\hat{y}_2$. (That is, $z_1$ is omitted from the first-stage regression.)
+  \subsubsection*{(b)}
+    Regress $y_1$ on $z_1$, $\hat{y}_2$ to obtain $\hat{\delta}_1$ and $\hat{\alpha}_1$. Show that $\hat{\delta}_1$ and $\hat{\alpha}_1$ are generally inconsistent. When would $\hat{\delta}_1$ and $\hat{\alpha}_1$ be consistent? (Hint: Let $y_2^0$ be the population linear projection of $y_2$ on $z_2$, and let $a_2$ be the projection error: $y_2^0 = z_2 \lambda_2 + a_2$, $E(z'a_2) = 0$. For simplicity, pretend that $\lambda_2$ is known rather than estimated; that is, assume that $\hat{y}_2$ is actually $y_2^0$. Then, write)
+    \begin{gather}
+      y_1 = z_1 \delta_1 + \alpha_1 y_2^0 + \alpha_1 a_2 + u_1
+    \end{gather}
+    and check whether the composite error $\alpha_1 a_2 + u_1$ is uncorrelated with the explanatory variables.
 \end{document}
+
