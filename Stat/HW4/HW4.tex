@@ -102,7 +102,15 @@
         Show that, under random sampling and the zero conditional mean assumption $\EE(u|\textbf{x})=0$, $\EE(\textbf{\hat\beta}|\textbf{X})=\beta$ if $\textbf{XX'}$ is nonsingular. (Hint: use property CE.5 in the appendix of chapter 2)
       \subsubsection*{(b)}
         In addition to the assumption from part a, assume that $\var(u|\textbf{x}) = \sigma^2$. Show that $\var(\hat{\beta}|\textbf{X}) = \sigma^2(\textbf{(XX')}^{-1})$
-  \subsection*{Solutions}
+    \subsection*{Solutions}
+      \subsubsection*{(a)}
+        \begin{proof}
+          The OLS estimator is given by $\hat{\beta} = (X'X)^{-1}X'y$ and the linear model gives us that $y = X\beta + u$. If we substitute that into the formula for $\hat{\beta}$, we get $\hat{\beta} = (X'X)^{-1}X'X\beta + (X'X)^{-1}X'u$. Next, taking the conditional expectation of $\hat{\beta}$ given $X$ and using the zero mean assumption, we can show that $\EE(\hat{\beta}|X) = (X'X)^{-1}X\beta + (X'X)^{-1}X'0 \rightarrow \EE(\hat{\beta}|X) = (X'X)^{-1}X'X\beta \rightarrow \EE({\hat{\beta}|X}) = \beta$ 
+        \end{proof}
+      \subsubsection*{(b)}
+        \begin{proof}
+          The formula for the variance of the OLS estimator $\hat{\beta} = \EE[(\hat{\beta} - \EE(\hat{\beta|X}))(\hat{\beta}-\EE(\hat{\beta}|X))'|X']$. Using the result from (a), we can say that $var(\hat{\beta}|X) = \EE[((X'X)^{-1}X'u)((X'X)^{-1}X'u)'|X] = (X'X)^{-1}X'\EE(uu'|X)X(X'X)^{-1}$. As the problem tells us that $\var(u|X) = \sigma^2$, we can state $\EE(uu'|X) = \sigma^2I$. Thus, $\var(\hat{\beta}|X) = (X'X)^{-1}X'(\sigma^2I)X(X'X)^{-1} = \sigma^2(X'X)^{-1}$
+        \end{proof}
 \section*{Question 4.3}
   \subsection*{Problem}
     Suppose that in the linear model 4.5, $\EE(\textbf{x'}u)=\textbf{0}$ (where $\textbf{x}$ contains unity), $\var(u|\textbf{x})=\sigma^2$, but $\EE(u|\textbf{x})\ne\EE(u)$. 
@@ -111,6 +119,13 @@
     \subsubsection*{(b)}
       What relevance does part a have for OLS estimation?
   \subsection*{Solutions}
+    \subsubsection*{(a)}
+      No, this is not true. 
+      \begin{proof}
+        $(\var{u|x}) = \EE(u^2|x) - \EE(u|x)^2$. From the question, we can say that $\sigma^2 = \EE(u^2|x) - \EE(u|x)^2$. Due to the fact that $\EE(u|x)\ne\EE(u)$, we know that u varies with x, and the same with $\EE(u|x)^2$. So, rearranging the equation, $\EE(u^2|x) = \sigma^2 + \EE(u|x)^2$. Since, as stated, $\EE(u|x)^2$ varies with x, so too must $\EE(u^2|x)$. With that conclusion we can say that $\EE(u^2|x)\ne\sigma^2$ 
+      \end{proof}
+    \subsection*{(b)}
+      When heteroskedasticity is present, the usual OLS S.E. will be incorrect due to the assumption of homoskedasticity. Thus, robust S.E. will be needed to produce meaningful estimation with OLS.
 \section*{Question 4.17}
   \subsection*{Problem}
     Consider the standard linear model $y = \boldsymbol{x}\boldsymbol{\beta} + \boldsymbol{u}$ under Assumptions OLS.1 and OLS.2. Define $h(\boldsymbol{x}) \equiv \mathbb{E}[u^2 | \boldsymbol{x}]$. Let $\hat{\boldsymbol{\beta}}$ be the OLS estimator, and show that we can always write:
