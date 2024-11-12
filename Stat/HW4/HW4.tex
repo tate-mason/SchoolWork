@@ -135,7 +135,7 @@
     This expression is useful when $\mathbb{E}[\boldsymbol{u} | \boldsymbol{x}] = \boldsymbol{0}$ for comparing the asymptotic variances of OLS and weighted least squares estimators; see, for example, Wooldridge (1994b).
   \subsection*{Solution}
     \begin{proof}
-      The asymptotic distribution of the OLS distribution is given as $\sqrt{N}(\hat{\beta}-\beta) = (N^{-1}\sum\limits_{i=1}^Nx_i'x_i)^{-1}(N^{-\frac{1}{2}}\sum\limits_{i=1}^Nx_i'u_i)$. By central limit theorem, $N^{-\frac{1}{2}}x_iu_i {d\atop{\rightarrow}} N(0,\EE[\EE(u^2|x)x'x])$ which as given in the hint, $\EE(u^2|x) \equiv h(x)$. By law of large numbers, $N^{-1}x_i'x_i {p\atop{\rightarrow}}\EE[x'x]$. After using Slutsky's theorem, we can say that $A\var\sqrt{N}(\hat{\beta}-\beta) = \EE(x'x)^{-1}\EE(h(x)x'x)\EE(x'x)^{-1}$. 
+      The asymptotic distribution of the OLS distribution is given as $\sqrt{N}(\hat{\beta}-\beta) = (N^{-1}\sum\limits_{i=1}^Nx_i'x_i)^{-1}(N^{-\frac{1}{2}}\sum\limits_{i=1}^Nx_i'u_i)$. By central limit theorem, $N^{-\frac{1}{2}}x_iu_i {d\atop{\rightarrow}} N(0,\EE[\EE(u^2|x)x'x])$ which as given in the hint, $\EE(u^2|x) \equiv h(x)$. By law of large numbers, $N^{-1}x_i'x_i {p\atop{\rightarrow}}\EE[x'x]$. After plugging this into common knowledge, we can say that $A\var\sqrt{N}(\hat{\beta}-\beta) = \EE(x'x)^{-1}\EE(h(x)x'x)\EE(x'x)^{-1}$. 
     \end{proof}
 \section*{Question 5.1}
   \subsection*{Problem}
