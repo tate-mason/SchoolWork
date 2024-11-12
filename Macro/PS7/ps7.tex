@@ -1,0 +1,116 @@
+%% ECON 8040 - Macro: Problem Set 6 %%
+\documentclass[10pt, a4paper]{article}
+\usepackage[top=3cm, bottom=4cm, left=3.5cm, right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage[math-style=ISO]{unicode-math}
+\DeclareSymbolFont{\mathnormal}{letters}
+\usepackage{lastpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
+\newcommand\course{ECON - 8040}                            
+\newcommand\hwnumber{6}                                 
+\newcommand\Information{Tate Mason}                        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Page setup
+\pagestyle{fancy}
+\headheight 35pt
+\lhead{\today}
+\rhead{}
+\lfoot{}
+\pagenumbering{arabic}
+\cfoot{\small\thepage}
+\rfoot{}
+\headsep 1.2em
+\renewcommand{\baselinestretch}{1.25}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add new commands here
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\DeclareMathOperator{\Mod}{Mod}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newcommand{\assign}{:=}
+
+\begin{document}
+  \begin{titlepage}
+    \begin{center}
+      \vspace*{3cm}
+            
+      \vspace{1cm}
+      \huge
+      Homework \hwnumber
+            
+      \vspace{1.5cm}
+      \Large
+            
+      \textbf{\Information}
+            
+      \vfill
+      
+      Collaboration to varying degrees with Timothy Duhon, Josephine Hughes, Abdul Khan, Kasra Lak, Rachel Lobo, Mingzhou Wang, Wenyi Wang
+      \vspace{1cm}
+      
+      Due on Friday, November 22, by 11:59pm
+
+      \vspace{1cm}
+
+      An \course \ Homework Assignment
+            
+      \vspace{1cm}
+      \Large
+      
+      \today
+            
+    \end{center}
+  \end{titlepage}
+\section*{Question 1}
+  \subsection*{Problem}
+    Consider the following infinite horizon production economy with a household sector and a business sector:
+
+    \textbf{Business Sector:} Firms in the economy produce a composite good that can be used for either consumption or investment purposes according to the following technology:
+    \begin{equation*}
+    Y_t = K_{Mt}^\alpha N_{Mt}^{1-\alpha}
+    \end{equation*}
+    where $K_{Mt}$ is the amount of capital rented by the firm at date t and $N_{Mt}$ is the amount of labor hired by the firm at date t.
+
+    \textbf{Household Sector:} There is a continuum of measure 1 of infinitely lived households.
+
+    \textbf{Preferences:} Preferences are given by
+    \begin{equation*}
+    \sum_{t=0}^{\infty} \beta^t \log(c_t)
+    \end{equation*}
+    where the variable $c_t$ is an aggregator of the good produced by the business sector and a good produced by the household. More specifically:
+    \begin{equation*}
+    c_t = [\mu c_{Mt}^\rho + (1-\mu)c_{Ht}^\rho]^{\frac{1}{\rho}}
+    \end{equation*}
+    where $c_{Mt}$ is the good produced in the business sector and $c_{Ht}$ is the good produced at home.
+
+    \textbf{Home Production:} Each household has access to the same technology to produce the home good. The use of this technology by a particular household requires that household's own capital and labor. This technology is:
+    \begin{equation*}
+    c_{Ht} = k_{Ht}^\alpha n_{Ht}^{1-\alpha}
+    \end{equation*}
+
+    \textbf{Endowments:} Each household is endowed with one unit of time. Additionally, each household is endowed with $k_{M0}$ units of capital it can rent out to firms in the economy and $k_{H0}$ units of capital that it can use to produce the home good. The two capital stocks depreciate at their respective rates $\delta_K$ and $\delta_H$. Capital is sector specific so home capital cannot be used in the business sector and vice versa.
+
+  \subsection*{Questions}
+    \begin{enumerate}
+    \item Write down the Social Planner's problem.
+    \item Write down the Social Planner's problem in recursive form (Bellman equation) – what are the state variables?
+    \item Write down FOCs and envelope conditions for this Bellman equation.
+    \item Write down equations that characterize the steady state.
+    \end{enumerate}
+
+\end{document}
