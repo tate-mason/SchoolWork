@@ -99,7 +99,7 @@
   \section*{Question 4.2}
     \subsection*{Problem}
       \subsubsection*{(a)}
-        Show that, under random sampling and the zero conditional mean assumption $\EE(u|\textbf{x})=0$, $\EE(\textbf{\hat\beta}|\textbf{X})=\beta$ if $\textbf{XX'}$ is nonsingular. (Hint: use property CE.5 in the appendix of chapter 2)
+        Show that, under random sampling and the zero conditional mean assumption $\EE(u|\textbf{x})=0$, $\EE(\hat{\beta}|\textbf{X})=\beta$ if $\textbf{XX'}$ is nonsingular. (Hint: use property CE.5 in the appendix of chapter 2)
       \subsubsection*{(b)}
         In addition to the assumption from part a, assume that $\var(u|\textbf{x}) = \sigma^2$. Show that $\var(\hat{\beta}|\textbf{X}) = \sigma^2(\textbf{(XX')}^{-1})$
     \subsection*{Solutions}
@@ -134,7 +134,8 @@
     \end{align}
     This expression is useful when $\mathbb{E}[\boldsymbol{u} | \boldsymbol{x}] = \boldsymbol{0}$ for comparing the asymptotic variances of OLS and weighted least squares estimators; see, for example, Wooldridge (1994b).
   \subsection*{Solution}
-    
+    \begin{proof}
+    \end{proof}
 \section*{Question 5.1}
   \subsection*{Problem}
     In this problem you are to establish the algebraic equivalence between 2SLS and OLS estimation of an equation containing an additional regressor. Although the result is completely general, for simplicity consider a model with a single (suspected) endogenous variable:
@@ -151,6 +152,10 @@
     y_1 = z_1\delta_1 + \alpha_1 y_2 + \rho\hat{v}_2 + \text{error}. \tag{5.52}
     \end{equation}
     Show that the OLS estimates of $\delta_1$ and $\alpha_1$ from this regression are identical to the 2SLS estimators. (Hint: Use the partitioned regression algebra of OLS. In particular, if $\hat{y} = x_1\beta_1 + x_2\beta_2$ is an OLS regression, $\beta_1$ can be obtained by first regressing $x_1$ on $x_2$, getting the residuals, say $\hat{x}_1$, and then regressing $y$ on $\hat{x}_1$; see, for example, Davidson and MacKinnon (1993, Section 1.4). You must also use the fact that $z_1$ and $\hat{v}_2$ are orthogonal in the sample.)
+  \subsection*{Solution}
+    \begin{proof}
+      2SLS in this case would work by first regressing $y_2$ on $z$ to get $\hat{y}_2$. Then, we would regress $y_1$ on $z_1$ and $\hat{y}_2$. For the alternative method, $\hat{v}_2 = y_2 - z\hat{\pi}_2$ which gives us the residuals from the reduced form problem. Then, we would run OLS on equation 5.52. To derive $\delta_1$ and $\alpha_1$, we regress $y_2$ and $z_1$ on $\hat{v}_2$ and get the residuals. Then, we regress $y_1$ on the residuals from the last step. Since, as given, $\hat{v}_2$ is orthogonal to $z_1$, the residual from the regression of $z_1$ on $\hat{v}_2$ is $z_1$. The residual from the regression of $y_2$ on $\hat{v}_2$ is $\hat{y}_2$. This is the same result as when regressing $y_1$ on $z_1$ and $\hat{y}_2$. The two estimates, therefore, show identical estimates for $\delta_1$ and $\alpha_1$. 
+    \end{proof}
 \section*{Question 5.2}
   \subsection*{Problem}
     Consider a model for the health of an individual:
@@ -168,6 +173,24 @@
       Now assume that \textit{disthome} and \textit{distwork} are in fact uncorrelated with $u_1$, as are all variables in equation \eqref{eq:health-model} with the exception of \textit{exercise}. Write down the reduced form for \textit{exercise}, and state the conditions under which the parameters of equation \eqref{eq:health-model} are identified.
     \subsubsection*{(d)}
       How can the identification assumption in part c be tested?
+  \subsection*{Solutions}
+    \subsubsection*{(a)}
+      Things like health conditions can affect ability to exercise as well as those who care more about health will be more likely to exercise and be healthier. These unobserved factors, as well as the potential for bad health to effect ability exercise, are reasons why exercise may be correlated with the error term.
+    \subsubsection*{(b)}
+      These are likely uncorrelated factors as the choice of a dwelling or a workplace is typically decided by more factors than just proximity to a gym. Thus, it would be a valid addition to the model.
+    \subsubsection*{(c)}
+      The reduced form equation is as follows:
+      \begin{gather*}
+        exercise = \pi_0 + \pi_1age + \pi_2weight + \pi_3height + \pi_4male + \pi_5work + \pi_6disthome + \pi_7distwork + v_2
+      \end{gather*}
+      Identification has three primary conditions:
+      \begin{enumerate}
+        \item Rank condition states that one of $\pi_6,\pi_7$ must be non-zero \\
+        \item The exclusion restriction is assumed in this question \\
+        \item Overidentified equation as the instruments outnumber endogenous variables
+      \end{enumerate}
+    \subsubsection*{(d)}
+      One example of a test for the identification assumption in (c) is the first stage F-test. Tests joint significance of instruments in reduced form.
 \section*{Question 5.11}
   \subsection*{Problem}
     A model with a single endogenous explanatory variable can be written as
@@ -184,5 +207,9 @@
       y_1 = z_1 \delta_1 + \alpha_1 y_2^0 + \alpha_1 a_2 + u_1
     \end{gather}
     and check whether the composite error $\alpha_1 a_2 + u_1$ is uncorrelated with the explanatory variables.
+  \subsection*{Solution}
+    \begin{proof}
+      As given in the hint, $y_2^0 = z_2\lambda_2 + a_2$ such that $\EE(z_2'a_2)=0$. Substituting this into the main equation, $y_1 = z_1\delta_1+\alpha_1(z_2\lambda_2+a_2)+u_1y_1 = z_1\delta_1 + \alpha_1z_2\lambda_2 + (\alpha_1a_2+u_1)$. For consistency, $\alpha_1a_2 + u_1$ needs to be uncorrelated with both $z_1$ and $y_2^0$. From assumptions given in the question, we know that $\EE(z_1'u_1)=0$. However, $\EE(z_1'a_2)\ne0$ due to the exlusion of $z_1$ from the linear projection. With this in my mind, we can say that $\hat{\delta}_1,\hat{\alpha}_1$ are generally inconsistent. They would be consistent if $z_1, z_2$ are uncorrelated, $y_2$ is unrelated to $z_1$, or if $\alpha_1=0$. Important takeaways are that due to the omission of $z_1$ from the first stage is akin to incorrectly excluding relevant instruments, creating correlation between $a_2$ and the exogenous variables. Thus, it is necessary to use valid instruments in the first stage. 
+    \end{proof}
 \end{document}
 
