@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  13 NOV 2024 16:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  13 NOV 2024 16:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**HW4.tex
-(./HW4.tex
+**/Users/tate/Semester1/Stat/HW4/HW4
+(/Users/tate/Semester1/Stat/HW4/HW4.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -210,7 +210,7 @@ If that doesn't work, type X <return> to quit.
 
 )
 
-./HW4.tex:8: LaTeX Error: Unknown option `math-style=ISO' for package `unicode-math'.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:8: LaTeX Error: Unknown option `math-style=ISO' for package `unicode-math'.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -222,7 +222,7 @@ The option `math-style=ISO' was not declared in package `unicode-math', perhaps 
 misspelled its name. Try typing  <return>  to proceed.
 
 Runaway argument?
-./HW4.tex:10: Paragraph ended before \DeclareSymbolFont was complete.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:10: Paragraph ended before \DeclareSymbolFont was complete.
 <to be read again> 
                    \par 
 l.10 
@@ -232,7 +232,7 @@ control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
 
-./HW4.tex:45: LaTeX Error: Command \lstlistingname undefined.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:45: LaTeX Error: Command \lstlistingname undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -244,7 +244,7 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./HW4.tex:46: LaTeX Error: Command \lstlistlistingname undefined.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:46: LaTeX Error: Command \lstlistlistingname undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -256,7 +256,7 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 \c@case=\count279
-(./HW4.aux)
+No file HW4.aux.
 \openout1 = `HW4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
@@ -273,7 +273,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
 LaTeX Font Info:    ... okay on input line 72.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
 LaTeX Font Info:    ... okay on input line 72.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -371,7 +370,7 @@ Overfull \hbox (1.13164pt too wide) in paragraph at lines 112--113
 \OT1/cmr/m/n/10 Us-ing the re-sult from (a), we can say that $\OML/cmm/m/it/10 var\OT1/cmr/m/n/10 ([]\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ) = \U/msb/m/n/10 E\OT1/cmr/m/n/10 [((\OML/cmm/m/it/10 X[]X\OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 X[]u\OT1/cmr/m/n/10 )((\OML/cmm/m/it/10 X[]X\OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 X[]u\OT1/cmr/m/n/10 )[]\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ] =
  []
 
-./HW4.tex:116: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:116: Undefined control sequence.
 <recently read> \ee 
                     
 l.116 ...uppose that in the linear model 4.5, $\ee
@@ -382,7 +381,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:116: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:116: Undefined control sequence.
 <recently read> \ee 
                     
 l.116 ..., $\var(u|\textbf{x})=\sigma^2$, but $\ee
@@ -393,7 +392,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:116: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:116: Undefined control sequence.
 l.116 ...)=\sigma^2$, but $\ee(u|\textbf{x})\ne\ee
                                                   (u)$.
 The control sequence at the end of the top line
@@ -402,7 +401,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:118: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:118: Undefined control sequence.
 <recently read> \ee 
                     
 l.118         is it true that $\ee
@@ -414,7 +413,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [1]
-./HW4.tex:125: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:125: Undefined control sequence.
 l.125           $(\var{u|x}) = \ee
                                   (u^2|x) - \ee(u|x)^2$. from the question, ...
 The control sequence at the end of the top line
@@ -423,7 +422,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:125: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:125: Undefined control sequence.
 l.125           $(\var{u|x}) = \ee(u^2|x) - \ee
                                                (u|x)^2$. from the question, ...
 The control sequence at the end of the top line
@@ -432,7 +431,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:125: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:125: Undefined control sequence.
 l.125 ...question, we can say that $\sigma^2 = \ee
                                                   (u^2|x) - \ee(u|x)^2$. due...
 The control sequence at the end of the top line
@@ -441,7 +440,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:125: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:125: Undefined control sequence.
 l.125 ...can say that $\sigma^2 = \ee(u^2|x) - \ee
                                                   (u|x)^2$. due to the fact ...
 The control sequence at the end of the top line
@@ -450,7 +449,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:125: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:125: Undefined control sequence.
 <recently read> \ee 
                     
 l.125 ... - \ee(u|x)^2$. due to the fact that $\ee
@@ -461,7 +460,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:125: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:125: Undefined control sequence.
 l.125 ...^2$. due to the fact that $\ee(u|x)\ne\ee
                                                   (u)$, we know that u varie...
 The control sequence at the end of the top line
@@ -470,7 +469,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:125: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:125: Undefined control sequence.
 <recently read> \ee 
                     
 l.125 ...t u varies with x, and the same with $\ee
@@ -481,7 +480,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:125: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:125: Undefined control sequence.
 <recently read> \ee 
                     
 l.125 ...x)^2$. so, rearranging the equation, $\ee
@@ -492,7 +491,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:125: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:125: Undefined control sequence.
 l.125 ...he equation, $\ee(u^2|x) = \sigma^2 + \ee
                                                   (u|x)^2$. since, as stated...
 The control sequence at the end of the top line
@@ -501,7 +500,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:125: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:125: Undefined control sequence.
 <recently read> \ee 
                     
 l.125 ...a^2 + \ee(u|x)^2$. since, as stated, $\ee
@@ -512,7 +511,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:125: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:125: Undefined control sequence.
 <recently read> \ee 
                     
 l.125 ...e(u|x)^2$ varies with x, so too must $\ee
@@ -523,7 +522,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:125: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:125: Undefined control sequence.
 <recently read> \ee 
                     
 l.125 ...with that conclusion we can say that $\ee
@@ -547,7 +546,7 @@ Package amsmath Warning: Foreign command \atop;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 138.
 
-./HW4.tex:138: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:138: Undefined control sequence.
 l.138 ...}{2}}x_iu_i {d\atop{\rightarrow}} n(0,\ee
                                                   [\ee(u^2|x)x'x])$ which as...
 The control sequence at the end of the top line
@@ -556,7 +555,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:138: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:138: Undefined control sequence.
 l.138 ...}x_iu_i {d\atop{\rightarrow}} n(0,\ee[\ee
                                                   (u^2|x)x'x])$ which as giv...
 The control sequence at the end of the top line
@@ -565,7 +564,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:138: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:138: Undefined control sequence.
 <recently read> \ee 
                     
 l.138 ...x)x'x])$ which as given in the hint, $\ee
@@ -576,7 +575,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:138: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:138: Undefined control sequence.
 l.138 ..., $n^{-1}x_i'x_i {p\atop{\rightarrow}}\ee
                                                   [x'x]$. after plugging thi...
 The control sequence at the end of the top line
@@ -585,7 +584,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:138: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:138: Undefined control sequence.
 l.138 ...t $a\var\sqrt{n}(\hat{\beta}-\beta) = \ee
                                                   (x'x)^{-1}\ee(h(x)x'x)\ee(...
 The control sequence at the end of the top line
@@ -594,7 +593,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:138: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:138: Undefined control sequence.
 l.138 ...{n}(\hat{\beta}-\beta) = \ee(x'x)^{-1}\ee
                                                   (h(x)x'x)\ee(x'x)^{-1}$.
 The control sequence at the end of the top line
@@ -603,7 +602,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:138: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:138: Undefined control sequence.
 l.138 ...ta}-\beta) = \ee(x'x)^{-1}\ee(h(x)x'x)\ee
                                                   (x'x)^{-1}$.
 The control sequence at the end of the top line
@@ -618,6 +617,13 @@ Overfull \hbox (80.43576pt too wide) in paragraph at lines 138--139
  []
 
 [2] [3]
+
+LaTeX Warning: Reference `eq:health-model' on page 4 undefined on input line 174.
+
+
+LaTeX Warning: Reference `eq:health-model' on page 4 undefined on input line 174.
+
+
 Overfull \hbox (39.01216pt too wide) detected at line 186
 []
  []
@@ -633,18 +639,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 190--191
  []
 
 [4]
-./HW4.tex:213: Undefined control sequence.
-<recently read> \ee 
-                    
-l.213 ..._2^0 = z_2\lambda_2 + a_2$ such that $\ee
-                                                  (z_2'a_2)=0$. substituting...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./HW4.tex:213: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:213: Undefined control sequence.
 <recently read> \ee 
                     
 l.213 ... given in the question, we know that $\ee
@@ -655,7 +650,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW4.tex:213: Undefined control sequence.
+/Users/tate/Semester1/Stat/HW4/HW4.tex:213: Undefined control sequence.
 <recently read> \ee 
                     
 l.213 ...know that $\ee(z_1'u_1)=0$. however, $\ee
@@ -671,17 +666,24 @@ and I'll forget about whatever was undefined.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 4306 strings out of 474116
- 67357 string characters out of 5743682
+ 4304 strings out of 474116
+ 67412 string characters out of 5743682
  1939187 words of memory out of 5000000
- 26574 multiletter control sequences out of 15000+600000
+ 26573 multiletter control sequences out of 15000+600000
  565174 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 65i,13n,79p,985b,297s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 65i,13n,79p,1012b,297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on HW4.pdf (6 pages, 183147 bytes).
+Output written on HW4.pdf (6 pages, 183399 bytes).
 PDF statistics:
  103 PDF objects out of 1000 (max. 8388607)
  62 compressed objects within 1 object stream
