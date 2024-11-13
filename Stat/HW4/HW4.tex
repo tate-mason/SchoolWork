@@ -111,106 +111,106 @@
         \begin{proof}
           The formula for the variance of the OLS estimator $\hat{\beta} = \EE[(\hat{\beta} - \EE(\hat{\beta|X}))(\hat{\beta}-\EE(\hat{\beta}|X))'|X']$. Using the result from (a), we can say that $var(\hat{\beta}|X) = \EE[((X'X)^{-1}X'u)((X'X)^{-1}X'u)'|X] = (X'X)^{-1}X'\EE(uu'|X)X(X'X)^{-1}$. As the problem tells us that $\var(u|X) = \sigma^2$, we can state $\EE(uu'|X) = \sigma^2I$. Thus, $\var(\hat{\beta}|X) = (X'X)^{-1}X'(\sigma^2I)X(X'X)^{-1} = \sigma^2(X'X)^{-1}$
         \end{proof}
-\section*{Question 4.3}
-  \subsection*{Problem}
-    Suppose that in the linear model 4.5, $\EE(\textbf{x'}u)=\textbf{0}$ (where $\textbf{x}$ contains unity), $\var(u|\textbf{x})=\sigma^2$, but $\EE(u|\textbf{x})\ne\EE(u)$. 
-    \subsubsection*{(a)}
-      Is it true that $\EE(u^2|\textbf{x}) = \sigma^2$?
-    \subsubsection*{(b)}
-      What relevance does part a have for OLS estimation?
-  \subsection*{Solutions}
-    \subsubsection*{(a)}
-      No, this is not true. 
+  \section*{question 4.3}
+    \subsection*{problem}
+      suppose that in the linear model 4.5, $\ee(\textbf{x'}u)=\textbf{0}$ (where $\textbf{x}$ contains unity), $\var(u|\textbf{x})=\sigma^2$, but $\ee(u|\textbf{x})\ne\ee(u)$. 
+      \subsubsection*{(a)}
+        is it true that $\ee(u^2|\textbf{x}) = \sigma^2$?
+      \subsubsection*{(b)}
+        what relevance does part a have for ols estimation?
+    \subsection*{solutions}
+      \subsubsection*{(a)}
+        no, this is not true. 
+        \begin{proof}
+          $(\var{u|x}) = \ee(u^2|x) - \ee(u|x)^2$. from the question, we can say that $\sigma^2 = \ee(u^2|x) - \ee(u|x)^2$. due to the fact that $\ee(u|x)\ne\ee(u)$, we know that u varies with x, and the same with $\ee(u|x)^2$. so, rearranging the equation, $\ee(u^2|x) = \sigma^2 + \ee(u|x)^2$. since, as stated, $\ee(u|x)^2$ varies with x, so too must $\ee(u^2|x)$. with that conclusion we can say that $\ee(u^2|x)\ne\sigma^2$ 
+        \end{proof}
+      \subsection*{(b)}
+        when heteroskedasticity is present, the usual ols s.e. will be incorrect due to the assumption of homoskedasticity. thus, robust s.e. will be needed to produce meaningful estimation with ols.
+  \section*{question 4.17}
+    \subsection*{problem}
+      consider the standard linear model $y = \boldsymbol{x}\boldsymbol{\beta} + \boldsymbol{u}$ under assumptions ols.1 and ols.2. define $h(\boldsymbol{x}) \equiv \mathbb{e}[u^2 | \boldsymbol{x}]$. let $\hat{\boldsymbol{\beta}}$ be the ols estimator, and show that we can always write:
+      \begin{align}
+      \text{avar}\sqrt{n}(\hat{\boldsymbol{\beta}} - \boldsymbol{\beta}) = \left[\mathbb{e}[\boldsymbol{x}'\boldsymbol{x}]\right]^{-1} \mathbb{e}[h(\boldsymbol{x})\boldsymbol{x}'\boldsymbol{x}]\left[\mathbb{e}[\boldsymbol{x}'\boldsymbol{x}]\right]^{-1}
+      \end{align}
+      this expression is useful when $\mathbb{e}[\boldsymbol{u} | \boldsymbol{x}] = \boldsymbol{0}$ for comparing the asymptotic variances of ols and weighted least squares estimators; see, for example, wooldridge (1994b).
+    \subsection*{solution}
       \begin{proof}
-        $(\var{u|x}) = \EE(u^2|x) - \EE(u|x)^2$. From the question, we can say that $\sigma^2 = \EE(u^2|x) - \EE(u|x)^2$. Due to the fact that $\EE(u|x)\ne\EE(u)$, we know that u varies with x, and the same with $\EE(u|x)^2$. So, rearranging the equation, $\EE(u^2|x) = \sigma^2 + \EE(u|x)^2$. Since, as stated, $\EE(u|x)^2$ varies with x, so too must $\EE(u^2|x)$. With that conclusion we can say that $\EE(u^2|x)\ne\sigma^2$ 
+        the asymptotic distribution of the ols distribution is given as $\sqrt{n}(\hat{\beta}-\beta) = (n^{-1}\sum\limits_{i=1}^nx_i'x_i)^{-1}(n^{-\frac{1}{2}}\sum\limits_{i=1}^nx_i'u_i)$. by central limit theorem, $n^{-\frac{1}{2}}x_iu_i {d\atop{\rightarrow}} n(0,\ee[\ee(u^2|x)x'x])$ which as given in the hint, $\ee(u^2|x) \equiv h(x)$. by law of large numbers, $n^{-1}x_i'x_i {p\atop{\rightarrow}}\ee[x'x]$. after plugging this into common knowledge, we can say that $a\var\sqrt{n}(\hat{\beta}-\beta) = \ee(x'x)^{-1}\ee(h(x)x'x)\ee(x'x)^{-1}$. 
       \end{proof}
-    \subsection*{(b)}
-      When heteroskedasticity is present, the usual OLS S.E. will be incorrect due to the assumption of homoskedasticity. Thus, robust S.E. will be needed to produce meaningful estimation with OLS.
-\section*{Question 4.17}
-  \subsection*{Problem}
-    Consider the standard linear model $y = \boldsymbol{x}\boldsymbol{\beta} + \boldsymbol{u}$ under Assumptions OLS.1 and OLS.2. Define $h(\boldsymbol{x}) \equiv \mathbb{E}[u^2 | \boldsymbol{x}]$. Let $\hat{\boldsymbol{\beta}}$ be the OLS estimator, and show that we can always write:
-    \begin{align}
-    \text{Avar}\sqrt{N}(\hat{\boldsymbol{\beta}} - \boldsymbol{\beta}) = \left[\mathbb{E}[\boldsymbol{x}'\boldsymbol{x}]\right]^{-1} \mathbb{E}[h(\boldsymbol{x})\boldsymbol{x}'\boldsymbol{x}]\left[\mathbb{E}[\boldsymbol{x}'\boldsymbol{x}]\right]^{-1}
-    \end{align}
-    This expression is useful when $\mathbb{E}[\boldsymbol{u} | \boldsymbol{x}] = \boldsymbol{0}$ for comparing the asymptotic variances of OLS and weighted least squares estimators; see, for example, Wooldridge (1994b).
-  \subsection*{Solution}
-    \begin{proof}
-      The asymptotic distribution of the OLS distribution is given as $\sqrt{N}(\hat{\beta}-\beta) = (N^{-1}\sum\limits_{i=1}^Nx_i'x_i)^{-1}(N^{-\frac{1}{2}}\sum\limits_{i=1}^Nx_i'u_i)$. By central limit theorem, $N^{-\frac{1}{2}}x_iu_i {d\atop{\rightarrow}} N(0,\EE[\EE(u^2|x)x'x])$ which as given in the hint, $\EE(u^2|x) \equiv h(x)$. By law of large numbers, $N^{-1}x_i'x_i {p\atop{\rightarrow}}\EE[x'x]$. After plugging this into common knowledge, we can say that $A\var\sqrt{N}(\hat{\beta}-\beta) = \EE(x'x)^{-1}\EE(h(x)x'x)\EE(x'x)^{-1}$. 
-    \end{proof}
-\section*{Question 5.1}
-  \subsection*{Problem}
-    In this problem you are to establish the algebraic equivalence between 2SLS and OLS estimation of an equation containing an additional regressor. Although the result is completely general, for simplicity consider a model with a single (suspected) endogenous variable:
-    \begin{align*}
-    y_1 &= z_1\delta_1 + \alpha_1 y_2 + u_1, \\
-    y_2 &= z\pi_2 + v_2.
-    \end{align*}
-    For notational clarity, we use $y_2$ as the suspected endogenous variable and $z$ as the vector of all exogenous variables. The second equation is the reduced form for $y_2$.
-    Assume that $z$ has at least one more element than $z_1$.
-    We know that one estimator of $(\delta_1, \alpha_1)$ is the 2SLS estimator using instruments $x$. Consider an alternative estimator of $(\delta_1, \alpha_1)$:
-    (a) estimate the reduced form by OLS, and save the residuals $\hat{v}_2$;
-    (b) estimate the following equation by OLS:
-    \begin{equation}
-    y_1 = z_1\delta_1 + \alpha_1 y_2 + \rho\hat{v}_2 + \text{error}. \tag{5.52}
-    \end{equation}
-    Show that the OLS estimates of $\delta_1$ and $\alpha_1$ from this regression are identical to the 2SLS estimators. (Hint: Use the partitioned regression algebra of OLS. In particular, if $\hat{y} = x_1\beta_1 + x_2\beta_2$ is an OLS regression, $\beta_1$ can be obtained by first regressing $x_1$ on $x_2$, getting the residuals, say $\hat{x}_1$, and then regressing $y$ on $\hat{x}_1$; see, for example, Davidson and MacKinnon (1993, Section 1.4). You must also use the fact that $z_1$ and $\hat{v}_2$ are orthogonal in the sample.)
-  \subsection*{Solution}
-    \begin{proof}
-      2SLS in this case would work by first regressing $y_2$ on $z$ to get $\hat{y}_2$. Then, we would regress $y_1$ on $z_1$ and $\hat{y}_2$. For the alternative method, $\hat{v}_2 = y_2 - z\hat{\pi}_2$ which gives us the residuals from the reduced form problem. Then, we would run OLS on equation 5.52. To derive $\delta_1$ and $\alpha_1$, we regress $y_2$ and $z_1$ on $\hat{v}_2$ and get the residuals. Then, we regress $y_1$ on the residuals from the last step. Since, as given, $\hat{v}_2$ is orthogonal to $z_1$, the residual from the regression of $z_1$ on $\hat{v}_2$ is $z_1$. The residual from the regression of $y_2$ on $\hat{v}_2$ is $\hat{y}_2$. This is the same result as when regressing $y_1$ on $z_1$ and $\hat{y}_2$. The two estimates, therefore, show identical estimates for $\delta_1$ and $\alpha_1$. 
-    \end{proof}
-\section*{Question 5.2}
-  \subsection*{Problem}
-    Consider a model for the health of an individual:
-    \begin{gather}
-      \text{health} = \beta_0 + \beta_1\text{age} + \beta_2\text{weight} + \beta_3\text{height} \nonumber \\
-      + \beta_4\text{male} + \beta_5\text{work} + \beta_6\text{exercise} + u_1, \label{eq:health-model}
-    \end{gather}
-    where \textit{health} is some quantitative measure of the person's health; \textit{age}, \textit{weight}, \textit{height}, and \textit{male} are self-explanatory; \textit{work} is weekly hours worked; and \textit{exercise} is the hours of exercise per week.
-  \subsection*{Parts}
+  \section*{question 5.1}
+    \subsection*{problem}
+      in this problem you are to establish the algebraic equivalence between 2sls and ols estimation of an equation containing an additional regressor. although the result is completely general, for simplicity consider a model with a single (suspected) endogenous variable:
+      \begin{align*}
+      y_1 &= z_1\delta_1 + \alpha_1 y_2 + u_1, \\
+      y_2 &= z\pi_2 + v_2.
+      \end{align*}
+      for notational clarity, we use $y_2$ as the suspected endogenous variable and $z$ as the vector of all exogenous variables. the second equation is the reduced form for $y_2$.
+      assume that $z$ has at least one more element than $z_1$.
+      we know that one estimator of $(\delta_1, \alpha_1)$ is the 2sls estimator using instruments $x$. consider an alternative estimator of $(\delta_1, \alpha_1)$:
+      (a) estimate the reduced form by ols, and save the residuals $\hat{v}_2$;
+      (b) estimate the following equation by ols:
+      \begin{equation}
+      y_1 = z_1\delta_1 + \alpha_1 y_2 + \rho\hat{v}_2 + \text{error}. \tag{5.52}
+      \end{equation}
+      show that the ols estimates of $\delta_1$ and $\alpha_1$ from this regression are identical to the 2sls estimators. (hint: use the partitioned regression algebra of ols. in particular, if $\hat{y} = x_1\beta_1 + x_2\beta_2$ is an ols regression, $\beta_1$ can be obtained by first regressing $x_1$ on $x_2$, getting the residuals, say $\hat{x}_1$, and then regressing $y$ on $\hat{x}_1$; see, for example, davidson and mackinnon (1993, section 1.4). you must also use the fact that $z_1$ and $\hat{v}_2$ are orthogonal in the sample.)
+    \subsection*{solution}
+      \begin{proof}
+        2sls in this case would work by first regressing $y_2$ on $z$ to get $\hat{y}_2$. then, we would regress $y_1$ on $z_1$ and $\hat{y}_2$. for the alternative method, $\hat{v}_2 = y_2 - z\hat{\pi}_2$ which gives us the residuals from the reduced form problem. then, we would run ols on equation 5.52. to derive $\delta_1$ and $\alpha_1$, we regress $y_2$ and $z_1$ on $\hat{v}_2$ and get the residuals. then, we regress $y_1$ on the residuals from the last step. since, as given, $\hat{v}_2$ is orthogonal to $z_1$, the residual from the regression of $z_1$ on $\hat{v}_2$ is $z_1$. the residual from the regression of $y_2$ on $\hat{v}_2$ is $\hat{y}_2$. this is the same result as when regressing $y_1$ on $z_1$ and $\hat{y}_2$. the two estimates, therefore, show identical estimates for $\delta_1$ and $\alpha_1$. 
+      \end{proof}
+  \section*{question 5.2}
+    \subsection*{problem}
+      consider a model for the health of an individual:
+      \begin{gather}
+        \text{health} = \beta_0 + \beta_1\text{age} + \beta_2\text{weight} + \beta_3\text{height} \nonumber \\
+        + \beta_4\text{male} + \beta_5\text{work} + \beta_6\text{exercise} + u_1, \label{eq:health-model}
+      \end{gather}
+      where \textit{health} is some quantitative measure of the person's health; \textit{age}, \textit{weight}, \textit{height}, and \textit{male} are self-explanatory; \textit{work} is weekly hours worked; and \textit{exercise} is the hours of exercise per week.
+    \subsection*{parts}
+      \subsubsection*{(a)}
+        why might you be concerned about \textit{exercise} being correlated with the error term $u_1$?
+      \subsubsection*{(b)}
+        suppose you can collect data on two additional variables, \textit{disthome} and \textit{distwork}, the distances from home and from work to the nearest health club or gym. discuss whether these are likely to be uncorrelated with $u_1$.
+      \subsubsection*{(c)}
+        now assume that \textit{disthome} and \textit{distwork} are in fact uncorrelated with $u_1$, as are all variables in equation \eqref{eq:health-model} with the exception of \textit{exercise}. write down the reduced form for \textit{exercise}, and state the conditions under which the parameters of equation \eqref{eq:health-model} are identified.
+      \subsubsection*{(d)}
+        how can the identification assumption in part c be tested?
+    \subsection*{solutions}
+      \subsubsection*{(a)}
+        things like health conditions can affect ability to exercise as well as those who care more about health will be more likely to exercise and be healthier. these unobserved factors, as well as the potential for bad health to effect ability exercise, are reasons why exercise may be correlated with the error term.
+      \subsubsection*{(b)}
+        these are likely uncorrelated factors as the choice of a dwelling or a workplace is typically decided by more factors than just proximity to a gym. thus, it would be a valid addition to the model.
+      \subsubsection*{(c)}
+        the reduced form equation is as follows:
+        \begin{gather*}
+          exercise = \pi_0 + \pi_1age + \pi_2weight + \pi_3height + \pi_4male + \pi_5work + \pi_6disthome + \pi_7distwork + v_2
+        \end{gather*}
+        identification has three primary conditions:
+        \begin{enumerate}
+          \item rank condition states that one of $\pi_6,\pi_7$ must be non-zero \\
+          \item the exclusion restriction is assumed in this question \\
+          \item overidentified equation as the instruments outnumber endogenous variables
+        \end{enumerate}
+      \subsubsection*{(d)}
+        one example of a test for the identification assumption in (c) is the first stage f-test. tests joint significance of instruments in reduced form.
+  \section*{question 5.11}
+    \subsection*{problem}
+      a model with a single endogenous explanatory variable can be written as
+      \begin{gather}
+        y_1 = z_1 \delta_1 + \alpha_1 y_2 + u_1, \\
+        e(z'u_1) = 0,
+      \end{gather}
+      where $z = (z_1, z_2)$. consider the following two-step method, intended to mimic 2sls:
     \subsubsection*{(a)}
-      Why might you be concerned about \textit{exercise} being correlated with the error term $u_1$?
+      regress $y_2$ on $z_2$, and obtain fitted values, $\hat{y}_2$. (that is, $z_1$ is omitted from the first-stage regression.)
     \subsubsection*{(b)}
-      Suppose you can collect data on two additional variables, \textit{disthome} and \textit{distwork}, the distances from home and from work to the nearest health club or gym. Discuss whether these are likely to be uncorrelated with $u_1$.
-    \subsubsection*{(c)}
-      Now assume that \textit{disthome} and \textit{distwork} are in fact uncorrelated with $u_1$, as are all variables in equation \eqref{eq:health-model} with the exception of \textit{exercise}. Write down the reduced form for \textit{exercise}, and state the conditions under which the parameters of equation \eqref{eq:health-model} are identified.
-    \subsubsection*{(d)}
-      How can the identification assumption in part c be tested?
-  \subsection*{Solutions}
-    \subsubsection*{(a)}
-      Things like health conditions can affect ability to exercise as well as those who care more about health will be more likely to exercise and be healthier. These unobserved factors, as well as the potential for bad health to effect ability exercise, are reasons why exercise may be correlated with the error term.
-    \subsubsection*{(b)}
-      These are likely uncorrelated factors as the choice of a dwelling or a workplace is typically decided by more factors than just proximity to a gym. Thus, it would be a valid addition to the model.
-    \subsubsection*{(c)}
-      The reduced form equation is as follows:
-      \begin{gather*}
-        exercise = \pi_0 + \pi_1age + \pi_2weight + \pi_3height + \pi_4male + \pi_5work + \pi_6disthome + \pi_7distwork + v_2
-      \end{gather*}
-      Identification has three primary conditions:
-      \begin{enumerate}
-        \item Rank condition states that one of $\pi_6,\pi_7$ must be non-zero \\
-        \item The exclusion restriction is assumed in this question \\
-        \item Overidentified equation as the instruments outnumber endogenous variables
-      \end{enumerate}
-    \subsubsection*{(d)}
-      One example of a test for the identification assumption in (c) is the first stage F-test. Tests joint significance of instruments in reduced form.
-\section*{Question 5.11}
-  \subsection*{Problem}
-    A model with a single endogenous explanatory variable can be written as
-    \begin{gather}
-      y_1 = z_1 \delta_1 + \alpha_1 y_2 + u_1, \\
-      E(z'u_1) = 0,
-    \end{gather}
-    where $z = (z_1, z_2)$. Consider the following two-step method, intended to mimic 2SLS:
-  \subsubsection*{(a)}
-    Regress $y_2$ on $z_2$, and obtain fitted values, $\hat{y}_2$. (That is, $z_1$ is omitted from the first-stage regression.)
-  \subsubsection*{(b)}
-    Regress $y_1$ on $z_1$, $\hat{y}_2$ to obtain $\hat{\delta}_1$ and $\hat{\alpha}_1$. Show that $\hat{\delta}_1$ and $\hat{\alpha}_1$ are generally inconsistent. When would $\hat{\delta}_1$ and $\hat{\alpha}_1$ be consistent? (Hint: Let $y_2^0$ be the population linear projection of $y_2$ on $z_2$, and let $a_2$ be the projection error: $y_2^0 = z_2 \lambda_2 + a_2$, $E(z'a_2) = 0$. For simplicity, pretend that $\lambda_2$ is known rather than estimated; that is, assume that $\hat{y}_2$ is actually $y_2^0$. Then, write)
-    \begin{gather}
-      y_1 = z_1 \delta_1 + \alpha_1 y_2^0 + \alpha_1 a_2 + u_1
-    \end{gather}
-    and check whether the composite error $\alpha_1 a_2 + u_1$ is uncorrelated with the explanatory variables.
-  \subsection*{Solution}
-    \begin{proof}
-      As given in the hint, $y_2^0 = z_2\lambda_2 + a_2$ such that $\EE(z_2'a_2)=0$. Substituting this into the main equation, $y_1 = z_1\delta_1+\alpha_1(z_2\lambda_2+a_2)+u_1y_1 = z_1\delta_1 + \alpha_1z_2\lambda_2 + (\alpha_1a_2+u_1)$. For consistency, $\alpha_1a_2 + u_1$ needs to be uncorrelated with both $z_1$ and $y_2^0$. From assumptions given in the question, we know that $\EE(z_1'u_1)=0$. However, $\EE(z_1'a_2)\ne0$ due to the exlusion of $z_1$ from the linear projection. With this in my mind, we can say that $\hat{\delta}_1,\hat{\alpha}_1$ are generally inconsistent. They would be consistent if $z_1, z_2$ are uncorrelated, $y_2$ is unrelated to $z_1$, or if $\alpha_1=0$. Important takeaways are that due to the omission of $z_1$ from the first stage is akin to incorrectly excluding relevant instruments, creating correlation between $a_2$ and the exogenous variables. Thus, it is necessary to use valid instruments in the first stage. 
-    \end{proof}
+      regress $y_1$ on $z_1$, $\hat{y}_2$ to obtain $\hat{\delta}_1$ and $\hat{\alpha}_1$. show that $\hat{\delta}_1$ and $\hat{\alpha}_1$ are generally inconsistent. when would $\hat{\delta}_1$ and $\hat{\alpha}_1$ be consistent? (hint: let $y_2^0$ be the population linear projection of $y_2$ on $z_2$, and let $a_2$ be the projection error: $y_2^0 = z_2 \lambda_2 + a_2$, $e(z'a_2) = 0$. for simplicity, pretend that $\lambda_2$ is known rather than estimated; that is, assume that $\hat{y}_2$ is actually $y_2^0$. then, write)
+      \begin{gather}
+        y_1 = z_1 \delta_1 + \alpha_1 y_2^0 + \alpha_1 a_2 + u_1
+      \end{gather}
+      and check whether the composite error $\alpha_1 a_2 + u_1$ is uncorrelated with the explanatory variables.
+    \subsection*{solution}
+      \begin{proof}
+        as given in the hint, $y_2^0 = z_2\lambda_2 + a_2$ such that $\ee(z_2'a_2)=0$. substituting this into the main equation, $y_1 = z_1\delta_1+\alpha_1(z_2\lambda_2+a_2)+u_1y_1 = z_1\delta_1 + \alpha_1z_2\lambda_2 + (\alpha_1a_2+u_1)$. for consistency, $\alpha_1a_2 + u_1$ needs to be uncorrelated with both $z_1$ and $y_2^0$. from assumptions given in the question, we know that $\ee(z_1'u_1)=0$. however, $\ee(z_1'a_2)\ne0$ due to the exlusion of $z_1$ from the linear projection. with this in my mind, we can say that $\hat{\delta}_1,\hat{\alpha}_1$ are generally inconsistent. they would be consistent if $z_1, z_2$ are uncorrelated, $y_2$ is unrelated to $z_1$, or if $\alpha_1=0$. important takeaways are that due to the omission of $z_1$ from the first stage is akin to incorrectly excluding relevant instruments, creating correlation between $a_2$ and the exogenous variables. thus, it is necessary to use valid instruments in the first stage. 
+      \end{proof}
 \end{document}
 
