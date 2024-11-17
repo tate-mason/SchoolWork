@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1731010163.56091 "HW6.tex" "HW6.pdf" "HW6" 1731010164.29515 2
+["pdflatex"] 1731703657.43566 "HW6.tex" "HW6.pdf" "HW6" 1731703658.08195 2
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -72,14 +72,14 @@
   "/usr/local/texlive/2024/texmf-dist/tex/latex/trimspaces/trimspaces.sty" 1253232110 1380 971a51b00a14503ddf754cab24c3f209 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/unicode-math/unicode-math.sty" 1691956686 1474 b42cfbe849cb22ed1c0632800327884f ""
   "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1708706663 41649 5d6ae549fbbcb850a863f69aa41f3d10 ""
-  "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726531775.59856 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
-  "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726531728 8221416 7622689328259d61c3c9d6e7fe6e013f ""
+  "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726531688.57061 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
+  "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726531591 8221416 a0a37a22ef1e1daff65ca6313af8730d ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "HW6.aux" 1731010164.2425 32 ab05033ccbb38b00a31b200ccedf8001 "pdflatex"
-  "HW6.tex" 1731010161.91205 5847 e5a1f81a66b175235cd6ba246b489581 ""
-  "fig1.png" 1731010058.58909 81041 ea2b15f96c02ccc2b0d20403c04dc669 ""
-  "fig3.png" 1731009883.66209 54191 4ecf36c2565d13d5a7f1f17a7b02fdc8 ""
-  "fig4.png" 1731009985.56579 55796 e188b8fdd8905936c0453061b535143d ""
+  "HW6.aux" 1731703658.0347 32 ab05033ccbb38b00a31b200ccedf8001 "pdflatex"
+  "HW6.tex" 1731279151.6627 5847 e5a1f81a66b175235cd6ba246b489581 ""
+  "fig1.png" 1731279151.66317 81041 ea2b15f96c02ccc2b0d20403c04dc669 ""
+  "fig3.png" 1731279151.66362 54191 4ecf36c2565d13d5a7f1f17a7b02fdc8 ""
+  "fig4.png" 1731279151.66395 55796 e188b8fdd8905936c0453061b535143d ""
   (generated)
   "HW6.aux"
   "HW6.log"
