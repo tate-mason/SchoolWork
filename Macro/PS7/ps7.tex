@@ -122,21 +122,21 @@
         c_{Ht} = k_{Ht}^{\alpha}n_{Ht}^{1-\alpha} \\
         Y_t = K_{Mt}^{\alpha}N_{Mt}^{1-\alpha} \\
         Y_t = c_{Mt} + x_{Mt} + x_{Ht} \\
-        K_{Mt+1} = (1-\delta_M)K_{Mt} + x_{Mt} \\
-        k_{Ht+1} = (1-\delta_H)k_{Ht} + x{Ht} \\
+        K_{Mt+1} = x_{Mt}-(1-\delta_M)K_{Mt} \\
+        k_{Ht+1} = x_{Ht}-(1-\delta_H)k_{Ht} \\
         n_{Ht} + N_{Mt} = 1 \\
+        k_{Ht}, K_{Mt}, c_{Mt}, c_{Ht}, n_{Ht}, N_{Mt}, Y_{t} > 0 \\
         k_{H0}, K_{M0} \ given
       \end{gather*}
     \subsubsection*{(b)}
       \begin{gather*}
-        v(k_{Ht}, K_{Mt}) = {\max\atop{N_t, k_{Ht+1}, K_{Mt+1}}} \ \log(Z^{\frac{1}{\rho}}) + \beta v(k_{Ht+1},K_{Mt+1}) \\
+        v(k_{Ht}, K_{Mt}) = {\max\atop{c_{Mt}, k_{Ht+1}, K_{Mt+1}}} \ \frac{1}{\rho}\log(\mu c_{m}^{\rho} + (1-\mu)[k_{ht}^{\alpha}(1-n_{mt})^{1-\alpha}]^{\rho}) + \beta v(k_{Ht+1},K_{Mt+1}) \\
         \left s.t. \\
-        Z \equiv \mu c_{M}^{\rho} + (1-\mu)[k_{Ht}^{\alpha}(1-N_{Mt})^{1-\alpha}]^{\rho} \\
-        c_t = Z^{\frac{1}{\rho}}\\
-        c_{Ht} = k_{Ht}^{\alpha}(1-N_{Mt})^{1-\alpha}
-        c_{Mt} + k_{Ht+1} + K_{Mt+1} = K_{MT}^{\alpha}N_{MT}^{1-\alpha} + (1-\delta_H)k_{Ht} + (1-\delta_M)K_{Mt} \\
-        K_{Mt+1} = (1-\delta_M)K_{Mt} + x_{Mt} \\
-        k_{Ht+1} = (1-\delta_H)k_{Ht} + x{Ht} \\
+        c_t = (\mu c_{m}^{\rho} + (1-\mu)[k_{ht}^{\alpha}(1-N_{Mt})^{1-\alpha}]^{\rho})^{\frac{1}{\rho}}\\
+        c_{Ht} = k_{Ht}^{\alpha}(1-N_{Mt})^{1-\alpha} \\
+        c_{Mt} + k_{Ht+1} + K_{Mt+1} = K_{MT}^{\alpha}N_{MT}^{1-\alpha} - (1-\delta_H)k_{Ht} - (1-\delta_M)K_{Mt} \\
       \end{gather*}
       In this case, the state variables are $K_{Mt}$ and $k_{Ht}$ as we have some sort of control over labor, consumption, and investment. 
+    \subsubsection*{(c)}
+      
 \end{document}

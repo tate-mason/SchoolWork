@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  19 NOV 2024 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  19 NOV 2024 13:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -368,12 +368,12 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 Package amsmath Warning: Foreign command \atop;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 129.
+(amsmath)                 on input line 130.
 
-./ps7.tex:129: Missing } inserted.
+./ps7.tex:130: Missing } inserted.
 <inserted text> 
                 }
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -381,35 +381,35 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps7.tex:129: Missing $ inserted.
+./ps7.tex:130: Missing $ inserted.
 <inserted text> 
                 $
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps7.tex:129: Missing $ inserted.
+./ps7.tex:130: Missing $ inserted.
 <inserted text> 
                 $
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps7.tex:129: Missing { inserted.
+./ps7.tex:130: Missing { inserted.
 <inserted text> 
                 {
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-./ps7.tex:129: Missing delimiter (. inserted).
+./ps7.tex:130: Missing delimiter (. inserted).
 <to be read again> 
                    s
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -418,10 +418,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-./ps7.tex:129: Extra }, or forgotten \right.
+./ps7.tex:130: Extra }, or forgotten \right.
 <template> }
             $}\ifdim \wdz@ >\totwidth@ \global \totwidth@ \wdz@ \fi \endtemp...
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -429,10 +429,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-./ps7.tex:129: Missing \right. inserted.
+./ps7.tex:130: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -440,10 +440,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps7.tex:129: Missing } inserted.
+./ps7.tex:130: Missing } inserted.
 <inserted text> 
                 }
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -451,10 +451,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps7.tex:129: Missing } inserted.
+./ps7.tex:130: Missing } inserted.
 <inserted text> 
                 }
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -462,35 +462,35 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps7.tex:129: Missing $ inserted.
+./ps7.tex:130: Missing $ inserted.
 <inserted text> 
                 $
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps7.tex:129: Missing $ inserted.
+./ps7.tex:130: Missing $ inserted.
 <inserted text> 
                 $
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps7.tex:129: Missing { inserted.
+./ps7.tex:130: Missing { inserted.
 <inserted text> 
                 {
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-./ps7.tex:129: Missing delimiter (. inserted).
+./ps7.tex:130: Missing delimiter (. inserted).
 <to be read again> 
                    s
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -499,10 +499,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-./ps7.tex:129: Extra }, or forgotten \right.
+./ps7.tex:130: Extra }, or forgotten \right.
 <template> }
             $}\calc@shift@gather \set@gather@field \endtemplate 
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -510,10 +510,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-./ps7.tex:129: Missing \right. inserted.
+./ps7.tex:130: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -521,10 +521,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps7.tex:129: Missing } inserted.
+./ps7.tex:130: Missing } inserted.
 <inserted text> 
                 }
-l.129       \end{gather*}
+l.130       \end{gather*}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -533,10 +533,10 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 [1]
-./ps7.tex:140: Missing delimiter (. inserted).
+./ps7.tex:138: Missing delimiter (. inserted).
 <to be read again> 
                    s
-l.140       \end{gather*}
+l.138       \end{gather*}
                          
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -545,10 +545,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-./ps7.tex:140: Extra }, or forgotten \right.
+./ps7.tex:138: Extra }, or forgotten \right.
 <template> }
             $}\ifdim \wdz@ >\totwidth@ \global \totwidth@ \wdz@ \fi \endtemp...
-l.140       \end{gather*}
+l.138       \end{gather*}
                          
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -556,10 +556,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-./ps7.tex:140: Missing \right. inserted.
+./ps7.tex:138: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.140       \end{gather*}
+l.138       \end{gather*}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -567,10 +567,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps7.tex:140: Missing } inserted.
+./ps7.tex:138: Missing } inserted.
 <inserted text> 
                 }
-l.140       \end{gather*}
+l.138       \end{gather*}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -578,10 +578,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps7.tex:140: Missing delimiter (. inserted).
+./ps7.tex:138: Missing delimiter (. inserted).
 <to be read again> 
                    s
-l.140       \end{gather*}
+l.138       \end{gather*}
                          
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -590,10 +590,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-./ps7.tex:140: Extra }, or forgotten \right.
+./ps7.tex:138: Extra }, or forgotten \right.
 <template> }
             $}\calc@shift@gather \set@gather@field \endtemplate 
-l.140       \end{gather*}
+l.138       \end{gather*}
                          
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -601,10 +601,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-./ps7.tex:140: Missing \right. inserted.
+./ps7.tex:138: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.140       \end{gather*}
+l.138       \end{gather*}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -612,10 +612,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps7.tex:140: Missing } inserted.
+./ps7.tex:138: Missing } inserted.
 <inserted text> 
                 }
-l.140       \end{gather*}
+l.138       \end{gather*}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -624,7 +624,7 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Overfull \hbox (1.28563pt too wide) detected at line 140
+Overfull \hbox (20.50548pt too wide) detected at line 138
 []
  []
 
@@ -643,7 +643,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  65i,12n,79p,478b,262s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on ps7.pdf (3 pages, 157439 bytes).
+Output written on ps7.pdf (3 pages, 157653 bytes).
 PDF statistics:
  84 PDF objects out of 1000 (max. 8388607)
  50 compressed objects within 1 object stream
