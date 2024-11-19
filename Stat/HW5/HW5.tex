@@ -117,20 +117,22 @@
       \subsubsection*{(a)}
         To get the partial effect of $z_2$ on the response probability, we will take the partial derivative with respect to $z_2$
         \begin{gather*}
-          G(z) = \PP(y=1|\textbf{z}_1,z_2) \\
-          G(z) = \Phi\textbf{z}_1\boldsymbol{\delta}_1 + \Phi\gamma_1z_2 + \Phi\gamma_2z_2^2 \\
-          \boxed{\frac{\partial G(z)}{\partial z_2} = \Phi(\gamma_1+2\gamma_2z_2)} 
+          G(z) = \Phi(z) \equiv \int\limits_{-\infty}^{(\textbf{z}_1\boldsymbol{\delta}_1 + \gamma_1z_2 + \gamma_2z_2^2)}\phi(z)dz \\
+          \phi(z) = (2\pi)^{-\frac{1}{2}}\exp(-\textbf{z}_1\boldsymbol{\delta}_1 + \gamma_1z_2 + \gamma_2z_2^2)^2/2) \\
+          \frac{\partial p(z)}{\partial z_2} = \phi(\textbf{z}_1\boldsymbol{\delta}_1 + \gamma_1z_2 + \gamma_2z_2^2)(\gamma_1+2\gamma_2z_2)
         \end{gather*}
         This partial effect can be estimated by Probit regression.
       \subsubsection*{(b)}
         To get the partial effect of $z_2$, we follow the same protocol as in (a)
         \begin{gather*}
-          \frac{\partial G(z)}{\partial z_2} = \Phi(\gamma_1+\gamma_3d_1)
+          G(z) = \Phi(z) \equiv \int\limits_{-\infty}^{(\textbf{z}_1\boldsymbol{\delta}_1 + \gamma_1z_2 + \gamma_2d_1 + \gamma_3z_2d_1)}\phi(z)dz \\
+          \phi(z) = (2\pi)^{-\frac{1}{2}}\exp(-\textbf{z}_1\boldsymbol{\delta}_1 + \gamma_1z_2 + \gamma_2d_1 + \gamma_3z_2d_1)^2/2) \\
+          \frac{\partial p(z)}{\partial z_2} = \phi(\textbf{z}_1\boldsymbol{\delta}_1 + \gamma_1z_2 + \gamma_2z_2^2)(\gamma_1+2\gamma_3d_1)
         \end{gather*}
         To estimate the effects of $d_1$, we would then evaluate the partial effects at $d_1 = 1, 0$.
         \begin{gather*}
-          d_1 = 1 \rightarrow \Phi(\gamma_1 + \gamma_3) \\
-          d_1 = 0 \rightarrow \Phi\gamma_1
+          d_1 = 1 \rightarrow \phi(z)(\gamma_1 + \gamma_3) \\
+          d_1 = 0 \rightarrow \phi(z)(\gamma_1)
         \end{gather*}
         This would be estimated, again, by a Probit model, being sure to include the interaction term $z_2\times d_1$
       \subsubsection*{(c)}
@@ -155,7 +157,25 @@
       If you have a reason to believe $\rho_1>0$, how would you estimate $\boldsymbol{\delta}_1$ along with $\rho_1$?
   \subsection*{Solution}
     \subsubsection*{(a)}
-      
+      Following a similar protocol to the questions in 15.3,
+      \begin{gather*}
+        G(z) = \Phi(z) \equiv \int\limits_{-\infty}^{\textbf{z}_1\boldsymbol{\delta}+\gamma_1z_2q}\phi(z)dz \\
+        \phi(z) = (2\pi)^{-\frac{1}{2}}\exp(\textbf{z}_1\boldsymbol{\delta}+\gamma_1z_2q) \\
+        \frac{\partial p(z)}{\partial z_2} = \phi(\textbf{z}_1\boldsymbol{\delta}+\gamma_1z_2q)(\gamma_1q)
+      \end{gather*}
+    \subsubsection*{(b)}
+      \begin{gather*}
+        y = \mathbb{1}\{z_1\delta_1+\gamma_1z_2q+\epsilon\} \\
+        e = \gamma_1z_2q+\epsilon \\
+        e \sim N(0, 1+\gamma_1^2z_2^2) \\
+        \PP(e\geq\textbf{z}_1\boldsymbol{\delta}_1) \\
+        \PP(e\leq\textbf{z}_1\boldsymbol{\delta}_1) \\
+        = \Phi(\frac{(\textbf{z}_1\boldsymbol{\delta}_1)}{(\gamma_1z_2)^{\frac{1}{2}}})
+      \end{gather*}
+    \subsubsection*{(c)}
+      To test $H_0: \ \rho_1 = 0$, such that $\rho_1 \equiv \gamma_1^2$, we would use the Langrange multiplier test.
+    \subsubsection*{(d)}
+      Using maximum likelihood estimation, we could estimate $\boldsymbol{\delta}_1$ and $\rho_1$. 
 \section*{Question 19.7}
   \subsection*{Problem}
     Suppose in section 19.6.1, we replace assumption 19.1d with
@@ -171,6 +191,11 @@
     [Hint: Take $a=\mathbf{x} \boldsymbol{\delta}_2$ and use the fact that $\mathrm{E}(v_2^2 \mid v_2>-a)=\operatorname{Var}(v_2 \mid v_2>-a)+$ $[\mathrm{E}(v_2 \mid v_2>-a)]^2$.]
     \subsubsection*{(b)}
       Explain how to correct for sample selection in this case.
-    \subsubsection*{(c)}
-      How would you test for the presence of sample selection bias?
+  \subsection*{Solutions}
+    \subsubsection*{(a)}
+      \begin{proof}
+        We are given a few definitions which will be valuable to list. Firstly, $a = \textbf{x}\boldsymbol{\delta}_2$. This is useful given $\EE(v_2^2|v_2>-a) = \var(v_2|v_2>-a) + \EE(v_2|v_2>-a)^2$ and $\var(v_2|v_2>-a) = 1-\lambda(a)[\lambda(a)+a]$. When substituting for a, $\var(v_2|v_2>-\textbf{x}\boldsymbol{\delta}_2) = 1 - \lambda(\textbf{x}\boldsymbol{\delta}_2)[\lambda(\textbf{x}\boldsymbol{\delta}_2)+\textbf{x}\boldsymbol{\delta}_2]$. So, $\EE(v_2|v_2>-\textbf{x}\boldsymbol{\delta}_2) = \lambda(\textbf{x}\boldsymbol{\delta}_2)$ and $\EE(v_2^2|v_2>-a) = 1 - \lambda(\textbf{x}\boldsymbol{\delta}_2)[\lambda(\textbf{x}\boldsymbol{\delta}_2)+\textbf{x}\boldsymbol{\delta}_2] + [\lambda(\textbf{x}\boldsymbol{\delta}_2)^2]$. Thus, we can move on, saying that $\EE(u|v_2>-\textbf{x}\boldsymbol{\delta}_2) = \gamma_1\EE(v_2|v_2>-\textbf{x}\boldsymbol{\delta}_2) + \gamma_2\EE(v_2^2|v_2>-\textbf{x}\boldsymbol{\delta}_2)$. When plugging in results, we get $\EE(u|v_2) = \gamma_1\lambda(\textbf{x}\boldsymbol{\delta}_2) + \gamma_2([1-\lambda(\textbf{x}\boldsymbol{\delta}_2)(\lambda(\textbf{x}\boldsymbol{\delta}_2)+\textbf{x}\boldsymbol{\delta}_2)+\lambda(\textbf{x}\boldsymbol{\delta}_2)^2]-1)$. After collecting terms, we are left with $\EE(u|v_2) = \gamma_1\lambda(\textbf{x}\boldsymbol{\delta}_2) - \gamma_2\lambda(\textbf{x}\boldsymbol{\delta}_2)\textbf{x}\boldsymbol{\delta}_2$. Then, we can conclude by saying that $\EE(y|x,y_2=1) = \textbf(x)_1\boldsymbol(\beta)_1 + \gamma_1\lambda(\textbf{x}\boldsymbol{\delta}_2) - \gamma_2\lambda(\textbf{x}\boldsymbol{\delta}_2)\textbf{x}\boldsymbol{\delta}_2$
+      \end{proof}
+    \subsubsection*{(b)}
+      First, obtain the probit estimate for $y_2$. Then obtain the inverse mills ratio for each observation. Then, run OLS on the equation we derived in part a.
 \end{document}
