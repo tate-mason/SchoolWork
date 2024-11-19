@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  18 NOV 2024 09:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  19 NOV 2024 12:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -378,53 +378,188 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 106.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 98.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 106.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 98.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 106.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 98.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 <fig1.png, id=9, 408.02437pt x 614.295pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
-Package pdftex.def Info: fig1.png  used on input line 115.
+Package pdftex.def Info: fig1.png  used on input line 110.
 (pdftex.def)             Requested size: 99.58464pt x 149.92712pt.
- [1 <./fig1.png>]
-<fig3.png, id=19, 316.18124pt x 411.03563pt>
+
+./HW6.tex:125: Undefined control sequence.
+<argument>  \EE 
+                (Y) = 8, \EE (Z) = 24 \\ 8Y = 24Z \rightarrow Y = 3Z \\ Y + ...
+l.125       \end{gather*}
+                         
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./HW6.tex:125: Undefined control sequence.
+<argument>  \EE (Y) = 8, \EE 
+                             (Z) = 24 \\ 8Y = 24Z \rightarrow Y = 3Z \\ Y + ...
+l.125       \end{gather*}
+                         
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./HW6.tex:125: Undefined control sequence.
+<argument>  \EE 
+                (Y) = 8, \EE (Z) = 24 \\ 8Y = 24Z \rightarrow Y = 3Z \\ Y + ...
+l.125       \end{gather*}
+                         
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./HW6.tex:125: Undefined control sequence.
+<argument>  \EE (Y) = 8, \EE 
+                             (Z) = 24 \\ 8Y = 24Z \rightarrow Y = 3Z \\ Y + ...
+l.125       \end{gather*}
+                         
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[1 <./fig1.png>] [2]
+<fig3.png, id=27, 316.18124pt x 411.03563pt>
 File: fig3.png Graphic file (type png)
 <use fig3.png>
-Package pdftex.def Info: fig3.png  used on input line 121.
+Package pdftex.def Info: fig3.png  used on input line 175.
 (pdftex.def)             Requested size: 99.58464pt x 129.45808pt.
-<fig4.png, id=20, 272.51813pt x 539.01375pt>
+
+./HW6.tex:185: Undefined control sequence.
+<argument>  \EE 
+                (L) = 4, \EE (R) = 5\\ 4L = 5R \rightarrow L = \frac {5}{4}R...
+l.185     \end{gather*}
+                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./HW6.tex:185: Undefined control sequence.
+<argument>  \EE (L) = 4, \EE 
+                             (R) = 5\\ 4L = 5R \rightarrow L = \frac {5}{4}R...
+l.185     \end{gather*}
+                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./HW6.tex:185: Undefined control sequence.
+<argument>  \EE 
+                (L) = 4, \EE (R) = 5\\ 4L = 5R \rightarrow L = \frac {5}{4}R...
+l.185     \end{gather*}
+                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./HW6.tex:185: Undefined control sequence.
+<argument>  \EE (L) = 4, \EE 
+                             (R) = 5\\ 4L = 5R \rightarrow L = \frac {5}{4}R...
+l.185     \end{gather*}
+                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./HW6.tex:194: Undefined control sequence.
+<argument>  \EE 
+                (L) = 3, \EE (R) = 4 \\ 3L = 4R \rightarrow L = \frac {4}{3}...
+l.194     \end{gather*}
+                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./HW6.tex:194: Undefined control sequence.
+<argument>  \EE (L) = 3, \EE 
+                             (R) = 4 \\ 3L = 4R \rightarrow L = \frac {4}{3}...
+l.194     \end{gather*}
+                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./HW6.tex:194: Undefined control sequence.
+<argument>  \EE 
+                (L) = 3, \EE (R) = 4 \\ 3L = 4R \rightarrow L = \frac {4}{3}...
+l.194     \end{gather*}
+                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./HW6.tex:194: Undefined control sequence.
+<argument>  \EE (L) = 3, \EE 
+                             (R) = 4 \\ 3L = 4R \rightarrow L = \frac {4}{3}...
+l.194     \end{gather*}
+                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[3 <./fig3.png>]
+<fig4.png, id=32, 272.51813pt x 539.01375pt>
 File: fig4.png Graphic file (type png)
 <use fig4.png>
-Package pdftex.def Info: fig4.png  used on input line 130.
+Package pdftex.def Info: fig4.png  used on input line 198.
 (pdftex.def)             Requested size: 99.58464pt x 196.96455pt.
- [2 <./fig3.png> <./fig4.png>] (./HW6.aux)
+ [4 <./fig4.png>] (./HW6.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4925 strings out of 474116
- 78732 string characters out of 5743682
- 1932187 words of memory out of 5000000
- 27191 multiletter control sequences out of 15000+600000
- 561774 words of font info for 52 fonts, out of 8000000 for 9000
+ 4936 strings out of 474116
+ 78954 string characters out of 5743682
+ 1941187 words of memory out of 5000000
+ 27201 multiletter control sequences out of 15000+600000
+ 563142 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 65i,11n,79p,375b,303s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on HW6.pdf (3 pages, 177922 bytes).
+ 65i,14n,79p,371b,300s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on HW6.pdf (5 pages, 234461 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 87 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

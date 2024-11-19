@@ -95,6 +95,53 @@
 
   \newpage
 \section*{Problem 1. Sandholm PS2 \# 7}
+  Two players choose actions from the unit interval. Player $i$'s von-Neumann Morgenstern utility, expressed as a function of his action $x_i\in[0,1]$ and his opponent's action $x_j\in[0,1]$, is 
+    \begin{gather*}
+      u_i(x_i,x_j) = \begin{cases}
+        (\theta_i+3x_j-4x_i)x_i \ if \ x_j<\frac{2}{3}\\
+        (3x_j-2)x_i \ if \ x_j\geq\frac{2}{3}
+      \end{cases}
+    \end{gather*}
+    Find all pure Nash equilibria of the normal form game $G$ in which $\theta_1=\theta_2=2$ 
+\section*{Problem 2. Sandholm PS3 \# 4}
+  (i) Find all subgame perfect equilibria of the game in Figure 1 below.
+  (ii) Determine the reduced normal form of this game. 
+  \begin{center}
+    \includegraphics[width = 0.25\textwidth]{fig1.png}
+  \end{center}
+  \subsection*{Solution}
+    \subsubsection*{(i)}
+      There is one pure subgame equilibrium in which player 1 chooses A every time, leaving the rest of the moves irrelevant and thus player 2 is indifferent.
+      \begin{gather*}
+        ((A,C),(X,Y))
+      \end{gather*}
+      Further, there is a mixed strategy in which Player 2 will play W, thus drawing Player 1 to play B
+      \begin{gather*}
+        \EE(Y) = 8, \EE(Z) = 24 \\
+        8Y = 24Z \rightarrow Y = 3Z \\
+        Y + Z = 1 \rightarrow 3Z + Z = 1 \Rightarrow Z = \frac{1}{4} \\ 
+        \therefore Y = \frac{3}{4} \\
+        ((B, \beta C + (1-\beta)D), (W, \frac{3}{4}Y + \frac{1}{4}Z))
+      \end{gather*}
+      Finally, there is an equilibrium in which everyone is indifferent.
+      \begin{gather*}
+        ((\alpha A + (1-\alpha)B, \beta C + (1-\beta)D),(\frac{5}{6}W + \frac{1}{6}X,\frac{3}{4}Y+\frac{1}{4}Z))
+      \end{gather*}
+    \subsubsection*{(ii)}
+      \begin{center}
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+          & WY & WZ & XY & XZ \\
+          \hline
+          A & 25,0 & 25,0 & 25,0 & 25,0 \\
+          \hline
+          BC & 30,7 & 30,7 & 24,8 & 0,0 \\
+          \hline
+          BD & 30,7 & 30,7 & 0,0 & 8,24 \\
+          \hline
+        \end{tabular}
+      \end{center}
+\section*{Problem 3. Sandholm PS3 \# 7}
   Arthur and Beatrix compete in a race. At the start of the race, both players are 6 steps away from the finish line. Who gets the first turn is determined by a toss of a fair coin; the players then alternate turns, with the results of all previous turns being observed before the current turn occurs.
   During a turn, a player chooses from these four options:
   \begin{enumerate}
@@ -108,36 +155,48 @@
   Find all subgame perfect equilibria of this game. (Hint: In all subgame perfect equilibria, a player's choice at a decision node only depends on the number of steps he has left and on the number of steps his opponent has left. To help take advantage of this you might want to write down a table.)
   \subsubsection*{(ii)} 
   Suppose that Arthur wins the coin toss. Compare his equilibrium behavior with his optimal behavior in the absence of competition. Provide intuition for any similarities or differences you find.
-\section*{Problem 2. Sandholm PS3 \# 4}
-  (i) Find all subgame perfect equilibria of the game in Figure 1 below.
-  (ii) Determine the reduced normal form of this game. 
-  \begin{center}
-    \includegraphics[width = 0.25\textwidth]{fig1.png}
-  \end{center}
   \subsection*{Solution}
-    There is one pure subgame equilibrium in which player 1 chooses A every time, leaving the rest of the moves irrelevant and thus player 2 is indifferent.
-    \begin{gather*}
-      ((A,C),(X,Y))
-    \end{gather*}
-    Further, there is a mixed strategy in which Player 2 will play W, thus drawing Player 1 to play B
-    \begin{gather*}
-      \EE(Y) = 8, \EE(Z) = 24 \\
-      8Y = 24Z \rightarrow Y = 3Z \\
-      Y + Z = 1 \rightarrow 3Z + Z = 1 \Rightarrow Z = \frac{1}{4} \\ 
-      \therefore Y = \frac{3}{4}
-\section*{Problem 3. Sandholm PS3 \# 7}
-  (i) Find all subgame perfect equilibria of the game in Figure 3 below when $z=3$.
-  (ii) Determine the reduced normal form of this game when $z=3$.
+    \begin{center}
+      \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        & 1 & 2 & 3 & 4 & 5 & 6 \\
+        \hline
+        1 & A1 & A1 & A1 & A1 & A1 & A1 \\
+        2 & A2 & A2 & A2 & A1 & A1 & A1 \\
+        3 & A3 & A3 & A3 & A1 & A1 & A1 \\
+        4 & A0 & A0 & A0 & A1 & A1 & A1 \\
+        5 & A0 & A0 & A0 & A2 & A2 & A2 \\
+        6 & A0 & A0 & A0 & A3 & A3 & A3 \\
+        \hline
+      \end{tabular}
+    \end{center}
+  The game exhibits first mover advantage. Thus the optimal path is to move as quickly as possible for both players. Player 1 will move 3, with player 2 choosing not to move since they are unable to win. Thus, player 1 will then only move in single step increments, minimizing cost. This leads to player 1 spending 21 and player 2 spending 0. 
   \begin{center}
     \includegraphics[width=0.25\textwidth]{fig3.png}
   \end{center}
 \section*{Problem 4. Sandholm PS4 \# 1}
   Compute all sequential equilibria of the game in Figure 3 when $z=3$.
+  \subsection*{Solution}
+    The sequential equilibrium when $z=3$ is 
+    \begin{gather*}
+      \EE(L) = 4, \EE(R) = 5\\
+      4L = 5R \rightarrow L = \frac{5}{4}R \rightarrow \frac{9}{4}R = 1 \Rightarrow R = \frac{4}{9} \ \therefore \ L = \frac{5}{9} \\
+      (A, d, \frac{5}{9}L + \frac{4}{9}R)
+    \end{gather*}
 \section*{Problem 5. Sandholm PS4 \# 2}
   Compute all sequential equilibria of the game in Figure 3 when $z=2$.
+  \subsection*{Solution}
+    The sequential equilibrium when $z=2$ is 
+    \begin{gather*}
+      \EE(L) = 3, \EE(R) = 4 \\
+      3L = 4R \rightarrow L = \frac{4}{3}R \rightarrow \frac{7}{3}R = 1 \Rightarrow R = \frac{3}{7} \ \therefore \ L = \frac{4}{7} \\
+      (A, d, \frac{4}{7}L + \frac{3}{7}R)
+    \end{gather*}
 \section*{Problem 6. Sandholm PS4 \# 3}
   For the game in Figure 4 below, specify an assessment (i.e., a strategy profile and a belief profile) with these three properties: (i) beliefs are Bayesian; (ii) no player has a profitable one-shot deviation at any information set; (iii) the assessment is not a weak sequential equilibrium.
   \begin{center}
     \includegraphics[width = 0.25\textwidth]{fig4.png}
   \end{center}
+  \subsection*{Solution}
+    $S = \{(\hat{O}, L), l\}$ is the strategy profile. The belief profile is such that $\mu_x \geq \frac{1}{4}, \ \mu_y < \frac{3}{4}$. 
 \end{document}
