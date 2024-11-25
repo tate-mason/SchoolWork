@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  22 NOV 2024 13:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  22 NOV 2024 18:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -393,13 +393,13 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 <fig1.png, id=9, 408.02437pt x 614.295pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
-Package pdftex.def Info: fig1.png  used on input line 110.
+Package pdftex.def Info: fig1.png  used on input line 120.
 (pdftex.def)             Requested size: 99.58464pt x 149.92712pt.
 
-./HW6.tex:125: Undefined control sequence.
+./HW6.tex:135: Undefined control sequence.
 <argument>  \EE 
                 (Y) = 8, \EE (Z) = 24 \\ 8Y = 24Z \rightarrow Y = 3Z \\ Y + ...
-l.125       \end{gather*}
+l.135       \end{gather*}
                          
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -407,10 +407,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW6.tex:125: Undefined control sequence.
+./HW6.tex:135: Undefined control sequence.
 <argument>  \EE (Y) = 8, \EE 
                              (Z) = 24 \\ 8Y = 24Z \rightarrow Y = 3Z \\ Y + ...
-l.125       \end{gather*}
+l.135       \end{gather*}
                          
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -418,10 +418,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW6.tex:125: Undefined control sequence.
+./HW6.tex:135: Undefined control sequence.
 <argument>  \EE 
                 (Y) = 8, \EE (Z) = 24 \\ 8Y = 24Z \rightarrow Y = 3Z \\ Y + ...
-l.125       \end{gather*}
+l.135       \end{gather*}
                          
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -429,10 +429,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./HW6.tex:125: Undefined control sequence.
+./HW6.tex:135: Undefined control sequence.
 <argument>  \EE (Y) = 8, \EE 
                              (Z) = 24 \\ 8Y = 24Z \rightarrow Y = 3Z \\ Y + ...
-l.125       \end{gather*}
+l.135       \end{gather*}
                          
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -444,104 +444,15 @@ and I'll forget about whatever was undefined.
 <fig3.png, id=27, 316.18124pt x 411.03563pt>
 File: fig3.png Graphic file (type png)
 <use fig3.png>
-Package pdftex.def Info: fig3.png  used on input line 178.
+Package pdftex.def Info: fig3.png  used on input line 188.
 (pdftex.def)             Requested size: 99.58464pt x 129.45808pt.
-
-./HW6.tex:188: Undefined control sequence.
-<argument>  \EE 
-                (L) = 4, \EE (R) = 5\\ 4L = 5R \rightarrow L = \frac {5}{4}R...
-l.188     \end{gather*}
-                       
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./HW6.tex:188: Undefined control sequence.
-<argument>  \EE (L) = 4, \EE 
-                             (R) = 5\\ 4L = 5R \rightarrow L = \frac {5}{4}R...
-l.188     \end{gather*}
-                       
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./HW6.tex:188: Undefined control sequence.
-<argument>  \EE 
-                (L) = 4, \EE (R) = 5\\ 4L = 5R \rightarrow L = \frac {5}{4}R...
-l.188     \end{gather*}
-                       
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./HW6.tex:188: Undefined control sequence.
-<argument>  \EE (L) = 4, \EE 
-                             (R) = 5\\ 4L = 5R \rightarrow L = \frac {5}{4}R...
-l.188     \end{gather*}
-                       
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[3 <./fig3.png>]
-./HW6.tex:197: Undefined control sequence.
-<argument>  \EE 
-                (L) = 3, \EE (R) = 4 \\ 3L = 4R \rightarrow L = \frac {4}{3}...
-l.197     \end{gather*}
-                       
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./HW6.tex:197: Undefined control sequence.
-<argument>  \EE (L) = 3, \EE 
-                             (R) = 4 \\ 3L = 4R \rightarrow L = \frac {4}{3}...
-l.197     \end{gather*}
-                       
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./HW6.tex:197: Undefined control sequence.
-<argument>  \EE 
-                (L) = 3, \EE (R) = 4 \\ 3L = 4R \rightarrow L = \frac {4}{3}...
-l.197     \end{gather*}
-                       
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./HW6.tex:197: Undefined control sequence.
-<argument>  \EE (L) = 3, \EE 
-                             (R) = 4 \\ 3L = 4R \rightarrow L = \frac {4}{3}...
-l.197     \end{gather*}
-                       
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
+ [3 <./fig3.png>]
 <fig4.png, id=32, 272.51813pt x 539.01375pt>
 File: fig4.png Graphic file (type png)
 <use fig4.png>
-Package pdftex.def Info: fig4.png  used on input line 201.
+Package pdftex.def Info: fig4.png  used on input line 209.
 (pdftex.def)             Requested size: 99.58464pt x 196.96455pt.
-[4 <./fig4.png>] (./HW6.aux)
+ [4 <./fig4.png>] (./HW6.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -554,9 +465,9 @@ Here is how much of TeX's memory you used:
  27201 multiletter control sequences out of 15000+600000
  563142 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 65i,14n,79p,373b,300s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 65i,14n,79p,481b,258s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on HW6.pdf (5 pages, 234498 bytes).
+Output written on HW6.pdf (5 pages, 236179 bytes).
 PDF statistics:
  87 PDF objects out of 1000 (max. 8388607)
  49 compressed objects within 1 object stream

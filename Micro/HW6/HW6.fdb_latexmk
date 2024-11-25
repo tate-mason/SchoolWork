@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1732299415.68572 "HW6.tex" "HW6.pdf" "HW6" 1732299416.38562 2
+["pdflatex"] 1732318549.92468 "HW6.tex" "HW6.pdf" "HW6" 1732318550.59991 2
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1136768653 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -81,8 +81,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726531688.57061 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726531591 8221416 a0a37a22ef1e1daff65ca6313af8730d ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "HW6.aux" 1732299416.31738 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
-  "HW6.tex" 1732299414.96473 9276 04cb18d3560f0b543ea982e6fe83b061 ""
+  "HW6.aux" 1732318550.52951 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
+  "HW6.tex" 1732318477.57152 10086 cb7cbc4a6b56a64f643858f06049f54e ""
   "fig1.png" 1731279151.66317 81041 ea2b15f96c02ccc2b0d20403c04dc669 ""
   "fig3.png" 1731279151.66362 54191 4ecf36c2565d13d5a7f1f17a7b02fdc8 ""
   "fig4.png" 1731279151.66395 55796 e188b8fdd8905936c0453061b535143d ""
