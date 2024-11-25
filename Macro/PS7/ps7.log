@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  19 NOV 2024 13:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  25 NOV 2024 00:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -624,29 +624,970 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Overfull \hbox (20.50548pt too wide) detected at line 138
+Overfull \hbox (54.46732pt too wide) detected at line 144
 []
  []
 
-[2] (./ps7.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--146
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 152--154
+
+ []
+
+[3] [4]
+./ps7.tex:221: Missing } inserted.
+<inserted text> 
+                }
+l.221       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:221: Missing $ inserted.
+<inserted text> 
+                $
+l.221       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:221: Missing $ inserted.
+<inserted text> 
+                $
+l.221       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:221: Missing { inserted.
+<inserted text> 
+                {
+l.221       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./ps7.tex:221: Missing } inserted.
+<inserted text> 
+                }
+l.221       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:221: Missing $ inserted.
+<inserted text> 
+                $
+l.221       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:221: Missing $ inserted.
+<inserted text> 
+                $
+l.221       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:221: Missing { inserted.
+<inserted text> 
+                {
+l.221       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./ps7.tex:231: Undefined control sequence.
+<recently read> \subsubsubsection 
+                                  
+l.231       \subsubsubsection
+                             {\textbf{(i) Monotonicity}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ps7.tex:233: Missing $ inserted.
+<inserted text> 
+                $
+l.233           Assume \exists
+                               some $w(N) \geq v(N)$ for any $(N,N')$. With ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:233: Missing $ inserted.
+<inserted text> 
+                $
+l.233           Assume \exists some $w(N) \geq
+                                               v(N)$ for any $(N,N')$. With ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+./ps7.tex:235: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.235       \subsubsubsection
+                             {\textbf{(ii) Discounting}}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./ps7.tex:235: Undefined control sequence.
+<recently read> \subsubsubsection 
+                                  
+l.235       \subsubsubsection
+                             {\textbf{(ii) Discounting}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[5]
+./ps7.tex:237: Missing $ inserted.
+<inserted text> 
+                $
+l.237           Assume \exists
+                               $\gamma$ such that $T(v+\gamma)(N) = {\max\at...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:237: Missing $ inserted.
+<inserted text> 
+                $
+l.237           Assume \exists $\gamma
+                                      $ such that $T(v+\gamma)(N) = {\max\at...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+[6]
+./ps7.tex:286: Missing } inserted.
+<inserted text> 
+                }
+l.286       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:286: Missing $ inserted.
+<inserted text> 
+                $
+l.286       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:286: Missing $ inserted.
+<inserted text> 
+                $
+l.286       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:286: Missing { inserted.
+<inserted text> 
+                {
+l.286       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./ps7.tex:286: Missing } inserted.
+<inserted text> 
+                }
+l.286       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:286: Missing $ inserted.
+<inserted text> 
+                $
+l.286       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:286: Missing $ inserted.
+<inserted text> 
+                $
+l.286       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:286: Missing { inserted.
+<inserted text> 
+                {
+l.286       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+[7]
+./ps7.tex:307: Double superscript.
+<recently read> ^
+                 
+l.307       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:307: Double superscript.
+<recently read> ^
+                 
+l.307       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:307: Double superscript.
+<recently read> ^
+                 
+l.307       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:307: Double superscript.
+<recently read> ^
+                 
+l.307       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:307: Double superscript.
+<recently read> ^
+                 
+l.307       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:307: Double superscript.
+<recently read> ^
+                 
+l.307       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:307: Double superscript.
+<recently read> ^
+                 
+l.307       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:307: Double superscript.
+<recently read> ^
+                 
+l.307       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:327: Double superscript.
+<recently read> ^
+                 
+l.327       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:327: Double superscript.
+<recently read> ^
+                 
+l.327       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:327: Double superscript.
+<recently read> ^
+                 
+l.327       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:327: Double superscript.
+<recently read> ^
+                 
+l.327       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:327: Double superscript.
+<recently read> ^
+                 
+l.327       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:327: Double superscript.
+<recently read> ^
+                 
+l.327       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:327: Double superscript.
+<recently read> ^
+                 
+l.327       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:327: Double superscript.
+<recently read> ^
+                 
+l.327       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:327: Double superscript.
+<recently read> ^
+                 
+l.327       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+./ps7.tex:327: Double superscript.
+<recently read> ^
+                 
+l.327       \end{gather*}
+                         
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+[8] [9] [10]
+./ps7.tex:416: Double subscript.
+<argument> ...t {s.t.} N_t \equiv (1+\eta )^th_ Y_
+                                                  t = AK_t^{\alpha }((1+\gam...
+l.416       \end{gather*}
+                         
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+./ps7.tex:416: Double subscript.
+<argument> ...t {s.t.} N_t \equiv (1+\eta )^th_ Y_
+                                                  t = AK_t^{\alpha }((1+\gam...
+l.416       \end{gather*}
+                         
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+./ps7.tex:438: Missing } inserted.
+<inserted text> 
+                }
+l.438       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:438: Missing $ inserted.
+<inserted text> 
+                $
+l.438       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:438: Missing $ inserted.
+<inserted text> 
+                $
+l.438       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:438: Missing { inserted.
+<inserted text> 
+                {
+l.438       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./ps7.tex:438: Missing } inserted.
+<inserted text> 
+                }
+l.438       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:438: Missing $ inserted.
+<inserted text> 
+                $
+l.438       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:438: Missing $ inserted.
+<inserted text> 
+                $
+l.438       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:438: Missing { inserted.
+<inserted text> 
+                {
+l.438       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+[11]
+Overfull \hbox (32.87994pt too wide) detected at line 451
+[]
+ []
+
+[12] [13] [14]
+./ps7.tex:566: Missing } inserted.
+<inserted text> 
+                }
+l.566       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing { inserted.
+<inserted text> 
+                {
+l.566       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./ps7.tex:566: Missing } inserted.
+<inserted text> 
+                }
+l.566       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing { inserted.
+<inserted text> 
+                {
+l.566       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./ps7.tex:566: Missing } inserted.
+<inserted text> 
+                }
+l.566       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing { inserted.
+<inserted text> 
+                {
+l.566       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./ps7.tex:566: Missing } inserted.
+<inserted text> 
+                }
+l.566       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing { inserted.
+<inserted text> 
+                {
+l.566       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./ps7.tex:566: Missing } inserted.
+<inserted text> 
+                }
+l.566       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing { inserted.
+<inserted text> 
+                {
+l.566       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./ps7.tex:566: Missing } inserted.
+<inserted text> 
+                }
+l.566       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing { inserted.
+<inserted text> 
+                {
+l.566       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./ps7.tex:566: Missing } inserted.
+<inserted text> 
+                }
+l.566       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing { inserted.
+<inserted text> 
+                {
+l.566       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./ps7.tex:566: Missing } inserted.
+<inserted text> 
+                }
+l.566       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing { inserted.
+<inserted text> 
+                {
+l.566       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./ps7.tex:566: Missing } inserted.
+<inserted text> 
+                }
+l.566       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing { inserted.
+<inserted text> 
+                {
+l.566       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./ps7.tex:566: Missing } inserted.
+<inserted text> 
+                }
+l.566       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing $ inserted.
+<inserted text> 
+                $
+l.566       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:566: Missing { inserted.
+<inserted text> 
+                {
+l.566       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+[15] [16]
+./ps7.tex:594: Missing } inserted.
+<inserted text> 
+                }
+l.594       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:594: Missing $ inserted.
+<inserted text> 
+                $
+l.594       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:594: Missing $ inserted.
+<inserted text> 
+                $
+l.594       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:594: Missing { inserted.
+<inserted text> 
+                {
+l.594       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./ps7.tex:594: Missing } inserted.
+<inserted text> 
+                }
+l.594       \end{gather*}
+                         
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./ps7.tex:594: Missing $ inserted.
+<inserted text> 
+                $
+l.594       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:594: Missing $ inserted.
+<inserted text> 
+                $
+l.594       \end{gather*}
+                         
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./ps7.tex:594: Missing { inserted.
+<inserted text> 
+                {
+l.594       \end{gather*}
+                         
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+[17] [18] [19] (./ps7.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4892 strings out of 474116
- 78402 string characters out of 5743682
- 1939187 words of memory out of 5000000
- 27158 multiletter control sequences out of 15000+600000
- 562379 words of font info for 54 fonts, out of 8000000 for 9000
+ 4901 strings out of 474116
+ 78607 string characters out of 5743682
+ 1947187 words of memory out of 5000000
+ 27166 multiletter control sequences out of 15000+600000
+ 562725 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 65i,12n,79p,478b,262s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on ps7.pdf (3 pages, 157653 bytes).
+ 65i,12n,79p,681b,316s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on ps7.pdf (20 pages, 251116 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 154 PDF objects out of 1000 (max. 8388607)
+ 97 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

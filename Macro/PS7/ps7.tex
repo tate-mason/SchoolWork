@@ -130,7 +130,7 @@
       \end{gather*}
     \subsubsection*{(b)}
       \begin{gather*}
-        v(k_{Ht}, K_{Mt}) = {\max\atop{c_{Mt}, k_{Ht+1}, K_{Mt+1}}} \ \frac{1}{\rho}\log(\mu c_{m}^{\rho} + (1-\mu)[k_{ht}^{\alpha}(1-n_{mt})^{1-\alpha}]^{\rho}) + \beta v(k_{Ht+1},K_{Mt+1}) \\
+        v(k_{Ht}, K_{Mt}) = {\max\atop{c_{Mt}, k_{Ht+1}, K_{Mt+1}}} \ \frac{1}{\rho}\log(\mu c_{m}^{\rho} + (1-\mu)c_{H}^{\rho}) + \beta v(k_H',K_M') \\
         \left s.t. \\
         c_t = (\mu c_{m}^{\rho} + (1-\mu)[k_{ht}^{\alpha}(1-N_{Mt})^{1-\alpha}]^{\rho})^{\frac{1}{\rho}}\\
         c_{Ht} = k_{Ht}^{\alpha}(1-N_{Mt})^{1-\alpha} \\
@@ -138,5 +138,490 @@
       \end{gather*}
       In this case, the state variables are $K_{Mt}$ and $k_{Ht}$ as we have some sort of control over labor, consumption, and investment. 
     \subsubsection*{(c)}
-      
+      Lagrangian (note that capital K will refer to market capital will lowercase k will refer to home capital):
+      \begin{gather*}
+        \mathcal{L} = \frac{1}{\rho}\log(\mu c_M^{\rho}+(1-\mu)c_H^{\rho})+\beta V(k_H', K_M') + \lambda_M(K^{\alpha}N^{1-\alpha}-(1-\delta_H)k-(1-\delta_M)K - c_M-k'-K') \\ + \lambda_H(k^{\alpha}(1-N)^{1-\alpha}-c_H) \\
+      \end{gather*}
+      FOC's: \\
+      \begin{gather*}
+        \frac{\partial\mathcal{L}}{\partial c_M} = \frac{1}{\rho}\frac{\rho\mu(c_M^{\rho-1})}{\mu c_M^{\rho}+(1-\mu)c_M^{\rho}} = \lambda_M \\
+        \frac{\partial\mathcal{L}}{\partial c_H} = \frac{1}{\rho}\frac{\rho(1-\mu)c_H^{\rho-1}}{\mu c_M^{\rho}+(1-\mu)c_M^{\rho}} = \lambda_H \\
+        \frac{\partial\mathcal{L}}{\partial k'} = \beta V_k'(k',K') = \lambda_M \\
+        \frac{\partial\mathcal{L}}{\partial K'} = \beta V_K'(k',K') = \lambda_M \\
+        \frac{\partial\mathcal{L}}{\partial N} = \lambda_M(1-\alpha(\frac{K}{N})^{\alpha}) = \lambda_H(1-\alpha(\frac{k}{1-N})^{\alpha}) \\
+      \end{gather*}
+      Envelope Conditions: \\
+      \begin{gather*}
+        v_k: \lambda_H(\alpha(\frac{k}{1-N})^{\alpha-1}) + \lambda_M(1-\delta_H) \\
+        v_K: \lambda_M(\alpha(\frac{K}{N})^{\alpha-1}-(1-\delta_M)) \\
+        v'_k: \lambda'_H(\alpha(\frac{k'}{1-N'})^{\alpha-1}) + \lambda'_M(1-\delta_H) \\
+        v'_K: \lambda'_M(\alpha(\frac{K'}{N'})^{\alpha-1}(1-\delta_H)) \\
+      \end{gather*}
+    \subsubsection*{(d)}
+      To define steady state we do the following,
+      \begin{gather*}
+        v_k = v_K \\
+        \lambda_H(\alpha(\frac{k}{1-N})^{\alpha-1}) + \lambda_M(1-\delta_H)=\lambda_M(\alpha(\frac{K}{N})^{\alpha-1}-(1-\delta_M)) \\
+        \lambda_M(\alpha(\frac{K}{N})^{\alpha-1}-\delta_M+\delta_H) = \lambda_H(\alpha(\frac{k}{1-N})^{\alpha-1}) \\
+        \frac{\lambda_M}{\lambda_H} = \frac{\alpha(\frac{k}{1-N})^{\alpha-1}}{\alpha(\frac{K}{N})^{\alpha-1}-\delta_M+\delta_H} \\
+      \end{gather*}
+      From the FOC w.r.t $N$,
+      \begin{gather*}
+        \frac{\lambda_M}{\lambda_H} = \frac{({\frac{k}{1-N}})^{\alpha}}{(\frac{K}{N})^{\alpha}}
+      \end{gather*}
+      From the FOC w.r.t $c_i$:
+      \begin{gather*}
+        \frac{\lambda_M}{\lambda_H} = \frac{\mu}{1-\mu}(\frac{c_M}{c_H})^{\rho-1}
+      \end{gather*}
+      Now, putting the pieces together:
+      \begin{gather*}
+        \frac{\mu}{1-\mu}(\frac{c_M}{c_H})^{\rho-1} = \frac{({\frac{k}{1-N}})^{\alpha}}{(\frac{K}{N})^{\alpha}}; \\
+        \frac{({\frac{k}{1-N}})^{\alpha}}{(\frac{K}{N})^{\alpha}} = \frac{\alpha(\frac{k}{1-N})^{\alpha-1}}{\alpha(\frac{K}{N})^{\alpha-1}-\delta_M+\delta_H}; \\
+        \frac{\alpha(\frac{k}{1-N})^{\alpha-1}}{\alpha(\frac{K}{N})^{\alpha-1}-\delta_M+\delta_H} = \frac{\mu}{1-\mu}(\frac{c_M}{c_H})^{\rho-1}; \\
+        c_H = k^{\alpha}(1-N)^{1-\alpha} \\
+        c_M + k' + K' = K^{\alpha}N^{1-\alpha}-(1-\delta_H)k-(1-\delta_M)K \\
+      \end{gather*}
+\section*{Question 2}
+  \subsection*{Problem}
+    This question is based on a paper by Bob Hall and Chad Jones. Consider a model with endogenous mortality. Let $h_t$ be consumption of medical services per person. Let $c_t$ be non-medical consumption per person. Suppose the economy starts with $N_0$ individual alive in period 0. Let the number of individuals who survive to period $t$ be $N_t$. Survival rate depends on medical care $h_t$ according to the following:
+
+    \[N_{t+1} = \left(1 - \frac{1}{f(h_t)}\right)N_t,\]
+
+    where $f(\cdot)$ is a strictly increasing and strictly concave function. Moreover
+    \[1 \leq f(h_t) < \infty.\]
+
+    This equation implies that number of people who survive to period $t + 1$ depends on how many are alive in period $t$ and what is per capita medical care $h_t$.
+
+    There is no capital and no storage technology. Each person who is alive in period $t$ is endowed with $y$ units of consumption good that can be either consumed or converted to medical care. Suppose it takes $p$ units of consumption good to produce one unit of medical care (in other words, $h$ unit of medical cost $ph$ in terms of consumption good).
+
+    \begin{enumerate}
+    \item Write the planning problem in which the planner chooses consumption $c_t$, medical care $h_t$ and number of survivors $N_t$ in each period to maximize present discounted sum of utilities for all surviving individuals $\sum_{t=0}^{\infty} N_t u(c_t)$.
+
+    \item Write the problem recursively (as a Bellman equation). What is the state variable? Does the Bellman operator satisfy Blackwell sufficient conditions?
+
+    \item Verify that a value function of the form $V(N) = vN$, solves the Bellman equation, where $v$ is a number. Write down the equation that describes $v$.
+
+    \item Write down the first order condition and characterize the solution.
+
+    \item Assume $u(c) = b + \frac{c^{1-\sigma}}{1-\sigma}$ (assume $\sigma > 1$), and $f(h) = Ah^\alpha$. The parameter $b > 0$ is the value of being alive. Parameter $A$ is the effectiveness of health enhancing technology in reducing mortality. Parameter $\alpha$ is the elasticity of "health" with respect to medical care. Solve for $s \equiv \frac{ph}{y}$, which is the share of medical expenditure as total expenditure.
+
+    \item How does $s$ change as you increase $y$, $b$, $p$, and $A$, and $\alpha$? Is health a necessity or luxury in this model?
+    \end{enumerate}
+  \subsection*{Solutions}
+    \subsubsection*{(a)}
+      The planning problem is as follows:
+      \begin{gather*}
+        {\max\atop{c_t,h_t,N_{t+1}}} \sumt N_tu(c_t) \\
+        \shortintertext{s.t.} \\
+        c_t + p_th_t = y \\
+        N_{t+1} = (1-\frac{1}{1-f(h_t)})N_t \\
+        c_t,h_t,N_{t+1}\geq0 \\
+        1\leq f(h_t)<\infty \\
+        N_0 \ given \\
+      \end{gather*}
+    \subsubsection*{(b)}
+      The Bellman is as follows:
+      \begin{gather*}
+        vN = {\max\atop{c, h, N'}}\{u(c)+v(N')\} \\
+        \shortintertext{s.t.} \\
+        c = y - ph \\
+        N' = (1-\frac{1}{f(h)})N \\
+      \end{gather*}
+      Blackwell conditions are satisfied for monotonicity, but not discounting. This can be seen in the following: \\
+      \subsubsubsection{\textbf{(i) Monotonicity}}
+        \begin{proof}
+          Assume \exists some $w(N) \geq v(N)$ for any $(N,N')$. With this assumption, we can state that $(Tw)(N) = {\max\atop{h, N'}}[Nu(y_t-ph_t)+w(N')] \geq (Tv)(N ={\max\atop{h, N'}}[Nu(y_t-ph_t)+v(N')])$. Thus, since $(Tw)(N) \geq (Tv)(N)$ when we assume that $w(N)\geq v(N)$, monotonicity is proven true 
+        \end{proof} \\
+      \subsubsubsection{\textbf{(ii) Discounting}}
+        \begin{proof}
+          Assume \exists $\gamma$ such that $T(v+\gamma)(N) = {\max\atop{h, N'}}[Nu(y_t-ph_t)+(v(N')+\gamma)]$. This is equivalent to $(Tv)(N)+\gamma = {\max\atop{h, N'}}[Nu(y_t-ph_t)+v(N')]+\gamma$ Thus, we do not satisfy discounting.
+        \end{proof}
+    \subsubsection*{(c)}
+      Verification:
+      \begin{gather*}
+        v = u(y-ph) + v(1-\frac{1}{f(h)}) \\
+        v(\frac{1}{f(h)}) = u(y-ph) \\
+        v = f(h)u(y-ph) \\
+      \end{gather*}
+    \subsubsection*{(d)}
+      Now we take the derivative of $Nu(y-ph)+[u(y-ph)f(h)-u(y-ph)]N$ with respect to h:
+      \begin{gather*}
+        pu'(y-ph)f(h) = f'(h)u(y-ph) \\
+        p = \frac{f'(h)}{f(h)}\cdot\frac{u(y-ph)}{u'(y-ph)} = \frac{f'(h)}{f(h)}\cdot\frac{u(c)}{u'(c)}
+      \end{gather*}
+    \subsubsection*{(e)}
+      \begin{gather*}
+        p = \frac{\alpha Ah^{\alpha-1}}{Ah^{\alpha}}\cdot\frac{(b+\frac{c^{1-\sigma}}{1-\sigma})}{c^{-\sigma}} \\
+        \frac{\alpha}{h}\frac{b}{c^{-\sigma}} +\frac{c}{1-\sigma}=p\\
+        ph=\alpha(bc^{\sigma}+\frac{c}{1-\sigma}) \\
+        s \equiv \frac{ph}{y} \rightarrow \frac{\alpha}{y}(bc^{\sigma}+\frac{c}{1-\sigma})
+      \end{gather*}
+      As y increases, s decreases. As $\alpha$ increases, s increases. As A increases, there is no effect. The effect of b on s is dependent on c and vice versa.
+\section*{Question 3}
+  \subsection*{Problem}
+    This question introduces you to the classical asset pricing model known as ``Lucas Tree'' model. Here is the description of the model: There are large number of identical households. The only asset in the economy is a tree. Households own and trade shares of tree, $s_t$. The price of a share of the tree is $p_t^s$. Each period the tree gives dividends $d_t$ which is consumed by households (a period who owns share $s_t$ of tree consumes $s_td_t$ of dividend). Households can also trade one period bonds $b_t$ at price $p_t^b$. A household who holds $b_t$ is entitled $b_t$ unit of consumption good. The budget constraint looks like the following
+    \[c_t + p_t^b b_{t+1} + p_t^s(s_{t+1} - s_t) \leq b_t + s_td_t\]
+
+    \begin{enumerate}
+    \item Define a sequential market competitive equilibrium.
+
+    \item Define a Recursive Competitive Equilibrium. Here is hint on how to do it. The only aggregate state variable in the economy is the dividends, $d$. You don't need to include any aggregate law of motion (or any consistency condition). All prices are function of aggregate state variable $d$. For individual state variable, define wealth as $w \equiv b + s(p^s(d) + d)$. That is your state variable. Household takes $w$ and $d$ as given, and chooses $s'$ and $b'$ (and $c$). Their choices determine what the future wealth $w'$ will be. Note that in this economy the evolution of dividends is known (see part (c) and (d) for examples).
+
+    \item Assume $d_t = 1$ for all $t$. Find stock prices and bond prices in every period.
+
+    \item Assume $d_t = 1$ when $t = 0,2,4,\ldots$ and $d_t = 2$ when $t = 1,3,5,\ldots$. Assume $u(c) = \log c$. Solve for stock prices and bond prices on even and odd period (hint: stock prices will take only two values. You can set this up as a two equations and two unknowns solve it)
+    \end{enumerate}
+  \subsection*{Solutions}
+    \subsubsection*{(a)}
+      \begin{gather*}
+        {\max\atop{c_t, b_t, s_t}} \sumt \beta^t u(c_t) \\
+        \shortintertext{s.t.}\\
+        c_t+p_t^bb_{t+1}+p_t^s(s_{t+1}-s_t)\leq b_t+s_td_t \\
+        c_t\geq0\\
+        s_0, b_0 \ \text{given} \\
+        \shortintertext{Markets Clear} \\
+        s_t = 1 \\
+        b_t = 0 \\
+        c_t = d_t \\
+      \end{gather*}
+    \subsubsection*{(b)}
+      \begin{gather*}
+        v(w,d) = {\max\atop{c, s', b'}}\{u(c) + \beta v(w',d')\} \\
+        \shortintertext{s.t.} \\
+        c + p^bb'+p^s(s'-s)\leq w \\
+        w \equiv b+s(p^s(d)+d) \\
+        s_0, b_0, w, d \ \text{given}
+      \end{gather*}
+    \subsubsection*{(c)}
+      \begin{gather*}
+        v(w,d) = u(c) + \beta v(w', 1) + \lambda(b+s - c-p^bb' - p^s(s'-s))
+        \shortintertext{FOC w.r.t c}:
+        u'(c) = \lambda \\
+        \shortintertext{FOC w.r.t b'}:
+        \lambda' = p^b\lambda \\
+        \shortintertext{FOC w.r.t s'}:
+        p^s\lambda = p^s'\lambda' \\
+        \therefore p^su(c) = p^s'p^bu(c) \\
+        p^b = \frac{p^s}{p^s'} \\
+        p^s = p^s'p^b
+      \end{gather*}
+    \subsubsection*{(d)}
+      This will be broken into two cases, one for when d=1 and another for d=2.
+      \begin{gather*}
+        \shortintertext{\textbf{Case 1}} \\
+        \log(c) + \lambda(b+s-c-p^bb'-p^(s'-s)) \\
+        \shortintertext{Follows same path as in above case}
+        p^b = \frac{p^s}{p^s'} \\
+        p^s = p^bp^s'\\
+        \shortintertext{\textbf{Case 2}} \\
+        \beta\log(c) + \lambda(b+2s-c0p^bb'-p^s(s'-s)) \\
+        \shortintertext{FOC w.r.t c} \\
+        \frac{\beta}{c} = \lambda \\
+        \shortintertext{FOC w.r.t b'} \\
+        \lambda' = p^b\lambda \\
+        \shortintertext{FOC w.r.t s'} \\
+        p^s\lambda = 2p^s'\lambda' \\
+        \shortintertext{following same as above:} \\
+        p^s = 2p^s'p^b \\
+        p^b = \frac{p^s}{2p^s'} \\
+      \end{gather*}
+\section*{Question 4 (Final Exam, Fall 2017)}
+  \subsection*{Problem}
+    Consider an infinite horizon economy with production. There is a representative household with the following utility function (Note: this is a little different than the one we studied in class. Here, the head of household cares about the number of family members, as well as each person's utility. Hence, the term $(1+\eta)^t$ appears in the objective.)
+
+    \[\sum_{t=0}^{\infty} \beta^t (1+\eta)^t [\phi \log c_t + (1-\phi)\log(1-h_t)],\]
+
+    where $c_t$ and $h_t$ are consumption and hours worked per person. The output is given by the following production function
+
+    \[Y_t = AK_t^\alpha((1+\gamma)^t(1+\eta)^th_t)^{1-\alpha}\]
+
+    where $Y_t$ and $K_t$ are aggregate output and stock of capital, $\gamma > 0$ is rate of growth of labor augmented technology, and $\eta > 0$ is the rate of growth of population (both technology and population are normalized to 1 at date 0). Capital accumulates according to
+
+    \[K_{t+1} = (1-\delta)K_t + X_t,\]
+
+    where $K_t$ and $X_t$ are aggregate capital and investment.
+
+    Government collects indirect business taxes at rate $\tau$ (paid by producers). So a firm that produces (and sells) $Y_t$, pays $\tau Y_t$ to the government. Taxes are lump-sum rebated to the household. Therefore the government budget constraint is
+
+    \[\tau Y_t = (1+\eta)^t Tr_t,\]
+
+    where $Tr_t$ is the lump-sum transfer per person in period $t$.
+
+    Let $r_t$ and $w_t$ be rental rate on capital and wage rate in period $t$ (in terms of consumption good in period $t$).
+
+    \begin{enumerate}
+    \item Write down aggregate feasibility for this economy. (you can write it in terms of per person variables or aggregate variables. Be consistent).
+
+    \item Write down the maximization for representative firm. Derive formulas for $r_t$ and $w_t$. (Note: inputs to production function are aggregate capital $K_t$ and aggregate labor $(1+\eta)^t h_t$)
+
+    \item What is the national income in this economy? Write it in terms of $\tau$ and $Y_t$.
+
+    \item Assume households can trade one period assets $a_t$ (in zero net supply) that pays interest rate $i_t$ in period $t$. Define a Sequential Market Competitive Equilibrium.
+
+    \item Write down 3 equations that describes the equilibrium allocations in the economy (write them in terms of per person variables).
+
+    \item Derive a formula for equilibrium interest rate $i_t$ in terms of allocations and tax rate.
+
+    \item What is the long run growth rate of per capita variables (output, consumption, capital, investment) in this economy? What is the long run growth rate of hours per person? De-trend all per capita variables appropriately and re-write the aggregate feasibility in de-trended variables (denote them by '$\hat{\phantom{x}}$').
+
+    \item Write down three equations that describe the long run values of the de-trended variables. Argue that these variables are indeed constant in the long run.
+
+    \item What is the long run effect of $\tau$ on interest rate $i_t$?
+
+    \item What is the long run effect of $\tau$ on capital per worker $\frac{k_t}{h_t}$?
+
+    \item Now suppose at ``date 0'' we have the following data in the National Income and Product Account.
+
+    \begin{center}
+    \begin{tabular}{ll|ll}
+    \multicolumn{2}{c|}{GDP and Its Components} & \multicolumn{2}{c}{National Income by Type of Income} \\
+    \hline
+    Gross Domestic Product & 100 & Gross Domestic Product ($Y$) & 100 \\
+    Investment & 20 & Indirect Business Taxes ($\tau Y$) & 10 \\
+    Consumption & 80 & Capital Income ($rK$) & 30 \\
+    & & Labor Income ($wL$) & 60 \\
+    \end{tabular}
+    \end{center}
+
+    We also know the following information:
+    \begin{align*}
+    \text{fraction of time allocated to work } (h) &= 0.3 \\
+    \text{population growth } (\eta) &= 0.01 \\
+    \text{growth rate of GDP per capita} &= 0.02 \\
+    \text{Capital to Output ratio } (\frac{K}{Y}) &= 4
+    \end{align*}
+
+    Assuming the economy is on balanced growth path, find parameters $\delta$, $\alpha$, $\phi$, $\beta$ and tax rate $\tau$ such that the model is consistent with the data.
+    \end{enumerate}
+  \subsection*{Solutions}
+    \subsubsection*{(a)}
+      \begin{gather*}
+        C_t + X_t = (1-\tau)Y_t \\
+        \shortintertext{s.t.} \\
+        C_t = c_t(1+\eta)^t \\
+        X_t = K_{t+1}-(1-\delta)K_t \\
+        Y_t = AK^{\alpha}((1+\gamma)^t(1+\eta)^th_t)^{1-\alpha} \\
+        \shortintertext{thus,}
+        c_t(1+\eta)^t + K_{t+1} = (1-\tau)AK^{\alpha}((1+\gamma)^t(1+\eta)^th_t)^{1-\alpha}+(1-\delta)K_t
+      \end{gather*}
+    \subsubsection*{(b)}
+      \begin{gather*}
+        {\max\atop{K,h}} \tau Y_t - r_tK_t - w_tN_t \\
+        \shortintertext{s.t.}
+        N_t \equiv (1+\eta)^th_
+        Y_t = AK_t^{\alpha}((1+\gamma)^tN_t)^{1-\alpha} - r_tK_t - w_tN_t \\
+        \shortintertext{FOC's w.r.t K, N}:
+        K: \alpha\tau A(\frac{K_t}{(1+\gamma)^tN_t})^{1-\alpha}=r_t\\
+        N: (1-\alpha)\tau A(\frac{K_t}{(1+\gamma)^tN_t})^{\alpha} = w_t \\
+      \end{gather*}
+    \subsubsection*{(c)}
+      National Income is equal to the sum of Capital and Labor income:
+      \begin{gather*}
+        NI = (1-\alpha)\tau A(\frac{K_t}{(1+\gamma)^tN_t})^{\alpha}N_t + \alpha\tau A(\frac{K_t}{(1+\gamma)^tN_t})^{1-\alpha}K_t
+      \end{gather*}
+    \subsubsection*{(d)}
+      SMCE: 
+      \begin{gather*}
+        \shortintertext{\textbf{Household}} \\
+        {\max\atop{c_t, h_t, K_{t+1},a_{t+1}\geq0}}\sumt\beta^t(1+\eta)^t(\phi\log c_t + (1-\phi)\log(1-h_t)) \\
+        \shortintertext{s.t.} \\
+        c_t + K_{t+1} + a_{t+1} \leq w_th_t + r_tK_t + (1+i_t)a_t + Tr_t \\
+        a_{t+1}\geq\bar{A}^{-1} \\
+        \shortintertext{\textbf{Firm}} \\
+        r_t = \alpha\tau A(\frac{K}{(1+\gamma)^t(1+\eta)^th_t})^{\alpha-1} \\
+        w_t = (1-\alpha)\tau A(\frac{K}{(1+\gamma)^t(1+\eta)^th_t})^{\alpha} \\
+        \shortintertext{\textbf{Government}} \\
+        \tau Y_t = (1+\eta)^tTr_t\\
+        \shortintertext{\textbf{Clear}} \\
+        (1+\eta)^tc_t + K_{t+1} = Y_t + (1-\delta)K_t \\
+        Y_t = AK_t^{\alpha}((1+\gamma)^t(1+\eta)^th_t) \\
+      \end{gather*}
+    \subsubsection*{(e)}
+      \begin{gather*}
+        \mathcal{L} = \beta^t(1+\eta)^t(\phi\log c_t + (1-\phi)\log(1-h_t)) + \lambda(w_th_t + r_tk_t + (1+i_t)a_t + Tr_t - c_t - k_{t+1}-a_{t+1}) \\
+        \shortintertext{FOC's w.r.t h, c, h', c'}: \\
+        h_t: \beta^t(1+\eta)^t(\frac{1+\phi}{1-h_t}) =\lambda(1-\alpha)\tau A(\frac{k}{(1+\gamma^th_t)})^{\alpha} \\
+        c_t: \beta^t(1+\eta)^t(\frac{\phi}{c_t}) = \lambda
+        \frac{1+\phi}{1+h_t} = \frac{\phi}{c_t}(1-\alpha)\tau A(\frac{k}{(1+\gamma)^th_t})^{\alpha} \\
+        c_{t+1}: \beta^{t+1}(1+\eta)^{t+1}(\frac{\phi}{c_{t+1}}) = \lambda' \\
+        k_{t+1}: \lambda = r_{t+1}+(1-\delta)\lambda' \\
+        \shortintertext{Putting pieces together} \\
+        \frac{c_{t+1}}{\beta c_t} = (1-\delta)+\alpha\tau A(\frac{k}{(1+\gamma)th_t})^{1-\alpha} \\
+        c_t + (1+\eta)^tk_{t+1}=Ak^{\alpha}_t((1+\gamma)^th_t)+(1-\delta)k_t \\
+      \end{gather*}
+    \subsubsection*{(f)}
+      From the FOC's in (e),
+      \begin{gather*}
+        \frac{c_{t+1}}{\beta c_t} = (1-\delta)r_{t+1} \\
+      \end{gather*}
+      Taking FOC w.r.t. $a_{t+1}$:
+      \begin{gather*}
+        \lambda = (1+i_{t+1})\lambda' \rightarrow \frac{c_{t+1}}{\beta c_t} = 1+i_{t+1} \\
+        \shortintertext{Math shown in part (e)} \\
+      \end{gather*}
+      By this definition, $i_{t+1}=r_{t+1}$.
+    \subsubsection*{(g)}
+      Long run hours worked will be constant, 0 for simplicity. Once we detrend by growth rate $(1+\gamma)^t$ we get:
+      \begin{gather*}
+        \hat{c}_t + (1+\gamma)^t(1+\eta)^t\hat{k}_{t+1}=A\hat{k}_t^{\alpha}h_t^{1-\alpha}+(1-\delta)\hat{k_t}
+      \end{gather*}
+    \subsubsection*{(h)}
+      \begin{gather*}
+        \frac{1-\phi}{1-h} = \frac{\phi}{\hat{c}}\tau A(1-\alpha)(\frac{\hat{k}}{h})^{\alpha} \\
+        \frac{1}{\beta(1+\gamma)} = (1-\delta)+\tau A\alpha(\frac{\hat{k}}{h})^{\alpha-1} \\
+        \frac{\hat{c}}{h} + (1+\gamma)(1+\eta)(\delta-1)(\frac{\hat{k}}{h}) = A(\frac{\hat{k}}{h})^{\alpha} \\
+      \end{gather*}
+    \subsubsection*{(i)}
+      \begin{gather*}
+        i_t = \tau\alpha A(\frac{\hat{k}}{h})^{\alpha-1} = \frac{1}{\beta(1+\gamma)}+\delta -1 \\
+      \end{gather*}
+      Since $i$ does not appear in long run formula, there is no effect.
+    \subsubsection*{(j)}
+      \begin{gather*}
+        \frac{\hat{k}}{h} = (\frac{\frac{1}{\beta(1+\gamma)}+\delta-1}{\tau\alpha A})^{\frac{1}{\alpha-1}} \\
+      \end{gather*}
+      Thus, as taxes increase, capital per worker decreases.
+    \subsubsection*{(k)}
+      \begin{gather*}
+        \tau = 0.1 \\
+        \alpha = \frac{rk}{y} = 0.3 \\
+        \frac{1-\phi}{\phi} \frac{\hat{c}/\hat{y}}{1-h} = (0.9\cdot0.3)\frac{1}{h} \rightarrow \\
+        \frac{1-\phi}{\phi} = \frac{\frac{0.9\cdot0.3}{0.3}}{0.8/0.7} \\
+        \frac{1-\phi}{\phi} = 1.84 \rightarrow \phi = \frac{1}{2.84} \\
+        \phi \approx 0.35 \\
+        \gamma = 0.02 \\
+        \eta = 0.01 \\
+        (1.02\cdot1.01+\delta-1)(\frac{\hat{k}}{y}) = 0.2 \\
+        \frac{\hat{k}}{y} = 4 \\
+        4\delta = 0.079 \\
+        \delta \approx 0.02 \\
+        \tau\alpha\frac{y}{k} = \frac{1}{\beta(1+\gamma)}+\delta-1
+        0.1\cdot0.3\cdot0.25 = \frac{1}{\beta(1.02)}-1.02 \\
+        \beta \approx 0.95
+      \end{gather*}
+\section*{Question 5 (Macro Core Exam, Summer 2018)}
+  \subsection*{Problem}
+    Consider an infinite horizon economy with two type of households $i = 1,2$. Households of type 1 have the following preferences
+
+    \[\sum_{t=0}^{\infty} \beta^t [\log(c_t^1) + \log(1-n_t^1)]\]
+
+    where $c_t^1$ is consumption and $n_t^1$ is labor supply. These households do not own any asset. Every period they make a static decision on how much to work. Their consumption is equal to their labor income in every period $t$.
+
+    Households of type 2 have the following preferences
+
+    \[\sum_{t=0}^{\infty} \beta^t \log(c_t^2).\]
+
+    They own firms in the economy. Each household of type 2 owns share $s_t$ of firm which they can trade at prices $q_t$. They do not work. The firm pays dividend $d_t$ which is distributed to the shareholders according to their ownership.
+
+    The government spends constant fraction $g$ of GDP. Government finances its expenditure by taxing labor income of the workers at rate $\tau_L$ and taxing dividends $\tau_d$ which is paid by the firm. Let $p_t$ be time 0 price of consumption good in period $t$ (Arrow-Debreu price). The firm maximizes the present value of after tax dividend
+
+    \[\max \sum_{t=0}^{\infty} (1-\tau_d)p_t d_t\]
+
+    subject to
+
+    \[d_t = K_t^\alpha N_t^{1-\alpha} - w_t N_t - (K_{t+1} - (1-\delta)K_t)\]
+
+    where $N_t$ and $K_t$ are demand for labor and capital by the firm.
+
+    \begin{enumerate}
+    \item Define an Arrow-Debreu competitive equilibrium
+
+    \item Solve for equilibrium labor supply $n_t^1$ and consumption $(c_t^1, c_t^2)$ in terms of $(1-\tau_L)w_t$ and $(1-\tau_d)d_t$.
+
+    \item Derive an asset pricing equation for $q_t$ (that relates current price to future price, future dividends and growth of consumption).
+
+    \item Write down firm's optimality conditions.
+
+    \item Find steady state level of capital.
+
+    \item Find equilibrium wage in steady state.
+
+    \item Find stock price $q_t$ in steady state.
+
+    \item Suppose government cuts dividend tax rate and to finance the tax cut it raises tax rate on labor income. What is the long run effect of this policy on GDP, aggregate stock of capital, wage, stock price, labor supply, aggregate consumption. What is the long run effect on consumption inequality among workers and capitalists?
+
+    \item Suppose government claims that ``dividend tax cut will increase output and income -- hence tax base -- and it will pay for itself, so raising labor tax rate may not be necessary after all.'' Use this model to evaluate the claim.
+    \end{enumerate}
+  \subsection*{Solutions}
+    \subsubsection*{(a)}
+      \begin{gather*}
+        \shortintertext{\textbf{HH1}}: \\
+          {\max\atop{c_t, n_t}} \sumt \beta^t[\log c^1_t+\log(1-n_t^1)] \\
+          \shortintertext{s.t.} \\
+          \sumt p_tc_T^1=\sumt p_t(1-\tau_L)w_tn_t^1 \\
+        \shortintertext{\textbf{HH2}} \\ 
+          {\max\atop{c_t}}\sumt\beta^t\log c_t^2 \\
+          \shortintertext{s.t.} \\
+          \sumt p_tc_t^2 = s_0q_0 + \sumt p_t(1-\tau_D)d_t \\
+        \shortintertext{\textbf{Firm}} \\
+          {\max\atop{d_t}}\sumt p_t(1-\tau_D)d_t \\
+          \shortintertext{s.t.} \\
+          d_t = K_t^{\alpha}N_t^{1-\alpha}-w_tN_t-(K_{t+1}-(1-\delta)K_t) \\
+        \shortintertext{\textbf{Government}} \\ 
+          g(K_t^{\alpha}N_t^{1-\alpha}) = \tau_Lw_tN_t + \tau_Dd_t \\
+        \shortintertext{\textbf{Market Clears}} \\
+        n_t^1 = N_t \\
+        s_t = 1 \\
+        c_t^1 + c_t^2 - (1-\delta)K_t + g(K_t^{\alpha}N_t^{1-\alpha}) = K_t^{\alpha}N_t^{1-\alpha} \\
+      \end{gather*}
+    \subsubsection*{(b)}
+      \begin{gather*}
+        \shortintertext{\textbf{Household 1}} \\
+          \log((1-\tau_L)w_tn_t^1)_+\log(1-n_t) \\
+          \shortintertext{FOC w.r.t. n} \\
+          \frac{1}{n_t^1} = \frac{1}{1-n_t^1} \\
+          1 = 2n_t \\
+          n_t = \frac{1}{2} \\
+          \therefore c_t^1 = \frac{(1-\tau_L)w_t}{2} \\
+        \shortintertext{\textbf{Household 2}} \\
+          \beta\log(c_t^2) + \lambda(s_0q_0 + p_t(1-\tau_D)d_t-p_tc_t^2) \\
+          \shortintertext{FOC w.r.t. $c^2$} \\
+          \frac{\beta}{c_t^2} = \lambda p_t \\
+          c_t^2 = (1-\beta)(\frac{(1-\tau_D)d_t}{p_t}) \\
+      \end{gather*}
+    \subsubsection*{(c)}
+      \begin{gather*}
+        s_{t+1}: p_tq_t-p_{t+1}q_{t+1}=p_{t+1}d_{t+1}(1-\tau_D) \\
+        p_tq_t = p_{t+1}(d_{t+1}(1-\tau_D)+q_{t+1}) \\
+        q_t = \frac{p_{t+1}}{p_t}(d_{t+1}(1-\tau_D)+q_{t+1})
+      \end{gather*}
+    \subsubsection*{(d)}
+      \begin{gather*}
+        \sumt p_t(1-\tau_D)[K^{\alpha}N^{1-\alpha}-w_tN_t-K_{t+1}+(1-\delta)K_t] \\
+        \shortintertext{FOC w.r.t. $K_{t+!}$} \\
+        p_t(1-\tau_D) = p_{t+1}(1-\tau_D)[\alpha(\frac{K}{N})^{\alpha-1}+(1-\delta)] \\
+        \frac{p_t}{p_{t+1}} = \alpha(\frac{K}{N})^{\alpha-1}+1-\delta \\
+      \end{gather*}
+    \subsubsection*{(e)}
+      From the Euler equation of Household 2, we get the following. Keep in mind that in steady state $c_{t+1}=c_t=c^*$
+      \begin{gather*}
+        \frac{c^2_{t+1}}{c^2_t\beta} = \frac{p_t}{p_{t+1}} \\
+        \frac{1}{\beta} = \alpha(\frac{K}{N})^{\alpha-1}+1-\delta \\
+        \frac{1}{\beta}+\delta-1 = \alpha(\frac{K}{N})^{\frac{1}{1-\alpha}} \\
+        K^* = N(\frac{\frac{1}{\beta}+\delta-1}{\alpha})^{\frac{1}{\alpha-1}} \\
+      \end{gather*}
+    \subsubsection*{(f)}
+      \begin{gather*}
+        \frac{\partial d_t}{\partial N_t} = (1-\alpha)(K_t^{\alpha}N_t^{-\alpha}) = w_t  \\
+        w_t = (1-\alpha)[(N(\frac{\frac{1}{\beta}+\delta-1}{\alpha})^{\frac{1}{\alpha-1}})^{\alpha}]N^{-\alpha} \\
+        w_t = (1-\alpha)(\frac{\frac{1}{\beta}+\delta-1}{\alpha})^{\frac{\alpha}{1-\alpha}} \\
+      \end{gather*}
+    \subsubsection*{(g)}
+      \begin{gather*}
+        \frac{1}{\beta}q_t = [q_{t+1}+d_{t+1}(1-\tau_D)] \\
+        q_t = \beta [q_{t+1}+d_{t+1}(1-\tau_D)] \\
+        \shortintertext{In steady state, $q_t=q_{t+1}-q^*$} \\
+        q^* = \beta q^*+\beta d_{t+1}(1-\tau_D) \\
+        q^* = \frac{\beta d_{t+1}(1-\tau_D)}{1-\beta} \\
+      \end{gather*}
+    \subsubsection*{(h)}
+      GDP $ = Y = K^{\alpha}N^{1-\alpha}$.
+      \begin{gather*}
+        N^{\alpha}(\frac{\frac{1}{\beta}+\delta-1}{\alpha})^{\frac{\alpha}{\alpha-1}}\cdot N^{1-\alpha} \\
+        N(\frac{\frac{1}{\beta}+\delta-1}{\alpha})^{\frac{\alpha}{\alpha-1}}
+      \end{gather*}
+      Since taxes do not appear in the formula for GDP, tax policy will have no effect. The same is true of $K^*$ as found in part (e). Wages will also be unaffected by tax policy. Since $q$ only effects household two, labor will be unaffected. Stock prices will be. Aggregate consumption would be altered by the proposed tax policy. Household 1 would be able to consume less, while household 2 could consume more. The level of cuts/increases would determine the overall effect.
+    \subsubsection{(i)}
+      This model would show that the claim made is dubious at best. Workers see nothing while capitalists see capital expansion through higher dividend payoffs. The level of capital reinvestment would be the determining factor for if the tax cut "pays for itself". If the level is inadequate, there is a loss of government revenue which will result in lowered utility for laborers through higher labor taxes or through lower employment opportunities.
 \end{document}
+
