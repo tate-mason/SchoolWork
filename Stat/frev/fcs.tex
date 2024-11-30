@@ -1,0 +1,103 @@
+\documentclass[3pt, a4paper]{article}
+\usepackage[top=0.1cm, bottom=0.1cm, left=3.5cm, right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{mdframed}
+\usepackage[math-style=ISO]{unicode-math}
+\usepackage{lipsum}
+\DeclareSymbolFont{\mathnormal}{letters}
+\usepackage{lastpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
+\newcommand\course{ECON - 8070}                            % <-- course name   
+%\newcommand\hwnumber{ 3}                                 % <-- homework number
+\newcommand\Information{Tate Mason}                        % <-- personal information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Page setup
+\lfoot{}
+\pagenumbering{arabic}
+\rfoot{}
+\renewcommand{\baselinestretch}{1.25}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add new commands here
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\EE}{\mathbb E}
+\newcommand{\var}{\text{var}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\Mod}{Mod} 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem{case}{Case}
+\newcommand{\assign}{:=}
+\newcommand{\infixiff}{\text{ iff }}
+\newcommand{\nobracket}{}
+\newcommand{\backassign}{=:}
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextbf}[1]{\text{{\bfseries{#1}}}}
+\newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
+
+\newenvironment{itemizedot}{\begin{itemize} \renewcommand{\labelitemi}{$\bullet$}\renewcommand{\labelitemii}{$\bullet$}\renewcommand{\labelitemiii}{$\bullet$}\renewcommand{\labelitemiv}{$\bullet$}}{\end{itemize}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Begin now!
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+  \textbf{Linear}:
+    \begin{enumerate}
+      \item Assump1: $\EE(u) = 0$
+      \item Assump2: $\EE(u|x) = 0$
+      \item Assump3: $\var(u_i|x_i) = \sigma^2$
+      \item Assump4: $\EE(x_i'x_i)$ is full rank 
+    \end{enumerate}
+    Use Wald test for t-stat, Use LM for F-stat
+    Violation of 3 - robust s.e.\\
+    Violation of 4 - software\\
+    Violation of 1 = IV ( $cov(x,u)\ne0$ ) \\
+    Endogeneity solutions:
+    \begin{enumerate}
+      \item Joint determination
+      \item IV \\
+    \end{enumerate}
+  \textbf{IV}
+    $cov(x,u)\ne0;cov(z,u)=0$\\
+    $\EE(zy-zx'\beta)=\EE(zu)=0$\\
+      \rightarrow $\beta = \EE(zx)^{-1}\EE(zy)$ \\
+    Steps for 2SLS:
+      regress x on z to get $\hat{x} = p_zx$ then regress y on $\hat{x}$. Further, $\hat{\beta}_{2SLS} = (xp_zx)^{-1}xp_zy$
+    To have a valid IV:
+    \begin{enumerate}
+      \item IV not in regression
+      \item IV correlated with x and unorrelated with u
+      \item 2SLS is more general than IV
+    \end{enumerate}
+\end{minipage}%
+\begin{minipage}[t]{0.4\textwidth}
+  kalsdj
+\end{minipage}  
+\newpage
+\end{document}
