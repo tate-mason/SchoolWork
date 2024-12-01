@@ -8,7 +8,7 @@
 \usepackage{lipsum}
 \DeclareSymbolFont{\mathnormal}{letters}
 \usepackage{lastpage}
-
+\usepackage{enumitem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Fill in the appropriate information below
@@ -68,10 +68,22 @@
 \begin{document}
 \noindent
 \textbf{Linear Model}: \\
+- Assumptions:
+\begin{enumerate}
+  \item $\EE(u)=0, cov(x_j, u) = 0$ zero mean
+  \item $\EE(u|x) = 0$ uncorrelated mean
+  \item $Rank[\EE(xx')] = K$ full rank
+  \item $\EE(u^2xx') = \sigma^2\EE(xx')$ s.t. $\EE(u^2)\equiv u^2$: errors constant in variance
+  \item $cov(x_k,e_k) = 0$ or $cov(x_k^*,e_k)=0$: classical errors in variables 
+  \item for some $Lx1$ vector $z$, $\EE(zu)=0$: any exog elements of x, are included in z
+  \item $Rank[\EE(zz')]=L$ and $Rank[\EE(zx')]=K$: must have at least as many instruments as explanatory variables 
+  \item $\EE(u^2zz')=\sigma^2\EE(zz')$: homoskedasticity
+\end{enumerate}
 - OLS estimator: $\hat{\beta}=(\sum\limits_{i=1}^nx_ix'_i)^{-1}\sum\limits_{i=1}^nx_iy_i$ \\
 - 2SLS estimator: $\hat{\beta}=[(\sumt x_iz'_i)(\sumt z_iz'_i)^{-1}(\sumt z_ix'_i)]^{-1}(\frac{1}{n}\sumt z_ix'_i)(\frac{1}{n}\sumt z_iz'_i)^{-1}(\frac{1}{\sqrt{n}}\sumt z_iu_i)$ \\ 
 - IV estimator: $\hat{\beta}[\frac{1}{n}\sumt z_ix'_i]^{-1}\frac{1}{n}\sumt z_iy_i$. z is the instrument which satisfies criteria uncorrelated with u and slightly correlated with x. \\
 - Omitted Variables (IV): put omitted in error term and find instruments for any elements in the explanatory in the omitted \\
+
 \textbf{Nonlinear Model}: \\
 - Probit: $f(y|x_i) = [\Phi(x_i'\theta)]^y[1-\Phi(x_i'\theta)]^{1-y}$ \\
 - Logit: $G(z)= \frac{e^z}{1+e^z}$ \\
