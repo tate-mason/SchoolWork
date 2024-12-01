@@ -1,4 +1,4 @@
-\documentclass[3pt, a4paper]{article}
+\documentclass[1pt, a4paper]{article}
 \usepackage[top=0.1cm, bottom=0.1cm, left=3.5cm, right=3.5cm]{geometry}
 \usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
 \usepackage{float}
@@ -29,6 +29,7 @@
 \renewcommand{\labelenumi}{\alph{enumi})}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\R}{\mathbb R}
+\newcommand{\sumt}{$\sum\limits_{i=1}^n$}
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\NN}{\mathbb N}
 \newcommand{\PP}{\mathbb P}
@@ -66,38 +67,42 @@
 
 \begin{document}
 \noindent
-\begin{minipage}[t]{0.5\textwidth}
-  \textbf{Linear}:
-    \begin{enumerate}
-      \item Assump1: $\EE(u) = 0$
-      \item Assump2: $\EE(u|x) = 0$
-      \item Assump3: $\var(u_i|x_i) = \sigma^2$
-      \item Assump4: $\EE(x_i'x_i)$ is full rank 
-    \end{enumerate}
-    Use Wald test for t-stat, Use LM for F-stat
-    Violation of 3 - robust s.e.\\
-    Violation of 4 - software\\
-    Violation of 1 = IV ( $cov(x,u)\ne0$ ) \\
-    Endogeneity solutions:
-    \begin{enumerate}
-      \item Joint determination
-      \item IV \\
-    \end{enumerate}
-  \textbf{IV}
-    $cov(x,u)\ne0;cov(z,u)=0$\\
-    $\EE(zy-zx'\beta)=\EE(zu)=0$\\
-      \rightarrow $\beta = \EE(zx)^{-1}\EE(zy)$ \\
-    Steps for 2SLS:
-      regress x on z to get $\hat{x} = p_zx$ then regress y on $\hat{x}$. Further, $\hat{\beta}_{2SLS} = (xp_zx)^{-1}xp_zy$
-    To have a valid IV:
-    \begin{enumerate}
-      \item IV not in regression
-      \item IV correlated with x and unorrelated with u
-      \item 2SLS is more general than IV
-    \end{enumerate}
-\end{minipage}%
-\begin{minipage}[t]{0.4\textwidth}
-  
-\end{minipage}  
-\newpage
+\textbf{Linear Model}: \\
+- OLS estimator: $\hat{\beta}=(\sum\limits_{i=1}^nx_ix'_i)^{-1}\sum\limits_{i=1}^nx_iy_i$ \\
+- 2SLS estimator: $\hat{\beta}=[(\sumt x_iz'_i)(\sumt z_iz'_i)^{-1}(\sumt z_ix'_i)]^{-1}(\frac{1}{n}\sumt z_ix'_i)(\frac{1}{n}\sumt z_iz'_i)^{-1}(\frac{1}{\sqrt{n}}\sumt z_iu_i)$ \\ 
+- IV estimator: $\hat{\beta}[\frac{1}{n}\sumt z_ix'_i]^{-1}\frac{1}{n}\sumt z_iy_i$. z is the instrument which satisfies criteria uncorrelated with u and slightly correlated with x. \\
+- Omitted Variables (IV): put omitted in error term and find instruments for any elements in the explanatory in the omitted \\
+\textbf{Nonlinear Model}: \\
+- Probit: $f(y|x_i) = [\Phi(x_i'\theta)]^y[1-\Phi(x_i'\theta)]^{1-y}$ \\
+- Logit: $G(z)= \frac{e^z}{1+e^z}$ \\
+- Partial effect of probit: $\frac{\partial f}{\partial x}\phi$ \\
+- log-likelihood function: $l_i = y_i\log[G(x_i'\beta)]+(1-y_i)\log[1-G(x_i'\beta)]$ \\
+- likelihood function: $\mathcal{L} = \sumt l_i$ \\
+- multinomial logit:$P(y=j|x) = \frac{e^{x'\beta_j}}{1+\sum\limits_{h=1}^Je^{x'\beta_h}}$; $P(y=j \ or \ y=h|x) = \frac{p_j(x,\beta)}{p_j(x,\beta)+p_h(x,\beta)}$
+\begin{minipage}[t]{0.1\textwidth} %
+  Roy:
+  \begin{flalign*}
+  & y_1 = \begin{cases}
+    1 \ if \ y_1^*>0 \\
+    0 \ if \ y_1^*\leq0 \\
+  \end{cases} & \\
+  & y_2 = \begin{cases}
+    y_2^* \ if \ y_1^*>0 \\
+    y_3^* \ if \ y_1^*\leq0\\
+  \end{cases} & \\
+  & y_1^* = x_1'\beta_1+\epsilon_1 & \\
+  & y_2^* = x_2'\beta_2+\epsilon_2 & \\
+  & y_3^* = x_3'\beta_3+\epsilon_3 & \\
+  \end{flalign*}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth} %
+  Heckman 2-Step:
+  \begin{flalign*}
+    & -y_{2i} = x_{2i}'\beta_2+\sigma_{12}\lambda(x_{1i}'\hat{\beta}_1)+v_i & \\
+    & -\text{v is the error, beta hat is the first step probit reg of $y_1$ on $x_1$} & \\
+    & \text{since $Pr[y_1^*>0]=\lambda(x_1'\beta_1)$ and $\lambda_1(x_1'\hat{\beta}_1)=\phi(x_1'\beta_1)/\Phi(x_1'\beta_1)$} & \\
+    & \text{is the inverse Mills ratio} & \\
+  \end{flalign*}
+\end{minipage}
+- Likelihood ratio test: $2(\mathcal{L}_{UR}-\mathcal{L}_r)$
 \end{document}

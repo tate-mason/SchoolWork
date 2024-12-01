@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  30 NOV 2024 12:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  1 DEC 2024 15:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -368,25 +368,25 @@ control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
 
-./fcs.tex:40: LaTeX Error: Command \lstlistingname undefined.
+./fcs.tex:41: LaTeX Error: Command \lstlistingname undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.40 \renewcommand\lstlistingname
+l.41 \renewcommand\lstlistingname
                                  {Algorithm}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./fcs.tex:41: LaTeX Error: Command \lstlistlistingname undefined.
+./fcs.tex:42: LaTeX Error: Command \lstlistlistingname undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.41 \renewcommand\lstlistlistingname
+l.42 \renewcommand\lstlistlistingname
                                      {Algorithms}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -394,25 +394,25 @@ If that doesn't work, type  X <return>  to quit.
 \c@case=\count290
 
 LaTeX Warning: Unused global option(s):
-    [3pt].
+    [1pt].
 
 (./fcs.aux)
 \openout1 = `fcs.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -467,37 +467,176 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 72.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 71.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 72.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 71.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 72.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 71.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Underfull \hbox (badness 10000) in paragraph at lines 84--85
+./fcs.tex:72: Missing $ inserted.
+<inserted text> 
+                $
+l.72 - 2SLS estimator: $\hat{\beta}=[(\sumt
+                                            x_iz'_i)(\sumt z_iz'_i)^{-1}(\su...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
+./fcs.tex:72: Missing $ inserted.
+<inserted text> 
+                $
+l.72 - 2SLS estimator: $\hat{\beta}=[(\sumt x_
+                                              iz'_i)(\sumt z_iz'_i)^{-1}(\su...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:72: Missing $ inserted.
+<inserted text> 
+                $
+l.72 ...mator: $\hat{\beta}=[(\sumt x_iz'_i)(\sumt
+                                                   z_iz'_i)^{-1}(\sumt z_ix'...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:72: Missing $ inserted.
+<inserted text> 
+                $
+l.72 ...or: $\hat{\beta}=[(\sumt x_iz'_i)(\sumt z_
+                                                  iz'_i)^{-1}(\sumt z_ix'_i)...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:72: Missing $ inserted.
+<inserted text> 
+                $
+l.72 ...[(\sumt x_iz'_i)(\sumt z_iz'_i)^{-1}(\sumt
+                                                   z_ix'_i)]^{-1}(\frac{1}{n...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:72: Missing $ inserted.
+<inserted text> 
+                $
+l.72 ...sumt x_iz'_i)(\sumt z_iz'_i)^{-1}(\sumt z_
+                                                  ix'_i)]^{-1}(\frac{1}{n}\s...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:72: Missing $ inserted.
+<inserted text> 
+                $
+l.72 ...{-1}(\sumt z_ix'_i)]^{-1}(\frac{1}{n}\sumt
+                                                   z_ix'_i)(\frac{1}{n}\sumt...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:72: Missing $ inserted.
+<inserted text> 
+                $
+l.72 ...}(\sumt z_ix'_i)]^{-1}(\frac{1}{n}\sumt z_
+                                                  ix'_i)(\frac{1}{n}\sumt z_...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:72: Missing $ inserted.
+<inserted text> 
+                $
+l.72 ...\frac{1}{n}\sumt z_ix'_i)(\frac{1}{n}\sumt
+                                                   z_iz'_i)^{-1}(\frac{1}{\s...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:72: Missing $ inserted.
+<inserted text> 
+                $
+l.72 ...ac{1}{n}\sumt z_ix'_i)(\frac{1}{n}\sumt z_
+                                                  iz'_i)^{-1}(\frac{1}{\sqrt...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:72: Missing $ inserted.
+<inserted text> 
+                $
+l.72 ...sumt z_iz'_i)^{-1}(\frac{1}{\sqrt{n}}\sumt
+                                                   z_iu_i)$ \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:72: Missing $ inserted.
+<inserted text> 
+                $
+l.72 ...t z_iz'_i)^{-1}(\frac{1}{\sqrt{n}}\sumt z_
+                                                  iu_i)$ \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:73: Missing $ inserted.
+<inserted text> 
+                $
+l.73 - IV estimator: $\hat{\beta}[\frac{1}{n}\sumt
+                                                   z_ix'_i]^{-1}\frac{1}{n}\...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:73: Missing $ inserted.
+<inserted text> 
+                $
+l.73 ...stimator: $\hat{\beta}[\frac{1}{n}\sumt z_
+                                                  ix'_i]^{-1}\frac{1}{n}\sum...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:73: Missing $ inserted.
+<inserted text> 
+                $
+l.73 ...c{1}{n}\sumt z_ix'_i]^{-1}\frac{1}{n}\sumt
+                                                   z_iy_i$. z is the instrum...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:73: Missing $ inserted.
+<inserted text> 
+                $
+l.73 ...}{n}\sumt z_ix'_i]^{-1}\frac{1}{n}\sumt z_
+                                                  iy_i$. z is the instrument...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:80: Missing $ inserted.
+<inserted text> 
+                $
+l.80 - likelihood function: $\mathcal{L} = \sumt
+                                                 l_i$ \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./fcs.tex:80: Missing $ inserted.
+<inserted text> 
+                $
+l.80 ...kelihood function: $\mathcal{L} = \sumt l_
+                                                  i$ \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (67.10973pt too wide) detected at line 96
+[]
  []
 
-./fcs.tex:89: Missing $ inserted.
-<inserted text> 
-                $
-l.89       \rightarrow
-                       $\beta = \EE(zx)^{-1}\EE(zy)$ \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
-./fcs.tex:89: Missing $ inserted.
-<inserted text> 
-                $
-l.89       \rightarrow $\beta
-                              = \EE(zx)^{-1}\EE(zy)$ \\
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+Overfull \hbox (90.53244pt too wide) detected at line 105
+[]
+ []
+
+
+Overfull \hbox (0.53137pt too wide) in paragraph at lines 69--108
+[] []
+ []
 
 [1
 
@@ -508,18 +647,18 @@ L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 5883 strings out of 474116
- 99172 string characters out of 5743682
- 1931187 words of memory out of 5000000
- 28121 multiletter control sequences out of 15000+600000
- 560571 words of font info for 48 fonts, out of 8000000 for 9000
+ 5892 strings out of 474116
+ 99289 string characters out of 5743682
+ 1945187 words of memory out of 5000000
+ 28127 multiletter control sequences out of 15000+600000
+ 562868 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,6n,93p,486b,230s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on fcs.pdf (1 page, 80273 bytes).
+ 79i,16n,93p,486b,290s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on fcs.pdf (1 page, 126305 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+ 68 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
