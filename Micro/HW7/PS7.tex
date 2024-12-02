@@ -1,6 +1,9 @@
 \documentclass[10pt, a4paper]{article}
 \usepackage[top=3cm, bottom=4cm, left=3.5cm, right=3.5cm]{geometry}
 \usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{float}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
@@ -94,4 +97,61 @@
   \end{titlepage}
 
   \newpage
+  \section*{PS4.4}
+    \subsection*{Problem}
+      "Centipede with a possibly generous player" (see lecture notes) has a unique sequential equilibrium strategy profile in which both players sometimes choose to continue. Does this game possess any other weak sequential equilibrium profiles?
+    \subsection*{Solution}
+  \section*{Figure 5}
+    \begin{center}
+      \includegraphics*{fig5.png}
+    \end{center}
+  \section*{PS4.6}
+    \subsection*{Problem}
+      Compute all sequential equilirbia of the game in figure 5.
+    \subsection*{Solution}
+  \section*{Figure 6}
+    \begin{center}
+      \includegraphics*{Fig6.png}
+    \end{center}
+  \section*{PS4.7}
+    \subsection*{Problem}
+      Compute all sequential equilibria of the game in figure 6.
+    \subsection*{Solution}
+  \section*{Question 4}
+    \subsection*{Problem}
+      Consider the following extensive form game of imperfect information played by three venture capital firms $i \in \{1, 2, 3\}$. The game takes place in five periods $t \in \{0, 1, 2, 3, 4\}$ and proceeds as follows.
+      \begin{itemize}
+          \item At $t = 0$, Nature chooses a state of the world $\theta \in \{H, L\}$ according to the probability distribution $\rho_0$, where
+          \[
+          \rho_0(H) = \frac{1}{2}, \quad \rho_0(L) = \frac{1}{2}.
+          \]
+          This state of the world corresponds to whether investing in a certain startup will yield a high payoff (state $H$) or a low payoff (state $L$). It is not observed by any of the firms.
+          \item At $t = 1$, Nature chooses a signal $r_1 \in \{h, \ell\}$ according to the probability distribution $\rho(\cdot|\theta)$, where
+          \[
+          \rho(h|H) = \frac{3}{4}, \quad \rho(\ell|H) = \frac{1}{4}, \quad \rho(h|L) = \frac{1}{4}, \quad \rho(\ell|L) = \frac{3}{4}.
+          \]
+          This signal is observed by firm 1 (only). Then, firm 1 chooses to either invest ($Y_1$) or not invest ($N_1$). This action is observed by firms 2 and 3.
+          \item At $t = 2$, Nature chooses another signal $r_2 \in \{h, \ell\}$ according to $\rho(\cdot|\theta)$. This signal is observed by firm 2 (only). Then, firm 2 chooses to either invest ($Y_2$) or not invest ($N_2$). This action is observed by firm 3.
+          \item At $t = 3$, Nature chooses yet another signal $r_3 \in \{h, \ell\}$ according to $\rho(\cdot|\theta)$. This signal is observed by firm 3 (only). Then, firm 3 chooses to either invest ($Y_3$) or not invest ($N_3$).
+          \item At $t = 4$, the game ends. Each firm $i$ who chose to invest (i.e., chose action $Y_i$) receives a payoff of 1 if $\theta = H$ and $-\frac{9}{10}$ if $\theta = L$. Each firm who chose not to invest (i.e., chose action $N_i$) receives a payoff of zero, regardless of the state of the world.
+      \end{itemize}
+      Note that firms’ beliefs are only relevant insofar as they describe the probability placed on each state of the world. Thus, instead of writing beliefs as the probabilities of each decision node (e.g., $\mu_3(H, r_1 = \ell, N_1, r_2 = h, Y_2, r_3 = \ell)$), we can simply write them as the probability of $\theta$ given the current information set (e.g., $\mu_3(H|N_1, Y_2, r_3 = \ell)$).
+      \begin{enumerate}
+          \item What are the unique Bayesian beliefs $\mu_1(H|r_1 = h)$, $\mu_1(H|r_1 = \ell)$ for player 1 after $r_1 \in \{h, \ell\}$?
+          \item In any weak sequential equilibrium, what action will firm 1 take after signal $h$? After $\ell$?
+          \item What are the unique Bayesian beliefs
+          \[
+          \mu_2(H|Y_1, r_2 = h), \quad \mu_2(H|Y_1, r_2 = \ell), \quad \mu_2(H|N_1, r_2 = h), \quad \mu_2(H|N_1, r_2 = \ell)?
+          \]
+          \item In any weak sequential equilibrium, what action will firm 2 take after $(Y_1, r_2 = h)$? After $(Y_1, r_2 = \ell)$? After $(N_1, r_2 = h)$? After $(N_1, r_2 = \ell)$?
+          \item Solve for all weak sequential equilibria. (You only need to solve for beliefs about the state, not about individual decision nodes that follow the same state.)
+          \item In any weak sequential equilibrium, what is the probability of a history $(s_1, s_2)$ occurring after which
+          \begin{enumerate}
+              \item firm 3 invests (i.e., plays $Y_3$), no matter what signal $r_3$ she receives?
+              \item firm 3 does not invest (i.e., plays $N_3$), no matter what signal $r_3$ she receives?
+              \item firm 3 plays the “correct” action (i.e., $Y_3$ if the state is $H$ or $N_3$ if the state is $L$), no matter what signal $r_3$ she receives?
+              \item firm 3 plays the “incorrect” action (i.e., $N_3$ if the state is $H$ or $Y_3$ if the state is $L$), no matter what signal $r_3$ she receives?
+          \end{enumerate}
+      \end{enumerate}
+    \subsection*{Solution}
 \end{document}
