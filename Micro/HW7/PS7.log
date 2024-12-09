@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  4 DEC 2024 17:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  8 DEC 2024 19:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -579,47 +579,225 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<fig5.png, id=12, 261.47687pt x 240.9pt>
-File: fig5.png Graphic file (type png)
-<use fig5.png>
-Package pdftex.def Info: fig5.png  used on input line 106.
-(pdftex.def)             Requested size: 261.47623pt x 240.8994pt.
-<Fig6.png, id=15, 303.1325pt x 323.2075pt>
-File: Fig6.png Graphic file (type png)
-<use Fig6.png>
-Package pdftex.def Info: Fig6.png  used on input line 114.
-(pdftex.def)             Requested size: 303.13176pt x 323.20671pt.
- [1 <./fig5.png>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 122.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 105.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 122.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 105.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 122.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 105.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./Fig6.png>] [3] [4] (./PS7.aux)
+)
+<fig5.png, id=12, 261.47687pt x 240.9pt>
+File: fig5.png Graphic file (type png)
+<use fig5.png>
+Package pdftex.def Info: fig5.png  used on input line 111.
+(pdftex.def)             Requested size: 261.47623pt x 240.8994pt.
+ [1 <./fig5.png>]
+<Fig6.png, id=25, 303.1325pt x 323.2075pt>
+File: Fig6.png Graphic file (type png)
+<use Fig6.png>
+Package pdftex.def Info: Fig6.png  used on input line 143.
+(pdftex.def)             Requested size: 303.13176pt x 323.20671pt.
+ [2] [3 <./Fig6.png>] [4] [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [6]
+./PS7.tex:247: Undefined control sequence.
+<argument>  \EE 
+                (H|h) = \mu _1(H|h) - (1-\mu _1(H|h))(\frac {9}{10}) \\ \EE ...
+l.247         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:247: Undefined control sequence.
+<argument> ...-\mu _1(H|h))(\frac {9}{10}) \\ \EE 
+                                                  (H|h) = \frac {3}{4} - (\f...
+l.247         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:247: Undefined control sequence.
+<argument> ...}{10}\cdot \frac {1}{4}) > 0 \\ \EE 
+                                                  (H|h) = \frac {21}{40} > 0...
+l.247         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:247: Undefined control sequence.
+<argument> ...erefore \sigma _1(H|h) = Y_1 \\ \EE 
+                                                  (H|\ell ) = \mu _1(H|\ell ...
+l.247         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:247: Undefined control sequence.
+<argument> ... _1(H|\ell ))(\frac {9}{10}) \\ \EE 
+                                                  (H|\ell ) = \frac {1}{4} -...
+l.247         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:247: Undefined control sequence.
+<argument> ...frac {1}{4} - \frac {27}{40} \\ \EE 
+                                                  (H|\ell ) = -\frac {17}{40...
+l.247         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:247: Undefined control sequence.
+<argument>  \EE 
+                (H|h) = \mu _1(H|h) - (1-\mu _1(H|h))(\frac {9}{10}) \\ \EE ...
+l.247         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:247: Undefined control sequence.
+<argument> ...-\mu _1(H|h))(\frac {9}{10}) \\ \EE 
+                                                  (H|h) = \frac {3}{4} - (\f...
+l.247         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:247: Undefined control sequence.
+<argument> ...}{10}\cdot \frac {1}{4}) > 0 \\ \EE 
+                                                  (H|h) = \frac {21}{40} > 0...
+l.247         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:247: Undefined control sequence.
+<argument> ...erefore \sigma _1(H|h) = Y_1 \\ \EE 
+                                                  (H|\ell ) = \mu _1(H|\ell ...
+l.247         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:247: Undefined control sequence.
+<argument> ... _1(H|\ell ))(\frac {9}{10}) \\ \EE 
+                                                  (H|\ell ) = \frac {1}{4} -...
+l.247         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:247: Undefined control sequence.
+<argument> ...frac {1}{4} - \frac {27}{40} \\ \EE 
+                                                  (H|\ell ) = -\frac {17}{40...
+l.247         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:256: Undefined control sequence.
+<argument> (\frac {1}{4}^2\cdo 
+                               \frac {1}{2})+(\frac {3}{4}^2\cdot \frac {1}{2})
+l.256         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:256: Undefined control sequence.
+<argument> (\frac {1}{4}^2\cdo 
+                               \frac {1}{2})+(\frac {3}{4}^2\cdot \frac {1}{2})
+l.256         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:265: Undefined control sequence.
+<argument>  \EE 
+                (\mu _2(H)) = \mu _2+(1-\mu _2(H))(-\frac {9}{10}) \\ \mu _2...
+l.265         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./PS7.tex:265: Undefined control sequence.
+<argument>  \EE 
+                (\mu _2(H)) = \mu _2+(1-\mu _2(H))(-\frac {9}{10}) \\ \mu _2...
+l.265         \end{gather*}
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[7] [8] [9] (./PS7.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 15452 strings out of 474116
- 306465 string characters out of 5743682
- 1939187 words of memory out of 5000000
- 37500 multiletter control sequences out of 15000+600000
- 562406 words of font info for 54 fonts, out of 8000000 for 9000
+ 15460 strings out of 474116
+ 306570 string characters out of 5743682
+ 1945187 words of memory out of 5000000
+ 37506 multiletter control sequences out of 15000+600000
+ 563477 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,12n,93p,425b,396s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on PS7.pdf (5 pages, 186634 bytes).
+ 84i,13n,93p,425b,310s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on PS7.pdf (10 pages, 228486 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 49 compressed objects within 1 object stream
+ 115 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  35 words of extra memory for PDF output out of 10000 (max. 10000000)
 

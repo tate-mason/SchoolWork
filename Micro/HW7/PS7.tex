@@ -101,6 +101,11 @@
     \subsection*{Problem}
       "Centipede with a possibly generous player" (see lecture notes) has a unique sequential equilibrium strategy profile in which both players sometimes choose to continue. Does this game possess any other weak sequential equilibrium profiles?
     \subsection*{Solution}
+      As found in the lecture, the unique equilibrium in which both players choose to continue is
+      \begin{gather*}
+        \mu_1(y)=\frac{4}{5};\sigma_2(c)=\frac{4}{19};\sigma_1(c')=\frac{1}{5};\sigma_1(c)=1
+      \end{gather*}
+      There would be no other weak equilibria as there are no other rational profiles. For instance, if player 1 chooses to stop at $s'$, player 2 would stop at s, thus causing the node not to be reached. If player 1 were to always play $c'$, the probability does not align with beliefs. Thus, there can be no other profiles which are Bayesian rational.
   \section*{Figure 5}
     \begin{center}
       \includegraphics*{fig5.png}
@@ -109,6 +114,30 @@
     \subsection*{Problem}
       Compute all sequential equilirbia of the game in figure 5.
     \subsection*{Solution}
+      In all cases, B will not be played as there is a better move for each case a or b. Thus it becomes a game with two brances.
+      For Case 1:
+      \begin{gather*}
+        \sigma_1(O|t_b) = 1 \\
+        \sigma_1(I|t_b)=0 \\
+        \mu_2(t_b|I) = 0 \\
+        \sigma_2(T|I)=1 \\
+        \sigma_1(I|t_1)=1
+      \end{gather*}
+      For Case 2:
+      \begin{gather*}
+        \sigma_1(I|t_a)=0 \\
+        0\geq-\sigma_2(M|I)+2(1-\sigma_2(M|I))\\
+        \sigma_2(M|I)\geq\frac{2}{3} \\
+        \text{if $\sigma_2(M|I)\in[\frac{2}{3},1)$}:
+        \mu_2(t_a|I)=\frac{1}{2}       
+      \end{gather*}
+      Because player 1 will not play $I$ if type b, player 2 will always play M or $\sigma_2(M|I)=1$.
+      Equilibrium:
+        \begin{gather*}
+          \sigma_2(M|I)=1 \\
+          \sigma_1(I|t_b)=0 \\
+          \mu_2(t_a|I)\geq\frac{1}{2} \\
+        \end{gather*}
   \section*{Figure 6}
     \begin{center}
       \includegraphics*{Fig6.png}
@@ -117,6 +146,52 @@
     \subsection*{Problem}
       Compute all sequential equilibria of the game in figure 6.
     \subsection*{Solution}
+      Case 1: 
+      \begin{gather*}
+        \sigma_1(L|t_a)=\sigma_1(L|t_b)=\sigma_1(L|t_c)=1 \\
+        \mu_2(t_a|L) = \mu_2(t_a|R) = 0.6 \\
+        \mu_2(t_b|L) = \mu_2(t_b|R) = 0.3 \\
+        \mu_2(t_c|L) = \mu_2(t_c|R) = 0.1 \\
+        \sigma_2(U|L) = 1 \\
+        t_a: \\
+        0 > -(\sigma_2(T|R)) + 5(1-\sigma_2(T|R)) \\
+        0 > -6\sigma_2(T|R) + 5 \\
+        \sigma_2(T|R) \geq \frac{5}{6} \\
+        t_b: \\
+        0 > 5(\sigma_2(T|R)) - (1-\sigma_2(T|R)) \\
+        0 > 6\sigma_2(T|R) - 1 \\
+        \sigma_2(T|R) \leq \frac{1}{6} \\
+        \therefore \sigma_2(T|R) = \{\alpha|\alpha\in[\frac{1}{6}, \frac{5}{6}]\} \\
+      \end{gather*}
+      Case 2:
+      \begin{gather*}
+        \sigma_1(L|t_a) = \sigma_1(L|t_b) = 0; \sigma_1(L|t_c) = 1 \\
+        \sigma_1(R|t_a) = \sigma_1(R|t_b) = 1 \\
+        \sigma_2(T|R) = \frac{1}{3} \\
+        \frac{\sigma_1(R|t_a)}{\sigma_1(R|t_a)+\sigma_1(R|t_b)} = \frac{2}{3} = \mu_2(t_a|R)\\
+        \frac{\sigma_1(R|t_b)}{\sigma_1(R|t_a)+\sigma_1(R|t_b)} = \frac{1}{3} = \mu_2(t_b|R) \\
+        \mu_2(t_c|L) = 1 \\
+        \sigma_2(U|L) = 1 \\
+      \end{gather*}
+      Case 3:
+      \begin{gather*}
+        \sigma_1(R|t_a)=\frac{1}{10}; \sigma_1(R|t_b) = 1; \sigma_1(R|t_c) = 0 \\
+        \mu_2(t_a|R) = \frac{1}{6} \\
+        \mu_2(t_b|R) = \frac{5}{6} \\
+        \mu_2(t_a|L) = \mu_2(t_b|L) = \frac{1}{2} \\
+        \sigma_2(T|R) = \frac{5}{6} \\
+        \sigma_2(U|L) = 1 \\
+      \end{gather*}
+      Case 4: 
+      \begin{gather*}
+        \sigma_1(R|t_a) = 1; \sigma_1(R|t_b) = \frac{2}{5}; \sigma_1(R|t_c) = 0 \\
+        \mu_2(t_a|R) = \frac{5}{6} \\
+        \mu_2(t_b|R) = \frac{1}{6} \\
+        \mu_2(t_b|L) = \frac{6}{11} \\
+        \mu_2(t_c|L) = \frac{5}{11} \\
+        \sigma_2(T|R) = \frac{1}{6} \\
+        \sigma_2(U|L) = 1 \\
+      \end{gather*}
   \section*{Question 4}
     \subsection*{Problem}
       Consider the following extensive form game of imperfect information played by three venture capital firms $i \in \{1, 2, 3\}$. The game takes place in five periods $t \in \{0, 1, 2, 3, 4\}$ and proceeds as follows.
@@ -154,4 +229,62 @@
           \end{enumerate}
       \end{enumerate}
     \subsection*{Solution}
+      \subsubsection*{(a)}
+        \begin{gather*}
+          \mu_1(H|h) = \frac{\frac{3}{4}\cdot\frac{1}{2}}{(\frac{3}{4}\cdot\frac{1}{2})+(\frac{1}{4}\cdot\frac{1}{2})} \\
+          \mu_1(H|h) = \frac{3}{4}\\
+          \mu_1(H|\ell) = \frac{\frac{1}{4}\cdot\frac{1}{2}}{(\frac{3}{4}\cdot\frac{1}{2})+(\frac{1}{4}\cdot\frac{1}{2})} \\
+          \mu_1(H|\ell) = \frac{1}{4}
+        \end{gather*}
+      \subsubsection*{(b)}
+        \begin{gather*}
+          \EE(H|h) = \mu_1(H|h) - (1-\mu_1(H|h))(\frac{9}{10}) \\
+          \EE(H|h) = \frac{3}{4} - (\frac{9}{10}\cdot\frac{1}{4}) > 0 \\
+          \EE(H|h) = \frac{21}{40} > 0 \therefore \sigma_1(H|h) = Y_1 \\
+          \EE(H|\ell) = \mu_1(H|\ell) - (1-\mu_1(H|\ell))(\frac{9}{10}) \\
+          \EE(H|\ell) = \frac{1}{4} - \frac{27}{40} \\
+          \EE(H|\ell) = -\frac{17}{40} < 0 \therefore \sigma_1(H|\ell) = N_1 \\
+        \end{gather*}
+      \subsubsection*{(c)}
+        \begin{gather*}
+          \mu_2(H|Y_1, r_2=h) = \frac{(\frac{3}{4})^2\cdot\frac{1}{2}}{(\frac{3}{4}^2\cdot\frac{1}{2})+(\frac{1}{4}^2\cdot\frac{1}{2})} \\
+          \mu_2(H|Y_1, r_2=h) = \frac{9}{10} \\
+          \mu_2(H|N_1, r_2=\ell) = \frac{(\frac{1}{4})^2\cdot\frac{1}{2}}{(\frac{1}{4}^2\cdo\frac{1}{2})+(\frac{3}{4}^2\cdot\frac{1}{2})} \\
+          \mu_2(H|N_1, r=\ell) = \frac{1}{10} \\
+          \mu_2(H|Y_1, r=\ell) = \frac{1}{2} \\
+          \mu_2(H|N_1, r=h) = \frac{1}{2}
+        \end{gather*}
+      \subsubsection*{(d)}
+        \begin{gather*}
+          \EE(\mu_2(H)) = \mu_2+(1-\mu_2(H))(-\frac{9}{10}) \\
+          \mu_2 \geq \frac{9}{19} \\
+          \sigma_2(H|Y_1,h) = Y_2 \\
+          \sigma_2(H|N_1,h) = Y_2 \\
+          \sigma_2(H|Y_1, \ell) = Y_2 \\
+          \sigma_2(H|N_1, \ell) = N_2 \\
+        \end{gather*}
+        All but the case in which player one chooses not to invest when the state is low, player 2 will invest. In the outlier case, they will not invest, following the signal of the player before them. 
+      \subsubsection*{(e)}
+        \begin{gather*}
+          \text{i)} \\
+          \mu_3(H|Y_1,Y_2,r_3=h) = Y_3 \\
+          \mu_3(H|Y_1,Y_2,r_3=\ell) = Y_3 \\
+          \text{(ii)} \\
+          \mu_3(H|N_1,Y_2,r_3=h) = Y_3 \\
+          \mu_3(H|N_1,Y_2,r_3=\ell) = Y_3 \\
+          \text{(iii)} \\
+          \mu_3(H|N_1,N_2,r_3=h) = N_3 \\
+          \mu_3(H|N_1,N_2,r_3=\ell) = N_3 \\
+        \end{gather*}
+      \subsubsection*{(f)}
+        \begin{gather*}
+          \text{(a)} \\
+          \frac{1}{2}+(\frac{1}{2})^2 = \frac{3}{4} \\
+          \text{(b)} \\
+          \frac{1}{2}^2 = \frac{1}{4} \\
+          \text{(c)} \\
+          (\frac{1}{2}\cdot\frac{3}{4}) + (\frac{1}{2}\cdot\frac{1}{4}) = \frac{1}{2} \\
+          \text{(d)} \\
+          1 - (f.c) = \frac{1}{2} \\
+        \end{gather*}
 \end{document}
