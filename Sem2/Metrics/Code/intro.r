@@ -1,5 +1,19 @@
+#############################################
+# Author: Tate Mason - dtm63837@uga.edu     #
+# Institution: University of Georgia        #
+# Date: 01-06-2025                          #
+#############################################
+
+######################
+# Loading Packages   #
+######################
+
 library(lubridate, warn.conflicts=FALSE)
 library(dplyr)
+
+########################
+# Creating a Dataframe #
+########################
 
 firm_data <- data.frame(
   name = c(
@@ -21,8 +35,15 @@ firm_data <- data.frame(
     "Clarke",
     "Oconee"),
   employees = c(531, 6, 15, 211, 25))
-### Worked Exercises
-## Creating Vectors
+
+########################
+# Worked Exercises     #
+########################
+
+##################
+# Problem 1      #
+##################
+# Creating Vectors Manually and Performing Operations on Them #
 x <- seq(2,10, by=2)
 y <- c(3,5,7,11,13)
 x+y
@@ -30,32 +51,45 @@ x-y
 x*y
 x/y
 
-## Geometric Mean
+##################
+# Problem 2      #
+##################
+# Creating a function to find the geometric mean #
 geometric_mean <- function(j1, j2, j3, j){
   (j1*j2*j3)^(1/j)
 }
 print(geometric_mean(10,8,13,3))
 
-## Lubridate
+##################
+# Problem 3      #
+##################
+# Using Lubridate to find the time elapsed between two dates #
 date_diff <- ymd(20220110) - ymd(19810101)
 print(date_diff)
 
-## MTCars Work
+##################
+# Problem 4      #
+##################
+# Working with the MTCars dataset #
 df <- mtcars
-# a
+# Part A #
 df %>% count()
-# b
+# Part B #
 df %>% ncol()
-# c
+# Part C #
 df %>% colnames()
-# d
+# Part D #
 print(df$mpg>=20)
-# e
+# Part E #
 print(df$mpg>=20 & df$hp>=100)
-# f
+# Part F #
 print(df$cyl>=6 | df$hp>=100)
-# g
+# Part G #
 r10 <- as.vector(df[10,])
 print(r10)
-# h
+# Part H #
 order(df$mpg)
+
+#############################################
+# End of Script - Reach out with questions  #
+#############################################
