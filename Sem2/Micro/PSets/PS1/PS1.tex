@@ -1,0 +1,69 @@
+%% ECON 8041 - Macro: Problem Set 4 %%
+\documentclass[10pt, a4paper]{article}
+\usepackage[top=3cm, bottom=4cm, left=3.5cm, right=3.5cm]{geometry}
+\usepackage{amsmath, amsthm, amsfonts, amssymb, amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage[math-style=ISO]{unicode-math}
+\usepackage{lastpage}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\course}{ECON - 8040}
+\newcommand{\hwnumber}{1}
+\newcommand{\Information}{Tate Mason}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\course}
+\fancyhead[C]{Assignment \hwnumber}
+\fancyhead[R]{\Information}
+\fancyfoot[C]{\thepage\ of \pageref{LastPage}}
+
+\begin{document}
+
+\begin{center}
+    \Large \textbf{Assignment \hwnumber} \\
+    \normalsize Due Date: January 23rd, 11:59pm \\
+    Please Show Your Work and Circle Your Final Answer \\
+    Submit as a single document
+\end{center}
+
+\section*{Question 1: Envelope Theorem}
+
+Consider a constrained optimization problem:
+\[
+x^*(\theta) = \arg \max_{x \in X(\theta)} f(x, \theta), \quad V(\theta) = \max_{x \in X(\theta)} f(x, \theta)
+\]
+where $X(\theta) = \{x \in \mathbb{R}^n | g_j(x) \leq \theta_j\}$.
+
+\begin{enumerate}
+    \item[(a)] Derive the envelope theorem, computing $\frac{\partial V(\theta)}{\partial \theta_j}$ for each $j \in \{1, \ldots, m\}$.
+    \item[(b)] Interpret your answer in (a), especially regarding KKT multipliers.
+    \item[(c)] Apply the result to consumer maximization. Define $f(x, \theta)$, constraints $g_j$, and interpret $\theta$ and KKT multipliers.
+\end{enumerate}
+
+\section*{Question 2: Topkis' Theorem (Single-Dimension)}
+
+\begin{enumerate}
+    \item[(a)] Provide a full proof of Topkis' theorem using the approach from class.
+    \item[(b)] Analyze when $q^*(\theta)$ is nondecreasing for a monopolist with inverse demand $p(q)$ and cost $c(q, \theta)$.
+    \item[(c)] For a firm minimizing costs with production $f(k, \phi l) = q$, find conditions where optimal $k^*$ is weakly increasing/decreasing in $\phi$.
+\end{enumerate}
+
+\section*{Question 3: Topkis' Theorem (Multi-Dimensional)}
+
+\begin{enumerate}
+    \item[(a)] Interpret the assumption $\frac{\partial^2 f}{\partial l \partial k} < 0$.
+    \item[(b)] Analyze how optimal labor choice changes as wage $w$ increases.
+\end{enumerate}
+
+\section*{Question 4: Putting it All Together}
+
+\begin{enumerate}
+    \item[(a)] For utility $u(x, y, z) = x^{1/2} y^{1/2} + z$, show optimum $T$ equals 0 or $W$.
+    \item[(b)] For $u(x, y, z) = x^\alpha y^\alpha + z$, derive $T$ in terms of prices and $W$.
+    \item[(c)] For $u(x, y, z) = x^\alpha y^\beta + h(z)$, show $T$ is weakly increasing in $W$.
+\end{enumerate}
+
+\end{document}
