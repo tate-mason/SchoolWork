@@ -7,7 +7,6 @@
 \usepackage{mathrsfs}
 \usepackage[math-style=ISO]{unicode-math}
 \usepackage{lastpage}
-
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\course}{ECON - 8040}
 \newcommand{\hwnumber}{1}
@@ -66,5 +65,16 @@ where $X(\theta) = \{x \in \mathbb{R}^n | g_j(x) \leq \theta_j\}$.
     \item[(b)] For $u(x, y, z) = x^\alpha y^\alpha + z$, derive $T$ in terms of prices and $W$.
     \item[(c)] For $u(x, y, z) = x^\alpha y^\beta + h(z)$, show $T$ is weakly increasing in $W$.
 \end{enumerate}
+
+\section*{Solution 1:}
+  \subsection*{(a)}
+    Using the envelope theorem on the optimization problem:
+    \begin{gather*}
+      V'(\theta) = \frac{\partial f(x^*(\theta),\theta)}{\partial \theta} + \frac{\partial f(x^*(\theta),\theta)}{\partial x}\cdot\frac{\text{d} x^*(\theta)}{\text{d} \theta} \\
+      V'(\theta) = \frac{\partial f(x^*(\theta),\theta)}{\partial \theta}
+    \end{gather*}
+    This is the result since, at the max, $x^*=0$ thus eliminating the second term.
+  \subsection*{(b)}
+     
 
 \end{document}
