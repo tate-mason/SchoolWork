@@ -65,7 +65,7 @@ where $X(\theta) = \{x \in \mathbb{R}^n | g_j(x) \leq \theta_j\}$.
   \subsection*{(a)}
     Using the envelope theorem on the optimization problem:
     \begin{gather*}
-      V(\theta) = {\max\atop{x\in\mathcal{X}}}f(x,\theta) \\
+      V(\theta)={\max\atop{x\in\mathcal{X}}}f(x,\theta) \\
       \text{where} X(\theta) = \{x\in\mathbb{R}^n|g_j(x)\leq\theta_j\} \\
     \end{gather*}
     \begin{proof}
@@ -75,8 +75,7 @@ where $X(\theta) = \{x \in \mathbb{R}^n | g_j(x) \leq \theta_j\}$.
         = \frac{\partial f}{\partial\theta_j} + \sum\limits_{j=1}^m\lambda\frac{\partial X(\theta_j)}{\partial x_j}
         \cdot\frac{\partial x^*(\theta)}{\partial\theta_j}$ \\
         $\sum\limits_{j=1}^m\lambda\frac{\partial X(\theta_j)}{\partial x_j}\cdot\frac{\partial x^*(\theta)}{\partial\theta_j}
-        = \sum\limits_{j=1}^m\frac{\partial X(\theta)}{\partial(x_j)}\cdot\Delta x_j + \frac{\partial X(\theta)}
-        {\partial\theta_j}\cdot\Delta\theta_j$ \\
+        = \sum\limits_{j=1}^m\frac{\partial X(\theta)}{\partial(x_j)}\cdot\Delta x_j + \frac{\partial X(\theta)}{\partial\theta_j}\cdot\Delta\theta_j$ \\
       \end{center}
       Now, we can apply the following:
       \begin{center}
@@ -87,13 +86,11 @@ where $X(\theta) = \{x \in \mathbb{R}^n | g_j(x) \leq \theta_j\}$.
       \end{center}
       Finally, we can yield an end result:
       \begin{center}
-        $\frac{V(\theta)}{\partial\theta_j} = \frac{\partial f}{\partial \theta_j} + \lambda[-\frac{\partial X(\theta)}
-        {\partial\theta_j}]$
+        $\boxed{\frac{V(\theta)}{\partial\theta_j} = \frac{\partial f}{\partial \theta_j} + \lambda[-\frac{\partial X(\theta)}{\partial\theta_j}]}$
       \end{center}
       This is the result since, at the max, $x^*=0$ thus eliminating the first term in the summation and leaving the derivative of the
       constraint with respect to $\theta_j$.
     \end{proof}
   \subsection*{(b)}
-     
-
+    
 \end{document}
