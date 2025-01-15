@@ -1,5 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1736867628.9863 "PS1.tex" "PS1.pdf" "PS1" 1736867629.4625 2
+["pdflatex"] 1736958228.56024 "/Users/tate/SchoolWork/Sem2/Micro/PSets/PS1/PS1.tex" "PS1.pdf" "PS1" 1736958228.96419 0
+  "/Users/tate/SchoolWork/Sem2/Micro/PSets/PS1/PS1.tex" 1736958228.45558 3026 1e5b4c9064d0c461b72d500367629c46 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -57,22 +58,17 @@
   "/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/mathrsfs.sty" 1137110241 300 12fa6f636b617656f2810ee82cb05015 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd" 1137110241 548 cc4e3557704bfed27c7002773fad6c90 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1708463273 30006 3d512c0edd558928ddea1690180ef77e ""
-  "/usr/local/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty" 1708463273 6565 10e89ed128ccd59431746bbdd82129fc ""
-  "/usr/local/texlive/2024/texmf-dist/tex/latex/lastpage/lastpage.sty" 1697402539 2868 94ccb360e6e4443cad221f78a5cbb6a8 ""
-  "/usr/local/texlive/2024/texmf-dist/tex/latex/lastpage/lastpage2e.sty" 1697402539 2720 a038de4136aa4a721c8ef0dc226ae6b5 ""
-  "/usr/local/texlive/2024/texmf-dist/tex/latex/lastpage/lastpagemodern.sty" 1697402539 9166 74f0d39535736e850fd2f2796fd37674 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/mathtools/mathtools.sty" 1710187076 62672 9ff036bc89365461cc2bd482cc1e4879 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/mathtools/mhsetup.sty" 1616101747 5582 a43dedf8e5ec418356f1e9dfe5d29fc3 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/tools/calc.sty" 1698869629 10214 547fd4d29642cb7c80bf54b49d447f01 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/trimspaces/trimspaces.sty" 1253232110 1380 971a51b00a14503ddf754cab24c3f209 ""
-  "/usr/local/texlive/2024/texmf-dist/tex/latex/unicode-math/unicode-math.sty" 1691956686 1474 b42cfbe849cb22ed1c0632800327884f ""
   "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1708706663 41649 5d6ae549fbbcb850a863f69aa41f3d10 ""
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1736783638.84382 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1736783482 8221421 b33f776dce1cf3f864c825fe3de377b4 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "PS1.aux" 1736867629.42142 120 68b7c6fc2e4dba34f9531cea15a7341c "pdflatex"
-  "PS1.tex" 1736800695.42435 3206 d76dcfa80457ddb2945b462a9473cd01 ""
+  "PS1.aux" 1736958228.92237 32 044b7f8fc9779af7531264e0c5c84b6d "pdflatex"
+  "PS1.tex" 1736958228.45558 3026 1e5b4c9064d0c461b72d500367629c46 ""
   (generated)
   "PS1.aux"
   "PS1.log"
