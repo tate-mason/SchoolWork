@@ -85,8 +85,33 @@ alt_seq(3,7,4)
 
 ## Part A:
 Write a function which takes `x` as an argument and returns `TRUE` if prime or `FALSE` otherwise.
+```{r}
+is_prime <- function(x) {
+    if (x==2) {
+        return(TRUE)
+    }
+    if (x <= 1) {
+        return(FALSE)
+    }
+    for (i in 2:(x-1)) {
+        if (x %% i ==0) {
+            return(FALSE)
+        }
+    }
+    return(TRUE)
+}
+a1 <- is_prime(7)
+a2 <- is_prime(10)
+print(c(a1,a2))
+```
 
 ## Part B:
+Write a function to list all prime numbers 1-n
+```{r}
+prime <- function(n) {
+
+}
+```
 
 # Problem 5:
 ## Part A:
