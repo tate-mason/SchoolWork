@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Tate Mason">
 <meta name="dcterms.date" content="2025-01-22">
 
-<title>ps1</title>
+<title>Problem Set 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,8 +70,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="PS1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="PS1_files/libs/bootstrap/bootstrap-973236bd072d72a04ee9cd82dcc9cb29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -109,12 +124,19 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
+<h1 class="title">Problem Set 1</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Tate Mason </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -145,7 +167,9 @@ window.Quarto = {
 </section>
 <section id="problem-2" class="level1">
 <h1>Problem 2:</h1>
-<p>Try three approaches to calculate the sum of the numbers 1 to <span class="math inline">\(n\)</span> ## Approach 1:</p>
+<p>Try three approaches to calculate the sum of the numbers 1 to <span class="math inline">n</span></p>
+<section id="approach-1" class="level2">
+<h2 class="anchored" data-anchor-id="approach-1">Approach 1:</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sum_one_to_n_1 <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span>n)</span>
@@ -156,6 +180,7 @@ window.Quarto = {
 <pre><code>[1] 5050</code></pre>
 </div>
 </div>
+</section>
 <section id="approach-2" class="level2">
 <h2 class="anchored" data-anchor-id="approach-2">Approach 2:</h2>
 <div class="cell">
@@ -243,161 +268,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="part-a-2">Part A:</h2>
 <p>Counting observations in <code>Iris</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>iris</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-1            5.1         3.5          1.4         0.2     setosa
-2            4.9         3.0          1.4         0.2     setosa
-3            4.7         3.2          1.3         0.2     setosa
-4            4.6         3.1          1.5         0.2     setosa
-5            5.0         3.6          1.4         0.2     setosa
-6            5.4         3.9          1.7         0.4     setosa
-7            4.6         3.4          1.4         0.3     setosa
-8            5.0         3.4          1.5         0.2     setosa
-9            4.4         2.9          1.4         0.2     setosa
-10           4.9         3.1          1.5         0.1     setosa
-11           5.4         3.7          1.5         0.2     setosa
-12           4.8         3.4          1.6         0.2     setosa
-13           4.8         3.0          1.4         0.1     setosa
-14           4.3         3.0          1.1         0.1     setosa
-15           5.8         4.0          1.2         0.2     setosa
-16           5.7         4.4          1.5         0.4     setosa
-17           5.4         3.9          1.3         0.4     setosa
-18           5.1         3.5          1.4         0.3     setosa
-19           5.7         3.8          1.7         0.3     setosa
-20           5.1         3.8          1.5         0.3     setosa
-21           5.4         3.4          1.7         0.2     setosa
-22           5.1         3.7          1.5         0.4     setosa
-23           4.6         3.6          1.0         0.2     setosa
-24           5.1         3.3          1.7         0.5     setosa
-25           4.8         3.4          1.9         0.2     setosa
-26           5.0         3.0          1.6         0.2     setosa
-27           5.0         3.4          1.6         0.4     setosa
-28           5.2         3.5          1.5         0.2     setosa
-29           5.2         3.4          1.4         0.2     setosa
-30           4.7         3.2          1.6         0.2     setosa
-31           4.8         3.1          1.6         0.2     setosa
-32           5.4         3.4          1.5         0.4     setosa
-33           5.2         4.1          1.5         0.1     setosa
-34           5.5         4.2          1.4         0.2     setosa
-35           4.9         3.1          1.5         0.2     setosa
-36           5.0         3.2          1.2         0.2     setosa
-37           5.5         3.5          1.3         0.2     setosa
-38           4.9         3.6          1.4         0.1     setosa
-39           4.4         3.0          1.3         0.2     setosa
-40           5.1         3.4          1.5         0.2     setosa
-41           5.0         3.5          1.3         0.3     setosa
-42           4.5         2.3          1.3         0.3     setosa
-43           4.4         3.2          1.3         0.2     setosa
-44           5.0         3.5          1.6         0.6     setosa
-45           5.1         3.8          1.9         0.4     setosa
-46           4.8         3.0          1.4         0.3     setosa
-47           5.1         3.8          1.6         0.2     setosa
-48           4.6         3.2          1.4         0.2     setosa
-49           5.3         3.7          1.5         0.2     setosa
-50           5.0         3.3          1.4         0.2     setosa
-51           7.0         3.2          4.7         1.4 versicolor
-52           6.4         3.2          4.5         1.5 versicolor
-53           6.9         3.1          4.9         1.5 versicolor
-54           5.5         2.3          4.0         1.3 versicolor
-55           6.5         2.8          4.6         1.5 versicolor
-56           5.7         2.8          4.5         1.3 versicolor
-57           6.3         3.3          4.7         1.6 versicolor
-58           4.9         2.4          3.3         1.0 versicolor
-59           6.6         2.9          4.6         1.3 versicolor
-60           5.2         2.7          3.9         1.4 versicolor
-61           5.0         2.0          3.5         1.0 versicolor
-62           5.9         3.0          4.2         1.5 versicolor
-63           6.0         2.2          4.0         1.0 versicolor
-64           6.1         2.9          4.7         1.4 versicolor
-65           5.6         2.9          3.6         1.3 versicolor
-66           6.7         3.1          4.4         1.4 versicolor
-67           5.6         3.0          4.5         1.5 versicolor
-68           5.8         2.7          4.1         1.0 versicolor
-69           6.2         2.2          4.5         1.5 versicolor
-70           5.6         2.5          3.9         1.1 versicolor
-71           5.9         3.2          4.8         1.8 versicolor
-72           6.1         2.8          4.0         1.3 versicolor
-73           6.3         2.5          4.9         1.5 versicolor
-74           6.1         2.8          4.7         1.2 versicolor
-75           6.4         2.9          4.3         1.3 versicolor
-76           6.6         3.0          4.4         1.4 versicolor
-77           6.8         2.8          4.8         1.4 versicolor
-78           6.7         3.0          5.0         1.7 versicolor
-79           6.0         2.9          4.5         1.5 versicolor
-80           5.7         2.6          3.5         1.0 versicolor
-81           5.5         2.4          3.8         1.1 versicolor
-82           5.5         2.4          3.7         1.0 versicolor
-83           5.8         2.7          3.9         1.2 versicolor
-84           6.0         2.7          5.1         1.6 versicolor
-85           5.4         3.0          4.5         1.5 versicolor
-86           6.0         3.4          4.5         1.6 versicolor
-87           6.7         3.1          4.7         1.5 versicolor
-88           6.3         2.3          4.4         1.3 versicolor
-89           5.6         3.0          4.1         1.3 versicolor
-90           5.5         2.5          4.0         1.3 versicolor
-91           5.5         2.6          4.4         1.2 versicolor
-92           6.1         3.0          4.6         1.4 versicolor
-93           5.8         2.6          4.0         1.2 versicolor
-94           5.0         2.3          3.3         1.0 versicolor
-95           5.6         2.7          4.2         1.3 versicolor
-96           5.7         3.0          4.2         1.2 versicolor
-97           5.7         2.9          4.2         1.3 versicolor
-98           6.2         2.9          4.3         1.3 versicolor
-99           5.1         2.5          3.0         1.1 versicolor
-100          5.7         2.8          4.1         1.3 versicolor
-101          6.3         3.3          6.0         2.5  virginica
-102          5.8         2.7          5.1         1.9  virginica
-103          7.1         3.0          5.9         2.1  virginica
-104          6.3         2.9          5.6         1.8  virginica
-105          6.5         3.0          5.8         2.2  virginica
-106          7.6         3.0          6.6         2.1  virginica
-107          4.9         2.5          4.5         1.7  virginica
-108          7.3         2.9          6.3         1.8  virginica
-109          6.7         2.5          5.8         1.8  virginica
-110          7.2         3.6          6.1         2.5  virginica
-111          6.5         3.2          5.1         2.0  virginica
-112          6.4         2.7          5.3         1.9  virginica
-113          6.8         3.0          5.5         2.1  virginica
-114          5.7         2.5          5.0         2.0  virginica
-115          5.8         2.8          5.1         2.4  virginica
-116          6.4         3.2          5.3         2.3  virginica
-117          6.5         3.0          5.5         1.8  virginica
-118          7.7         3.8          6.7         2.2  virginica
-119          7.7         2.6          6.9         2.3  virginica
-120          6.0         2.2          5.0         1.5  virginica
-121          6.9         3.2          5.7         2.3  virginica
-122          5.6         2.8          4.9         2.0  virginica
-123          7.7         2.8          6.7         2.0  virginica
-124          6.3         2.7          4.9         1.8  virginica
-125          6.7         3.3          5.7         2.1  virginica
-126          7.2         3.2          6.0         1.8  virginica
-127          6.2         2.8          4.8         1.8  virginica
-128          6.1         3.0          4.9         1.8  virginica
-129          6.4         2.8          5.6         2.1  virginica
-130          7.2         3.0          5.8         1.6  virginica
-131          7.4         2.8          6.1         1.9  virginica
-132          7.9         3.8          6.4         2.0  virginica
-133          6.4         2.8          5.6         2.2  virginica
-134          6.3         2.8          5.1         1.5  virginica
-135          6.1         2.6          5.6         1.4  virginica
-136          7.7         3.0          6.1         2.3  virginica
-137          6.3         3.4          5.6         2.4  virginica
-138          6.4         3.1          5.5         1.8  virginica
-139          6.0         3.0          4.8         1.8  virginica
-140          6.9         3.1          5.4         2.1  virginica
-141          6.7         3.1          5.6         2.4  virginica
-142          6.9         3.1          5.1         2.3  virginica
-143          5.8         2.7          5.1         1.9  virginica
-144          6.8         3.2          5.9         2.3  virginica
-145          6.7         3.3          5.7         2.5  virginica
-146          6.7         3.0          5.2         2.3  virginica
-147          6.3         2.5          5.0         1.9  virginica
-148          6.5         3.0          5.2         2.0  virginica
-149          6.2         3.4          5.4         2.3  virginica
-150          5.9         3.0          5.1         1.8  virginica</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
@@ -405,8 +276,9 @@ window.Quarto = {
 </section>
 <section id="part-b-2" class="level2">
 <h2 class="anchored" data-anchor-id="part-b-2">Part B:</h2>
+<p>Finding the mean sepal length in the dataset</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.843333</code></pre>
 </div>
@@ -414,9 +286,9 @@ window.Quarto = {
 </section>
 <section id="part-c" class="level2">
 <h2 class="anchored" data-anchor-id="part-c">Part C:</h2>
-<p>Calculate the average of the variable <code>Sepal.Width</code></p>
+<p>Calculate the average of the variable <code>Sepal.Width</code>. Package <code>dplyr</code> used but loading now shown.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">'setosa'</span>) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Width)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">'setosa'</span>) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Width)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  mean(iris$Sepal.Width)
 1               3.057333</code></pre>
@@ -427,9 +299,9 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="part-d">Part D:</h2>
 <p>Sort the dataset by variable <code>Petal.Length</code> and print only the first ten rows</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>asc_pl <span class="ot">&lt;-</span> <span class="fu">sort</span>(iris<span class="sc">$</span>Petal.Length)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>print_pl <span class="ot">&lt;-</span> asc_pl[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>print_pl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>asc_pl <span class="ot">&lt;-</span> <span class="fu">sort</span>(iris<span class="sc">$</span>Petal.Length)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>print_pl <span class="ot">&lt;-</span> asc_pl[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>print_pl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 1.0 1.1 1.2 1.2 1.3 1.3 1.3 1.3 1.3 1.3</code></pre>
 </div>
@@ -440,12 +312,12 @@ window.Quarto = {
 <h1>Problem 6:</h1>
 <p>Create a function which solves the quadratic equation and provides two solutions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>quadratic_solver <span class="ot">&lt;-</span> <span class="cf">function</span>(a,b,c) {</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    p <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">+</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>a<span class="sc">*</span>c))<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>a)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">-</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>a<span class="sc">*</span>c))<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>a)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">c</span>(p,m))</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">quadratic_solver</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>quadratic_solver <span class="ot">&lt;-</span> <span class="cf">function</span>(a,b,c) {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    p <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">+</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>a<span class="sc">*</span>c))<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>a)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">-</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>a<span class="sc">*</span>c))<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>a)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">c</span>(p,m))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">quadratic_solver</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1 -3</code></pre>
 </div>
