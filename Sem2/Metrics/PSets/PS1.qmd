@@ -1,0 +1,127 @@
+---
+Title: Problem Set 1
+Author: Tate Mason
+format: html
+date: 01-22-2025
+---
+
+# Problem 1:
+Use the stringr package and its `str_length` function to calculate the number of characters in each element of `x`.
+
+```{r}
+library(stringr)
+x <- c('economics', 'econometrics','ECON 4750')
+str_length(x)
+```
+
+# Problem 2:
+Try three approaches to calculate the sum of the numbers 1 to $n$
+## Approach 1:
+```{r}
+sum_one_to_n_1 <- function(n) {
+    x <- seq(1:n)
+    sum(x)
+}
+sum_one_to_n_1(100)
+```
+
+## Approach 2:
+```{r}
+sum_one_to_n_2 <- function(n) {
+    y <- (n*(n+1))/2
+    y
+}
+sum_one_to_n_2(100)
+```
+
+## Approach 3:
+```{r}
+sum_one_to_n_3 <- function(n) {
+    sum <- 0
+    for (x in 1:n) {
+        sum <- sum + x
+    }
+    sum
+}   
+sum_one_to_n_3(100)
+```
+
+# Problem 3:
+
+## Part A:
+Write a function which computes the Fibonacci sequence.
+```{r}
+fibonacci <- function(n) {
+    a <- 0
+    b <- 1
+    for (i in 3:n) {
+        c <- a+b
+        a <- b
+        b <- c
+    }
+    c
+}
+fibonacci(5)
+```
+
+## Part B:
+Write a function which computes the 
+```{r}
+alt_seq <- function(a,b,n) {
+    for (i in 3:n) {
+        c <- a+b
+        a <- b
+        b <- c
+    }
+    c
+}
+alt_seq(3,7,4)
+```
+
+# Problem 4: 
+
+## Part A:
+Write a function which takes `x` as an argument and returns `TRUE` if prime or `FALSE` otherwise.
+
+## Part B:
+
+# Problem 5:
+## Part A:
+Counting observations in `Iris`
+```{r}
+iris
+length(iris)
+```
+
+## Part B:
+```{r}
+mean(iris$Sepal.Length)
+```
+
+## Part C:
+Calculate the average of the variable `Sepal.Width`
+```{r include=FALSE}
+library(dplyr)
+```
+```{r}
+iris %>% filter(Species == 'setosa') %>% summarise(mean(iris$Sepal.Width)) 
+```
+
+## Part D:
+Sort the dataset by variable `Petal.Length` and print only the first ten rows
+```{r}
+asc_pl <- sort(iris$Petal.Length)
+print_pl <- asc_pl[1:10]
+print_pl
+```
+
+# Problem 6:
+Create a function which solves the quadratic equation and provides two solutions.
+```{r}
+quadratic_solver <- function(a,b,c) {
+    p <- (-b + sqrt(b^2 - 4*a*c))/(2*a)
+    m <- (-b - sqrt(b^2 - 4*a*c))/(2*a)
+    print(c(p,m))
+}
+quadratic_solver(1,4,3)
+```
