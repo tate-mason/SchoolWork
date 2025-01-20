@@ -47,8 +47,15 @@ where $X(\theta) = \{x \in \mathbb{R}^n | g_j(x) \leq \theta_j\}$.
 
 \section*{Question 3: Topkis' Theorem (Multi-Dimensional)}
 
+A firm has two inputs, capital ($k$) and labor ($l$), that it can use for production. Cost of capital and labor are $r \text{and} w$ , respectively. The firm's production function is 
+given by $f(k, l)$, and the firm sells its product at a fixed price $p$. Unlike part (c) in the previous question, the firm is not constrained to produce a fixed level of output.
+Thus, the firm's problem is:
+\begin{center}
+    $\max_{k,l} pf(k,l) - wl - rk$
+\end{center}
+Assume that $\frac{\partial f}{\partial k} \text{and} \frac{\partial f}{\partial l}$ exist and are positive, and that $\frac{\partial^2 f}{\partial k\partial l} < 0$.
 \begin{enumerate}
-    \item[(a)] Interpret the assumption $\frac{\partial^2 f}{\partial l \partial k} < 0$.
+    \item[(a)] Provide an interpretation for the assumption that $\frac{\partial^2 f}{\partial k\partial l} < 0$.
     \item[(b)] Analyze how optimal labor choice changes as wage $w$ increases.
 \end{enumerate}
 
@@ -61,34 +68,50 @@ where $X(\theta) = \{x \in \mathbb{R}^n | g_j(x) \leq \theta_j\}$.
 \end{enumerate}
 
 \section*{Solution 1:}
-  \subsection*{(a)}
-    Using the envelope theorem on the optimization problem:
-    \begin{gather*}
-      V(\theta)=\max_{x\in\mathcal{X}} f(x,\theta) \\
-      \text{where} X(\theta) = \{x\in\mathbb{R}^n|g_j(x)\leq\theta_j\} \\
-    \end{gather*}
-    \begin{proof}
-      \begin{center}
-        $\frac{\partial v}{\partial\theta_j} = \frac{\partial f(x^*(\theta),\theta_j)}{\partial\theta_j}
-        +\sum\limits_{j=1}^m\frac{\partial f}{\partial x_j}\frac{\partial x^*(\theta_j)}{\partial\theta_j}
-        = \frac{\partial f}{\partial\theta_j} + \sum\limits_{j=1}^m\lambda\frac{\partial X(\theta_j)}{\partial x_j}
-        \cdot\frac{\partial x^*(\theta)}{\partial\theta_j}$ \\
-        $\sum\limits_{j=1}^m\lambda\frac{\partial X(\theta_j)}{\partial x_j}\cdot\frac{\partial x^*(\theta)}{\partial\theta_j}
-        = \sum\limits_{j=1}^m\frac{\partial X(\theta)}{\partial(x_j)}\cdot\Delta x_j + \frac{\partial X(\theta)}{\partial\theta_j}\cdot\Delta\theta_j$ \\
-      \end{center}
-      Now, we can apply the following:
-      \begin{center}
-        $\frac{1}{\Delta\theta_j}\cdot[\sum\limits_{j=1}^m\frac{\partial X(\theta)}{\partial x_j}\Delta x_j +
-        \frac{\partial X(\theta_j)}{\partial\theta_j}]$ \\
-        $\sum\limits_{j=1}^m\frac{\partial X(\theta)}{\partial x_j}\frac{\Delta x_j}{\Delta\theta_j} +
-        \frac{\partial X(\theta)}{\partial\theta_j}$ \\
-      \end{center}
-      Finally, we can yield an end result:
-      \begin{center}
-        $\boxed{\frac{V(\theta)}{\partial\theta_j} = \frac{\partial f}{\partial \theta_j} + \lambda[-\frac{\partial X(\theta)}{\partial\theta_j}]}$
-      \end{center}
-      This is the result since, at the max, $x^*=0$ thus eliminating the first term in the summation and leaving the derivative of the
-      constraint with respect to $\theta_j$.
-    \end{proof}
-  \subsection*{(b)}
+    \subsection*{(a)}
+        Using the envelope theorem on the optimization problem:
+        \begin{gather*}
+        V(\theta)=\max_{x\in\mathcal{X}} f(x,\theta) \\
+        \text{where} X(\theta) = \{x\in\mathbb{R}^n|g_j(x)\leq\theta_j\} \\
+        \end{gather*}
+        \begin{proof}
+        \begin{center}
+            $\frac{\partial v}{\partial\theta_j} = \frac{\partial f(x^*(\theta),\theta_j)}{\partial\theta_j}
+            +\sum\limits_{j=1}^m\frac{\partial f}{\partial x_j}\frac{\partial x^*(\theta_j)}{\partial\theta_j}
+            = \frac{\partial f}{\partial\theta_j} + \sum\limits_{j=1}^m\lambda\frac{\partial X(\theta_j)}{\partial x_j}
+            \cdot\frac{\partial x^*(\theta)}{\partial\theta_j}$ \\
+            $\sum\limits_{j=1}^m\lambda\frac{\partial X(\theta_j)}{\partial x_j}\cdot\frac{\partial x^*(\theta)}{\partial\theta_j}
+            = \sum\limits_{j=1}^m\frac{\partial X(\theta)}{\partial(x_j)}\cdot\Delta x_j + \frac{\partial X(\theta)}{\partial\theta_j}\cdot\Delta\theta_j$ \\
+        \end{center}
+        Now, we can apply the following:
+        \begin{center}
+            $\frac{1}{\Delta\theta_j}\cdot[\sum\limits_{j=1}^m\frac{\partial X(\theta)}{\partial x_j}\Delta x_j +
+            \frac{\partial X(\theta_j)}{\partial\theta_j}]$ \\
+            $\sum\limits_{j=1}^m\frac{\partial X(\theta)}{\partial x_j}\frac{\Delta x_j}{\Delta\theta_j} +
+            \frac{\partial X(\theta)}{\partial\theta_j}$ \\
+        \end{center}
+        Finally, we can yield an end result:
+        \begin{center}
+            $\boxed{\frac{V(\theta)}{\partial\theta_j} = \frac{\partial f}{\partial \theta_j} +\sum\limits_{j=1}^m \lambda_j[-\frac{\partial X(\theta)}{\partial\theta_j}]}$
+        \end{center}
+        This is the result since, at the max, $x^*=0$ thus eliminating the first term in the summation and leaving the derivative of the
+        constraint with respect to $\theta_j$.
+        \end{proof}
+    \subsection*{(b)}
+        The derivative of the value function with respect to $\theta_j$ is the derivative of the objective function with respect to $\theta_j$ plus the KKT multipliers $\sum\limits_{j=1}^m\lambda_j$
+        multiplied by the derivative of the constraint with respect to $\theta_j$. This means that the KKT multipliers have an effect on the value function via the constraint. The KKT multipliers are
+        the shadow prices of the constraints, which are the marginal utility of the budget constraint.
+    \subsection*{(c)}
+        For consumer maximization, the objective function is the utility function $f(x,\theta)$, the constraints are the budget constraint $g_j(x)\leq\theta_j$, and $\theta$ is the budget. The KKT multipliers
+        are the shadow prices of the constraints, which are the marginal utility of the budget constraint.
+\section*{Solution 2:}
+    \subsection*{(a)}
+        \begin{proof}
+            Let's assume there exist variables $a_H$ and $a_L$ such that $a_H > a_L$. Further, define $f(a_H,\theta') - f(a_L,\theta') \geq f(a_H,\theta)-f(a_L,\theta)$. Next, substitute
+            $a_H = \max\{x,x'\} \text{and} a_L = x'$ such that $x\in x^*(\theta) \text{and} x'\in x^*(\theta')$. This yields $f(\max\{x,x'\},\theta') - f(x',\theta') \geq f(\max\{x,x'\},\theta) - f(x',\theta)$.
+            Further, define $\theta'>\theta$. If the maximum of $x$ and $x'$ with respect to $\theta$ is $x'$, the right side of the term goes to zero. Otherwise, the inequality holds. Let's
+            proceed with the assumption that the left is zeroed out, allowing us the rearrange and get the inequality $f(\max\{x',x\},\theta')\geq f(x',\theta')$. This, therefore, states that 
+            $\max\{x',x\} \in x^*(\theta')$. Now, assume that $a_H = x$ and $a_L = \min\{x,x'\}$. This yields $f(x,\theta') - f(\min\{x,x'\},\theta') \geq f(x,\theta) - f(\min\{x,x'\},\theta)$. 
+        \end{proof}
+
 \end{document}
