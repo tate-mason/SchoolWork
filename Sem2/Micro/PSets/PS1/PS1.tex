@@ -107,11 +107,22 @@ Assume that $\frac{\partial f}{\partial k} \text{and} \frac{\partial f}{\partial
 \section*{Solution 2:}
     \subsection*{(a)}
         \begin{proof}
-            Let's assume there exist variables $a_H$ and $a_L$ such that $a_H > a_L$. Further, define $f(a_H,\theta') - f(a_L,\theta') \geq f(a_H,\theta)-f(a_L,\theta)$. Next, substitute
-            $a_H = \max\{x,x'\} \text{and} a_L = x'$ such that $x\in x^*(\theta) \text{and} x'\in x^*(\theta')$. This yields $f(\max\{x,x'\},\theta') - f(x',\theta') \geq f(\max\{x,x'\},\theta) - f(x',\theta)$.
-            Further, define $\theta'>\theta$. If the maximum of $x$ and $x'$ with respect to $\theta$ is $x'$, the right side of the term goes to zero. Otherwise, the inequality holds. Let's
-            proceed with the assumption that the left is zeroed out, allowing us the rearrange and get the inequality $f(\max\{x',x\},\theta')\geq f(x',\theta')$. This, therefore, states that 
-            $\max\{x',x\} \in x^*(\theta')$. Now, assume that $a_H = x$ and $a_L = \min\{x,x'\}$. This yields $f(x,\theta') - f(\min\{x,x'\},\theta') \geq f(x,\theta) - f(\min\{x,x'\},\theta)$. 
-        \end{proof}
+          Let's assume there exist variables $a_H$ and $a_L$ such that $a_H > a_L$. Further, define $f(a_H,\theta') - f(a_L,\theta') \geq f(a_H,\theta)-f(a_L,\theta)$. Next, substitute
+          $a_H = \max\{x,x'\} \text{and} a_L = x'$ such that $x\in x^*(\theta) \text{and} x'\in x^*(\theta')$. This yields $f(\max\{x,x'\},\theta') - f(x',\theta') \geq f(\max\{x,x'\},\theta) - f(x',\theta)$.
+          Further, define $\theta'>\theta$. If the maximum of $x$ and $x'$ with respect to $\theta$ is $x'$, the right side of the term goes to zero. Otherwise, the inequality holds. Let's
+          proceed with the assumption that the right is zeroed out, allowing us the rearrange and get the inequality $f(\max\{x',x\},\theta')\geq f(x',\theta')$. This, therefore, states that 
+          $\max\{x',x\} \in x^*(\theta')$. Now, assume that $a_H = x$ and $a_L = \min\{x,x'\}$. This yields $f(x,\theta') - f(\min\{x,x'\},\theta') \geq f(x,\theta) - f(\min\{x,x'\},\theta)$. 
+          Now, assuming that $\min\{x,x'\} = x$, the left side equals 0, thus allowing us to rearrange as $f(\min\{x,x'\},\theta)\geq f(x,\theta)$. This result shows that $\min\{x,x'\}\in x^*(\theta)$.
+      \end{proof}
+    \subsection*{(b)}
+      In this case, we can say that $-c^*(q)$ has increasing differences. Derivation follows:
+      \begin{gather*}
+        p(q)q - c(q,\theta) = \Pi \\
+        \text{Applying Topkis' Theorem} \\
+        -c(q',\theta')-(-c(q,\theta')) \geq -c(q,\theta)-(-c(q,\theta)) \geq 0 \\
+        q\in q^*(\theta); \ q'\in q^*(\theta'); \ \theta' > \theta \\
+        c(q,\theta') >_s c(q,\theta)
+      \end{gather*}
+    \subsection*{(c)}
 
 \end{document}
