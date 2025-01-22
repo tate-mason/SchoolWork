@@ -124,5 +124,52 @@ Assume that $\frac{\partial f}{\partial k} \text{and} \frac{\partial f}{\partial
         c(q,\theta') >_s c(q,\theta)
       \end{gather*}
     \subsection*{(c)}
+      
+\section*{Question 3:}
+    \subsection*{(a)}
+      $\frac{\partial^2 f}{\partial l\partial k}<0$ is due to both $\frac{\partial f}{\partial k}, \ \frac{\partial f}{\partial l} >0$. Thus, the cross-partial will be negative due to concavity.
+      Further, this makes intuitive sense as an increase in cost in one input would necessitate a decrease in the use of that input to keep costs at a utility maximizing level.
+    
+    \subsection*{(b)}
+      As $w$ increases, labor will be less utilized in favor of capital inputs. Again, this makes intuitive sense trying to keep costs at optimal.
 
+\section*{Question 4:}
+    \subsection*{(a)}
+      \begin{gather*}
+        u(x,y,z) = x^{\frac{1}{2}}y^{\frac{1}{2}}+z \\
+        \text{s.t.} \\
+        p_xx + p_yy + p_zz = W \\
+        p_xx +p_yy = T \\
+        \text{Therefore} T+p_zz = W \\
+      \end{gather*}
+      Case 1:
+      \begin{gather*}
+        T = 0 \\
+        p_zz = W
+      \end{gather*}
+      In this case, all income is spent on good $z$.
+
+      Case 2:
+      \begin{gather*}
+        T = W \\
+        W + p_zz = W \\
+        p_zz = 0 \\
+      \end{gather*}
+      In this case, no money is spent on good $z$. Instead, the agent favors a bundle of $x,y$.
+    \subsection*{(b)}
+      \begin{gather*}
+        u(x,y,z) = x^{\alpha}y^{\alpha} + z \\
+        \text{s.t.} \\
+        p_xx + p_yy + p_zz = W \\
+        \alpha\in(0,\frac{1}{2})
+      \end{gather*}
+      Form Lagrangian:
+      \begin{gather*}
+        \mathcal{L} = x^{\alpha}y^{\alpha} + z + \lambda(W - p_xx + p_yy + p_zz) \\
+        \frac{\partial \mathcal{L}}{\partial x}: \alpha x^{\alpha-1}y^{\alpha} = p_x\lambda \\
+        \frac{\partial \mathcal{L}}{\partial y}: \alpha x^{\alpha}y^{\alpha-1} = p_y\lambda \\
+        \frac{\partial \mathcal{L}}{\partial z}: 1 = p_z\lambda \\
+        \frac{\partial \mathcal{L}}{\partial \lambda}: p_xx + p_yy + p_zz = W \\
+      \end{gather*}
+      
 \end{document}
