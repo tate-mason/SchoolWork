@@ -99,11 +99,10 @@ Assume that $\frac{\partial f}{\partial k} \text{and} \frac{\partial f}{\partial
         \end{proof}
     \subsection*{(b)}
         The derivative of the value function with respect to $\theta_j$ is the derivative of the objective function with respect to $\theta_j$ plus the KKT multipliers $\sum\limits_{j=1}^m\lambda_j$
-        multiplied by the derivative of the constraint with respect to $\theta_j$. This means that the KKT multipliers have an effect on the value function via the constraint. The KKT multipliers are
-        the shadow prices of the constraints, which are the marginal utility of the budget constraint.
+        multiplied by the derivative of the constraint with respect to $\theta_j$. This means that the KKT multipliers have an effect on the value function via the constraint. 
     \subsection*{(c)}
-        For consumer maximization, the objective function is the utility function $f(x,\theta)$, the constraints are the budget constraint $g_j(x)\leq\theta_j$, and $\theta$ is the budget. The KKT multipliers
-        are the shadow prices of the constraints, which are the marginal utility of the budget constraint.
+        For consumer maximization, the utility function is $f(x,\theta)$, the constraints are $g_j(x)\leq\theta_j$, and $\theta$ is the budget. The KKT multipliers are the shadow prices of the constraints,
+        which are the marginal utility of the budget constraint. 
 \section*{Solution 2:}
     \subsection*{(a)}
         \begin{proof}
@@ -124,52 +123,86 @@ Assume that $\frac{\partial f}{\partial k} \text{and} \frac{\partial f}{\partial
         c(q,\theta') >_s c(q,\theta)
       \end{gather*}
     \subsection*{(c)}
-      
+      \begin{gather*}
+        \min_{k,l} rk+wl \ \text{subject to} \ f(k,\phi l) = q \\
+        \phi l = L(k,q) \rightarrow l = \frac{L(k,q)}{\phi} \\
+        \text{Substitute into the objective function} \\
+        \min_{k} rk + w\frac{L(k,q)}{\phi} \\
+        g = rk + w\frac{L(k,q)}{\phi} \\
+        \frac{\partial g}{\partial k} = r + \frac{w}{\phi}\frac{\partial L(k,q)}{\partial k} = 0 \\
+        \frac{\partial^2 g}{\partial k\partial \phi} = -\frac{w}{\phi^2}\frac{\partial L(k,q)}{\partial k} \\
+        \text{Discerning $L(k,q)$'s sign} \\
+        f(k,\phi\frac{1}{\phi}L(k,q)) \\
+        \frac{\partial f}{\partial k}: \ f_k+ f_lL_k(k,q) = 0 \\
+        L_k(k,q) = -\frac{f_k}{f_l} \\
+      \end{gather*}
+      $L_k(k,q) \leq 0 \ \text{if} \ \phi>0$. Since $-\frac{f_k}{f_l}$ is negative since $f_k, f_l\geq0$, 
+      the optimal $k$ is non-decreasing in $\phi$ so long as the ratio of marginal product of capital and 
+      labor is positive.
+      For the case on non-increasing, $k^*$ is non-increasing in $\phi$ if the ratio of the marginal 
+      product of capital and labor is negative.
+
 \section*{Question 3:}
     \subsection*{(a)}
       $\frac{\partial^2 f}{\partial l\partial k}<0$ is due to both $\frac{\partial f}{\partial k}, \ \frac{\partial f}{\partial l} >0$. Thus, the cross-partial will be negative due to concavity.
       Further, this makes intuitive sense as an increase in cost in one input would necessitate a decrease in the use of that input to keep costs at a utility maximizing level.
     
     \subsection*{(b)}
-      As $w$ increases, labor will be less utilized in favor of capital inputs. Again, this makes intuitive sense trying to keep costs at optimal.
-
+      As $w$ increases, the firm will substitute labor for capital as the cost of labor increases. This is due to the given fact that $\frac{\partial^2 f}{\partial l\partial k}<0$ and the firm's objective is to minimize costs.
 \section*{Question 4:}
     \subsection*{(a)}
       \begin{gather*}
-        u(x,y,z) = x^{\frac{1}{2}}y^{\frac{1}{2}}+z \\
-        \text{s.t.} \\
-        p_xx + p_yy + p_zz = W \\
-        p_xx +p_yy = T \\
-        \text{Therefore} T+p_zz = W \\
+        {\max_{0\leq T \leq W}} [\max_{p_xx + p_yy = T} x^{\frac{1}{2}}y^{\frac{1}{2}} + \frac{W-T}{p_z}] \\
+        \mathcal{L} = (xy)^{\frac{1}{2}} + \lambda(T-p_xx-p_yy)\\
+        \mathcal{L}_x: \frac{1}{2}(\frac{y}{x})^{\frac{1}{2}} = \lambda p_x \\
+        \mathcal{L}_y: \frac{1}{2}(\frac{x}{y})^{\frac{1}{2}} = \lambda p_y \\
+        \frac{y}{x} = \frac{p_x}{p_y} \rightarrow y = \frac{p_x}{p_y}x \\
+        T = p_xx + p_y(\frac{p_x}{p_y}x) \rightarrow x = \frac{T}{2p_x} \rightarrow y = \frac{T}{2p_y} \\
+        \text{Substitute into the objective function} \\
+        \frac{T}{2p_x}^{\frac{1}{2}}\frac{T}{2p_y}^{\frac{1}{2}} + \frac{W-T}{p_z} \\
+        \frac{T}{2\sqrt{p_xp_y}} + \frac{W-T}{p_z} \\
+        \text{Take the derivative with respect to T} \\
+        \boxed{\frac{1}{2\sqrt{p_xp_y}} = \frac{1}{p_z}} \\
       \end{gather*}
-      Case 1:
-      \begin{gather*}
-        T = 0 \\
-        p_zz = W
-      \end{gather*}
-      In this case, all income is spent on good $z$.
-
-      Case 2:
-      \begin{gather*}
-        T = W \\
-        W + p_zz = W \\
-        p_zz = 0 \\
-      \end{gather*}
-      In this case, no money is spent on good $z$. Instead, the agent favors a bundle of $x,y$.
+      This yields $T = 0$ in the case that $\frac{1}{2\sqrt{p_xp_y}} < \frac{1}{p_z}$ and $T = W$ in the case that $\frac{1}{2\sqrt{p_xp_y}} > \frac{1}{p_z}$.
     \subsection*{(b)}
       \begin{gather*}
-        u(x,y,z) = x^{\alpha}y^{\alpha} + z \\
-        \text{s.t.} \\
-        p_xx + p_yy + p_zz = W \\
-        \alpha\in(0,\frac{1}{2})
+        {\max_{0\leq T \leq W}} [\max_{p_xx + p_yy = T} x^{\alpha}y^{\alpha} + \frac{W-T}{p_z}] \\
+        \mathcal{L} = (xy)^{\alpha} + \lambda(T-p_xx-p_yy)\\
+        \mathcal{L}_x: \alpha x^{\alpha-1}y^{\alpha} = \lambda p_x \\
+        \mathcal{L}_y: \alpha x^{\alpha}y^{\alpha-1} = \lambda p_y \\
+        \frac{y}{x} = \frac{p_x}{p_y} \rightarrow y = \frac{p_x}{p_y}x \\
+        T = p_xx + p_y(\frac{p_x}{p_y}x) \rightarrow x = \frac{T}{2p_x} \rightarrow y = \frac{T}{2p_y} \\
+        \text{Substitute into the objective function} \\
+        \frac{T}{(4p_xp_y)^{\alpha}}^{2\alpha} + \frac{W-T}{p_z} \\
+        \text{Take the derivative with respect to T} \\
+        (2\alpha)\frac{T}{4p_xp_y}^{2\alpha-1} = \frac{1}{p_z} \\
+        \text{Solve for T} \\
+        \boxed{T = (\frac{(4p_xp_y)^{\alpha}}{2\alpha p_z})^{\frac{1}{2\alpha-1}}}
       \end{gather*}
-      Form Lagrangian:
+      $T$ does not rely on $W$ due to the utility function having quasilinearity.
+    \subsection*{(c)}
       \begin{gather*}
-        \mathcal{L} = x^{\alpha}y^{\alpha} + z + \lambda(W - p_xx + p_yy + p_zz) \\
-        \frac{\partial \mathcal{L}}{\partial x}: \alpha x^{\alpha-1}y^{\alpha} = p_x\lambda \\
-        \frac{\partial \mathcal{L}}{\partial y}: \alpha x^{\alpha}y^{\alpha-1} = p_y\lambda \\
-        \frac{\partial \mathcal{L}}{\partial z}: 1 = p_z\lambda \\
-        \frac{\partial \mathcal{L}}{\partial \lambda}: p_xx + p_yy + p_zz = W \\
+        {\max_{0\leq T \leq W}} [\max_{p_xx + p_yy = T} x^{\alpha}y^{\beta} + h(\frac{W-T}{p_z})] \\
+        \mathcal{L} = x^{\alpha}y^{\beta} + h(\frac{W-T}{p_z}) + \lambda(T-p_xx-p_yy)\\
+        \mathcal{L}_x: \alpha x^{\alpha-1}y^{\beta} = \lambda p_x \\
+        \mathcal{L}_y: \beta x^{\alpha}y^{\beta-1} = \lambda p_y \\
+        \frac{y}{x}\frac{\alpha}{\beta} = \frac{p_x}{p_y} \rightarrow y = \frac{\beta}{\alpha}\frac{p_x}{p_y}x \\
+        T = p_xx + p_y(\frac{\beta}{\alpha}\frac{p_x}{p_y}x) \rightarrow x = \frac{\alpha T}{p_x(\alpha+\beta)} \rightarrow y = \frac{\beta T}{p_y(\alpha+\beta)} \\
+        \text{Substitute into the objective function} \\
+        \left(\frac{\alpha T}{p_x(\alpha+\beta)}\right)^{\alpha}\left(\frac{\beta T}{p_y(\alpha+\beta)}\right)^{\beta} + h(\frac{W-T}{p_z}) \\
+        \text{Let's Simplify a bit:} \\
+        \left(\frac{(\alpha\beta)T}{(\alpha+\beta)p_xp_y}\right)^{\alpha+\beta} + h(\frac{W-T}{p_z}) \\
+        \gamma(T) = \left(\frac{(\alpha\beta)T}{(\alpha+\beta)p_xp_y}\right)^{\alpha+\beta} \\
+        u(T,W) = \gamma(T) + h(\frac{W-T}{p_z}) \\
+        \text{Supermodularity of $u(T,W)$ implies that $T$ is weakly increasing in $W$} \\
+        \gamma(T) \ \text{does not depend on $W$ and thus is irrelevant} \\
+        h(z) \ \text{depends on $W$ and thus should be analyzed:} \\
+        \exists \ W'>W ; \ T'>T \\
+        u(T',W') - u(T, W') \geq u(T',W) - u(T,W) \\
+        \text{Holding $T$ constant,} \ h(\frac{W'-T}{p_z}) \geq h(\frac{W-T}{p_z}) \\
+        \text{Holding $W$ constant,} \ h(\frac{W-T'}{p_z}) \leq h(\frac{W-T}{p_z}) \\
+        \therefore u(T',W') - u(T, W') \geq u(T',W) - u(T,W) \ \text{is satisfied}\\
       \end{gather*}
-      
+      By increasing differences being satisfied, $T^*$ is weakly increasing in $W$.
 \end{document}
