@@ -152,9 +152,8 @@ iris %>% filter(Species == 'setosa') %>% summarise(mean(iris$Sepal.Width))
 ## Part D:
 Sort the dataset by variable `Petal.Length` and print only the first ten rows
 ```{r}
-asc_pl <- sort(iris$Petal.Length)
-print_pl <- asc_pl[1:10]
-print_pl
+iris_sorted <- iris %>% arrange(Petal.Length)
+head(iris_sorted, 10)
 ```
 
 # Problem 6:
