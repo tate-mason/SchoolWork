@@ -1,135 +1,117 @@
-%% Econ8050 - Problem Set 1 -- Tate Mason %%
-\documentclass[10pt, a4paper]{article}
-\usepackage[top=3cm, bottom=4cm, left=3.5cm, right=3.5cm]{geometry}
-\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
-\usepackage{float}
-\usepackage{mathtools}
-\usepackage{mathrsfs}
-\usepackage[math-style=ISO]{unicode-math}
-\DeclareSymbolFont{\mathnormal}{letters}
-\usepackage{lastpage}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Fill in the appropriate information below
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
-\newcommand\course{ECON - 8050}                            
-\newcommand\hwnumber{1}                                 
-\newcommand\Information{Tate Mason}                        
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Page setup
+\documentclass[10pt,a4paper]{article}
+\usepackage[top=3cm,bottom=4cm,left=3.5cm,right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{fancyhdr,color,comment,graphicx,environ,float,mathtools,mathrsfs}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\sumt}{\sum\limits_{t=0}^{T}}
+\newcommand{\sumn}{\sum\limits_{t=0}^{N}}
+% Custom headers
 \pagestyle{fancy}
-\headheight 35pt
-\lhead{\today}
-\rhead{}
+\lhead{ECON - 8020}
+\chead{}
+\rhead{Tate Mason}
 \lfoot{}
-\pagenumbering{arabic}
-\cfoot{\small\thepage}
-\rfoot{}
-\headsep 1.2em
-\renewcommand{\baselinestretch}{1.25}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Add new commands here
-\renewcommand{\labelenumi}{\arabic{enumi}.}
-\newcommand{\Z}{\mathbb Z}
-\newcommand{\R}{\mathbb R}
-\newcommand{\Q}{\mathbb Q}
-\newcommand{\NN}{\mathbb N}
-\newcommand{\PP}{\mathbb P}
-\newcommand{\sumt}{$\sum\limits_{t=0}^{\infty}$}
-\DeclareMathOperator{\Mod}{Mod}
-\newtheorem*{theorem}{Theorem}
-\newtheorem*{lemma}{Lemma}
-\newcommand{\assign}{:=}
+\cfoot{Assignment 2}
+\rfoot{\thepage}
 
 \begin{document}
-  \begin{titlepage}
-    \begin{center}
-      \vspace*{3cm}
-            
-      \vspace{1cm}
-      \huge
-      Homework \hwnumber
-            
-      \vspace{1.5cm}
-      \Large
-            
-      \textbf{\Information}
-            
-      \vfill
-      
-      \vspace{1cm}
-      
-      Due on 
 
-      \vspace{1cm}
+\title{Assignment 2}
+\author{Tate Mason}
+\date{Due: }
+\maketitle
 
-      An \course \ Homework Assignment
-            
-      \vspace{1cm}
-      \Large
-      
-      \today
-            
-    \end{center}
-  \end{titlepage}
-  \section*{Problem 1}
-  \subsection*{Question}
-    Consider the following version of Modigliani-Brumberg life-cycle model. A consumer lives for $T$ periods. During the first $N$ periods, he receives deterministic age-dependent labor income $y_t$ each period. During the last $T-N$ periods (from age $N+1$ to $T$), he does not receive any income. A consumer faces survival uncertainty: he survives from period $t$ to $t+1$ with probability $\theta$. Every period, a consumer can purchase asset $a$. A unit of this asset costs $q$ this period and pays out a unit of consumption good next period. Thus, if a consumer invests $qa_{t+1}$ in period $t$, he gets $a_{t+1}$ in period $t+1$. Consumer enters the model without holding any assets. A consumer discounts the future at rate $\beta$ and has the following preferences over consumption: $u(c_t) = \log(c_t)$. Assume that $\beta=1$.
-    \subsubsection*{1.}
-      Derive the consumer's lifetime budget constraint.
-    \subsubsection*{2.}
-      Set up consumer's optimization problem and derive Euler equation.
-    \subsubsection*{3.}
-      Assume that the asset price is as follows: $q=\frac{1}{1+r}$. Modify your answers to parts 1 and 2 using this information.
-    \subsubsection*{4.}
-      Assume instead that the asset price is as follows: $q=\frac{\theta}{1+r}$. Modify answers to parts 1 and 2 using this information.
-    \subsubsection*{5.}
-      Assume $r=0$ and $y_t=y$ for all $t$. Solve for optimal consumption $c_t$ for cases described in parts 3 and 4 of the problem. What is the difference between the solutions in the two cases. Provide intuition. 
-  \subsection*{Solution}
-    \subsubsection*{1.}
-    \begin{gather*}
-      {\max\atop{c_t,a_{t+1}}}\sum\limits_{t=0}^T \log(c_t) \\
-       
-    \subsubsection*{2.}
-    \subsubsection*{3.}
-    \subsubsection*{4.}
-    \subsubsection*{5.}
-  \section*{Problem 2}
-  \subsection*{Question}
-    Suppose consumers maximize a quadratic utility function and can freely borrow and lend at rate $r$. Denote assets at age $t$ as $a_t$. Contrary to the permanent income model we assume consumers have finite lifetime. They start working as soon as they are born at age 1, work until age 40, retire at age 41 and die at the end of their 60th year. Both working life and retirement are deterministic. So a worker of age $t$ maximizes
-    \begin{gather*}
-      \sum\limits_{s=t}^{60}\beta^{s-t}u(c_s)
-    \end{gather*}
-    with $u(c_s) = -(c_s-\bar{c}^2)/2$, and $\bar{c}$ large enough never to be reached. Suppose a worker's labor income process satisfies
-    \begin{gather*}
-      y_t = y_{t-1}+\epsilon_t
-    \end{gather*}
-    with $\epsilon_t$ white noise. A retired worker receives zero labor income. In other words
-    \begin{gather*}
-      y_t = \begin{cases}
-        y_{t-1}+\epsilon_t, & \text{if $t\geq40$} \\
-        0, & \text{if $t>40$}
-      \end{cases}
-    \end{gather*}
-    For simplicity, assume $r=0$ and $\beta=1$.
-    \subsubsection*{1.}
-      Write down the consumer sequence problem. Write down the Euler equation. Obtain the intertemporal budget constraint and solve for the consumption function for a consumer of arbitrary age $t$. Distinguish between retired and working consumers. (Hint: start from retirement age and move back. Recall the terminal wealth cannot be negative).
-    \subsubsection*{2.}
-      Derive the saving function for a consumer of arbitrary age $t$. Distinguish between retired and working consumers.
-    \subsubsection*{3.}
-      Derive the relationship between the change in consumption $\delta c_{t+1} = c_{t+1}-c_t$ and the innovation in labor income $\epsilon_{t+1}$. This has the form $\delta c_{t+1} = \alpha_{t+1}\epsilon_{t+1}$. Here, $\alpha_{t+1}$ is the response of consumption to an innovation in income for a consumer of age $t$. How is $\alpha_t$ related to age $t$? What is its value at $t=1$ and $t=39$? Explain.
-    \subsubsection*{4.}
-      What is the relationship between $\delta c_t$ and $\epsilon_t$ for the permanent income consumption model with infinite lifetime and labor income following a random walk? How does this compare to the average $\alpha_t$ calculated above? Try explaining the difference between the two results.
-    \subsubsection*{5.}
-      Assume now that the consumer only lives for 40 periods, i.e., there is no retirement period. Derive the consumption function. What is the relationship between $\delta c_t$ and $\epsilon_t$? Compare with the answer from 4. Discuss.
-  \subsection*{Solutions}
-    \subsubsection*{1.}
-    \subsubsection*{2.}
-    \subsubsection*{3.}
-    \subsubsection*{4.}
-    \subsubsection*{5.}
+\section*{Problem 1}
+
+Consider the following version of the Modigliani-Brumberg life-cycle model. A consumer lives for $T$ periods. During the first $N$ periods, he receives deterministic age-dependent labor income $y_t$ every period. During the last $T-N$ periods (from age $N+1$ to $T$), he does not receive any income. A consumer faces survival uncertainty: he survives from period $t$ to $t+1$ with probability $\theta$. Every period, a consumer can purchase an asset $a$. A unit of this asset costs $q$ this period and pays out a unit of consumption good next period. Thus, if a consumer invests $q a_{t+1}$ in period $t$, he gets $a_{t+1}$ in period $t+1$. Consumer enters the model without holding any assets. A consumer discounts the future at the rate $\beta$ and has the following preferences over consumption: $u(c_t) = \ln(c_t)$. Assume that $\beta = 1$.
+
+\begin{enumerate}
+    \item Derive the consumer’s lifetime budget constraint.
+    \item Set up consumer’s optimization problem and derive the Euler equation.
+    \item Assume that the asset price is as follows: $q = \frac{1}{1 + r}$. Modify your answers to parts 1 and 2 using this information.
+    \item Assume instead that the asset price is as follows: $q = \frac{\theta}{1 + r}$. Modify your answers to parts 1 and 2 using this information.
+    \item Assume $r = 0$ and $y_t = y$ for all $t$. Solve for optimal consumption $c_t$ for cases described in parts 3 and 4 of the problem. What is the difference between the solutions in the two cases? Provide intuition.
+\end{enumerate}
+
+\section*{Problem 2}
+
+Suppose consumers maximize a quadratic utility function and can freely borrow and lend at a rate $r$. Denote assets at age $t$ as $a_t$. Contrary to the permanent income model, we assume consumers have finite lifetime. They start working as soon as they are born at age 1, work until age 40, retire at age 41, and die at the end of their 60th year. Both working life and retirement are deterministic. So a worker of age $t$ maximizes
+
+\[
+\sum_{s=t}^{60} \beta^{s-t} u(c_s)
+\]
+
+with $u(c_s) = -\frac{(c_s - \bar{c})^2}{2}$, and $\bar{c}$ large enough never to be reached. Suppose a worker’s labor income process satisfies
+
+\[
+    y_t = \begin{cases} 
+    y_{t-1} + \varepsilon_t & \text{if } t \leq 40 \\
+    0 & \text{if } t > 40 
+    \end{cases}
+\]
+
+For simplicity, assume $r = 0$ and $\beta = 1$.
+
+\begin{enumerate}
+    \item[(a)] Write down the consumer sequence problem. Write down the Euler equation. Obtain the intertemporal budget constraint and solve for the consumption function for a consumer of arbitrary age $t$. Distinguish between retired and working consumers. (Hint: start from retirement years and move back. Recall, the terminal wealth cannot be negative).
+    \item[(b)] Derive the saving function for a consumer of arbitrary age $t$. Distinguish between retired and working consumers.
+    \item[(c)] Derive the relationship between the change in consumption $\Delta c_{t+1} = c_{t+1} - c_t$ and the innovation in labor income $\varepsilon_{t+1}$. This has the form $\Delta c_{t+1} = \alpha_{t+1} \varepsilon_{t+1}$. Here $\alpha_{t+1}$ is the response of consumption to an innovation in income for a consumer of age $t$. How is $\alpha_t$ related to age $t$? What is its value at $t = 1$ and $t = 39$? Explain.
+    \item[(d)] What is the relationship between $\Delta c_t$ and $\varepsilon_t$ for the permanent income consumption model with infinite lifetime and labor income following a random walk? How does this compare to the average $\alpha_t$ you calculated above? Try explaining the difference between the two results.
+    \item[(e)] Assume now that consumer lives only for 40 periods, i.e., there is no retirement period. Derive the consumption function. What is the relationship between $\Delta c_t$ and $\varepsilon_t$. Compare with (D) and (E). Discuss.
+\end{enumerate}
+
+\section*{Solution 1}
+    \subsection*{(a)}
+        The budget constraint is derived as follows:
+        \begin{gather*}
+            \sumt \frac{c_t}{(1+r)^t} = \sumn \frac{y_t}{(1+r)^t} \\
+        \end{gather*}
+    \subsection*{(b)}
+        The optimization problem is:
+        \begin{gather*}
+            \max_{\{c_t,a_{t+1}\}_{t=0}^{T}}\sumt\ln(c_t) \\
+            \text{s.t.} \ c_t + a_{t+1} = y_t + qa_{t+1} \\
+            \text{Ponzi}
+        \end{gather*}
+        The Euler equation is derived through the following process:
+        \begin{gather*}
+            \mathcal{L} = \ln(c_t) + \lambda(y_t + qa_t - c_t - a_{t+1}) \\
+            \mathcal{L}_{c_t}: \frac{1}{c_t} = \lambda \\
+            \mathcal{L}_{c_{t+1}}: \frac{1}{c_{t+1}} = \lambda \\
+            \mathcal{L}_{a_{t+1}}: q = \lambda \\
+            \frac{1}{c_t} = \frac{q}{c_{t+1}}
+        \end{gather*}       
+    \subsection*{(c)}
+        Substituting $q = \frac{1}{(1+r)}$:
+        \begin{gather*}
+            \text{Optimization Problem:} \\
+            \max_{\{c_t,a_{t+1}\}_{t=0}^{T}}\sumt\ln(c_t) \\
+            \text{s.t.} \ c_t + qa_{t+1} = y_t + \frac{a_{t+1}}{(1+r)} \\
+            \text{Euler:} \\
+            \frac{1}{c_t} = \frac{1}{(1+r)c_{t+1}}
+        \end{gather*}
+    \subsection*{(d)}
+        Substituting $q = \frac{\theta}{(1+r)}$:
+        \begin{gather*}
+            \text{Optimization Problem:} \\
+            \max_{\{c_t,a_{t+1}\}_{t=0}^{T}}\sumt\ln(c_t) \\
+            \text{s.t.} \ c_t + \frac{a_{t+1}}{1+r} = y_t + (1+r)a_{t+1} \\
+            \text{Euler:} \\
+            \frac{1}{c_t} = \frac{1}{(1+r)c_{t+1}}
+        \end{gather*}
+    \subsection*{(e)}
+        Solving for optimal $c_t$ for variations in $q$ and interpreting differences.
+        \begin{gather*}
+            q = \frac{1}{1+r}; \ r=0; \ y_t = y \\
+            \ln(c_t) = \ln(c_{t+1}) \rightarrow \frac{1}{c_t} = \frac{1}{c_{t+1}} \rightarrow c_t = c_{t+1} \\
+            c_t = y + a_{t+1} - a_{t+1} = c_{t+1} \rightarrow c^* = y
+        \end{gather*}
+        In this case, the agent will choose to consumer his income each period. Here, they are living off of human wealth.
+        \begin{gather*}
+            q = \frac{\theta}{1+r}; \ r=0; \ y_t = y \\
+            c_t = (1-\theta)(a_{t+1} - a_{t+2}) = c_{t+1} \rightarrow c^* = (1-\theta)(a_{t+1} - a_{t+2}) \\
+        \end{gather*}
+        In this case, the agent will live off of investment assets, contributing a portion of consumption to future investment.
+        Here, they are living off of financial wealth.
 \end{document}
+
