@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1737923030.08177 "/Users/tate/SchoolWork/Sem2/Micro/PSets/PS1/PS1.tex" "PS1.pdf" "PS1" 1737923030.61557 0
-  "/Users/tate/SchoolWork/Sem2/Micro/PSets/PS1/PS1.tex" 1737920838.09372 13110 6f18249dcad0f1a75a15bd551843a0cc ""
+["pdflatex"] 1738107736.5818 "/Users/tate/SchoolWork/Sem2/Micro/PSets/PS1/PS1.tex" "PS1.pdf" "PS1" 1738107736.99031 0
+  "/Users/tate/SchoolWork/Sem2/Micro/PSets/PS1/PS1.tex" 1738107735.89083 4379 911b01eb7b85ee76ff60f27d79a92609 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -27,7 +27,6 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
-  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty" 1644112042 7237 bdd120a32c8fdb4b433cf9ca2e7cd98a ""
@@ -72,8 +71,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1736783638.84382 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1736783482 8221421 b33f776dce1cf3f864c825fe3de377b4 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "PS1.aux" 1737923030.51775 32 77e0dffd05b653a64f0caf3eb9bb454a "pdflatex"
-  "PS1.tex" 1737920838.09372 13110 6f18249dcad0f1a75a15bd551843a0cc ""
+  "PS1.aux" 1738107736.94479 32 044b7f8fc9779af7531264e0c5c84b6d "pdflatex"
+  "PS1.tex" 1738107735.89083 4379 911b01eb7b85ee76ff60f27d79a92609 ""
   (generated)
   "PS1.aux"
   "PS1.log"
