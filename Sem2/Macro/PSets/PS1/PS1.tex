@@ -3,8 +3,9 @@
 \usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
 \usepackage{fancyhdr,color,comment,graphicx,environ,float,mathtools,mathrsfs}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
-\newcommand{\sumt}{\sum\limits_{t=0}^{T}}
-\newcommand{\sumn}{\sum\limits_{t=0}^{N}}
+\newcommand{\sumt}{\sum\limits_{t=1}^{T}}
+\newcommand{\sumn}{\sum\limits_{t=1}^{N}}
+\newcommand{\sumtb}{\sum\limits_{t=s}^{60}}
 % Custom headers
 \pagestyle{fancy}
 \lhead{ECON - 8020}
@@ -64,40 +65,40 @@ For simplicity, assume $r = 0$ and $\beta = 1$.
     \subsection*{(a)}
         The budget constraint is derived as follows:
         \begin{gather*}
-            \sumt \frac{c_t}{(1+r)^t} = \sumn \frac{y_t}{(1+r)^t} \\
+            \sumt  c_t = \sumn  y_t\\
         \end{gather*}
     \subsection*{(b)}
         The optimization problem is:
         \begin{gather*}
-            \max_{\{c_t,a_{t+1}\}_{t=0}^{T}}\sumt\ln(c_t) \\
-            \text{s.t.} \ c_t + a_{t+1} = y_t + qa_{t+1} \\
-            \text{Ponzi}
+            \max_{\{c_t,a_{t+1}\}_{t=0}^{T}}\sumt\theta^t\ln(c_t) \\
+            \text{s.t.} \ c_t + qa_{t+1} = y_t + a_{t+1} \\
+            \text{No Ponzi}
         \end{gather*}
         The Euler equation is derived through the following process:
         \begin{gather*}
-            \mathcal{L} = \ln(c_t) + \lambda(y_t + qa_t - c_t - a_{t+1}) \\
-            \mathcal{L}_{c_t}: \frac{1}{c_t} = \lambda \\
-            \mathcal{L}_{c_{t+1}}: \frac{1}{c_{t+1}} = \lambda \\
+            \mathcal{L} = \theta^t\ln(c_t) + \lambda(y_t + a_{t+1} - c_t - qa_{t+1}) \\
+            \mathcal{L}_{c_t}: \frac{\theta^t}{c_t} = \lambda \\
+            \mathcal{L}_{c_{t+1}}: \frac{\theta^{t+1}}{c_{t+1}} = \lambda \\
             \mathcal{L}_{a_{t+1}}: q = \lambda \\
-            \frac{1}{c_t} = \frac{q}{c_{t+1}}
+            \frac{q}{c_t} = \frac{\theta}{c_{t+1}}
         \end{gather*}       
     \subsection*{(c)}
         Substituting $q = \frac{1}{(1+r)}$:
         \begin{gather*}
             \text{Optimization Problem:} \\
-            \max_{\{c_t,a_{t+1}\}_{t=0}^{T}}\sumt\ln(c_t) \\
-            \text{s.t.} \ c_t + qa_{t+1} = y_t + \frac{a_{t+1}}{(1+r)} \\
+            \max_{\{c_t,a_{t+1}\}_{t=0}^{T}}\sumt\theta^t\ln(c_t) \\
+            \text{s.t.} \ c_t + \frac{a_{t+1}}{(1+r)} = y_t + a_{t+1}\\
             \text{Euler:} \\
-            \frac{1}{c_t} = \frac{1}{(1+r)c_{t+1}}
+            \frac{1}{c_t} = \frac{(1+r)\theta}{c_{t+1}}
         \end{gather*}
     \subsection*{(d)}
         Substituting $q = \frac{\theta}{(1+r)}$:
         \begin{gather*}
             \text{Optimization Problem:} \\
-            \max_{\{c_t,a_{t+1}\}_{t=0}^{T}}\sumt\ln(c_t) \\
-            \text{s.t.} \ c_t + \frac{a_{t+1}}{1+r} = y_t + (1+r)a_{t+1} \\
+            \max_{\{c_t,a_{t+1}\}_{t=0}^{T}}\sumt\theta^t\ln(c_t) \\
+            \text{s.t.} \ c_t + \frac{\theta a_{t+1}}{1+r} = y_t + a_{t+1} \\
             \text{Euler:} \\
-            \frac{1}{c_t} = \frac{1}{(1+r)c_{t+1}}
+            \frac{1+r}{\theta c_t} = \frac{\theta}{c_{t+1}}
         \end{gather*}
     \subsection*{(e)}
         Solving for optimal $c_t$ for variations in $q$ and interpreting differences.
@@ -113,5 +114,37 @@ For simplicity, assume $r = 0$ and $\beta = 1$.
         \end{gather*}
         In this case, the agent will live off of investment assets, contributing a portion of consumption to future investment.
         Here, they are living off of financial wealth.
+\section*{Solution 2:}
+    \subsection*{(a)}
+        \begin{gather*}
+            \mathbb{E}_t[\sumtb\beta^{(s-t)} -\frac{(c_s-\bar{c})^2}{2}] \\
+            \text{s.t.} \ c_t + a_{t+1} = y_t + a_t \\
+            y_t = \begin{cases} 
+            y_{t-1} + \varepsilon_t & \text{if } t \leq 40 \\
+            0 & \text{if } t > 40 
+            \end{cases}
+        \end{gather*}
+        In the case of quadratic utility which is given assumptions $r=0; \ \beta=1$, we know that the
+        Euler equation is as follows:
+        \begin{gather*}
+            c_t = \mathbb{E}_tc_{t+1} \\
+        \end{gather*}
+        Then, we can derive the consumption functions by guess-and-verify. For instance, the worker
+        function is found as follows:
+        \begin{gather*}
+            c_t = Ay_{t-1} + B\epsilon_t + Da_t \\
+            c_{t+1} = Ay_{t-1} + A\epsilon_t + B\epsilon_{t+1} + Da_{t+1} \\
+            Ay_{t-1} + B\epsilon_t + Da_t = Ay_{t-1} + A\epsilon_t + B\epsilon_{t+1} + Da_{t+1} \\
+            B\epsilon_t + Da_t = A\epsilon_t + B\epsilon_{t+1} + Da_{t+1} \\
+            \text{in expectation, $\epsilon_{t+1} = 0$} \\
+            a_{t+1} = \epsilon_t(1-\frac{(B-A)}{D}) + a_t \\
+            c_t = y_{t-1} + \epsilon_t + a_t - \epsilon_t\frac{(B-A)}{D} - a_t \\
+            c_t = y_{t-1} + \epsilon_t(1-\frac{(B-A)}{D}) \\
+            \therefore \ A = 1; \ B = (1-\frac{(B-A)}{D});  \\
+            BD = D - B + A \\
+            B(D + 1) = D + 1 \\
+            B = \frac{D+1}{D+1} \\
+            \therefore D = 0; \ B = 1
+        \end{gather*}
 \end{document}
 
