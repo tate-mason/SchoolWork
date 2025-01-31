@@ -2,7 +2,7 @@ PWD /Users/tate/SchoolWork/Sem2/Macro/PSets/PS1
 INPUT /usr/local/texlive/2024/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/tate/SchoolWork/Sem2/Macro/PSets/PS1/PS1.tex
+INPUT PS1.tex
 OUTPUT PS1.log
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
