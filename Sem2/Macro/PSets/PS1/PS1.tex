@@ -138,7 +138,7 @@ For simplicity, assume $r = 0$ and $\beta = 1$.
         c_{39} = y_{39} + a_{39} - a_{40} = \frac{1}{21}(y_{39} + \varepsilon_{40} + a_{40}) \\
         a_{40} = \frac{20}{22}y_{39} + \frac{21}{22}a_{39} \\
         c_{39} = y_{39} + a_{39} - \frac{20}{22}y_{39} - a_{21}{22}a_{39} \Rightarrow \frac{2}{22}y_{39} + \frac{1}{22}a_{39} \\
-        \text{and the pattern continues s.t.} \ c_t = \frac{40-t+1}{T-t+1}y_t + \frac{1}{T-t+1} \\
+        \text{and the pattern continues s.t.} \ c_t = \frac{40-t+1}{T-t+1}y_t + \frac{1}{T-t+1}a_t \\
       \end{gather*}
       For the retiree. the function is as follows:
       \begin{gather*}
@@ -149,9 +149,18 @@ For simplicity, assume $r = 0$ and $\beta = 1$.
         c_{59} = \frac{a_{59}}{2} = a_{58} - a_{59} = c_{58} \\
         a_{58} = \frac{3a_{59}}{2} \Rightarrow a_{59} = \frac{2}{3}a_{58} \\
         c_{58} = \frac{a_{58}}{3} \\
-        \text{and the pattern follows s.t.} \ c_{t} = \frac{1}{T-t+1}
+        \text{and the pattern follows s.t.} \ c_{t} = \frac{1}{T-t+1}a_t
       \end{gather*}
     \subsection*{(b)}
+      The budget constraint is an indication of the savings function. Moving terms we get:
+      \begin{gather*}
+        a_{t+1} = y_t + a_t - c_t \\
+      \end{gather*}
+      Based on the results from part (a),
+      \begin{gather*}
+        a_{t+1} = \frac{20}{T-t+1}y_t + \frac{T-t}{T-t+1}a_t \ \text{for workers} \\
+        a_{t+1} = \frac{T-t}{T-t+1}a_{t} \ \text{for retirees}
+      \end{gather*}
     \subsection*{(c)}
       \begin{gather*}
         \Delta c_{t+1} = \frac{40-t+1}{T-t+1}(y_t+\varepsion_t) + \frac{1}{T-t+1}a_{t} \\
