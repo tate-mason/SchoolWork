@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1738540673.88312 "PS1.tex" "PS1.pdf" "PS1" 1738540674.40989 2
+["pdflatex"] 1738598694.17521 "PS1.tex" "PS1.pdf" "PS1" 1738598694.71293 2
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -80,8 +80,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1736783638.84382 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1736783482 8221421 b33f776dce1cf3f864c825fe3de377b4 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "PS1.aux" 1738540674.3648 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
-  "PS1.tex" 1738540673.12243 10640 8cdf0f3810fc6a0d71848f24503db019 ""
+  "PS1.aux" 1738598694.64993 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
+  "PS1.tex" 1738598668.95241 10642 1702cd7e3424f6631655c56f10094264 ""
   (generated)
   "PS1.aux"
   "PS1.log"
