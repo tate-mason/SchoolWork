@@ -83,30 +83,83 @@ Suppose there are $N$ bidders competing for a single object in an all-pay auctio
     \begin{gather*}
         u_T = x^{\alpha}y^{1-\alpha} \\
         \text{s.t.}
-        p_xx + y = p_x\omega_{A,T} + \omega_{B,T}
+        p_xx + y = E_t \\
+        E_t = p_x\omega_{A,T} + \omega_{B,T}
     \end{gather*}
     and Cristina solves:
     \begin{gather*}
         u_C = x^{\beta}y^{1-\beta} \\
-        \text{s.t.}
-        p_xx + y = p_x\omega_{A,C} + \omega_{B,C}
+        \shortintertext{s.t.}
+        p_xx + y = E_c \\
+        p_x\omega_{A,C} + \omega_{B,C}
+    \end{gather*}
+    Tom's Lagrangian and FOC's will be as follows:
+    \begin{gather*}
+      \mathcal{L}_t = x^{\alpha}y^{1-\alpha} + \lambda(E_t-p_xx - y) \\
+      \mathcal{L}_x = \alpha\frac{x^{\alpha-1}y^{1-\alpha}}{p_x} = \lambda \\
+      \mathcal{L}_y = (1-\alpha)x^{\alpha}y^{-\alpha} = \lambda \\
+      \therefore \ \frac{\alpha x^{\alpha-1}y^{1-\alpha}}{p_x} = (1-\alpha)x^{\alpha}y^{1-\alpha} \\
+      \frac{\alpha x^{\alpha-1}y}{p_x} = (1-\alpha)x^{\alpha} \\
+      \frac{\alpha y}{p_x} = (1-\alpha)x \\
+      y = \frac{(1-\alpha)}{\alpha}p_xx \\
+      \shortintertext{Substituting into BC:} \\
+      p_xx + \frac{(1-\alpha)}{\alpha}p_xx = E \rightarrow \boxed{x^*_T = \alpha\frac{E_t}{p_x}} \\
+      \shortintertext{Plugging into BC:} \\
+      y_T^* = E_t - p_xx \rightarrow \boxed{E_t(1-\alpha) = y_T^*}
+    \end{gather*}
+    Christina's Lagrangian and FOC's will follow the same path, thus I will skip redundant math and give the answers,
+    \begin{gather*}
+      \mathcal{L}_c = x^{\beta}y^{1-\beta} + \lambda(E_c - p_xx - y) \\
+      \shortintertext{Following same steps as above yields...} \\
+      \boxed{x^*_c = \beta\frac{E_c}{p_x}, \ y^*_c = E_c(1-\beta)} \\
+    \end{gather*}
+    Finally, equilibrium prices can be solved via the following steps:
+    \begin{gather*}
+      x^*_t + x^*_c = \omega_{A,T} + \omega_{A,C} \\
+      \frac{E_i}{p_x}(\alpha+\beta) = \omega_{A,T} + \omega_{A,C} \\
+      E_i = \omega_{A,i} + \omega_{B,i} \\
+      p_x(\omega_{A,T} + \omega_{A,C}) = \alpha(p_x\omega_{A,T} + \omega_{B,T}) + \beta(p_x\omega_{A,C} + \omega_{B,C}) \\
+      p_x(\alpha\omega_{A,T} + \beta\omega_{A,C}) + (\alpha\omega_{B,T} + \beta\omega_{B,C}) = p_x(\omega_{A,T}+\omega_{A,C}) \\
+      (\alpha\omega_{B,T} + \beta\omega_{B,C}) = p_x[\omega_{A,T}(1-\alpha) + \omega_{A,C}(1-\beta)] \\
+      \boxed{p_x^* = \frac{\alpha\omega_{B,T} + \beta\omega_{B,C}}{(1-\alpha)\omega_{A,T} + (1-\beta)\omega_{A,C}}} \\
     \end{gather*}
   \subsection*{(b)}
+    Given the preferences are Cobb-Douglas, Tom will spend share $\alpha$ on apples and Christina will spend share $\beta$ on apples.
 \section*{Solution 2:}
   \begin{proof}
+    There are two consumers, Bob and Alice, and two goods $(x,y)$. Bob's utility is $u_B = x+y$ and Alice's is $u_A = \min\{x,y\}$. They also have endowments $E_B = (1,0)$ and $E_A = (2,1)$, respectively. Assume price of good $x$ is $p_x$ and price of good $y$ is normalized to $p_y=1$. Then, given prices $\{p_x,1\}$ and allocations $\{x,y\}$, both consumers will maximize utility and clear the market. With these conditions laid out, Bob's optimization problem is 
+    \begin{gather*}
+      u_B = x+y \\
+      \shortintertext{s.t.} \\
+      p_xx + y = p_x \\
+    \end{gather*} Bob's utility function shows perfect substitutes and thus he is indifferent to the good and will base decisions on price. Therefore, if $p_x<1$, he will spend his total wealth on good $x$; if $p_x>1$, he will spend all of his wealth on good $y$; if $p_x = 1$, Bob is fully indifferent. Alice's optimization problem is as follows:
+    \begin{gather*}
+      u_A = \min\{x,y\} \\
+      \shortintertext{s.t.} \\
+      p_xx + y = 2p_x + 1 \\
+      \shortintertext{but because she displays Leontief preferences, $x^* = y^*$, implying:} \\
+      p_xx^* + x^* = 2p_x+1 \\
+      \shortintertext{We can rearrange Alice's constraint such that:} \\
+      x^*(p_x+1) = 2p_x+1 \rightarrow x^* = \frac{2p_x + 1}{p_x + 1} \\
+    \end{gather*} 
+    For market clearing, we know that it must be such that $x_A^* + x_B^* = 3$ and $y_A^* + y_B^* = 1$. Now, let us consider Bob's three price cases from above. First, when $p_x<1$, $x^*_B = 1$ and thus $\frac{2p_x + 1}{p_x+1} = 2$. This yields the following $2p_x + 1 = 2p_x + 2$. Subtracting the term $2p_x$ from both sides yields $1=2$, a contradiction. Thus, the case when $p<1$ is not an equilibrium. Now, the second case is when $p_x>1$. In this case, Bob spends nothing on $x$, meaning $y^*_B = p_x$ from Bob's budget constraint. Thus, market clears with $p_x + \frac{2p_x + 1}{p_x + 1} = 1$. Doing some algebra will yield $p_x^2 + 2p_x + p_x + 1 = p_x + 1$. After more rearranging, we get that $p_x^* = -2$, another contradiction. Finally, in the third case, $p_x = 1$, Bob does not care at all. So, $\frac{2+1}{1+1} = 1$. $\frac{3}{2}\ne1$, a contradiction. Therefore, there is no Walrasian equilibrium in this case. 
   \end{proof}
 \section*{Solution 3:}
   \subsection*{(a)}
     \begin{proof}
+      Assume there is a Walrasian equilibrium given by prices $\{p_x,p_y\}$ and allocations $\{x,y\}$. Assume the optimal bundle in this equilibrium is $(x^*,y^*)$ which clears the market such that $p_xx^* + p_yy^* = pE$. However, there is a bundle $(\bar{x},\bar{y})$ such that $u(\bar{x})>u(x^*)$ and $u(\bar{y}) > u(y^*)$. This can be further interpreted as $p_x\bar{x} > p_xx^*$ and $p_y\bar{y} > p_yy^*$. However, if this is the case, $p_x\bar{x}+p_y\bar{y}>pE$. This is infeasible, and a contradiction. Thus, the equilibrium is maximizing feasible bundles for agent utility. 
     \end{proof}
   \subsection*{(b)}
+    
   \subsection*{(c)}
 \section*{Solution 4:}
   \subsection*{(a)}
   \subsection*{(b)}
   \subsection*{(c)}
+    Yes. In second price auctions which are increasing and symmetric, bidding truthfully is a weakly dominant strategy no matter the reserve price.
   \subsection*{(d)}
   \subsection*{(e)}
+    This is incorrect because revenue equivalence states that symmetric auctions have the same basic revenue, the second highest bid.
 \section*{Solution 5:}
   \subsection*{(a)}
   \subsection*{(b)}
