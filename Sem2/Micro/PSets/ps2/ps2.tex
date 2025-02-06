@@ -150,16 +150,20 @@ Suppose there are $N$ bidders competing for a single object in an all-pay auctio
       Assume there is a Walrasian equilibrium given by prices $\{p_x,p_y\}$ and allocations $\{x,y\}$. Assume the optimal bundle in this equilibrium is $(x^*,y^*)$ which clears the market such that $p_xx^* + p_yy^* = pE$. However, there is a bundle $(\bar{x},\bar{y})$ such that $u(\bar{x})>u(x^*)$ and $u(\bar{y}) > u(y^*)$. This can be further interpreted as $p_x\bar{x} > p_xx^*$ and $p_y\bar{y} > p_yy^*$. However, if this is the case, $p_x\bar{x}+p_y\bar{y}>pE$. This is infeasible, and a contradiction. Thus, the equilibrium is maximizing feasible bundles for agent utility. 
     \end{proof}
   \subsection*{(b)}
-    
+    \begin{proof}
+      Given $x^*$ is a Pareto-efficient allocation, let's now assume there exists a $u_i(x')\geq u_i(x^*))$ for all agents $i$ and $u_j(x')>u_j(x^*)$ for at least one agent $j$. Then, it follows that $\sum\limits_{i=1}^N\mu_iu_i(x')\geq\sum\limits_{i=1}^N\mu_iu_i(x^*)$. But, by the same token, it must also be that $\sum\limits_{i=1}^N\mu_iu_i(x')>\sum\limits_{i=1}^N\mu_iu_i(x^*)$. However, if this is the case, then in equilibrium, $\sum\limits_{i=1}^Nx'_i>\sum\limits_{i=1}^Ne_i^j$. This is a contradiction, and an infeasible allocation. Thus, $x^*$ is the Pareto-efficient allocation. 
+    \end{proof}
   \subsection*{(c)}
-\section*{Solution 4:}
+    In part b, we assume that there is an $x'$  which is at least as good as $x^*$ for at least all but 1 agent for whom $x'$ is strictly better than $x^*$. If this is the case, the summation $\sum\limits_{i=1}^N\mu_iu(x')>\sum\limits_{i=1}^N\mu_iu(x^*)$. For this to be the case, it is further true that $x'>e$. This is a contradiction since in equilibrium endowments and allocations will equalize. Thus, this allocation is not Pareto-efficient because it is not feasible.
+  \section*{Solution 4:}
   \subsection*{(a)}
+    The expected revenue when bidders bid truthfully is the second highest value.
   \subsection*{(b)}
   \subsection*{(c)}
     Yes. In second price auctions which are increasing and symmetric, bidding truthfully is a weakly dominant strategy no matter the reserve price.
   \subsection*{(d)}
   \subsection*{(e)}
-    This is incorrect because revenue equivalence states that symmetric auctions have the same basic revenue, the second highest bid.
+    This is incorrect because revenue equivalence states that symmetric auctions have the same basic revenue, the second highest bid. Expected revenue, on the other hand, will differ based on bids submitted.
 \section*{Solution 5:}
   \subsection*{(a)}
   \subsection*{(b)}

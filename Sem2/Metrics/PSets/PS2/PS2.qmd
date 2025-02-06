@@ -1,0 +1,68 @@
+---
+title: Problem Set 2
+author: Tate Mason
+date: Feb 12, 2024
+format: 
+  pdf:
+    toc: true
+    toc-title: Problems
+    mainfont: SF Pro
+    monofont: Hack Nerd Font Mono
+---
+
+# Problem 1
+```{tex}
+$1+1$
+```
+  
+## Hansen 2.2
+
+# Problem 2
+
+## Hansen 2.5
+
+# Problem 3
+
+## Hansen 2.6
+
+# Problem 4
+
+## Hansen 2.10
+
+# Problem 5
+
+## Hansen 2.11
+
+# Problem 6
+
+## Hansen 2.12
+
+# Problem 7
+
+## Hansen 2.13
+
+# Problem 8
+
+## Hansen 2.14
+
+# Problem 9
+
+## Hansen 2.21
+
+# Problem 10
+
+## Part A
+
+## Part B
+
+## Part C
+
+## Part D
+
+# Problem 11
+
+## Part A
+
+## Part B
+
+## Part C

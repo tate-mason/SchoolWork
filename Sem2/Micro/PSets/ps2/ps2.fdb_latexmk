@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1738788532.70658 "ps2.tex" "ps2.pdf" "ps2" 1738788533.29219 0
+["pdflatex"] 1738798376.29915 "ps2.tex" "ps2.pdf" "ps2" 1738798376.85894 0
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -82,11 +82,11 @@
   "/usr/local/texlive/2024/texmf-dist/tex/latex/tools/calc.sty" 1698869629 10214 547fd4d29642cb7c80bf54b49d447f01 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/trimspaces/trimspaces.sty" 1253232110 1380 971a51b00a14503ddf754cab24c3f209 ""
   "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1708706663 41649 5d6ae549fbbcb850a863f69aa41f3d10 ""
-  "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1736783638.84382 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
-  "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1736783482 8221421 b33f776dce1cf3f864c825fe3de377b4 ""
+  "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1738426985.15373 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
+  "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1738426939 8221440 fb25f5edfa436deed116c27e39394405 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "ps2.aux" 1738788533.22263 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
-  "ps2.tex" 1738788531.41526 10342 6f83e369c2ab549165c52abacfc8a094 ""
+  "ps2.aux" 1738798376.7842 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
+  "ps2.tex" 1738798375.58057 11512 55909eb03494b025a3cf1b804d9e8ecd ""
   (generated)
   "ps2.aux"
   "ps2.log"
