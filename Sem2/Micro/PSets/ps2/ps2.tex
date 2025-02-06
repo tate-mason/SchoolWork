@@ -184,12 +184,53 @@ Suppose there are $N$ bidders competing for a single object in an all-pay auctio
   \subsection*{(c)}
     Yes. In second price auctions which are increasing and symmetric, bidding truthfully is a weakly dominant strategy no matter the reserve price.
   \subsection*{(d)}
-    With no reserve price, the expected revenue, as calculated above, is $\frac{N-1}{N+1} \rightarrow  \frac{1}{2}$. The optimal reserve price would be $\frac{N}{N+1}(\frac{1}{N+1})^{\frac{1}{N}}$ which yields $0.4725$. This is less than the expected revenue by $0.0275$. This can be further checked by the fact that $(N+1)^{\frac{1}{N}} \geq \frac{N}{N-1} \rightarrow 4^{\frac{1}{3}}>\frac{3}{2}$. Thus, it is better to set no reserve price. 
+    The optimal reserve price is determined by finding the price which maximizes $\mathbb{E}[Revenue]$ for the auction. Given $N=3$, and the uniform distribution, we can say that 
+    \begin{gather*}
+      \mathbb{E}(\pi)=\mathbb{P}[b_1, b_2, b_3 < r]\times\mathbb{E}[\pi|b_1,b_2,b_3<r] + \mathbb{P}[One \ b_i > r]\mathbb{E}[\pi|One \ b_i > r] + \\ \mathbb{P}[Two \ b_i > r]\mathbb{E}[\pi|Two \ b_i > r] + \mathbb{P}[Three \ b_i > r]\mathbb{E}[\pi|Three \ b_i > r] \\
+      \mathbb{E}[\pi] = [r^3|0 + [3r^2(1-r)](r) + [3r(1-r)^2](r+(1-r)\frac{1}{3})+[(1-r)^3](r+(1-r)\frac{1}{2})
+      \mathbb{E}[\pi] = \frac{1}{2} + r^3 + - \frac{3}{4}r^4 \\
+      \shortintertext{Then, we take the derivative to find the optimal reserve price $r^*$} \\
+      \frac{\partial \mathbb{E}[\pi]}{\partial r} = 3r^2 - 6x^3 = 0 \\
+        3r^2(1-2r) = 0 \\
+        r = 0; \ r = \frac{1}{2} \\
+    \end{gather*}
+    This yields two possible values for $r^*$. In the case in whcih $r^*=0$, would be the same as not setting a reserve price, allowing for revenue to be determined by expected revenue. Similarly, when examining $r^* = \frac{1}{2}$, we see that $\mathbb{E}$ is equal to the expected revenue without a reserve price. This leads to the intuition that the expected revenue is unimpacted by the reserve price, stating that
+    \begin{gather*}
+      \mathbb{E}[\pi|r^*=0] = \mathbb{E}[\pi|r^*=\frac{1}{2}] = \frac{1}{2}
+    \end{gather*}
   \subsection*{(e)}
-    This is incorrect because revenue equivalence states that symmetric auctions have the same expected revenue, the second highest bid. Expected revenue, on the other hand, will differ based on bids submitted.
+    This is incorrect because the student does not take into consideration the effects of reserve prices on expected revenues. Further, they fail to understand that the revenue equivalence theorem only holds under certain criteria. These criteria are that bidders values are i.i.d from the same distribution, the bidders are risk neutral, and the auction is symmetric and efficient. Reserve prices can make expected revenue change, thus proving a contradiction to the claim that they are the same.
 \section*{Solution 5:}
   \subsection*{(a)}
-    
+    Consider an auction $A$ in which there are $N$ bidders, who each hold and i.i.d $v_i$, drawn from distribution $F\sim[0,1]$. The allocation rule for this auction is as such 
+    \begin{gather*}
+      x_i(b_i) = \begin{cases}
+        1 & \text{if $b_i > \max_k b_k$} \\
+        0 & \text{otherwise}
+      \end{cases}
+    \end{gather*}
+    The transfer/payment rule is as follows for an all pay auction:
+    \begin{gather*}
+      t_i(b_i) = b_i
+    \end{gather*}
+    The strategy for a bidder $i$ is 
+    \begin{gather*}
+      \beta_i(v_i) = \max\mathbb{E}_{v_{-i}}[v_ix_i(b_i) - t_i(b_i)|\beta_{-i}]
+    \end{gather*}
+    Then, we can represent the payoff function with variable $z_i$ which is the outward facing value of the bidder $i$.
+    \begin{gather*}
+      \Pi_i(z_i, v_i) = G(z_i)v_i - m(z_i) \\
+      \shortintertext{s.t.} \\
+      G(z_i) = Pr(\max v_{-i}<z_i) \\
+      m(z_i) = \mathbb{E}_{v_{-i}}(t_i|z_i)
+    \end{gather*}
+    The, we will differentiate with respect to $G$, thus getting us
+    \begin{gather*}
+      g(z_i)v_i - m'(z_i) = 0 \\
+      m'(z_i) = m(0) \int\limits_0^{v_i}g(x)xdx \\
+      m(z_i) = \int\limits_0^{v_i}g(x)xdx \\
+    \end{gather*}
+    This states that bidding up to your true value is optimal as everyone is going to follow this strategy. Because of this, no one will bid above their value. Therefore, bidders will choose to either bid nothing, or bid their true value.
   \subsection*{(b)}
     By revenue equivalence, the expected revenue of this all pay auction is the second highest bid or $\mathbb{E}[R] = \frac{N-1}{N+1}$
 \end{document}
