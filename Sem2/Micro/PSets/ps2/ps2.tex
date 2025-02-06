@@ -151,20 +151,45 @@ Suppose there are $N$ bidders competing for a single object in an all-pay auctio
     \end{proof}
   \subsection*{(b)}
     \begin{proof}
-      Given $x^*$ is a Pareto-efficient allocation, let's now assume there exists a $u_i(x')\geq u_i(x^*))$ for all agents $i$ and $u_j(x')>u_j(x^*)$ for at least one agent $j$. Then, it follows that $\sum\limits_{i=1}^N\mu_iu_i(x')\geq\sum\limits_{i=1}^N\mu_iu_i(x^*)$. But, by the same token, it must also be that $\sum\limits_{i=1}^N\mu_iu_i(x')>\sum\limits_{i=1}^N\mu_iu_i(x^*)$. However, if this is the case, then in equilibrium, $\sum\limits_{i=1}^Nx'_i>\sum\limits_{i=1}^Ne_i^j$. This is a contradiction, and an infeasible allocation. Thus, $x^*$ is the Pareto-efficient allocation. 
+      Assume $x^*$ is not a Pareto-efficient allocation, let's now assume there exists a $u_i(x')\geq u_i(x^*))$ for all agents $i$ and $u_j(x')>u_j(x^*)$ for at least one agent $j$. Then, it follows that $\sum\limits_{i=1}^N\mu_iu_i(x')\geq\sum\limits_{i=1}^N\mu_iu_i(x^*)$. But, by the same token, it must also be that $\sum\limits_{i=1}^N\mu_iu_i(x')>\sum\limits_{i=1}^N\mu_iu_i(x^*)$. However, if this is the case, then in equilibrium, $\sum\limits_{i=1}^Nx'_i>\sum\limits_{i=1}^Ne_i^j$. This is a contradiction, and an infeasible allocation. Thus, $x^*$ is the Pareto-efficient allocation. 
     \end{proof}
   \subsection*{(c)}
     In part b, we assume that there is an $x'$  which is at least as good as $x^*$ for at least all but 1 agent for whom $x'$ is strictly better than $x^*$. If this is the case, the summation $\sum\limits_{i=1}^N\mu_iu(x')>\sum\limits_{i=1}^N\mu_iu(x^*)$. For this to be the case, it is further true that $x'>e$. This is a contradiction since in equilibrium endowments and allocations will equalize. Thus, this allocation is not Pareto-efficient because it is not feasible.
   \section*{Solution 4:}
   \subsection*{(a)}
-    The expected revenue when bidders bid truthfully is the second highest value.
+    The expected revenue when bidders bid truthfully is the second highest value. This can be represented by deriving the following:
+    \begin{gather*}
+      f^{(k)}(v) = \frac{N!}{(k-1)!(N-k)!} v^{k-1}(1-v)^{N-k} \\
+      \mathbb{E}(v^{(k)}) = \int\limits_0^1 vf^{k}(v)dv \\
+      \mathbb{E}(V^{(k)}) = \frac{N!}{(k-1)!(N-k)!} \int\limits_0^1 vv^{k-1}(1-v)^{N-k}dv
+      \shortintertext{The integral can be represented as a Beta function such that:} \\
+      \textbf{B}(k+1,N-k+1) = \int\limits_0^1 vv^{k-1}(1-v)^{N-k}dv \\
+      \shortintertext{This can then be represented as a Gamma function such that:} \\
+      \textbf{B}(k+1, N-k+1) = \frac{\Gamma(k+1)\Gamma(N-k+1)}{\Gamma(N+2)} \\
+      \shortintertext{By the property $\Gamma(n) = (n-1)!$ we can simplify to} \\
+      \textbf{B}(k+1,N-k+1) = \frac{k!(N-k)!}{(N+2)!} \\
+      \shortintertext{Plugging this back into the Expected value equation, we get:} \\
+      \mathbb{E}[V^{(k)}] = \frac{N!}{(k-1)!(N-k)!} \frac{k!(N-k)!}{(N+1)!} \\
+      \shortintertext{After some simplification, we get that:}
+      \mathbb{E}[V^{(k)}] = \frac{k}{N+1} \\
+      \shortintertext{For the second highest order, $k=N-1$} \\
+      \boxed{\mathbb{E}[R] = \frac{N-1}{N+1}} \\
+    \end{gather*}
+    This is the expected revenue of the second highest bid.
   \subsection*{(b)}
+    \begin{proof}
+      Consider a second price auction $A$ with $N$ bidders. Each bidder has privately held, independent value $v_i$ which are drawn from a distribution $F$ on $[0,1]$. Consider some bidder $i$ with value $v_i$. Let's assume their strategy is to bid truthfully such that $b_i=v_i$. When employing this strategy, they will win \iff $b_i > \max\{b_j\}$. If they win, they receive a payoff $P = v_i - b^{(2)}$. Thus, they will win the difference between their value and the second highest bid. Let's consider an alternative strategy in which the bidder decides to shade their bid up. In this case $b_i>v_i$ and if they win, their payoff will be $P = v_i - b^{(2)} < 0$ or a negative payoff. This is avoided with a truthful bid. Now, let's consider the case in which the bidder would shade their bid down such that $v_i<b_i$. In this case, the bidder doesn't win if the bid $b^{(2)}\in[b_i, v_i]$. In this case, the bidder has a higher likelihood of winning by bidding truthfully. Because all bidders are held to the same conditions, it is weakly dominant to bid truthfully.
+    \end{proof}
+    For one case of an alternative equilibrium, let's evaluate the case in which all $b_i = c$ in which $c$ is an arbitrary constant greater than $0$. Let's consider the case in which a bidder $i$ would look to deviate, bidding $b_i>c$. While they may win, they still pay $c$, thus creating the same utility as just bidding $b_i=c$. Lowering the bid such that $b_i<c$ would lead to a payoff of $0$, guaranteeing a loss due to all other players bidding $b_i=c$. These findings lead to a conclusion that in this case there is no incentive to deviate, thus implying $b_i=c$ is an equilibrium. 
   \subsection*{(c)}
     Yes. In second price auctions which are increasing and symmetric, bidding truthfully is a weakly dominant strategy no matter the reserve price.
   \subsection*{(d)}
+    With no reserve price, the expected revenue, as calculated above, is $\frac{N-1}{N+1} \rightarrow  \frac{1}{2}$. The optimal reserve price would be $\frac{N}{N+1}(\frac{1}{N+1})^{\frac{1}{N}}$ which yields $0.4725$. This is less than the expected revenue by $0.0275$. This can be further checked by the fact that $(N+1)^{\frac{1}{N}} \geq \frac{N}{N-1} \rightarrow 4^{\frac{1}{3}}>\frac{3}{2}$. Thus, it is better to set no reserve price. 
   \subsection*{(e)}
-    This is incorrect because revenue equivalence states that symmetric auctions have the same basic revenue, the second highest bid. Expected revenue, on the other hand, will differ based on bids submitted.
+    This is incorrect because revenue equivalence states that symmetric auctions have the same expected revenue, the second highest bid. Expected revenue, on the other hand, will differ based on bids submitted.
 \section*{Solution 5:}
   \subsection*{(a)}
+    
   \subsection*{(b)}
+    By revenue equivalence, the expected revenue of this all pay auction is the second highest bid or $\mathbb{E}[R] = \frac{N-1}{N+1}$
 \end{document}
