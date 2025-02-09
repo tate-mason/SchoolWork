@@ -12,9 +12,31 @@ format:
   
 ## Hansen 2.2
 
+If $\mathbb{E}[Y|X] = a+bX$, we can do the following:
+$$
+\mathbb{E}[Y] = \mathbb{E}[\mathbb{E}[Y|X]|X] = \mathbb{E}[X(a+bX)] \rightarrow \mathbb{E}[YX] = a\mathbb{E}[X] + b\mathbb{E}[X]^2
+$$
+
 # Problem 2
 
 ## Hansen 2.5
+
+### Part A
+
+$$
+\mathbb{E}[(Y-h(X))^2] = \mathbb{E}[((Y-m(X)) + (m(X) - h(X)))^2] = \\ 
+$$
+$$
+\mathbb{E}[(e + (m(X) - h(X)))^2] = \mathbb{E}[e^2 + 2e(m(X) - h(X)) + (m(X) - h(X))^2] = \mathbb{E}[e^2]
+$$
+
+### Part B
+
+Predicting $e^2$ is to estimate the amount of variation in the model in expectation. That is, it estimates $\sigma^2$ which is present due to the potential omission of omni-present factors.
+
+### Part C
+
+
 
 # Problem 3
 
