@@ -15,87 +15,89 @@
 \maketitle
 
 \section*{Problem 1: Costs of Business Cycle}
-Let utility be given by:
-\begin{equation*}
-    E^{-1} \sum_{t=0}^{\infty} \beta^t U(c_t)
-\end{equation*}
-where the utility function is CRRA:
-\begin{equation*}
-    U(c_t) = \frac{c_t^{1-\gamma}}{1- \gamma}
-\end{equation*}
+  Let utility be given by:
+  \begin{equation*}
+      E^{-1} \sum_{t=0}^{\infty} \beta^t U(c_t)
+  \end{equation*}
+  where the utility function is CRRA:
+  \begin{equation*}
+      U(c_t) = \frac{c_t^{1-\gamma}}{1- \gamma}
+  \end{equation*}
 
-The consumption process is
-\begin{equation*}
-    c_t = c_{t-1}^{\alpha} \varepsilon_t \exp(\mu)
-\end{equation*}
-where
-\begin{equation*}
-    \mu = \frac{-\sigma_{\varepsilon}^2 (1-\alpha)}{2 (1-\alpha^2)}, \quad \log \varepsilon_t \sim N(0, \sigma_{\varepsilon}^2) \text{ and i.i.d.}
-\end{equation*}
-Thus, the log of consumption follows an AR(1) process:
-\begin{equation*}
-    \log c_t = \mu + \alpha \log c_{t-1} + \log \varepsilon_t
-\end{equation*}
+  The consumption process is
+  \begin{equation*}
+      c_t = c_{t-1}^{\alpha} \varepsilon_t \exp(\mu)
+  \end{equation*}
+  where
+  \begin{equation*}
+      \mu = \frac{-\sigma_{\varepsilon}^2 (1-\alpha)}{2 (1-\alpha^2)}, \quad \log \varepsilon_t \sim N(0, \sigma_{\varepsilon}^2) \text{ and i.i.d.}
+  \end{equation*}
+  Thus, the log of consumption follows an AR(1) process:
+  \begin{equation*}
+      \log c_t = \mu + \alpha \log c_{t-1} + \log \varepsilon_t
+  \end{equation*}
 
-\subsection*{Part A}
-Find the unconditional mean of $c_t$, $E(c_t)$. (Hint: recall the properties of the lognormal distribution).
+  \subsection*{Part A}
+    Find the unconditional mean of $c_t$, $E(c_t)$. (Hint: recall the properties of the lognormal distribution).
 
-\subsection*{Part B}
-Define lifetime utility before any uncertainty is realized as:
-\begin{equation*}
-    V_0 = E^{-1} \sum_{t=0}^{\infty} \beta^t U(c_t)
-\end{equation*}
-Assume $c_0$ is drawn from the invariant (unconditional) distribution of $c$.
-Now define:
-\begin{equation*}
-    V(\lambda) = E^{-1} \sum_{t=0}^{\infty} \beta^t U [c_t(1 + \lambda)]
-\end{equation*}
-This is lifetime utility when every period consumption is increased by $(1+\lambda)$. Express $V(\lambda)$ as a function of $\mu, \sigma_{\varepsilon}^2, \alpha, \gamma, \beta$.
+  \subsection*{Part B}
+    Define lifetime utility before any uncertainty is realized as:
+    \begin{equation*}
+        V_0 = E^{-1} \sum_{t=0}^{\infty} \beta^t U(c_t)
+    \end{equation*}
+    Assume $c_0$ is drawn from the invariant (unconditional) distribution of $c$.
+    Now define:
+    \begin{equation*}
+        V(\lambda) = E^{-1} \sum_{t=0}^{\infty} \beta^t U [c_t(1 + \lambda)]
+    \end{equation*}
+    This is lifetime utility when every period consumption is increased by $(1+\lambda)$. Express $V(\lambda)$ as a function of $\mu, \sigma_{\varepsilon}^2, \alpha, \gamma, \beta$.
 
-\subsection*{Part C}
-Denote $V_0$ as the lifetime utility when $c_t$ is deterministic and equal to its unconditional mean found in part A). Find the compensation $\lambda$ such that $V(\lambda) = V_0$. Find how much compensation the consumer has to be given in order to be indifferent between the stochastic and deterministic cases, Provide economic intuition.
+  \subsection*{Part C}
+    Denote $V_0$ as the lifetime utility when $c_t$ is deterministic and equal to its unconditional mean found in part A). Find the compensation $\lambda$ such that $V(\lambda) = V_0$. Find how much compensation the consumer has to be given in order to be indifferent between the stochastic and deterministic cases, Provide economic intuition.
 
-\subsection*{Part D}
-Denote the interest rate as $r$. Find consumption $c_t$.
+  \subsection*{Part D}
+    Denote the interest rate as $r$. Find consumption $c_t$.
 
 \section*{Problem 2: Non-Expected Utility Framework}
-This problem follows the Kreps and Porteus (1978), Epstein and Zin (1991), and Weil (1990) frameworks.
+  This problem follows the Kreps and Porteus (1978), Epstein and Zin (1991), and Weil (1990) frameworks.
 
-Let remaining lifetime utility at time $t$, once $c_t$ is known, be given by $v_t$, satisfying:
-\begin{equation}
-    v_t = \left[ (1-\beta) c_t^{\rho} + \beta (E_t v_{t+1}^{\alpha})^{\frac{\rho}{\alpha}} \right]^{\frac{1}{\rho}}
-\end{equation}
-where $1-\alpha$ represents risk aversion and $1-\rho$ represents the inverse of the intertemporal elasticity of substitution. In standard expected utility, $\alpha = \rho$.
+  Let remaining lifetime utility at time $t$, once $c_t$ is known, be given by $v_t$, satisfying:
+  \begin{equation}
+      v_t = \left[ (1-\beta) c_t^{\rho} + \beta (E_t v_{t+1}^{\alpha})^{\frac{\rho}{\alpha}} \right]^{\frac{1}{\rho}}
+  \end{equation}
+  where $1-\alpha$ represents risk aversion and $1-\rho$ represents the inverse of the intertemporal elasticity of substitution. In standard expected utility, $\alpha = \rho$.
 
-Denote pre-realization lifetime utility at time $t$ as $U_t$, where:
-\begin{equation*}
-    U_t = (E_t v_t^{\alpha})^{\frac{1}{\alpha}}
-\end{equation*}
+  Denote pre-realization lifetime utility at time $t$ as $U_t$, where:
+  \begin{equation*}
+      U_t = (E_t v_t^{\alpha})^{\frac{1}{\alpha}}
+  \end{equation*}
 
-\subsection*{Part A}
-Prove that multiplying $c_t$ by $\lambda$ for all $t = 0, 1, \dots, \infty$ is equivalent to multiplying $v_t$ by $\lambda$.
-(Hint: start by assuming this holds, substitute into equation (1), and show $v_t$ scales linearly.)
+  \subsection*{Part A}
+    Prove that multiplying $c_t$ by $\lambda$ for all $t = 0, 1, \dots, \infty$ is equivalent to multiplying $v_t$ by $\lambda$.
+    (Hint: start by assuming this holds, substitute into equation (1), and show $v_t$ scales linearly.)
 
-\subsection*{Part B}
-Suppose for all $t$, we replace $c_t$ with a deterministic constant $\bar{c} = E[c_t]$. Compare welfare in this case with uncertain $c_t$. Specifically, find $\eta$ such that multiplying $c_t$ by $(1+ \eta)$ makes ex-ante welfare $U_0$ equal to that in the deterministic case. Express $\eta$ in terms of $U_0$ and $\bar{c}$.
+  \subsection*{Part B}
+    Suppose for all $t$, we replace $c_t$ with a deterministic constant $\bar{c} = E[c_t]$. Compare welfare in this case with uncertain $c_t$. Specifically, find $\eta$ such that multiplying $c_t$ by $(1+ \eta)$ makes ex-ante welfare $U_0$ equal to that in the deterministic case. Express $\eta$ in terms of $U_0$ and $\bar{c}$.
 
-\subsection*{Part C}
-Suppose consumption follows one of two sequences: with probability $\frac{1}{2}$, $c_t = c_l$ for all $t$, and with probability $\frac{1}{2}$, $c_t = c_h$ for all $t$. The sequence is revealed at $t = 0$. Find $\eta$ and analyze its dependence on $\rho$ and $\alpha$.
+  \subsection*{Part C}
+    Suppose consumption follows one of two sequences: with probability $\frac{1}{2}$, $c_t = c_l$ for all $t$, and with probability $\frac{1}{2}$, $c_t = c_h$ for all $t$. The sequence is revealed at $t = 0$. Find $\eta$ and analyze its dependence on $\rho$ and $\alpha$.
 
-\subsection*{Part D}
-Now assume $c_t$ is i.i.d., where each period $c_t = c_l$ with probability $\frac{1}{2}$ and $c_h$ with probability $\frac{1}{2}$.
-\begin{enumerate}
-    \item Derive an implicit equation for $U_0$.
-    \item Analyze whether $\eta$ depends on $\alpha$ and $\rho$.
-\end{enumerate}
+  \subsection*{Part D}
+    Now assume $c_t$ is i.i.d., where each period $c_t = c_l$ with probability $\frac{1}{2}$ and $c_h$ with probability $\frac{1}{2}$.
+    \begin{enumerate}
+        \item Derive an implicit equation for $U_0$.
+        \item Analyze whether $\eta$ depends on $\alpha$ and $\rho$.
+    \end{enumerate}
 
-\subsection*{Part E}
-Solve for $U_0$ numerically using Matlab with given parameters: $\beta = 0.95$, $c_l = e^{0.98}$, $c_h = e^{1.02}$. Compute $\eta$ for:
-\begin{itemize}
-    \item $\alpha = 1, 0.5, -1$
-    \item $\rho = 1, 0.5, -1$
-\end{itemize}
-Report results in a table and provide economic intuition.
-(Hint: Use an iterative approach to solve $U_0 = f(U_0)$ until convergence with tolerance $10^{-8}$.)
-
+  \subsection*{Part E}
+    Solve for $U_0$ numerically using Matlab with given parameters: $\beta = 0.95$, $c_l = e^{0.98}$, $c_h = e^{1.02}$. Compute $\eta$ for:
+    \begin{itemize}
+        \item $\alpha = 1, 0.5, -1$
+        \item $\rho = 1, 0.5, -1$
+    \end{itemize}
+    Report results in a table and provide economic intuition.
+    (Hint: Use an iterative approach to solve $U_0 = f(U_0)$ until convergence with tolerance $10^{-8}$.)
+\section{Solution 1}
+  \subsection*{(A)}
+    
 \end{document}

@@ -4,16 +4,11 @@ author: Tate Mason
 date: Feb 12, 2024
 format: 
   pdf:
-    toc: true
-    toc-title: Problems
     mainfont: SF Pro
     monofont: Hack Nerd Font Mono
 ---
 
 # Problem 1
-```{tex}
-$1+1$
-```
   
 ## Hansen 2.2
 
@@ -29,29 +24,48 @@ $1+1$
 
 ## Hansen 2.10
 
+This is true. We can use the law of iterated expectations to prove it. $\mathbb{E}[X^2e] = \mathbb{E}[\mathbb{E}[X^2e|X]$ We can then do some factoring to yield $X^2\mathbb{E}[e|X]$. Because of the fact that $\mathbb{E}[e|X] = 0$, we can say that $\mathbb{E}[X^2e] =\mathbb{E}[0] = 0$
+
 # Problem 5
 
 ## Hansen 2.11
+
+This is false. Mainly, this is due to the fact that we are not given information of the error term's correlation to $X$. If we were to make $X$ a binary variable, with equal possibility of equaling negative one or one, $\mathbb{E}[Xe] = \mathbb{E}[X^2] = 1$. This is a contradiction as, in this case, the equality is not zero. 
 
 # Problem 6
 
 ## Hansen 2.12
 
+This is also false. The condition of $\mathbb{E}[e|X] = 0$ implies zero-mean expectation, but not full independence.
+
 # Problem 7
 
 ## Hansen 2.13
+
+False. The condition of $\mathbb{E}[Xe] = 0$ implies only expectationally zero correlation between $X$ and the error term $e$. In reality, this is no guarantee of the zero mean assumption holding.
 
 # Problem 8
 
 ## Hansen 2.14
 
+Finally, this is also false. From the given conditions, we can assume that the error is homoskedastic, but nothing is given regarding independence.
+
 # Problem 9
 
 ## Hansen 2.21
 
+### Part A
+
+$\gamma_1 = \beta_1$ if and only if the quadratic term's $\beta_2=0$. This would imply that in the short term regression, there is no omitted variable bias, thus meaning the two parameters would be equivalent.
+
+### Part B
+
+It is a similar case here in which the cubic term's $\theta_2 = 0$ or in the case that $\mathbb{E}[X^3X] = 0$, or that $X^3$ is uncorrelated with $X$.
+
 # Problem 10
 
 ## Part A
+
 
 ## Part B
 
@@ -63,6 +77,41 @@ $1+1$
 
 ## Part A
 
+```{r}
+library(Ecdat)
+library(dplyr)
+data(Star,package="Ecdat")
+str(Star)
+```
+This loads the required package and associated data into the program. Next, we will subset the data and perform the necessary actions to find the `ATT`
+```{r}
+boys <- Star %>%
+  filter(sex == "boy", classk %in% c("small.class","regular")) %>%
+  mutate(small_class = ifelse(classk == "small.class", 1,0))
+mean_score <- boys %>% 
+  group_by(small_class) %>%
+  summarise(mean_score = mean(tmathssk, na.rm=TRUE), .groups="drop")
+mean_small <- mean_score %>% filter(small_class == 1) %>% pull(mean_score)
+mean_not <- mean_score %>% filter(small_class == 0) %>% pull(mean_score)
+ATT_mean <- mean_small - mean_not
+ATT_mean
+```
+
 ## Part B
 
+```{r}
+Y <- as.matrix(boys$tmathssk)
+X <- as.matrix(cbind(1,boys$small_class))
+beta_hat <- solve(t(X) %*% X) %*% t(X) %*% Y
+beta_hat
+```
+The effect of being in a small class is the same as in part (A). It also matches with the built in regression function.
+
 ## Part C
+
+```{r}
+X_c <- as.matrix(cbind(1, boys$small_class, boys$totexpk, boys$freelunk))
+beta_hat_c <- solve(t(X_c) %*% X_c) %*% t(X_c) %*% Y
+beta_hat_c
+```
+In this case, the effect of a small class is slightly smaller. This makes sense as with more factors being taken into account, one would expect less "oomph" from a singular variable. With that said, parameter coefficients match with both matrix algebra and `lm`.
