@@ -88,12 +88,19 @@ It is a similar case here in which the cubic term's $\theta_2 = 0$ or in the cas
 
 ## Part A
 
+Consider $y_i = D_iy_i(1) + (1-D_i)y_i(0)$. In expectation, the average treatment effect would be such that $ATE = \mathbb{E}[y(1) - y(0)]$
 
 ## Part B
 
+In class, we derived that $ATT = \mathbb{E}[y_i(1) - y_i(0)|D=1]$. This can be expanded as $\mathbb{E}[y_i(1)|D=1] - \mathbb{E}[y(0)|D=1]$ Which can finally be simplified as $y_i = y_i(0) + D_i[y_(1) - y_i(0)]$. In this case, the difference is that the difference in treated and untreated is scaled by $D_i$, allowing the treatment to be switched on and off depending on treated status of agent $i$.
+
 ## Part C
 
+In the case described, $\alpha$ is the effect of participation. The untreated potential outcomes model is used to delete the error term in expectation and homogeneity is used to discern the treatment effect $\alpha$.
+
 ## Part D
+
+After identifying the ATT in class, we were left with the regression $\mathbb{E}[y|x,D] = \alpha D + x^T\beta$. This is the same as found in part (B), and once we plug in the given regression in (C), we would be left with the same regression as well. This occurs due to the given assumptions and same parameters.
 
 # Problem 11
 
