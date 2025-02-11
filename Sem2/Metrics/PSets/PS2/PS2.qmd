@@ -36,11 +36,13 @@ Predicting $e^2$ is to estimate the amount of variation in the model in expectat
 
 ### Part C
 
-
+Take a function $h(X)$ which aims to minimize the mean squared error. $\mathbb{E}[(e^2 - h(X))^2]$ $\mathbb{E}[e^4] - 2\mathbb{E}[e^2h(X)] + \mathbb{E}[h(X)^2]$. Next, to minimize, we want derivate w.r.t. $X$. We then get $-2\mathbb{E}[e^2|X] + 2h(X) = 0$. Then, we get that $h(X) = \mathbb{E}[e^2|X] = e^2 = \sigma^2(X)$.
 
 # Problem 3
 
 ## Hansen 2.6
+
+$var[Y] = var[\mathbb{E}[Y|X]] + \mathbb{E}[var(Y|X)]$ $var[Y] = var[m(X)] + \mathbb{E}[var(e|X)]$. Since $var(e|X) = \sigma^2(X)$, we get that in expectation $\mathbb{E}[\sigma^2(X)] = \sigma^2$. This yields that $var[Y] = var[m(X)] + \sigma^2$.
 
 # Problem 4
 

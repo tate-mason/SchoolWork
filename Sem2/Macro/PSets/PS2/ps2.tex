@@ -4,6 +4,7 @@
 
 % Custom Commands
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\sumt}{$\sum\limits_{t=0}^{\infty}$}
 
 % Document Information
 \title{Homework 2}
@@ -99,13 +100,51 @@
     (Hint: Use an iterative approach to solve $U_0 = f(U_0)$ until convergence with tolerance $10^{-8}$.)
 \section{Solution 1}
   \subsection*{(A)}
-    Given $c_t$ has a lognormal distribution by $\epsilon_{t+1}$, take an arbitrary mean $m$ and variance $v$. In this case, $\mathbb{E}[c_t] = \exp(m + \frac{v}{2})$. From there we can solve for the mean of unconditional expected consumption in time $t$.
+    If $c_t\sim N(m,v)$ for some mean $m$ and variance $v$, $\log c_t$ has a log normal distribution such that $\mathbb{E}[c_t] = \exp[m + \frac{v}{2}]$. Due to $c_t$ exhibiting an AR(1) process, we can say that $m = \mu + \alpha m + 0\rightarrow m(1-\alpha) = \mu\rightarrow m = \frac{\mu}{1-\alpha}$. The unconditional variance can be found by the following $v = \alpha^2v + \sigma_{\epsilon}^2\rightarrow v=\frac{\sigma_{\epsilon}^2}{(1-\alpha^2)}$. Thus, $\mathbb{E}[c_t] = \exp[\frac{\mu}{1-\alpha} + \frac{\sigma_{\epsilon}^2}{2(1-\alpha^2)}]$ Subbing in the given $\mu$, $ \exp[-\frac{\sigma_{\epsilon}^2\mu}{2(1-\alpha^2)(1-\alpha)} + \frac{\sigma_{\epsilon}^2}{2(1-\alpha^2)}]\rightarrow\exp(0) = 1 = \mathbb{E}[c_t]$   
+  \subsection*{(B)}
     \begin{gather*}
-      \mathbb{E}[c_t] = \exp(m + \frac{v}{2}) \\
-      m = \mu + \alpha m + 0 \\
-      m(1-\alpha) = \mu \\
-      \therefore \ m = \frac{\mu}{1-\alpha} \ \text{in expectation}
+      V_0 = \mathbb{E}_{-1}\sumt\beta^tU(c_t) \\
+      V(\lambda) = \mathbb{E}_{-1}\sumt\beta^tU(c_t(1+\lambda)) \\
+      U(c_t(1+\lambda)) = (1+\lambda)^{1-\gamma}\frac{c_t^{1-\gamma}}{1-\gamma} \\
+      V(\lambda) = (1+\lambda)^{1-\gamma}\mathbb{E}_{-1}\sumt\beta^t\frac{c_t^{1-\gamma}}{1-\gamma} = (1+\lambda)^{1-\gamma}V_0 \\
     \end{gather*}
-  \subsection{(B)}
+    Now, we apply the same distribution as in (A) to $c_{t}^{1-\gamma}$.
+    \begin{gather*}
+      \mathbb{E}[c_t^{1-\gamma}] = \exp[(1-\gamma)m + \frac{(1-\gamma)v}{2}] \\
+      \mathbb{E}[c_t^{1-\gamma}] = \exp[\frac{(1-\gamma)\mu}{1-\alpha} + \frac{(1-\gamma)^2\sigma_{\epsilon}^2}{2(1-\alpha^2)}] \\
+      \therefore \ V_0 = \frac{1}{1-\gamma}\sumt\beta^t\mathbb{E}[c_t^{1-\gamma}] \\
+      = \frac{1}{1-\gamma}\frac{1}{1-\beta}\exp[\frac{(1-\gamma)\mu}{1-\alpha} + \frac{(1-\gamma)^2\sigma_{\epsilon}^2}{2(1-\alpha^2)}] \\
+      V(\lambda) = (1+\lambda)^{1-\gamma}\frac{1}{1-\gamma}\frac{1}{1-\beta}\exp[\frac{(1-\gamma)\mu}{1-\alpha} + \frac{(1-\gamma)\sigma_{\epsilon}^2}{2(1-\alpha^2)}]
+    \end{gather*}
+  \subsection*{(C)}
+    \begin{gather*}
+      V_0 = \sumt\beta^tU(1) = \sumt\beta^t\frac{1}{1-\gamma} = \frac{1}{(1-\beta)(1-\gamma)}
+    \end{gather*}
+    Indifference implies that $V_0 = V(\lambda)$. Therefore:
+    \begin{gather*}
+      (1+\lambda)^{1-\gamma}\exp[\frac{(1-\gamma)\mu}{1-\alpha} + \frac{(1-\gamma)\sigma_{\epsilon}^2}{2(1-\alpha^2)}] = 1 \\
+      \Rightarrow (1-\gamma)\log(1+\gamma)+\frac{(1-\gamma)\sigma_{\epsilon}^2}{(1-\alpha)} + \frac{(1-\gamma)^2\sigma_{\epsilon}^2}{2(1-\alpha^2)} = 0 \\
+      \log(1+\lambda) = -\frac{\mu}{1-\alpha} + \frac{(1-\gamma)\sigma_{\epsilon}^2}{2(1-\alpha^2)} \\
+      1+\lambda = \exp[-\frac{\mu}{1-\alpha} + \frac{(1-\gamma)\sigma_{\epsilon}^2}{2(1-\alpha^2)}] \\
+      \lambda = \exp[-\frac{\mu}{1-\alpha} + \frac{(1-\gamma)\sigma_{\epsilon}^2}{2(1-\alpha^2)}] - 1 \\
+      \lambda = \exp[\frac{\sigma_{\epsilon}^2}{2(1-\alpha^2)} - \frac{(1-\gamma)\sigma_{\epsilon}^2}{2(1-\alpha^2)}] - 1 \\
+      \lambda = \exp[\frac{\sigma_{\epsilon}^2}{2(1-\alpha^2)} (1-1+\gamma)] -1 \\
+      \lambda = \exp[\frac{\gamma\sigma_{\epsilon}^2}{2(1-\alpha^2)}] - 1 \\
+    \end{gather*}
+  \subsection*{(D)}
+    \begin{gather*}
+      c_t^{-\gamma} = \beta(1+r)\mathbb{E}_t(c_{t+1}^{-\gamma}) \\
+      1 = \beta(1+r)\mathbb{E}_t(\frac{c_t^{\alpha}\epsilon_{t+1}\exp[\mu]}{c_{t-1}\epsilon_{t}\exp[\mu]})^{-\gamma} \\
+      \beta(1+r)\mathbb{E}_t(\alpha\log\frac{c_{t+1}}{c_t} + \log(\frac{\epsilon_{t+1}}{\epsilon_{t}})+1) = 1 \\
+      \beta(1+r)\mathbb{E}_t(\alpha\Delta\log c_{t+1} + 1) \ \text{s.t. $\Delta\log c_{t+1} \sim N(\mathbb{E}_t\Delta\log c_{t+1}, v_t\Delta\log c_{t+1})$} \\
+      \mathbb{E}_t(-\gamma\alpha\Delta\log c_{t+1} + 1) = (-\gamma\alpha\Delta\log c_{t+1}+\frac{1}{2}(\gamma\alpha)^2v_t\Delta\log c_{t+1}) \\
+      \mathbb{E}_t\Delta\log c_{t+1} = \frac{\log\beta(1+r)}{\gamma\alpha} + \frac{1}{2}\gamma\alpha v_t\Delta\log c_{t+1} \\
+    \end{gather*}
+\section*{Solution 2}
+  \subsection*{(A)}
+    \begin{proof}
+      $v_t = [(1-\beta)(\lambda c_t)^{\rho} + \beta(\mathbb{E}[\lambda v_{t+1}]^{\alpha})^{\frac{\rho}{\alpha}}]^{\frac{1}{\rho}}$  This allows us to move the $\lambda$ term out such that $v_t = [\lambda^{\rho}(1-\beta)(c_t^{\rho}) + \lambda^{\rho}\beta(\mathbb{E}[v_t]^{\alpha})^{\frac{\rho}{\alpha}}]^{\frac{1}{\rho}}$. Finally, we can show that utility is linearly scaled by lambda such that $v_t = \lambda[(1-\beta)c_t^{\rho}+\beta(\mathbb{E}c_t^{\alpha})^{\frac{\rho}{\alpha}}]^{\frac{1}{\rho}}$.
+    \end{proof}
+  \subsection*{(B)}
     
 \end{document}
