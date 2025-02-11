@@ -17,7 +17,7 @@
 \section*{Problem 1: Costs of Business Cycle}
   Let utility be given by:
   \begin{equation*}
-      E^{-1} \sum_{t=0}^{\infty} \beta^t U(c_t)
+      E_{-1} \sum_{t=0}^{\infty} \beta^t U(c_t)
   \end{equation*}
   where the utility function is CRRA:
   \begin{equation*}
@@ -43,12 +43,12 @@
   \subsection*{Part B}
     Define lifetime utility before any uncertainty is realized as:
     \begin{equation*}
-        V_0 = E^{-1} \sum_{t=0}^{\infty} \beta^t U(c_t)
+        V_0 = E_{-1} \sum_{t=0}^{\infty} \beta^t U(c_t)
     \end{equation*}
     Assume $c_0$ is drawn from the invariant (unconditional) distribution of $c$.
     Now define:
     \begin{equation*}
-        V(\lambda) = E^{-1} \sum_{t=0}^{\infty} \beta^t U [c_t(1 + \lambda)]
+        V(\lambda) = E_{-1} \sum_{t=0}^{\infty} \beta^t U [c_t(1 + \lambda)]
     \end{equation*}
     This is lifetime utility when every period consumption is increased by $(1+\lambda)$. Express $V(\lambda)$ as a function of $\mu, \sigma_{\varepsilon}^2, \alpha, \gamma, \beta$.
 
@@ -99,5 +99,13 @@
     (Hint: Use an iterative approach to solve $U_0 = f(U_0)$ until convergence with tolerance $10^{-8}$.)
 \section{Solution 1}
   \subsection*{(A)}
+    Given $c_t$ has a lognormal distribution by $\epsilon_{t+1}$, take an arbitrary mean $m$ and variance $v$. In this case, $\mathbb{E}[c_t] = \exp(m + \frac{v}{2})$. From there we can solve for the mean of unconditional expected consumption in time $t$.
+    \begin{gather*}
+      \mathbb{E}[c_t] = \exp(m + \frac{v}{2}) \\
+      m = \mu + \alpha m + 0 \\
+      m(1-\alpha) = \mu \\
+      \therefore \ m = \frac{\mu}{1-\alpha} \ \text{in expectation}
+    \end{gather*}
+  \subsection{(B)}
     
 \end{document}
