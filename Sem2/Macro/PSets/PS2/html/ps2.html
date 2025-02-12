@@ -1,0 +1,290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>ps2</title>
+<meta name="generator" content="MATLAB 24.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-02-12">
+<meta name="DC.source" content="ps2.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<pre class="codeinput">
+<span class="comment">% Parameters</span>
+beta = 0.95;
+cl = exp(0.98);
+ch = exp(1.02);
+Pi_L = 0.5;  <span class="comment">% Probability of low state</span>
+Pi_H = 0.5; <span class="comment">% Probability of high state</span>
+R = 0;
+
+<span class="comment">% Define parameters based on given values</span>
+alpha_values = [1, 0.5, -1];
+rho_values = [1, 0.5, -1];
+
+<span class="comment">% Tolerance level</span>
+tol = 1e-8;
+max_iter = 1000;
+
+<span class="comment">% Function to compute f(U0)</span>
+f_U0 = @(U0, alpha, rho) ((Pi_L * ((1 - beta) * cl^rho + beta * U0^rho)^(alpha/rho) + <span class="keyword">...</span>
+                           Pi_H * ((1 - beta) * ch^rho + beta * U0^rho)^(alpha/rho))^(1/alpha)) - R;
+
+<span class="comment">% Create variables to store results</span>
+alpha_results = zeros(length(alpha_values), 3);
+rho_results = zeros(length(rho_values), 3);
+
+<span class="comment">% Iterate to make alpha table</span>
+<span class="keyword">for</span> i = 1:length(alpha_values)
+    alpha = alpha_values(i);
+    rho = 1; <span class="comment">% Keep rho fixed</span>
+
+    <span class="comment">% Initial guess</span>
+    U0_old = 1;
+    iter = 0;
+
+    <span class="keyword">while</span> true
+        <span class="comment">% Compute new U0</span>
+        U0_new = f_U0(U0_old, alpha, rho);
+
+        <span class="comment">% Check convergence</span>
+        <span class="keyword">if</span> abs(U0_new - U0_old) &lt; tol || iter &gt; max_iter
+            <span class="keyword">break</span>;
+        <span class="keyword">end</span>
+
+        <span class="comment">% Update</span>
+        U0_old = U0_new;
+        iter = iter + 1;
+    <span class="keyword">end</span>
+
+    <span class="comment">% Save result</span>
+    eta = U0_old;
+    alpha_results(i, :) = [alpha, eta, iter];
+<span class="keyword">end</span>
+
+<span class="comment">% Iterate for rho table</span>
+<span class="keyword">for</span> j = 1:length(rho_values)
+    rho = rho_values(j);
+    alpha = 1; <span class="comment">% Keep alpha fixed</span>
+
+    <span class="comment">% Initial guess</span>
+    U0_old = 1;
+    iter = 0;
+
+    <span class="keyword">while</span> true
+        <span class="comment">% Compute new U0</span>
+        U0_new = f_U0(U0_old, alpha, rho);
+
+        <span class="comment">% Check convergence</span>
+        <span class="keyword">if</span> abs(U0_new - U0_old) &lt; tol || iter &gt; max_iter
+            <span class="keyword">break</span>;
+        <span class="keyword">end</span>
+
+        <span class="comment">% Update</span>
+        U0_old = U0_new;
+        iter = iter + 1;
+    <span class="keyword">end</span>
+
+    <span class="comment">% Save result</span>
+    eta = U0_old;
+    rho_results(j, :) = [rho, eta, iter];
+<span class="keyword">end</span>
+
+<span class="comment">% Create tables</span>
+alpha_table = array2table(alpha_results, <span class="string">'VariableNames'</span>, {<span class="string">'Alpha'</span>, <span class="string">'Eta'</span>, <span class="string">'Iterations'</span>});
+rho_table = array2table(rho_results, <span class="string">'VariableNames'</span>, {<span class="string">'Rho'</span>, <span class="string">'Eta'</span>, <span class="string">'Iterations'</span>});
+
+<span class="comment">% Display tables</span>
+disp(<span class="string">'Results for different Alpha values:'</span>);
+disp(alpha_table);
+
+disp(<span class="string">'Results for different Rho values:'</span>);
+disp(rho_table);
+</pre>
+<pre class="codeoutput">Results for different Alpha values:
+    Alpha     Eta      Iterations
+    _____    ______    __________
+
+       1     2.7188       312    
+     0.5     2.7188       312    
+      -1     2.7188       312    
+
+Results for different Rho values:
+    Rho     Eta      Iterations
+    ___    ______    __________
+
+      1    2.7188       312    
+    0.5    2.7186       316    
+     -1    2.7178       331    
+
+</pre>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+% Parameters
+beta = 0.95;
+cl = exp(0.98);
+ch = exp(1.02);
+Pi_L = 0.5;  % Probability of low state
+Pi_H = 0.5; % Probability of high state
+R = 0;
+
+% Define parameters based on given values
+alpha_values = [1, 0.5, -1];
+rho_values = [1, 0.5, -1];
+
+% Tolerance level
+tol = 1e-8;
+max_iter = 1000;
+
+% Function to compute f(U0)
+f_U0 = @(U0, alpha, rho) ((Pi_L * ((1 - beta) * cl^rho + beta * U0^rho)^(alpha/rho) + ...
+                           Pi_H * ((1 - beta) * ch^rho + beta * U0^rho)^(alpha/rho))^(1/alpha)) - R;
+
+% Create variables to store results
+alpha_results = zeros(length(alpha_values), 3);
+rho_results = zeros(length(rho_values), 3);
+
+% Iterate to make alpha table
+for i = 1:length(alpha_values)
+    alpha = alpha_values(i);
+    rho = 1; % Keep rho fixed
+    
+    % Initial guess
+    U0_old = 1;
+    iter = 0;
+    
+    while true
+        % Compute new U0
+        U0_new = f_U0(U0_old, alpha, rho);
+        
+        % Check convergence
+        if abs(U0_new - U0_old) < tol || iter > max_iter
+            break;
+        end
+        
+        % Update
+        U0_old = U0_new;
+        iter = iter + 1;
+    end
+    
+    % Save result
+    eta = U0_old;
+    alpha_results(i, :) = [alpha, eta, iter];
+end
+
+% Iterate for rho table
+for j = 1:length(rho_values)
+    rho = rho_values(j);
+    alpha = 1; % Keep alpha fixed
+    
+    % Initial guess
+    U0_old = 1;
+    iter = 0;
+    
+    while true
+        % Compute new U0
+        U0_new = f_U0(U0_old, alpha, rho);
+        
+        % Check convergence
+        if abs(U0_new - U0_old) < tol || iter > max_iter
+            break;
+        end
+        
+        % Update
+        U0_old = U0_new;
+        iter = iter + 1;
+    end
+    
+    % Save result
+    eta = U0_old;
+    rho_results(j, :) = [rho, eta, iter];
+end
+
+% Create tables
+alpha_table = array2table(alpha_results, 'VariableNames', {'Alpha', 'Eta', 'Iterations'});
+rho_table = array2table(rho_results, 'VariableNames', {'Rho', 'Eta', 'Iterations'});
+
+% Display tables
+disp('Results for different Alpha values:');
+disp(alpha_table);
+
+disp('Results for different Rho values:');
+disp(rho_table);
+
+##### SOURCE END #####
+-->
+</body>
+</html>

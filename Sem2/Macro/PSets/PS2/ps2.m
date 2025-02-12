@@ -19,8 +19,8 @@ f_U0 = @(U0, alpha, rho) ((Pi_L * ((1 - beta) * cl^rho + beta * U0^rho)^(alpha/r
                            Pi_H * ((1 - beta) * ch^rho + beta * U0^rho)^(alpha/rho))^(1/alpha)) - R;
 
 % Create variables to store results
-alpha_results = zeros(length(alpha_values), 4);
-rho_results = zeros(length(rho_values), 4);
+alpha_results = zeros(length(alpha_values), 3);
+rho_results = zeros(length(rho_values), 3);
 
 % Iterate to make alpha table
 for i = 1:length(alpha_values)
@@ -46,8 +46,8 @@ for i = 1:length(alpha_values)
     end
     
     % Save result
-    eta = U0_new;
-    alpha_results(i, :) = [alpha, eta, U0_new, iter];
+    eta = U0_old;
+    alpha_results(i, :) = [alpha, eta, iter];
 end
 
 % Iterate for rho table
@@ -74,13 +74,13 @@ for j = 1:length(rho_values)
     end
     
     % Save result
-    eta = U0_new;
-    rho_results(j, :) = [rho, eta, U0_new, iter];
+    eta = U0_old;
+    rho_results(j, :) = [rho, eta, iter];
 end
 
 % Create tables
-alpha_table = array2table(alpha_results, 'VariableNames', {'Alpha', 'Eta', 'U0', 'Iterations'});
-rho_table = array2table(rho_results, 'VariableNames', {'Rho', 'Eta', 'U0', 'Iterations'});
+alpha_table = array2table(alpha_results, 'VariableNames', {'Alpha', 'Eta', 'Iterations'});
+rho_table = array2table(rho_results, 'VariableNames', {'Rho', 'Eta', 'Iterations'});
 
 % Display tables
 disp('Results for different Alpha values:');
