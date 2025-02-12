@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.13)  11 FEB 2025 17:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.13)  11 FEB 2025 19:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -321,10 +321,10 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-./ps2.tex:110: Missing } inserted.
+./ps2.tex:115: Missing } inserted.
 <inserted text> 
                 }
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -332,35 +332,35 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps2.tex:110: Missing $ inserted.
+./ps2.tex:115: Missing $ inserted.
 <inserted text> 
                 $
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:110: Missing $ inserted.
+./ps2.tex:115: Missing $ inserted.
 <inserted text> 
                 $
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:110: Missing { inserted.
+./ps2.tex:115: Missing { inserted.
 <inserted text> 
                 {
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-./ps2.tex:110: Missing } inserted.
+./ps2.tex:115: Missing } inserted.
 <inserted text> 
                 }
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -368,35 +368,35 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps2.tex:110: Missing $ inserted.
+./ps2.tex:115: Missing $ inserted.
 <inserted text> 
                 $
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:110: Missing $ inserted.
+./ps2.tex:115: Missing $ inserted.
 <inserted text> 
                 $
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:110: Missing { inserted.
+./ps2.tex:115: Missing { inserted.
 <inserted text> 
                 {
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-./ps2.tex:110: Missing } inserted.
+./ps2.tex:115: Missing } inserted.
 <inserted text> 
                 }
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -404,35 +404,35 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps2.tex:110: Missing $ inserted.
+./ps2.tex:115: Missing $ inserted.
 <inserted text> 
                 $
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:110: Missing $ inserted.
+./ps2.tex:115: Missing $ inserted.
 <inserted text> 
                 $
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:110: Missing { inserted.
+./ps2.tex:115: Missing { inserted.
 <inserted text> 
                 {
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-./ps2.tex:110: Missing } inserted.
+./ps2.tex:115: Missing } inserted.
 <inserted text> 
                 }
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -440,35 +440,35 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps2.tex:110: Missing $ inserted.
+./ps2.tex:115: Missing $ inserted.
 <inserted text> 
                 $
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:110: Missing $ inserted.
+./ps2.tex:115: Missing $ inserted.
 <inserted text> 
                 $
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:110: Missing { inserted.
+./ps2.tex:115: Missing { inserted.
 <inserted text> 
                 {
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-./ps2.tex:110: Missing } inserted.
+./ps2.tex:115: Missing } inserted.
 <inserted text> 
                 }
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -476,35 +476,35 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps2.tex:110: Missing $ inserted.
+./ps2.tex:115: Missing $ inserted.
 <inserted text> 
                 $
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:110: Missing $ inserted.
+./ps2.tex:115: Missing $ inserted.
 <inserted text> 
                 $
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:110: Missing { inserted.
+./ps2.tex:115: Missing { inserted.
 <inserted text> 
                 {
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-./ps2.tex:110: Missing } inserted.
+./ps2.tex:115: Missing } inserted.
 <inserted text> 
                 }
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -512,35 +512,35 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps2.tex:110: Missing $ inserted.
+./ps2.tex:115: Missing $ inserted.
 <inserted text> 
                 $
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:110: Missing $ inserted.
+./ps2.tex:115: Missing $ inserted.
 <inserted text> 
                 $
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:110: Missing { inserted.
+./ps2.tex:115: Missing { inserted.
 <inserted text> 
                 {
-l.110     \end{gather*}
+l.115     \end{gather*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-./ps2.tex:118: Missing } inserted.
+./ps2.tex:123: Missing } inserted.
 <inserted text> 
                 }
-l.118     \end{gather*}
+l.123     \end{gather*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -548,35 +548,35 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps2.tex:118: Missing $ inserted.
+./ps2.tex:123: Missing $ inserted.
 <inserted text> 
                 $
-l.118     \end{gather*}
+l.123     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:118: Missing $ inserted.
+./ps2.tex:123: Missing $ inserted.
 <inserted text> 
                 $
-l.118     \end{gather*}
+l.123     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:118: Missing { inserted.
+./ps2.tex:123: Missing { inserted.
 <inserted text> 
                 {
-l.118     \end{gather*}
+l.123     \end{gather*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-./ps2.tex:118: Missing } inserted.
+./ps2.tex:123: Missing } inserted.
 <inserted text> 
                 }
-l.118     \end{gather*}
+l.123     \end{gather*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -584,35 +584,35 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps2.tex:118: Missing $ inserted.
+./ps2.tex:123: Missing $ inserted.
 <inserted text> 
                 $
-l.118     \end{gather*}
+l.123     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:118: Missing $ inserted.
+./ps2.tex:123: Missing $ inserted.
 <inserted text> 
                 $
-l.118     \end{gather*}
+l.123     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:118: Missing { inserted.
+./ps2.tex:123: Missing { inserted.
 <inserted text> 
                 {
-l.118     \end{gather*}
+l.123     \end{gather*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-./ps2.tex:122: Missing } inserted.
+./ps2.tex:127: Missing } inserted.
 <inserted text> 
                 }
-l.122     \end{gather*}
+l.127     \end{gather*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -620,51 +620,51 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps2.tex:122: Missing $ inserted.
+./ps2.tex:127: Missing $ inserted.
 <inserted text> 
                 $
-l.122     \end{gather*}
+l.127     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:122: Missing $ inserted.
+./ps2.tex:127: Missing $ inserted.
 <inserted text> 
                 $
-l.122     \end{gather*}
+l.127     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:122: Missing $ inserted.
+./ps2.tex:127: Missing $ inserted.
 <inserted text> 
                 $
-l.122     \end{gather*}
+l.127     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:122: Missing $ inserted.
+./ps2.tex:127: Missing $ inserted.
 <inserted text> 
                 $
-l.122     \end{gather*}
+l.127     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:122: Missing { inserted.
+./ps2.tex:127: Missing { inserted.
 <inserted text> 
                 {
-l.122     \end{gather*}
+l.127     \end{gather*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-./ps2.tex:122: Missing } inserted.
+./ps2.tex:127: Missing } inserted.
 <inserted text> 
                 }
-l.122     \end{gather*}
+l.127     \end{gather*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -672,58 +672,48 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./ps2.tex:122: Missing $ inserted.
+./ps2.tex:127: Missing $ inserted.
 <inserted text> 
                 $
-l.122     \end{gather*}
+l.127     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:122: Missing $ inserted.
+./ps2.tex:127: Missing $ inserted.
 <inserted text> 
                 $
-l.122     \end{gather*}
+l.127     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:122: Missing $ inserted.
+./ps2.tex:127: Missing $ inserted.
 <inserted text> 
                 $
-l.122     \end{gather*}
+l.127     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:122: Missing $ inserted.
+./ps2.tex:127: Missing $ inserted.
 <inserted text> 
                 $
-l.122     \end{gather*}
+l.127     \end{gather*}
                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./ps2.tex:122: Missing { inserted.
+./ps2.tex:127: Missing { inserted.
 <inserted text> 
                 {
-l.122     \end{gather*}
+l.127     \end{gather*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-[3]
-./ps2.tex:149: Undefined control sequence.
-l.149 ...rrow \eta \frac{U_0^d}{U_0^c}-1\Rghtarrow
-                                                   \eta = \frac{\bar{c}}{U_0...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[4] (./ps2.aux)
+[3] [4] [5] (./ps2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -732,16 +722,16 @@ L3 programming layer <2024-02-20>
 Here is how much of TeX's memory you used:
  4413 strings out of 474116
  68939 string characters out of 5743682
- 1946187 words of memory out of 5000000
+ 1948187 words of memory out of 5000000
  26698 multiletter control sequences out of 15000+600000
  567294 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  65i,13n,79p,755b,220s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on ps2.pdf (4 pages, 182339 bytes).
+Output written on ps2.pdf (5 pages, 186745 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 106 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
