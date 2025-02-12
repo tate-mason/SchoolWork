@@ -1,0 +1,62 @@
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[top=3cm,bottom=4cm,left=3.5cm,right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{fancyhdr,color,comment,graphicx,environ,float,mathtools,mathrsfs}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+% Custom headers
+\pagestyle{fancy}
+\lhead{ECON - 8050}
+\chead{}
+\rhead{Tate Mason}
+\lfoot{}
+\cfoot{Homework 3}
+\rfoot{\thepage}
+
+\begin{document}
+
+\title{Homework 3}
+\author{ECON 8050: Macroeconomics II \\ Tate Mason}
+\date{}
+\maketitle
+
+\section*{Problem 1: Dynamic Programming}
+Consider the following model with a disability shock. There are three sources of uncertainty:
+\begin{itemize}
+    \item Out-of-pocket medical shock evolving according to transition matrix $\Psi(x_t|x_{t-1})$.
+    \item Productivity evolving according to $T(z_t|z_{t-1})$.
+    \item Disability shock.
+\end{itemize}
+
+The timing of events is as follows: At the beginning of the period, an individual with savings $k_t$ learns their productivity $z_t$ and medical shock $x_t$. Then they decide whether to work ($l_t = 0$ or $l_t > 0$). If working, labor income is $w z_t l_t$. Then, they decide about consumption $c_t$ and savings $k_{t+1}$.
+
+At the end of the period, the disability shock is realized with probability $d$. Disabled individuals stay permanently disabled, do not work, receive constant benefits $DI$, and make only consumption/savings decisions. Medical spending for disabled individuals is fully covered by public insurance.
+
+\begin{enumerate}
+    \item[(1)] Write down the dynamic programming problem of a non-disabled individual, denoting the value function as $V_t$.
+    \item[(2)] Write down the dynamic programming problem of a disabled individual, denoting the value function as $V_t^d$.
+    \item[(3)] Modify the problem assuming disabled individuals can recover with probability $f$. Recovered individuals draw new productivity realizations from the invariant distribution.
+    \item[(4)] Extend the model to allow non-disabled individuals to falsely claim disability benefits, introducing the value function for falsely disabled $V_t^{fd}$.
+\end{enumerate}
+
+\section*{Problem 2: Consumption-Savings Model}
+A consumer with infinite life maximizes quadratic utility:
+\begin{align*}
+    u(c_t) &= -\frac{1}{2} (c_t - \bar{c})^2
+\end{align*}
+where future utility is discounted at rate $\beta$ and borrowing/savings occur at interest rate $r$ with $\beta(1+r) = 1$.
+
+The consumer’s endowment $y_t$ is i.i.d. with values $y_H$ and $y_L$ occurring with probabilities $p_H$ and $p_L$ respectively. The budget constraint is:
+\begin{align*}
+    c_t = a_t(1+r) + y_t - a_{t+1}.
+\end{align*}
+
+\begin{enumerate}
+    \item[(1)] Solve for the consumption and saving functions. Provide intuition on when savings are positive or negative.
+    \item[(2)] Introduce a borrowing constraint $a_{t+1} \geq 0$. Solve the consumer’s problem in recursive form numerically using given parameters.
+    \item[(3)] Plot policy functions $a_{t+1}$ and $c_t$ as functions of current assets $a_t$ for cases with and without borrowing constraints.
+    \item[(4)] Simulate the income process and optimal decision rules over $T=100$ periods. Compare results with and without borrowing constraints.
+\end{enumerate}
+
+\end{document}
