@@ -1,8 +1,7 @@
-
 \documentclass[10pt,a4paper]{article}
 \usepackage[top=3cm,bottom=4cm,left=3.5cm,right=3.5cm]{geometry}
 \usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
-\usepackage{fancyhdr,color,comment,graphicx,environ,float,mathtools,mathrsfs}
+\usepackage{fancyhdr,color,comment,graphicx,environ,float,mathtools,mathrsfs,bbm}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 % Custom headers
@@ -60,6 +59,46 @@ The consumer’s endowment $y_t$ is i.i.d. with values $y_H$ and $y_L$ occurring
 \end{enumerate}
 
 \section*{Solution 1}
-  \subsection*{Part (1)}
-       
+  \subsection*{Part (i)}
+    The Bellman for an able bodied person with probability of becoming disabled $d$ is as follows:
+    \begin{gather*}
+      V_t(k_t,x_t,z_t) = {\max\atop{c_t,l_t,k_{t+1}}}\{u(c_t,l_t) + 
+      \beta(1-d)\sum\limits_{x_t}\sum\limits_{z_t}\Psi(x_t|x_{t-1})
+      \text{T}(z_t|z_{t-1})V_{t+1}(k_{t+1},x_{t+1},z_{t+1}) \\
+      + \beta d\sum\limits_{x_t}\Psi(x_t|x_{t-1})V_{t+1}(k_{t+1},x_{t+1},z_{t+1})\} \\
+      \shortintertext{s.t.} \\
+      c_t + k_{t+1} + x_t = wz_tl_t + k_t(1+r) \\
+    \end{gather*}
+  \subsection*{Part (ii)}
+    The Bellman for an individual who is disabled and has no probability of recovery can be represented as follows:
+    \begin{gather*}
+      V_t^d(k_t,x_t) = {\max\atop{c_t,k_{t+1}}}\{u(c_t,0) + \beta\sum
+      \limits_{x_t}\Psi(x_t|x_{t-1})V^d_{t+1}(k_{t+1},x_{t+1})\} \\
+      \shortintertext{s.t.} \\
+      c_t + k_{t+1} = DI + k_t(1+r)
+    \end{gather*}
+  \subsection*{Part (iii)}
+    The Bellman equation for an individual who is disabled but has a probability of recovery is as follows:
+    \begin{gather*}
+      V_t^{df}(k_t,x_t) = {\max\atop{c_t,k_{t+1}}}\{u(c_t,l_t) +\beta 
+      f\sum\limits_{x_t|x_{t-1}}\sum\limits_{z_t|z_{t-1}}\Psi(x_t|x_
+      {t-1})\text{T}(z_t|z_{t-1})V^{d}_{t+1}(k_{t+1}, x_{t+1}, z_{t+1}) \\
+      + \beta(1-f)\sum\limits_{x_t}\Psi(x_t|x_{t-1})V^d_{t+1}(k_{t+1},x_{t+1})\} \\
+      \shortintertext{s.t.} \\
+      c_t + k_{t+1} + x_t = DI + k_t(1+r) \\
+    \end{gather*}
+  \subsection*{Part (iv)}
+    Finally, the Bellman for someone who has the option to fake disability is as follows:
+    \begin{gather*}
+      V_t^{df}(k_t,x_t,z_t) = {\max\atop{c_t,k_{t+1},l_t}}\{u(c_t,l_t) +\beta 
+      f\sum\limits_{x_t|x_{t-1}}\sum\limits_{z_t|z_{t-1}}\Psi(x_t|x_
+      {t-1})\text{T}(z_t|z_{t-1})V^{d}_{t+1}(k_{t+1}, x_{t+1}, z_{t+1}) \\
+      + \beta(1-f)\sum\limits_{x_t}\Psi(x_t|x_{t-1})V^d_{t+1}(k_{t+1},x_{t+1}) \\
+      + \beta f \mathbbm{1}_{fake = 1} \sum_{x_t}(x_t|x_{t-1})V_{t+1}^{fd}(k_{t+1},x_{t+1})\} \\
+      \shortintertext{s.t.} \\
+      c_t + k_{t+1} + x_t = wz_tl_t + DI\mathbbm{1}_{D = 1 or fake = 1} + k_t(1+r)
+    \end{gather*}
+\section*{Solution 2:} 
+  \subsection{Part (i)}
+    
 \end{document}

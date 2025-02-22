@@ -21,50 +21,63 @@
 \maketitle
 
 \section*{Question 1: Optimal Auctions (25 pts)}
-In this problem, you will compute the auction that maximizes the auctioneer’s expected revenue.
+  In this problem, you will compute the auction that maximizes the auctioneer’s expected revenue.
 
-There is a seller looking to sell a single object. There are $N$ bidders (indexed by $i \in \{1, \dots, N\}$) for this object. Each bidder $i$ has an i.i.d value $v_i$ drawn from a distribution $F$ with support on $[0,M]$. We assume that the density function $f$ is continuous, where $F(a) = \int_{0}^{a} f(x)dx$. Furthermore, assume that $\frac{f(x)}{1-F(x)}$ is non-decreasing.
+  There is a seller looking to sell a single object. There are $N$ bidders (indexed by $i \in \{1, \dots, N\}$) for this object. Each bidder $i$ has an i.i.d value $v_i$ drawn from a distribution $F$ with support on $[0,M]$. We assume that the density function $f$ is continuous, where $F(a) = \int_{0}^{a} f(x)dx$. Furthermore, assume that $\frac{f(x)}{1-F(x)}$ is non-decreasing.
 
-\begin{enumerate}
-    \item[(a)] Write down the seller’s optimization problem. Hint: use the revelation principle we discussed in class.
-    \item[(b)] Take a given bidder $i$ and the corresponding incentive constraints. Write these constraints as the solution to a maximization problem.
-    \item[(c)] Reformulate the constraints using the envelope theorem and derive an expression for $t(v_i)$.
-    \item[(d)] Solve the optimization problem for the seller. What is the allocation and transfer rule that maximizes expected revenue?
-    \item[(e)] Interpret your answer in (d). What kind of auction is this?
-\end{enumerate}
+  \begin{enumerate}
+      \item[(a)] Write down the seller’s optimization problem. Hint: use the revelation principle we discussed in class.
+      \item[(b)] Take a given bidder $i$ and the corresponding incentive constraints. Write these constraints as the solution to a maximization problem.
+      \item[(c)] Reformulate the constraints using the envelope theorem and derive an expression for $t(v_i)$.
+      \item[(d)] Solve the optimization problem for the seller. What is the allocation and transfer rule that maximizes expected revenue?
+      \item[(e)] Interpret your answer in (d). What kind of auction is this?
+  \end{enumerate}
 
 \section*{Question 2 (15 pts)}
-A seller is selling a single object. There are $N$ bidders. Each bidder $i$ has an i.i.d value $v_i$ drawn from a distribution $F$ with support $[0,M]$.
+  A seller is selling a single object. There are $N$ bidders. Each bidder $i$ has an i.i.d value $v_i$ drawn from a distribution $F$ with support $[0,M]$.
 
-Let $OPT(N)$ be the expected revenue from the optimal auction with $N$ bidders. Let $S(N+1)$ denote the expected revenue from a second-price auction with $N+1$ bidders.
-\begin{enumerate}
-    \item[(a)] Prove that $S(N+1) \geq OPT(N)$.
-    \item[(b)] Interpret the result in (a). What does it mean? What is the takeaway?
-\end{enumerate}
+  Let $OPT(N)$ be the expected revenue from the optimal auction with $N$ bidders. Let $S(N+1)$ denote the expected revenue from a second-price auction with $N+1$ bidders.
+  \begin{enumerate}
+      \item[(a)] Prove that $S(N+1) \geq OPT(N)$.
+      \item[(b)] Interpret the result in (a). What does it mean? What is the takeaway?
+  \end{enumerate}
 
 \section*{Question 3: Correlated Values (10 pts)}
-There are two bidders with private values $v_i \in \{1,2\}$. The values are correlated:
-\begin{itemize}
-    \item Probability $\frac{1}{3}$: both bidders have a value of 1.
-    \item Probability $\frac{1}{3}$: both bidders have a value of 2.
-    \item Probability $\frac{1}{6}$: one has 2, the other has 1.
-\end{itemize}
-\begin{enumerate}
-    \item[(a)] Suppose the auctioneer runs a second-price auction with random tie-breaking. Is truthful bidding still weakly dominant? Find expected revenue and bidder surplus.
-    \item[(b)] Construct an allocation and transfer rule that extracts full surplus while keeping the allocation rule unchanged.
-\end{enumerate}
+  There are two bidders with private values $v_i \in \{1,2\}$. The values are correlated:
+  \begin{itemize}
+      \item Probability $\frac{1}{3}$: both bidders have a value of 1.
+      \item Probability $\frac{1}{3}$: both bidders have a value of 2.
+      \item Probability $\frac{1}{6}$: one has 2, the other has 1.
+  \end{itemize}
+  \begin{enumerate}
+      \item[(a)] Suppose the auctioneer runs a second-price auction with random tie-breaking. Is truthful bidding still weakly dominant? Find expected revenue and bidder surplus.
+      \item[(b)] Construct an allocation and transfer rule that extracts full surplus while keeping the allocation rule unchanged.
+  \end{enumerate}
 
 \section*{Question 4 (25 pts)}
-This question involves the Principal-Agent problem we examined in Lecture.
+  This question involves the Principal-Agent problem we examined in Lecture.
 
-The principal (seller) sells a quantity $x \geq 0$ of a good for payment $t$. The cost function is $c(x)$. The agent’s utility is $v(x, \theta) - t$, where $\theta$ is private information.
-\begin{enumerate}
-    \item[(a)] Write down the seller’s optimization problem (objective, IC, and IR constraints).
-    \item[(b)] Rewrite the constraints using ICFOC and monotonicity.
-    \item[(c)] Solve for the optimal mechanism (menu/contract).
-    \item[(d)] Under what conditions on $v(x,\theta)$ does marginal markup decrease?
-    \item[(e)] Show that constant marginal cost implies quantity discounting.
-    \item[(f)] Suppose $v(x, \theta) = \theta \gamma(x)$. Show that a power-law distributed $\theta$ leads to a two-part tariff.
-\end{enumerate}
+  The principal (seller) sells a quantity $x \geq 0$ of a good for payment $t$. The cost function is $c(x)$. The agent’s utility is $v(x, \theta) - t$, where $\theta$ is private information.
+  \begin{enumerate}
+      \item[(a)] Write down the seller’s optimization problem (objective, IC, and IR constraints).
+      \item[(b)] Rewrite the constraints using ICFOC and monotonicity.
+      \item[(c)] Solve for the optimal mechanism (menu/contract).
+      \item[(d)] Under what conditions on $v(x,\theta)$ does marginal markup decrease?
+      \item[(e)] Show that constant marginal cost implies quantity discounting.
+      \item[(f)] Suppose $v(x, \theta) = \theta \gamma(x)$. Show that a power-law distributed $\theta$ leads to a two-part tariff.
+  \end{enumerate}
 
+\section{Solution 3:}
+  \subsection{(a)}
+    To verify that bidding truthfully is weakly dominant, let's go through the cases in which a bidder would overbid or underbid. First, let's consider the case of an overbidding agent. The agent with value $v_i$ shades up their bid such that $b_i>v_i$. If $b_i>b_{-i}$, the agent gets utility via winning, but because they paid more than their value, they lose more utility than they gain. Thus, this is not ideal. Next, in the case of a bidder under-bidding, if they bid $b_i<v_i$, they do not win the item and were not optimally bidding. Thus, the better option is to bid truthfully, implying it is still a weakly dominant strategy.
+    Expected revenue and surplus of an auction in which bidders bid truthfully is as follows:
+    \begin{gather*}
+      \mathbb{E}[r] = (\frac{1}{3}\times1) + (\frac{1}{3}\times2) +
+      (\frac{1}{3}\times1) = \frac{4}{3} \\ 
+      \mathbb{E}[s] = (\frac{1}{3}\times0) + (\frac{1}{3}\times0) +
+      (\frac{1}{3}\times1) = \frac{1}{3} \\
+    \end{gather*}
+    Expected revenue is calculated by multiplying the probability of having a certain value by the payment associated with that value. This leads to an expected revenue of $\frac{4}{3}$. Expected surplus is calculated by subtracting the transfer from the value, then multiplying each value by its probability. This leads to an expected surplus of $\frac{1}{3}$.
+  \subsection{(b)}
+    
 \end{document}
