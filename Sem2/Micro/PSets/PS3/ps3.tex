@@ -67,17 +67,65 @@
       \item[(f)] Suppose $v(x, \theta) = \theta \gamma(x)$. Show that a power-law distributed $\theta$ leads to a two-part tariff.
   \end{enumerate}
 
-\section{Solution 3:}
-  \subsection{(a)}
+\section*{Solution 1:}
+  \subsection*{(a)}
+    \begin{gather*}
+      {\max\atop{x(v),t(v)}}\mathbb{E}[\sum\limits_{i=1}^N t_i(v)]
+    \end{gather*}
+    subject to the IC constraint of truthful bidding
+    \begin{gather*}
+      v_ix_i(v_i) - t_i(v_i) \geq v_ix_i(v_i')-t_i(v_i'), \ \forall v_i,v_i'
+    \end{gather*}
+    and IR constraint of non-negativity
+    \begin{gather*}
+      v_ix_i(v_i)-t_i(v_i)\geq0, \ \forall v_i
+    \end{gather*}
+  \subsection*{(b)}
+    \begin{gather*}
+      {\max\atop{v_i'}}[v_ix_i(v_i')-t_i(v_i')] \\
+    \end{gather*}
+    However, from the IC condition above, truth telling is optimal as $v_ix_i(v_i) - t_i(v_i) \geq v_ix_i(v_i')-t_i(v_i'), \ \forall v_i,v_i'$
+  \subsection*{(c)}
+    \begin{gather*}
+      U_i(v_i) = v_ix_i(v_i) - t_i(v_i) \\
+      \frac{\partial U_i}{\partial v_i} = x_i(v_i) \\
+      \shortintertext{When we integrate from the lower bound $v_0$} \\
+      U_iv_i = U_i(v_0) + \int\limits_{v_0}^{v_i}x_i(s)ds \\
+      \shortintertext{The IR condition states that at the lower bound, $U_i\geq0$.} \\
+      t_i(v_i) = v_ix_i(v_i) - \int\limits_{v_0}^{v_i}x_i(s)ds \\
+    \end{gather*}
+  \subsection*{(c)}
+    \begin{gather*}
+      \phi(v_i) = v_i - \frac{1-F(v_i)}{f(v_i)} \\
+    \end{gather*}
+    Optimal allocation is as such
+    \begin{gather*}
+      x^*(v_i) = \begin{cases}
+        1, & if\phi(v_i)\geq \phi^* \\
+        0, & otherwise \\
+      \end{cases}
+    \end{gather*}
+  \subsection*{(e)}
+    The auction is a second price auction which also employs a reserve price.
+\section*{Solution 2:}
+  \subsection*{(a)}
+    \begin{proof}
+      Revenue equivalence is the idea that under standard assumptions, any efficient auction will yield the same expected revenue. For the second price auction, this leads to $S(N+1) = \mathbb{E}[\text{second highest of N+1 bidders}]$. Further, $OPT(N)$  
+    \end{proof}
+  \subsection*{(b)}
+    As competition increases, so too does expected revenue. 
+
+\section*{Solution 3:}
+  \subsection*{(a)}
     To verify that bidding truthfully is weakly dominant, let's go through the cases in which a bidder would overbid or underbid. First, let's consider the case of an overbidding agent. The agent with value $v_i$ shades up their bid such that $b_i>v_i$. If $b_i>b_{-i}$, the agent gets utility via winning, but because they paid more than their value, they lose more utility than they gain. Thus, this is not ideal. Next, in the case of a bidder under-bidding, if they bid $b_i<v_i$, they do not win the item and were not optimally bidding. Thus, the better option is to bid truthfully, implying it is still a weakly dominant strategy.
     Expected revenue and surplus of an auction in which bidders bid truthfully is as follows:
     \begin{gather*}
       \mathbb{E}[r] = (\frac{1}{3}\times1) + (\frac{1}{3}\times2) +
       (\frac{1}{3}\times1) = \frac{4}{3} \\ 
       \mathbb{E}[s] = (\frac{1}{3}\times0) + (\frac{1}{3}\times0) +
-      (\frac{1}{3}\times1) = \frac{1}{3} \\
+      (\frac{1}{6}\times1) = \frac{1}{6} \\
     \end{gather*}
-    Expected revenue is calculated by multiplying the probability of having a certain value by the payment associated with that value. This leads to an expected revenue of $\frac{4}{3}$. Expected surplus is calculated by subtracting the transfer from the value, then multiplying each value by its probability. This leads to an expected surplus of $\frac{1}{3}$.
+    Expected revenue is calculated by multiplying the probability of having a certain value by the payment associated with that value. This leads to an expected revenue of $\frac{4}{3}$. Expected surplus is calculated by subtracting the transfer from the value, then multiplying each value by its probability. This leads to an expected surplus of $\frac{1}{6}$.
   \subsection{(b)}
-    
+    Setting an entry price of $\frac{1}{6}$ will maximize surplus and revenue in expectation. This is because, in expectation, the entry fee comes out and thus the expectation remains the same, granting the expected revenue and surplus found above plus an entry fee of the expected surplus, thus incentivizing agents to participate still.
 \end{document}
