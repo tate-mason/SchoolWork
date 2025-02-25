@@ -100,5 +100,29 @@ The consumer’s endowment $y_t$ is i.i.d. with values $y_H$ and $y_L$ occurring
     \end{gather*}
 \section*{Solution 2:} 
   \subsection{Part (i)}
-    
+    \begin{gather*}
+      \sum\limits_{t=0}^{\infty}\beta^t[-\frac{1}{2}(c_t -
+      \bar{c})^2] \\
+      \shortintertext{s.t.} \\
+      c_t + a_{t+1} = (1+r)a_t + y_t \\
+      \shortintertext{Dynamic Programming is as follows:} \\
+      V(a_t,y_t) = {\max\atop{c_t,a_{t+1}}}\{-\frac{1}{2}(c_t - \bar{c})^2 + \beta\mathbb{E}_t[V(a_{t+1},y_{t+1})]\} \\
+      \shortintertext{Because the utility is quadratic and $\beta(1+r) = 1$, we know the Euler is as follows:} \\
+      c_t = \mathbb{E}_t[c_{t+1}] \\
+      \shortintertext{Plugging in from the constraint,} \\
+      c_t = \mathbb{E}[y_t] + (1+r)\mathbb{E}[a_t] - \mathbb{E}[a_{t+1}] \\
+      \shortintertext{Expectations can be represented as follows:}
+      \mathbb{E}[y_t] = p_Hy_H + p_Ly_L \\
+      \mathbb{E}[a_{t+1}] = a_t \ \text{smoothes consumption due to instability of income} \\
+      \shortintertext{From the FOC w.r.t to $a_{t+1}$} \\
+      c_t - \bar{c} = \mathbb{E}_t[c_{t+1}-\bar{c}] \\
+      c_t = \bar{c} + (1+r)a_t + y_t - a_t \\
+      c_t = \bar{c} + ra_t + y_t \\
+      \shortintertext{This is the consumption function when there is no borrowing constraint and infinite lifetime. Let's find the saving function below.} \\
+      a_{t+1} = (1+r)a_t + y_t - c_t \\
+      a_{t+1} = (1+r)a_t + y_t - (\bar{c}+ra_t+y_t) \\
+      a_{t+1} = a_t - \bar{c} \\
+      \shortintertext{This is the optimal savings function in the case of no borrowing constraint and infinite lifetime.}
+    \end{gather*}
+    The savings function states that depending on the consumer's state of assets, they will either save or borrow. This depends on the relationship between $\bar{c}$ and $a_t$. When $a_t>\bar{c}$, the agent will consume more as they do not have to worry about their savings. In the opposite case, they will save more, trying to replenish their savings.
 \end{document}
