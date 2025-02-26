@@ -99,7 +99,7 @@ The consumer’s endowment $y_t$ is i.i.d. with values $y_H$ and $y_L$ occurring
       c_t + k_{t+1} + x_t = wz_tl_t + DI\mathbbm{1}_{D = 1 or fake = 1} + k_t(1+r)
     \end{gather*}
 \section*{Solution 2:} 
-  \subsection*{Part (i)}
+  \subsection{Part (i)}
     \begin{gather*}
       \sum\limits_{t=0}^{\infty}\beta^t[-\frac{1}{2}(c_t -
       \bar{c})^2] \\
@@ -126,23 +126,10 @@ The consumer’s endowment $y_t$ is i.i.d. with values $y_H$ and $y_L$ occurring
     \end{gather*}
     Now, we can see that the agent will consume based on their assets and expected income. This is to be expected and standard. However, their savings function will depend on assets and the difference between actual and expected consumption. If $y_t > \mathbb{E}_t[y_t]$, the agent will save, trying to bolster savings to smooth consumption in periods of lower income. When $y_t < \mathbb{E}_t[y_t]$, the agent will borrow, again attempting to smooth consumption due to their lower income. 
   \subsection*{Parts (ii-iv)}
+  Here are plots for the associated parts:
+  \includegraphics*{VFI.png}
 
-  Outputs from code are as follows:
-
-  VFI converged after 1644 iterations, diff = 1.16e-10
-
-  Unconstrained VFI converged after 2000 iterations, diff = 1.00e+00
-
-  Borrowing constraint was binding in 1.00\% of periods.
-
-  Here are plots for the associated parts (sorry for poor quality i do not know why this is the case):
-
-  \begin{centering}
-  \includegraphics*[width=18cm]{VFI.png}
-
-    \includegraphics*[width=18cm]{SIM.png}
-  \end{centering}
-
+  \includegraphics*{SIM.png}
     \definecolor{dkgreen}{rgb}{0,0.6,0}
     \definecolor{gray}{rgb}{0.5,0.5,0.5}
     \definecolor{mauve}{rgb}{0.58,0,0.82}
