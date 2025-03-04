@@ -1,0 +1,51 @@
+---
+title: Problem Set 3
+author: Tate Mason
+output: pdf
+---
+
+# Question 3.16
+
+$R^2_2 \geq R^2_1$ given the second regression includes a second explanatory term, $X_2\hat{\beta}^2$. Because of this augmentation of the regression model, the second regression necessarily holds as much as explanatory power as the first. In the case in which $\hat{\beta}_2 = 0$, the regressions are equivalent, and thus $R^2_2 = R^2_1$.
+
+# Question 3.24
+
+First, we will need to load the necessary packages
+```{r}
+library(dplyr)
+library(haven)
+library(tidyverse)
+```
+
+Next, we will load in the dataset
+```{r}
+df <- read_dta('~/SchoolWork/Sem2/Metrics/PSets/PS3/cps09mar.dta')
+head(df)
+```
+
+## Part A
+
+Estimating equation 3.49, computing the $R^2$ and SSE
+
+First, let's manipulate the dataset as shown in the text
+```{r}
+df <- read_dta('cps09mar.dta')
+sample <- (df[,11]==4)&(df[,12]==7)&(df[,2]==0)
+df2 <- df[sample,]
+```
+Now, we can start crafting our regression
+
+```{r}
+y <- as.matrix(log(df2[,5]/(df2[,6]*df2[,7])))
+exp <- df2[,1]-df2[,4]-6
+exp2 <- (exp^2)/100
+x <- data.matrix(cbind(df2[,4], exp, exp2, rep(1, nrow(df2))))
+xx <- t(x) %*% x
+xy <- t(x) %*% y
+beta <- solve(xx,xy)
+print(beta)
+```
+Then, we can calculate $R^2$ and the sum of squared errors
+
+```{r}
+```
