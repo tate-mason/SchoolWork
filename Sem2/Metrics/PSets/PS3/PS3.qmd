@@ -1,0 +1,38 @@
+---
+title: Problem Set 3
+author: Tate Mason
+date: today
+output: pdf
+---
+
+# Question 1 - Hansen 3.16
+
+# Question 2 - Hansen 3.24
+
+## Part A
+
+## Part B
+
+## Part C
+
+# Question 3 - Hansen 3.25
+
+# Question 4 - Hansen 4.6
+
+# Question 5 - Hansen 7.7
+
+## Part A
+
+## Part B
+
+## Part C
+
+# Question 6 - Hansen 7.14
+
+## Part A
+
+## Part B
+
+## Part C
+
+# Question 7 - Hansen 7.28 (part (a) only)
