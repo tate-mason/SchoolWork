@@ -21,7 +21,7 @@ gamma=(1+r)^(1/(k-1));
 step1=(yvec(1)-min)*(gamma-1)/r;
 n=floor(1+log(amax*(gamma-1)/step1+1)/log(gamma));
 f=@(x)step1*(gamma.^(x-1)-1)/(gamma-1);
-agrid=f(1:n)
+agrid=f(1:n);
 
 % VFI Params %
 tol = 1e-10;
@@ -38,11 +38,11 @@ copt = zeros(n,2);
 jopt = zeros(n,2);
 
 % VFI %
-while diff > tol && iter<maxiter
+while diff>tol & iter<maxiter
   iter = iter + 1;
-  diff = 0;
+  diff = 0.0;
   for i = 1:n
-    ai = agrid(i)
+    ai = agrid(i);
     for m = 1:2
       if m == 1
         ym = yL;
@@ -51,7 +51,7 @@ while diff > tol && iter<maxiter
       end
       res = (1+r)*ai + ym;
       max_val = -Inf;
-      opt_index = 1
+      opt_index = 1;
       for j = 1:n
         a_next = agrid(j);
         if a_next > res
@@ -75,28 +75,28 @@ while diff > tol && iter<maxiter
   diff = max(abs(v1-v0));
   v0 = v1;
 end
-fprint('VFI converged after %d iterations, diff = %2.2e\n', count, diff);
+fprintf('VFI converged after %d iterations, diff = %2.2e\n', iter, diff);
 
 % Unconstrained
 
 % Definition of unconstrained grid
-agrid_UC = -2:01:10;
-nUC = length(agrid_free);
+agrid_UC = -2:0.1:10;
+nUC = length(agrid_UC);
 
 % initialize params
-vUC0 = zeros(nU,2);
-vUC1 = zeros(nU,2);
-aopt_UC = zeros(nU,2);
-copt_UC = zeros(nU,2);
-jopt_UC = zeros(nU,2);
+vUC0 = zeros(nUC,2);
+vUC1 = zeros(nUC,2);
+aopt_UC = zeros(nUC,2);
+copt_UC = zeros(nUC,2);
+jopt_UC = zeros(nUC,2);
 
 % VFI init
 tol = 1e-10;
 maxiter = 2000;
-diff = 1;
+diffv = 1;
 iter = 0;
 
-while diff > tol && iter<maxiter
+while diffv > tol && iter<maxiter
   iter = iter+1;
   diffv = 0;
   for i = 1:nUC
@@ -109,8 +109,8 @@ while diff > tol && iter<maxiter
       end
       res = (1+r)*ai + ym;
       max_val = -Inf;
-      opt_index = 1
-      for j = 1:n
+      opt_index = 1;
+      for j = 1:nUC
         a_next = agrid_UC(j);
         if a_next > res
           break;
@@ -127,13 +127,13 @@ while diff > tol && iter<maxiter
     vUC1(i,m) = max_val;
     jopt_UC(i,m) = opt_index;
     aopt_UC(i,m) = agrid_UC(opt_index);
-    copt_UC(i,m) = res-aopt_UC(i,m);
+    copt_UC(i,m) = res-agrid_UC(opt_index);
     end
   end
   diffUC = max(abs(vUC1-vUC0));
   vUC0 = vUC1;
 end
-fprint('Unconstrained VFI converged after %d iterations, diff = %2.2e\n', count, diff);
+fprintf('Unconstrained VFI converged after %d iterations, diff = %2.2e\n', iter, diff);
 
 figure;
 subplot(2,2,1);
@@ -169,7 +169,7 @@ c_un = zeros(T,1);
 
 %% Constrained
 a_con = zeros(T+1, 1);
-c_con = zeros(T,1)
+c_con = zeros(T,1);
 
 rng(1);
 
@@ -181,14 +181,14 @@ for t = 1:T
     y_t = yH;
     y_i = 2;
   end
-  %% UC
-  diff = abs(agrid_UC - a_un(t));
-  [minval, iU] = min(diff);
-  a_un(t+1) = aopt_UC(iU, yindex);
-  c_un(t) = copt_UC(iU, yindex);
+ % %% UC
+  %diffUC = abs(agrid_UC - a_un(t));
+  %[minval, iu] = min(diffUC);
+  %a_un(t+1) = aopt_UC(iU, y_i);
+  %c_un(t) = copt_UC(iU, y_i);
   %% C
-  a_sim(t+1)=interp1(agrid,aopt(:,(y_sim(t)==yH)+1), a_sim(t), 'linear','extrap');
-  c_sim(t)=interp1(agrid, copt(:,(y_sim(t)==yH)+1), a_sim(t), 'linear', 'extrap');
+  a_sim(t+1)=interp1(agrid,aopt(:,(y_t==yH)+1), a_con(t), 'linear','extrap');
+  c_sim(t)=interp1(agrid, copt(:,(y_t==yH)+1), a_con(t), 'linear', 'extrap');
 end
 
 figure('Name', 'Simulation', 'NumberTitle', 'off');

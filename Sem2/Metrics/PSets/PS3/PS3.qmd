@@ -1,0 +1,10 @@
+---
+title: Problem Set 3
+author: Tate Mason
+date: today
+output: pdf
+---
+
+# Question 1 - Hansen 3.16
+
+
