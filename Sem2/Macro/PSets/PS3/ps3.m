@@ -38,7 +38,11 @@ copt = zeros(n,2);
 jopt = zeros(n,2);
 
 % VFI %
+<<<<<<< HEAD
 while diff>tol & iter<maxiter
+=======
+while diff > tol & iter<maxiter
+>>>>>>> origin/main
   iter = iter + 1;
   diff = 0.0;
   for i = 1:n
@@ -80,7 +84,11 @@ fprintf('VFI converged after %d iterations, diff = %2.2e\n', iter, diff);
 % Unconstrained
 
 % Definition of unconstrained grid
+<<<<<<< HEAD
 agrid_UC = -2:0.1:10;
+=======
+agrid_UC = -2:01:10;
+>>>>>>> origin/main
 nUC = length(agrid_UC);
 
 % initialize params
@@ -167,20 +175,26 @@ T = 100;
 a_un = zeros(T+1,1);
 c_un = zeros(T,1);
 
-%% Constrained
 a_con = zeros(T+1, 1);
 c_con = zeros(T,1);
+<<<<<<< HEAD
+=======
+
+a_un(1) = 0;
+a_con(1) = 0;
+>>>>>>> origin/main
 
 rng(1);
 
 for t = 1:T
   if rand < pL
-    y_t = yL;
-    y_i = 1;
+    y_t(t) = yL;
+    yi = 1;
   else
-    y_t = yH;
-    y_i = 2;
+    y_t(t) = yH;
+    yi = 2;
   end
+<<<<<<< HEAD
  % %% UC
   %diffUC = abs(agrid_UC - a_un(t));
   %[minval, iu] = min(diffUC);
@@ -189,22 +203,39 @@ for t = 1:T
   %% C
   a_sim(t+1)=interp1(agrid,aopt(:,(y_t==yH)+1), a_con(t), 'linear','extrap');
   c_sim(t)=interp1(agrid, copt(:,(y_t==yH)+1), a_con(t), 'linear', 'extrap');
+=======
+  
+  a_un(t+1) = agrid_UC(i) + y_t(t) - mean(y_t);
+  c_un(t) = (1+r)*agrid_UC(i) + y_t(t) - a_un(t+1);
+
+  a_con(t+1) = interp1(agrid, aopt(:, (y_t(t)==yH)+1), a_un(t), 'linear', 'extrap');
+  c_con(t) = interp1(agrid, copt(:, (y_t(t)==yH)+1), a_un(t), 'linear', 'extrap');
+>>>>>>> origin/main
 end
+% --- Plot Simulated Assets and Consumption ---
+figure('Name', 'Simulation Results', 'NumberTitle', 'off');
 
-figure('Name', 'Simulation', 'NumberTitle', 'off');
+% Asset Plot
 subplot(2,1,1);
-plot(1:T, a_un(2:end), 'b-o', 1:T, a_con(2:end), 'r--o', 'LineWidth',1);
-xlabel('Time');ylabel('a_{t+1}');
-title('Simulated Assets');
+plot(1:T, a_un(2:end), 'b-o', 'LineWidth',1); hold on;
+plot(1:T, a_con(2:end), 'r-', 'LineWidth',1);
+xlabel('Time');
+ylabel('Assets');
+title('Simulated Asset Path');
+legend('Unconstrained', 'Constrained', 'Location', 'best');
 grid on;
 
+% Consumption Plot
 subplot(2,1,2);
-plot(1:T, c_un, 'b-o', 1:T, c_con, 'r--o','LineWidth',1);
-xlabel('Time');ylabel('c_t');
-title('Simulated Consumption');
+plot(1:T, c_un, 'b-o', 'LineWidth',1); hold on;
+plot(1:T, c_con, 'r-', 'LineWidth',1);
+xlabel('Time');
+ylabel('Consumption');
+title('Simulated Consumption Path');
+legend('Unconstrained', 'Constrained', 'Location', 'best');
 grid on;
 
-% Count of how often constraint binds
-bind = sum(abs(a_con(2:end))<1e-10);
-pctbind = (100*bind)/T;
+% --- Compute Constraint Binding Frequency ---
+bind = sum(abs(a_con(2:end)) < 1e-10);
+pctbind = (100 * bind) / T;
 fprintf('Borrowing constraint was binding in %.2f%% of periods.\n', pctbind);

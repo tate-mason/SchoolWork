@@ -1,0 +1,543 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>ps3</title>
+<meta name="generator" content="MATLAB 24.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-02-26">
+<meta name="DC.source" content="ps3.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#2">Unconstrained</a>
+</li>
+</ul>
+</div>
+<pre class="codeinput">
+<span class="comment">% Solving Consumer's Problem %</span>
+clear;
+clc;
+
+<span class="comment">% Definition of Parameters %</span>
+r = 0.02;
+beta = 1/(1+r);
+cbar = 100;
+yL = 0.05;
+yH = 0.5;
+pL = 0.6;
+pH = 0.4;
+
+<span class="comment">% Bringing in Agrid %</span>
+r=0.02;
+yvec=[0.05,0.5];
+min=0.0001;
+amax=2;
+k=20;
+gamma=(1+r)^(1/(k-1));
+step1=(yvec(1)-min)*(gamma-1)/r;
+n=floor(1+log(amax*(gamma-1)/step1+1)/log(gamma));
+f=@(x)step1*(gamma.^(x-1)-1)/(gamma-1);
+agrid=f(1:n);
+
+<span class="comment">% VFI Params %</span>
+tol = 1e-10;
+maxiter = 2000;
+diff = 999.0;
+iter = 0;
+
+<span class="comment">% Init Matrices %</span>
+n = length(agrid);
+v0 = zeros(n,2);
+v1 = zeros(n,2);
+aopt = zeros(n,2);
+copt = zeros(n,2);
+jopt = zeros(n,2);
+
+<span class="comment">% VFI %</span>
+<span class="keyword">while</span> diff &gt; tol &amp; iter&lt;maxiter
+  iter = iter + 1;
+  diff = 0;
+  <span class="keyword">for</span> i = 1:n
+    ai = agrid(i);
+    <span class="keyword">for</span> m = 1:2
+      <span class="keyword">if</span> m == 1
+        ym = yL;
+      <span class="keyword">else</span>
+        ym = yH;
+      <span class="keyword">end</span>
+      res = (1+r)*ai + ym;
+      max_val = -Inf;
+      opt_index = 1;
+      <span class="keyword">for</span> j = 1:n
+        a_next = agrid(j);
+        <span class="keyword">if</span> a_next &gt; res
+          <span class="keyword">break</span>;
+        <span class="keyword">end</span>
+        c = res - a_next;
+        u = -0.5*(c-cbar)^2;
+        EV = beta*(pL*v0(j,1) + pH*v0(j,2));
+        val = u+EV;
+        <span class="keyword">if</span> val &gt; max_val
+          max_val = val;
+          opt_index = j;
+        <span class="keyword">end</span>
+      <span class="keyword">end</span>
+    v1(i,m) = max_val;
+    jopt(i,m) = opt_index;
+    aopt(i,m) = agrid(opt_index);
+    copt(i,m) = res-aopt(i,m);
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+  diff = max(abs(v1-v0));
+  v0 = v1;
+<span class="keyword">end</span>
+fprintf(<span class="string">'VFI converged after %d iterations, diff = %2.2e\n'</span>, iter, diff);
+
+<span class="comment">% Unconstrained</span>
+
+<span class="comment">% Definition of unconstrained grid</span>
+agrid_UC = -2:01:10;
+nUC = length(agrid_UC);
+
+<span class="comment">% initialize params</span>
+vUC0 = zeros(nUC,2);
+vUC1 = zeros(nUC,2);
+aopt_UC = zeros(nUC,2);
+copt_UC = zeros(nUC,2);
+jopt_UC = zeros(nUC,2);
+
+<span class="comment">% VFI init</span>
+tol = 1e-10;
+maxiter = 2000;
+diff = 1;
+iter = 0;
+
+<span class="keyword">while</span> diff &gt; tol &amp;&amp; iter&lt;maxiter
+  iter = iter+1;
+  diffv = 0;
+  <span class="keyword">for</span> i = 1:nUC
+    ai = agrid_UC(i);
+    <span class="keyword">for</span> m = 1:2
+      <span class="keyword">if</span> m == 1
+        y_m = yL;
+      <span class="keyword">else</span>
+        y_m = yH;
+      <span class="keyword">end</span>
+      res = (1+r)*ai + ym;
+      max_val = -Inf;
+      opt_index = 1;
+      <span class="keyword">for</span> j = 1:nUC
+        a_next = agrid_UC(j);
+        <span class="keyword">if</span> a_next &gt; res
+          <span class="keyword">break</span>;
+        <span class="keyword">end</span>
+        cUC = res - a_next;
+        u = -0.5*(cUC-cbar)^2;
+        EV = beta*(pL*v0(j,1) + pH*v0(j,2));
+        val = u+EV;
+        <span class="keyword">if</span> val &gt; max_val
+          max_val = val;
+          opt_index = j;
+        <span class="keyword">end</span>
+      <span class="keyword">end</span>
+    vUC1(i,m) = max_val;
+    jopt_UC(i,m) = opt_index;
+    aopt_UC(i,m) = agrid_UC(opt_index);
+    copt_UC(i,m) = res-aopt_UC(i,m);
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+  diffUC = max(abs(vUC1-vUC0));
+  vUC0 = vUC1;
+<span class="keyword">end</span>
+fprintf(<span class="string">'Unconstrained VFI converged after %d iterations, diff = %2.2e\n'</span>, iter, diff);
+
+figure;
+subplot(2,2,1);
+plot(agrid_UC, aopt_UC(:,1), <span class="string">'b-'</span>, agrid, aopt(:,1), <span class="string">'k--'</span>);
+title(<span class="string">'Assets Policy Function (yL)'</span>);
+xlabel(<span class="string">'Current Assets'</span>);
+ylabel(<span class="string">'Next Period Assets'</span>);
+
+subplot(2,2,2);
+plot(agrid_UC, copt_UC(:,1), <span class="string">'b-'</span>, agrid, copt(:,1), <span class="string">'k--'</span>);
+title(<span class="string">'Consumption Policy Function (yL)'</span>);
+xlabel(<span class="string">'Current Assets'</span>);
+ylabel(<span class="string">'Consumption'</span>);
+
+subplot(2,2,3);
+plot(agrid_UC, aopt_UC(:,2), <span class="string">'b-'</span>, agrid, aopt(:,1), <span class="string">'k--'</span>);
+title(<span class="string">'Assets Policy Function (yH)'</span>);
+xlabel(<span class="string">'Current Assets'</span>);
+ylabel(<span class="string">'Next Period Assets'</span>);
+
+subplot(2,2,4);
+plot(agrid_UC, copt_UC(:,2), <span class="string">'r-'</span>, agrid, copt(:,2), <span class="string">'k--'</span>);
+title(<span class="string">'Consumption Policy Function (yH)'</span>);
+xlabel(<span class="string">'Current Assets'</span>);
+ylabel(<span class="string">'Consumption'</span>);
+
+<span class="comment">% Simulations %</span>
+</pre>
+<pre class="codeoutput">VFI converged after 1644 iterations, diff = 1.16e-10
+VFI converged after 8.731149e-11 iterations, diff = Unconstrained VFI converged after 2000 iterations, diff = 1.00e+00
+</pre>
+<img vspace="5" hspace="5" src="ps3_01.png" alt=""> <h2 id="2">Unconstrained</h2>
+<pre class="codeinput">T = 100;
+a_un = zeros(T+1,1);
+c_un = zeros(T,1);
+
+a_con = zeros(T+1, 1);
+c_con = zeros(T,1);
+
+a_un(1) = 0;
+a_con(1) = 0;
+
+rng(1);
+
+<span class="keyword">for</span> t = 1:T
+  <span class="keyword">if</span> rand &lt; pL
+    y_t(t) = yL;
+    yi = 1;
+  <span class="keyword">else</span>
+    y_t(t) = yH;
+    yi = 2;
+  <span class="keyword">end</span>
+
+  a_un(t+1) = agrid_UC(i) + y_t(t) - mean(y_t);
+  c_un(t) = (1+r)*agrid_UC(i) + y_t(t) - a_un(t+1);
+
+  a_con(t+1) = interp1(agrid, aopt(:, (y_t(t)==yH)+1), a_un(t), <span class="string">'linear'</span>, <span class="string">'extrap'</span>);
+  c_con(t) = interp1(agrid, copt(:, (y_t(t)==yH)+1), a_un(t), <span class="string">'linear'</span>, <span class="string">'extrap'</span>);
+<span class="keyword">end</span>
+<span class="comment">% --- Plot Simulated Assets and Consumption ---</span>
+figure(<span class="string">'Name'</span>, <span class="string">'Simulation Results'</span>, <span class="string">'NumberTitle'</span>, <span class="string">'off'</span>);
+
+<span class="comment">% Asset Plot</span>
+subplot(2,1,1);
+plot(1:T, a_un(2:end), <span class="string">'b-o'</span>, <span class="string">'LineWidth'</span>,1); hold <span class="string">on</span>;
+plot(1:T, a_con(2:end), <span class="string">'r-'</span>, <span class="string">'LineWidth'</span>,1);
+xlabel(<span class="string">'Time'</span>);
+ylabel(<span class="string">'Assets'</span>);
+title(<span class="string">'Simulated Asset Path'</span>);
+legend(<span class="string">'Unconstrained'</span>, <span class="string">'Constrained'</span>, <span class="string">'Location'</span>, <span class="string">'best'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% Consumption Plot</span>
+subplot(2,1,2);
+plot(1:T, c_un, <span class="string">'b-o'</span>, <span class="string">'LineWidth'</span>,1); hold <span class="string">on</span>;
+plot(1:T, c_con, <span class="string">'r-'</span>, <span class="string">'LineWidth'</span>,1);
+xlabel(<span class="string">'Time'</span>);
+ylabel(<span class="string">'Consumption'</span>);
+title(<span class="string">'Simulated Consumption Path'</span>);
+legend(<span class="string">'Unconstrained'</span>, <span class="string">'Constrained'</span>, <span class="string">'Location'</span>, <span class="string">'best'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% --- Compute Constraint Binding Frequency ---</span>
+bind = sum(abs(a_con(2:end)) &lt; 1e-10);
+pctbind = (100 * bind) / T;
+fprintf(<span class="string">'Borrowing constraint was binding in %.2f%% of periods.\n'</span>, pctbind);
+</pre>
+<pre class="codeoutput">Borrowing constraint was binding in 1.00% of periods.
+</pre>
+<img vspace="5" hspace="5" src="ps3_02.png" alt=""> <img vspace="5" hspace="5" src="ps3_03.png" alt=""> <p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+% Solving Consumer's Problem %
+clear;
+clc;
+
+% Definition of Parameters %
+r = 0.02;
+beta = 1/(1+r);
+cbar = 100;
+yL = 0.05;
+yH = 0.5;
+pL = 0.6;
+pH = 0.4;
+
+% Bringing in Agrid %
+r=0.02;
+yvec=[0.05,0.5];
+min=0.0001;
+amax=2;
+k=20;
+gamma=(1+r)^(1/(k-1));
+step1=(yvec(1)-min)*(gamma-1)/r;
+n=floor(1+log(amax*(gamma-1)/step1+1)/log(gamma));
+f=@(x)step1*(gamma.^(x-1)-1)/(gamma-1);
+agrid=f(1:n);
+
+% VFI Params %
+tol = 1e-10;
+maxiter = 2000;
+diff = 999.0;
+iter = 0;
+
+% Init Matrices %
+n = length(agrid);
+v0 = zeros(n,2);
+v1 = zeros(n,2);
+aopt = zeros(n,2);
+copt = zeros(n,2);
+jopt = zeros(n,2);
+
+% VFI %
+while diff > tol & iter<maxiter
+  iter = iter + 1;
+  diff = 0;
+  for i = 1:n
+    ai = agrid(i);
+    for m = 1:2
+      if m == 1
+        ym = yL;
+      else 
+        ym = yH;
+      end
+      res = (1+r)*ai + ym;
+      max_val = -Inf;
+      opt_index = 1;
+      for j = 1:n
+        a_next = agrid(j);
+        if a_next > res
+          break;
+        end
+        c = res - a_next;
+        u = -0.5*(c-cbar)^2;
+        EV = beta*(pL*v0(j,1) + pH*v0(j,2));
+        val = u+EV;
+        if val > max_val
+          max_val = val;
+          opt_index = j;
+        end
+      end
+    v1(i,m) = max_val;
+    jopt(i,m) = opt_index;
+    aopt(i,m) = agrid(opt_index);
+    copt(i,m) = res-aopt(i,m);
+    end
+  end
+  diff = max(abs(v1-v0));
+  v0 = v1;
+end
+fprintf('VFI converged after %d iterations, diff = %2.2e\n', iter, diff);
+
+% Unconstrained
+
+% Definition of unconstrained grid
+agrid_UC = -2:01:10;
+nUC = length(agrid_UC);
+
+% initialize params
+vUC0 = zeros(nUC,2);
+vUC1 = zeros(nUC,2);
+aopt_UC = zeros(nUC,2);
+copt_UC = zeros(nUC,2);
+jopt_UC = zeros(nUC,2);
+
+% VFI init
+tol = 1e-10;
+maxiter = 2000;
+diff = 1;
+iter = 0;
+
+while diff > tol && iter<maxiter
+  iter = iter+1;
+  diffv = 0;
+  for i = 1:nUC
+    ai = agrid_UC(i);
+    for m = 1:2
+      if m == 1
+        y_m = yL;
+      else
+        y_m = yH;
+      end
+      res = (1+r)*ai + ym;
+      max_val = -Inf;
+      opt_index = 1;
+      for j = 1:nUC
+        a_next = agrid_UC(j);
+        if a_next > res
+          break;
+        end
+        cUC = res - a_next;
+        u = -0.5*(cUC-cbar)^2;
+        EV = beta*(pL*v0(j,1) + pH*v0(j,2));
+        val = u+EV;
+        if val > max_val
+          max_val = val;
+          opt_index = j;
+        end
+      end
+    vUC1(i,m) = max_val;
+    jopt_UC(i,m) = opt_index;
+    aopt_UC(i,m) = agrid_UC(opt_index);
+    copt_UC(i,m) = res-aopt_UC(i,m);
+    end
+  end
+  diffUC = max(abs(vUC1-vUC0));
+  vUC0 = vUC1;
+end
+fprintf('Unconstrained VFI converged after %d iterations, diff = %2.2e\n', iter, diff);
+
+figure;
+subplot(2,2,1);
+plot(agrid_UC, aopt_UC(:,1), 'b-', agrid, aopt(:,1), 'kREPLACE_WITH_DASH_DASH');
+title('Assets Policy Function (yL)');
+xlabel('Current Assets');
+ylabel('Next Period Assets');
+
+subplot(2,2,2);
+plot(agrid_UC, copt_UC(:,1), 'b-', agrid, copt(:,1), 'kREPLACE_WITH_DASH_DASH');
+title('Consumption Policy Function (yL)');
+xlabel('Current Assets');
+ylabel('Consumption');
+
+subplot(2,2,3);
+plot(agrid_UC, aopt_UC(:,2), 'b-', agrid, aopt(:,1), 'kREPLACE_WITH_DASH_DASH');
+title('Assets Policy Function (yH)');
+xlabel('Current Assets');
+ylabel('Next Period Assets');
+
+subplot(2,2,4);
+plot(agrid_UC, copt_UC(:,2), 'r-', agrid, copt(:,2), 'kREPLACE_WITH_DASH_DASH');
+title('Consumption Policy Function (yH)');
+xlabel('Current Assets');
+ylabel('Consumption');
+
+% Simulations %
+
+%% Unconstrained
+T = 100;
+a_un = zeros(T+1,1);
+c_un = zeros(T,1);
+
+a_con = zeros(T+1, 1);
+c_con = zeros(T,1);
+
+a_un(1) = 0;
+a_con(1) = 0;
+
+rng(1);
+
+for t = 1:T
+  if rand < pL
+    y_t(t) = yL;
+    yi = 1;
+  else
+    y_t(t) = yH;
+    yi = 2;
+  end
+  
+  a_un(t+1) = agrid_UC(i) + y_t(t) - mean(y_t);
+  c_un(t) = (1+r)*agrid_UC(i) + y_t(t) - a_un(t+1);
+
+  a_con(t+1) = interp1(agrid, aopt(:, (y_t(t)==yH)+1), a_un(t), 'linear', 'extrap');
+  c_con(t) = interp1(agrid, copt(:, (y_t(t)==yH)+1), a_un(t), 'linear', 'extrap');
+end
+% REPLACE_WITH_DASH_DASH- Plot Simulated Assets and Consumption REPLACE_WITH_DASH_DASH-
+figure('Name', 'Simulation Results', 'NumberTitle', 'off');
+
+% Asset Plot
+subplot(2,1,1);
+plot(1:T, a_un(2:end), 'b-o', 'LineWidth',1); hold on;
+plot(1:T, a_con(2:end), 'r-', 'LineWidth',1);
+xlabel('Time');
+ylabel('Assets');
+title('Simulated Asset Path');
+legend('Unconstrained', 'Constrained', 'Location', 'best');
+grid on;
+
+% Consumption Plot
+subplot(2,1,2);
+plot(1:T, c_un, 'b-o', 'LineWidth',1); hold on;
+plot(1:T, c_con, 'r-', 'LineWidth',1);
+xlabel('Time');
+ylabel('Consumption');
+title('Simulated Consumption Path');
+legend('Unconstrained', 'Constrained', 'Location', 'best');
+grid on;
+
+% REPLACE_WITH_DASH_DASH- Compute Constraint Binding Frequency REPLACE_WITH_DASH_DASH-
+bind = sum(abs(a_con(2:end)) < 1e-10);
+pctbind = (100 * bind) / T;
+fprintf('Borrowing constraint was binding in %.2f%% of periods.\n', pctbind);
+##### SOURCE END #####
+-->
+</body>
+</html>

@@ -70,54 +70,80 @@
 \section*{Solution 1:}
   \subsection*{(a)}
     \begin{gather*}
-      {\max\atop{x(v),t(v)}}\mathbb{E}[\sum\limits_{i=1}^N t_i(v)]
-    \end{gather*}
-    subject to the IC constraint of truthful bidding
-    \begin{gather*}
-      v_ix_i(v_i) - t_i(v_i) \geq v_ix_i(v_i')-t_i(v_i'), \ \forall v_i,v_i'
-    \end{gather*}
-    and IR constraint of non-negativity
-    \begin{gather*}
-      v_ix_i(v_i)-t_i(v_i)\geq0, \ \forall v_i
+      {\max\atop{x(\cdot)}}\mathbb{E}[\sum\limits_{i=1}^N t_i(v)]
+      \shortintertext{s.t.} \\
+      \shortintertext{I.C.} u_i(v) \geq u_i(\hat{v}) \ \forall i \\
+      \shortintertext{I.R.} u_i(v) \geq 0 \ \forall i \\
     \end{gather*}
   \subsection*{(b)}
     \begin{gather*}
-      {\max\atop{v_i'}}[v_ix_i(v_i')-t_i(v_i')] \\
-    \end{gather*}
-    However, from the IC condition above, truth telling is optimal as $v_ix_i(v_i) - t_i(v_i) \geq v_ix_i(v_i')-t_i(v_i'), \ \forall v_i,v_i'$
-  \subsection*{(c)}
-    \begin{gather*}
-      U_i(v_i) = v_ix_i(v_i) - t_i(v_i) \\
-      \frac{\partial U_i}{\partial v_i} = x_i(v_i) \\
-      \shortintertext{When we integrate from the lower bound $v_0$} \\
-      U_iv_i = U_i(v_0) + \int\limits_{v_0}^{v_i}x_i(s)ds \\
-      \shortintertext{The IR condition states that at the lower bound, $U_i\geq0$.} \\
-      t_i(v_i) = v_ix_i(v_i) - \int\limits_{v_0}^{v_i}x_i(s)ds \\
+      \shortintertext{The constraints can be written as solutions as follows:} \\
+      \shortintertext{IC:} \\
+      u(\hat{v}) = u(\underline{v}) + \int\limits_{\underline{0}}^{\bar{v}}\frac{\partial v(x(w),w)}{\partial v} dw \\
+      \shortintertext{IR:} \\
+      t_i(v_i,v_{-i}) v_ix_i(v_i,v_{-i}) - \int\limits_{0}^{v_i}\frac{\partial v(x(w),w)}{\partial v}dw \\
     \end{gather*}
   \subsection*{(c)}
+    Using the envelope theorem and the given properties that $x_i(\cdot)$ 
+    is non-decreasing in $v_i$ and that $u_i(0) = 0$ given by the IR 
+    constraint, we can do the following,
     \begin{gather*}
-      \phi(v_i) = v_i - \frac{1-F(v_i)}{f(v_i)} \\
+      t_i(v_i) = v_i(x_i(v_i, v_{-i})) - \int\limits_0^{v_i}x_i(w)dw \\
+      \shortintertext{By law of iterated expectation,} \\
+      \mathbb{E}[t_i(v_i)] =\int_0^M[v_ix_i(v_i,v_{-i}) - \int_0^{v_i}x_i(w)dw]f(v_i)dv_i \\
+      \shortintertext{Now, we will split this into two pieces and go by parts} \\
+      \int_0^Mv_ix_i(v_i,v_{-i})f(v_i)dv_i - 
+      \int_0^M(\int_0^{v_i}x_i(w)dw)f(v_i)dv_i \\
+      \shortintertext{Using the law of integrated integrals on the second term,} \\
+      \int_0^Mx_i(w)[\int_{v_i=w}^Mf(v_i)dv_i]dw \\
+      = \int_0^Mx_i(w)[1-F(w)]dw \\
+      \shortintertext{Now, let's rejoin the terms,} \\
+      \mathbb{E}[t_i(v_i)] = \int_0^Mv_ix_i(v_i,v_{-i})f(v_i)dv_i -
+      \int_0^Mx_i(w)[1-F(w)]dw \\
+      \shortintertext{Next, we should sum over the entire bidder 
+      distribution,} \\
+      \sum^N_{i=1}\mathbb{E}[t_i(v_i)] = 
+      \sum^N_{i=1}\int_0^Mx_i(v_i, v_{-i})[v_i - \frac{1-
+      F(v_i)}{f(v_i)}]f(v_i)dv_i \\
+      \shortintertext{Using pointwise maximization,} \\
+      {\max\atop{x(\cdot)}}\sum^N_{i=1}\int_0^Mx_i(v_i, v_{-i})[v_i - 
+      \frac{1-F(v_i)}{f(v_i)}] \\
+    \end{gather*}
+  \subsection*{(d)}
+    \begin{gather*}
+      x_i^*(v_i) = v_i - \frac{1-F(v_i)}{f(v_i)} \\
+      v^* = \frac{1-F(v_i)}{f(v_i)} \\
     \end{gather*}
     Optimal allocation is as such
     \begin{gather*}
       x^*(v_i) = \begin{cases}
-        1, & if\phi(v_i)\geq \phi^* \\
+        1, & if v_i\geq v^* \\
         0, & otherwise \\
       \end{cases}
     \end{gather*}
   \subsection*{(e)}
-    The auction is a second price auction which also employs a reserve price.
+    The auction is a second price auction which also employs a reserve 
+    price, the surplus. This is also known as Myerson's Optimal Auction.
 \section*{Solution 2:}
   \subsection*{(a)}
     \begin{proof}
-      Revenue equivalence is the idea that under standard assumptions, any efficient auction will yield the same expected revenue. For the second price auction, this leads to $S(N+1) = \mathbb{E}[\text{second highest of N+1 bidders}]$. Further, $OPT(N)$  
+      $S(N+1)$ has an expected revenue equal to the second highest bid, $\mathbb{E}[V^{(2)}]$. From problem 1, we found that the optimal allocation was 
+      $V^{(1)}\geq v^*$. This states that the highest bid needs to be higher than the reserve price of the auction, the surplus. So, we can represent 
+      expected revenue as $\mathbb{E}[\max\{V^{(1)},v^*\}]$. Or it is the highest bid, greater than the reserve price, leading to a second highest bid 
+      $V^{(1)} > V^{(2)}$ being paid. Otherwise, $v^*$ is paid. Because adding a bidder will drive up prices, $\mathbb{E}[V^{(2)}] \geq
+      \mathbb{E}[\max\{V^{(1)}, v^*\}]$. Thus, by extension, $S(N+1) \geq OPT(N)$. 
     \end{proof}
   \subsection*{(b)}
-    As competition increases, so too does expected revenue. 
+    As competition increases, so too does expected revenue. Thus, we can say that as $N$ gets larger, it is optimal to hold a pure second price auction. As $N$ gets smaller, the reserve price modification becomes more beneficial. 
 
 \section*{Solution 3:}
   \subsection*{(a)}
-    To verify that bidding truthfully is weakly dominant, let's go through the cases in which a bidder would overbid or underbid. First, let's consider the case of an overbidding agent. The agent with value $v_i$ shades up their bid such that $b_i>v_i$. If $b_i>b_{-i}$, the agent gets utility via winning, but because they paid more than their value, they lose more utility than they gain. Thus, this is not ideal. Next, in the case of a bidder under-bidding, if they bid $b_i<v_i$, they do not win the item and were not optimally bidding. Thus, the better option is to bid truthfully, implying it is still a weakly dominant strategy.
+    To verify that bidding truthfully is weakly dominant, let's go through the cases in which a bidder would overbid or underbid. First, let's consider the case 
+    of an overbidding agent. The agent with value $v_i$ shades up their bid such that $b_i>v_i$. If $b_i>b_{-i}$, the agent gets utility via winning, but 
+    because they paid more than their value, they lose more utility than they gain. Thus, this is not ideal. Next, in the case of a bidder under-bidding, if 
+    they bid $b_i<v_i$, they do not win the item and were not optimally bidding. Thus, the better option is to bid truthfully, implying it is still a weakly 
+    dominant strategy.
+
     Expected revenue and surplus of an auction in which bidders bid truthfully is as follows:
     \begin{gather*}
       \mathbb{E}[r] = (\frac{1}{3}\times1) + (\frac{1}{3}\times2) +
@@ -125,7 +151,95 @@
       \mathbb{E}[s] = (\frac{1}{3}\times0) + (\frac{1}{3}\times0) +
       (\frac{1}{6}\times1) = \frac{1}{6} \\
     \end{gather*}
-    Expected revenue is calculated by multiplying the probability of having a certain value by the payment associated with that value. This leads to an expected revenue of $\frac{4}{3}$. Expected surplus is calculated by subtracting the transfer from the value, then multiplying each value by its probability. This leads to an expected surplus of $\frac{1}{6}$.
-  \subsection{(b)}
-    Setting an entry price of $\frac{1}{6}$ will maximize surplus and revenue in expectation. This is because, in expectation, the entry fee comes out and thus the expectation remains the same, granting the expected revenue and surplus found above plus an entry fee of the expected surplus, thus incentivizing agents to participate still.
+    Expected revenue is calculated by multiplying the probability of having a certain value by the payment associated with that value. This leads to an expected 
+    revenue of $\frac{4}{3}$. Expected surplus is calculated by subtracting the transfer from the value, then multiplying each value by its probability. This 
+    leads to an expected surplus of $\frac{1}{6}$.
+  \subsection*{(b)}
+    Setting an entry price of $\frac{1}{6}$ will maximize surplus and revenue in expectation. This is because, in expectation, the entry fee comes out and thus 
+    the expectation remains the same, granting the expected revenue and surplus found above plus an entry fee of the expected surplus, thus incentivizing agents 
+    to participate still.
+\section*{Solution 4:}
+  \subsection*{(a)}
+    \begin{gather*}
+      {\max\atop{x(\cdot),t(\cdot)}}\mathbb{E}[t(\theta) - c(x(\theta))] \\
+      \shortintertext{s.t.} \\
+      v(x(\theta),\theta) - t(\theta) \geq v(x(\hat{\theta}),\theta) - t(\hat{\theta}) \ \forall \ \theta,\hat{\theta}\in[\underline{\theta},\bar{\theta}] \\
+      v(x(\theta),\theta) - t(\theta)\geq 0 \forall \ \forall \ \theta\in[\underline{\theta},\bar{\theta}] \\
+    \end{gather*}
+  \subsection*{(b)}
+    \begin{gather*}
+      \Phi(\hat{\theta},\theta) = v(x(\hat{\theta}),\theta) - t(\hat{\theta}) \\
+      U(\theta) = \Phi(\theta,\theta) \\
+      \shortintertext{$\Phi$ has the property of being differentiable almost everywhere in $\theta$. $U(\theta)$ is differentiable almost everywhere} \\
+      U'(\hat{\theta}) = \frac{\partial \Phi(\hat{\theta},\hat{\theta})}{\partial\theta} = \frac{\partial v(x(\hat{\theta}),\hat{\theta})}{\partial\theta} \\
+      U(\hat{\theta}) = U(\underline(\theta)) + \int\limits_{\underline{\theta}}^{\bar{\theta}} = v(x(\theta),\theta) - 
+      \int\limits_{\underline{\theta}}^{\bar{\theta}}v_{\theta}(x(w),w)dw \\
+      \shortintertext{So, the seller's maximization problem can be 
+      expressed as follows:} \\
+      \max\int\limits_0^{\bar{\theta}}[t(\theta) - 
+      c(x(\theta))]f(\theta)d\theta \\
+      \shortintertext{s.t.} \\
+      t(\theta) = U(\underline{\theta}) - 
+      \int\limits_{\underline{\theta}}^{\bar{\theta}}x(w)dw \\
+      U(\underline{\theta}) = 0 \\
+      x(\cdot) \text{is non-decreasing}
+    \end{gather*}
+  \subsection*{(c)}
+    \begin{gather*}
+      \max\int\limits_0^{\bar{\theta}}[t(\theta) - 
+      c(x(\theta))]f(\theta)d\theta \\
+      \shortintertext{s.t.} \\
+      t(\theta) = U(\underline{\theta}) - 
+      \int\limits_{\underline{\theta}}^{\bar{\theta}}x(w)dw \\
+      U(\underline{\theta}) = 0 \\
+      x(\cdot) \text{is non-decreasing} \\
+    \end{gather*}
+    Dropping the monotonicity constraint, we can set up a relaxed form of the problem s.t.
+    \begin{gather*}
+      v(x,\theta) - t(\theta) = 
+      \int\limits_{\underline{\theta}}^{\theta}\frac{\partial v(x(w),
+      w)}{\partial\theta}dw \\
+      t(\theta) = v(x,\theta) -
+      \int\limits_{\underline{\theta}}^{\theta}\frac{\partial v(x(w),
+      w)}{\partial\theta}dw \\
+    \end{gather*}
+    Now, we can restate the maximization as follows
+    \begin{gather*}
+      \max{\atop{x(),t()}}\int\limits_0^M[v(x,\theta) - 
+      \int\limits_0^{\theta}\frac{\partial v(x(w),
+      w)}{\partial\theta}dw - c(x(\theta))] f(\theta)d\theta \\
+      \shortintertext{Rearranging and using integration by parts:} \\
+      \int\limits_0^M[v(x,\theta) - c(x(\theta))]f(\theta)d\theta - \int
+      \limits_0^Mf(\theta)\int\limits_0^{\theta}\frac{\partial v(x(w),w)}
+      {\partial\theta}dwd\theta \\
+      F(\theta)\int\limits_0^M\frac{\partial v(x(w), w)}{\partial\theta}d\theta -\int\limits_0^M f(\theta)\frac{\partial v(x(w),w)}{\partial\theta}dwd\theta \\
+      \shortintertext{Now, merging back into a single integral,} \\
+      {\max\atop{x}}\int\limits_0^M[v(x(\theta),\theta)-c(x(\theta)) - 
+      \frac{1-F(\theta)}{f(\theta)}\frac{\partial v(x(w),w)}{\partial\theta}]f(\theta)d\theta \\
+      \shortintertext{Now, maximizing the integral, we can find that} \\
+      c'_x(x(\theta)) = v'(x(\theta),\theta) - \frac{1- 
+      F(\theta)}{f(\theta)}v''_{\theta x}(x(\theta),\theta)
+    \end{gather*}
+  \subsection*{(d)}
+    The two conditions to satisfy a decreasing marginal markup are such that $v(x(\theta),\theta)$ should be non-decreasing and concave. 
+    \begin{proof}
+      $t'(x) - c'(x) = v'_{\theta}(x(\theta),\theta) + \frac{1-F(\theta)}{f(\theta)}v_{\theta x}''(x(\theta),\theta)$. For the function to be decreasing it must be the case that $v'_{\theta}(x(\theta),\theta)\geq0$ and $v''_{\theta x}(x(\theta),\theta)\leq0$. These are true when $v(x(\theta),\theta)$ is concave and non-decreasing, thus ensuring a decreasing marginal markup. 
+    \end{proof}
+  \subsection*{(e)} 
+    \begin{gather*}
+      t'(x) - c'(x) \ \text{is decreasing in x} \\
+      t'(x) - \bar{c} \ \text{is also decreasing in x} \\
+      \Rightarrow t'(x) \ \text{must be decreasing in x} \\
+    \end{gather*}
+    This implies that as $x$ increases, marginal trasnfer per unit decreases, showing quantity discounting. 
+  \subsection*{(f)}
+    As found in previous sections, when $v$ is concave and non-decreasing,
+    \begin{gather*}
+      t'(x)-c'(x) = v_{\theta}'(x(\theta),\theta) - \frac{1-
+      F(\theta)}{f(\theta)}v''_{\theta x}(x(\theta),\theta) \\
+      \therefore \ t'(x) - \bar{c} = \gamma(x) - \frac{1 - (1-\theta^{-
+      \delta})}{\delta\theta^{-\delta-1}}\gamma'(x) \\
+      t'(x) = \gamma(x) - \frac{1}{\delta}\gamma'(x) + \bar{c} \\
+    \end{gather*}
+    Thus, we can see that transfers hold both a component that varies with $x$, and a term which linearly increases in $x$. This is a definition of a two-part tariff.
 \end{document}
