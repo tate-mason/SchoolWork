@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tate Mason">
-<meta name="dcterms.date" content="2025-03-08">
+<meta name="dcterms.date" content="2025-03-09">
 
 <title>Problem Set 3</title>
 <style>
@@ -127,7 +127,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 8, 2025</p>
+      <p class="date">March 9, 2025</p>
     </div>
   </div>
   
@@ -374,22 +374,122 @@ Attaching package: 'dplyr'</code></pre>
 </section>
 <section id="part-c-2" class="level2">
 <h2 class="anchored" data-anchor-id="part-c-2">Part C</h2>
+<p>We will go about this much the same way as above. <span class="math inline">\(\sqrt{n}(\hat{\beta} - \beta) = \sqrt{n}((X^TX)^{-1}X^T(X^T\beta+e+u)-\beta)\)</span>. This can be expanded as such <span class="math inline">\(\sqrt{n}((X^TX)^{-1}X^Te + (X^TX)^{-1}X^Tu)\)</span>. As in the book, let <span class="math inline">\(Q = plim(\frac{X^TX}{n})\)</span>. By central limit theorem, <span class="math inline">\(\sqrt{n}(\hat{\beta}-\beta) {d\atop\rightarrow} N(0,Q^{-1}\Omega Q^{-1})\)</span> s.t. <span class="math inline">\(\Omega = plim(\frac{1}{n}X^T(e+u)(e+u)^TX)\)</span>. Since <span class="math inline">\(e\)</span> and <span class="math inline">\(u\)</span> are i.i.d error terms, we can say that <span class="math inline">\(var(u) = \sigma_u^2\)</span> and <span class="math inline">\(var(e) = \sigma_e^2\)</span>. Simplifying our <span class="math inline">\(\Omega\)</span> term, we have that <span class="math inline">\(\Omega = plim(\frac{1}{n}X^t(ee^T + uu^T)X) = Q(\sigma_e^2 + \sigma_u^2)\)</span>. So, <span class="math inline">\(\sqrt{n}(\hat{\beta} - \beta) {d\atop\rightarrow}N(0, Q^{-1}(\sigma_e^2 + \sigma_u^2))\)</span>. Thus, the distribution of <span class="math inline">\(\sqrt{n}(\hat{\beta}-\beta)\)</span> as n approaches <span class="math inline">\(\infty\)</span> is normal with mean 0 and variance <span class="math inline">\(Q^{-1}(\sigma_e^2 + \sigma_u^2)\)</span>.</p>
 </section>
 </section>
 <section id="question-6---hansen-7.14" class="level1">
 <h1>Question 6 - Hansen 7.14</h1>
 <section id="part-a-3" class="level2">
 <h2 class="anchored" data-anchor-id="part-a-3">Part A</h2>
+<p><span class="math inline">\(\hat{\theta} = \hat{\beta_1}\hat{\beta_2}\)</span> given <span class="math inline">\(\theta = \beta_1\beta_2\)</span>. This is appropriate as <span class="math inline">\(\hat{\beta}_1, \hat{\beta}_2\)</span> are the OLS estimators of <span class="math inline">\(Y\)</span> on <span class="math inline">\(X_1, X_2\)</span>, respectively.</p>
 </section>
 <section id="part-b-3" class="level2">
 <h2 class="anchored" data-anchor-id="part-b-3">Part B</h2>
+<p>Under standard conditions, <span class="math inline">\(\sqrt{n}(\hat{\beta} - \beta) {d\atop\rightarrow} N(0,\Sigma)\)</span> s.t. <span class="math inline">\(\hat{\beta} = (\hat{\beta}_1, \hat{\beta}_2)^T, \beta = (\beta_1, \beta_2)^T\)</span> and <span class="math inline">\(\Sigma\)</span> is the asymptotic covariance matrix of the OLS estimators. Using the delta method s.t. <span class="math inline">\(g(\beta_1,\beta_2) = \beta_1\beta_2\)</span>, we have that <span class="math inline">\(\nabla g(\beta) = (\frac{\partial g}{\partial\beta_1}, \frac{\partial g}{\partial \beta_2}) = (\beta_2,\beta_1)\)</span>. Further, the asymptotic distribution of estimator <span class="math inline">\(\hat{\theta}\)</span> is <span class="math inline">\(\sqrt{n}(\hat{\theta}-\theta) {d\atop\rightarrow} N(0, \nabla g(\beta)^T\Sigma\nabla g(\beta))\)</span>. Now, substituting in, <span class="math inline">\(\sqrt{n}(\hat{\theta}-\theta) {d\atop\rightarrow} N(0, \beta_2^2\sigma_{11} + 2\beta_1\beta_2\sigma_{12} + \beta_1^2\sigma_{22})\)</span>. Such that <span class="math inline">\(\sigma_{11}, \sigma_{22}, \sigma_{12}\)</span> are the asymptotic variance of <span class="math inline">\(\hat{\beta}_1\)</span>, <span class="math inline">\(\hat{\beta}_2\)</span>, and covariance between <span class="math inline">\(\hat{\beta}_1, \hat{\beta}_2\)</span>. Therefore, <span class="math inline">\(\hat{\theta}\)</span> is asymptotically normal with mean 0 and variance <span class="math inline">\(\frac{1}{n}(\beta_2^2\sigma_{11} + 2\beta_1\beta_2\sigma_{12} + \beta_1^2\sigma_{22})\)</span>.</p>
 </section>
 <section id="part-c-3" class="level2">
 <h2 class="anchored" data-anchor-id="part-c-3">Part C</h2>
+<p><span class="math inline">\(\hat{\theta} \pm 1.96\times\sqrt{\hat{\beta}_2^2\hat{\sigma}_{11} + 2\hat{\beta}_1\hat{\beta}_2\hat{\sigma}_{12} + \hat{\beta}_1\hat{\sigma}_{22}}\)</span>. This provides a range of plausible values for true parameter <span class="math inline">\(\theta = \beta_1\beta_2\)</span> based on the estimated variances of <span class="math inline">\(\hat{\beta}_1, \hat{\beta}_2\)</span>, <span class="math inline">\(\hat{\sigma}_{11}, \hat{\sigma}_{22}\)</span> and covariance <span class="math inline">\(\hat{\sigma}_{12}\)</span>.</p>
 </section>
 </section>
 <section id="question-7---hansen-7.28-part-a-only" class="level1">
 <h1>Question 7 - Hansen 7.28 (part (a) only)</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">'~/SchoolWork/Sem2/Metrics/PSets/PS3/cps09mar.dta'</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> (dat[,<span class="dv">11</span>]<span class="sc">==</span><span class="dv">9</span>)<span class="sc">&amp;</span>(dat[,<span class="dv">2</span>]<span class="sc">==</span><span class="dv">0</span>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> dat[sample,]</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">log</span>(df[,<span class="dv">5</span>]<span class="sc">/</span>(df[,<span class="dv">6</span>]<span class="sc">*</span>df[,<span class="dv">7</span>])))</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>exp <span class="ot">&lt;-</span> df[,<span class="dv">1</span>]<span class="sc">-</span>df[,<span class="dv">4</span>]<span class="sc">-</span><span class="dv">6</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>exp2 <span class="ot">&lt;-</span> (exp<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="dv">100</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>x_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">education =</span> df[,<span class="dv">4</span>],</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">experience =</span> exp,</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">exp_squared =</span> exp2,</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">intercept =</span> <span class="dv">1</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(x_df)</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>xx <span class="ot">&lt;-</span> <span class="fu">t</span>(x)<span class="sc">%*%</span>x</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>xy <span class="ot">&lt;-</span> <span class="fu">t</span>(x)<span class="sc">%*%</span>y</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">solve</span>(xx,xy)</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>fitted <span class="ot">&lt;-</span> x <span class="sc">%*%</span> beta</span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>resid <span class="ot">&lt;-</span> y <span class="sc">-</span> fitted</span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(x)</span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">ncol</span>(x)</span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>xx_inv <span class="ot">&lt;-</span> <span class="fu">solve</span>(<span class="fu">t</span>(x)<span class="sc">%*%</span>x)</span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> n<span class="sc">-</span>k</span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>hc0 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow=</span>k, <span class="at">ncol=</span>k)</span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>  xi <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x[i,], <span class="at">nrow=</span>k)</span>
+<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>  hc0 <span class="ot">&lt;-</span> hc0 <span class="sc">+</span> resid[i]<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> (xi <span class="sc">%*%</span> <span class="fu">t</span>(xi))</span>
+<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a>cov_hc0 <span class="ot">&lt;-</span> xx_inv <span class="sc">%*%</span> hc0 <span class="sc">%*%</span> xx_inv</span>
+<span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a>se_hc0 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(cov_hc0))</span>
+<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate HC1 (small sample correction)</span></span>
+<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a>cov_hc1 <span class="ot">&lt;-</span> cov_hc0 <span class="sc">*</span> (n<span class="sc">/</span>(n<span class="sc">-</span>k))</span>
+<span id="cb33-43"><a href="#cb33-43" aria-hidden="true" tabindex="-1"></a>se_hc1 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(cov_hc1))</span>
+<span id="cb33-44"><a href="#cb33-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-45"><a href="#cb33-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate HC2 (leverage adjustment)</span></span>
+<span id="cb33-46"><a href="#cb33-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the hat matrix diagonal (leverage values)</span></span>
+<span id="cb33-47"><a href="#cb33-47" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, n)</span>
+<span id="cb33-48"><a href="#cb33-48" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb33-49"><a href="#cb33-49" aria-hidden="true" tabindex="-1"></a>  h[i] <span class="ot">&lt;-</span> x[i,] <span class="sc">%*%</span> xx_inv <span class="sc">%*%</span> x[i,]</span>
+<span id="cb33-50"><a href="#cb33-50" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-51"><a href="#cb33-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-52"><a href="#cb33-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate HC2 </span></span>
+<span id="cb33-53"><a href="#cb33-53" aria-hidden="true" tabindex="-1"></a>hc2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow=</span>k, <span class="at">ncol=</span>k)</span>
+<span id="cb33-54"><a href="#cb33-54" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb33-55"><a href="#cb33-55" aria-hidden="true" tabindex="-1"></a>  xi <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x[i,], <span class="at">nrow=</span>k)</span>
+<span id="cb33-56"><a href="#cb33-56" aria-hidden="true" tabindex="-1"></a>  hc2 <span class="ot">&lt;-</span> hc2 <span class="sc">+</span> (resid[i]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>h[i])) <span class="sc">*</span> (xi <span class="sc">%*%</span> <span class="fu">t</span>(xi))</span>
+<span id="cb33-57"><a href="#cb33-57" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-58"><a href="#cb33-58" aria-hidden="true" tabindex="-1"></a>cov_hc2 <span class="ot">&lt;-</span> xx_inv <span class="sc">%*%</span> hc2 <span class="sc">%*%</span> xx_inv</span>
+<span id="cb33-59"><a href="#cb33-59" aria-hidden="true" tabindex="-1"></a>se_hc2 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(cov_hc2))</span>
+<span id="cb33-60"><a href="#cb33-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-61"><a href="#cb33-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate HC3 (more conservative leverage adjustment)</span></span>
+<span id="cb33-62"><a href="#cb33-62" aria-hidden="true" tabindex="-1"></a>hc3 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow=</span>k, <span class="at">ncol=</span>k)</span>
+<span id="cb33-63"><a href="#cb33-63" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb33-64"><a href="#cb33-64" aria-hidden="true" tabindex="-1"></a>  xi <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x[i,], <span class="at">nrow=</span>k)</span>
+<span id="cb33-65"><a href="#cb33-65" aria-hidden="true" tabindex="-1"></a>  hc3 <span class="ot">&lt;-</span> hc3 <span class="sc">+</span> (resid[i]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>((<span class="dv">1</span><span class="sc">-</span>h[i])<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">*</span> (xi <span class="sc">%*%</span> <span class="fu">t</span>(xi))</span>
+<span id="cb33-66"><a href="#cb33-66" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-67"><a href="#cb33-67" aria-hidden="true" tabindex="-1"></a>cov_hc3 <span class="ot">&lt;-</span> xx_inv <span class="sc">%*%</span> hc3 <span class="sc">%*%</span> xx_inv</span>
+<span id="cb33-68"><a href="#cb33-68" aria-hidden="true" tabindex="-1"></a>se_hc3 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(cov_hc3))</span>
+<span id="cb33-69"><a href="#cb33-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-70"><a href="#cb33-70" aria-hidden="true" tabindex="-1"></a>var_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Education"</span>, <span class="st">"Experience"</span>, <span class="st">"Experience Squared"</span>, <span class="st">"Intercept"</span>)</span>
+<span id="cb33-71"><a href="#cb33-71" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="cf">function</span>(coef, se) {</span>
+<span id="cb33-72"><a href="#cb33-72" aria-hidden="true" tabindex="-1"></a>  formatted <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.4f (%.4f)"</span>, coef, se)</span>
+<span id="cb33-73"><a href="#cb33-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(formatted)</span>
+<span id="cb33-74"><a href="#cb33-74" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-75"><a href="#cb33-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-76"><a href="#cb33-76" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
+<span id="cb33-77"><a href="#cb33-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(var_labels[i], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb33-78"><a href="#cb33-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"  Coefficient: "</span>, <span class="fu">sprintf</span>(<span class="st">"%.6f"</span>, beta[i]), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb33-79"><a href="#cb33-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"  Std. Error:  "</span>, <span class="fu">sprintf</span>(<span class="st">"%.6f"</span>, se_hc3[i]), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb33-80"><a href="#cb33-80" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Education 
+  Coefficient:  0.046560 
+  Std. Error:   0.066523 
+Experience 
+  Coefficient:  0.047109 
+  Std. Error:   0.036276 
+Experience Squared 
+  Coefficient:  -0.090884 
+  Std. Error:   0.084480 
+Intercept 
+  Coefficient:  2.031521 
+  Std. Error:   0.874656 </code></pre>
+</div>
+</div>
 </section>
 
 </main>

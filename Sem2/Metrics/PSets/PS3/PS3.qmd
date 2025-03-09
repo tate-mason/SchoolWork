@@ -174,6 +174,8 @@ cat("(f) Sum of squared residuals:", sum_resid_sq, "\n")
 
 # Question 4 - Hansen 4.6
 
+
+
 # Question 5 - Hansen 7.7
 
 ## Part A
@@ -186,14 +188,103 @@ $plim(\hat{\beta}) = plim((X^TX)^{-1}X^TY)$. As before, substituting for $Y$, $p
 
 ## Part C
 
-
+We will go about this much the same way as above. $\sqrt{n}(\hat{\beta} - \beta) = \sqrt{n}((X^TX)^{-1}X^T(X^T\beta+e+u)-\beta)$. This can be expanded as such $\sqrt{n}((X^TX)^{-1}X^Te + (X^TX)^{-1}X^Tu)$. As in the book, let $Q = plim(\frac{X^TX}{n})$. By central limit theorem, $\sqrt{n}(\hat{\beta}-\beta) {d\atop\rightarrow} N(0,Q^{-1}\Omega Q^{-1})$ s.t. $\Omega = plim(\frac{1}{n}X^T(e+u)(e+u)^TX)$. Since $e$ and $u$ are i.i.d error terms, we can say that $var(u) = \sigma_u^2$ and $var(e) = \sigma_e^2$. Simplifying our $\Omega$ term, we have that $\Omega = plim(\frac{1}{n}X^t(ee^T + uu^T)X) = Q(\sigma_e^2 + \sigma_u^2)$. So, $\sqrt{n}(\hat{\beta} - \beta) {d\atop\rightarrow}N(0, Q^{-1}(\sigma_e^2 + \sigma_u^2))$. Thus, the distribution of $\sqrt{n}(\hat{\beta}-\beta)$ as n approaches $\infty$ is normal with mean 0 and variance $Q^{-1}(\sigma_e^2 + \sigma_u^2)$.
 
 # Question 6 - Hansen 7.14
 
 ## Part A
 
+$\hat{\theta} = \hat{\beta_1}\hat{\beta_2}$ given $\theta = \beta_1\beta_2$. This is appropriate as $\hat{\beta}_1, \hat{\beta}_2$ are the OLS estimators of $Y$ on $X_1, X_2$, respectively.
+
 ## Part B
+
+Under standard conditions, $\sqrt{n}(\hat{\beta} - \beta) {d\atop\rightarrow} N(0,\Sigma)$ s.t. $\hat{\beta} = (\hat{\beta}_1, \hat{\beta}_2)^T, \beta = (\beta_1, \beta_2)^T$ and $\Sigma$ is the asymptotic covariance matrix of the OLS estimators. Using the delta method s.t. $g(\beta_1,\beta_2) = \beta_1\beta_2$, we have that $\nabla g(\beta) = (\frac{\partial g}{\partial\beta_1}, \frac{\partial g}{\partial \beta_2}) = (\beta_2,\beta_1)$. Further, the asymptotic distribution of estimator $\hat{\theta}$ is $\sqrt{n}(\hat{\theta}-\theta) {d\atop\rightarrow} N(0, \nabla g(\beta)^T\Sigma\nabla g(\beta))$. Now, substituting in, $\sqrt{n}(\hat{\theta}-\theta) {d\atop\rightarrow} N(0, \beta_2^2\sigma_{11} + 2\beta_1\beta_2\sigma_{12} + \beta_1^2\sigma_{22})$. Such that $\sigma_{11}, \sigma_{22}, \sigma_{12}$ are the asymptotic variance of $\hat{\beta}_1$, $\hat{\beta}_2$, and covariance between $\hat{\beta}_1, \hat{\beta}_2$. Therefore, $\hat{\theta}$ is asymptotically normal with mean 0 and variance $\frac{1}{n}(\beta_2^2\sigma_{11} + 2\beta_1\beta_2\sigma_{12} + \beta_1^2\sigma_{22})$. 
 
 ## Part C
 
+$\hat{\theta} \pm 1.96\times\sqrt{\hat{\beta}_2^2\hat{\sigma}_{11} + 2\hat{\beta}_1\hat{\beta}_2\hat{\sigma}_{12} + \hat{\beta}_1\hat{\sigma}_{22}}$. This provides a range of plausible values for true parameter $\theta = \beta_1\beta_2$ based on the estimated variances of $\hat{\beta}_1, \hat{\beta}_2$, $\hat{\sigma}_{11}, \hat{\sigma}_{22}$ and covariance $\hat{\sigma}_{12}$. 
+
 # Question 7 - Hansen 7.28 (part (a) only)
+
+```{r}
+rm(list = ls())
+
+library(haven)
+dat <- read_dta('~/SchoolWork/Sem2/Metrics/PSets/PS3/cps09mar.dta')
+sample <- (dat[,11]==9)&(dat[,2]==0)
+df <- dat[sample,]
+
+y <- as.matrix(log(df[,5]/(df[,6]*df[,7])))
+exp <- df[,1]-df[,4]-6
+exp2 <- (exp^2)/100
+
+x_df <- data.frame(
+  education = df[,4],
+  experience = exp,
+  exp_squared = exp2,
+  intercept = 1
+)
+x <- as.matrix(x_df)
+
+xx <- t(x)%*%x
+xy <- t(x)%*%y
+beta <- solve(xx,xy)
+
+fitted <- x %*% beta
+resid <- y - fitted
+
+n <- nrow(x)
+k <- ncol(x)
+xx_inv <- solve(t(x)%*%x)
+
+df <- n-k
+
+hc0 <- matrix(0, nrow=k, ncol=k)
+for (i in 1:n) {
+  xi <- matrix(x[i,], nrow=k)
+  hc0 <- hc0 + resid[i]^2 * (xi %*% t(xi))
+}
+cov_hc0 <- xx_inv %*% hc0 %*% xx_inv
+se_hc0 <- sqrt(diag(cov_hc0))
+
+# Calculate HC1 (small sample correction)
+cov_hc1 <- cov_hc0 * (n/(n-k))
+se_hc1 <- sqrt(diag(cov_hc1))
+
+# Calculate HC2 (leverage adjustment)
+# Compute the hat matrix diagonal (leverage values)
+h <- rep(0, n)
+for (i in 1:n) {
+  h[i] <- x[i,] %*% xx_inv %*% x[i,]
+}
+
+# Calculate HC2 
+hc2 <- matrix(0, nrow=k, ncol=k)
+for (i in 1:n) {
+  xi <- matrix(x[i,], nrow=k)
+  hc2 <- hc2 + (resid[i]^2/(1-h[i])) * (xi %*% t(xi))
+}
+cov_hc2 <- xx_inv %*% hc2 %*% xx_inv
+se_hc2 <- sqrt(diag(cov_hc2))
+
+# Calculate HC3 (more conservative leverage adjustment)
+hc3 <- matrix(0, nrow=k, ncol=k)
+for (i in 1:n) {
+  xi <- matrix(x[i,], nrow=k)
+  hc3 <- hc3 + (resid[i]^2/((1-h[i])^2)) * (xi %*% t(xi))
+}
+cov_hc3 <- xx_inv %*% hc3 %*% xx_inv
+se_hc3 <- sqrt(diag(cov_hc3))
+
+var_labels <- c("Education", "Experience", "Experience Squared", "Intercept")
+result <- function(coef, se) {
+  formatted <- sprintf("%.4f (%.4f)", coef, se)
+  return(formatted)
+}
+
+for (i in 1:k) {
+  cat(var_labels[i], "\n")
+  cat("  Coefficient: ", sprintf("%.6f", beta[i]), "\n")
+  cat("  Std. Error:  ", sprintf("%.6f", se_hc3[i]), "\n")
+}
+```
