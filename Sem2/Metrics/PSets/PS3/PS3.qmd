@@ -211,7 +211,7 @@ rm(list = ls())
 
 library(haven)
 dat <- read_dta('~/SchoolWork/Sem2/Metrics/PSets/PS3/cps09mar.dta')
-sample <- (dat[,11]==9)&(dat[,2]==0)
+sample <- (dat[,11]==1)&(dat[,2]==0)&(dat[,3]==1)
 df <- dat[sample,]
 
 y <- as.matrix(log(df[,5]/(df[,6]*df[,7])))
@@ -285,6 +285,6 @@ result <- function(coef, se) {
 for (i in 1:k) {
   cat(var_labels[i], "\n")
   cat("  Coefficient: ", sprintf("%.6f", beta[i]), "\n")
-  cat("  Std. Error:  ", sprintf("%.6f", se_hc3[i]), "\n")
+  cat("  Std. Error (Robust):  ", sprintf("%.6f", se_hc3[i]), "\n")
 }
 ```
