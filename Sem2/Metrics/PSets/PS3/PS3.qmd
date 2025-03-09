@@ -6,16 +6,171 @@ output: pdf
 ---
 
 # Question 1 - Hansen 3.16
+  For the first regression, let's first show that residuals such that $\tilde{e} = Y - X_1\tilde{\beta}_1$. Further, for the second, $\hat{e} = Y - X_1\hat{\beta}_1 - X_2\hat{\beta}_2$. Since the total sum of squares does not depend on the beta's, we will focus on the squared sum of residuals. $SSR_1 = \tilde{e}^T\tilde{e}$ and $SSR_2 = \hat{e}^T\hat{e}$. Further, $R^2_i = 1-(\frac{SSR_i}{SST})$. Because the second model includes the explanatory power of the first in the case of $\hat{\beta}_2 = 0$, as well as more when $\hat{\beta}_2 \ne 0$, $SSR_2 \leq SSR_1$. Because of this, $R_2^2 = 1 - (\frac{SSR_2}{SST}) \geq 1-(\frac{SSR_1}{SST}) = R^2_1$. The two are equal in the case when $\hat{\beta}_2 = 0$, or there is no omitted variable in the first regression.
 
 # Question 2 - Hansen 3.24
 
+```{r}
+library(haven)
+library(dplyr)
+```
+
+```{r}
+dat <- read_dta('~/SchoolWork/Sem2/Metrics/PSets/PS3/cps09mar.dta')
+sample <- (dat[,11]==4)&(dat[,12]==7)&(dat[,2]==0)
+df <- dat[sample,]
+y <- as.matrix(log(df[,5]/(df[,6]*df[,7])))
+exp <- df[,1]-df[,4]-6
+exp2 <- (exp^2)/100
+x_df <- data.frame(
+  education = df[,4],
+  experience = exp,
+  exp_squared = exp2,
+  intercept = 1
+)
+x <- as.matrix(x_df)
+xx <- t(x)%*%x
+xy <- t(x)%*%y
+beta <- solve(xx,xy)
+```
+
 ## Part A
+
+```{r}
+fit <- x %*% beta
+resid <- y - fit
+SST <- sum((y - mean(y))^2)
+SSE <- sum(resid^2)
+R2 <- 1 - (SSE/SST)
+cat("Part (a):\n")
+cat("R^2:", R2, "\n")
+cat("Sum of squared errors:", SSE, "\n\n")
+```
 
 ## Part B
 
+```{r}
+x1_df <- data.frame(
+  experience = exp,
+  exp_squared = exp2,
+  intercept = 1
+)
+x1 <- as.matrix(x1_df)
+xx1 <- t(x1)%*%x1
+xy1 <- t(x1)%*%y
+beta1 <- solve(xx1,xy1)
+fitted1 <- x1%*%beta1
+resid_lwage <- y - fitted1
+
+edu <- as.matrix(df[,4])
+xx2 <- t(x1) %*% x1
+xy2 <- t(x1) %*% edu
+beta2 <- solve(xx2,xy2)
+fitted2 <- x1 %*% beta2
+resid_edu <- edu - fitted2
+
+x3 <- cbind(resid_edu, rep(1,nrow(df)))
+xx3 <- t(x3)%*%x3
+xy3 <- t(x3)%*%resid_lwage
+betab <- solve(xx3, xy3)
+
+fittedb <- x3 %*% betab
+residb <- resid_lwage - fittedb
+
+SSTb <- sum((resid_lwage - mean(resid_lwage))^2)
+SSEb <- sum(residb^2)
+R2b <- 1 - (SSEb/SSTb)
+cat("Part (b):\n")
+cat("R^2:", R2b, "\n")
+cat("Sum of squared errors:", SSEb, "\n\n")
+```
+
 ## Part C
 
+While the SSE is equal in both approaches, the $R^2$ differs slightly. This is because in the first part, we are using $R^2$ to measure how much education, experience, and experience squared explain total variation in log wage. In the second, we are using residuals which will have smaller variation than the raw variable.
+
 # Question 3 - Hansen 3.25
+
+```{r}
+rm(list=ls())
+library(haven)
+dat <- read_dta('~/SchoolWork/Sem2/Metrics/PSets/PS3/cps09mar.dta')
+sample <- (dat[,11]==4)&(dat[,12]==7)&(dat[,2]==0)
+df <- dat[sample,]
+
+y <- as.matrix(log(df[,5]/(df[,6]*df[,7])))
+exp <- df[,1]-df[,4]-6
+exp2 <- (exp^2)/100
+
+x_df <- data.frame(
+  education = df[,4],
+  experience = exp,
+  exp_squared = exp2,
+  intercept = 1
+)
+x <- as.matrix(x_df)
+
+xx <- t(x)%*%x
+xy <- t(x)%*%y
+beta <- solve(xx,xy)
+
+fitted <- x %*% beta
+resid <- y - fitted
+
+x1 <- as.matrix(df[,4])
+x2 <- as.matrix(exp)
+x1_sq <- x1^2
+x2_sq <- x2^2
+```
+
+## Part A
+
+```{r}
+sum_resid <- sum(resid)
+cat("(a) Sum of residuals:", sum_resid, "\n")
+```
+
+## Part B
+
+```{r}
+sum_x1_resid <- sum(x1*resid)
+cat("(b) Sum of X1*residuals:", sum_x1_resid, "\n")
+```
+
+## Part C
+
+```{r}
+sum_x2_resid <- sum(x2*resid)
+cat("(c) Sum of X2*residuals:", sum_x2_resid, "\n")
+```
+
+## Part D
+
+```{r}
+sum_x1sq_resid <- sum(x1_sq*resid)
+cat("(d) Sum of X1^2*residuals:", sum_x1sq_resid, "\n")
+```
+
+## Part E
+
+```{r}
+sum_x2sq_resid <- sum(x2_sq*resid)
+cat("(e) Sum of X2^2*residuals:", sum_x2sq_resid, "\n")
+```
+
+## Part F
+
+```{r}
+sum_fit_resid <- sum(fitted*resid)
+cat("(f) Sum of fitted values*residuals:", sum_fit_resid, "\n")
+```
+
+## Part G
+
+```{r}
+sum_resid_sq <- sum(resid^2)
+cat("(f) Sum of squared residuals:", sum_resid_sq, "\n")
+```
 
 # Question 4 - Hansen 4.6
 
@@ -23,9 +178,15 @@ output: pdf
 
 ## Part A
 
+$\beta = [\mathbb{E}(XX^T)]^{-1}\mathbb{E}(XY)$. Substituting in the given $Y$, $\beta_{LP} = [\mathbb{E}(XX^T)]^{-1}\mathbb{E}(X(X^T\beta + e + u))$. Distributing the expectation, $\beta_{LP} = [\mathbb{E}(XX^T)]^{-1}(E(XX^T)\beta + \mathbb{E}(Xe)+\mathbb{E}(Xu))$. Given $\mathbb{E}(Xe), \ \mathbb{E}(Xu) = 0$, $\beta_{LP} = [\mathbb{E}(XX^T)]^{-1}\mathbb{E}(XX^T)\beta = \beta$ so, we can conclude that it is the true coefficient from the linear projection.
+
 ## Part B
 
+$plim(\hat{\beta}) = plim((X^TX)^{-1}X^TY)$. As before, substituting for $Y$, $plim(\hat{\beta}) = plim((X^TX)^{-1}X^T(X^T\beta + e + u))$. Again, we can distribute and simplify such that $plim(\hat{\beta}) = \beta+plim((X^TX)^{-1}X^Te) + plim((X^TX)^{-1}X^Tu)$. By law of large numbers, we can use the assumption in expectation the same way in this case, $plim((X^TX)^{-1}X^Te), \ plim((X^TX)^{-1}X^Tu) = 0$. Thus, $plim(\hat{\beta}) = \beta$. This states that as n gets sufficiently large, $\hat{\beta}$ is consistent for $\beta$.
+
 ## Part C
+
+
 
 # Question 6 - Hansen 7.14
 
