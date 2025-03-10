@@ -1,0 +1,80 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[top=3cm,bottom=4cm,left=3.5cm,right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{fancyhdr,color,comment,graphicx,environ,float,mathtools,mathrsfs}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+% Custom headers
+\pagestyle{fancy}
+\lhead{ECON - 8020}
+\chead{}
+\rhead{Tate Mason}
+\lfoot{}
+\cfoot{Assignment 4}
+\rfoot{\thepage}
+
+\begin{document}
+
+\title{Assignment 4}
+\author{Tate Mason}
+\date{Due: March 20th, 11:59pm}
+\maketitle
+
+\section*{Question 1 (8pts)}
+  Suppose there are $N$ agents and let $\langle M, x, t \rangle$ be a dominant-incentive compatible mechanism.
+
+  \begin{enumerate}
+      \item[(a)] What does it mean for $\langle M, x, t \rangle$ to be dominant-incentive compatible? Express the definition mathematically.
+      \item[(b)] Prove the revelation principle for dominant-incentive compatible mechanisms.
+  \end{enumerate}
+
+\section*{Question 2 (10pts)}
+  Prove Theorem 6.2 in the lecture notes. That is, prove that any VCG mechanism (e.g. mechanism satisfying Definition 6.1) is dominant-incentive compatible.
+
+\section*{Question 3 (12pts)}
+  Suppose there are three agents: $I_1$, $I_2$, and $I_3$. There is a mechanism designer in possession of a single nuclear weapon, which he would like to allocate. He can either give it to one of the agents OR he may choose to not allocate the weapon at all. Furthermore, the designer has opted to run a VCG mechanism to select the outcome. The agents' values over these outcomes is the following:
+
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+      \hline
+      & \textbf{$I_1$ Receives} & \textbf{$I_2$ Receives} & \textbf{$I_3$ Receives} & \textbf{Not Allocated} \\
+      \hline
+      $I_1$ & 95 & -90 & -10 & 0 \\
+      \hline
+      $I_2$ & -50 & 90 & -25 & 0 \\
+      \hline
+      $I_3$ & -60 & 10 & 40 & 0 \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  Notice that the payoffs for some of the agents are negative. This is an example of an environment with negative externalities. An agent does not just have a value over the outcome where she receives the weapon; she is affected if the weapon is allocated to a different agent. Agents can choose whether or not to participate in the mechanism, but cannot avoid the payoffs associated with each allocation.
+
+  \begin{enumerate}
+      \item[(a)] Suppose all agents choose to participate in the mechanism. Determine the allocation and payment rule (show all your work). When determining the payment, indicate if the agent is paying or receiving a payment. What are the net payoffs for all the agents?
+      \item[(b)] Suppose $I_2$ decided to not participate in the VCG mechanism, and so only $I_1$ and $I_3$ were participants. If VCG were run with just these two agents, what outcome would be selected? Under this outcome, what would $I_2$'s payoff be? If the other two agents were participating, would $I_2$ unilaterally choose to not participate?
+      \item[(c)] Repeat part (b) for the other two agents.
+  \end{enumerate}
+
+\section*{Question 4 (10pts)}
+  Consider a standard mechanism design environment with $n$ agents and a set of possible outcomes $\mathcal{X}$. Each agent $i$ has a private type $\theta_i \in \Theta_i$, where $\Theta_i$ is some set. Agent $i$'s value for outcome $x$ when her type is $\theta_i$ is $v_i(x, \theta_i)$.
+
+  Let $\mathcal{X}_{-i}$ denote the set of feasible outcomes when agent $i$ does not exist. Assume that $\mathcal{X}_{-i} \subset \mathcal{X}$ for each $i$. That is, if agent $i$ did not exist, the set of feasible outcomes stays the same or decreases.
+
+  Prove that if there are no negative-externalities $v_i(x, \theta_i) \geq 0$ for all $i$ and $x \in \mathcal{X}_{-i}$, then the VCG mechanism is ex-post individually rational.
+
+\section*{Question 5 (20pts)}
+  Consider the problem of providing an indivisible public good with two agents with quasilinear utilities. The two agents have privately observed values $v_1, v_2 \in [0, \bar{v}]$ for the public good.
+
+  The cost of providing the public good is $c \in (\bar{v}, 2\bar{v})$. The provision mechanism must have a balanced budget: the agents' monetary contributions must add up to $c$ when the good is provided, and to 0 otherwise.
+
+  For this problem, we are restricting attention to mechanisms that are dominant-strategy incentive-compatible and ex-post individually rational. Mechanisms are permitted to be "random". In other words, the probability of providing the public good when $(v_1, v_2)$ is reported is $x(v_1, v_2) \in [0, 1]$. We will call $(v_1, v_2)$ the state.
+
+  \begin{enumerate}
+      \item[(a)] Write the dominant-strategy incentive compatibility condition for a mechanism. Compute the equilibrium payoffs of agent $i$ when agent $i$'s value is $v_i$.
+      \item[(b)] Using your answer to (a), write the condition that the two expected payoffs must add up to the total expected surplus in that state.
+      \item[(c)] Suppose $x(v_1, v_2)$ is twice continuously differentiable. What property must $x$ have in order to satisfy the condition in (b)?
+      \item[(d)] A fixed-contribution mechanism is one which provides a public good if and only if each agent $i$ is willing to contributed $c_i$, where $c_1 + c_2 = c$. Show that any mechanism considered in (c) is equivalent to a randomized fixed-contribution mechanism.
+  \end{enumerate}
+
+\end{document}
