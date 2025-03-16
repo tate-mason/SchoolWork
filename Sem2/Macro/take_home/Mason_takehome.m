@@ -297,14 +297,14 @@ figure('Position', [100, 100, 1000, 400]);
 
 subplot(1,2,1);
 plot(0:T, ksim_high_cmin, 'r-', 'LineWidth', 2);
-title('Lifecycle Savings - Higher Minimum Consumption (c_{min} = 0.5)');
+title('Savings (c_{min} = 0.5)');
 xlabel('Age');
 ylabel('Savings (k_t)');
 grid on;
 
 subplot(1,2,2);
 plot(1:T, csim_high_cmin, 'r-', 'LineWidth', 2);
-title('Lifecycle Consumption - Higher Minimum Consumption (c_{min} = 0.5)');
+title('Consumption (c_{min} = 0.5)');
 xlabel('Age');
 ylabel('Consumption (c_t)');
 grid on;
@@ -396,14 +396,14 @@ figure('Position', [100, 100, 1000, 400]);
 
 subplot(1,2,1);
 plot(0:T, ksim_no_shock, 'g-', 'LineWidth', 2);
-title('Lifecycle Savings - No Medical Shock');
+title('Savings (x_t = 0)');
 xlabel('Age');
 ylabel('Savings (k_t)');
 grid on;
 
 subplot(1,2,2);
 plot(1:T, csim_no_shock, 'g-', 'LineWidth', 2);
-title('Lifecycle Consumption - No Medical Shock');
+title('Consumption (x_t = 0)');
 xlabel('Age');
 ylabel('Consumption (c_t)');
 grid on;
@@ -505,14 +505,14 @@ figure('Position', [100, 100, 1000, 400]);
 
 subplot(1,2,1);
 plot(0:T, ksim_high_beta, 'm-', 'LineWidth', 2);
-title('Lifecycle Savings - Higher Discount Factor (β=0.99)');
+title('Savings (β=0.99)');
 xlabel('Age');
 ylabel('Savings (k_t)');
 grid on;
 
 subplot(1,2,2);
 plot(1:T, csim_high_beta, 'm-', 'LineWidth', 2);
-title('Lifecycle Consumption - Higher Discount Factor (β=0.99)');
+title('Consumption (β=0.99)');
 xlabel('Age');
 ylabel('Consumption (c_t)');
 grid on;
