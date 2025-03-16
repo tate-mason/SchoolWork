@@ -14,7 +14,7 @@ r = 0.04; % Interest rate
 beta = 0.95; % Discount rate
 sigma = 3; % Risk aversion
 T = 40; % Time
-cmin = 0.1; % Minimum consumption level
+cmin = 0.1; % Original minimum consumption level
 y = 1; % Income from pension - constant 
 W = 10; % Initial wealth
 n = 100; % Number of points in kgrid
@@ -46,7 +46,7 @@ for ik = 1:n % loop over kgrid
     xt = xgrid(ix,T); % Current medical expense 
     
     totres = kt*(1+r) + y - xt; % Total resources
-    if totres <= cmin
+    if totres <= cmin;
       c = cmin;
       k_next = 0; % Final period --> no saving
     else
@@ -126,9 +126,9 @@ ylabel('Value');
 legend('No Shock (x_t = 0)', 'Medical Shock (x_t > 0)');
 grid on;
 
-%% Simulation of Medical Expense Shocks %%
 
-rng(17); % Random seed set
+%% Simulation for baseline %%
+rng(17); % Random seed set for reproducibility
 simx = zeros(T,1);
 draws = rand(T,1);
 
@@ -140,13 +140,14 @@ for t = 1:T
   end
 end
 
-% Simulating savings
+ksim_baseline = zeros(T+1,1);
+ksim_baseline(1) = W; % Initial wealth
 
-ksim = zeros(T+1,1);
-ksim(1) = W; % Initial wealth
+% Also track consumption
+csim_baseline = zeros(T,1);
 
 for t = 1:T
-  [~,idx_k] = min(abs(kgrid - ksim(t)));
+  [~,idx_k] = min(abs(kgrid - ksim_baseline(t)));
 
   if simx(t) == xgrid(1,t)
     idx_x = 1;
@@ -154,35 +155,57 @@ for t = 1:T
     idx_x = 2;
   end
   
-  if abs(kgrid(idx_k)-ksim(t)) < 1e-6
-    ksim(t+1) = k_opt(idx_k, idx_x, t);
+  % Calculate total resources for consumption calculation
+  totres = ksim_baseline(t)*(1+r) + y - simx(t);
+  
+  if abs(kgrid(idx_k)-ksim_baseline(t)) < 1e-6
+    ksim_baseline(t+1) = k_opt(idx_k, idx_x, t);
   else
-    if ksim(t) < kgrid(1)
-      ksim(t+1) = k_opt(1, idx_x, t);  
-    elseif ksim(t) > kgrid(end) 
-      ksim(t+1) = k_opt(end, idx_x, t);  
+    if ksim_baseline(t) < kgrid(1)
+      ksim_baseline(t+1) = k_opt(1, idx_x, t);  
+    elseif ksim_baseline(t) > kgrid(end) 
+      ksim_baseline(t+1) = k_opt(end, idx_x, t);  
     else 
-      jlo = find(kgrid <= ksim(t), 1, 'last');
+      jlo = find(kgrid <= ksim_baseline(t), 1, 'last');
       jlo2 = jlo + 1;
-      w = (ksim(t)-kgrid(jlo))/(kgrid(jlo2)-kgrid(jlo));
-      ksim(t+1) = (1-w)*k_opt(jlo, idx_x, t) + w*k_opt(jlo2, idx_x, t); 
+      w = (ksim_baseline(t)-kgrid(jlo))/(kgrid(jlo2)-kgrid(jlo));
+      ksim_baseline(t+1) = (1-w)*k_opt(jlo, idx_x, t) + w*k_opt(jlo2, idx_x, t); 
     end
+  end
+  
+  % Calculate consumption as total resources minus next period savings
+  if totres <= cmin
+    csim_baseline(t) = cmin;
+  else
+    csim_baseline(t) = totres - ksim_baseline(t+1);
   end
 end
 
-% Plotting
+% Plot baseline savings and consumption
+figure('Position', [100, 100, 1000, 400]);
 
-figure;
-plot(0:T, ksim, 'b-', 'LineWidth', 2);
+subplot(1,2,1);
+plot(0:T, ksim_baseline, 'b-', 'LineWidth', 2);
 title('Lifecycle Savings - Baseline');
 xlabel('Age');
 ylabel('Savings (k_t)');
 grid on;
-saveas(gcf, 'baseline_savings.png');
 
-%% Raising Minimum Consumption %%
+subplot(1,2,2);
+plot(1:T, csim_baseline, 'b-', 'LineWidth', 2);
+title('Lifecycle Consumption - Baseline');
+xlabel('Age');
+ylabel('Consumption (c_t)');
+grid on;
 
-cmin_baseline = cmin;
+saveas(gcf, 'baseline_lifecycle.png');
+
+%% PART 3: Higher Minimum Consumption (cmin = 0.5) %%
+
+% Preserve original cmin
+cmin_og = cmin;
+
+% Set higher cmin
 cmin = 0.5;
 
 % Initialize higher cmin value and policy functions
@@ -232,6 +255,7 @@ end
 % Simulation for higher cmin (using same shock sequence)
 ksim_high_cmin = zeros(T+1,1);
 ksim_high_cmin(1) = W;
+csim_high_cmin = zeros(T,1);
 
 for t = 1:T
   [~,idx_k] = min(abs(kgrid - ksim_high_cmin(t)));
@@ -241,6 +265,9 @@ for t = 1:T
   else
     idx_x = 2;
   end
+  
+  % Calculate total resources for consumption calculation
+  totres = ksim_high_cmin(t)*(1+r) + y - simx(t);
   
   if abs(kgrid(idx_k)-ksim_high_cmin(t)) < 1e-6
     ksim_high_cmin(t+1) = k_opt_high_cmin(idx_k, idx_x, t);
@@ -256,12 +283,38 @@ for t = 1:T
       ksim_high_cmin(t+1) = (1-w)*k_opt_high_cmin(jlo, idx_x, t) + w*k_opt_high_cmin(jlo2, idx_x, t); 
     end
   end
+  
+  % Calculate consumption as total resources minus next period savings
+  if totres <= cmin
+    csim_high_cmin(t) = cmin;
+  else
+    csim_high_cmin(t) = totres - ksim_high_cmin(t+1);
+  end
 end
+
+% Plot higher cmin savings and consumption
+figure('Position', [100, 100, 1000, 400]);
+
+subplot(1,2,1);
+plot(0:T, ksim_high_cmin, 'r-', 'LineWidth', 2);
+title('Lifecycle Savings - Higher Minimum Consumption (c_{min} = 0.5)');
+xlabel('Age');
+ylabel('Savings (k_t)');
+grid on;
+
+subplot(1,2,2);
+plot(1:T, csim_high_cmin, 'r-', 'LineWidth', 2);
+title('Lifecycle Consumption - Higher Minimum Consumption (c_{min} = 0.5)');
+xlabel('Age');
+ylabel('Consumption (c_t)');
+grid on;
+
+saveas(gcf, 'higher_cmin_lifecycle.png');
 
 %% PART 4: No Medical Shock (cmin = 0.1, xt = 0) %%
 
 % Reset to original cmin
-cmin = cmin_baseline;
+cmin = cmin_og;
 
 % Initialize no-shock value and policy functions
 V_no_shock = zeros(n,T);
@@ -307,9 +360,13 @@ end
 % Simulation for no shock case
 ksim_no_shock = zeros(T+1,1);
 ksim_no_shock(1) = W;
+csim_no_shock = zeros(T,1);
 
 for t = 1:T
   [~,idx_k] = min(abs(kgrid - ksim_no_shock(t)));
+  
+  % No medical shock, so total resources calculation is simpler
+  totres = ksim_no_shock(t)*(1+r) + y;
   
   if abs(kgrid(idx_k)-ksim_no_shock(t)) < 1e-6
     ksim_no_shock(t+1) = k_opt_no_shock(idx_k, t);
@@ -325,12 +382,38 @@ for t = 1:T
       ksim_no_shock(t+1) = (1-w)*k_opt_no_shock(jlo, t) + w*k_opt_no_shock(jlo2, t); 
     end
   end
+  
+  % Calculate consumption as total resources minus next period savings
+  if totres <= cmin
+    csim_no_shock(t) = cmin;
+  else
+    csim_no_shock(t) = totres - ksim_no_shock(t+1);
+  end
 end
+
+% Plot no shock savings and consumption
+figure('Position', [100, 100, 1000, 400]);
+
+subplot(1,2,1);
+plot(0:T, ksim_no_shock, 'g-', 'LineWidth', 2);
+title('Lifecycle Savings - No Medical Shock');
+xlabel('Age');
+ylabel('Savings (k_t)');
+grid on;
+
+subplot(1,2,2);
+plot(1:T, csim_no_shock, 'g-', 'LineWidth', 2);
+title('Lifecycle Consumption - No Medical Shock');
+xlabel('Age');
+ylabel('Consumption (c_t)');
+grid on;
+
+saveas(gcf, 'no_shock_lifecycle.png');
 
 %% PART 5: Higher Discount Factor (cmin = 0.1, beta = 0.99) %%
 
 % Reset cmin to original and increase beta
-cmin = cmin_baseline;
+cmin = cmin_og;
 beta_high = 0.99;
 
 % Initialize high-beta value and policy functions
@@ -380,6 +463,7 @@ end
 % Simulation for high beta (using same shock sequence)
 ksim_high_beta = zeros(T+1,1);
 ksim_high_beta(1) = W;
+csim_high_beta = zeros(T,1);
 
 for t = 1:T
   [~,idx_k] = min(abs(kgrid - ksim_high_beta(t)));
@@ -389,6 +473,9 @@ for t = 1:T
   else
     idx_x = 2;
   end
+  
+  % Calculate total resources for consumption calculation
+  totres = ksim_high_beta(t)*(1+r) + y - simx(t);
   
   if abs(kgrid(idx_k)-ksim_high_beta(t)) < 1e-6
     ksim_high_beta(t+1) = k_opt_high_beta(idx_k, idx_x, t);
@@ -404,12 +491,41 @@ for t = 1:T
       ksim_high_beta(t+1) = (1-w)*k_opt_high_beta(jlo, idx_x, t) + w*k_opt_high_beta(jlo2, idx_x, t); 
     end
   end
+  
+  % Calculate consumption as total resources minus next period savings
+  if totres <= cmin
+    csim_high_beta(t) = cmin;
+  else
+    csim_high_beta(t) = totres - ksim_high_beta(t+1);
+  end
 end
 
-%% PART 6: Combine and Compare Saving Profiles %%
+% Plot high beta savings and consumption
+figure('Position', [100, 100, 1000, 400]);
 
-figure('Position', [100, 100, 800, 600]);
-plot(0:T, ksim, 'b-', 'LineWidth', 2);
+subplot(1,2,1);
+plot(0:T, ksim_high_beta, 'm-', 'LineWidth', 2);
+title('Lifecycle Savings - Higher Discount Factor (β=0.99)');
+xlabel('Age');
+ylabel('Savings (k_t)');
+grid on;
+
+subplot(1,2,2);
+plot(1:T, csim_high_beta, 'm-', 'LineWidth', 2);
+title('Lifecycle Consumption - Higher Discount Factor (β=0.99)');
+xlabel('Age');
+ylabel('Consumption (c_t)');
+grid on;
+
+saveas(gcf, 'high_beta_lifecycle.png');
+
+%% PART 6: Combine and Compare Saving and Consumption Profiles %%
+
+% Combined Savings Plot
+figure('Position', [100, 100, 1000, 400]);
+
+subplot(1,2,1);
+plot(0:T, ksim_baseline, 'b-', 'LineWidth', 2);
 hold on;
 plot(0:T, ksim_high_cmin, 'r-', 'LineWidth', 2);
 plot(0:T, ksim_no_shock, 'g-', 'LineWidth', 2);
@@ -420,24 +536,23 @@ ylabel('Savings (k_t)');
 legend('Baseline (c_{min}=0.1)', 'Higher Min Consumption (c_{min}=0.5)', ...
        'No Medical Shock', 'Higher Discount Factor (β=0.99)', 'Location', 'best');
 grid on;
-saveas(gcf, 'savings_comparison.png');
 
-% Also plot policy functions for age 10 across scenarios
-figure('Position', [100, 100, 800, 600]);
-plot(kgrid, k_opt_baseline(:,1,10), 'b-', 'LineWidth', 2);
+subplot(1,2,2);
+plot(1:T, csim_baseline, 'b-', 'LineWidth', 2);
 hold on;
-plot(kgrid, k_opt_high_cmin(:,1,10), 'r-', 'LineWidth', 2);
-plot(kgrid, k_opt_no_shock(:,10), 'g-', 'LineWidth', 2);
-plot(kgrid, k_opt_high_beta(:,1,10), 'm-', 'LineWidth', 2);
-title('Policy Functions at Age 10 - No Shock Case');
-xlabel('Current Savings (k_t)');
-ylabel('Next Period Savings (k_{t+1})');
+plot(1:T, csim_high_cmin, 'r-', 'LineWidth', 2);
+plot(1:T, csim_no_shock, 'g-', 'LineWidth', 2);
+plot(1:T, csim_high_beta, 'm-', 'LineWidth', 2);
+title('Lifecycle Consumption Comparison');
+xlabel('Age');
+ylabel('Consumption (c_t)');
 legend('Baseline (c_{min}=0.1)', 'Higher Min Consumption (c_{min}=0.5)', ...
        'No Medical Shock', 'Higher Discount Factor (β=0.99)', 'Location', 'best');
 grid on;
-saveas(gcf, 'policy_comparison_age10.png');
 
-%% Helper Function %%
+saveas(gcf, 'lifecycle_comparison.png');
+
+%% Helper Functions %%
 
 function val = obj_func(kp, totres, beta, pX, kgrid, V_next, u)
   c = totres - kp;
@@ -461,7 +576,7 @@ function val = obj_func(kp, totres, beta, pX, kgrid, V_next, u)
   val = current_u + beta*Eval;
 end
 
-function val2 = obj_func_no_shock(kp, totres, beta, kgrid, V_next, u)
+function val = obj_func_no_shock(kp, totres, beta, kgrid, V_next, u)
   c = totres - kp;
   current_u = u(c);
 
@@ -474,11 +589,9 @@ function val2 = obj_func_no_shock(kp, totres, beta, kgrid, V_next, u)
   end
   jlo2 = jlo+1; 
   w = (kp - kgrid(jlo))/(kgrid(jlo2)-kgrid(jlo));
-  Eval = 0;
-
-  for ixp = 1:2
-    v_next = (1-w)*V_next(jlo) + w*V_next(jlo2);     
-    Eval = Eval + v_next;
-  end
-  val2 = current_u + beta*Eval;
+  
+  % For no shock case, we only have one value in V_next per grid point
+  v_next = (1-w)*V_next(jlo) + w*V_next(jlo2);
+  
+  val = current_u + beta*v_next;
 end
