@@ -56,14 +56,16 @@ for (i in 1:n) {
   xi <- matrix(x[i,], nrow=k)
   hc0 <- hc0 + resid[i]^2 * (xi %*% t(xi))
 }
+
+V_robust <- xx_inv %*% hc0 %*% xx_inv
+robust_se <- sqrt(diag(V_robust))
 ```
 
 ## Part B
 
 ```{r}
 theta_hat <- beta[1]/(beta[2]+beta[3]/5)
-cat("\nPart B: Estimated Theta")
-print(theta_hat)
+cat("\nPart B: Estimated Theta:", theta_hat, "\n")
 ```
 
 ## Part C
@@ -76,13 +78,39 @@ gradient_g <- c(
   0
 )
 
-theta_se <- sqrt(t(gradient_g) %*% hc0 %*% gradient_g)
-print(theta_se)
+
+var_theta <- t(gradient_g) %*% V_robust %*% gradient_g
+theta_se <- sqrt(var_theta)
+cat("Standard Error of Theta hat: ", theta_se, "\n")
 ```
 
 ## Part D
 
+```{r}
+z_90 <- qnorm(0.95)
+ci_90_low <- theta_hat - z_90*theta_se
+ci_90_hi <- theta_hat + z_90*theta_se
+cat("\nPart D: 90% Confidence Interval for theta:\n")
+cat("[", ci_90_low, ", ", ci_90_hi, "]\n")
+```
+
 ## Part E
+
+```{r}
+x_0 <- c(12,20,(20^2/100),1)
+y_hat_0 <- sum(x_0*beta)
+
+var_y_hat_0 <- t(x_0) %*% V_robust %*% x_0
+se_y_hat_0 <- sqrt(var_y_hat_0)
+
+z_95 <- qnorm(0.975)
+ci_95_low <- y_hat_0 - z_95*se_y_hat_0
+ci_95_hi <- y_hat_0 + z_95*se_y_hat_0
+
+cat("\nPart E: Regression at educ = 12, exper = 20\n")
+cat("Predicted log(wage): ", y_hat_0, "\n")
+cat("95% CI for regression function: [", ci_95_low, ", ", ci_95_hi, "]\n")
+```
 
 # EQ 1
 
