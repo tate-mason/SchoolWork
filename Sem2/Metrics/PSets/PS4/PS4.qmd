@@ -114,6 +114,79 @@ cat("95% CI for regression function: [", ci_95_low, ", ", ci_95_hi, "]\n")
 
 # EQ 1
 
+```{r}
+library(haven)
+library(dplyr)
+```
+
+```{r}
+rm(list = ls())
+
+dat <- read_dta('~/SchoolWork/Sem2/Metrics/PSets/PS3/cps09mar.dta')
+sample <- (dat[,11]==1)&(dat[,2]==0)&(dat[,3]==1)
+df <- dat[sample,]
+
+y <- as.matrix(log(df[,5]/(df[,6]*df[,7])))
+exp <- df[,1]-df[,4]-6
+exp2 <- (exp^2)/100
+
+x_df <- data.frame(
+  education = df[,4],
+  experience = exp,
+  exp_squared = exp2,
+  intercept = 1
+)
+x <- as.matrix(x_df)
+
+xx <- t(x)%*%x
+xy <- t(x)%*%y
+beta <- solve(xx,xy)
+```
+
+```{r}
+set.seed(0528)
+bootstrap_ols <- function(indices) {
+  x_boot <- x[indices, ]
+  y_boot <- y[indices]
+
+  xx_boot <- t(x_boot)%*%x_boot
+  xy_boot <- t(x_boot)%*%y_boot
+  beta_boot <- solve(xx_boot,xy_boot)
+
+  return(beta_boot)
+}
+```
+
+```{r}
+B <- 1000
+boot_res <- matrix(0, nrow=B, ncol=length(beta))
+
+for (b in 1:B) {
+  indices <- sample(1:nrow(x), nrow(x), replace=TRUE)
+  boot_res[b, ] <- bootstrap_ols(indices)
+}
+```
+
+```{r}
+boot_se <- apply(boot_res, 2, sd)
+
+alpha <- 0.05
+bootstrap_ci <- matrix(0, nrow=length(beta), ncol=2)
+for (j in 1:length(beta)) {
+  bootstrap_ci[j, ] <- quantile(boot_res[, j], c(alpha/2, 1-alpha/2))
+}
+```
+
+```{r}
+cat("Part A: Coefficient Estimates with Bootstrap Standard Errors: \n")
+coef_tab <- cbind(beta, boot_se)
+colnames(coef_tab) <- c("Coefficieent", "Bootstrap SE")
+rownames(coef_tab) <- c("Education", "Experience", "Experience^2", "Intercept")
+print(coef_tab)
+```
+
+The results show the same coefficients as when calculated with robust standard errors. However, the standard errors differ very slightly. For all but experience, the bootstrap standard error is larger than the robust. 
+
 # EQ 2
 
 ```{r}
@@ -202,14 +275,15 @@ sim_test <- function(n,b1_true, b1_null) {
   df <- n-2
   t_crit <- qt(1-alpha/2,df)
   reject <- abs(t_stat) > t_crit
-  p_val <- 2*pt(abs(t_stat), df=df, lower.tail=FALSE)
+  p_value <- 2*pt(abs(t_stat), df=df, lower.tail=FALSE)
 
   return(list(
+    b0_hat = b0_hat,
     b1_hat = b1_hat,
     se_b1_hat = se_b1_hat,
     t_stat = t_stat,
     t_crit = t_crit,
-    p_val = p_val,
+    p_value = p_value,
     reject = reject
   ))
 }
@@ -217,48 +291,49 @@ sim_test <- function(n,b1_true, b1_null) {
 
 ```{r}
 run_hypothesis_test <- function(n, b1_true, b1_null) {
-  results <- data.frame(
-    b1_hat = numeric(num_sims),
-    se_b1_hat = numeric(num_sims),
-    t_stat = numeric(num_sims),
-    p_val = numeric(num_sims),
-    reject = logical(num_sims)
-  )
+  b1_hats <- numeric(num_sims)
+  se_b1_hats <- numeric(num_sims)
+  t_stats <- numeric(num_sims)
+  p_values <- numeric(num_sims)
+  rejects <- logical(num_sims)
 
   for (i in 1:num_sims) {
     sim_result <- sim_test(n,b1_true,b1_null)
-    results$b1_hat[i] <- sim_result$b1_hat
-    results$se_b1_hat[i] <- sim_result$se_b1_hat
-    results$t_stat[i] <- sim_result$t_stat
-    results$p_val[i] <- sim_result$p_val
-    results$reject[i] <- sim_result$reject
+    b1_hats[i] <- sim_result$b1_hat
+    se_b1_hats[i] <- sim_result$se_b1_hat
+    t_stats[i] <- sim_result$t_stat
+    p_values[i] <- sim_result$p_value
+    rejects[i] <- sim_result$reject
   }
 
-  reject_rate <- mean(results$reject)
-  mean_b1_hat <- mean(results$b1_hat)
-  var_b1_hat <- var(results$b1_hat)
-  mean_se_b1_hat <- mean(results$se_b1_hat)
-  theoretical_var <- mean(results$se_b1_hat^2)
+  reject_rate <- mean(rejects)
+  mean_b1_hat <- mean(b1_hats)
+  var_b1_hat <- var(b1_hats)
+  mean_se_b1_hat <- mean(se_b1_hats)
 
   return(list(
-    results = results,
-    reject_rate = reject_rate,
+    b1_hats = b1_hats,
+    se_b1_hats = se_b1_hats,
+    t_stats = t_stats,
+    p_values = p_values,
+    rejects = rejects,
     mean_b1_hat = mean_b1_hat,
     var_b1_hat = var_b1_hat,
     mean_se_b1_hat = mean_se_b1_hat,
-    theoretical_var = theoretical_var
+    reject_rate = reject_rate
   ))
 }
 ```
 
 ```{r}
+set.seed(0528)
 results_100_true <- run_hypothesis_test(n=100,b1_true=1,b1_null=1)
-cat("Part a & b: Results for n = 100, H₀: β₁ = 1 (true value)\n")
-cat("Theoretical rejection rate at α = 0.05 should be: 0.05\n")
-cat("Observed rejection rate:", results_100_true$rejection_rate, "\n")
-cat("Mean β̂₁:", results_100_true$mean_b1_hat, "\n")
-cat("Variance of β̂₁:", results_100_true$var_b1_hat, "\n")
-cat("Mean standard error of β̂₁:", results_100_true$mean_se_b1_hat, "\n")
+cat("Part a & b: Results for n = 100, H₀: b1 = 1 (true value)\n")
+cat("Theoretical rejection rate at alpha = 0.05 should be: 0.05\n")
+cat("Observed rejection rate:", results_100_true$reject_rate, "\n")
+cat("Mean b1_hat:", results_100_true$mean_b1_hat, "\n")
+cat("Variance of b1_hat:", results_100_true$var_b1_hat, "\n")
+cat("Mean standard error of b1_hat:", results_100_true$mean_se_b1_hat, "\n")
 cat("Theoretical variance (from SE):", results_100_true$theoretical_var, "\n\n")
 ```
 
@@ -270,11 +345,11 @@ results_varying_n <- list()
 
 for (n in sample_size) {
   results_varying_n[[paste0("n", n)]] <- run_hypothesis_test(n=n, b1_true=1, b1_null=1)
-  cat("Results for n =", n, ", H₀: β₁ = 1 (true value)\n")
-  cat("Rejection rate:", results_varying_n[[paste0("n", n)]]$rejection_rate, "\n")
-  cat("Mean β̂₁:", results_varying_n[[paste0("n", n)]]$mean_b1_hat, "\n")
-  cat("Variance of β̂₁:", results_varying_n[[paste0("n", n)]]$var_b1_hat, "\n")
-  cat("Mean standard error of β̂₁:", results_varying_n[[paste0("n", n)]]$mean_se_b1_hat, "\n")
+  cat("Results for n =", n, ", H₀: b1 = 1 (true value)\n")
+  cat("Rejection rate:", results_varying_n[[paste0("n", n)]]$reject_rate, "\n")
+  cat("Mean b1_hat:", results_varying_n[[paste0("n", n)]]$mean_b1_hat, "\n")
+  cat("Variance of b1_hat:", results_varying_n[[paste0("n", n)]]$var_b1_hat, "\n")
+  cat("Mean standard error of b1_hat:", results_varying_n[[paste0("n", n)]]$mean_se_b1_hat, "\n")
   cat("Theoretical variance (from SE):", results_varying_n[[paste0("n", n)]]$theortical_var, "\n\n")
 }
 ```
@@ -284,7 +359,7 @@ for (n in sample_size) {
 ```{r}
 results_100_false <- run_hypothesis_test(n=100,b1_true=1,b1_null=0)
 cat("Part d: Results for n = 100, H₀: β₁ = 0 (false null)\n")
-cat("Rejection rate (power):", results_100_false$rejection_rate, "\n")
+cat("Rejection rate (power):", results_100_false$reject_rate, "\n")
 cat("Mean β̂₁:", results_100_false$mean_b1_hat, "\n")
 cat("Variance of β̂₁:", results_100_false$var_b1_hat, "\n\n")
 
@@ -294,10 +369,10 @@ for (n in sample_size) {
   set.seed(123)
   results_varying_n_false[[paste0("n", n)]] <- run_hypothesis_test(n = n, b1_true = 1, b1_null = 0)
   
-  cat("Results for n =", n, ", H₀: β₁ = 0 (false null)\n")
-  cat("Rejection rate (power):", results_varying_n_false[[paste0("n", n)]]$rejection_rate, "\n")
-  cat("Mean β̂₁:", results_varying_n_false[[paste0("n", n)]]$mean_b1_hat, "\n")
-  cat("Variance of β̂₁:", results_varying_n_false[[paste0("n", n)]]$var_b1_hat, "\n")
+  cat("Results for n =", n, ", H₀: b1 = 0 (false null)\n")
+  cat("Rejection rate (power):", results_varying_n_false[[paste0("n", n)]]$reject_rate, "\n")
+  cat("Mean b1_hat:", results_varying_n_false[[paste0("n", n)]]$mean_b1_hat, "\n")
+  cat("Variance of b1_hat:", results_varying_n_false[[paste0("n", n)]]$var_b1_hat, "\n")
 }
 ```
 
