@@ -4,6 +4,8 @@ author: Tate Mason
 format: pdf
 ---
 
+
+
 # Question 1 - Hansen 7.17
 
 ## Part A
@@ -26,7 +28,11 @@ format: pdf
 
 # EQ 2
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 b0 <- 0
 b1 <- 1
 n <- 100
@@ -41,10 +47,17 @@ sim <- function() {
   return(c(bhat[2]))
 }
 ```
+:::
+
+
 
 These results show that the average of $\hat{\beta}_1 \rightarrow\beta_1$ as $n$ grows. The variance also approaches 0. This is consistent with what was derived in class, that as $n\rightarrow\infty$, we see the predicted approach the actual, and variance should be 0 as with sufficiently large $n$, there will be no variance in observations.
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 run_mc <- function(n_sims = 1000) {
   mc_res <- sapply(1:n_sims, function(s) {
     sim()
@@ -53,30 +66,98 @@ run_mc <- function(n_sims = 1000) {
   cat("Variance of b1:", var(mc_res), "\n")
 }
 ```
+:::
 
-```{r}
+::: {.cell}
+
+```{.r .cell-code}
 run_mc()
 ```
 
-```{r}
+::: {.cell-output .cell-output-stdout}
+
+```
+Mean b1: 0.9990189 
+Variance of b1: 0.03658883 
+```
+
+
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 n <- 2
 run_mc()
 ```
 
-```{r}
+::: {.cell-output .cell-output-stdout}
+
+```
+Mean b1: 4.822991 
+Variance of b1: 21011.35 
+```
+
+
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 n <- 10
 run_mc()
 ```
 
-```{r}
+::: {.cell-output .cell-output-stdout}
+
+```
+Mean b1: 1.004985 
+Variance of b1: 0.687412 
+```
+
+
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 n <- 50
 run_mc()
 ```
 
-```{r}
+::: {.cell-output .cell-output-stdout}
+
+```
+Mean b1: 1.004089 
+Variance of b1: 0.07401569 
+```
+
+
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 n <- 500
 run_mc()
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Mean b1: 0.9996898 
+Variance of b1: 0.00679776 
+```
+
+
+:::
+:::
+
+
 
 As $n\rightarrow\infty$, the mean and variance get closer to the true values. This is a showcase of the WLLN.
 
@@ -84,7 +165,11 @@ As $n\rightarrow\infty$, the mean and variance get closer to the true values. Th
 
 ## Part A
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 b0 <- 0
 b1 <- 1
 num_sims <- 1000
@@ -124,8 +209,11 @@ sim_test <- function(n,b1_true, b1_null) {
   ))
 }
 ```
+:::
 
-```{r}
+::: {.cell}
+
+```{.r .cell-code}
 run_hypothesis_test <- function(n, b1_true, b1_null) {
   results <- data.frame(
     b1_hat = numeric(num_sims),
@@ -160,21 +248,112 @@ run_hypothesis_test <- function(n, b1_true, b1_null) {
   ))
 }
 ```
+:::
 
-```{r}
+::: {.cell}
+
+```{.r .cell-code}
 results_100_true <- run_hypothesis_test(n=100,b1_true=1,b1_null=1)
 cat("Part a & b: Results for n = 100, H₀: β₁ = 1 (true value)\n")
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Part a & b: Results for n = 100, H₀: β₁ = 1 (true value)
+```
+
+
+:::
+
+```{.r .cell-code}
 cat("Theoretical rejection rate at α = 0.05 should be: 0.05\n")
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Theoretical rejection rate at α = 0.05 should be: 0.05
+```
+
+
+:::
+
+```{.r .cell-code}
 cat("Observed rejection rate:", results_100_true$rejection_rate, "\n")
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Observed rejection rate: 
+```
+
+
+:::
+
+```{.r .cell-code}
 cat("Mean β̂₁:", results_100_true$mean_b1_hat, "\n")
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Mean β̂₁: 1.00601 
+```
+
+
+:::
+
+```{.r .cell-code}
 cat("Variance of β̂₁:", results_100_true$var_b1_hat, "\n")
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Variance of β̂₁: 0.05384848 
+```
+
+
+:::
+
+```{.r .cell-code}
 cat("Mean standard error of β̂₁:", results_100_true$mean_se_b1_hat, "\n")
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Mean standard error of β̂₁: 0.2309889 
+```
+
+
+:::
+
+```{.r .cell-code}
 cat("Theoretical variance (from SE):", results_100_true$theoretical_var, "\n\n")
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+Theoretical variance (from SE): 0.05453085 
+```
+
+
+:::
+:::
+
+
+
 ## Part C
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 sample_size <- c(10,50,500,1000)
 results_varying_n <- list()
 
@@ -189,15 +368,104 @@ for (n in sample_size) {
 }
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+Results for n = 10 , H₀: β₁ = 1 (true value)
+Rejection rate: 
+Mean β̂₁: 1.059298 
+Variance of β̂₁: 1.120389 
+Mean standard error of β̂₁: 0.9140865 
+Theoretical variance (from SE): 
+
+Results for n = 50 , H₀: β₁ = 1 (true value)
+Rejection rate: 
+Mean β̂₁: 1.008697 
+Variance of β̂₁: 0.1227225 
+Mean standard error of β̂₁: 0.3380657 
+Theoretical variance (from SE): 
+
+Results for n = 500 , H₀: β₁ = 1 (true value)
+Rejection rate: 
+Mean β̂₁: 1.00353 
+Variance of β̂₁: 0.009792151 
+Mean standard error of β̂₁: 0.1004707 
+Theoretical variance (from SE): 
+
+Results for n = 1000 , H₀: β₁ = 1 (true value)
+Rejection rate: 
+Mean β̂₁: 0.9977452 
+Variance of β̂₁: 0.004625567 
+Mean standard error of β̂₁: 0.07082605 
+Theoretical variance (from SE): 
+```
+
+
+:::
+:::
+
+
+
 ## Part D
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 results_100_false <- run_hypothesis_test(n=100,b1_true=1,b1_null=0)
 cat("Part d: Results for n = 100, H₀: β₁ = 0 (false null)\n")
-cat("Rejection rate (power):", results_100_false$rejection_rate, "\n")
-cat("Mean β̂₁:", results_100_false$mean_b1_hat, "\n")
-cat("Variance of β̂₁:", results_100_false$var_b1_hat, "\n\n")
+```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+Part d: Results for n = 100, H₀: β₁ = 0 (false null)
+```
+
+
+:::
+
+```{.r .cell-code}
+cat("Rejection rate (power):", results_100_false$rejection_rate, "\n")
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Rejection rate (power): 
+```
+
+
+:::
+
+```{.r .cell-code}
+cat("Mean β̂₁:", results_100_false$mean_b1_hat, "\n")
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Mean β̂₁: 0.9860435 
+```
+
+
+:::
+
+```{.r .cell-code}
+cat("Variance of β̂₁:", results_100_false$var_b1_hat, "\n\n")
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Variance of β̂₁: 0.05306137 
+```
+
+
+:::
+
+```{.r .cell-code}
 results_varying_n_false <- list()
 
 for (n in sample_size) {
@@ -210,4 +478,29 @@ for (n in sample_size) {
   cat("Variance of β̂₁:", results_varying_n_false[[paste0("n", n)]]$var_b1_hat, "\n")
 }
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Results for n = 10 , H₀: β₁ = 0 (false null)
+Rejection rate (power): 
+Mean β̂₁: 1.017303 
+Variance of β̂₁: 1.029224 
+Results for n = 50 , H₀: β₁ = 0 (false null)
+Rejection rate (power): 
+Mean β̂₁: 1.009133 
+Variance of β̂₁: 0.1264878 
+Results for n = 500 , H₀: β₁ = 0 (false null)
+Rejection rate (power): 
+Mean β̂₁: 1.004012 
+Variance of β̂₁: 0.009162103 
+Results for n = 1000 , H₀: β₁ = 0 (false null)
+Rejection rate (power): 
+Mean β̂₁: 0.997987 
+Variance of β̂₁: 0.005327341 
+```
+
+
+:::
+:::
 

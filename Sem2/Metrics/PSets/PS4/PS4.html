@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -35,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
 <link href="PS4_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="PS4_files/libs/bootstrap/bootstrap-973236bd072d72a04ee9cd82dcc9cb29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -72,14 +135,23 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="question-1---hansen-7.17" class="level1">
 <h1>Question 1 - Hansen 7.17</h1>
+<section id="part-a" class="level2">
+<h2 class="anchored" data-anchor-id="part-a">Part A</h2>
 </section>
-<section id="question-2---hansen-7.28" class="level1">
-<h1>Question 2 - Hansen 7.28</h1>
 <section id="part-b" class="level2">
 <h2 class="anchored" data-anchor-id="part-b">Part B</h2>
 </section>
 <section id="part-c" class="level2">
 <h2 class="anchored" data-anchor-id="part-c">Part C</h2>
+</section>
+</section>
+<section id="question-2---hansen-7.28" class="level1">
+<h1>Question 2 - Hansen 7.28</h1>
+<section id="part-b-1" class="level2">
+<h2 class="anchored" data-anchor-id="part-b-1">Part B</h2>
+</section>
+<section id="part-c-1" class="level2">
+<h2 class="anchored" data-anchor-id="part-c-1">Part C</h2>
 </section>
 <section id="part-d" class="level2">
 <h2 class="anchored" data-anchor-id="part-d">Part D</h2>
@@ -93,9 +165,280 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="eq-2" class="level1">
 <h1>EQ 2</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>b0 <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b1 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sim <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  X1 <span class="ot">&lt;-</span> <span class="fu">rexp</span>(n)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  e <span class="ot">&lt;-</span> mixtools<span class="sc">::</span><span class="fu">rnormmix</span>(n,<span class="at">lambda=</span><span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">0.5</span>),<span class="at">mu=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">2</span>),<span class="at">sigma=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  Y <span class="ot">&lt;-</span> b0 <span class="sc">+</span> b1<span class="sc">*</span>X1 <span class="sc">+</span> e</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>,X1)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">t</span>(x)<span class="sc">%*%</span>x</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  xy <span class="ot">&lt;-</span> <span class="fu">t</span>(x)<span class="sc">%*%</span>Y</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  bhat <span class="ot">&lt;-</span> <span class="fu">solve</span>(xx,xy)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(bhat[<span class="dv">2</span>]))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These results show that the average of <span class="math inline">\(\hat{\beta}_1 \rightarrow\beta_1\)</span> as <span class="math inline">\(n\)</span> grows. The variance also approaches 0. This is consistent with what was derived in class, that as <span class="math inline">\(n\rightarrow\infty\)</span>, we see the predicted approach the actual, and variance should be 0 as with sufficiently large <span class="math inline">\(n\)</span>, there will be no variance in observations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>run_mc <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n_sims =</span> <span class="dv">1000</span>) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  mc_res <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span>n_sims, <span class="cf">function</span>(s) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sim</span>()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Mean b1:"</span>, <span class="fu">mean</span>(mc_res), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Variance of b1:"</span>, <span class="fu">var</span>(mc_res), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">run_mc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean b1: 0.9958786 
+Variance of b1: 0.03280226 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">run_mc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean b1: 4.705149 
+Variance of b1: 10327.78 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">run_mc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean b1: 0.9874581 
+Variance of b1: 0.6873946 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">run_mc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean b1: 0.9998417 
+Variance of b1: 0.07522244 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">run_mc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean b1: 0.9997874 
+Variance of b1: 0.006389495 </code></pre>
+</div>
+</div>
+<p>As <span class="math inline">\(n\rightarrow\infty\)</span>, the mean and variance get closer to the true values. This is a showcase of the WLLN.</p>
 </section>
 <section id="eq-3" class="level1">
 <h1>EQ 3</h1>
+<section id="part-a-1" class="level2">
+<h2 class="anchored" data-anchor-id="part-a-1">Part A</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>b0 <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>b1 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>num_sims <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>sim_test <span class="ot">&lt;-</span> <span class="cf">function</span>(n,b1_true, b1_null) {</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  X <span class="ot">&lt;-</span> <span class="fu">rexp</span>(n)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  e <span class="ot">&lt;-</span> mixtools<span class="sc">::</span><span class="fu">rnormmix</span>(n,<span class="at">lambda=</span><span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">0.5</span>),<span class="at">mu=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">2</span>),<span class="at">sigma=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  Y <span class="ot">&lt;-</span> b0<span class="sc">+</span>b1<span class="sc">*</span>X <span class="sc">+</span> e</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>,X)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">t</span>(x)<span class="sc">%*%</span>x</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  xy <span class="ot">&lt;-</span> <span class="fu">t</span>(x)<span class="sc">%*%</span>Y</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  bhat <span class="ot">&lt;-</span> <span class="fu">solve</span>(xx,xy)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  b0_hat <span class="ot">&lt;-</span> bhat[<span class="dv">1</span>]</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  b1_hat <span class="ot">&lt;-</span> bhat[<span class="dv">2</span>]</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  yhat <span class="ot">&lt;-</span> x <span class="sc">%*%</span> bhat</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  ehat <span class="ot">&lt;-</span> Y <span class="sc">-</span> yhat</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  sigma_sq_hat <span class="ot">&lt;-</span> <span class="fu">sum</span>(ehat<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(n<span class="dv">-2</span>)</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  var_cov_matrix <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(sigma_sq_hat)<span class="sc">*</span><span class="fu">solve</span>(xx)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  se_b1_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(var_cov_matrix[<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  t_stat <span class="ot">&lt;-</span> (b1_hat <span class="sc">-</span> b1_null)<span class="sc">/</span>se_b1_hat</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> n<span class="dv">-2</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>  t_crit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="dv">1</span><span class="sc">-</span>alpha<span class="sc">/</span><span class="dv">2</span>,df)</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>  reject <span class="ot">&lt;-</span> <span class="fu">abs</span>(t_stat) <span class="sc">&gt;</span> t_crit</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>  p_val <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">pt</span>(<span class="fu">abs</span>(t_stat), <span class="at">df=</span>df, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">b1_hat =</span> b1_hat,</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">se_b1_hat =</span> se_b1_hat,</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">t_stat =</span> t_stat,</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">t_crit =</span> t_crit,</span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_val =</span> p_val,</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">reject =</span> reject</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>run_hypothesis_test <span class="ot">&lt;-</span> <span class="cf">function</span>(n, b1_true, b1_null) {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">b1_hat =</span> <span class="fu">numeric</span>(num_sims),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">se_b1_hat =</span> <span class="fu">numeric</span>(num_sims),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">t_stat =</span> <span class="fu">numeric</span>(num_sims),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_val =</span> <span class="fu">numeric</span>(num_sims),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">reject =</span> <span class="fu">logical</span>(num_sims)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_sims) {</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    sim_result <span class="ot">&lt;-</span> <span class="fu">sim_test</span>(n,b1_true,b1_null)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    results<span class="sc">$</span>b1_hat[i] <span class="ot">&lt;-</span> sim_result<span class="sc">$</span>b1_hat</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    results<span class="sc">$</span>se_b1_hat[i] <span class="ot">&lt;-</span> sim_result<span class="sc">$</span>se_b1_hat</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    results<span class="sc">$</span>t_stat[i] <span class="ot">&lt;-</span> sim_result<span class="sc">$</span>t_stat</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    results<span class="sc">$</span>p_val[i] <span class="ot">&lt;-</span> sim_result<span class="sc">$</span>p_val</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    results<span class="sc">$</span>reject[i] <span class="ot">&lt;-</span> sim_result<span class="sc">$</span>reject</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  reject_rate <span class="ot">&lt;-</span> <span class="fu">mean</span>(results<span class="sc">$</span>reject)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  mean_b1_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(results<span class="sc">$</span>b1_hat)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  var_b1_hat <span class="ot">&lt;-</span> <span class="fu">var</span>(results<span class="sc">$</span>b1_hat)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  mean_se_b1_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(results<span class="sc">$</span>se_b1_hat)</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  theoretical_var <span class="ot">&lt;-</span> <span class="fu">mean</span>(results<span class="sc">$</span>se_b1_hat<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">results =</span> results,</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">reject_rate =</span> reject_rate,</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_b1_hat =</span> mean_b1_hat,</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">var_b1_hat =</span> var_b1_hat,</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_se_b1_hat =</span> mean_se_b1_hat,</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">theoretical_var =</span> theoretical_var</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>results_100_true <span class="ot">&lt;-</span> <span class="fu">run_hypothesis_test</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">b1_true=</span><span class="dv">1</span>,<span class="at">b1_null=</span><span class="dv">1</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Part a &amp; b: Results for n = 100, H₀: β₁ = 1 (true value)</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Part a &amp; b: Results for n = 100, H₀: β₁ = 1 (true value)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Theoretical rejection rate at α = 0.05 should be: 0.05</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Theoretical rejection rate at α = 0.05 should be: 0.05</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Observed rejection rate:"</span>, results_100_true<span class="sc">$</span>rejection_rate, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Observed rejection rate: </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mean β̂₁:"</span>, results_100_true<span class="sc">$</span>mean_b1_hat, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean β̂₁: 0.9965842 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Variance of β̂₁:"</span>, results_100_true<span class="sc">$</span>var_b1_hat, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Variance of β̂₁: 0.05108445 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mean standard error of β̂₁:"</span>, results_100_true<span class="sc">$</span>mean_se_b1_hat, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean standard error of β̂₁: 0.2312322 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Theoretical variance (from SE):"</span>, results_100_true<span class="sc">$</span>theoretical_var, <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Theoretical variance (from SE): 0.05459036 </code></pre>
+</div>
+</div>
+</section>
+<section id="part-c-2" class="level2">
+<h2 class="anchored" data-anchor-id="part-c-2">Part C</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">50</span>,<span class="dv">500</span>,<span class="dv">1000</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>results_varying_n <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> sample_size) {</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  results_varying_n[[<span class="fu">paste0</span>(<span class="st">"n"</span>, n)]] <span class="ot">&lt;-</span> <span class="fu">run_hypothesis_test</span>(<span class="at">n=</span>n, <span class="at">b1_true=</span><span class="dv">1</span>, <span class="at">b1_null=</span><span class="dv">1</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Results for n ="</span>, n, <span class="st">", H₀: β₁ = 1 (true value)</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Rejection rate:"</span>, results_varying_n[[<span class="fu">paste0</span>(<span class="st">"n"</span>, n)]]<span class="sc">$</span>rejection_rate, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Mean β̂₁:"</span>, results_varying_n[[<span class="fu">paste0</span>(<span class="st">"n"</span>, n)]]<span class="sc">$</span>mean_b1_hat, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Variance of β̂₁:"</span>, results_varying_n[[<span class="fu">paste0</span>(<span class="st">"n"</span>, n)]]<span class="sc">$</span>var_b1_hat, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Mean standard error of β̂₁:"</span>, results_varying_n[[<span class="fu">paste0</span>(<span class="st">"n"</span>, n)]]<span class="sc">$</span>mean_se_b1_hat, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Theoretical variance (from SE):"</span>, results_varying_n[[<span class="fu">paste0</span>(<span class="st">"n"</span>, n)]]<span class="sc">$</span>theortical_var, <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Results for n = 10 , H₀: β₁ = 1 (true value)
+Rejection rate: 
+Mean β̂₁: 0.9877109 
+Variance of β̂₁: 1.122592 
+Mean standard error of β̂₁: 0.9540542 
+Theoretical variance (from SE): 
+
+Results for n = 50 , H₀: β₁ = 1 (true value)
+Rejection rate: 
+Mean β̂₁: 1.011175 
+Variance of β̂₁: 0.1279706 
+Mean standard error of β̂₁: 0.3378157 
+Theoretical variance (from SE): 
+
+Results for n = 500 , H₀: β₁ = 1 (true value)
+Rejection rate: 
+Mean β̂₁: 0.9966982 
+Variance of β̂₁: 0.0101463 
+Mean standard error of β̂₁: 0.1006102 
+Theoretical variance (from SE): 
+
+Results for n = 1000 , H₀: β₁ = 1 (true value)
+Rejection rate: 
+Mean β̂₁: 0.9979931 
+Variance of β̂₁: 0.005275826 
+Mean standard error of β̂₁: 0.07090031 
+Theoretical variance (from SE): </code></pre>
+</div>
+</div>
+</section>
+<section id="part-d-1" class="level2">
+<h2 class="anchored" data-anchor-id="part-d-1">Part D</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>results_100_false <span class="ot">&lt;-</span> <span class="fu">run_hypothesis_test</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">b1_true=</span><span class="dv">1</span>,<span class="at">b1_null=</span><span class="dv">0</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Part d: Results for n = 100, H₀: β₁ = 0 (false null)</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Part d: Results for n = 100, H₀: β₁ = 0 (false null)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Rejection rate (power):"</span>, results_100_false<span class="sc">$</span>rejection_rate, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rejection rate (power): </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mean β̂₁:"</span>, results_100_false<span class="sc">$</span>mean_b1_hat, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean β̂₁: 1.003723 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Variance of β̂₁:"</span>, results_100_false<span class="sc">$</span>var_b1_hat, <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Variance of β̂₁: 0.05081951 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>results_varying_n_false <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> sample_size) {</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  results_varying_n_false[[<span class="fu">paste0</span>(<span class="st">"n"</span>, n)]] <span class="ot">&lt;-</span> <span class="fu">run_hypothesis_test</span>(<span class="at">n =</span> n, <span class="at">b1_true =</span> <span class="dv">1</span>, <span class="at">b1_null =</span> <span class="dv">0</span>)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Results for n ="</span>, n, <span class="st">", H₀: β₁ = 0 (false null)</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Rejection rate (power):"</span>, results_varying_n_false[[<span class="fu">paste0</span>(<span class="st">"n"</span>, n)]]<span class="sc">$</span>rejection_rate, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Mean β̂₁:"</span>, results_varying_n_false[[<span class="fu">paste0</span>(<span class="st">"n"</span>, n)]]<span class="sc">$</span>mean_b1_hat, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Variance of β̂₁:"</span>, results_varying_n_false[[<span class="fu">paste0</span>(<span class="st">"n"</span>, n)]]<span class="sc">$</span>var_b1_hat, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Results for n = 10 , H₀: β₁ = 0 (false null)
+Rejection rate (power): 
+Mean β̂₁: 1.017303 
+Variance of β̂₁: 1.029224 
+Results for n = 50 , H₀: β₁ = 0 (false null)
+Rejection rate (power): 
+Mean β̂₁: 1.009133 
+Variance of β̂₁: 0.1264878 
+Results for n = 500 , H₀: β₁ = 0 (false null)
+Rejection rate (power): 
+Mean β̂₁: 1.004012 
+Variance of β̂₁: 0.009162103 
+Results for n = 1000 , H₀: β₁ = 0 (false null)
+Rejection rate (power): 
+Mean β̂₁: 0.997987 
+Variance of β̂₁: 0.005327341 </code></pre>
+</div>
+</div>
+</section>
 </section>
 
 </main>
