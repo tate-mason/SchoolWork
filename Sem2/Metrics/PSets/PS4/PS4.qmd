@@ -14,9 +14,71 @@ format: pdf
 
 # Question 2 - Hansen 7.28
 
+```{r}
+library(haven)
+library(dplyr)
+```
+
+```{r}
+rm(list = ls())
+
+dat <- read_dta('~/SchoolWork/Sem2/Metrics/PSets/PS3/cps09mar.dta')
+sample <- (dat[,11]==1)&(dat[,2]==0)&(dat[,3]==1)
+df <- dat[sample,]
+
+y <- as.matrix(log(df[,5]/(df[,6]*df[,7])))
+exp <- df[,1]-df[,4]-6
+exp2 <- (exp^2)/100
+
+x_df <- data.frame(
+  education = df[,4],
+  experience = exp,
+  exp_squared = exp2,
+  intercept = 1
+)
+x <- as.matrix(x_df)
+
+xx <- t(x)%*%x
+xy <- t(x)%*%y
+beta <- solve(xx,xy)
+
+fitted <- x %*% beta
+resid <- y - fitted
+
+n <- nrow(x)
+k <- ncol(x)
+xx_inv <- solve(t(x)%*%x)
+
+df <- n-k
+
+hc0 <- matrix(0, nrow=k, ncol=k)
+for (i in 1:n) {
+  xi <- matrix(x[i,], nrow=k)
+  hc0 <- hc0 + resid[i]^2 * (xi %*% t(xi))
+}
+```
+
 ## Part B
 
+```{r}
+theta_hat <- beta[1]/(beta[2]+beta[3]/5)
+cat("\nPart B: Estimated Theta")
+print(theta_hat)
+```
+
 ## Part C
+
+```{r}
+gradient_g <- c(
+  1/(beta[2] + beta[3]/5),
+  -beta[1]/(beta[2]+beta[3]/5)^2,
+  -beta[1]/(5*(beta[2]+beta[3]/5)^2),
+  0
+)
+
+theta_se <- sqrt(t(gradient_g) %*% hc0 %*% gradient_g)
+print(theta_se)
+```
 
 ## Part D
 
