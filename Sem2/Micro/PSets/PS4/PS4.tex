@@ -79,12 +79,12 @@
 
 \section*{Solution 1}
   \subsection*{Part (A)}
-  To be dominant incentive compatible is to be strategy proof. This is otherwise stated as the mechanism is optimal for an agent no matter the moves of others. 
-
-  Consider the case of the second-price auction. It is weakly dominant to bid truthfully $\mathbb{E}[v_i-t_i|\theta_{-i}]$. In the case of it being DIC, the IC is instead $\mathbb{E}[v_i-t_i|\theta_{i}]$, or your bid, as in the case of a second price auction, only depends on your own private value.
-  \subsection*{Part (B)}
-  \begin{proof}
-
-  \end{proof}
-
+    To be dominant incentive compatible is to be strategy-proof. Otherwise stated as the mechanism is optimal for an agent no matter the moves of others. Mathematically, this can be represented as follows. For Bayesian Incentive compatible:
+    \begin{gather*}
+      \mathbb{E}[v_i(x_i(\theta_i, \theta_{-i}),\theta) - t_i(\theta_i,\theta_{-i})|\theta_{-i}] \geq \mathbb{E}[v_i(x_i(\hat{\theta_i}, \theta_{-i}),\theta) - t_i(\hat{\theta_i},\theta_{-i})|\theta_{-i}]
+    \end{gather*}
+    For DIC:
+    \begin{gather*}
+      v_i(x_i(\theta_i,\theta_{-i},\theta) - t_i(\theta_i,\theta_{i}) \geq v_i(x_i(\hat{\theta_i},\theta_{-i})) - t_i(\hat{\theta_i},\theta_{-i})
+    \end{gather*}
 \end{document}
