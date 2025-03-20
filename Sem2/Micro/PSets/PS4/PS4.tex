@@ -85,6 +85,199 @@
     \end{gather*}
     For DIC:
     \begin{gather*}
-      v_i(x_i(\theta_i,\theta_{-i},\theta) - t_i(\theta_i,\theta_{i}) \geq v_i(x_i(\hat{\theta_i},\theta_{-i})) - t_i(\hat{\theta_i},\theta_{-i})
+      v_i(x_i(\theta_i,\theta_{-i},\theta) - t_i(\theta_i,\theta_{i}) \geq v_i(x_i(\hat{\theta_i},\theta_{-i})) - t_i(\hat{\theta_i},\theta_{-i}) \forall \theta_i, \theta_{-i}, \hat{\theta}
     \end{gather*}
+  \subsection*{Part (B)}
+    \begin{proof}
+      Consider arbitrary mechanism $\langle M, x, t \rangle$ with dominant strategy equilibrium $s^*(\theta) = (s_1\theta_1, s_2\theta_2, ..., s_n\theta_n)$. Because $\exists$ equilibrium $s^*(\theta)$, we can use the revelation principle to show direct mechanism $\langle \Theta, x', t' \rangle$ such that $\Theta$ is the type space, $x'(\theta)$ is the allocation rule, and $t'(\theta)$ is the payment rule. Under the direct mechanism, it is opitmal for players to report truthfully. 
+
+      Any game which has a dominant strategy has at least one equilibrium in which all players will play said strategy. If $\langle M, x, t \rangle$ is DIC, the equilibrium is that all players will play their type truthfully. Thus, the indirect and direct mechanisms are equivalent in the case in which both agents choose to report truthfully.
+    \end{proof}
+\section*{Solution 2}
+  \begin{proof}
+    Consider an agent i with type $\theta_i$. Further, consider the agent has the option to report their type as $\hat{\theta}_i$, a type which differs from their true type. When reporting truthfully, agent $i$ has utility:
+    \begin{equation}
+      u_i(\theta_i,\theta_{-i}) = v_i(x(\theta_i,\theta_{-i}),\theta_i) - t_i(\theta_i, \theta_{-i})
+    \end{equation}
+    The payment rule given in definition 6.1 can now be subbed in such that:
+    \begin{equation}
+      u_i(\theta_i,\theta_{-i}) = v_i(x(\theta_i,\theta_{-i}),\theta_i) + \sum\limits_{j\ne i}v_j(x(\theta_i, \theta_{-i}), \theta_j)-h_j(\theta_{-i})
+    \end{equation}
+    Using the same steps, we can produce utility from reporting something besides their type:
+    \begin{equation}
+      u_i(\hat{\theta}_i, \theta_{-i}) = v_i(x(\hat{\theta}_i,\theta_{-i}),\theta_i) - t_i(\hat{\theta}_i, \theta_{-i})
+    \end{equation}
+    \begin{equation}
+      u_i(\hat{\theta}_i,\theta_{-i}) = v_i(x(\hat{\theta}_i,\theta_{-i}),\theta_i) + \sum\limits_{j\ne i}v_j(x(\hat{\theta}_i, \theta_{-i}), \theta_j)-h_j(\theta_{-i})
+    \end{equation}
+    To show that truthful reporting is optimal, $u(\theta_i,\theta_{-i})\geq u(\hat{\theta_i},\theta_{-i})$ needs to be shown. 
+    \begin{equation}
+      v_i(x(\theta_i,\theta_{-i}),\theta_i) + \sum\limits_{j\ne i}v_j(x(\theta_i, \theta_{-i}), \theta_j)-h_j(\theta_{-i}) \geq v_i(x(\hat{\theta}_i,\theta_{-i}),\theta_i) + \sum\limits_{j\ne i}v_j(x(\hat{\theta}_i, \theta_{-i}), \theta_j)-h_j(\theta_{-i})
+    \end{equation}
+    It should be apparent that the function $h_j(\theta_{-i})$, a function which relates to the reports of other agents, cancels out leaving us with: 
+    \begin{equation}
+      v_i(x(\theta_i,\theta_{-i}),\theta_i) + \sum\limits_{j\ne i}v_j(x(\theta_i, \theta_{-i}), \theta_j)\geq v_i(x(\hat{\theta}_i,\theta_{-i}),\theta_i) + \sum\limits_{j\ne i}v_j(x(\hat{\theta}_i, \theta_{-i}), \theta_j)
+    \end{equation}
+    This leaves an inequality that shows that it is optimal to report truthfully regardless of the reports of others, shown by the step in which $h_j(\theta_{-i})$, otherwise showing that any VCG mechanism is DIC. 
+  \end{proof}
+\section*{Solution 3}
+  \subsection*{Part (A)}
+    Beginning the allocation:
+    
+    If all agents participate, the good will be allocated to agent 2.
+
+    Now, for transfers:
+    \begin{gather*}
+      t_1 = (90+10) - (90+10) = 0 \\
+      t_2 = (95-60) - (-90+10) = 115 \\
+      t_3 = (95-50) - (-90+90) = 45 \\
+    \end{gather*}
+    Finally, net transfers are as follows:
+    \begin{gather*}
+      n_1 = -90 - 0 = -90 \\
+      n_2 = 90 - 115 = -25 \\
+      n_3 = 10 - 45 = -35
+    \end{gather*}
+  \subsection*{Part (B)}
+    The transfers for $I_1, \ I_3$ can be described as 
+    \begin{gather*}
+      t_1 = 40 - (-60) = 100 \\
+      t_3 = 95 - 95 = 0 \\
+    \end{gather*}
+    And net payoffs as
+    \begin{gather*}
+      n_1 = 95 - 100 = -5 \\
+      n_3 = -60 -0 = -60 \\
+    \end{gather*}
+    $I_2$ would incur a negative externality of value $-50$, the value of $I_1$ receiving the weapon. Because their net pay is $-25$, they will choose to stay in the allocation game since the cost to participate is lower than the cost to sit out. 
+  \subsection*{Part (C)}
+    \subsubsection*{Agent 1}
+    Transfers can be determined as the following:
+    \begin{gather*}
+      t_2 = 40-10 = 30 \\
+      t_3 = 90-90 = 0
+    \end{gather*}
+    Net payoffs:
+    \begin{gather*}
+      n_2 = 90-30 = 60 \\
+      n_3 = 10 - 0 = 10 \\
+    \end{gather*}
+    $I_1$ would experience a negative payoff of $-90$ when the weapon is allocated to $I_2$ , which is equal to their net payoff when participating. This would cause them to continue to participate as they would not experience a negative payoff. 
+    \subsubsection*{Agent 3}
+      Transfers:
+      \begin{gather*}
+        t_1 = 90-(-50) = 140 \\
+        t_2 = 95-95 = 0 \\
+      \end{gather*}
+      Net pay:
+      \begin{gather*}
+        n_1 = 90 - 140 = -50 \\
+        n_2 = -50 - 0 = -50 \\
+      \end{gather*}
+      $I_3$ would experience a negative payoff of $-60$, with the weapon allocated to $I_1$, when they abstain. They will choose to participate as their net utility is higher than the utility of sitting out. 
+\section*{Solution 4}
+  \begin{proof}
+    As shown before, we can write the VCG payoff function as follows:
+    \begin{equation}
+      v_i(x(\theta_i),\theta_i) - t_i(\theta_i) 
+    \end{equation}
+    Let's plug in for $t_i(\theta_i)$
+    \begin{equation}
+      v_i(x(\theta_i),\theta_i) - {\max\atop{s\in\Chi_{-i}}}\sum\limits_{j\ne i}v_j*s, \theta_j) + \sum\limits_{j\ne i}v_i(x,\theta_j)
+    \end{equation}
+    Now, we can transform the equation as shown in class to be 
+    \begin{equation}
+      =\sum\limits_{i=1}^nv_i(x(\theta_i),\theta_i) - {\max\atop{s\in\chi_{-i}}}\sum\limits_{j\ne i}v_j(s, \theta_j)
+    \end{equation}
+    Since $\mathcal{X}_{-i}\subset\mathcal{X}$
+    \begin{equation}
+      \sum\limits_{i=1}^nv_i(x(\theta_i),\theta_i) \geq {\max\atop{s\in\chi_{-i}}}\sum\limits_{j\ne i}v_j(s, \theta_j)
+    \end{equation}
+    The left side includes all outcomes, and thus the right side must be less than or equal. This is since the right side only considers a subset of all outcomes. Further, 
+    \begin{equation}
+      {\max\atop{s\in\mathcal{X}_{-i}}}\sum\limits_{i=1}^nv_i(s(\theta_i),\theta_i) \geq {\max\atop{s\in\chi_{-i}}}\sum\limits_{j\ne i}v_j(s, \theta_j)
+    \end{equation}
+    The left side necessarily has more agents. Because there are no negative externalities, it must also be true that 
+    \begin{equation}
+      \sum\limits_{i=1}^nv_i(x(\theta_i),\theta_i)\geq {\max\atop{s\in\chi_{-i}}}\sum\limits_{j\ne i}v_j(s, \theta_j)
+    \end{equation}
+    This states that the payoff for any agent i is non-negative, also implying the VCG is ex-post IR.
+  \end{proof}
+
+\section*{Solution 5}
+  \subsection*{Part (A)}
+    For agent one, the DSIC is as follows:
+    \begin{equation}
+      x(v_1,v_2)v_1 - t_1(v_1,v_2) \geq x(\hat{v_1},v_2)v_1 - t_1(\hat{v_1},v_2)
+    \end{equation}
+    For agent two, the DSIC is much the same:
+    \begin{equation}
+      x(v_1,v_2)v_2 - t_2(v_1,v_2) \geq x(v_1,\hat{v_2})v_2 - t_2(v_1,\hat{v_2})
+    \end{equation}
+    Further, we know that the mechanism must be budget balanced such that 
+    \begin{equation}
+      \sum\limits_{i=1}^2 t_i(v_1,v_2) = \begin{cases}
+        c & if \ x(v_1,v_2) = 1, \\
+        0 & otherwise
+      \end{cases}
+    \end{equation}
+    Now, let's calculate payoffs:
+    \subsubsection*{Agent 1:}
+      \begin{gather*}
+        U_1(v_1,v_2) = x(v_1,v_2)v_1 - t_1(v_1,v_2) \\
+        \shortintertext{Using the envelope theorem:} \\
+        \frac{\partial U_1(v_1,v_2)}{\partial v_1} = x(v_1,v_2) \\
+        \shortintertext{Integrating:} \\
+        U_1(v_1,v_2) = U_1(0,v_2) + \int\limits_0^{v_1}x(s,v_2)ds
+      \end{gather*}
+    \subsubsection*{Agent 2:}
+      \begin{gather*}
+        U_2(v_1,v_2) = x(v_1,v_2)v_2 - t_2(v_1,v_2) \\
+        \shortintertext{Using the envelope theorem:} \\
+        \frac{\partial U_2(v_1,v_2)}{\partial v_2} = x(v_1,v_2) \\
+        \shortintertext{Integrating:} \\
+        U_2(v_1,v_2) = U_2(v_1,0) + \int\limits_0^{v_2}x(v_1,s)ds
+      \end{gather*}
+  \subsection*{Part (B)}
+    Define total expected surplus as follows:
+    \begin{equation}
+      x(v_1,v_2)(v_1+v_2-c) \\
+    \end{equation}
+    Set expected surplus equal to the sum of expected utilities:
+    \begin{gather*}
+      x(v_1,v_2)(v_1+v_2-c) = [U_1(0,v_2) + \int\limits_0^{v_1}x(s,v_2)ds] + [U_2(v_1,0) + \int\limits_0^{v_2}x(v_1,s)ds] \\
+    \end{gather*}
+  \subsection*{Part (C)}
+    Now, Start with taking cross-partial derivative of $x(v_1,v_2)(v_1+v_2-c) = [U_1(0,v_2) + \int\limits_0^{v_1}x(s,v_2)ds] + [U_2(v_1,0) + \int\limits_0^{v_2}x(v_1,s)ds]$.
+    \begin{gather*}
+      \shortintertext{Start by differentiating each side of the equality w.r.t $v_1$} \\
+      \shortintertext{Starting with the left hand side:} \\
+      \frac{\partial x(v_1,v_2)}{\partial v_1}[\int\limits_0^{v_1}x(s,v_2)df+\int\limits_0^{v_2}x(v_1,s)ds] \\
+      \Rightarrow x(v_1,v_2)+\int\limits_0^{v_2}\frac{\partial x(v_1,s)}{\partial v_1}ds \\
+      \shortintertext{Now, the right hand side:} \\
+      \frac{\partial x(v_1,v_2)}{\partial v_1}[(v_1+v_2-c)x(v_1,v_2)] \\
+      \Rightarrow \ \frac{\partial x(v_1,v_2)}{\partial v_1}(v_1+v_2-c) + x(v_1,v_2) \\
+      \shortintertext{Simplifying and grouping yields:} \\
+      \frac{\partial x(v_1,v_2)}{\partial v_1}(v_1+v_2-c) = \int\limits_0^{v_2}\frac{\partial x(v_1,s)}{\partial v_1} \\
+      \shortintertext{Now, we differentiate that w.r.t $v_2$} \\
+      \shortintertext{Again, starting with the left:} \\
+      \frac{\partial x(v_1,v_2)}{\partial v_2}[\int\limits_0^{v_2}\frac{\partial x(v_1,s)}{\partial v_2}ds] \\
+      \Rightarrow \ \frac{\partial x(v_1,v_2)}{\partial v_1} \\
+      \shortintertext{Now, the right:} \\
+      \frac{\partial x(v_1,v_2)}{\partial v_2}[\frac{\partial x(v_1,v_2)}{\partial v_1}(v_1+v_2-c)] \\
+      \Rightarrow \ \frac{\partial^2x(v_1,v_2)}{\partial v_2\partial v_1}(v_1+v_2-c) + \frac{\partial x(v_1,v_2)}{\partial v_1} \\
+      \shortintertext{Now, simplify such that:} \\
+      0 = \frac{\partial^2x(v_1,v_2)}{\partial v_2\partial v_1}(v_1+v_2-c) \\
+    \end{gather*}
+    As given in the conditions $v_1+v_2-c\ne0$ $\therefore$ $\frac{\partial^2x(v_1,v_2)}{\partial v_2\partial v_1}=0$. This states that changes in either variable are independent of the other. This can otherwise be shown via separability (as hinted at in lecture) such that $x(v_1,v_2)=f(v_1)+g(v_2)$. 
+  \subsection*{Part (D)}
+    Because $x(v_1,v_2)$ is separable, 
+    \begin{equation}
+      x(v_1,v_2) = \begin{cases}
+        1& if \ v_1\geq c_1 \ v_2\geq c_2 \\
+        0& otherwise
+      \end{cases}
+    \end{equation}
+    This states that the good will provided when an agents value surpasses costs. This finding makes use of the budget balancing from earlier parts.
+
 \end{document}
