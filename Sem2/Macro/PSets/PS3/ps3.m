@@ -38,11 +38,7 @@ copt = zeros(n,2);
 jopt = zeros(n,2);
 
 % VFI %
-<<<<<<< HEAD
-while diff>tol & iter<maxiter
-=======
 while diff > tol & iter<maxiter
->>>>>>> origin/main
   iter = iter + 1;
   diff = 0.0;
   for i = 1:n
