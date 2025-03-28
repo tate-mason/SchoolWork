@@ -1,0 +1,91 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[top=3cm,bottom=4cm,left=3.5cm,right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{fancyhdr,color,comment,graphicx,environ,float,mathtools,mathrsfs}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+% Custom headers
+\pagestyle{fancy}
+\lhead{ECON - 8020}
+\chead{}
+\rhead{Tate Mason}
+\lfoot{}
+\cfoot{Assignment 5}
+\rfoot{\thepage}
+
+\begin{document}
+
+\title{Assignment 5}
+\author{Tate Mason}
+\date{Due: April 3rd, 11:59pm}
+\maketitle
+
+\section*{Question 1 (10pts)}
+  A town is deciding whether or not to build a public project that costs $c = \frac{3}{4}$. There are two residents ($n = 2$). Each agents type (value for the public project) lies in the set $\{0,1\}$. Types are independent across agents and equally likely.
+
+  Suppose you have a mechanism $\langle x, t \rangle$ that is efficient and balanced from the standpoint that total transfers are 0 when the project is not built and $c$ when it is built. In other words, the transfers always cover the cost of the public project.
+
+  \begin{enumerate}
+      \item[(a)] What is the efficient allocation/decision rule?
+      \item[(b)] Show that if $\langle x, t \rangle$ is incentive compatible then it can not be interim individually rational.
+  \end{enumerate}
+
+\section*{Question 2 (25pts)}
+  An economy consists of workers with utility functions of the form $\theta l - \frac{l^2}{2} - t$.
+
+  $\theta$ is the worker's marginal product, $l \geq 0$ is her labor supply, $t$ is the tax she pays to the government.
+
+  Suppose there are three types of workers, with marginal products $\theta_1 < \theta_2 < \theta_3$, and that there are large and equal numbers of each type of workers. A worker's type is his private information, but the government can observe his labor supply $l$. The government wishes to use a (nonlinear) tax/subsidy scheme on labor to maximize the median utility level in the population subject to balancing the budget. Agents can not emigrate, which means there are no participation constraints.
+
+  \begin{enumerate}
+      \item[(a)] What is a direct mechanism in this context? Why can we restrict attention to direct mechanisms?
+      \item[(b)] Show that labor supply is nondecreasing in type under any taxation scheme.
+      \item[(c)] Show that once we include the monotonicity of labor supply constraint then all but two incentive constraints become redundant.
+      \item[(d)] Assume $\frac{2\theta_3}{3} < \theta_2 < \frac{\theta_2\theta_3}{3}$. Solve for the optimal taxation scheme. Explain why the assumption on the $\theta$'s is necessary.
+  \end{enumerate}
+
+\section*{Question 3 (20pts)}
+  The economics faculty at a university has to allocate courses for next year. Each faculty member must teach one class. Current classes and preferences are:
+  
+  \begin{center}
+    \begin{tabular}{|l|l|l|}
+      \hline
+      \textbf{Faculty} & \textbf{Current Class} & \textbf{Preferences} \\
+      \hline
+      Levin & Market Design (MD) & MD $>$ GT $>$ Macro $>$ Intro \\
+      \hline
+      Taylor & Intro Econ (Intro) & Macro $>$ Intro $>$ MD $>$ GT \\
+      \hline
+      Niederle & Game Theory (GT) & Macro $>$ GT $>$ Intro $>$ MD \\
+      \hline
+      Klenow & Macro (Macro) & MD $>$ GT $>$ Intro $>$ Macro \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  Klenow proposes random serial dictatorship (RSD) to allocate classes. Under his scheme, a priority order will be chosen randomly and announced, with all orders equally likely. Then at a meeting, faculty will choose classes in order of priority.
+
+  \begin{enumerate}
+      \item[(a)] Will the faculty have an incentive to choose truthfully?
+      \item[(b)] What is the probability that Levin gets to teach Market Design? Game Theory, Macro? Intro Economics? What are the probabilities for Taylor?
+      \item[(c)] Before priorities are announced, Levin and Taylor meet secretly. They discuss choosing their classes strategically and possibly swapping after the meeting. Can you find a deal along these lines that leaves each of them strictly better off in some scenario, and neither worse off in any scenario?
+      \item[(d)] Niederle argues that faculty should have property rights over the class they are teaching this year, and proposes Top Trading Cycles as an alternative to RSD. What is the outcome under Top Trading Cycles?
+  \end{enumerate}
+
+\section*{Solution 1}
+  \subsection*{Part (a)}
+       
+
+\section*{Solution 2}
+
+\section*{Solution 3}
+  \subsection*{Part (a)}
+    Yes, they are incentivized to choose truthfully. Because we assume the randomization is "fair", there is no incentive to strategize. This is due to the efficiency and Pareto optimality of an RSD with strict preferences.
+  \subsection*{Part (b)}
+
+  \subsection*{Part (c)}
+    
+  \subsection*{Part (d)}
+    By the cycle, Levin will keep market design class. Then we remove them from the chain. After that, the cycle, starting with Niederle, grants Macro to Niederle and Game Theory to Klenow. This closes a loop, leaving Taylor with Intro Econ, the class they already had. This grants professors either their first or second choice for teaching, a seemingly good outcome in terms of "fairness".
+
+\end{document}

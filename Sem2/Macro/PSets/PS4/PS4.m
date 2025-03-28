@@ -44,7 +44,7 @@ for i = 1:n
       P(i,j) = 1 - normcdf((lower_bound - mean_next)/sigma);
     else
       upper_bound = y_states(j) + step/2;
-      lower_bound = y_states(i) - step/2;
+      lower_bound = y_states(j) - step/2;
       P(i,j) = normcdf((upper_bound - mean_next)/sigma) - ...
                normcdf((lower_bound - mean_next)/sigma);
     end
