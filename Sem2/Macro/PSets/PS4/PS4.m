@@ -21,13 +21,10 @@ uncon_sd = sigma / sqrt(1-rho^2);
 
 %Calculate Steps and Discretize Space
 m = 3;
-min_y = uncon_mean - m * uncon_sd;
-max_y = uncon_mean + m * uncon_sd;
-step = (max_y-min_y) / (n-1);
 
 y_state = zeros(n,1);
 for i = 1:n
-  y_states(i) = min_y + (i-1)*step;
+  y_states(i) = uncon_mean + sqrt(2)*uncon_sd*x(i);
 end
 
 % Transition Probability
@@ -36,19 +33,10 @@ P = zeros(n, n);
 for i = 1:n
   mean_next = mu + rho*y_states(i);
   for j = 1:n
-    if j == 1
-      upper_bound = y_states(j) + step/2;
-      P(i,j) = normcdf((upper_bound - mean_next)/sigma);
-    elseif j == n
-      lower_bound = y_states(j) - step/2;
-      P(i,j) = 1 - normcdf((lower_bound - mean_next)/sigma);
-    else
-      upper_bound = y_states(j) + step/2;
-      lower_bound = y_states(j) - step/2;
-      P(i,j) = normcdf((upper_bound - mean_next)/sigma) - ...
-               normcdf((lower_bound - mean_next)/sigma);
-    end
+    P(i,j) = w(j) * normpdf(y_states(j), mean_next, sigma) / ...
+             normpdf(y_states(j), uncon_mean, uncon_sd);
   end
+  P(i,:) = P(i,:) / sum(P(i,:));
 end
 
 %Print results
@@ -74,3 +62,14 @@ rng(19);
 u = rand(total_sim, 1);
 
 %Simulate
+for t = 1:total_sim-1
+  cum_prob = cumsum(P(state_sim(t),:)');
+  state_sim(t+1) = find(u(t) <= cum_prob, 1);
+end
+
+y_sim = zeros(n_obs, 1);
+for t = 1:n_obs
+  y_sim(t) = y_states(state_sim(t+dis));
+end
+
+
