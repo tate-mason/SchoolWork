@@ -31,4 +31,29 @@ where $\varepsilon \sim N(0, 1)$
     
     \item[(2)] Simulate the Markov chain and compute the implied autocorrelation coefficient ($\hat{\rho}$). Note: use 1 million observations to simulate a persistent AR process. Disregard first 1000 observations. Report both $\hat{\rho}$ and $\hat{\sigma}$ computed from the simulated data.
 \end{enumerate}
+
+\section*{Solution 1}
+  y - vector:
+    \begin{gather*}
+      \begin{pmatrix} -0.1092 & -0.776 & -0.503 & -0.0248 & 0.0000 & 0.0248 & 0.0503 & 0.0776 & 0.1092 \end{pmatrix}
+    \end{gather*}
+  Transition Matrix:
+    \begin{gather*}
+      \begin{bmatrix}
+        0.5755 & 0.3551 & 0.0649 & 0.0044 & 0.0001 & 0.0000 & 0.000 & 0.0000 & 0.0000 \\
+        0.1572 & 0.4517 & 0.3116 & 0.0729 & 0.0063 & 0.0002 & 0.0000 & 0.0000 & 0.0000 \\
+        0.0179 & 0.1945 & 0.4222 & 0.2881 & 0.0708 & 0.0063 & 0.0002 & 0.0000 & 0.0000 \\
+        0.0009 & 0.0349 & 0.2212 & 0.4099 & 0.2669 & 0.0623 & 0.0048 & 0.0001 & 0.0000 \\
+        0.0000 & 0.0028 & 0.0499 & 0.2441 & 0.4063 & 0.2441 & 0.0499 & 0.0028 & 0.0000 \\
+        0.0000 & 0.0001 & 0.0048 & 0.0623 & 0.2659 & 0.4099 & 0.2212 & 0.0349 & 0.0009 \\
+        0.0000 & 0.0000 & 0.0002 & 0.0063 & 0.0708 & 0.2881 & 0.4222 & 0.1945 & 0.0179 \\
+        0.0000 & 0.0000 & 0.0000 & 0.0002 & 0.0063 & 0.0729 & 0.3116 & 0.4517 & 0.1572 \\
+        0.0000 & 0.0000 & 0.0000 & 0.0000 & 0.0001 & 0.0044 & 0.0649 & 0.3551 & 0.5755
+      \end{bmatrix}
+    \end{gather*}
+\section*{Solution 2}
+  \begin{gather*}
+    \hat{\rho} = 0.8857 \\
+    \hat{\sigma} = 0.0239
+  \end{gather*}
 \end{document}
