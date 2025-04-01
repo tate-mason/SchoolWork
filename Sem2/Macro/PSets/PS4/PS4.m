@@ -81,4 +81,4 @@ e_hat = y_tp1 - (mu + rho_hat*y_t);
 sigma_hat = sqrt(mean(e_hat.^2));
 
 fprintf('Estimated autocorrelation coefficient (rho_hat): %.6f\n', rho_hat);
-fprintf('Estimated standard deviation (sigma_hat): %.6f\n', sigma_hat);
+fprintf('Estimated variance (sigma_hat): %.6f\n', sigma_hat);
