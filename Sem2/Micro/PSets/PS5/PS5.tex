@@ -37,12 +37,14 @@
 
   Suppose there are three types of workers, with marginal products $\theta_1 < \theta_2 < \theta_3$, and that there are large and equal numbers of each type of workers. A worker's type is his private information, but the government can observe his labor supply $l$. The government wishes to use a (nonlinear) tax/subsidy scheme on labor to maximize the median utility level in the population subject to balancing the budget. Agents can not emigrate, which means there are no participation constraints.
 
-  \begin{enumerate}
-      \item[(a)] What is a direct mechanism in this context? Why can we restrict attention to direct mechanisms?
-      \item[(b)] Show that labor supply is nondecreasing in type under any taxation scheme.
-      \item[(c)] Show that once we include the monotonicity of labor supply constraint then all but two incentive constraints become redundant.
-      \item[(d)] Assume $\frac{2\theta_3}{3} < \theta_2 < \frac{\theta_2\theta_3}{3}$. Solve for the optimal taxation scheme. Explain why the assumption on the $\theta$'s is necessary.
-  \end{enumerate}
+   \begin{enumerate}
+        \item[(a)] What is a direct mechanism in this context? Why can we restrict attention to direct mechanisms?
+        \item[(b)] In any incentive compatible mechanism, what will be the type of the worker with the median utility level? Explain.
+        \item[(c)] Write down the government's optimization problem.
+        \item[(d)] Show that labor supply is nondecreasing in type under any taxation scheme.
+        \item[(e)] Show that once we include the monotonicity of labor supply constraint then all but two incentive constraints become redundant.
+        \item[(f)] Assume $\frac{2\theta_1+\theta_3}{3} < \theta_2 < \frac{\theta_1+2\theta_2}{3}$. Solve for the optimal taxation scheme. Explain why the assumption on the $\theta$'s is necessary.
+    \end{enumerate}
 
 \section*{Question 3 (20pts)}
   The economics faculty at a university has to allocate courses for next year. Each faculty member must teach one class. Current classes and preferences are:
@@ -82,6 +84,36 @@
       \end{cases}
     \end{gather*}
   \subsection*{Part (b)}
+    To be budget balanced in this case implies that 
+    \begin{gather*}
+      \sum\limits_{i=1}^2 t_i(\theta_i,\theta_{-i}) = \frac{3}{4} = c
+    \end{gather*}
+    Incentive compatibility implies that misreporting is suboptimal. 
+    \begin{gather*}
+      \shortintertext{For an agent with $\theta_i = 0$, we can show that:} \\
+      0 - \mathbb{E}[t_0(0)] \geq 0 - \mathbb{E}[t_0(1)] \Rightarrow \mathbb{E}[t_0(0)] \leq \mathbb{E}[t_0(1)] \\
+      \shortintertext{For an agent with $\theta_i = 1$, we can show that:} \\
+      1 - \mathbb{E}[t_1(1)] \geq 0.5 - \mathbb{E}[t_1(0)] \Rightarrow \mathbb{E}[t_1(1)] \leq \mathbb{E}[t_1(0)] + 0.5 \\
+    \end{gather*}
+    Such that $t_1(\cdot)$ represents the transfer of an agent with value 1 and $t_0(\cdot)$ represents the transfer of an agent with type 0. Now, defining the IR constraint as follows:
+    \begin{gather*}
+      \shortintertext{For an agent with $\theta_i = 0$, the IR constraint is:} \\
+      0 - \mathbb{E}[t_i(0)] \geq 0 \Rightarrow \mathbb{E}[t_i(0)] = 0 \\
+      \shortintertext{For an agent with $\theta_i = 1$, the IR constraint is:} \\
+      1 - \mathbb{E}[t_i(1)] \geq 0 \Rightarrow \mathbb{E}[t_i(1)] \leq 1 \\
+    \end{gather*}
+    This states that an individual with value 0 has an expected transfer of 0, and one with a value of 1 has an expected transfer under 1.
+    Now, using budget balance as defined above and summing the transfers, we see:
+    \begin{gather*}
+      \mathbb{E}[t_1(\cdot)+t_2(\cdot)] = 3(\frac{1}{4}\cdot\frac{3}{4}) = \frac{9}{16} \\
+      \mathbb{E}[t_1(\cdot) + t_2(\cdot)] = 0.5(\mathbb{E}[t_1(1)] + \mathbb{E}[t_2(1)]) \geq \frac{9}{16} \\
+      \mathbb{E}[t_1(\cdot) + t_2(\cdot)] = \mathbb{E}[t_1(1)+t_2(1)] \geq \frac{9}{8} \\
+    \end{gather*}
+    But, this is a contradiction. The IC and IR constraints state that
+    \begin{gather*}
+      \mathbb{E}[t_1(1) + t_2(1)] \leq \mathbb{E}[t_1(0) + t_2(0)] + 1 \leq 1
+    \end{gather*}
+    But, we found that the summation of transfers is $\frac{9}{8}$, which is greater than 1. So, we can conclude that if a mechanism is efficient, budget balanced, and IC, it cannot be IIR.
 \section*{Solution 2}
   \subsection*{Part (a)}
     Attention can be restricted to direct mechanisms because there is no incentive to lie about marginal product. 
@@ -92,8 +124,21 @@
   \subsection*{Part (a)}
     Yes, they are incentivized to choose truthfully. Because we assume the randomization is "fair", there is no incentive to strategize. This is due to the efficiency and Pareto optimality of an RSD with strict preferences.
   \subsection*{Part (b)}
-
+    To show the probabilities, we will calculate probabilities for Professors Levin and Taylor being in each place, and sum them for each class. Each probability will be multiplied by $\frac{1}{4}$, since there are $4! = 24$ possible orders, each with probability $\frac{1}{24}$. Each professor has a probability of $\frac{6}{24}$ to get each position, thus we multiply by $\frac{1}{4}$. 
+    \begin{gather*}
+      \shortintertext{Levin:} \\
+      \text{MD} \ \frac{1}{4} + \frac{1}{4}\cdot\frac{2}{3} + \frac{1}{4}\cdot\frac{1}{3} + 0 = \frac{1}{2} \\
+      \text{Intro} \ \frac{1}{4} + \frac{1}{4} + \frac{1}{4}\cdot\frac{1}{3} + 0 = \frac{7}{12} \\
+      \text{GT} \ \frac{1}{4} + \frac{1}{4} + \frac{1}{4}\cdot\frac{2}{3} + \frac{1}{4} = \frac{11}{12} \\
+      \text{Macro} \ \frac{1}{4} + \frac{1}{4}\cdot\frac{1}{3} + \frac{1}{4}\cdot\frac{1}{3} + \frac{1}{4}\cdot\frac{1}{3} = \frac{1}{2} \\
+      \shortintertext{Taylor:} \\
+      \text{MD} \ \frac{1}{4} + \frac{1}{4}\cdot\frac{1}{3} + \frac{1}{4}\cdot\frac{1}{3} + \frac{1}{4}\cdot\frac{1}{3} = \frac{1}{2} \\
+      \text{Intro} \ \frac{1}{4} + \frac{1}{4} + \frac{1}{4}\cdot\frac{1}{3} + 0 = \frac{7}{12} \\
+      \text{GT} \ \frac{1}{4} + \frac{1}{4} + 0 + 0 = \frac{1}{2} \\
+      \text{Macro} \ \frac{1}{4} + \frac{1}{4}\cdot\frac{1}{3} + \frac{1}{4}\cdot\frac{1}{3} + \frac{1}{4}\cdot\frac{1}{3} = \frac{1}{2} \\
+    \end{gather*}
   \subsection*{Part (c)}
+    Yes, collusion for ex-post trading is possible. An example case is as follows: Assume Niederle goes first, taking Macro. Then, Taylor forgoes their own preferences, choosing MD. Assuming Klenow goes next, GT is taken, leaving Intro. This allows Taylor and Levin to trade, granting greater total utility than if they were left unaligned. Taylor gets their second choice no matter what, and Levin gets their top choice, which is normally not feasible. If either professor has the first choice, this does not hold. If the order aligns such that they go sequentially, this does not hold. Also, noticing they have preferences which are very different, their ordering makes this much easier whereas if it was Taylor and Niederle trying to collude, the preference ordering would not be congruent to strategy.
     
   \subsection*{Part (d)}
     By the cycle, Levin will keep market design class. Then we remove them from the chain. After that, the cycle, starting with Niederle, grants Macro to Niederle and Game Theory to Klenow. This closes a loop, leaving Taylor with Intro Econ, the class they already had. This grants professors either their first or second choice for teaching, a seemingly good outcome in terms of "fairness".
