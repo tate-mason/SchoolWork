@@ -22,4 +22,18 @@ male_dat <- data %>%
   mutate(Y = ifelse(union == 1, 1, 0)) %>%
   mutate(black = ifelse(race == 2, 1, 0))
 ```
+Now, we can conduct analysis using the probit
 
+```{r}
+X <- as.matrix(cbind(1, male_dat%>%select(age, education, black, hisp)))
+colnames(X) <- c("inctercept", "age", "education", "black", "hisp")
+Y <- male_dat$Y
+
+probit <- function(beta, X, Y) {
+  xbeta <- X %*% beta
+  p <- pnorm(xbeta)
+  p <- pmax(pmin(p, 1-1e-10), 1e-10)
+  -1 * sum(Y*log(p) + (1-Y)*log(1-p))
+}
+
+```
