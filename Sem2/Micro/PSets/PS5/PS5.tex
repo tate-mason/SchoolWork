@@ -128,15 +128,17 @@
     \begin{gather*}
       \shortintertext{Levin:} \\
       \text{MD} \ \frac{1}{4} + \frac{1}{4}\cdot\frac{2}{3} + \frac{1}{4}\cdot\frac{1}{3} + 0 = \frac{1}{2} \\
-      \text{Intro} \ \frac{1}{4} + \frac{1}{4} + \frac{1}{4}\cdot\frac{1}{3} + 0 = \frac{7}{12} \\
-      \text{GT} \ \frac{1}{4} + \frac{1}{4} + \frac{1}{4}\cdot\frac{2}{3} + \frac{1}{4} = \frac{11}{12} \\
-      \text{Macro} \ \frac{1}{4} + \frac{1}{4}\cdot\frac{1}{3} + \frac{1}{4}\cdot\frac{1}{3} + \frac{1}{4}\cdot\frac{1}{3} = \frac{1}{2} \\
+      \text{Intro} \ \frac{1}{4}\cdot\frac{1}{2} + 0 = \frac{1}{8} \\
+      \text{GT} \ 3(\frac{1}{4}\cdot\frac{1}{3}) = \frac{1}{4} \\
+      \text{Macro} \ = 0 \\
       \shortintertext{Taylor:} \\
-      \text{MD} \ \frac{1}{4} + \frac{1}{4}\cdot\frac{1}{3} + \frac{1}{4}\cdot\frac{1}{3} + \frac{1}{4}\cdot\frac{1}{3} = \frac{1}{2} \\
-      \text{Intro} \ \frac{1}{4} + \frac{1}{4} + \frac{1}{4}\cdot\frac{1}{3} + 0 = \frac{7}{12} \\
-      \text{GT} \ \frac{1}{4} + \frac{1}{4} + 0 + 0 = \frac{1}{2} \\
-      \text{Macro} \ \frac{1}{4} + \frac{1}{4}\cdot\frac{1}{3} + \frac{1}{4}\cdot\frac{1}{3} + \frac{1}{4}\cdot\frac{1}{3} = \frac{1}{2} \\
+      \text{MD} \ = 0 \\
+      \text{Intro} \ 2(\frac{1}{4}\cdot\frac{1}{3}) + 0 = \frac{1}{6} \\
+      \text{GT} \  = 0 \\
+      \text{Macro} \ \frac{1}{4} + \frac{1}{4}\cdot\frac{2}{3} + \frac{1}{4}\cdot\frac{2}{3} + 0 = \frac{7}{12} \\
     \end{gather*}
+
+    Let's go through explaining each case. Levin will always choose MD if first, is able to choose it if Niederle doesn't go first, and will pick it only in the case in which the order is K-N-T-L, meaning they can teach market design $\frac{12}{24} = \frac{1}{2}$ of the time. Intro is only chosen in the case in which the order is N-T-K-L, T-K-N-L, or T-N-K-L, leading to them choosing it $\frac{1}{8}$ of the time. Game theory is chosen in the cases of Klenow choosing first, T-N-L-K, N-T-L-K, or N-K-T-L, $\frac{1}{4}$ of the time. Macro is either never chosen in the case when Levin has an early pick or unavailable in the case of a later pick. For Taylor, they similarly never choose market design if early or never get to if later in the order. For Intro, they only get it in the cases in which Klenow goes before them, $\frac{1}{6}$ of the time. Macro is their top choice and is chosen if first or when Klenow isn't first or second, $\frac{7}{12}$ of the time. Finally, game theory is either not preferred or unavailable, meaning it is not chosen. 
   \subsection*{Part (c)}
     Yes, collusion for ex-post trading is possible. An example case is as follows: Assume Niederle goes first, taking Macro. Then, Taylor forgoes their own preferences, choosing MD. Assuming Klenow goes next, GT is taken, leaving Intro. This allows Taylor and Levin to trade, granting greater total utility than if they were left unaligned. Taylor gets their second choice no matter what, and Levin gets their top choice, which is normally not feasible. If either professor has the first choice, this does not hold. If the order aligns such that they go sequentially, this does not hold. Also, noticing they have preferences which are very different, their ordering makes this much easier whereas if it was Taylor and Niederle trying to collude, the preference ordering would not be congruent to strategy.
     
