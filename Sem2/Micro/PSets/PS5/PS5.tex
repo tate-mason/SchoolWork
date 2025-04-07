@@ -138,6 +138,56 @@
       \theta_il_i \geq \theta_il_j \ \text{and} \ \theta_jl_j \geq \theta_jl_i
     \end{gather*}
     Which shows labor supply is non-decreasing in type.
+  \subsection*{Part (e)}
+    Let's list all constraints:
+    \begin{gather*}
+      \shortintertext{Workers of type $\theta_1$:} \\
+      \theta_1l_1 - \frac{l_1^2}{2} - t_1 \geq \theta_1l_2 - \frac{l_2^2}{2} - t_2 \\
+      \theta_1l_1 - \frac{l_1^2}{2} - t_1 \geq \theta_1l_3 - \frac{l_3^2}{2} - t_3 \\
+      \shortintertext{Workers of type $\theta_2$:} \\
+      \theta_2l_2 - \frac{l_2^2}{2} - t_2 \geq \theta_2l_1 - \frac{l_1^2}{2} - t_1 \\
+      \theta_2l_2 - \frac{l_2^2}{2} - t_2 \geq \theta_2l_3 - \frac{l_3^2}{2} - t_3 \\
+      \shortintertext{Workers of type $\theta_3$:} \\
+      \theta_3l_3 - \frac{l_3^2}{2} - t_3 \geq \theta_3l_1 - \frac{l_1^2}{2} - t_1 \\
+      \theta_3l_3 - \frac{l_3^2}{2} - t_3 \geq \theta_3l_2 - \frac{l_2^2}{2} - t_2 \\
+    \end{gather*}
+    Because workers of type $\theta_1$ are already at the bottom, and would not want to pay more taxes with shading up, we can ignore their constraints. In fact, we can ignore any shading up for the same reason. So, the two constraints we need to keep are:
+    \begin{gather*}
+      \theta_3l_3 - \frac{l_3^2}{2} - t_3 \geq \theta_3l_2 - \frac{l_2^2}{2} - t_2 \\
+      \theta_2l_2 - \frac{l_2^2}{2} - t_2 \geq \theta_2l_1 - \frac{l_1^2}{2} - t_1 \\
+    \end{gather*}
+  \subsection*{Part (f)}
+    Let's solve the following optimization:
+    \begin{gather*}
+      \max \theta_2l_2 - \frac{l_2^2}{2} - t_2 \\
+      \shortintertext{s.t.} \\
+      \shortintertext{Budget Balaced} \\
+      t_1 + t_2 + t_3 = 0 \\
+      \shortintertext{IC:} \\
+      \theta_3l_3 - \frac{l_3^2}{2} - t_3 = \theta_3l_2 - \frac{l_2^2}{2} - t_2 \\
+      \theta_2l_2 - \frac{l_2^2}{2} - t_2 = \theta_2l_1 - \frac{l_1^2}{2} - t_1 \\
+    \end{gather*}
+    From the IC constraints, we can rearrange to solve for $t_2$, the optimal tax scheme:
+    \begin{gather*}
+      t_1 = t_2 + \theta_2(l_1 - l_2) - \frac{1}{2}(l_2^2 - l_1^2) \\
+      t_3 = t_2 + \theta_2(l_3 - l_2) - \frac{1}{2}(l_2^2 - l_3^2) \\
+    \end{gather*}
+    Then, plug into budget balanced equation:
+    \begin{gather*}
+      t_2 + \theta_2(l_1 - l_2) - \frac{1}{2}(l_2^2 - l_1^2) + t_2 + t_2 + \theta_2(l_3 - l_2) - \frac{1}{2}(l_2^2 - l_3^2) = 0 \\
+      3t_2 + \theta_2l_1 - \theta_2l_2 - l_2^2 + \frac{l_1^2}{2} + \frac{l_3^2}{2} + \theta_3l_3 - \theta_3l_2 = 0 \\
+      t_2 = \frac{-1}{3}[\theta_2l_1 - \theta_2l_2 - l_2^2 + \frac{l_1^2}{2} + \frac{l_3^2}{2} + \theta_3l_3 - \theta_3l_2] \\
+    \end{gather*}
+    Now that we have a $t_2$ term, we plug into the utility function:
+    \begin{gather*}
+      \theta_2l_2 - \frac{l_2^2}{2} + \frac{\theta_2l_1}{2} - \frac{\theta_2l_2}{3} + \frac{l_2^2}{3} - \frac{l_1^2}{6} - \frac{l_3^2}{6} + \frac{\theta_3l_3}{3} - \frac{\theta_3l_1}{3} \\
+      \shortintertext{FOC w.r.t. $l_2$:} \\
+      \theta_2 - l_2 - \frac{\theta_3}{3} + \frac{2l_2}{3} = 0 \\
+      l_2 = 3\theta_2 - \theta_3 \\
+      t_2^* = \frac{-1}{3}[\theta_2l_1 - \theta_2(3\theta_2 - \theta_3) + (3\theta_2 - \theta_3)^2 + \frac{1}{2}(l_1^2 + l_3^2) + \theta_3l_3 - \theta_3(3\theta_2 - \theta_3)] \\
+      t_2^* = \frac{-1}{3}[\theta_2l_1 - 6\theta_2^2 - 7(\theta_2\theta_3) + 2\theta_3^2 + \frac{1}{2}(l_1^2 + l_3^2) + \theta_3l_3] \\
+    \end{gather*}
+    $t_2^*$ is the optimal tax scheme for the median type. 
 \section*{Solution 3}
   \subsection*{Part (a)}
     Yes, they are incentivized to choose truthfully. Because we assume the randomization is "fair", there is no incentive to strategize. This is due to the efficiency and Pareto optimality of an RSD with strict preferences.
