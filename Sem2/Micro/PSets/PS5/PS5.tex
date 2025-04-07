@@ -116,10 +116,28 @@
     But, we found that the summation of transfers is $\frac{9}{8}$, which is greater than 1. So, we can conclude that if a mechanism is efficient, budget balanced, and IC, it cannot be IIR.
 \section*{Solution 2}
   \subsection*{Part (a)}
-    Attention can be restricted to direct mechanisms because there is no incentive to lie about marginal product. 
-
+    We can focus on direct mechanisms since workers report their type, $\theta_i$, directly to the government before being assigned $l(\theta), \ t(\theta)$.
   \subsection*{Part (b)}
-    
+    Because utility is monotonically increasing in types such that $\theta_1 < \theta_2 < \theta_3$, $\theta_2$ is the median type. Because all workers truthfully report, $u(\theta_1) < u(\theta_2) < u(\theta_3)$ such that $u(\theta_i) = \theta_il(\theta_i) - \frac{l(\theta_i)^2}{2} - t(\theta_i)$.  
+  \subsection*{Part (c)}
+    Below, the optimization can be defined as
+    \begin{gather*}
+      {\max\atop{l(\cdot), t(\cdot)}}\theta_2l(\theta_2) - \frac{l(\theta_2)^2}{2} - t(\theta_2) \\
+      s.t. \shortintertext{Budget Balance:} (\frac{1}{3})(t(\theta_1) + t(\theta_2) + t(\theta_3) = 0 \\
+           \shortintertext{IC:} u(\theta_i) \geq u(\theta_{-i}) \\
+    \end{gather*}
+  \subsection*{Part (d)}
+    Assume a simple case in which there are only two types, $\theta_i, \theta_j$ such that $\theta_i > \theta_j$. Further, there are accompanying $t_i, l_i$ for each type. Let's go through the IC conditions for each type of worker.
+    \begin{gather*}
+      \theta_il_i - \frac{l_i^2}{2} - t_i \geq \theta_il_j - \frac{l_j^2}{2} - t_j \\
+      \theta_jl_j - \frac{l_j^2}{2} - t_j \geq \theta_jl_i - \frac{l_i^2}{2} - t_i \\
+      \shortintertext{Adding these two conditions,} \\
+      (\theta_i - \theta_j)l_i \geq (\theta_i - \theta_j)l_j \\
+      \theta_il_i + \theta_jl_j \geq \theta_il_j + \theta_jl_i \\
+      \shortintertext{Separating them back out,} \\
+      \theta_il_i \geq \theta_il_j \ \text{and} \ \theta_jl_j \geq \theta_jl_i
+    \end{gather*}
+    Which shows labor supply is non-decreasing in type.
 \section*{Solution 3}
   \subsection*{Part (a)}
     Yes, they are incentivized to choose truthfully. Because we assume the randomization is "fair", there is no incentive to strategize. This is due to the efficiency and Pareto optimality of an RSD with strict preferences.
