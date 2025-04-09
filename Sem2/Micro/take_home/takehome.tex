@@ -1,0 +1,100 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[top=3cm,bottom=4cm,left=3.5cm,right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{fancyhdr,color,comment,graphicx,environ,float,mathtools,mathrsfs}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+% Custom headers
+\pagestyle{fancy}
+\lhead{ECON - 8020}
+\chead{}
+\rhead{Tate Mason}
+\lfoot{}
+\cfoot{Take-Home Exam}
+\rfoot{\thepage}
+
+\begin{document}
+
+\title{Take-Home Exam}
+\author{Tate Mason}
+\date{Due: April 20th, 11:59pm}
+\maketitle
+
+\noindent This exam must be completed on your own. You are permitted to use class notes and material on eLC. No other online resources are permitted.
+
+\noindent Please Show Your Work
+
+\noindent Submit as a single document
+
+\section*{Question 1 (15pts)}
+  Professor Smith needs to hire an RA to work for her. She identifies two prospective individuals, Anna and Blake. Each of them has a cost of providing the service. These costs are viewed as independent draws, each uniformly distributed on [100, 200]. Anna and Blake know their own costs but not the other's. Professor Smith announces she will hold a descending auction, starting at \$200, gradually reducing it until there is one bidder left. If that happens at price p, the last bidder wins the contract and is paid p. So for example, suppose Anna's cost is \$160. If Blake drops out when the price is \$180 and Anna's hand remains raised, then Anna receives the contract and is paid \$180. Since her cost is \$160, her payoff is \$20.
+
+  Remark: This is a procurement auction. Think carefully about how it works and how it mirrors the standard ascending auction setting you have seen.
+
+  \begin{enumerate}
+      \item[(a)] How should Anna and Blake bid in the auction? Explain. (3pts)
+      \item[(b)] What is the expected price that Professor Smith will end up paying? What is the expected cost of the winning RA? (6pts)
+      \item[(c)] Suppose Anna could make an upfront investment of K that would lower her cost by 20. She must decide whether or not to make the investment before learning her cost. What is the largest K that she would be willing to pay for the cost reduction? (6pts)
+  \end{enumerate}
+
+  It is okay to use a calculator for the computations provided you show work and explain what expressions/equations you are solving.
+
+\section*{Question 2 (14pts)}
+  The FCC is allocating two spectrum licenses via the VCG mechanism. Below is a table of each bidder's valuations over the licenses.
+
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      & \textbf{License A} & \textbf{License B} & \textbf{License A \& B} \\
+      \hline
+      Bidder 1 & 10 & 55 & 70 \\
+      \hline
+      Bidder 2 & 30 & 40 & 100 \\
+      \hline
+      Bidder 3 & 40 & 10 & 60 \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  \begin{enumerate}
+      \item[(a)] Compute the VCG allocation and payment rule. (6pts)
+      \item[(b)] Can a bidder achieve a higher payoff by misrepresenting her valuations? Explain. (2pts)
+      \item[(c)] Is it possible for two bidders to jointly misrepresent their valuations and achieve a higher payoff? If yes, provide an example. If not, explain why. (6pts)
+  \end{enumerate}
+
+\section*{Question 3 (8pts)}
+  Consider a standard mechanism design setting:
+  \begin{itemize}
+    \item $N$ agents $\{1, \ldots, n\}$. Set of outcomes $X$ specifying possible decisions the designer can make.
+    \item Agent $i$'s private type is $\theta_i \in \Theta_i$. Agent preferences over decisions are given by utility function $v_i: X \times \Theta_i \rightarrow \mathbb{R}$. Distribution of type profiles $\theta \in \times\Theta_i$ is given by $F$.
+    \item Quasilinear preferences: if decision $d \in X$ is made and agent $i$ pays $t$, her payoff is $v_i(d, \theta_i)-t$
+    \item Message space $M_i$ for agent $i$ is the set of all messages agent $i$ can send to the designer.
+    \item Allocation rule $x : \times M_i \rightarrow X$. Transfer rule $t_i: \times M_i \rightarrow \mathbb{R}$ for each agent $i$.
+    \item A mechanism is an ordered triple $\langle x, t, M \rangle$, where $M = \times M_i$ is the message profile space, $x(\cdot)$ is the allocation rule, $t = \{t_i\}_{i=1}^N$ is transfer rule.
+  \end{itemize}
+
+  Let $\mathcal{M}$ be the set of all possible mechanisms which have a non-zero and finite number of equilibria. Given a particular mechanism $P \in \mathcal{M}$, let $E(P)$ be the set of all equilibria of $P$.
+
+  The designer's payoff from a mechanism $P$ is $\frac{1}{|E(P)|}\mathbb{E}\left[\sum_{\sigma\in E(P)}f(P(\sigma))\right]$, where $f$ is a function of the outcome and payments of the mechanism in equilibrium (e.g. the payoff to the designer is an average of some function over all possible equilibrium outcomes). This is quite abstract, but the functional form of $f$ is not important. It could be anything.\footnote{One example is where $\mathbb{E}[f(P(\sigma))]$ is the total expected revenue in mechanism $P$ at equilibrium $\sigma$. Then the designer's payoff is the average of the revenue generated across every equilibria. In other words, the designer does not know which equilibria will be played and thinks each is equally likely. Another example could be where $\mathbb{E}[f(P(\sigma))]$ is $\mathbb{E}\left[\sum_{i=1}^N v_i(x(\sigma), \theta_i)\right]$, and so the designer's payoff is the average of the efficiency across all equilibria.}
+
+  Suppose an econ professor is interested in solving for the optimal mechanism for the designer:
+  \begin{align*}
+      \arg\max_{P \in \mathcal{M}} \frac{1}{|E(P)|}\mathbb{E}\left[\sum_{\sigma\in E(P)}f(P(\sigma))\right]
+  \end{align*}
+  This is quite complex, so the professor asks a colleague what they would do to simplify it. The colleague looks at it and says:
+
+  ``Well, you don't need to search across all mechanisms in $\mathcal{M}$. Rather, because of the revelation principle, you can restrict attention to direct mechanisms where truth-telling is an equilibrium.''
+
+  Is the colleague correct? Why or why not?
+
+\section*{Question 4 (18pts)}
+  A firm can provide an indivisible public good to $N$ consumers at a cost $cN$ with $c \in (0, 1)$. The public good is non-excludable, i.e., if it is provided, all consumers can enjoy it. The consumers' valuations for the public good are distributed independently and uniformly on [0, 1]. The firm designs a mechanism to maximize the expected profits subject to the consumers' Bayesian incentive constraints and interim participation constraints.
+
+  \begin{enumerate}
+      \item[(a)] Write down the firm's optimization problem and the relevant constraints. (5pts)
+      \item[(b)] Solve for the public good provision rule in an optimal mechanism. (7pts)
+      \item[(c)] Can the firm achieve its goal using a mechanism that is DIC and ex-post individually rational? If so, describe such a mechanism. If not, explain why. (6pts)
+  \end{enumerate}
+
+  Hint: First, provide an argument that in any mechanism that maximizes revenue subject to DIC and ex-post individually rational, no agent ever pays or receives payment when the public good is not provided. In other words, payment is only collected conditional on the good being provided.
+\end{document}
