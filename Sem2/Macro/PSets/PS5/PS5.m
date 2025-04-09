@@ -1,4 +1,4 @@
-%% PS4 - OLG
+%% PS5 - OLG
 clear;
 clc;
 
@@ -70,8 +70,7 @@ for i = 1:length(xgrid)
 
   k_no_100(i) = k;
   w_no_100(i) = w;
-  welf_no_100(i) = min(welf, -10);
-
+  welf_no_100(i) = min(0, welf); 
   % Insurance Case
   k = 0.1;
   iter = 0;
@@ -94,9 +93,9 @@ for i = 1:length(xgrid)
   r = alpha * k^(alpha-1);
   w = (1-alpha) * k^alpha;
   premium = pi * x / (1+r);
-  c_y = w - premium - k * (1+n) + premium;  
+  c_y = w - premium - k * (1+n);  
   c_o = (1+r) * k * (1+n); 
-  welf = c_y^(1-sigma)/(1-sigma) + beta * c_o^(1-sigma)/(1-sigma);
+  welf = c_y^(1-sigma)/(1-sigma) + beta*c_o^(1-sigma)/(1-sigma);
 
   k_with_100(i) = k;
   w_with_100(i) = w;
@@ -139,7 +138,7 @@ for i = 1:length(xgrid)
   welf = c_y^(1-sigma)/(1-sigma) + beta*surv*(pi*c_o_l^(1-sigma)/(1-sigma) + (1-pi)*c_o_h^(1-sigma)/(1-sigma));
   k_no_80(i) = k;
   w_no_80(i) = w;
-  welf_no_80(i) = min(welf, -10)
+  welf_no_80(i) = min(5,welf);
 
   % With Insurance
   k = 0.1;
