@@ -1,3 +1,38 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[top=3cm,bottom=4cm,left=3.5cm,right=3.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{fancyhdr,color,comment,graphicx,environ,float,mathtools,mathrsfs,bbm,listings}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+% Custom headers
+\pagestyle{fancy}
+\lhead{ECON - 8050}
+\chead{}
+\rhead{Tate Mason}
+\lfoot{}
+\cfoot{Homework 5}
+\rfoot{\thepage}
+
+\begin{document}
+
+\title{Homework 5}
+\author{ECON 8050: Macroeconomics II \\ Tate Mason}
+\date{}
+\maketitle
+
+\includegraphics*[width=\textwidth]{100-a.png}
+
+\includegraphics*[width=\textwidth]{80-a.png} 
+
+\includegraphics*[width=\textwidth]{100-b.png}
+
+\includegraphics*[width=\textwidth]{80-b.png}
+
+\includegraphics*[width=\textwidth]{100-c.png} 
+
+\includegraphics[width = \textwidth]{80-c.png}
+
+\begin{lstlisting}
 %% PS5 - OLG
 clear;
 clc;
@@ -184,7 +219,7 @@ figure('Position', [100, 100, 800, 800]);
 
 % 100% Survival: Capital per worker
 subplot(3, 2, 1);
-plot(xgrid, k_no_100, 'b--', 'LineWidth', 1.5);
+plot(xgrid, k_no_100, 'b-o', 'LineWidth', 1.5);
 hold on;
 plot(xgrid, k_with_100, 'r-s', 'LineWidth', 1.5);
 title('Capital per Worker (100% Survival)');
@@ -195,7 +230,7 @@ grid on;
 
 % 80% Survival: Capital per worker
 subplot(3, 2, 2);
-plot(xgrid, k_no_80, 'b--', 'LineWidth', 1.5);
+plot(xgrid, k_no_80, 'b-o', 'LineWidth', 1.5);
 hold on;
 plot(xgrid, k_with_80, 'r-s', 'LineWidth', 1.5);
 title('Capital per Worker (80% Survival)');
@@ -206,7 +241,7 @@ grid on;
 
 % 100% Survival: Wage
 subplot(3, 2, 3);
-plot(xgrid, w_no_100, 'b--', 'LineWidth', 1.5);
+plot(xgrid, w_no_100, 'b-o', 'LineWidth', 1.5);
 hold on;
 plot(xgrid, w_with_100, 'r-s', 'LineWidth', 1.5);
 title('Wage (100% Survival)');
@@ -217,7 +252,7 @@ grid on;
 
 % 80% Survival: Wage
 subplot(3, 2, 4);
-plot(xgrid, w_no_80, 'b--', 'LineWidth', 1.5);
+plot(xgrid, w_no_80, 'b-o', 'LineWidth', 1.5);
 hold on;
 plot(xgrid, w_with_80, 'r-s', 'LineWidth', 1.5);
 title('Wage (80% Survival)');
@@ -228,7 +263,7 @@ grid on;
 
 % 100% Survival: Welfare
 subplot(3, 2, 5);
-plot(xgrid, welf_no_100, 'b--', 'LineWidth', 1.5);
+plot(xgrid, welf_no_100, 'b-o', 'LineWidth', 1.5);
 hold on;
 plot(xgrid, welf_with_100, 'r-s', 'LineWidth', 1.5);
 title('Welfare (100% Survival)');
@@ -239,7 +274,7 @@ grid on;
 
 % 80% Survival: Welfare
 subplot(3, 2, 6);
-plot(xgrid, welf_no_80, 'b--', 'LineWidth', 1.5);
+plot(xgrid, welf_no_80, 'b-o', 'LineWidth', 1.5);
 hold on;
 plot(xgrid, welf_with_80, 'r-s', 'LineWidth', 1.5);
 title('Welfare (80% Survival)');
@@ -247,3 +282,5 @@ xlabel('Medical Shock Size (x)');
 ylabel('Welfare');
 legend('No Insurance', 'With Insurance', 'Location', 'southwest');
 grid on;
+\end{lstlisting}
+\end{document}
