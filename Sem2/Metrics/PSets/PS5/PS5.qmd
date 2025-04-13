@@ -14,7 +14,7 @@ rm(list = ls())
 
 library(haven)
 library(tidyverse)
-
+# load data
 data <- read_dta('~/SchoolWork/Sem2/Metrics/PSets/PS5/cps09mar.dta')
 
 male_data <- data %>% filter(female == 0)
