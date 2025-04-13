@@ -12,28 +12,210 @@ Let's first make our sample
 ```{r}
 rm(list = ls())
 
-library(dplyr)
 library(haven)
-library(numDeriv)
-
+library(tidyverse)
+# load data
 data <- read_dta('~/SchoolWork/Sem2/Metrics/PSets/PS5/cps09mar.dta')
-male_dat <- data %>%
-  filter(female == 0) %>%
-  mutate(Y = ifelse(union == 1, 1, 0)) %>%
-  mutate(black = ifelse(race == 2, 1, 0))
+
+male_data <- data %>% filter(female == 0)
+
+X <- male_data %>%
+  transmute(
+    intercept = 1,
+    age = age,
+    education = education,
+    black = as.numeric(race == 2),
+    hispanic = as.numeric(hisp == 1)
+  ) %>%
+  as.matrix()
+y <- male_data$union
 ```
-Now, we can conduct analysis using the probit
-
+Now, we can conduct analysis using the glm function to establish a baseline of estimates.
 ```{r}
-X <- as.matrix(cbind(1, male_dat%>%select(age, education, black, hisp)))
-colnames(X) <- c("inctercept", "age", "education", "black", "hisp")
-Y <- male_dat$Y
+probit_glm <- glm(union ~ age + education + I(race == 2) + I(hisp == 1),
+              data = male_data,
+              family = binomial(link = "probit"))
+summary(probit_glm)
+```
 
-probit <- function(beta, X, Y) {
-  xbeta <- X %*% beta
-  p <- pnorm(xbeta)
-  p <- pmax(pmin(p, 1-1e-10), 1e-10)
-  -1 * sum(Y*log(p) + (1-Y)*log(1-p))
+Now, implementing our probit:
+```{r}
+dnorm_vec <- function(x) dnorm(x)
+pnorm_vec <- function(x) pnorm(x)
+
+probit_loglik <- function(beta, X, y) {
+  xb <- X %*% beta
+  sum(y*log(pnorm_vec(xb) + 1e-10))
 }
 
+probit_neglik <- function(beta, X, y) {
+  -probit_loglik(beta, X, y)
+}
+
+probit_grad <- function(beta, X, y) {
+  xb <- X %*% beta
+  phi_xb <- dnorm_vec(xb)
+  Phi_xb <- pnorm_vec(xb)
+
+  lambda <- ifelse(y == 1,
+                   phi_xb/(Phi_xb+1e-10),
+                   -phi_xb/(1-phi_xb+1e1-0))
+  -colSums(lambda*X)
+}
+
+init_beta <- rep(0, ncol(X))
+probit_opt <- optim(init_beta,
+                    fn = probit_neglik,
+                    gr = probit_grad,
+                    X = X,
+                    y = y,
+                    method = "BFGS",
+                    hessian = TRUE)
+
+beta_hat <- probit_opt$par
+hessian <- probit_opt$hessian
+var_beta <- solve(hessian)
+se_beta <- sqrt(diag(var_beta))
+
+probit_results <- data.frame(
+  Variable = c("Intercept", "Age", "Education", "Black", "Hispanic"),
+  Coefficient = beta_hat,
+  Std.Error = se_beta
+)
+
+print(probit_results)
+```
+
+Comparative analysis of our model vs the built in one.
+
+```{r}
+compare <- data.frame(
+  Variable = c("Intercept", "Age", "Education", "Black", "Hispanic"),
+  Manual_Coef = beta_hat,
+  GLM_Coef = coef(probit_glm),
+  Manual_SE = se_beta,
+  GLM_SE = summary(probit_glm)$coefficients[,2]
+)
+
+print(compare)
+```
+
+## Part B
+
+```{r}
+calculate_ape <- function(beta, X) {
+  xb <- X %*% beta
+  phi_xb <- dnorm(xb)
+
+  apes <- numeric(length(beta) - 1)
+
+  for (j in 2:length(beta)) {
+    apes[j-1] <- mean(phi_xb*beta[j])
+  }
+  return(apes)
+}
+
+apes <- calculate_ape(beta_hat, X)
+
+ape_results <- data.frame(
+  Variable = c("Age", "Education", "Black", "Hispanic"),
+  APE = apes
+)
+
+print(ape_results)
+```
+
+## Parts C and D
+```{r}
+calculate_ape_se <- function(beta, X, var_beta) {
+  xb <- X %*% beta
+  phi_xb <- dnorm(xb)
+  n <- nrow(X)
+  p <- ncol(X)
+
+  ape_se <- numeric(p-1)
+
+  for (j in 2:p) {
+    grad <- numeric(p)
+    grad[j] <- mean(phi_xb)
+
+    phi_prime_xb <- -xb * phi_xb
+    for (k in 1:p) {
+      grad[k] <- grad[k] + mean(X[,k]*phi_prime_xb*beta[j])
+    }
+
+    ape_se[j-1] <- sqrt(t(grad) %*% var_beta %*% grad)
+  }
+
+  return(ape_se)
+}
+
+ape_se <- calculate_ape_se(beta_hat, X, var(var_beta))
+
+ape_results$Analytical_SE <- ape_se
+print(ape_results)
+```
+
+## Part E
+```{r}
+bootstrap_ape_se <- function(X, y, beta_init, B = 100) {
+  n <- nrow(X)
+  p <- ncol(X)
+
+  bootstrap_apes <- matrix(0, nrow = B, ncol = p-1)
+  probit_neglik <- function(beta, X, y) {
+    xb <- X %*% beta
+    p <- pnorm(xb)
+    -sum(y*log(p + 1e-10) + (1-y)*log(1-p+1e-10))
+  }
+
+  for (b in 1:B) {
+    boot_indices <- sample(1:n, n, replace=TRUE)
+    X_boot <- X[boot_indices, ]
+    y_boot <- y[boot_indices[]]
+
+    tryCatch({
+      boot_opt <- optim(
+        par = beta_init,
+        fn = probit_neglik,
+        X = X_boot,
+        y = y_boot,
+        method = "Nelder-Mead",
+        control = list(maxit = 2000)
+      )
+      boot_beta <- boot_opt$par
+
+      if (all(abs(boot_beta) < 1e-8)) {
+        boot_beta <- beta_init
+      }
+
+      xb_boot <- X_boot %*% boot_beta
+      phi_xb_boot <- dnorm(xb_boot)
+
+      for (j in 2:p) {
+        bootstrap_apes[b, j-1] <- mean(phi_xb_boot*boot_beta[j])
+        }
+      }, error = function(e) {
+        cat("Bootstrap iteration", b, "failed with error:", e$message, "\n")
+        bootstrap_apes[b, ] <- NA
+    })
+
+  if (b %% 10 == 0) cat("Completed", b, "bootstrap iterations\n")
+  }
+  bootstrap_se <- apply(bootstrap_apes, 2, sd)
+  return(bootstrap_se)
+}
+
+set.seed(19)
+
+bs_ape_se <- bootstrap_ape_se(X, y, beta_hat, B = 100)
+
+ape_results <- data.frame(
+  Variable = c("Age", "Education", "Black", "Hispanic"),
+  APE = calculate_ape(beta_hat, X),
+  Analytical_SE = ape_se,
+  Bootstrap_SE = bs_ape_se
+)
+
+print(ape_results)
 ```
