@@ -199,8 +199,6 @@ bootstrap_ape_se <- function(X, y, beta_init, B = 100) {
         cat("Bootstrap iteration", b, "failed with error:", e$message, "\n")
         bootstrap_apes[b, ] <- NA
     })
-
-  if (b %% 10 == 0) cat("Completed", b, "bootstrap iterations\n")
   }
   bootstrap_se <- apply(bootstrap_apes, 2, sd)
   return(bootstrap_se)
