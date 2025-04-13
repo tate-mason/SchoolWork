@@ -1,0 +1,286 @@
+---
+title: PS5
+author: Tate Mason
+format: pdf
+---
+
+# Question 1
+
+```{r, message=FALSE}
+library(haven)
+library(dplyr)
+library(magrittr)
+```
+
+## Part A
+
+```{r, message = FALSE}
+data <- read_dta("cps09mar.dta")
+df <- data %>% filter(female == 0) %>% mutate(black = as.integer(race == 2))
+X <- model.matrix(~ age + education + black + hisp, data = df)
+Y <- df$union
+n <- nrow(X)
+```
+
+```{r}
+log_likelihood <- function(beta, X, Y) {
+  xb <- X %*% beta
+  p <- pnorm(xb)
+  loglik <- sum(Y*log(p) + (1-Y)*log(1-p))
+  return(-loglik)
+}
+
+init <- rep(0, ncol(X))
+fit <- optim(
+  init,
+  log_likelihood,
+  X = X,
+  Y = Y,
+  hessian = TRUE,
+  method = "BFGS"
+)
+
+beta_hat <- fit$par
+vcov_b <- solve(fit$hessian)
+se_b <- sqrt(diag(vcov_b))
+
+tibble(
+  Variable = colnames(X),
+  Estimate = beta_hat,
+  Std_Error = se_b
+)
+```
+
+```{r}
+glm <- glm(Y~age+education+black+hisp, family=binomial(link="probit"), data = df)
+summary(glm)$coefficients %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column("Variable") %>%
+  rename(
+    Estimate = Estimate,
+    Std_Error = 'Std. Error',
+    z_value = 'z value',
+    p_value = 'Pr(>|z|)'
+  )
+```
+
+## Part B
+
+```{r}
+phi <- dnorm(X%*%beta_hat)
+APE <- colMeans(X*as.vector(phi))
+APE
+tibble(
+  Variable = colnames(X),
+  APE = APE
+)
+```
+
+## Part C
+
+```{r}
+G <- t(X)%*%(X * as.vector(phi))/n
+ape_var <- G%*%vcov_b%*%t(G)
+ape_se <- sqrt(diag(ape_var))
+
+tibble(
+  Variable = colnames(X),
+  APE = APE,
+  Analytical_SE = ape_se
+)
+```
+
+## Part D
+
+```{r}
+boot_fn <- function(data, indices) {
+  d <- data[indices, ] %>%
+    mutate(Y = ifelse(union==1, 1, 0))
+  X_b <- model.matrix(~ age+education+black+hisp, data=d)
+  Y_b <- d$Y
+
+  loglik_b <- function(beta) {
+    xb_b <- X_b %*% beta
+    p_b <- pnorm(xb_b)
+    -sum(Y_b*log(p_b) + (1-Y_b)*log(1-p_b))
+  }
+
+  fit_b <- optim(
+    rep(0, ncol(X_b)),
+    loglik_b,
+    hessian = FALSE
+  )
+  beta_b <- fit_b$par
+  phi_b <- dnorm(X_b%*%beta_b)
+  ape_b <- colMeans(X_b*as.vector(phi_b))
+  return(ape_b)
+}
+
+set.seed(19)
+R <- 500
+boot_apes <- matrix(NA, nrow = R, ncol=ncol(X))
+
+for (r in 1:R) {
+  sample_idx <- sample(1:nrow(df), replace = TRUE)
+  boot_data <- df[sample_idx, ] %>%
+    mutate(Y = ifelse(union == 1, 1, 0))
+
+  X_b <- model.matrix(~ age+education+black+hisp, data = boot_data)
+  Y_b <- boot_data$Y
+
+  loglik <- function(beta) {
+    xb <- X_b %*% beta
+    p <- pnorm(xb)
+    -sum(Y_b*log(p) + (1-Y_b)*log(1-p))
+  }
+  opt <- optim(
+    rep(0, ncol(X_b)),
+    loglik,
+    hessian = FALSE,
+    method = "BFGS"
+  )
+  beta_b <- opt$par
+
+  phi_b <- dnorm(X_b %*%beta_b)
+  ape_b <- colMeans(X_b*as.vector(phi_b))
+  boot_apes[r, ] <- ape_b
+}
+
+boot_se <- apply(boot_apes, 2, sd)
+
+tibble(
+  Variable = colnames(X),
+  APE = APE,
+  Analytical_SE = ape_se,
+  Bootstrap_SE = boot_se
+)
+```
+
+# Question 2
+
+```{r, message=FALSE}
+library(haven)
+library(dplyr)
+library(ranger)
+library(tidyr)
+```
+
+```{r}
+df <- read_dta("~/Downloads/jtrain_observational.dta") %>%
+  mutate(across(c(train, black, hisp, married), as.numeric)) %>%
+  drop_na(re78, train, age, educ, black, hisp, married, re75, unem75)
+vars <- c("age", "educ", "black", "hisp", "married", "re75", "unem75")
+x_matrix <- function(df) {
+  cbind(1, as.matrix(df %>% select(all_of(vars))))
+}
+```
+
+## Part A
+
+```{r}
+ols <- function(X, Y) {
+  beta_hat <- solve(t(X)%*%X) %*% t(X)%*%Y
+  return(beta_hat)
+}
+
+X0 <- x_matrix(df %>% filter(train==0))
+Y0 <- df %>% filter(train==0) %>% pull(re78)
+beta_0 <- ols(X0, Y0)
+
+X1 <- x_matrix(df %>% filter(train == 1))
+Y1 <- df %>% filter(train == 1) %>% pull(re78)
+y0_hat <- X1 %*% beta_0
+
+att_hat <- mean(Y1) - mean(y0_hat)
+att_hat
+```
+
+## Part B
+
+```{r}
+resid <- Y1 - y0_hat
+n1 <- length(Y1)
+att_se <- sd(resid)/sqrt(n1)
+att_se
+```
+
+## Part C
+
+```{r}
+set.seed(19)
+R <- 500
+boot_att <- numeric(R)
+
+for (r in 1:R) {
+  samp_idx <- sample(1:nrow(df), replace=TRUE)
+  d_b <- df[samp_idx, ]
+  
+  X0_b <- x_matrix(d_b %>% filter(train==0))
+  Y0_b <- d_b %>% filter(train == 0) %>% pull(re78)
+  beta_0b <- ols(X0_b, Y0_b)
+
+  X1_b <- x_matrix(d_b %>% filter(train==1))
+  Y1_b <- d_b %>% filter(train==1) %>% pull(re78)
+  y0_hat_b <- X1_b %*% beta_0b
+
+  boot_att[r] <- mean(Y1_b) - mean(y0_hat_b)
+}
+
+boot_se <- sd(boot_att)
+boot_se
+```
+
+## Part D
+
+```{r}
+X_full <- cbind(1, as.matrix(df %>% select(train, all_of(vars))))
+Y_full <- df$re78
+beta_full <- ols(X_full, Y_full)
+att_ols <- beta_full[2]
+att_ols
+```
+
+## Part E
+
+```{r}
+ps <- glm(train ~ age+educ+black+hisp+married+re75+unem75, data=df, family=binomial)
+ps_hat <- predict(ps, type = "response")
+
+w <- ps_hat/(1-ps_hat)
+treated <- df$train==1
+
+att_ps <- mean(df$re78[treated]) - weighted.mean(df$re78[!treated], w=w[!treated])
+att_ps
+```
+
+
+## Part F
+
+```{r}
+mod_y1 <- glm(re78 ~ age + educ + black + hisp + married + re75 + unem75, 
+              data = df %>% filter(train == 1))
+mod_y0 <- glm(re78 ~ age + educ + black + hisp + married + re75 + unem75, 
+              data = df %>% filter(train == 0))
+
+m1_hat <- predict(mod_y1, newdata = df)
+m0_hat <- predict(mod_y0, newdata = df)
+
+aipw <- mean(df$train * (df$re78 - m0_hat) / ps_hat + m1_hat - m0_hat)
+aipw
+```
+
+## Part G
+
+```{r}
+ml_ps <- ranger(train ~ ., data = df %>% select(train, all_of(vars)), probability=TRUE)
+ml_ps_hat <- predict(ml_ps, data=df)$predictions[, 2]
+
+ml_y1 <- ranger(re78 ~., data = df %>% filter(train == 1) %>% select(re78, all_of(vars)))
+ml_y0 <- ranger(re78 ~., data = df %>% filter(train == 0) %>% select(re78, all_of(vars)))
+
+m1_ml <- predict(ml_y1, data=df)$predictions
+m0_ml <- predict(ml_y0, data=df)$predictions
+
+att_ml <- mean(df$train*(df$re78-m0_ml)/ml_ps_hat+m1_ml-m0_ml)
+att_ml
+```
