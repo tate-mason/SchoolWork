@@ -20,6 +20,66 @@ head(df)
 
 ## Part A
 
+```{r}
+## Creating Variables
+y <- df$learn
+D <- as.numeric(df$first.displaced > 0)
+id <- df$id
+year <- df$year
+
+indiv <- as.factor(id)
+n_indiv <- length(unique(id))
+N <- length(y)
+
+time <- as.factor(year)
+n_periods <- length(unique(year))
+
+X_time <- sparse.model.matrix(~ time - 1)
+X_indiv <- sparse.model.matrix(~ indiv - 1)
+
+X_treat <- as.matrix(D)
+
+X <- cbind(X_time, X_treat)
+
+## Within transform by demeaning
+
+demean <- function(variable, id) {
+  means_by_id <- tapply(variable, id, mean)
+  demeaned <- variable - means_by_id[match(id, unique(id))]
+  return(demeaned)
+}
+
+y_demean <- demean(y, id)
+
+X_time_demean <- matrix(0, nrow=nrow(X_time), ncol=ncol(X_time))
+for (j in 1:ncol(X_time)) {
+  X_time_demean[,j] <- demean(X_time[,j], id)
+}
+X_treat_vec <- as.vector(X_treat)
+X_treat_demean <- demean(X_treat_vec, id)
+
+X_demeaned <- cbind(X_time_demean, X_treat_demean)
+
+XtX <- t(X_demeaned)%*%X_demeaned
+XtY <- t(X_demeaned)%*%y_demean
+
+beta_hat <- solve(XtX, XtY)
+
+alpha_hat <- beta_hat[length(beta_hat)]
+
+## Standard Errors
+e_hat <- y_demean - X_demeaned%*%beta_hat
+sigma_sq <- sum(e_hat^2)/(N-n_periods - 1)
+var_beta <- sigma_sq*solve(t(X_demeaned)%*%X_demeaned)
+se_alpha <- sqrt(var_beta[nrow(var_beta), ncol(var_beta)])
+```
+
+```{r}
+cat("Part A: Report of Estimates\n")
+cat("Estimated alpha:", alpha_hat, "\n")
+cat("Standard Error of alpha:", se_alpha, "\n")
+```
+
 ## Part B
 
 ## Part C
