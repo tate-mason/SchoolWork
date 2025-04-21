@@ -13,3 +13,7 @@ alpha = 0.36;
 delta = 0.06;
 rho = 0.9;
 sigma_sq =  0.03;
+
+%% Discretize Variables
+
+
