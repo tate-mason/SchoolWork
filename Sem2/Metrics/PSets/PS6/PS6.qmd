@@ -1,0 +1,31 @@
+---
+title: Problem Set 6
+author: Tate Mason
+format: pdf
+---
+
+# Hansen 17.2
+
+# Question 1
+
+```{r}
+library(Matrix)
+library(dplyr)
+library(tidyr)
+library(magrittr)
+
+df <- read.csv('metrics.csv')
+head(df)
+```
+
+## Part A
+
+## Part B
+
+## Part C
+
+## Part D
+
+# Question 2
+
+# Question 3
