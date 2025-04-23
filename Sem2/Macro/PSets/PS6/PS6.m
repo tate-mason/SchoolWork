@@ -33,7 +33,10 @@ lambda = lambda(:,2);
 %% Init State Space
 
 % kgrid
-k_grid = k_min + (k_max - k_min)*((exp(linspace(0,1,num_k))-1)/(exp(1)-1))
+k_grid = linspace(0:2:100).^2 * 100;
+kn = length(kgrid);
 
 % zgrid
+zn = 9;
+
 

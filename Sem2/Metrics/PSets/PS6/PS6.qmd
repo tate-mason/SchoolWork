@@ -55,8 +55,7 @@ X_time_demean <- matrix(0, nrow=nrow(X_time), ncol=ncol(X_time))
 for (j in 1:ncol(X_time)) {
   X_time_demean[,j] <- demean(X_time[,j], id)
 }
-X_treat_vec <- as.vector(X_treat)
-X_treat_demean <- demean(X_treat_vec, id)
+X_treat_demean <- demean(X_treat, id)
 
 X_demeaned <- cbind(X_time_demean, X_treat_demean)
 
