@@ -37,11 +37,9 @@ n_periods <- length(unique(year))
 X_time <- sparse.model.matrix(~ time - 1)
 X_indiv <- sparse.model.matrix(~ indiv - 1)
 
-X_treat <- as.matrix(D)
+X_treat <- sparse.model.matrix(~ D-1)
 
 X <- cbind(X_time, X_treat)
-
-## Within transform by demeaning
 
 demean <- function(variable, id) {
   means_by_id <- tapply(variable, id, mean)
@@ -55,7 +53,10 @@ X_time_demean <- matrix(0, nrow=nrow(X_time), ncol=ncol(X_time))
 for (j in 1:ncol(X_time)) {
   X_time_demean[,j] <- demean(X_time[,j], id)
 }
-X_treat_demean <- demean(X_treat, id)
+X_treat_demean <- matrix(0, nrow=nrow(X_treat), ncol=ncol(X_treat))
+for (j in 1:ncol(X_treat)) {
+  X_treat_demean[,j] <- demean(X_treat[,j], id)
+}
 
 X_demeaned <- cbind(X_time_demean, X_treat_demean)
 
