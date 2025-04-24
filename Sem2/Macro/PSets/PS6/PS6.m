@@ -38,5 +38,51 @@ kn = length(kgrid);
 
 % zgrid
 zn = 9;
+z_mu = 0;
+zgrid = zeros(zn, 1);
+
+zsd = sqrt((sigma_sq^2)/(1-rho^2));
+zlo = z_mu - 2*zsd;
+zhi = z_mu + 2*zsd;
+z_step = (zhi - zlo)/(zn-1);
+zgrid = zlo:z_step:zhi;
+zsize = length(zgrid);
+
+% Transition matrix
+maxit = 10000;
+pmat = zeros(zn,zn);
+
+% Calling ghquad
+[x,w] = ghquad(zn, 10000);
+
+% Transition Probabilities
+for i = 1:zn
+  mu_next = zmu + rho*zgrid(i);
+  for j = 1:zn
+    pmat(i,j) = w(j)/sqrt(pi)*exp(-(0.5)*((zgrid(j) - rho*zgrid(i))/sigma)^2)/exp(-x(j)^2);
+  end
+  dens = sum(pmat(i,:));
+  pmat(i,:) = pmat(i,:)/dens;
+end
+
+pmat_cum = cumsum(pmat, 2);
+
+%% Coding Model Solution
+
+% Guessing r and b
+r = 0;
+b = 0;
+
+KN = ((r+delta)/alpha)^(1/alpha-1);
+wage = (1-alpha)*KN^(alpha);
+
+%% Retired
+
+coptr = zeros(ksize, T-R);
+koptr = zeros(ksize, T-R);
+voptr = zeros(ksize, T-R);
+
+
+
 
 
