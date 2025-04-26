@@ -22,7 +22,7 @@ df <- read.csv('metrics.csv')
 ```{r}
 ## Creating Variables
 y <- df$learn
-D <- as.numeric(df$first.displaced > 0)
+D <- as.numeric(df$first.displaced <= df$year)
 id <- df$id
 year <- df$year
 
