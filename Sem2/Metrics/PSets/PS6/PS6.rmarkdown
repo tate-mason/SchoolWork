@@ -3,7 +3,11 @@ title: Problem Set 6
 author: Tate Mason
 format: pdf
 ---
+
+
 # Question 1
+
+
 
 ```{r}
 library(Matrix)
@@ -14,7 +18,11 @@ library(magrittr)
 df <- read.csv('metrics.csv')
 ```
 
+
+
 ## Part A
+
+
 
 ```{r}
 # Creating Variables
@@ -47,7 +55,11 @@ alpha_hat
 se_alpha
 ```
 
+
+
 ## Part B
+
+
 
 ```{r}
 calc_group_time_att <- function(df, group, time) {
@@ -90,7 +102,11 @@ print(att_results)
 cat("\n")
 ```
 
+
+
 ## Part C
+
+
 
 ```{r}
 att_values <- as.vector(att_results)
@@ -131,7 +147,11 @@ cat("Standard Error of ATT Estimate:", se_att, "\n")
 cat("Comparison with Part A:", alpha_hat, "\n\n")
 ```
 
+
+
 ## Part D
+
+
 
 ```{r}
 rel_time <- -3:6
@@ -201,3 +221,4 @@ arrows(rel_times, ci_l, rel_times, ci_u,
 abline(h=0, lty=2)
 abline(v=-0.5, lty=3)
 ```
+
