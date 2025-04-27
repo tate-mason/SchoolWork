@@ -20,72 +20,100 @@ df <- read.csv('metrics.csv')
 ## Part A
 
 ```{r}
-## Creating Variables
-y <- df$learn
-D <- as.numeric(df$first.displaced <= df$year)
+# Creating Variables
 id <- df$id
 year <- df$year
 
-indiv <- as.factor(id)
-n_indiv <- length(unique(id))
-N <- length(y)
+n <- length(unique(id))
+t <- length(unique(year))
+nt <- n*t
 
-time <- as.factor(year)
-n_periods <- length(unique(year))
+df %<>% mutate(D=1*(first.displaced <= year & first.displaced !=0), yearf = factor(year))
 
-X_time <- sparse.model.matrix(~ time - 1)
-X_indiv <- sparse.model.matrix(~ indiv - 1)
+Y <- Matrix(df$learn)
+X <- model.matrix(~ yearf + D-1, data = df)
+X <- Matrix(X)
 
-X_treat <- as.matrix(D)
-
-X <- cbind(X_time, X_treat)
-colnames(X)[ncol(X)] <- "treatment"
-
-demean <- function(variable, id) {
-  df_temp <- data.frame(var = variable, id = id)
-  means <- aggregate(var ~ id, data = df_temp, mean)
-  result <- variable - means$var[match(id, means$id)]
-  return(result)
-}
-
-# Demean the outcome
-y_demean <- demean(y, id)
-
-# Demean each predictor
-X_demean1 <- matrix(0, nrow=nrow(X), ncol=ncol(X))
-colnames(X_demean1) <- colnames(X)
-
-for(j in 1:ncol(X)) {
-  X_demean1[,j] <- demean(X[,j], id)
-}
-
-X_demean <- X_demean1 + matrix(rnorm(nrow(X_demean1)*ncol(X_demean1), 0, 1e-10), nrow=nrow(X_demean1), ncol=ncol(X_demean1))
-
-XtX <- crossprod(X_demean)
-XtY <- crossprod(X_demean, y_demean)
-beta_hat <- MASS::ginv(XtX) %*% XtY
-
-alpha_hat <- beta_hat[length(beta_hat)]
-
-## Standard Errors
-e_hat <- y_demean - as.vector(X_demean%*%beta_hat)
-sigma_sq <- sum(e_hat^2)/(N-n_periods - 1)
-var_beta <- sigma_sq*MASS::ginv(crossprod(X_demean))
-se_alpha <- sqrt(var_beta[nrow(var_beta), ncol(var_beta)])
+I <- diag(nt)
+D <- bdiag(replicate(n,Matrix(rep(1,t)),simplify=FALSE))
+M <- I - D%*%solve(t(D)%*%D)%*%t(D)
+alpha_hat <- solve(t(X)%*%M%*%X)%*%t(X)%*%M%*%Y
+e_hat <- Y - X%*%alpha_hat
+var_error = as.numeric(t(e_hat) %*% e_hat) / (nt - ncol(X))
+var_alpha = var_error * solve(t(X) %*% M %*% X)
+se_alpha = sqrt(diag(var_alpha))
 ```
 
 ```{r}
 cat("Part A: Report of Estimates\n")
-cat("Estimated alpha:", alpha_hat, "\n")
-cat("Standard Error of alpha:", se_alpha, "\n")
+alpha_hat
+se_alpha
 ```
 
 ## Part B
+
+```{r}
+id <- df$id
+year <- df$year
+
+n <- length(unique(id))
+t <- length(unique(year))
+nt <- n*t
+
+df %<>% mutate(D=1*(first.displaced <= year & first.displaced !=0), yearf = factor(year))
+disp_years <- sort(unique(df$first.displaced[df$first.displaced > 0]))
+disp_results <- list()
+
+for (g in disp_years) {
+  df %<>% mutate(D_g=1*(first.displaced == g & year>=g))
+
+  Y <- Matrix(df$learn)
+
+  X<- model.matrix(~ yearf + D_g-1, data = df)
+  X <- Matrix(X)
+
+  I <- diag(nt)
+  D <- bdiag(replicate(n,Matrix(rep(1,t)),simplify=FALSE))
+  M <- I - D%*%solve(t(D)%*%D)%*%t(D)
+
+  alpha_hat <- solve(t(X)%*%M%*%X)%*%t(X)%*%M%*%Y
+  e_hat <- Y - X%*%alpha_hat
+  var_error = as.numeric(t(e_hat) %*% e_hat) / (nt - ncol(X))
+  var_alpha = var_error * solve(t(X) %*% M %*% X)
+  se_alpha = sqrt(diag(var_alpha))
+
+  disp_results[[as.character(g)]] <- list(
+    disp_year = g,
+    alpha_hat = alpha_hat,
+    se_alpha = se_alpha
+  )
+
+  df$D_g <- NULL
+}
+
+extract_treatment_effect <- function(result) {
+  n_years <- length(unique(df$year))
+  treatment_index <- n_years + 1
+
+  coef <- results$alpha_hat[treatment_index]
+  se <- results$se_alpha[treatment_index]
+
+  return(data.frame(
+    disp_year = result$disp_year,
+    estimate = coef,
+    se = se,
+    t_stat = coef / se,
+    p_value = 2 * pt(abs(coef / se), df = nt-ncol(X), lower.tail=FALSE)
+  ))
+}
+
+treatment_effects <- do.call(rbind, lapply(disp_results, extract_treatment_effect))
+
+print(treatment_effects)
+```
 
 ## Part C
 
 ## Part D
 
 # Question 2
-
-# Question 3
