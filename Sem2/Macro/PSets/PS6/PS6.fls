@@ -148,6 +148,16 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
 OUTPUT PS6.pdf
 INPUT /usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT ./wealth_labor_profiles.png
+INPUT ./wealth_labor_profiles.png
+INPUT ./wealth_labor_profiles.png
+INPUT ./wealth_labor_profiles.png
+INPUT ./wealth_labor_profiles.png
+INPUT ./wealth_labor_profiles99.png
+INPUT ./wealth_labor_profiles99.png
+INPUT ./wealth_labor_profiles99.png
+INPUT ./wealth_labor_profiles99.png
+INPUT ./wealth_labor_profiles99.png
 INPUT PS6.aux
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb

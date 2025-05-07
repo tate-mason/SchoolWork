@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1745181071.65075 "PS6.tex" "PS6.pdf" "PS6" 1745181072.12706 0
+["pdflatex"] 1746227302.75214 "PS6.tex" "PS6.pdf" "PS6" 1746227303.22115 2
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -81,11 +81,13 @@
   "/usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty" 1717359999 10214 61188260d324e94bc2f66825d7d3fdf4 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/trimspaces/trimspaces.sty" 1253232110 1380 971a51b00a14503ddf754cab24c3f209 ""
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1739380943 42148 61becc7c670cd061bb319c643c27fdd4 ""
-  "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1741705426 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
+  "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1742375816 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "PS6.aux" 1745181072.07242 166 1f0246e90dbf03369adc65ed36c4bf28 "pdflatex"
-  "PS6.tex" 1745181069.84396 4351 13118f5e0ea4ae5c97ffc94da5bbdf4a ""
+  "PS6.aux" 1746227303.1734 434 6cda91eacd4f2f691812cb9ed2f6830b "pdflatex"
+  "PS6.tex" 1746227302.24936 6445 77b39983149e258b28df012464e78666 ""
+  "wealth_labor_profiles.png" 1746226864.29722 61608 5c8bb31271761cbdb2e300f90b02dec0 ""
+  "wealth_labor_profiles99.png" 1746227062.53834 62708 6288259744e0ac9a236a5394d0858830 ""
   (generated)
   "PS6.aux"
   "PS6.log"
