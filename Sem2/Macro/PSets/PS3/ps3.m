@@ -80,11 +80,10 @@ fprintf('VFI converged after %d iterations, diff = %2.2e\n', iter, diff);
 % Unconstrained
 
 % Definition of unconstrained grid
-<<<<<<< HEAD
 agrid_UC = -2:0.1:10;
-=======
+
 agrid_UC = -2:01:10;
->>>>>>> origin/main
+
 nUC = length(agrid_UC);
 
 % initialize params
@@ -173,12 +172,9 @@ c_un = zeros(T,1);
 
 a_con = zeros(T+1, 1);
 c_con = zeros(T,1);
-<<<<<<< HEAD
-=======
 
 a_un(1) = 0;
 a_con(1) = 0;
->>>>>>> origin/main
 
 rng(1);
 
@@ -190,7 +186,6 @@ for t = 1:T
     y_t(t) = yH;
     yi = 2;
   end
-<<<<<<< HEAD
  % %% UC
   %diffUC = abs(agrid_UC - a_un(t));
   %[minval, iu] = min(diffUC);
@@ -199,14 +194,12 @@ for t = 1:T
   %% C
   a_sim(t+1)=interp1(agrid,aopt(:,(y_t==yH)+1), a_con(t), 'linear','extrap');
   c_sim(t)=interp1(agrid, copt(:,(y_t==yH)+1), a_con(t), 'linear', 'extrap');
-=======
   
   a_un(t+1) = agrid_UC(i) + y_t(t) - mean(y_t);
   c_un(t) = (1+r)*agrid_UC(i) + y_t(t) - a_un(t+1);
 
   a_con(t+1) = interp1(agrid, aopt(:, (y_t(t)==yH)+1), a_un(t), 'linear', 'extrap');
   c_con(t) = interp1(agrid, copt(:, (y_t(t)==yH)+1), a_un(t), 'linear', 'extrap');
->>>>>>> origin/main
 end
 % --- Plot Simulated Assets and Consumption ---
 figure('Name', 'Simulation Results', 'NumberTitle', 'off');
