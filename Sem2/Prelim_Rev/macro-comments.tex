@@ -1,0 +1,43 @@
+\begin{document}
+
+\section{Question 1}
+\subsection{Question 1.1}
+\begin{align*}
+  u_t = a
+\end{align*}
+There is no uncertainty in this case as the uncertainty lies in committing a crime.
+
+\subsection{Question 1.2}
+\begin{align*}
+  \mathbb{E}[u_t] = p(a-c)^s + (1-p)(a+b)
+\end{align*}
+The expected utility is the weighted sum of the utility from committing a crime and not committing a crime, where \( p \) is the probability of getting caught.
+
+\subsection{Question 1.3}
+\begin{align*}
+  V(b) = \max_{b'} \{u_t(b) + \beta\mathbb{E}[V(b')]\}
+  \shortinter{s.t.} \mathbb{E}[u_t] = p(a-c)^s + (1-p)(a+b)
+\end{align*}
+
+\subsection{Question 1.4}
+We will do this by showing the function satisfies monotonicity and discounting.
+\begin{itemize}
+  \item Monotonicity: 
+    \begin{align*}
+      Tv(b) &= \max_{b'} \{u_t(b) + \beta\mathbb{E}[v(b')]\} \\
+      & = \max_{b'} \{p(a-c)^s + (1-p)(a+b) + \beta\mathbb{E}[V(b')]\} \\
+      & \leq \max_{b'} \{p(a-c)^s + (1-p)(a+b) + \beta\mathbb{E}[w(b')]\} \\
+      & = w(b) \\
+      \shortinter{s.t.} w(b)\geq v(b)
+    \end{align*}
+  \item Discounting:
+    \begin{align*}
+      T(v+a)(b) &= max_{b'} \{u_t(b) + \beta\mathbb{E}[v(b')+a]\} \\
+      & = \max_{b'} \{p(a-c)^s + (1-p)(a+b) + \beta\mathbb{E}[V(b')]+a\} \\
+      & = \max_{b'} \{p(a-c)^s + (1-p)(a+b) + \beta\mathbb{E}[V(b')]\} + a \\
+      & = Tv(b) + a
+    \end{align*}
+\end{itemize}
+\subsection{Question 1.5}
+
+\end{document}
