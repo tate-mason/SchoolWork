@@ -9,12 +9,29 @@ format: pdf
 
 ## Part 1: What is the effect of whether a child watches TV on their math skill?
 
+A difference in differences approach could be used in this case. We could run an experiment where we randomly assign a group of children to watch a certain amount
+of TV each day, while another group of children do not watch any TV. We would then measure the math skills of both groups before and after the experiment. The 
+difference in the change in math skills between the two groups would give us an estimate of the effect of watching TV on math skills. Problems could arise from children
+having differing levels of parental involvement, access to educational resources (tutors), or differing levels of innate ability. 
+
 ## Part 2: Is working around retirement age good for the person's health?
+
+An RD approach could be used in this case. We set the discontinuity at the age of retirement, comparing health outcomes for individuals just below and just above retirement age.
+There is no reason to believe that individuals just below and just above retrirement age would be systematically different in terms of health, other than the fact that one group
+is working and the other is not. Problems arise from things like pre-existing conditions, potentially leading to early retirement, differing levels of exposure to virus/danger, as
+well as differences in access to healthcare.
 
 ## Part 3: Is the racial wage gap in part due to discrimination against racial minorities?
 - Note: Consider only two groups: racial minorities vs. racial majority.
 
+For this question, implementation of an IV model would be appropriate. Using an instrument that affects the likelihood of being a racial minority but does not directly affect wages 
+(e.g., historical segregation policies or geographic location) could help isolate the effect of being a minority on wages. Problems arise from the difficulty in finding a valid instrument that
+satisfies the relevance and exclusion restriction criteria, as well as potential confounding factors that may still influence wages. There is also the option to use a proxy variable. For instance,
+using something like housing outcomes or neighborhood characteristics as a proxy would allow estimation of effects across races without directly biasing the results.
+
 ## Part 4: What is the effect of whether the mother receives welfare money support while the child is young on the child's future income (by age 40)?
+
+
 
 # Problem 2: Coding
 
@@ -60,5 +77,18 @@ summary(OLS)
 
 ## Part 3: Estimating the effect of $D$ on $Y$ with IV
 
-## Part 4: Estimating the effect of $D$ on $Y$ with 2SLS
+## Part 4: OLS of $D$ on $Z$ (with a constant)
+- yields: $\hat{D} = (L(D|Z))$ and $\tilde{D} = D - \hat{D}$
+  ### a) Regress $Y$ on $\hat{D}$ (with a constant)
+  ### b) Regress $Y$ on $D$ and $\tilde{D}$ (with a constant)
+- Explain why the coefficient on $\hat{D}$ in a) is the same as the coefficient on $D$ in b). 
+Explain why both are also the same as the IV estimate from Part 3. What is the intuition behind the coefficient on $\tilde{D}$ in b)?
+Optional: explain the relationship between the standard errors of the estimates in a), b), and Part 3.
+
+## Part 5: Change DGP s.t. $\beta_Z = 1$, redo 3. Then change DGP s.t. $\beta_Z = -1$, redo 3.
+- Explain why the IV estimates of $\beta_D$ are biased in these two cases, and why the bias changes sign when $\beta_Z$ changes sign.
+Optional: explain the intution for why the bias of the estimator of the coefficient on $D$ changes sign when $\beta_Z = \{0, 1\}$.
+
+## Part 6: 
+
 
