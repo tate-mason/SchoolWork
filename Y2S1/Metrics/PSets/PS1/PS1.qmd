@@ -1,0 +1,57 @@
+---
+title: "Problem Set 1"
+author: "Tate Mason"
+date: "Sept. 14, 2025"
+format: pdf
+---
+
+# Problem 1: Conceptual Problem
+
+## Part 1: What is the effect of whether a child watches TV on their math skill?
+
+## Part 2: Is working around retirement age good for the person's health?
+
+## Part 3: Is the racial wage gap in part due to discrimination against racial minorities?
+- Note: Consider only two groups: racial minorities vs. racial majority.
+
+## Part 4: What is the effect of whether the mother receives welfare money support while the child is young on the child's future income (by age 40)?
+
+# Problem 2: Coding
+
+## Part 1: Creating dataset
+1. Set random seed to 1
+2. N = 10000
+3. Draw $\epsilon_i^D$ $\independent$ $\epsilon_i^Y$ $\sim N(0,1)$
+4. Draw $U_i \sim N(0,0.5)$ (Note: s.d. is 0.5)
+5. Create $Z_i = \mathbb{1}(z_i > 0.5)$ where $z_i$ is randomly drawn from a uniform distribution on $[0,1]$
+6. Create $D_i = \mathbb{1}(\alpha_0 + \alpha_Z Z_i + \alpha_UU_i + \epsilon_i^D > 0)$ such that $\alpha_0 = -4, \alpha_Z = 5, \alpha_U = 4$
+7. Create $Y_i = \beta_0 + \beta_D D_i + \beta_Z Z_i + \beta_U U_i + \epsilon_i^Y$ such that $\beta_0 = 3, \beta_D = 2, \beta_Z = 0, \beta_U = 6$
+- $\beta_Z Z_i + \beta_U U_i + \epsilon_i^Y = \epsilon_i$
+
+```{r}
+set.seed(1)
+library(dplyr)
+library(tidyr)
+
+N <- 10000
+ep_D <- rnorm(N, mean = 0, sd = 1)
+ep_Y <- rnorm(N, mean = 0, sd = 1)
+U_i <- rnorm(N, mean = 0, sd = 0.5)
+
+z_i <- runif(N, min = 0, max = 1)
+Z_i <- as.numeric(z_i > 0.5)
+
+D_i <- as.numeric(-4 + 5*z_i + 4*U_i + ep_D)
+Y_i <- as.numeric(3 + 2*D_i + 0 + 6*U_i + ep_Y)
+```
+
+## Part 2: Estimating the effect of $D$ on $Y$ with OLS
+
+```{r}
+OLS <- lm(D_i ~ Y_i)
+```
+
+## Part 3: Estimating the effect of $D$ on $Y$ with IV
+
+## Part 4: Estimating the effect of $D$ on $Y$ with 2SLS
+
