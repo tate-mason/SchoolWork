@@ -109,7 +109,7 @@ model_b <- lm(Y_i ~ D_i + D_tilde, data = df)
 summary(model_b)
 ```
 
-$\beta_{\hat{D}}$ in model a) is the same as $\beta_{D}$ in model b) because both models are essentially capturing the same variation in $D$ that is explained by $Z$.
+$\beta_{\hat{D}}$ in model a) is the same as $\beta_{D}$ in model b) because both models are essentially capturing the same variation in $D$ which is explained by $Z$.
 This is the same as the IV estimate from **3** because the IV method captures the variation in $D$ that is correlated with $Z$. The coefficient on $\tilde{D}$ in model
 b) captures the variation in $D$ that is not explained by $Z$, which is unrelated to the instrument and thus does not contribute to the estimation of the causal effect
 of $D$ on $Y$.
