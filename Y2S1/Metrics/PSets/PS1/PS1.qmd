@@ -49,6 +49,7 @@ using something like housing outcomes or neighborhood characteristics as a proxy
 set.seed(1)
 library(dplyr)
 library(tidyr)
+library(AER)
 ```
 
 ```{r}
@@ -77,13 +78,41 @@ summary(OLS)
 
 ## Part 3: Estimating the effect of $D$ on $Y$ with IV
 
+```{r}
+IV <- ivreg(Y_i ~ D_i | Z_i, data = df)
+summary(IV)
+```
+
 ## Part 4: OLS of $D$ on $Z$ (with a constant)
 - yields: $\hat{D} = (L(D|Z))$ and $\tilde{D} = D - \hat{D}$
+
   ### a) Regress $Y$ on $\hat{D}$ (with a constant)
+
   ### b) Regress $Y$ on $D$ and $\tilde{D}$ (with a constant)
 - Explain why the coefficient on $\hat{D}$ in a) is the same as the coefficient on $D$ in b). 
 Explain why both are also the same as the IV estimate from Part 3. What is the intuition behind the coefficient on $\tilde{D}$ in b)?
 Optional: explain the relationship between the standard errors of the estimates in a), b), and Part 3.
+
+# a)
+```{r}
+df <- df %>%
+  mutate(
+    D_hat = predict(lm(D_i ~ Z_i, data = df)),
+    D_tilde = D_i - D_hat
+  )
+model_a <- lm(Y_i ~ D_hat, data = df)
+summary(model_a)
+```
+# b)
+```{r}
+model_b <- lm(Y_i ~ D_i + D_tilde, data = df)
+summary(model_b)
+```
+
+$\beta_{\hat{D}}$ in model a) is the same as $\beta_{D}$ in model b) because both models are essentially capturing the same variation in $D$ that is explained by $Z$.
+This is the same as the IV estimate from **3** because the IV method captures the variation in $D$ that is correlated with $Z$. The coefficient on $\tilde{D}$ in model
+b) captures the variation in $D$ that is not explained by $Z$, which is unrelated to the instrument and thus does not contribute to the estimation of the causal effect
+of $D$ on $Y$.
 
 ## Part 5: Change DGP s.t. $\beta_Z = 1$, redo 3. Then change DGP s.t. $\beta_Z = -1$, redo 3.
 - Explain why the IV estimates of $\beta_D$ are biased in these two cases, and why the bias changes sign when $\beta_Z$ changes sign.
