@@ -18,27 +18,31 @@ having differing levels of parental involvement, access to educational resources
 
 An RD approach could be used in this case. We set the discontinuity at the age of retirement, comparing health outcomes for individuals just below and just above retirement age.
 There is no reason to believe that individuals just below and just above retrirement age would be systematically different in terms of health, other than the fact that one group
-is working and the other is not. Problems arise from things like pre-existing conditions, potentially leading to early retirement, differing levels of exposure to virus/danger, as
-well as differences in access to healthcare.
+is working and the other is not. Problems arise from factors like pre-existing conditions or differences in access to healthcare.
 
 ## Part 3: Is the racial wage gap in part due to discrimination against racial minorities?
 - Note: Consider only two groups: racial minorities vs. racial majority.
 
-For this question, implementation of an IV model would be appropriate. Using an instrument that affects the likelihood of being a racial minority but does not directly affect wages 
-(e.g., historical segregation policies or geographic location) could help isolate the effect of being a minority on wages. Problems arise from the difficulty in finding a valid instrument that
-satisfies the relevance and exclusion restriction criteria, as well as potential confounding factors that may still influence wages. There is also the option to use a proxy variable. For instance,
-using something like housing outcomes or neighborhood characteristics as a proxy would allow estimation of effects across races without directly biasing the results.
+Using a model which employs an instrumental variable would likely be the best course. The goal would be to find an instrument which is simultaneously affiliated with race, but 
+uncorrelated with wage. The difficulty arises in this search. For instance, using something like neighborhood as an IV is surely correlated with race, given historical policies
+surrounding how cities were segregated, but there is also likely correlation with wage. 
 
 ## Part 4: What is the effect of whether the mother receives welfare money support while the child is young on the child's future income (by age 40)?
 
-
+There are two approaches which would be equally effective, though both run into similar issues. First, a diff-in-diff approach could be used. This would allow for simple interpretation of
+the effect of income outcomes for those whose families were recipients of welfare benefits vs. those who were not. However, difficulty arises in data access/integrity issues. It is
+difficult to maintain good data over 40 years for a good sample, and is also hard to be granted access to such data if it exists. An RD setup would produce similar ease of interpretation.
+To implement this type of approach, set the cutoff line at the income threshold for receiving welfare benefits, then examine the difference in outcomes for those just above and below the line.
+Data access would be similarly difficult here. Across both setups, an issue also arises in that income is not a fixe state. For instance, there may be years where the mother is on welfare, but
+times where she is not. Thus, the children who spent, say, a couple of months on welfare vs. the kids who spent their entire adolescence in that state should have systematically different
+outcomes.
 
 # Problem 2: Coding
 
 ## Part 1: Creating dataset
 1. Set random seed to 1
 2. N = 10000
-3. Draw $\epsilon_i^D$ $/perp$ $\epsilon_i^Y$ $\sim N(0,1)$
+3. Draw $\epsilon_i^D$ $\perp \!\!\! \perp$ $\epsilon_i^Y$ $\sim N(0,1)$
 4. Draw $U_i \sim N(0,0.5)$ (Note: s.d. is 0.5)
 5. Create $Z_i = \mathbb{1}(z_i > 0.5)$ where $z_i$ is randomly drawn from a uniform distribution on $[0,1]$
 6. Create $D_i = \mathbb{1}(\alpha_0 + \alpha_Z Z_i + \alpha_UU_i + \epsilon_i^D > 0)$ such that $\alpha_0 = -4, \alpha_Z = 5, \alpha_U = 4$
