@@ -16,7 +16,7 @@ having differing levels of parental involvement, access to educational resources
 
 ## Part 2: Is working around retirement age good for the person's health?
 
-An RD approach could be used in this case. We set the discontinuity at the age of retirement, comparing health outcomes for individuals just below and just above retirement age.
+An RD approach is applicable here. We set the discontinuity at the age of retirement, comparing health outcomes for individuals just below and just above retirement age.
 There is no reason to believe that individuals just below and just above retrirement age would be systematically different in terms of health, other than the fact that one group
 is working and the other is not. Problems arise from factors like pre-existing conditions or differences in access to healthcare.
 
