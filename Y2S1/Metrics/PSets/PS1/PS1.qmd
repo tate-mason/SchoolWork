@@ -142,7 +142,6 @@ summary(IV5b)
 ## Part 6: 
 
 ```{r}
-```{r}
 df <- df %>%
   mutate(
     D_i = as.numeric(-4 + 10 * Z_i + 4 * U_i + epsilon_D > 0),
