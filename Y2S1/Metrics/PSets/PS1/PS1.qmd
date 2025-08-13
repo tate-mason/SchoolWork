@@ -122,6 +122,88 @@ of $D$ on $Y$.
 - Explain why the IV estimates of $\beta_D$ are biased in these two cases, and why the bias changes sign when $\beta_Z$ changes sign.
 Optional: explain the intution for why the bias of the estimator of the coefficient on $D$ changes sign when $\beta_Z = \{0, 1\}$.
 
+```{r}
+df <- df %>%
+  mutate(
+    Y_i = 3 + 2 * D_i + 1 * Z_i + 6 * U_i + epsilon_Y
+)
+IV5a <- ivreg(Y_i ~ D_i | Z_i, data = df)
+summary(IV5a)
+```
+
+```{r}
+df <- df %>%
+  mutate(
+    Y_i = 3 + 2 * D_i + -1 * Z_i + 6 * U_i + epsilon_Y
+)
+IV5b <- ivreg(Y_i ~ D_i | Z_i, data = df)
+summary(IV5b)
+```
+
 ## Part 6: 
+
+```{r}
+```{r}
+df <- df %>%
+  mutate(
+    D_i = as.numeric(-4 + 10 * Z_i + 4 * U_i + epsilon_D > 0),
+    Y_i = 3 + 2 * D_i + 1 * Z_i + 6 * U_i + epsilon_Y
+)
+IV6a <- ivreg(Y_i ~ D_i | Z_i, data = df)
+summary(IV6a)
+```
+
+```{r}
+df <- df %>%
+  mutate(
+    D_i = as.numeric(-4 + 10 * Z_i + 4 * U_i + epsilon_D > 0),
+    Y_i = 3 + 2 * D_i + -1 * Z_i + 6 * U_i + epsilon_Y
+  )
+IV6b <- ivreg(Y_i ~ D_i | Z_i, data = df)
+summary(IV6b)
+```
+
+## Part 7: 
+
+$D_i$ by formation cannot deviate from compliance. When $Z_i = 0$, The sum of $\alpha_0, \alpha_U, \epsilon_i^D$
+is negative as $\alpha_0 = -4$ while $\alpha_U*U + \epsilon_i^D$ is not greater than 4, thus implying $D_i = 0$ when
+$Z_i = 0$.
+
+## Part 8:
+
+```{r}
+df <- df %>%
+  mutate(
+    Z_i = as.numeric(z_i > 0.5),
+    D_i = as.numeric(-4 + 5 * Z_i + 4 * U_i + epsilon_D > 0),
+    Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
+    pZ = length(Z_i == 1)/length(id),
+    pD = length(D_i == 1)/length(id),
+    compliers = (pZ*D_hat)/pD
+  )
+length(df$compliers)
+```
+
+As shown in the last part, there can be no always-takers or never-takers as people will not defy treatment $D_i$
+
+## Part 9:
+
+```{r}
+df <- df %>%
+  mutate(
+    Z_i = as.numeric(z_i > 0.5),
+    D_i = as.numeric(-4 + 10 * Z_i + 4 * U_i + epsilon_D > 0),
+    Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
+    pZ = length(Z_i == 1)/length(id),
+    pD = length(D_i == 1)/length(id),
+    compliers = (pZ*D_hat)/pD
+  )
+length(df$compliers)
+```
+
+The proportion remains the same as the coefficient on $Z_i$ does not effect anything when $Z_i = 0$. Thus, all
+units will comply.
+
+## Part 10:
 
 
