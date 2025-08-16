@@ -4,13 +4,13 @@ format: pdf
 ---
 
 ```{r include=FALSE}
-dataPath <- file.path("/Users/tate/SchoolWork/Y2S1/Macro/Data/PSID/")
 library(AER)
 library(haven)
 library(tidyverse)
+library(readxl)
 ```
 
 ```{r}
-df <- read.spss("/Users/tate/Downloads/fam1999er/FAM1999ER.sps")
+df <- read_excel("~/SchoolWork/Y2S1/Macro/Data/PSID/J350946.xlsx")
 head(df)
 ```

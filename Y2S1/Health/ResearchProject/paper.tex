@@ -1,0 +1,295 @@
+\documentclass[11pt,a4paper]{article}
+
+% Essential packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{setspace}
+
+
+% Additional useful packages
+\usepackage{fancyhdr}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Configure hyperref
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=red,
+    pdftitle={GLP-1 and Moral Hazard: Encouraging Obesity},
+    pdfauthor={Tate Mason},
+}
+
+% Set line spacing
+\onehalfspacing
+
+% Configure headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\textit{GLP-1 and Moral Hazard: Encouraging Obesity}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Title page information
+\title{GLP-1 and Moral Hazard: Encouraging Obesity}
+
+\author{
+    Tate Mason\thanks{Corresponding author: your.email@university.edu} \\
+    \textit{John Munro Godfrey Sr. Dept. of Economics} \\
+    \textit{University of Georgia} \\
+}
+
+\date{\today}
+
+% Abstract environment
+\newenvironment{abstract}%
+{\cleardoublepage\null \vfill\begin{center}%
+\bfseries \abstractname \end{center}}%
+{\vfill\null}
+
+\begin{document}
+
+% Title page
+\maketitle
+\thispagestyle{empty}
+
+% Abstract
+\begin{abstract}
+\noindent % Write a concise summary (150-250 words) covering: research problem, methodology, key findings, and significance. State your main contributions clearly.
+
+\vspace{0.3cm}
+\noindent \textbf{Keywords:} % List 3-6 keywords relevant to your research
+\end{abstract}
+
+\newpage
+\setcounter{page}{1}
+
+% Main content
+\section{Introduction}
+\label{sec:introduction}
+
+% Provide a broad introduction to your field and gradually narrow to your specific research question.
+% Motivate why this work is necessary and important.
+
+\subsection{Background and Motivation}
+\label{subsec:background}
+
+In the last few years, a classification of drugs known as GLP-1 receptor agonists have become massively prevalent. The original purpose
+of these drugs was to help type-2 diabetics with management of blood sugar. Particularly, the drug aimed to assist those with 
+cardiovascular problems or obesity. However, the drug has gained broader popularity via its appetite suppressing and weight loss properties. Those without diabetes
+are being prescribed the drug both with cause and without. Whether it be helping obese individuals begin to lose weight, or act
+assisting people who want to lose a few pounds, the different variants of GLP-1 agonists have become wildly popular. 
+
+The popularity of the drug brings to mind a question regarding how it effects people's consumption. Specifically, are those who
+take it for cosmetic reasons making the corresponding lifestyle improvements, or does the drug simply allow them to consume with
+a diminished risk of weight gain? Further, if the drug does encourage lifestyle improvements through consumption, are there policy
+remedies to more broadly utilize it to tackle the obesity problem in the United States?
+
+The growth in prescribed use of the GLP-1 drugs has also allowed for massive growth in the companies which made it to the game early is staggering.
+For instance, Novo Nordisk, manufacturers of Wegovy, saw 30\percent year-on-year growth from 2024-2025. Understanding how the specific medications
+have influenced growth for pharmaceutical manufacturers would allow for insights into the larger market.
+% Provide context for your research area. Explain why this problem is important and worth investigating.
+
+\subsection{Problem Statement}
+\label{subsec:problem}
+This paper seeks to understand the effect of GLP-1 drugs on the consumption habits of individuals who were prescribed the drug
+for cosmetic reasons. Particularly, gaining an understanding of how consumption of goods like fast food, alcohol, or exercise 
+was altered upon receiving a prescription. Gaining this understanding would allow for an understanding of if the medicine helps
+to foster broader lifestyle changes, or is more akin to offsetting consumption of unhealthy food. While difficulties may arise in
+the differences in access by income, looking into this question would allow for valuable economic and policy insights.
+% Clearly articulate the specific problem or research question you're addressing. Be precise and focused.
+
+\subsection{Contributions}
+\label{subsec:contributions}
+
+% List your main contributions clearly and concisely:
+% - What novel methods, insights, or results do you provide?
+% - How do they advance the state of the art?
+% - What specific problems do they solve?
+
+\subsection{Paper Organization}
+\label{subsec:organization}
+
+% Briefly outline how the paper is structured. Guide readers through your narrative flow.
+
+\section{Related Work}
+\label{sec:related_work}
+
+% Comprehensively review relevant prior work. Organize thematically, not chronologically.
+% Show how your work builds on, differs from, or improves upon existing approaches.
+
+\subsection{Previous Approaches}
+\label{subsec:previous_approaches}
+
+% Survey existing methods and approaches relevant to your problem.
+% Group similar approaches and explain their key ideas, strengths, and weaknesses.
+
+\subsection{Limitations of Existing Work}
+\label{subsec:limitations}
+
+% Identify specific gaps, limitations, or open problems in existing approaches.
+% This motivates why your work is needed and positions your contributions.
+
+\section{Methodology}
+\label{sec:methodology}
+
+% Describe your approach in sufficient detail for reproducibility.
+% Include mathematical formulations, algorithms, and theoretical analysis as needed.
+
+\subsection{Problem Formulation}
+\label{subsec:formulation}
+
+% Formally define the problem you're solving using mathematical notation.
+% Establish assumptions, constraints, and objectives clearly.
+
+\subsection{Proposed Approach}
+\label{subsec:approach}
+
+% Detail your methodology including:
+% - Core algorithms and their rationale
+% - Mathematical derivations and proofs
+% - Implementation details crucial for reproducibility
+% - Complexity analysis if relevant
+
+\section{Experimental Evaluation}
+\label{sec:experiments}
+
+% Present your experimental design, results, and analysis.
+% Be objective and thorough in reporting both positive and negative results.
+
+\subsection{Experimental Setup}
+\label{subsec:setup}
+
+Describe your experimental methodology, including:
+\begin{itemize}
+    \item Datasets used
+    \item Evaluation metrics
+    \item Baseline methods
+    \item Implementation details
+    \item Hardware/software specifications
+\end{itemize}
+
+\subsection{Datasets}
+\label{subsec:datasets}
+
+Provide details about the datasets used in your evaluation.
+
+\begin{table}[htbp]
+\centering
+\caption{Dataset Statistics}
+\label{tab:datasets}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Dataset & Training Samples & Test Samples & Features \\
+\midrule
+Dataset 1 & 10,000 & 2,500 & 784 \\
+Dataset 2 & 50,000 & 10,000 & 3,072 \\
+Dataset 3 & 1,000,000 & 100,000 & 128 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Results}
+\label{subsec:results}
+
+% Present results clearly and objectively:
+% - Use tables and figures effectively
+% - Report statistical significance where appropriate
+% - Include error bars or confidence intervals
+% - Compare against all relevant baselines
+% - Report both quantitative metrics and qualitative observations
+
+\subsection{Analysis}
+\label{subsec:analysis}
+
+% Provide deeper analysis of your results:
+% - Statistical significance tests
+% - Ablation studies showing contribution of different components
+% - Error analysis and failure cases
+% - Computational complexity and runtime analysis
+% - Sensitivity analysis for key parameters
+
+\section{Discussion}
+\label{sec:discussion}
+
+% Interpret your findings, discuss broader implications, and acknowledge limitations honestly.
+
+\subsection{Interpretation of Results}
+\label{subsec:interpretation}
+
+% Explain what your results mean in the context of your research questions:
+% - How do findings relate to your hypotheses?
+% - What insights do the results provide?
+% - How do they compare to previous work?
+% - What are the practical implications?
+
+\subsection{Limitations}
+\label{subsec:limitations}
+
+% Honestly discuss limitations of your work:
+% - Methodological limitations
+% - Dataset limitations or biases
+% - Assumptions that may not hold in practice
+% - Scope limitations
+% - Computational or resource constraints
+
+\subsection{Future Work}
+\label{subsec:future_work}
+
+% Suggest concrete directions for future research:
+% - How could your approach be extended or improved?
+% - What new research questions arise from your work?
+% - How could limitations be addressed?
+% - What are the next logical steps?
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+% Summarize your main contributions, key findings, and their significance.
+% Avoid simply repeating the abstract - provide a synthesis that reinforces your contributions.
+
+In this paper, we presented [brief summary of contribution]. Our experimental evaluation demonstrates [key findings]. The implications of this work include [broader impact]. Future research directions include [future work].
+
+\section*{Acknowledgments}
+
+% Thank people who contributed to the work but aren't co-authors.
+% Acknowledge funding sources, institutional support, or resources used.
+
+% Bibliography
+\bibliographystyle{plainnat}
+\bibliography{references} % Make sure you have a references.bib file
+
+% Appendices (if needed)
+\appendix
+\section{Additional Experimental Results}
+\label{app:additional_results}
+
+% Include supplementary results that support your main findings but are too detailed for the main text:
+% - Extended result tables
+% - Additional ablation studies
+% - Results on additional datasets
+% - Detailed parameter sensitivity analysis
+
+\section{Mathematical Proofs}
+\label{app:proofs}
+
+% Include detailed mathematical proofs and derivations:
+% - Theoretical analysis too lengthy for the main text
+% - Convergence proofs
+% - Complexity analysis details
+% - Complete derivations of key equations
+
+\end{document}
