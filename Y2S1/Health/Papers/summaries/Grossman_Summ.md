@@ -1,0 +1,24 @@
+---
+title: "Summary of Grossman (1972)"
+author: "Tate Mason"
+---
+
+# What is the broader motivation of this paper?
+
+Grossman's 'On the Concept of Health Capital and the Demand for Health' aims to model demand for what he terms "good health". This paper, broadly speaking, attempts to untangle the consumer demand for good health from the demand for medical services at large. 
+
+# What is the precise research question?
+
+Specifically, Grossman attempts to understand how the shadow price of good health affects consumer demand when consumer's have different characteristics like educational attainment or wealth differences. Further, Grossman's paper seeks to ascertain willingness to trade capital stock for health stock for individuals. The relationship between market stock and health stock is paramount, with Grossman asserting that with health investment reducing sick days allows for more market activity.
+
+# Why would a policy maker care?
+
+A policy maker would care because Grossman shows how different characteristics of consumers correlates to health stock demand. 
+
+# Why would an economist care?
+
+An economist would care because understanding how demand for the health market is correlated to the shadow price of health allows for further contribution to the field, as well as deeper understanding of consumer preferences for different demographics.
+
+# What do we learn about economics?
+
+We learn that the demand for health is downward sloping due to the marginal productivity of health capital declining. We also learn that wealthier consumers demand more health and more medical care, or that health demand is positively correlated with the wage rate. Further, those with higher levels of education demand more health stock, but not more healthcare. 
