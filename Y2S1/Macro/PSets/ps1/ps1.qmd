@@ -1,4 +1,5 @@
 ---
+title: "Problem Set 1: PSID - Labor Outcomes"
 author: Tate Mason
 format: pdf
 ---
@@ -11,6 +12,25 @@ library(readxl)
 ```
 
 ```{r}
-df <- read_excel("~/SchoolWork/Y2S1/Macro/Data/PSID/J350946.xlsx")
-head(df)
+df <- read_dta("~/SchoolWork/Y2S1/Macro/Data/PSID/PSID.dta")
+head(df, 10)
+```
+
+```{r}
+earn <- sample(c("ER13218", "ER17229", "ER21153", "ER25142", "ER36147", "ER42182", "ER47495", "ER53195", "ER60210", "ER66211", "ER72211", "ER78216", "ER82199"), nrow(df), replace = TRUE)
+df <- df %>%
+  pivot_longer(
+    c("ER13218", "ER17229", "ER21153", "ER25142", "ER36147", "ER42182", "ER47495", "ER53195", "ER60210", "ER66211", "ER72211", "ER78216", "ER82199")
+    , names_to = "year", values_to = "earnings"
+  ) %>%
+  mutate(year = as.numeric(str_extract(year, "\\d+"))) %>%
+  mutate(earnings = ifelse(earnings == 999999, NA, earnings))
+```
+
+## 1 - Construct life-cycle profiles for the entire sample:
+
+### Labor force participation:
+
+### Annual earnings:
+```{r}
 ```
