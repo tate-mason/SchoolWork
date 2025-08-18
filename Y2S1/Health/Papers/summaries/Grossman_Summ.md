@@ -17,7 +17,7 @@ A policy maker would care because Grossman shows how different characteristics o
 
 # Why would an economist care?
 
-An economist would care because understanding how demand for the health market is correlated to the shadow price of health allows for further contribution to the field, as well as deeper understanding of consumer preferences for different demographics.
+An economist would be interested because Grossman shows returns to education for health demand, shows health capital by wealth strata (basis), and shows optimal investment of time to maintain consumer utility.
 
 # What do we learn about economics?
 
