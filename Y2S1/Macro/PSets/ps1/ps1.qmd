@@ -8,35 +8,31 @@ format: pdf
 library(AER)
 library(haven)
 library(tidyverse)
-library(psidread)
-library(DiagrammeR)
 ```
 
 ```{r}
-varlist = c(
-  "age || [99]ER13010 [01]ER17013 [03]ER21017 [05]ER25017 [07]ER36017 [09]ER42017 [11]ER47317 [13]ER53017 [15]ER60017 [17]ER66017 [19]ER72017 [21]ER78017 [23]ER82018",
-  "sex || [99]ER13011 [01]ER17014 [03]ER21018 [05]ER25018 [07]ER36018 [09]ER42018 [11]ER47318 [13]ER53018 [15]ER60018 [17]ER66018 [19]ER72018 [21]ER78018 [23]ER82019",
-  "hs_grad || [99]ER15937 [01]ER19998 [03]ER23435 [05]ER27402 [07]ER40574 [09]ER46552 [11]ER51913 [13]ER57669 [15]ER64821 [17]ER70755 [19]ER76763 [21]ER81028 [23]ER85005",
-  "college_grad || [99]ER15952 [01]ER20013 [03]ER23450 [05]ER27417 [07]ER40589 [09]ER46567 [11]ER51928 [13]ER57684 [15]ER64836 [17]ER70908 [19]ER76923 [21]ER81170 [23]ER85147")
-
-psid_unzip(
-  indir = "/Users/tate/Downloads/J351008.zip/",
-  zipped = TRUE,
-  type = "single",
-  filename = "J351008.zip" 
-)
-
-str_df <- psid_str(
-  varlist = varlist,
-  type = "separated"
-)
-
-psid_df <- psid_read(
-  indir = "~/Downloads/",
-  str_df = str_df,
-  id_vars = c("ER13002", "ER17002", "ER21002", "ER25002", "ER36002", "ER42002", "ER47302", "ER53002", "ER60002", "ER66002", "ER72002", "ER78002", "ER82002"),
-  type = "package",
-  filename = NA
-)
-str(psid_df)
+df <- read_dta("~/SchoolWork/Y2S1/Macro/Data/PSID/PSID.dta")
 ```
+
+```{r}
+pivot <- tribble(
+  ~year, ~age, ~sex, ~labor_par, ~earnings_annual, ~hourly, ~hr_worked, ~educ_HS, ~educ_coll, ~ind, ~wealth,
+  1999, "ER13010", "ER13011", "ER13601", "ER13218", "ER13224", "ER13363", "ER15937", "ER15952", "ER13216", "S417",
+  2001, "ER17013", "ER17014", "ER17375", "ER17729", "ER17235", "ER17393", "ER19998", "ER20014", "ER17227", "S517",
+  2003, "ER21017", "ER21018", "ER21139", "ER21153", "ER21159", "ER21356", "ER23435", "ER23451", "ER21146", "S617",
+  2005, "ER25017", "ER25018", "ER25328", "ER25142", "ER25148", "ER25345", "ER27402", "ER27148", "ER25128", "S717",
+  2007, "ER36017", "ER36018", "ER36333", "ER36147", "ER36153", "ER36350", "ER40574", "ER40590", "ER36133", "S817",
+  2009, "ER42017", "ER42018", "ER42360", "ER42182", "ER42188", "ER42148", "ER46552", "ER46568", "ER42168", "ER46970",
+  2011, "ER47317", "ER47318", "ER47673", "ER47495", "ER47501", "ER47456", "ER51913", "ER51929", "ER47480", "ER52394",
+  2013, "ER53017", "ER53018", "ER53636", "ER53195", "ER53201", "ER53156", "ER57669", "ER57685", "ER53180", "ER58211",
+  2015, "ER60017", "ER60018", "ER60388", "ER60210", "ER60216", "ER60171", "ER64821", "ER64837", "ER60195", "ER65408",
+  2017, "ER66017", "ER66018", "ER66666", "ER66211", "ER66492", "ER66172", "ER70755", "ER70909", "ER66196", "ERER71485"
+)
+
+df <- df %>%
+  mutate(
+    famid = coalesce(!!!rlang::syms(c(
+      "ER66009","ER60009","ER53009","ER47309","ER42009",
+      "ER36009","ER25009","ER21009","ER17022","ER13019"
+    )))
+  )
