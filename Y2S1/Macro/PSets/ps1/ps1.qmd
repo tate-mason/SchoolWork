@@ -8,29 +8,35 @@ format: pdf
 library(AER)
 library(haven)
 library(tidyverse)
-library(readxl)
+library(psidread)
+library(DiagrammeR)
 ```
 
 ```{r}
-df <- read_dta("~/SchoolWork/Y2S1/Macro/Data/PSID/PSID.dta")
-head(df, 10)
-```
+varlist = c(
+  "age || [99]ER13010 [01]ER17013 [03]ER21017 [05]ER25017 [07]ER36017 [09]ER42017 [11]ER47317 [13]ER53017 [15]ER60017 [17]ER66017 [19]ER72017 [21]ER78017 [23]ER82018",
+  "sex || [99]ER13011 [01]ER17014 [03]ER21018 [05]ER25018 [07]ER36018 [09]ER42018 [11]ER47318 [13]ER53018 [15]ER60018 [17]ER66018 [19]ER72018 [21]ER78018 [23]ER82019",
+  "hs_grad || [99]ER15937 [01]ER19998 [03]ER23435 [05]ER27402 [07]ER40574 [09]ER46552 [11]ER51913 [13]ER57669 [15]ER64821 [17]ER70755 [19]ER76763 [21]ER81028 [23]ER85005",
+  "college_grad || [99]ER15952 [01]ER20013 [03]ER23450 [05]ER27417 [07]ER40589 [09]ER46567 [11]ER51928 [13]ER57684 [15]ER64836 [17]ER70908 [19]ER76923 [21]ER81170 [23]ER85147")
 
-```{r}
-earn <- sample(c("ER13218", "ER17229", "ER21153", "ER25142", "ER36147", "ER42182", "ER47495", "ER53195", "ER60210", "ER66211", "ER72211", "ER78216", "ER82199"), nrow(df), replace = TRUE)
-df <- df %>%
-  pivot_longer(
-    c("ER13218", "ER17229", "ER21153", "ER25142", "ER36147", "ER42182", "ER47495", "ER53195", "ER60210", "ER66211", "ER72211", "ER78216", "ER82199")
-    , names_to = "year", values_to = "earnings"
-  ) %>%
-  mutate(year = as.numeric(str_extract(year, "\\d+"))) %>%
-  mutate(earnings = ifelse(earnings == 999999, NA, earnings))
-```
+psid_unzip(
+  indir = "/Users/tate/Downloads/J351008.zip/",
+  zipped = TRUE,
+  type = "single",
+  filename = "J351008.zip" 
+)
 
-## 1 - Construct life-cycle profiles for the entire sample:
+str_df <- psid_str(
+  varlist = varlist,
+  type = "separated"
+)
 
-### Labor force participation:
-
-### Annual earnings:
-```{r}
+psid_df <- psid_read(
+  indir = "~/Downloads/",
+  str_df = str_df,
+  id_vars = c("ER13002", "ER17002", "ER21002", "ER25002", "ER36002", "ER42002", "ER47302", "ER53002", "ER60002", "ER66002", "ER72002", "ER78002", "ER82002"),
+  type = "package",
+  filename = NA
+)
+str(psid_df)
 ```
