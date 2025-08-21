@@ -3,7 +3,7 @@ title: "Problem Set 1: PSID - Labor Outcomes"
 author: Tate Mason
 format: pdf
 ---
-
+CPI = .014 --> divide all by this
 ```{r include=FALSE}
 library(AER)
 library(haven)
@@ -45,6 +45,7 @@ long <- map_dfr(1:nrow(pivot), function(i){
     transmute(
       famid,
       year = sel$year,
+      sex = .data[[sel$sex]],
       age = .data[[sel$age]],
       inc = .data[[sel$earnings_annual]],
       labor_par = .data[[sel$labor_par]],
@@ -54,8 +55,49 @@ long <- map_dfr(1:nrow(pivot), function(i){
       educ_coll = .data[[sel$educ_coll]],
       ind = .data[[sel$ind]],
       wealth = .data[[sel$wealth]]
+    ) %>%
+    mutate(
+      cpi_99 <- .027,
+      cpi_01 <- .016,
+      cpi_03 <- .019,
+      cpi_05 <- .034,
+      cpi_07 <- .041,
+      cpi_09 <- .027,
+      cpi_11 <- .03,
+      cpi_13 <- .015,
+      cpi_15 <- .007,
+      cpi_17 <- .021
+    )
+    group_by(year) %>%
+    mutate(
+      cpi_ratio = startsWith(cpi_) / .012
     )
 })
 
 glimpse(long)
+```
+
+```{r}
+long <- long %>%
+  filter(
+    age >= 25 & age <= 60,
+    sex == 1
+  ) %>%
+  group_by(year) %>%
+  mutate(
+    wealth_adj <- wealth * cpi_ratio,
+    inc_adj = inc * cpi_ratio,
+    hourly_adj = hourly * cpi_ratio
+  )
+
+df <- long %>%
+  group_by(year) %>%
+  mutate(
+    labor_par = as.numeric(labor_par == 0),
+    blue_col = as.numeric(ind %in% c(range(67:77), range(47:57), range(17:28), 107:398)),
+    white_col = as.numeric(ind %in% c(range(407:479), range(707:718), range(727:759), range(828:897), range(907:937))),
+    educ_HS = as.numeric(educ_HS == 1),
+    educ_coll = as.numeric(educ_coll == 1),
+  )
+
 ```

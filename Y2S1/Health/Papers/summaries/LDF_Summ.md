@@ -17,3 +17,11 @@ An economist would be interested for the novel addition of innovation to consume
 
 # What We Learn About Economics:
 We learn a lot from this paper. Firstly, we find that hepatitis C innovation has increased consumer welfare via QALY despite massive cost increases. Secondly, we find that rheumatoid arthritis therapies saw prices rise faster than quality was able to. Lastly, we find interesting methods of modeling how consumer welfare responds to innovation, which could be extended to many different industries.
+
+# How Does Empirical Answer the Question:
+The empirical strategy directly answers the question by estimating the quality adjusted life years as a function of fixed effects resulting from new and existing treatments. The authors also estimate value of statistical life years, a measure of how much monetary worth an agent prescribes to an additional year or life.
+
+# Main Identification Threats and Overcoming:
+The main threats to identification come from not observing the fixed effects which comprise QALY or not observing costs.
+
+The identification was overcome by using multiple data sources and focusing on a small subset of conditions to focus on drugs for. Doing this allowed for convincing estimation as well as meaningful results. This seemed an easy fix, given how comprehensive the data used was described to be.
