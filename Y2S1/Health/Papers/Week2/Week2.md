@@ -117,4 +117,26 @@ $$
 - Care because:
   - econ: shows returns to education for health, shows health capital by wealth strata (basis), and shows optimal investment of time to maintain consumer utility
   - policy: education initiatives lead to better health quality (?)
- 
+---
+
+## Dunn, Fernando, Liebman - 
+### Introduction 
+Motivation - how to best measure value of medical innovation
+Addition - CEAR (Tufts Cost Effectiveness Analysis Registry) database and matching to claims data to measure cost growth and innovation in health care sector
+
+### Consumer Welfare and Quality-Adjusted Price Indexes
+Consumer welfare change over time:
+$$
+\Delta\text{Consumer Welfare}_{d,t,t-1} = VSLY\cdot(H_{d,t}-H_{d,t-1}) - (S_{d,t}-S_{d,t-1})
+$$
+  - this equation accounts for the change in price and quality of treatment
+
+Price index for a disease $d$:
+$$
+\text{Price Index}_{d,t,t-1} = \frac{S_{d,t-1} - \Delta\text{Consumer Welfare}_{d,t,t-1}}{S_{d,t-1}} \\
+= \frac{S_{d,t}}{S_{d,t-1}} - \frac{VSLY\cdot(H_{d,t}-H_{d,t-1})}{S_{d,t-1}}
+$$
+
+- intuition:
+  - first line shows price index is less than 1, implying consumer welfare is increasing
+  - separation of price change from quality improvement
