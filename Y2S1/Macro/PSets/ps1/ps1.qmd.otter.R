@@ -1,19 +1,19 @@
----
-title: "Problem Set 1: PSID - Labor Outcomes"
-author: Tate Mason
-format: pdf
----
-```{r include=FALSE}
+
+
+
+
+
+
 library(AER)
 library(haven)
 library(tidyverse)
-```
 
-```{r}
+
+
 df <- read_dta("~/SchoolWork/Y2S1/Macro/Data/PSID/PSID.dta")
-```
 
-```{r, echo=FALSE}
+
+
 pivot <- tribble(
   ~year, ~age, ~sex, ~labor_par, ~earnings_annual, ~hourly, ~hr_worked, ~educ_HS, ~educ_coll, ~ind, ~wealth, ~cpi_ratio,
   1999, "ER13010", "ER13011", "ER13601", "ER13218", "ER13224", "ER13363", "ER15937", "ER15952", "ER13216", "S417", .027/0.014,
@@ -27,9 +27,9 @@ pivot <- tribble(
   2015, "ER60017", "ER60018", "ER60388", "ER60210", "ER60216", "ER60171", "ER64821", "ER64837", "ER60195", "ER65408", .007/0.014,
   2017, "ER66017", "ER66018", "ER66666", "ER66211", "ER66492", "ER66172", "ER70755", "ER70909", "ER66196", "ER71485", .021/0.014
 )
-```
 
-```{r}
+
+
 df <- df %>%
   mutate(
     famid = coalesce(!!!rlang::syms(c(
@@ -59,9 +59,9 @@ long <- map_dfr(1:nrow(pivot), function(i){
 })
 
 glimpse(long)
-```
 
-```{r}
+
+
 long <- long %>%
   filter(
     age >= 25 & age <= 60,
@@ -116,4 +116,3 @@ prof1 <- long %>%
   theme(legend.position = "bottom")
 prof1
 
-```
