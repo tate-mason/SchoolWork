@@ -1,0 +1,92 @@
+---
+title: "Problem Set 1 - PSID: Labor Market Outcomes"
+author: "Tate Mason"
+format: pdf
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(haven)
+library(broom)
+library(kableExtra)
+library(patchwork)
+
+
+theme_set(theme_minimal() +
+          theme(plot.title = element_text(size=11),
+                axis.title = element_text(size=10)))
+```
+
+```{r load-data}
+psid_raw <- read_dta("~/SchoolWork/Y2S1/Macro/Data/PSID/PSID.dta")
+
+cpi_data <- tibble(
+  year = c(1999, 2001, 2003, 2005, 2007, 2009, 2011, 2013, 2015, 2017),
+  cpi_2020_ratio = c(1.54, 1.44, 1.37, 1.26, 1.14, 1.18, 1.10, 1.08, 1.07, 1.02)
+)
+```
+
+```{r variable-construction}
+create_psid_panel <- function(data) {
+  var_mapping <- tribble(
+      ~year, ~age_var, ~sex_var, ~earnings_var, ~hours_var, ~wage_var, ~educ_var, ~ind_var, ~lfp_var, ~wealth_var,
+      # These are PSID variable codes - you MUST verify these match your data
+      1999, "ER13010", "ER13011", "ER13218", "ER13363", "ER13224", "ER15937", "ER13216", "ER13601", "S417",
+      2001, "ER17013", "ER17014", "ER17229", "ER17393", "ER17235", "ER19998", "ER17227", "ER17375", "S517", 
+      2003, "ER21017", "ER21018", "ER21153", "ER21356", "ER21159", "ER23435", "ER21146", "ER21339", "S617",
+      2005, "ER25017", "ER25018", "ER25142", "ER25345", "ER25148", "ER27402", "ER25128", "ER25328", "S717",
+      2007, "ER36017", "ER36018", "ER36147", "ER36350", "ER36153", "ER40574", "ER36133", "ER36333", "S817",
+      2009, "ER42017", "ER42018", "ER42182", "ER42148", "ER42188", "ER46552", "ER42168", "ER42360", "ER46970",
+      2011, "ER47317", "ER47318", "ER47495", "ER47456", "ER47501", "ER51913", "ER47480", "ER47673", "ER52394",
+      2013, "ER53017", "ER53018", "ER53195", "ER53156", "ER53201", "ER57669", "ER53180", "ER53636", "ER58211",
+      2015, "ER60017", "ER60018", "ER60210", "ER60171", "ER60216", "ER64821", "ER60195", "ER60388", "ER65408",
+      2017, "ER66017", "ER66018", "ER66211", "ER66172", "ER66492", "ER70755", "ER66196", "ER66666", "ER71485"
+  )
+
+  data <- data %>%
+    mutate(
+      famid = coalesce(ER66009, ER60009, ER53009, ER47309, ER42009,
+                      ER36009, ER25009, ER21009, ER17022, ER13019)
+    )
+    panel_data <- map_dfr(1:nrow(var_mapping), function(i) {
+      year_info <- var_mapping[i,]
+
+      year_data <- data %>%
+        select(famid, all_of(unlist(year_info[-1]))) %>%
+        setNames(c("famid", "age", "sex", "earning", "hours", "hourly_wage", 
+                   "education", "industry", 'lfp_status', "wealth")) %>%
+      mutate(year = year_info$year) %>%
+      filter(!is.na(famid))
+    return(year_data)
+    })
+  return(panel_data)
+}
+
+psid_panel <- create_psid_panel(psid_raw)
+
+glimpse(psid_panel)
+```
+
+```{r sample-selection}
+psid_clean <- psid_panel %>%
+  left_join(cpi_data, by = "year") %>%
+  filter(
+    sex == 1,
+    age >= 25 & <= 60,
+    !is.na(age), !is.na(sex)
+  ) %>%
+  mutate(
+    earnings_real = earnings * cpi_2020_ratio,
+    hourly_wage_real = hourly_wage * cpi_2020_ratio,
+    wealth_real = wealth * cpi_2020_ratio
+  ) %>%
+  mutate(
+    lfp = case_when(
+      lfp_status == 0 ~ 1,
+      lfp_status != 0 ~ 0,
+      TRUE ~ NA_real_
+    ),
+    educ_group = case_when(
+
+    )
+  )
