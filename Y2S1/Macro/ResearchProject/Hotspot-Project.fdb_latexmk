@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex paper2"] 0 "paper2.aux" "paper2.bbl" "paper2" 1755977498.7572 0
+["bibtex Hotspot-Project"] 0 "Hotspot-Project.aux" "Hotspot-Project.bbl" "Hotspot-Project" 1755978376.87636 0
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "paper2.aux" 0 -1 0 "pdflatex"
+  "Hotspot-Project.aux" 0 -1 0 "pdflatex"
   "references.bib" 0 -1 0 ""
   (generated)
-  "paper2.bbl"
-  "paper2.blg"
+  "Hotspot-Project.bbl"
+  "Hotspot-Project.blg"
   (rewritten before read)
-["pdflatex"] 1755977497.6342 "paper2.tex" "paper2.pdf" "paper2" 1755977498.75733 2
+["pdflatex"] 1755978375.72482 "Hotspot-Project.tex" "Hotspot-Project.pdf" "Hotspot-Project" 1755978376.8765 2
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -57,6 +57,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb" 1215737283 162624 9dcc92cd3b1dfe2ecc80e6da7f2eb6bd ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb" 1215737283 164227 3df942b4ff2124425d8fb1b6d3e01c7a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb" 1215737283 149037 995a6f1e12c1d647b99b1cf55db78699 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1215737283 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb" 1215737283 145929 f25e56369a345c4ff583b067cd87ce8e ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb" 1215737283 136101 f533469f523533d38317ab5729d00c8a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb" 1215737283 131438 3aa300b3e40e5c8ba7b4e5c6cebc5dd6 ""
@@ -200,13 +201,13 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1742375816 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "paper2.aux" 1755977498.4973 4894 06736fd635e85f0dc0054c34ee2e9df4 "pdflatex"
-  "paper2.bbl" 0 -1 0 "bibtex paper2"
-  "paper2.out" 1755977498.49816 3132 697d5e1a890e8ab57d7c8e7a84e39a1d "pdflatex"
-  "paper2.tex" 1755977496.00786 9439 8631807794ca22f87dac1840935af143 ""
+  "Hotspot-Project.aux" 1755978376.62296 4894 366ebbdde6ea72aa2ba3c498c6e0a968 "pdflatex"
+  "Hotspot-Project.bbl" 0 -1 0 "bibtex Hotspot-Project"
+  "Hotspot-Project.out" 1755978376.62558 3132 697d5e1a890e8ab57d7c8e7a84e39a1d "pdflatex"
+  "Hotspot-Project.tex" 1755978374.64264 8696 bea021f21b8b24872698f6acbd9d82e8 ""
   (generated)
-  "paper2.aux"
-  "paper2.log"
-  "paper2.out"
-  "paper2.pdf"
+  "Hotspot-Project.aux"
+  "Hotspot-Project.log"
+  "Hotspot-Project.out"
+  "Hotspot-Project.pdf"
   (rewritten before read)

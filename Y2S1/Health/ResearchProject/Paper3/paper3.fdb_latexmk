@@ -1,13 +1,5 @@
 # Fdb version 4
-["bibtex paper2"] 0 "paper2.aux" "paper2.bbl" "paper2" 1755977498.7572 0
-  "/usr/local/texlive/2025/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "paper2.aux" 0 -1 0 "pdflatex"
-  "references.bib" 0 -1 0 ""
-  (generated)
-  "paper2.bbl"
-  "paper2.blg"
-  (rewritten before read)
-["pdflatex"] 1755977497.6342 "paper2.tex" "paper2.pdf" "paper2" 1755977498.75733 2
+["pdflatex"] 1755977714.72168 "paper3.tex" "paper3.pdf" "paper3" 1755977715.6647 2
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -200,13 +192,12 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1742375816 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "paper2.aux" 1755977498.4973 4894 06736fd635e85f0dc0054c34ee2e9df4 "pdflatex"
-  "paper2.bbl" 0 -1 0 "bibtex paper2"
-  "paper2.out" 1755977498.49816 3132 697d5e1a890e8ab57d7c8e7a84e39a1d "pdflatex"
-  "paper2.tex" 1755977496.00786 9439 8631807794ca22f87dac1840935af143 ""
+  "paper3.aux" 1755977715.55937 4287 987285ce0a7c96a929352e2d1d5e952a "pdflatex"
+  "paper3.out" 1755977715.56239 2689 00599c4351c7ca00fa1b3489f47a319b "pdflatex"
+  "paper3.tex" 1755977714.38919 7671 ff5efd82e252f9b3a8666b8e110dc29d ""
   (generated)
-  "paper2.aux"
-  "paper2.log"
-  "paper2.out"
-  "paper2.pdf"
+  "paper3.aux"
+  "paper3.log"
+  "paper3.out"
+  "paper3.pdf"
   (rewritten before read)
