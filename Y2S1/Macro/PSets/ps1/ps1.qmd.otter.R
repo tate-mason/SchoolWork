@@ -1,22 +1,22 @@
----
-title: "Problem Set 1: PSID - Labor Outcomes"
-author: Tate Mason
-format: pdf
----
 
-## Part 1: Overall Trends:
 
-```{r, output=FALSE}
+
+
+
+
+
+
+
 library(AER)
 library(haven)
 library(tidyverse)
-```
 
-```{r}
+
+
 df <- read_dta("~/SchoolWork/Y2S1/Macro/Data/PSID/PSID.dta")
-```
 
-```{r}
+
+
 psid_99_clean <- df %>%
   transmute(
     year = 1999,
@@ -227,9 +227,9 @@ lfp_all <- psid_clean %>%
     var_log_hr_worked = var(log_hr_worked, na.rm = TRUE),
     n = n()
   )
-```
 
-```{r}
+
+
 ggplot(
   lfp_all,
   aes(x = age, y = lfp_rate)
@@ -243,9 +243,9 @@ ggplot(
     title = "Labor Force Participation Rate by Age (1999-2017)"
   ) + 
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_all,
   aes(x = age, y = wage_rate)
@@ -259,9 +259,9 @@ ggplot(
     title = "Average Wage by Age (1999-2017)"
   ) + 
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_all,
   aes(x = age, y = hr_worked)
@@ -275,9 +275,9 @@ ggplot(
     title = "Average Hours Worked by Age (1999-2017)"
 ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_all,
   aes(x = age, y = inc)
@@ -291,9 +291,9 @@ ggplot(
     title = "Average Income by Age (1999-2017)"
 ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_all,
   aes(x = age, y = var_log_wage)
@@ -307,9 +307,9 @@ ggplot(
     title = "Variance of Log Wage by Age (1999-2017)"
 ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_all,
   aes(x = age, y = var_log_hr_worked)
@@ -323,11 +323,11 @@ ggplot(
     title = "Variance of Log Hours Worked by Age (1999-2017)"
 ) +
   theme_minimal()
-```
 
-## Part 2: Stratify by Education Groups:
 
-```{r}
+
+
+
 lfp_edu <- psid_clean %>%
   filter(
     age >= 25 & age <= 60,
@@ -344,9 +344,9 @@ lfp_edu <- psid_clean %>%
     var_log_hr_worked = var(log_hr_worked, na.rm = TRUE),
     n = n()
   )
-```
 
-```{r}
+
+
 ggplot(
   lfp_edu,
   aes(x = age, y = lfp_rate_drop, color = educ_group)
@@ -359,9 +359,9 @@ ggplot(
     title = "Labor Force Participation Rate by Age and Education Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_edu,
   aes(x = age, y = wage_rate, color = educ_group)
@@ -374,9 +374,9 @@ ggplot(
     title = "Average Wage by Age and Education Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_edu,
   aes(x = age, y = hr_worked, color = educ_group)
@@ -389,9 +389,9 @@ ggplot(
     title = "Average Hours Worked by Age and Education Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_edu,
   aes(x = age, y = inc, color = educ_group)
@@ -404,9 +404,9 @@ ggplot(
     title = "Average Income by Age and Education Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_edu,
   aes(x = age, y = var_log_wage, color = educ_group)
@@ -419,9 +419,9 @@ ggplot(
     title = "Variance of Log Wage by Age and Education Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_edu,
   aes(x = age, y = var_log_hr_worked, color = educ_group)
@@ -434,11 +434,11 @@ ggplot(
     title = "Variance of Log Hours Worked by Age and Education Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-## Part 3: Stratify by Industry:
 
-```{r}
+
+
+
 lfp_ind <- psid_clean %>%
   filter(
     age >= 25 & age <= 60,
@@ -455,9 +455,9 @@ lfp_ind <- psid_clean %>%
     var_log_hr_worked = var(log_hr_worked, na.rm = TRUE),
     n = n()
   )
-```
 
-```{r}
+
+
 ggplot(
   lfp_ind,
   aes(x = age, y = lfp_rate, color = ind_group)
@@ -470,9 +470,9 @@ ggplot(
     title = "Labor Force Participation Rate by Age and Industry Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_ind,
   aes(x = age, y = wage_rate, color = ind_group)
@@ -485,9 +485,9 @@ ggplot(
     title = "Average Wage by Age and Industry Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_ind,
   aes(x = age, y = hr_worked, color = ind_group)
@@ -500,9 +500,9 @@ ggplot(
     title = "Average Hours Worked by Age and Industry Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_ind,
   aes(x = age, y = inc, color = ind_group)
@@ -515,9 +515,9 @@ ggplot(
     title = "Average Income by Age and Industry Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_ind,
   aes(x = age, y = var_log_wage, color = ind_group)
@@ -530,9 +530,9 @@ ggplot(
     title = "Variance of Log Wage by Age and Industry Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_ind,
   aes(x = age, y = var_log_hr_worked, color = ind_group)
@@ -545,10 +545,10 @@ ggplot(
     title = "Variance of Log Hours Worked by Age and Industry Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-## Part 4: Stratify by Wealth Quartiles:
-```{r}
+
+
+
 lfp_wealth <- psid_clean %>%
   filter(
     age >= 25 & age <= 60,
@@ -565,9 +565,9 @@ lfp_wealth <- psid_clean %>%
     var_log_hr_worked = var(log_hr_worked, na.rm = TRUE),
     n = n()
   )
-```
 
-```{r}
+
+
 ggplot(
   lfp_wealth,
   aes(x = age, y = lfp_rate, color = wealth_group)
@@ -580,9 +580,9 @@ ggplot(
     title = "Labor Force Participation Rate by Age and Wealth Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_wealth,
   aes(x = age, y = wage_rate, color = wealth_group)
@@ -595,9 +595,9 @@ ggplot(
     title = "Average Wage by Age and Wealth Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_wealth,
   aes(x = age, y = hr_worked, color = wealth_group)
@@ -610,9 +610,9 @@ ggplot(
     title = "Average Hours Worked by Age and Wealth Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_wealth,
   aes(x = age, y = inc, color = wealth_group)
@@ -625,9 +625,9 @@ ggplot(
     title = "Average Income by Age and Wealth Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_wealth,
   aes(x = age, y = var_log_wage, color = wealth_group)
@@ -640,9 +640,9 @@ ggplot(
     title = "Variance of Log Wage by Age and Wealth Group (1999-2017)",
   ) +
   theme_minimal()
-```
 
-```{r}
+
+
 ggplot(
   lfp_wealth,
   aes(x = age, y = var_log_hr_worked, color = wealth_group)
@@ -655,4 +655,3 @@ ggplot(
     title = "Variance of Log Hours Worked by Age and Wealth Group (1999-2017)",
   ) +
   theme_minimal()
-```
