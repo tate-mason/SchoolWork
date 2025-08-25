@@ -1,0 +1,98 @@
+\documentclass{beamer}
+
+% Theme choice
+\usetheme{CambridgeUS} % professional, clean look
+\usecolortheme{default} % colors can be adjusted if desired
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}   % for including graphics
+\usepackage{booktabs}   % for tables
+\usepackage{amsmath, amssymb} % for math
+\usepackage{hyperref}   % for clickable links
+
+% Title page info
+\title[Short Title]{Problem Set 1}
+\subtitle{Analysis of Labor Outcomes with PSID}
+\author[Your Name]{Tate Mason \\ \smallskip \texttt{Tate.Mason@uga.edu}}
+\institute[Your Univ.]{Munro Godfrey Sr. Department of Economics \\ University of Georgia}
+\date{\today} % or custom date
+
+% Begin document
+\begin{document}
+
+% Title page
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Outline
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% Section 1
+\section{Introduction}
+
+\begin{frame}{Background of PSID}
+  \begin{itemize}
+    \item The PSID is a longitudinal study of household and individual income dynamics 
+    \item Grants users an in depth look at long term labor and wealth outcomes 
+    \item Maintained by University of Michigan
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Research Question}
+  \begin{block}{Main Question}
+    What are labor and wealth outcomes for men aged 25-60 between 1999-2017?
+  \end{block}
+  \pause
+  \begin{exampleblock}{Subquestions}
+    How do these outcomes when stratifying by wealth, educational, and labor 
+    characteristics?
+  \end{exampleblock}
+\end{frame}
+
+% Section 2
+\section{Methodology}
+
+\begin{frame}{Data}
+  \begin{tabular}{||l|c|c|c|c|c||}
+    & 1999 & 2001 & 2003 & 2005 & 2007 & 2009 & 2011 & 2013 & 2015 & 2017 \\
+    Sample Size & & & & & & & & & & & \\
+    Sample by Category: & & & & & & & & \\
+    25-30
+    31-35
+    36-40
+    41-45
+    46-50
+    51-55
+    56-60
+    Number of Individuals
+
+
+\end{frame}
+
+% Section 3
+\section{Results}
+
+\begin{frame}{Main Results}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{example-figure.pdf}
+    \caption{Main empirical finding}
+  \end{figure}
+\end{frame}
+
+% Section 4
+\section{Conclusion}
+
+\begin{frame}{Conclusion}
+  \begin{itemize}
+    \item Summarize findings
+    \item Contributions
+    \item Future work
+  \end{itemize}
+\end{frame}
+
+\end{document}
