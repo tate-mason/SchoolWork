@@ -11,6 +11,7 @@ library(AER)
 library(haven)
 library(tidyverse)
 library(psych)
+library(patchwork)
 ```
 
 ```{r}
@@ -476,7 +477,7 @@ lfp_ind <- psid_clean %>%
 ```
 
 ```{r}
-ggplot(
+overall_lfp <- ggplot(
   lfp_ind,
   aes(x = age, y = lfp_rate, color = ind_group)
 ) +
@@ -491,7 +492,7 @@ ggplot(
 ```
 
 ```{r}
-ggplot(
+overall_wage <- ggplot(
   lfp_ind,
   aes(x = age, y = wage_rate, color = ind_group)
 ) +
@@ -506,7 +507,7 @@ ggplot(
 ```
 
 ```{r}
-ggplot(
+overall_hours <- ggplot(
   lfp_ind,
   aes(x = age, y = hr_worked, color = ind_group)
 ) +
@@ -521,7 +522,7 @@ ggplot(
 ```
 
 ```{r}
-ggplot(
+overall_inc <- ggplot(
   lfp_ind,
   aes(x = age, y = inc, color = ind_group)
 ) +
@@ -536,7 +537,7 @@ ggplot(
 ```
 
 ```{r}
-ggplot(
+overall_vl_wage <- ggplot(
   lfp_ind,
   aes(x = age, y = var_log_wage, color = ind_group)
 ) +
@@ -551,7 +552,7 @@ ggplot(
 ```
 
 ```{r}
-ggplot(
+overall_vl_hr <- ggplot(
   lfp_ind,
   aes(x = age, y = var_log_hr_worked, color = ind_group)
 ) +
