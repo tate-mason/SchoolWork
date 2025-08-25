@@ -175,12 +175,15 @@ df <- df %>%
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 5 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = sum(Z_i == 1 & D_i == 0) / n,
+    pAT = sum(Z_i == 0 & D_i == 0) / n,
+    pC = 1 - pAT - pNT
   )
-length(df$compliers)
-cor(df$Z_i, df$D_i)
+df$pC
+df$pNT
+df$pAT
+
+cor(df$D_i, df$Z_i)
 ```
 
 As shown in the last part, there can be no always-takers or never-takers as people will not defy treatment $D_i$
@@ -195,10 +198,15 @@ df <- df %>%
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
     pZ = length(Z_i == 1)/length(id),
     pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = sum(Z_i == 1 & D_i == 0) / n,
+    pAT = sum(Z_i == 0 & D_i == 0) / n,
+    pC = 1 - pAT - pNT
   )
-length(df$compliers)
-cor(df$Z_i, df$D_i)
+df$pC
+df$pNT
+df$pAT
+
+cor(df$D_i, df$Z_i)
 ```
 
 The proportion remains the same as the coefficient on $Z_i$ does not effect anything when $Z_i = 0$. Thus, all
