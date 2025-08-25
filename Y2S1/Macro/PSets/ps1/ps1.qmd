@@ -10,6 +10,7 @@ format: pdf
 library(AER)
 library(haven)
 library(tidyverse)
+library(psych)
 ```
 
 ```{r}
@@ -30,6 +31,7 @@ psid_99_clean <- df %>%
     educ_coll = ER15953,
     ind = ER13216,
     wealth = S417,
+    weight = ER16518,
     inc = ER13218
   )
 psid_01_clean <- df %>%
@@ -45,6 +47,7 @@ psid_01_clean <- df %>%
     educ_coll = ER20014,
     ind = ER17227,
     wealth = S517,
+    weight = ER20394,
     inc = ER17229
   )
 psid_03_clean <- df %>%
@@ -60,6 +63,7 @@ psid_03_clean <- df %>%
     educ_coll = ER23451,
     ind = ER21146,
     wealth = S617,
+    weight = ER24179,
     inc = ER21153
   )
 psid_05_clean <- df %>%
@@ -75,6 +79,7 @@ psid_05_clean <- df %>%
     educ_coll = ER27418,
     ind = ER25128,
     wealth = S717,
+    weight = ER28078,
     inc = ER25142
   )
 psid_07_clean <- df %>%
@@ -90,6 +95,7 @@ psid_07_clean <- df %>%
     educ_coll = ER40590,
     ind = ER36133,
     wealth = S817,
+    weight = ER41069,
     inc = ER36147
   )
 psid_09_clean <- df %>%
@@ -105,6 +111,7 @@ psid_09_clean <- df %>%
     educ_coll = ER46568,
     ind = ER42168,
     wealth = ER46970,
+    weight = ER47012,
     inc = ER42182
   )
 psid_11_clean <- df %>%
@@ -120,6 +127,7 @@ psid_11_clean <- df %>%
     educ_coll = ER51929,
     ind = ER47480,
     wealth = ER52394,
+    weight = ER52436,
     inc = ER47495
   )
 psid_13_clean <- df %>%
@@ -135,6 +143,7 @@ psid_13_clean <- df %>%
     educ_coll = ER57685,
     ind = ER53180,
     wealth = ER58211,
+    weight = ER58257,
     inc = ER53195
   )
 psid_15_clean <- df %>%
@@ -150,6 +159,7 @@ psid_15_clean <- df %>%
     educ_coll = ER64837,
     ind = ER60195,
     wealth = ER65408,
+    weight = ER65492,
     inc = ER60210
   )
 psid_17_clean <- df %>%
@@ -165,6 +175,7 @@ psid_17_clean <- df %>%
     educ_coll = ER70909,
     ind = ER66196,
     wealth = ER71485,
+    weight = ER71570,
     inc = ER66211
   )
 psid_clean <- bind_rows(
@@ -182,6 +193,11 @@ psid_clean <- bind_rows(
 
 psid_clean <- psid_clean %>%
   group_by(year) %>%
+  filter(
+    wage <= 997,
+    inc <= 9999997,
+    hr_worked <= 112
+  ) %>%
   mutate(
     educ_group = case_when(
       educ_HS == 3 ~ "HS Dropout",
@@ -211,12 +227,13 @@ psid_clean <- psid_clean %>%
       TRUE ~ NA_real_
     )
   )
+describe(psid_clean)
 
 lfp_all <- psid_clean %>%
   filter(
     age >= 25 & age <= 60,
     sex == 1,
-    ) %>%
+  ) %>%
   group_by(age) %>%
   summarise(
     lfp_rate = mean(lfp, na.rm = TRUE),
@@ -227,6 +244,7 @@ lfp_all <- psid_clean %>%
     var_log_hr_worked = var(log_hr_worked, na.rm = TRUE),
     n = n()
   )
+describe(lfp_all)
 ```
 
 ```{r}
@@ -236,7 +254,7 @@ ggplot(
 ) +
   geom_line(
     size = 1.2
-) +
+  ) +
   labs(
     x = "Age",
     y = "Labor Force Participation Rate",
@@ -252,7 +270,7 @@ ggplot(
 ) +
   geom_line(
     size = 1.2
-) +
+  ) +
   labs(
     x = "Age",
     y = "Average Wage",
@@ -268,12 +286,12 @@ ggplot(
 ) +
   geom_line(
     size = 1.2
-) +
+  ) +
   labs(
     x = "Age",
     y = "Average Hours Worked",
     title = "Average Hours Worked by Age (1999-2017)"
-) +
+  ) +
   theme_minimal()
 ```
 
@@ -284,12 +302,12 @@ ggplot(
 ) +
   geom_line(
     size = 1.2
-) +
+  ) +
   labs(
     x = "Age",
     y = "Average Income",
     title = "Average Income by Age (1999-2017)"
-) +
+  ) +
   theme_minimal()
 ```
 
@@ -300,12 +318,12 @@ ggplot(
 ) +
   geom_line(
     size = 1.2
-) +
+  ) +
   labs(
     x = "Age",
     y = "Variance of Log Wage",
     title = "Variance of Log Wage by Age (1999-2017)"
-) +
+  ) +
   theme_minimal()
 ```
 
@@ -316,12 +334,12 @@ ggplot(
 ) +
   geom_line(
     size = 1.2
-) +
+  ) +
   labs(
     x = "Age",
     y = "Variance of Log Hours Worked",
     title = "Variance of Log Hours Worked by Age (1999-2017)"
-) +
+  ) +
   theme_minimal()
 ```
 
@@ -333,7 +351,7 @@ lfp_edu <- psid_clean %>%
     age >= 25 & age <= 60,
     sex == 1,
     !is.na(educ_group)
-    ) %>%
+  ) %>%
   group_by(age, educ_group) %>%
   summarise(
     lfp_rate_drop = mean(lfp, na.rm = TRUE),

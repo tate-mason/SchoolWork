@@ -1,0 +1,116 @@
+\documentclass{beamer}
+
+% Theme choice
+\usetheme{CambridgeUS} % professional, clean look
+\usecolortheme{default} % colors can be adjusted if desired
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}   % for including graphics
+\usepackage{booktabs}   % for tables
+\usepackage{amsmath, amssymb} % for math
+\usepackage{hyperref}   % for clickable links
+
+% Title page info
+\title[Short Title]{Full Title of the Presentation}
+\subtitle{Optional Subtitle}
+\author[Your Name]{Your Full Name \\ \smallskip \texttt{your.email@university.edu}}
+\institute[Your Univ.]{Department of X \\ Your University}
+\date{\today} % or custom date
+
+% Begin document
+\begin{document}
+
+% Title page
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Outline
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% Section 1
+\section{Introduction}
+
+\begin{frame}{Motivation}
+  \begin{itemize}
+    \item Introduce the problem
+    \item Why is it important?
+    \item What is the gap in the literature?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Research Question}
+  \begin{block}{Main Question}
+    What is the key research question you are addressing?
+  \end{block}
+  \pause
+  \begin{exampleblock}{Hypothesis}
+    State your hypothesis or theoretical expectation.
+  \end{exampleblock}
+\end{frame}
+
+% Section 2
+\section{Methodology}
+
+\begin{frame}{Data}
+  \begin{itemize}
+    \item Describe your dataset
+    \item Number of observations, variables
+    \item Time period, source
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Model}
+  \begin{equation}
+    Y_{it} = \alpha + \beta X_{it} + \varepsilon_{it}
+  \end{equation}
+  Brief explanation of your empirical strategy.
+\end{frame}
+
+% Section 3
+\section{Results}
+
+\begin{frame}{Main Results}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{example-figure.pdf}
+    \caption{Main empirical finding}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Table of Results}
+  \begin{table}
+    \centering
+    \begin{tabular}{lcc}
+      \toprule
+      Variable & Coef. & Std. Error \\
+      \midrule
+      $X$ & 0.45 & 0.12 \\
+      $Z$ & -0.23 & 0.08 \\
+      \bottomrule
+    \end{tabular}
+    \caption{Regression results}
+  \end{table}
+\end{frame}
+
+% Section 4
+\section{Conclusion}
+
+\begin{frame}{Conclusion}
+  \begin{itemize}
+    \item Summarize findings
+    \item Contributions
+    \item Future work
+  \end{itemize}
+\end{frame}
+
+% References (optional)
+\begin{frame}[allowframebreaks]{References}
+  \bibliographystyle{apalike}
+  \bibliography{references}
+\end{frame}
+
+\end{document}
