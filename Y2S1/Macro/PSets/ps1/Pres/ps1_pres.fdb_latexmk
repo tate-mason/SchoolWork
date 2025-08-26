@@ -1,10 +1,11 @@
 # Fdb version 4
-["pdflatex"] 1756236697.87423 "ps1_pres.tex" "ps1_pres.pdf" "ps1_pres" 1756236699.52458 2
+["pdflatex"] 1756237030.65223 "ps1_pres.tex" "ps1_pres.pdf" "ps1_pres" 1756237032.21108 2
   "/Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe.pdf" 1756235382.42771 4722 e6685b227e8fc36571e738302e2a17df ""
   "/Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf" 1756235384.379 5259 7311c40f41f4416eea731ec7737e5acf ""
   "/Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf" 1756235385.95995 5025 37d760d5b6240da4d5eed89a081600ea ""
   "/Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf" 1756235388.28312 5270 6ce56f4623480084f83e2c7c9388c50c ""
   "/Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe.pdf" 1756235382.47606 4730 4030389aecf5920a509ae0bcd77aba59 ""
+  "/Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf" 1756236755.33089 5247 327c5ba4056bc203e5de74b136c5bd58 ""
   "/Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf" 1756235386.02671 5026 0d3923aa3e02569f67ee2490b56ab299 ""
   "/Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf" 1756235388.35168 5233 3883d4402da4c1524feb7bbe31559e0c ""
   "/Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe.pdf" 1756235382.321 4735 04ced5a892401baadae50c0620ae706b ""
@@ -219,12 +220,11 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1742375816 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "ps1_pres.aux" 1756236699.44137 4094 0838be0c184d649d058020d16ea23e1b "pdflatex"
-  "ps1_pres.nav" 1756236699.44264 2648 76ac258ffdbbea11c8add8c7910dbcb4 "pdflatex"
-  "ps1_pres.out" 1756236699.44226 372 464e0257aa000b6002c3563687893b9f "pdflatex"
-  "ps1_pres.tex" 1756236696.10385 6449 4175c6d03907b2e9c2f8892665810448 ""
-  "ps1_pres.toc" 1756236699.44269 185 f7981775932f31387a82485f5712db93 "pdflatex"
-  "~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf" 0 -1 0 ""
+  "ps1_pres.aux" 1756237032.12816 4094 0838be0c184d649d058020d16ea23e1b "pdflatex"
+  "ps1_pres.nav" 1756237032.13114 2648 76ac258ffdbbea11c8add8c7910dbcb4 "pdflatex"
+  "ps1_pres.out" 1756237032.13095 372 464e0257aa000b6002c3563687893b9f "pdflatex"
+  "ps1_pres.tex" 1756237030.61522 6449 4175c6d03907b2e9c2f8892665810448 ""
+  "ps1_pres.toc" 1756237032.13116 185 f7981775932f31387a82485f5712db93 "pdflatex"
   (generated)
   "ps1_pres.aux"
   "ps1_pres.log"

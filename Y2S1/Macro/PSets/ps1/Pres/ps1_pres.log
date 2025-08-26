@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  26 AUG 2025 15:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  26 AUG 2025 15:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -935,26 +935,16 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-
-LaTeX Warning: File `~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf' not found on input line 139.
-
-
-./ps1_pres.tex:139: Package pdftex.def Error: File `~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.139 \end{frame}
-                 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf, id=462, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf  used on input line 139.
+(pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
 
 
 [12
 
- </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_educ.pdf>]
+ </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_educ.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf>]
 ./ps1_pres.tex:150: Undefined control sequence.
 <recently read> \subfloat 
                           
@@ -966,7 +956,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf, id=496, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf, id=502, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf  used on input line 150.
@@ -982,7 +972,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf, id=497, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf, id=503, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf  used on input line 150.
@@ -1003,7 +993,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf, id=539, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf, id=545, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf  used on input line 161.
@@ -1019,7 +1009,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf, id=540, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf, id=546, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf  used on input line 161.
@@ -1040,7 +1030,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf, id=580, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf, id=586, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf  used on input line 173.
@@ -1056,7 +1046,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf, id=581, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf, id=587, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf  used on input line 173.
@@ -1077,7 +1067,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf, id=621, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf, id=627, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf  used on input line 183.
@@ -1093,7 +1083,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf, id=622, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf, id=628, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf  used on input line 183.
@@ -1114,7 +1104,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf, id=663, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf, id=669, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf  used on input line 194.
@@ -1130,7 +1120,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf, id=664, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf, id=670, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf  used on input line 194.
@@ -1151,7 +1141,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf, id=704, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf, id=710, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf  used on input line 206.
@@ -1167,7 +1157,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf, id=705, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf, id=711, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf  used on input line 206.
@@ -1188,7 +1178,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf, id=745, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf, id=751, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf  used on input line 216.
@@ -1204,7 +1194,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf, id=746, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf, id=752, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf  used on input line 216.
@@ -1225,7 +1215,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf, id=787, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf, id=793, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf  used on input line 226.
@@ -1241,7 +1231,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf, id=788, 433.62pt x 289.08pt>
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf, id=794, 433.62pt x 289.08pt>
 File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf Graphic file (type pdf)
 <use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf>
 Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf  used on input line 226.
@@ -1273,18 +1263,18 @@ Package rerunfilecheck Info: File `ps1_pres.out' has not changed.
 (rerunfilecheck)             Checksum: 464E0257AA000B6002C3563687893B9F;372.
  ) 
 Here is how much of TeX's memory you used:
- 22204 strings out of 473190
- 441315 string characters out of 5715801
+ 22181 strings out of 473190
+ 439703 string characters out of 5715801
  795949 words of memory out of 5000000
- 44957 multiletter control sequences out of 15000+600000
+ 44934 multiletter control sequences out of 15000+600000
  565755 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,16n,123p,383b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ps1_pres.pdf (21 pages, 239303 bytes).
+Output written on ps1_pres.pdf (21 pages, 241156 bytes).
 PDF statistics:
- 902 PDF objects out of 1000 (max. 8388607)
- 733 compressed objects within 8 object streams
+ 908 PDF objects out of 1000 (max. 8388607)
+ 737 compressed objects within 8 object streams
  47 named destinations out of 1000 (max. 500000)
- 376 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 381 words of extra memory for PDF output out of 10000 (max. 10000000)
 
