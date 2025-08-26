@@ -13,6 +13,8 @@ library(tidyverse)
 library(psych)
 library(patchwork)
 library(broom)
+library(Hmisc)
+library(knitr)
 ```
 
 ```{r}
@@ -23,6 +25,7 @@ df <- read_dta("~/SchoolWork/Y2S1/Macro/Data/PSID/PSID.dta")
 psid_99_clean <- df %>%
   transmute(
     year = 1999,
+    id = ER13019,
     age = ER13010,
     sex = ER13011,
     lfp = ER13601,
@@ -39,6 +42,7 @@ psid_99_clean <- df %>%
 psid_01_clean <- df %>%
   transmute(
     year = 2001,
+    id = ER17022,
     age = ER17013,
     sex = ER17014,
     lfp = ER17657,
@@ -55,6 +59,7 @@ psid_01_clean <- df %>%
 psid_03_clean <- df %>%
   transmute(
     year = 2003,
+    id = ER21009,
     age = ER21017,
     sex = ER21018,
     lfp = ER21339,
@@ -71,6 +76,7 @@ psid_03_clean <- df %>%
 psid_05_clean <- df %>%
   transmute(
     year = 2005,
+    id = ER25009,
     age = ER25017,
     sex = ER25018,
     lfp = ER25328,
@@ -87,6 +93,7 @@ psid_05_clean <- df %>%
 psid_07_clean <- df %>%
   transmute(
     year = 2007,
+    id = ER36009,
     age = ER36017,
     sex = ER36018,
     lfp = ER36333,
@@ -103,6 +110,7 @@ psid_07_clean <- df %>%
 psid_09_clean <- df %>%
   transmute(
     year = 2009,
+    id = ER42009,
     age = ER42017,
     sex = ER42018,
     lfp = ER42360,
@@ -119,6 +127,7 @@ psid_09_clean <- df %>%
 psid_11_clean <- df %>%
   transmute(
     year = 2011,
+    id = ER47309,
     age = ER47317,
     sex = ER47318,
     lfp = ER47673,
@@ -135,6 +144,7 @@ psid_11_clean <- df %>%
 psid_13_clean <- df %>%
   transmute(
     year = 2013,
+    id = ER53009,
     age = ER53017,
     sex = ER53018,
     lfp = ER53636,
@@ -151,6 +161,7 @@ psid_13_clean <- df %>%
 psid_15_clean <- df %>%
   transmute(
     year = 2015,
+    id = ER60009,
     age = ER60017,
     sex = ER60018,
     lfp = ER60388,
@@ -167,6 +178,7 @@ psid_15_clean <- df %>%
 psid_17_clean <- df %>%
   transmute(
     year = 2017,
+    id = ER66009,
     age = ER66017,
     sex = ER66018,  
     lfp = ER66666,
@@ -192,6 +204,7 @@ psid_clean <- bind_rows(
   psid_15_clean,
   psid_17_clean
 ) 
+
 
 psid_clean <- psid_clean %>%
   group_by(year) %>%
@@ -219,8 +232,8 @@ psid_clean <- psid_clean %>%
       wealth >= 100000 & wealth <= 99999998 ~ "High Wealth",
       TRUE ~ NA_character_
     ),
-    wage_real = wage * cpi_ratio,
-    inc_real = inc * cpi_ratio,
+    wage_real = wage / cpi_ratio,
+    inc_real = inc / cpi_ratio,
     log_wage = if_else(wage > 0, log(wage_real), NA_real_),
     log_hr_worked = if_else(hr_worked > 0, log(hr_worked), NA_real_),
     lfp = case_when(
@@ -230,11 +243,70 @@ psid_clean <- psid_clean %>%
     )
   )
 
+count_block <- function(df, group_name = "Full sample", group_val = "All") {
+  df %>%
+    summarise(
+      group = group_name,
+      category = group_val,
+      individuals = n_distinct(.data[["id"]]),
+      person_years = n(),
+      years_pooled = n_distinct(year),
+      mean_age = weighted.mean(age, weight, na.rm = TRUE),
+      college_pct = 100*weighted.mean(as.numeric(educ_group == "College Plus"), weight, na.rm = TRUE),
+      white_collar_pct = 100*weighted.mean(as.numeric(ind_group == "White Collar"), weight, na.rm = TRUE)
+    )
+}
+
 psid_m <- psid_clean %>%
   filter(
     age >= 25 & age <= 60,
     sex == 1
   )
+
+cuts <- wtd.quantile(psid_m$wealth,
+  weights = psid_m$weight,
+  probs = c(0.33, 0.67),
+  na.rm = TRUE,
+  type = "quantile"
+)
+
+psid_m <- psid_m %>%
+  mutate(
+    wealth_tectile = cut(
+      wealth,
+      breaks = c(-Inf, cuts[1], cuts[2], Inf),
+      labels = c("Low Wealth", "Medium Wealth", "High Wealth"),
+      right = TRUE
+  ))
+
+tab_overall <- count_block(psid_m)
+
+tab_educ <- psid_m %>%
+  filter(!is.na(educ_group)) %>%
+  group_split(educ_group) %>%
+  lapply(function(g) count_block(g, "Education", unique(g$educ_group))) %>%
+  bind_rows()
+
+tab_ind <- psid_m %>%
+  filter(!is.na(ind_group)) %>%
+  group_split(ind_group) %>%
+  lapply(function(g) count_block(g, "Industry", unique(g$ind_group))) %>%
+  bind_rows()
+
+tab_wealth <- psid_m %>%
+  filter(!is.na(wealth_tectile)) %>%
+  group_split(wealth_tectile) %>%
+  lapply(function(g) count_block(g, "Wealth", unique(g$wealth_tectile))) %>%
+  bind_rows()
+
+sum_tab <- bind_rows(tab_overall, tab_educ, tab_ind, tab_wealth) %>%
+  mutate(
+    across(c(individuals, person_years, years_pooled), as.integer),
+    across(ends_with("_pct"), ~ round(.x, 1)),
+    avg_age = round(mean_age, 1)
+  )
+
+kable(sum_tab, digits = 1, align = "l")
 ```
 
 # Age profiles
@@ -591,42 +663,42 @@ ggsave("var_hr_age_ind.pdf", width = 6, height = 4)
 ## Wealth groups
 ```{r}
 wage_age_fe_wealth <- psid_m %>%
-  filter(!is.na(wealth_group)) %>%
-  group_by(wealth_group) %>%
+  filter(!is.na(wealth_tectile)) %>%
+  group_by(wealth_tectile) %>%
   group_modify(~ age_profile_fe(.x, wage_real)) %>%
   ungroup()
 
 hour_age_fe_wealth <- psid_m %>%
-  filter(!is.na(wealth_group)) %>%
-  group_by(wealth_group) %>%
+  filter(!is.na(wealth_tectile)) %>%
+  group_by(wealth_tectile) %>%
   group_modify(~ age_profile_fe(.x, hr_worked)) %>%
   ungroup()
 
 inc_age_fe_wealth <- psid_m %>%
-  filter(!is.na(wealth_group)) %>%
-  group_by(wealth_group) %>%
+  filter(!is.na(wealth_tectile)) %>%
+  group_by(wealth_tectile) %>%
   group_modify(~ age_profile_fe(.x, inc_real)) %>%
   ungroup()
 
 lfp_age_fe_wealth <- psid_m %>%
-  filter(!is.na(wealth_group)) %>%
-  group_by(wealth_group) %>%
+  filter(!is.na(wealth_tectile)) %>%
+  group_by(wealth_tectile) %>%
   group_modify(~ age_profile_fe(.x, lfp)) %>%
   ungroup()
 
 var_wage_age_wealth <- psid_m %>%
-  filter(!is.na(wealth_group)) %>%
-  group_by(wealth_group) %>%
+  filter(!is.na(wealth_tectile)) %>%
+  group_by(wealth_tectile) %>%
   group_modify(~ var_prof_year_net(.x, wage_real)) %>%
   ungroup()
 
 var_hr_age_wealth <- psid_m %>%
-  filter(!is.na(wealth_group)) %>%
-  group_by(wealth_group) %>%
+  filter(!is.na(wealth_tectile)) %>%
+  group_by(wealth_tectile) %>%
   group_modify(~ var_prof_year_net(.x, hr_worked)) %>%
   ungroup()
 
-ggplot(lfp_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
+ggplot(lfp_age_fe_wealth, aes(age, y_m, color = wealth_tectile)) +
   geom_line(size = 1.2) +
   labs(
     title = "Labor Force Participation Rate by Wealth",
@@ -637,7 +709,7 @@ ggplot(lfp_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
   theme_minimal()
 ggsave("lfp_age_fe_wealth.pdf", width = 6, height = 4)
 
-ggplot(wage_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
+ggplot(wage_age_fe_wealth, aes(age, y_m, color = wealth_tectile)) +
   geom_line(size = 1.2) +
   labs(
     title = "Real Wage by Wealth",
@@ -648,7 +720,7 @@ ggplot(wage_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
   theme_minimal()
 ggsave("wage_age_fe_wealth.pdf", width = 6, height = 4)
 
-ggplot(hour_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
+ggplot(hour_age_fe_wealth, aes(age, y_m, color = wealth_tectile)) +
   geom_line(size = 1.2) +
   labs(
     title = "Hours Worked per Week by Wealth",
@@ -659,7 +731,7 @@ ggplot(hour_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
   theme_minimal()
 ggsave("hr_age_fe_wealth.pdf", width = 6, height = 4)
 
-ggplot(inc_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
+ggplot(inc_age_fe_wealth, aes(age, y_m, color = wealth_tectile)) +
   geom_line(size = 1.2) +
   labs(
     title = "Real Annual Income by Wealth",
@@ -670,7 +742,7 @@ ggplot(inc_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
   theme_minimal()
 ggsave("inc_age_fe_wealth.pdf", width = 6, height = 4)
 
-ggplot(var_wage_age_wealth, aes(age, v, color = wealth_group)) +
+ggplot(var_wage_age_wealth, aes(age, v, color = wealth_tectile)) +
   geom_line(size = 1.2) +
   labs(
     title = "Variance of Log Real Wage (Net of Year Effects) by Wealth",
@@ -681,7 +753,7 @@ ggplot(var_wage_age_wealth, aes(age, v, color = wealth_group)) +
   theme_minimal()
 ggsave("var_wage_age_wealth.pdf", width = 6, height = 4)
 
-ggplot(var_hr_age_wealth, aes(age, v, color = wealth_group)) +
+ggplot(var_hr_age_wealth, aes(age, v, color = wealth_tectile)) +
   geom_line(size = 1.2) +
   labs(
     title = "Variance of Log Hours Worked (Net of Year Effects) by Wealth",

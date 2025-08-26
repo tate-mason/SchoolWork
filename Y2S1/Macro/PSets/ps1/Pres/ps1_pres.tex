@@ -34,16 +34,6 @@
 % Section 1
 \section{Introduction}
 
-\begin{frame}{Itinerary}
-  \begin{itemize}
-    \item Background of PSID
-    \item Research Question
-    \item Methodology
-    \item Results
-    \item Conclusion
-  \end{itemize}
-\end{frame}
-
 \begin{frame}{Background of PSID}
   \begin{itemize}
     \item The PSID is a longitudinal study of household and individual income dynamics 
@@ -67,24 +57,28 @@
 \section{Methodology}
 
 \begin{frame}{Data}
-  \begin{tabular}{||l|c|c|c|c|c||}
-    & 1999 & 2001 & 2003 & 2005 & 2007 & 2009 & 2011 & 2013 & 2015 & 2017 \\
-    Sample Size & 81283 &  & & & & & & & & & \\
-    Sample by Category: & & & & & & & & \\
-    25-30
-    31-35
-    36-40
-    41-45
-    46-50
-    51-55
-    56-60
-    Number of Individuals
-  \end{tabular}
+  \centering
+  \resizebox{\textwidth}{!}{\begin{tabular}{||l c c c c c||}
+    \hline
+    Year & Group & Category & N & Observations & College (\%) \\
+    \hline \\
+    1999 & All & All & 1847 & 3795 & 22.6  \\
+    2001 & All & All & 1855 & 4078 & 24.1  \\
+    2003 & All & All & 1844 & 4209 & 24.1  \\
+    2005 & All & All & 1814 & 4231 & 22.1  \\
+    2007 & All & All & 1799 & 4349 & 21.2  \\
+    2009 & All & All & 1767 & 4421 & 29.3  \\
+    2011 & All & All & 1713 & 4441 & 28.0  \\
+    2013 & All & All & 1701 & 4475 & 27.8  \\
+    2015 & All & All & 1650 & 4365 & 27.3  \\
+    2017 & All & All & 1908 & 4684 & 49.3 \\
+    \hline
+  \end{tabular}}
 \end{frame}
 
 \begin{frame}{Age Profile Generation}
   \begin{equation}
-    Y_{it} = \gamma\cdot{Age}_{it} + \alpha\cdot{Year}_{it} + \epsilon_{it}
+    y_{it} = \alpha + \sum_a\beta_a\cdot\mathbf{1}({Age}_{it}=a) + \sum_t\gamma_t\cdot\mathbf{1}({Year}_{it}=t) + \epsilon_{it}
   \end{equation}
   In which $Y_{it}$ is the outcome variable for individual $i$ at time $t$,
   $Age_{it}$ is the age of individual $i$ at time $t$,

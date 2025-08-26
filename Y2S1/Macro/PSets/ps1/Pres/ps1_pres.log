@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  26 AUG 2025 15:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  26 AUG 2025 17:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -740,67 +740,74 @@ Dictionary: translator-theorem-dictionary, Language: English
 [5
 
 ]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 77.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 77.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 77.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
+)
 
 [6
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 83.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 83.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 83.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
-File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
-)
-./ps1_pres.tex:83: Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.83 \end{frame}
-                
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-./ps1_pres.tex:83: Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.83 \end{frame}
-                
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-./ps1_pres.tex:83: Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.83 \end{frame}
-                
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-
-Overfull \hbox (153.91147pt too wide) in paragraph at lines 83--83
-[][]  
- []
-
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 86.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 86.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 86.
 
 
 [7
 
 ]
+./ps1_pres.tex:101: Undefined control sequence.
+\beamer@doifinframe ...gure} \centering \subfloat 
+                                                  { \includegraphics [width=...
+l.101 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe.pdf, id=309, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe.pdf  used on input line 101.
+(pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
+./ps1_pres.tex:101: Undefined control sequence.
+\beamer@doifinframe ...fp_age_fe.pdf} } \subfloat 
+                                                  { \includegraphics [width=...
+l.101 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe.pdf, id=310, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe.pdf  used on input line 101.
+(pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
+
 
 [8
 
-]
-./ps1_pres.tex:107: Undefined control sequence.
-\beamer@doifinframe ...gure} \centering \subfloat 
-                                                  { \includegraphics [width=...
-l.107 \end{frame}
+ </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe.pdf>]
+./ps1_pres.tex:111: Undefined control sequence.
+<recently read> \subfloat 
+                          
+l.111 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -808,15 +815,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe.pdf, id=336, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe.pdf  used on input line 107.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe.pdf, id=351, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe.pdf  used on input line 111.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
-./ps1_pres.tex:107: Undefined control sequence.
-\beamer@doifinframe ...fp_age_fe.pdf} } \subfloat 
+./ps1_pres.tex:111: Undefined control sequence.
+\beamer@doifinframe ...hr_age_fe.pdf} } \subfloat 
                                                   { \includegraphics [width=...
-l.107 \end{frame}
+l.111 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -824,20 +831,20 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe.pdf, id=337, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe.pdf  used on input line 107.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe.pdf, id=352, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe.pdf  used on input line 111.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
 
 
 [9
 
- </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe.pdf>]
-./ps1_pres.tex:117: Undefined control sequence.
+ </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe.pdf>]
+./ps1_pres.tex:121: Undefined control sequence.
 <recently read> \subfloat 
                           
-l.117 \end{frame}
+l.121 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -845,15 +852,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe.pdf, id=378, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe.pdf  used on input line 117.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age.pdf, id=392, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age.pdf  used on input line 121.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
-./ps1_pres.tex:117: Undefined control sequence.
-\beamer@doifinframe ...hr_age_fe.pdf} } \subfloat 
+./ps1_pres.tex:121: Undefined control sequence.
+\beamer@doifinframe ...ar_hr_age.pdf} } \subfloat 
                                                   { \includegraphics [width=...
-l.117 \end{frame}
+l.121 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -861,36 +868,20 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe.pdf, id=379, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe.pdf  used on input line 117.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age.pdf, id=393, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age.pdf  used on input line 121.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
 
 
 [10
 
- </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe.pdf>]
-./ps1_pres.tex:127: Undefined control sequence.
-<recently read> \subfloat 
-                          
-l.127 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age.pdf, id=420, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age.pdf  used on input line 127.
-(pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
-./ps1_pres.tex:127: Undefined control sequence.
-\beamer@doifinframe ...ar_hr_age.pdf} } \subfloat 
+ </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age.pdf>]
+./ps1_pres.tex:133: Undefined control sequence.
+\beamer@doifinframe ...gure} \centering \subfloat 
                                                   { \includegraphics [width=...
-l.127 \end{frame}
+l.133 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -898,20 +889,36 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age.pdf, id=421, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age.pdf  used on input line 127.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_educ.pdf, id=434, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_educ.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_educ.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_educ.pdf  used on input line 133.
+(pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
+./ps1_pres.tex:133: Undefined control sequence.
+\beamer@doifinframe ...e_fe_educ.pdf} } \subfloat 
+                                                  { \includegraphics [width=...
+l.133 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf, id=435, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf  used on input line 133.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
 
 
 [11
 
- </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age.pdf>]
-./ps1_pres.tex:139: Undefined control sequence.
-\beamer@doifinframe ...gure} \centering \subfloat 
-                                                  { \includegraphics [width=...
-l.139 \end{frame}
+ </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_educ.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf>]
+./ps1_pres.tex:144: Undefined control sequence.
+<recently read> \subfloat 
+                          
+l.144 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -919,15 +926,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_educ.pdf, id=461, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_educ.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_educ.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_educ.pdf  used on input line 139.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf, id=475, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf  used on input line 144.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
-./ps1_pres.tex:139: Undefined control sequence.
+./ps1_pres.tex:144: Undefined control sequence.
 \beamer@doifinframe ...e_fe_educ.pdf} } \subfloat 
                                                   { \includegraphics [width=...
-l.139 \end{frame}
+l.144 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -935,20 +942,20 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf, id=462, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf  used on input line 139.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf, id=476, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf  used on input line 144.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
 
 
 [12
 
- </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_educ.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf>]
-./ps1_pres.tex:150: Undefined control sequence.
+ </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf>]
+./ps1_pres.tex:155: Undefined control sequence.
 <recently read> \subfloat 
                           
-l.150 \end{frame}
+l.155 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -956,15 +963,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf, id=502, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf  used on input line 150.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf, id=516, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf  used on input line 155.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
-./ps1_pres.tex:150: Undefined control sequence.
-\beamer@doifinframe ...e_fe_educ.pdf} } \subfloat 
+./ps1_pres.tex:155: Undefined control sequence.
+\beamer@doifinframe ..._age_educ.pdf} } \subfloat 
                                                   { \includegraphics [width=...
-l.150 \end{frame}
+l.155 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -972,36 +979,20 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf, id=503, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf  used on input line 150.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf, id=517, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf  used on input line 155.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
 
 
 [13
 
- </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf>]
-./ps1_pres.tex:161: Undefined control sequence.
-<recently read> \subfloat 
-                          
-l.161 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf, id=545, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf  used on input line 161.
-(pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
-./ps1_pres.tex:161: Undefined control sequence.
-\beamer@doifinframe ..._age_educ.pdf} } \subfloat 
+ </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf>]
+./ps1_pres.tex:167: Undefined control sequence.
+\beamer@doifinframe ...gure} \centering \subfloat 
                                                   { \includegraphics [width=...
-l.161 \end{frame}
+l.167 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1009,20 +1000,36 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf, id=546, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf  used on input line 161.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf, id=559, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf  used on input line 167.
+(pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
+./ps1_pres.tex:167: Undefined control sequence.
+\beamer@doifinframe ...ge_fe_ind.pdf} } \subfloat 
+                                                  { \includegraphics [width=...
+l.167 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf, id=560, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf  used on input line 167.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
 
 
 [14
 
- </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf>]
-./ps1_pres.tex:173: Undefined control sequence.
-\beamer@doifinframe ...gure} \centering \subfloat 
-                                                  { \includegraphics [width=...
-l.173 \end{frame}
+ </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf>]
+./ps1_pres.tex:177: Undefined control sequence.
+<recently read> \subfloat 
+                          
+l.177 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1030,15 +1037,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf, id=586, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf  used on input line 173.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf, id=600, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf  used on input line 177.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
-./ps1_pres.tex:173: Undefined control sequence.
+./ps1_pres.tex:177: Undefined control sequence.
 \beamer@doifinframe ...ge_fe_ind.pdf} } \subfloat 
                                                   { \includegraphics [width=...
-l.173 \end{frame}
+l.177 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1046,20 +1053,20 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf, id=587, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf  used on input line 173.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf, id=601, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf  used on input line 177.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
 
 
 [15
 
- </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf>]
-./ps1_pres.tex:183: Undefined control sequence.
+ </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf>]
+./ps1_pres.tex:188: Undefined control sequence.
 <recently read> \subfloat 
                           
-l.183 \end{frame}
+l.188 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1067,15 +1074,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf, id=627, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf  used on input line 183.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf, id=641, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf  used on input line 188.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
-./ps1_pres.tex:183: Undefined control sequence.
-\beamer@doifinframe ...ge_fe_ind.pdf} } \subfloat 
+./ps1_pres.tex:188: Undefined control sequence.
+\beamer@doifinframe ...r_age_ind.pdf} } \subfloat 
                                                   { \includegraphics [width=...
-l.183 \end{frame}
+l.188 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1083,36 +1090,20 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf, id=628, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf  used on input line 183.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf, id=642, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf  used on input line 188.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
 
 
 [16
 
- </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf>]
-./ps1_pres.tex:194: Undefined control sequence.
-<recently read> \subfloat 
-                          
-l.194 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf, id=669, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf  used on input line 194.
-(pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
-./ps1_pres.tex:194: Undefined control sequence.
-\beamer@doifinframe ...r_age_ind.pdf} } \subfloat 
+ </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf>]
+./ps1_pres.tex:200: Undefined control sequence.
+\beamer@doifinframe ...gure} \centering \subfloat 
                                                   { \includegraphics [width=...
-l.194 \end{frame}
+l.200 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1120,20 +1111,36 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf, id=670, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf  used on input line 194.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf, id=683, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf  used on input line 200.
+(pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
+./ps1_pres.tex:200: Undefined control sequence.
+\beamer@doifinframe ...fe_wealth.pdf} } \subfloat 
+                                                  { \includegraphics [width=...
+l.200 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf, id=684, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf  used on input line 200.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
 
 
 [17
 
- </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf>]
-./ps1_pres.tex:206: Undefined control sequence.
-\beamer@doifinframe ...gure} \centering \subfloat 
-                                                  { \includegraphics [width=...
-l.206 \end{frame}
+ </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf>]
+./ps1_pres.tex:210: Undefined control sequence.
+<recently read> \subfloat 
+                          
+l.210 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1141,15 +1148,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf, id=710, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf  used on input line 206.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf, id=724, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf  used on input line 210.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
-./ps1_pres.tex:206: Undefined control sequence.
+./ps1_pres.tex:210: Undefined control sequence.
 \beamer@doifinframe ...fe_wealth.pdf} } \subfloat 
                                                   { \includegraphics [width=...
-l.206 \end{frame}
+l.210 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1157,20 +1164,20 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf, id=711, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf  used on input line 206.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf, id=725, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf  used on input line 210.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
 
 
 [18
 
- </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf>]
-./ps1_pres.tex:216: Undefined control sequence.
+ </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf>]
+./ps1_pres.tex:220: Undefined control sequence.
 <recently read> \subfloat 
                           
-l.216 \end{frame}
+l.220 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1178,15 +1185,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf, id=751, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf  used on input line 216.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf, id=764, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf  used on input line 220.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
-./ps1_pres.tex:216: Undefined control sequence.
-\beamer@doifinframe ...fe_wealth.pdf} } \subfloat 
+./ps1_pres.tex:220: Undefined control sequence.
+\beamer@doifinframe ...ge_wealth.pdf} } \subfloat 
                                                   { \includegraphics [width=...
-l.216 \end{frame}
+l.220 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1194,55 +1201,18 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf, id=752, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf  used on input line 216.
+<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf, id=765, 433.62pt x 289.08pt>
+File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf Graphic file (type pdf)
+<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf>
+Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf  used on input line 220.
 (pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
 
 
 [19
 
- </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf>]
-./ps1_pres.tex:226: Undefined control sequence.
-<recently read> \subfloat 
-                          
-l.226 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf, id=793, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf  used on input line 226.
-(pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
-./ps1_pres.tex:226: Undefined control sequence.
-\beamer@doifinframe ...ge_wealth.pdf} } \subfloat 
-                                                  { \includegraphics [width=...
-l.226 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf, id=794, 433.62pt x 289.08pt>
-File: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf Graphic file (type pdf)
-<use ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf>
-Package pdftex.def Info: ~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf  used on input line 226.
-(pdftex.def)             Requested size: 142.26378pt x 94.8409pt.
-
-
-[20
-
  </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf> </Users/tate/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf>]
 
-[21
+[20
 
 ]
 \tf@nav=\write6
@@ -1263,18 +1233,18 @@ Package rerunfilecheck Info: File `ps1_pres.out' has not changed.
 (rerunfilecheck)             Checksum: 464E0257AA000B6002C3563687893B9F;372.
  ) 
 Here is how much of TeX's memory you used:
- 22181 strings out of 473190
- 439703 string characters out of 5715801
- 795949 words of memory out of 5000000
- 44934 multiletter control sequences out of 15000+600000
- 565755 words of font info for 61 fonts, out of 8000000 for 9000
+ 22184 strings out of 473190
+ 439771 string characters out of 5715801
+ 800949 words of memory out of 5000000
+ 44938 multiletter control sequences out of 15000+600000
+ 566637 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,16n,123p,383b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ps1_pres.pdf (21 pages, 241156 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on ps1_pres.pdf (20 pages, 255705 bytes).
 PDF statistics:
- 908 PDF objects out of 1000 (max. 8388607)
- 737 compressed objects within 8 object streams
- 47 named destinations out of 1000 (max. 500000)
+ 889 PDF objects out of 1000 (max. 8388607)
+ 717 compressed objects within 8 object streams
+ 45 named destinations out of 1000 (max. 500000)
  381 words of extra memory for PDF output out of 10000 (max. 10000000)
 
