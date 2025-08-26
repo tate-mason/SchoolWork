@@ -1,0 +1,450 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  26 AUG 2025 18:53
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**report.tex
+(./report.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count196
+\c@section=\count197
+\c@subsection=\count198
+\c@subsubsection=\count199
+\c@paragraph=\count266
+\c@subparagraph=\count267
+\c@figure=\count268
+\c@table=\count269
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty
+Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
+\col@sep=\dimen142
+\ar@mcellbox=\box52
+\extrarowheight=\dimen143
+\NC@list=\toks17
+\extratabsurround=\skip51
+\backup@length=\skip52
+\ar@cellbox=\box53
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen144
+\Gin@req@width=\dimen145
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen146
+\lightrulewidth=\dimen147
+\cmidrulewidth=\dimen148
+\belowrulesep=\dimen149
+\belowbottomsep=\dimen150
+\aboverulesep=\dimen151
+\abovetopsep=\dimen152
+\cmidrulesep=\dimen153
+\cmidrulekern=\dimen154
+\defaultaddspace=\dimen155
+\@cmidla=\count270
+\@cmidlb=\count271
+\@aboverulesep=\dimen156
+\@belowrulesep=\dimen157
+\@thisruleclass=\count272
+\@lastruleclass=\count273
+\@thisrulewidth=\dimen158
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count274
+\Gm@cntv=\count275
+\c@Gm@tempcnt=\count276
+\Gm@bindingoffset=\dimen159
+\Gm@wd@mp=\dimen160
+\Gm@odd@mp=\dimen161
+\Gm@even@mp=\dimen162
+\Gm@layoutwidth=\dimen163
+\Gm@layoutheight=\dimen164
+\Gm@layouthoffset=\dimen165
+\Gm@layoutvoffset=\dimen166
+\Gm@dimlist=\toks19
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count277
+\l__pdf_internal_box=\box54
+) (./report.aux)
+\openout1 = `report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+ (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count278
+\scratchdimen=\dimen167
+\scratchbox=\box55
+\nofMPsegments=\count279
+\nofMParguments=\count280
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count281
+\MPscratchDim=\dimen168
+\MPnumerator=\count282
+\makeMPintoPDFobject=\count283
+\everyMPtoPDFconversion=\toks21
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe.pdf, id=1, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe.pdf  used on input line 28.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe.pdf, id=2, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe.pdf  used on input line 37.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_ind.pdf, id=3, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_ind.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_ind.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_ind.pdf  used on input line 45.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_ind.pdf, id=4, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_ind.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_ind.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_ind.pdf  used on input line 53.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_ind.pdf, id=5, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_ind.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_ind.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_ind.pdf  used on input line 61.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_ind.pdf, id=6, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_ind.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_ind.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_ind.pdf  used on input line 69.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_wealth.pdf, id=7, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_wealth.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_wealth.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_wealth.pdf  used on input line 77.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_wealth.pdf, id=8, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_wealth.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_wealth.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_wealth.pdf  used on input line 85.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_wealth.pdf, id=9, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_wealth.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_wealth.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_wealth.pdf  used on input line 92.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_wealth.pdf, id=10, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_wealth.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_wealth.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_wealth.pdf  used on input line 101.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+
+[1
+
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe.pdf>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_wealth.pdf, id=23, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_wealth.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_wealth.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_wealth.pdf  used on input line 109.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+
+[2 </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe.pdf> </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_ind.pdf>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_wealth.pdf, id=37, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_wealth.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_wealth.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_wealth.pdf  used on input line 118.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_ind.pdf, id=38, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_ind.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_ind.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_ind.pdf  used on input line 126.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+
+[3 </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_ind.pdf> </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_ind.pdf>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_ind.pdf, id=52, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_ind.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_ind.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_ind.pdf  used on input line 135.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+[4 </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_ind.pdf> </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_wealth.pdf>]
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_ind.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_ind.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_ind.pdf  used on input line 144.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+[5 </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_wealth.pdf> </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_wealth.pdf>]
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_ind.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_ind.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_ind.pdf  used on input line 153.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_ind.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_ind.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_ind.pdf  used on input line 163.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+
+[6 </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_wealth.pdf> </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_wealth.pdf>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+[7 </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_wealth.pdf> </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_ind.pdf>]
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_ind.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_ind.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_ind.pdf  used on input line 173.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_educ.pdf, id=106, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_educ.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_educ.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_educ.pdf  used on input line 182.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+[8 </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_ind.pdf>]
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_educ.pdf, id=115, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_educ.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_educ.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_educ.pdf  used on input line 191.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+[9]
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_educ.pdf, id=119, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_educ.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_educ.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_educ.pdf  used on input line 199.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_educ.pdf, id=120, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_educ.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_educ.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_educ.pdf  used on input line 207.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+
+[10 </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/lfp_age_fe_educ.pdf>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_educ.pdf, id=129, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_educ.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_educ.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_educ.pdf  used on input line 216.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+
+[11 </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/inc_age_fe_educ.pdf> </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/hr_age_fe_educ.pdf>]
+<~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_educ.pdf, id=143, 433.62pt x 289.08pt>
+File: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_educ.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_educ.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_educ.pdf  used on input line 224.
+(pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+[12 </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/wage_age_fe_educ.pdf> </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_hr_age_educ.pdf>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 233.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 233.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 233.
+
+./report.tex:253: Extra alignment tab has been changed to \cr.
+<recently read> \endtemplate 
+                             
+l.253   &
+          Wealth & Top 25\% & 1855 & 4078 & & \\
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+
+Overfull \hbox (55.63776pt too wide) in paragraph at lines 233--331
+[]
+ []
+
+
+Overfull \hbox (42.5865pt too wide) in paragraph at lines 233--331
+[] 
+ []
+
+
+
+[13 </Users/tate/SchoolWork/Y2S1/Macro/PSets/ps1/output/var_wage_age_educ.pdf>]
+Overfull \vbox (48.61926pt too high) has occurred while \output is active []
+
+
+
+[14]
+Overfull \vbox (27.86926pt too high) has occurred while \output is active []
+
+
+
+[15] (./report.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 2138 strings out of 473190
+ 41757 string characters out of 5715801
+ 480623 words of memory out of 5000000
+ 25412 multiletter control sequences out of 15000+600000
+ 563091 words of font info for 50 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,6n,65p,236b,232s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on report.pdf (15 pages, 139328 bytes).
+PDF statistics:
+ 184 PDF objects out of 1000 (max. 8388607)
+ 121 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+
