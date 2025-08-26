@@ -12,13 +12,14 @@ library(haven)
 library(tidyverse)
 library(psych)
 library(patchwork)
+library(broom)
 ```
 
 ```{r}
 df <- read_dta("~/SchoolWork/Y2S1/Macro/Data/PSID/PSID.dta")
 ```
 
-```{r}
+```{r, echo=FALSE}
 psid_99_clean <- df %>%
   transmute(
     year = 1999,
@@ -228,450 +229,430 @@ psid_clean <- psid_clean %>%
       TRUE ~ NA_real_
     )
   )
-describe(psid_clean)
 
-lfp_all <- psid_clean %>%
+psid_m <- psid_clean %>%
   filter(
     age >= 25 & age <= 60,
-    sex == 1,
-  ) %>%
-  group_by(age) %>%
-  summarise(
-    lfp_rate = mean(lfp, na.rm = TRUE),
-    wage_rate = mean(wage_real, na.rm = TRUE),
-    hr_worked = mean(hr_worked, na.rm = TRUE),
-    inc = mean(inc, na.rm = TRUE),
-    var_log_wage = var(log_wage, na.rm = TRUE),
-    var_log_hr_worked = var(log_hr_worked, na.rm = TRUE),
-    n = n()
+    sex == 1
   )
-describe(lfp_all)
 ```
 
+# Age profiles
+
 ```{r}
-ggplot(
-  lfp_all,
-  aes(x = age, y = lfp_rate)
-) +
-  geom_line(
-    size = 1.2
-  ) +
+wm <- function(x,w) weighted.mean(x, w, na.rm=TRUE)
+
+age_profile_fe <- function(data, y, base_age = 25, w_col = weight) {
+  yq <- rlang::enquo(y)
+  wq <- rlang::enquo(w_col)
+
+  d <- data %>%
+    filter(!is.na(!!yq), !is.na(!!wq)) %>%
+    mutate(
+      age  = as.integer(age),
+      year = as.integer(year)
+    )
+
+  if (nrow(d) == 0) return(tibble(age = integer(), y_m = numeric()))
+
+  # build formula: response ~ factor(age) + factor(year)
+  resp <- rlang::as_name(yq)
+  fml  <- stats::as.formula(paste(resp, "~ factor(age) + factor(year)"))
+
+  # evaluate weights as a numeric vector
+  wv <- as.numeric(rlang::eval_tidy(wq, d))
+
+  reg <- stats::lm(fml, data = d, weights = wv)
+
+  af <- broom::tidy(reg) %>%
+    dplyr::filter(grepl("^factor\\(age\\)", term)) %>%
+    dplyr::mutate(age = as.integer(gsub("factor\\(age\\)", "", term))) %>%
+    tidyr::complete(age = base_age:60, fill = list(estimate = 0)) %>%
+    dplyr::arrange(age) %>%
+    dplyr::transmute(age, y_m = estimate)
+
+  mu <- mean(d[[resp]], na.rm = TRUE)
+  dplyr::mutate(af, y_m = y_m + mu)
+}
+
+var_prof_year_net <- function(data, y, w_col = weight) {
+  yq <- rlang::enquo(y)
+  wq <- rlang::enquo(w_col)
+
+  d <- data %>%
+    filter(!is.na(!!yq), !!yq > 0, !is.na(!!wq)) %>%
+    mutate(
+      age  = as.integer(age),
+      year = as.integer(year),
+      ly   = log(!!yq),
+      w    = as.numeric(!!wq)   # <- carry weights as a column
+    )
+
+  if (nrow(d) == 0) return(tibble(age = integer(), v = numeric()))
+
+  # Remove year effects with weighted regression
+  reg <- stats::lm(ly ~ factor(year), data = d, weights = d$w)
+  d$res <- stats::resid(reg)
+
+  # Weighted variance within each age using that age group's weights
+  d %>%
+    group_by(age) %>%
+    summarise(
+      v = {
+        wg <- w
+        rg <- res
+        mu <- weighted.mean(rg, wg, na.rm = TRUE)
+        sum(wg * (rg - mu)^2, na.rm = TRUE) / sum(wg, na.rm = TRUE)
+      },
+      .groups = "drop"
+    )
+}
+  
+lfp_age_fe <- age_profile_fe(psid_m, lfp)
+wage_age_fe <- age_profile_fe(psid_m, wage_real)
+hr_age_fe <- age_profile_fe(psid_m, hr_worked)
+inc_age_fe <- age_profile_fe(psid_m, inc_real)
+var_wage_age <- var_prof_year_net(psid_m, wage_real)
+var_hr_age <- var_prof_year_net(psid_m, hr_worked)
+
+ggplot(lfp_age_fe, aes(age, y_m)) +
+  geom_line(size = 1.2) +
   labs(
+    title = "Labor Force Participation Rate",
     x = "Age",
-    y = "Labor Force Participation Rate",
-    title = "Labor Force Participation Rate by Age (1999-2017)"
+    y = "LFP Rate"
   ) + 
   theme_minimal()
-```
 
-```{r}
-ggplot(
-  lfp_all,
-  aes(x = age, y = wage_rate)
-) +
-  geom_line(
-    size = 1.2
-  ) +
+ggplot(wage_age_fe, aes(age, y_m)) +
+  geom_line(size = 1.2) +
   labs(
+    title = "Real Wage",
     x = "Age",
-    y = "Average Wage",
-    title = "Average Wage by Age (1999-2017)"
+    y = "Real Wage (2017 $)"
   ) + 
   theme_minimal()
-```
 
-```{r}
-ggplot(
-  lfp_all,
-  aes(x = age, y = hr_worked)
-) +
-  geom_line(
-    size = 1.2
-  ) +
-  labs(
-    x = "Age",
-    y = "Average Hours Worked",
-    title = "Average Hours Worked by Age (1999-2017)"
-  ) +
-  theme_minimal()
-```
-
-```{r}
-ggplot(
-  lfp_all,
-  aes(x = age, y = inc)
-) +
-  geom_line(
-    size = 1.2
-  ) +
-  labs(
-    x = "Age",
-    y = "Average Income",
-    title = "Average Income by Age (1999-2017)"
-  ) +
-  theme_minimal()
-```
-
-```{r}
-ggplot(
-  lfp_all,
-  aes(x = age, y = var_log_wage)
-) +
-  geom_line(
-    size = 1.2
-  ) +
-  labs(
-    x = "Age",
-    y = "Variance of Log Wage",
-    title = "Variance of Log Wage by Age (1999-2017)"
-  ) +
-  theme_minimal()
-```
-
-```{r}
-ggplot(
-  lfp_all,
-  aes(x = age, y = var_log_hr_worked)
-) +
-  geom_line(
-    size = 1.2
-  ) +
-  labs(
-    x = "Age",
-    y = "Variance of Log Hours Worked",
-    title = "Variance of Log Hours Worked by Age (1999-2017)"
-  ) +
-  theme_minimal()
-```
-
-## Part 2: Stratify by Education Groups:
-
-```{r}
-lfp_edu <- psid_clean %>%
-  filter(
-    age >= 25 & age <= 60,
-    sex == 1,
-    !is.na(educ_group)
-  ) %>%
-  group_by(age, educ_group) %>%
-  summarise(
-    lfp_rate_drop = mean(lfp, na.rm = TRUE),
-    wage_rate = mean(wage_real, na.rm = TRUE),
-    hr_worked = mean(hr_worked, na.rm = TRUE),
-    inc = mean(inc, na.rm = TRUE),
-    var_log_wage = var(log_wage, na.rm = TRUE),
-    var_log_hr_worked = var(log_hr_worked, na.rm = TRUE),
-    n = n()
-  )
-```
-
-```{r}
-ggplot(
-  lfp_edu,
-  aes(x = age, y = lfp_rate_drop, color = educ_group)
-) +
+ggplot(hr_age_fe, aes(age, y_m)) +
   geom_line(size = 1.2) +
   labs(
+    title = "Hours Worked per Week",
     x = "Age",
-    y = "Labor Force Participation Rate",
-    color = "Education Group",
-    title = "Labor Force Participation Rate by Age and Education Group (1999-2017)",
+    y = "Hours Worked"
   ) +
   theme_minimal()
-```
 
-```{r}
-ggplot(
-  lfp_edu,
-  aes(x = age, y = wage_rate, color = educ_group)
-) +
+ggplot(inc_age_fe, aes(age, y_m)) +
   geom_line(size = 1.2) +
   labs(
+    title = "Real Annual Income",
     x = "Age",
-    y = "Average Wage",
-    color = "Education Group",
-    title = "Average Wage by Age and Education Group (1999-2017)",
+    y = "Real Income (2017 $)"
   ) +
   theme_minimal()
-```
 
-```{r}
-ggplot(
-  lfp_edu,
-  aes(x = age, y = hr_worked, color = educ_group)
-) +
+ggplot(var_wage_age, aes(age, v)) +
   geom_line(size = 1.2) +
   labs(
+    title = "Variance of Log Real Wage (Net of Year Effects)",
     x = "Age",
-    y = "Average Hours Worked",
-    color = "Education Group",
-    title = "Average Hours Worked by Age and Education Group (1999-2017)",
+    y = "Variance"
   ) +
   theme_minimal()
-```
 
-```{r}
-ggplot(
-  lfp_edu,
-  aes(x = age, y = inc, color = educ_group)
-) +
+ggplot(var_hr_age, aes(age, v)) +
   geom_line(size = 1.2) +
   labs(
+    title = "Variance of Log Hours Worked (Net of Year Effects)",
     x = "Age",
-    y = "Average Income",
-    color = "Education Group",
-    title = "Average Income by Age and Education Group (1999-2017)",
+    y = "Variance"
   ) +
   theme_minimal()
 ```
 
+## Education groups
 ```{r}
-ggplot(
-  lfp_edu,
-  aes(x = age, y = var_log_wage, color = educ_group)
-) +
+wage_age_fe_educ <- psid_m %>%
+  filter(!is.na(educ_group)) %>%
+  group_by(educ_group) %>%
+  group_modify(~ age_profile_fe(.x, wage_real)) %>%
+  ungroup()
+
+hour_age_fe_educ <- psid_m %>%
+  filter(!is.na(educ_group)) %>%
+  group_by(educ_group) %>%
+  group_modify(~ age_profile_fe(.x, hr_worked)) %>%
+  ungroup()
+
+lfp_age_fe_educ <- psid_m %>%
+  filter(!is.na(educ_group)) %>%
+  group_by(educ_group) %>%
+  group_modify(~ age_profile_fe(.x, lfp)) %>%
+  ungroup()
+
+var_wage_age_educ <- psid_m %>%
+  filter(!is.na(educ_group)) %>%
+  group_by(educ_group) %>%
+  group_modify(~ var_prof_year_net(.x, wage_real)) %>%
+  ungroup()
+
+var_hr_age_educ <- psid_m %>%
+  filter(!is.na(educ_group)) %>%
+  group_by(educ_group) %>%
+  group_modify(~ var_prof_year_net(.x, hr_worked)) %>%
+  ungroup()
+```
+
+```{r}
+ggplot(lfp_age_fe_educ, aes(age, y_m, color = educ_group)) +
   geom_line(size = 1.2) +
   labs(
+    title = "Labor Force Participation Rate by Education",
     x = "Age",
-    y = "Variance of Log Wage",
-    color = "Education Group",
-    title = "Variance of Log Wage by Age and Education Group (1999-2017)",
+    y = "LFP Rate",
+    color = "Education"
   ) +
   theme_minimal()
-```
 
-```{r}
-ggplot(
-  lfp_edu,
-  aes(x = age, y = var_log_hr_worked, color = educ_group)
-) +
+ggplot(wage_age_fe_educ, aes(age, y_m, color = educ_group)) +
   geom_line(size = 1.2) +
   labs(
+    title = "Real Wage by Education",
     x = "Age",
-    y = "Variance of Log Hours Worked",
-    color = "Education Group",
-    title = "Variance of Log Hours Worked by Age and Education Group (1999-2017)",
+    y = "Real Wage",
+    color = "Education"
   ) +
   theme_minimal()
-```
 
-## Part 3: Stratify by Industry:
-
-```{r}
-lfp_ind <- psid_clean %>%
-  filter(
-    age >= 25 & age <= 60,
-    sex == 1,
-    !is.na(ind_group)
-    ) %>%
-  group_by(age, ind_group) %>%
-  summarise(
-    lfp_rate = mean(lfp, na.rm = TRUE),
-    wage_rate = mean(wage_real, na.rm = TRUE),
-    hr_worked = mean(hr_worked, na.rm = TRUE),
-    inc = mean(inc, na.rm = TRUE),
-    var_log_wage = var(log_wage, na.rm = TRUE),
-    var_log_hr_worked = var(log_hr_worked, na.rm = TRUE),
-    n = n()
-  )
-```
-
-```{r}
-overall_lfp <- ggplot(
-  lfp_ind,
-  aes(x = age, y = lfp_rate, color = ind_group)
-) +
+ggplot(hour_age_fe_educ, aes(age, y_m, color = educ_group)) +
   geom_line(size = 1.2) +
   labs(
+    title = "Hours Worked per Week by Education",
     x = "Age",
-    y = "Labor Force Participation Rate",
-    color = "Industry Group",
-    title = "Labor Force Participation Rate by Age and Industry Group (1999-2017)",
+    y = "Hours Worked",
+    color = "Education"
   ) +
   theme_minimal()
-```
 
-```{r}
-overall_wage <- ggplot(
-  lfp_ind,
-  aes(x = age, y = wage_rate, color = ind_group)
-) +
+ggplot(var_wage_age_educ, aes(age, v, color = educ_group)) +
   geom_line(size = 1.2) +
   labs(
+    title = "Variance of Log Real Wage (Net of Year Effects) by Education",
     x = "Age",
-    y = "Average Wage",
-    color = "Industry Group",
-    title = "Average Wage by Age and Industry Group (1999-2017)",
+    y = "Variance",
+    color = "Education"
   ) +
   theme_minimal()
-```
 
-```{r}
-overall_hours <- ggplot(
-  lfp_ind,
-  aes(x = age, y = hr_worked, color = ind_group)
-) +
+ggplot(var_hr_age_educ, aes(age, v, color = educ_group)) +
   geom_line(size = 1.2) +
   labs(
+    title = "Variance of Log Hours Worked (Net of Year Effects) by Education",
     x = "Age",
-    y = "Average Hours Worked",
-    color = "Industry Group",
-    title = "Average Hours Worked by Age and Industry Group (1999-2017)",
+    y = "Variance",
+    color = "Education"
   ) +
   theme_minimal()
 ```
 
+## Industry groups
 ```{r}
-overall_inc <- ggplot(
-  lfp_ind,
-  aes(x = age, y = inc, color = ind_group)
-) +
+wage_age_fe_ind <- psid_m %>%
+  filter(!is.na(ind_group)) %>%
+  group_by(ind_group) %>%
+  group_modify(~ age_profile_fe(.x, wage_real)) %>%
+  ungroup()
+
+hour_age_fe_ind <- psid_m %>%
+  filter(!is.na(ind_group)) %>%
+  group_by(ind_group) %>%
+  group_modify(~ age_profile_fe(.x, hr_worked)) %>%
+  ungroup()
+
+inc_age_fe_ind <- psid_m %>%
+  filter(!is.na(ind_group)) %>%
+  group_by(ind_group) %>%
+  group_modify(~ age_profile_fe(.x, inc_real)) %>%
+  ungroup()
+
+lfp_age_fe_ind <- psid_m %>%
+  filter(!is.na(ind_group)) %>%
+  group_by(ind_group) %>%
+  group_modify(~ age_profile_fe(.x, lfp)) %>%
+  ungroup()
+
+var_wage_age_ind <- psid_m %>%
+  filter(!is.na(ind_group)) %>%
+  group_by(ind_group) %>%
+  group_modify(~ var_prof_year_net(.x, wage_real)) %>%
+  ungroup()
+
+var_hr_age_ind <- psid_m %>%
+  filter(!is.na(ind_group)) %>%
+  group_by(ind_group) %>%
+  group_modify(~ var_prof_year_net(.x, hr_worked)) %>%
+  ungroup()
+
+ggplot(lfp_age_fe_ind, aes(age, y_m, color = ind_group)) +
   geom_line(size = 1.2) +
   labs(
+    title = "Labor Force Participation Rate by Industry",
     x = "Age",
-    y = "Average Income",
-    color = "Industry Group",
-    title = "Average Income by Age and Industry Group (1999-2017)",
+    y = "LFP Rate",
+    color = "Industry"
   ) +
   theme_minimal()
-```
 
-```{r}
-overall_vl_wage <- ggplot(
-  lfp_ind,
-  aes(x = age, y = var_log_wage, color = ind_group)
-) +
+ggplot(wage_age_fe_ind, aes(age, y_m, color = ind_group)) +
   geom_line(size = 1.2) +
   labs(
+    title = "Real Wage by Industry",
     x = "Age",
-    y = "Variance of Log Wage",
-    color = "Industry Group",
-    title = "Variance of Log Wage by Age and Industry Group (1999-2017)",
+    y = "Real Wage",
+    color = "Industry"
   ) +
   theme_minimal()
-```
 
-```{r}
-overall_vl_hr <- ggplot(
-  lfp_ind,
-  aes(x = age, y = var_log_hr_worked, color = ind_group)
-) +
+ggplot(hour_age_fe_ind, aes(age, y_m, color = ind_group)) +
   geom_line(size = 1.2) +
   labs(
+    title = "Hours Worked per Week by Industry",
     x = "Age",
-    y = "Variance of Log Hours Worked",
-    color = "Industry Group",
-    title = "Variance of Log Hours Worked by Age and Industry Group (1999-2017)",
+    y = "Hours Worked",
+    color = "Industry"
   ) +
   theme_minimal()
-```
 
-## Part 4: Stratify by Wealth Quartiles:
-```{r}
-lfp_wealth <- psid_clean %>%
-  filter(
-    age >= 25 & age <= 60,
-    sex == 1,
-    !is.na(wealth)
-    ) %>%
-  group_by(age, wealth_group) %>%
-  summarise(
-    lfp_rate = mean(lfp, na.rm = TRUE),
-    wage_rate = mean(wage_real, na.rm = TRUE),
-    hr_worked = mean(hr_worked, na.rm = TRUE),
-    inc = mean(inc, na.rm = TRUE),
-    var_log_wage = var(log_wage, na.rm = TRUE),
-    var_log_hr_worked = var(log_hr_worked, na.rm = TRUE),
-    n = n()
-  )
-```
-
-```{r}
-ggplot(
-  lfp_wealth,
-  aes(x = age, y = lfp_rate, color = wealth_group)
-) +
+ggplot(inc_age_fe_ind, aes(age, y_m, color = ind_group)) +
   geom_line(size = 1.2) +
   labs(
+    title = "Real Annual Income by Industry",
     x = "Age",
-    y = "Labor Force Participation Rate",
-    color = "Wealth Group",
-    title = "Labor Force Participation Rate by Age and Wealth Group (1999-2017)",
+    y = "Real Income",
+    color = "Industry"
+  ) +
+  theme_minimal()
+
+ggplot(var_wage_age_ind, aes(age, v, color = ind_group)) +
+  geom_line(size = 1.2) +
+  labs(
+    title = "Variance of Log Real Wage (Net of Year Effects) by Industry",
+    x = "Age",
+    y = "Variance",
+    color = "Industry"
+  ) +
+  theme_minimal()
+
+ggplot(var_hr_age_ind, aes(age, v, color = ind_group)) +
+  geom_line(size = 1.2) +
+  labs(
+    title = "Variance of Log Hours Worked (Net of Year Effects) by Industry",
+    x = "Age",
+    y = "Variance",
+    color = "Industry"
   ) +
   theme_minimal()
 ```
 
+## Wealth groups
 ```{r}
-ggplot(
-  lfp_wealth,
-  aes(x = age, y = wage_rate, color = wealth_group)
-) +
+wage_age_fe_wealth <- psid_m %>%
+  filter(!is.na(wealth_group)) %>%
+  group_by(wealth_group) %>%
+  group_modify(~ age_profile_fe(.x, wage_real)) %>%
+  ungroup()
+
+hour_age_fe_wealth <- psid_m %>%
+  filter(!is.na(wealth_group)) %>%
+  group_by(wealth_group) %>%
+  group_modify(~ age_profile_fe(.x, hr_worked)) %>%
+  ungroup()
+
+inc_age_fe_wealth <- psid_m %>%
+  filter(!is.na(wealth_group)) %>%
+  group_by(wealth_group) %>%
+  group_modify(~ age_profile_fe(.x, inc_real)) %>%
+  ungroup()
+
+lfp_age_fe_wealth <- psid_m %>%
+  filter(!is.na(wealth_group)) %>%
+  group_by(wealth_group) %>%
+  group_modify(~ age_profile_fe(.x, lfp)) %>%
+  ungroup()
+
+var_wage_age_wealth <- psid_m %>%
+  filter(!is.na(wealth_group)) %>%
+  group_by(wealth_group) %>%
+  group_modify(~ var_prof_year_net(.x, wage_real)) %>%
+  ungroup()
+
+var_hr_age_wealth <- psid_m %>%
+  filter(!is.na(wealth_group)) %>%
+  group_by(wealth_group) %>%
+  group_modify(~ var_prof_year_net(.x, hr_worked)) %>%
+  ungroup()
+
+ggplot(lfp_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
   geom_line(size = 1.2) +
   labs(
+    title = "Labor Force Participation Rate by Wealth",
     x = "Age",
-    y = "Average Wage",
-    color = "Wealth Group",
-    title = "Average Wage by Age and Wealth Group (1999-2017)",
+    y = "LFP Rate",
+    color = "Wealth"
+  ) +
+  theme_minimal()
+
+ggplot(wage_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
+  geom_line(size = 1.2) +
+  labs(
+    title = "Real Wage by Wealth",
+    x = "Age",
+    y = "Real Wage",
+    color = "Wealth"
+  ) +
+  theme_minimal()
+
+ggplot(hour_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
+  geom_line(size = 1.2) +
+  labs(
+    title = "Hours Worked per Week by Wealth",
+    x = "Age",
+    y = "Hours Worked",
+    color = "Wealth"
+  ) +
+  theme_minimal()
+
+ggplot(inc_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
+  geom_line(size = 1.2) +
+  labs(
+    title = "Real Annual Income by Wealth",
+    x = "Age",
+    y = "Real Income",
+    color = "Wealth"
+  ) +
+  theme_minimal()
+
+ggplot(var_wage_age_wealth, aes(age, v, color = wealth_group)) +
+  geom_line(size = 1.2) +
+  labs(
+    title = "Variance of Log Real Wage (Net of Year Effects) by Wealth",
+    x = "Age",
+    y = "Variance",
+    color = "Wealth"
+  ) +
+  theme_minimal()
+
+ggplot(var_hr_age_wealth, aes(age, v, color = wealth_group)) +
+  geom_line(size = 1.2) +
+  labs(
+    title = "Variance of Log Hours Worked (Net of Year Effects) by Wealth",
+    x = "Age",
+    y = "Variance",
+    color = "Wealth"
   ) +
   theme_minimal()
 ```
 
-```{r}
-ggplot(
-  lfp_wealth,
-  aes(x = age, y = hr_worked, color = wealth_group)
-) +
-  geom_line(size = 1.2) +
-  labs(
-    x = "Age",
-    y = "Average Hours Worked",
-    color = "Wealth Group",
-    title = "Average Hours Worked by Age and Wealth Group (1999-2017)",
-  ) +
-  theme_minimal()
-```
 
-```{r}
-ggplot(
-  lfp_wealth,
-  aes(x = age, y = inc, color = wealth_group)
-) +
-  geom_line(size = 1.2) +
-  labs(
-    x = "Age",
-    y = "Average Income",
-    color = "Wealth Group",
-    title = "Average Income by Age and Wealth Group (1999-2017)",
-  ) +
-  theme_minimal()
-```
 
-```{r}
-ggplot(
-  lfp_wealth,
-  aes(x = age, y = var_log_wage, color = wealth_group)
-) +
-  geom_line(size = 1.2) +
-  labs(
-    x = "Age",
-    y = "Variance of Log Wage",
-    color = "Wealth Group",
-    title = "Variance of Log Wage by Age and Wealth Group (1999-2017)",
-  ) +
-  theme_minimal()
-```
 
-```{r}
-ggplot(
-  lfp_wealth,
-  aes(x = age, y = var_log_hr_worked, color = wealth_group)
-) +
-  geom_line(size = 1.2) +
-  labs(
-    x = "Age",
-    y = "Variance of Log Hours Worked",
-    color = "Wealth Group",
-    title = "Variance of Log Hours Worked by Age and Wealth Group (1999-2017)",
-  ) +
-  theme_minimal()
-```
