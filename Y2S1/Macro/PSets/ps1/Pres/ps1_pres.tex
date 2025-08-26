@@ -34,6 +34,16 @@
 % Section 1
 \section{Introduction}
 
+\begin{frame}{Itinerary}
+  \begin{itemize}
+    \item Background of PSID
+    \item Research Question
+    \item Methodology
+    \item Results
+    \item Conclusion
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Background of PSID}
   \begin{itemize}
     \item The PSID is a longitudinal study of household and individual income dynamics 
@@ -69,29 +79,159 @@
     51-55
     56-60
     Number of Individuals
+  \end{tabular}
+\end{frame}
 
-
+\begin{frame}{Age Profile Generation}
+  \begin{equation}
+    Y_{it} = \gamma\cdot{Age}_{it} + \alpha\cdot{Year}_{it} + \epsilon_{it}
+  \end{equation}
+  In which $Y_{it}$ is the outcome variable for individual $i$ at time $t$,
+  $Age_{it}$ is the age of individual $i$ at time $t$,
+  $Year_{it}$ is a set of year fixed effects, and $\epsilon_{it}$ is the error term.
 \end{frame}
 
 % Section 3
 \section{Results}
 
-\begin{frame}{Main Results}
+\begin{frame}{Main Results - Overall}
   \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{example-figure.pdf}
-    \caption{Main empirical finding}
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe.pdf}
+    }
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe.pdf}
+    }
+  \end{figure}
+\end{frame}
+\begin{frame}
+  \begin{figure}
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe.pdf}
+    }
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe.pdf}
+    }
+  \end{figure}
+\end{frame}
+\begin{frame}
+  \begin{figure}
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age.pdf}
+    }
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age.pdf}
+    }
   \end{figure}
 \end{frame}
 
+\begin{frame}{Results - Stratified by Education}
+  \begin{figure}
+    \centering
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_educ.pdf}
+    }
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_educ.pdf}
+    }
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_educ.pdf}
+    }
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_educ.pdf}
+    }
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_educ.pdf}
+    }
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_educ.pdf}
+    }
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Results - Stratified by Industry}
+  \begin{figure}
+    \centering
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_ind.pdf}
+    }
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_ind.pdf}
+    }
+  \end{figure}
+\end{frame}
+\begin{frame}
+  \begin{figure}
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_ind.pdf}
+    }
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_ind.pdf}
+    }
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_ind.pdf}
+    }
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_ind.pdf}
+    } 
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Results - Stratified by Wealth}
+  \begin{figure}
+    \centering
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/lfp_age_fe_wealth.pdf}
+    }
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/inc_age_fe_wealth.pdf}
+    }
+  \end{figure}
+\end{frame}
+\begin{frame}
+  \begin{figure}
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/hr_age_fe_wealth.pdf}
+    }
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/wage_age_fe_wealth.pdf}
+    }
+  \end{figure}
+\end{frame}
+\begin{frame}
+  \begin{figure}
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_hr_age_wealth.pdf}
+    }
+    \subfloat{
+      \includegraphics[width=50mm]{~/Schoolwork/Y2S1/Macro/Psets/PS1/output/var_wage_age_wealth.pdf}
+    }
+  \end{figure}
+\end{frame}
 % Section 4
 \section{Conclusion}
 
 \begin{frame}{Conclusion}
   \begin{itemize}
-    \item Summarize findings
-    \item Contributions
-    \item Future work
+    \item We see much of what we would expect in the data 
+    \item Hourly wage is not what I would expect 
+    \item Variance is massive, especially in wages 
   \end{itemize}
 \end{frame}
 

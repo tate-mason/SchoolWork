@@ -323,6 +323,7 @@ ggplot(lfp_age_fe, aes(age, y_m)) +
     y = "LFP Rate"
   ) + 
   theme_minimal()
+ggsave("lfp_age_fe.pdf", width = 6, height = 4)
 
 ggplot(wage_age_fe, aes(age, y_m)) +
   geom_line(size = 1.2) +
@@ -332,6 +333,7 @@ ggplot(wage_age_fe, aes(age, y_m)) +
     y = "Real Wage (2017 $)"
   ) + 
   theme_minimal()
+ggsave("wage_age_fe.pdf", width = 6, height = 4)
 
 ggplot(hr_age_fe, aes(age, y_m)) +
   geom_line(size = 1.2) +
@@ -341,6 +343,7 @@ ggplot(hr_age_fe, aes(age, y_m)) +
     y = "Hours Worked"
   ) +
   theme_minimal()
+ggsave("hr_age_fe.pdf", width = 6, height = 4)
 
 ggplot(inc_age_fe, aes(age, y_m)) +
   geom_line(size = 1.2) +
@@ -350,6 +353,7 @@ ggplot(inc_age_fe, aes(age, y_m)) +
     y = "Real Income (2017 $)"
   ) +
   theme_minimal()
+ggsave("inc_age_fe.pdf", width = 6, height = 4)
 
 ggplot(var_wage_age, aes(age, v)) +
   geom_line(size = 1.2) +
@@ -359,6 +363,7 @@ ggplot(var_wage_age, aes(age, v)) +
     y = "Variance"
   ) +
   theme_minimal()
+ggsave("var_wage_age.pdf", width = 6, height = 4)
 
 ggplot(var_hr_age, aes(age, v)) +
   geom_line(size = 1.2) +
@@ -368,6 +373,7 @@ ggplot(var_hr_age, aes(age, v)) +
     y = "Variance"
   ) +
   theme_minimal()
+ggsave("var_hr_age.pdf", width = 6, height = 4)
 ```
 
 ## Education groups
@@ -388,6 +394,12 @@ lfp_age_fe_educ <- psid_m %>%
   filter(!is.na(educ_group)) %>%
   group_by(educ_group) %>%
   group_modify(~ age_profile_fe(.x, lfp)) %>%
+  ungroup()
+
+inc_age_fe_educ <- psid_m %>%
+  filter(!is.na(educ_group)) %>%
+  group_by(educ_group) %>%
+  group_modify(~ age_profile_fe(.x, inc_real)) %>%
   ungroup()
 
 var_wage_age_educ <- psid_m %>%
@@ -413,6 +425,18 @@ ggplot(lfp_age_fe_educ, aes(age, y_m, color = educ_group)) +
     color = "Education"
   ) +
   theme_minimal()
+ggsave("lfp_age_fe_educ.pdf", width = 6, height = 4)
+
+ggplot(inc_age_fe_educ, aes(age, y_m, color = educ_group)) +
+  geom_line(size = 1.2) +
+  labs(
+    title = "Real Annual Income by Education",
+    x = "Age",
+    y = "Real Income",
+    color = "Education"
+  ) +
+  theme_minimal()
+ggsave("inc_age_fe_educ.pdf", width = 6, height = 4)
 
 ggplot(wage_age_fe_educ, aes(age, y_m, color = educ_group)) +
   geom_line(size = 1.2) +
@@ -423,6 +447,7 @@ ggplot(wage_age_fe_educ, aes(age, y_m, color = educ_group)) +
     color = "Education"
   ) +
   theme_minimal()
+ggsave("wage_age_fe_educ.pdf", width = 6, height = 4)
 
 ggplot(hour_age_fe_educ, aes(age, y_m, color = educ_group)) +
   geom_line(size = 1.2) +
@@ -433,6 +458,7 @@ ggplot(hour_age_fe_educ, aes(age, y_m, color = educ_group)) +
     color = "Education"
   ) +
   theme_minimal()
+ggsave("hr_age_fe_educ.pdf", width = 6, height = 4)
 
 ggplot(var_wage_age_educ, aes(age, v, color = educ_group)) +
   geom_line(size = 1.2) +
@@ -443,6 +469,7 @@ ggplot(var_wage_age_educ, aes(age, v, color = educ_group)) +
     color = "Education"
   ) +
   theme_minimal()
+ggsave("var_wage_age_educ.pdf", width = 6, height = 4)
 
 ggplot(var_hr_age_educ, aes(age, v, color = educ_group)) +
   geom_line(size = 1.2) +
@@ -453,6 +480,7 @@ ggplot(var_hr_age_educ, aes(age, v, color = educ_group)) +
     color = "Education"
   ) +
   theme_minimal()
+ggsave("var_hr_age_educ.pdf", width = 6, height = 4)
 ```
 
 ## Industry groups
@@ -502,6 +530,7 @@ ggplot(lfp_age_fe_ind, aes(age, y_m, color = ind_group)) +
     color = "Industry"
   ) +
   theme_minimal()
+ggsave("lfp_age_fe_ind.pdf", width = 6, height = 4)
 
 ggplot(wage_age_fe_ind, aes(age, y_m, color = ind_group)) +
   geom_line(size = 1.2) +
@@ -512,6 +541,7 @@ ggplot(wage_age_fe_ind, aes(age, y_m, color = ind_group)) +
     color = "Industry"
   ) +
   theme_minimal()
+ggsave("wage_age_fe_ind.pdf", width = 6, height = 4)
 
 ggplot(hour_age_fe_ind, aes(age, y_m, color = ind_group)) +
   geom_line(size = 1.2) +
@@ -522,6 +552,7 @@ ggplot(hour_age_fe_ind, aes(age, y_m, color = ind_group)) +
     color = "Industry"
   ) +
   theme_minimal()
+ggsave("hr_age_fe_ind.pdf", width = 6, height = 4)
 
 ggplot(inc_age_fe_ind, aes(age, y_m, color = ind_group)) +
   geom_line(size = 1.2) +
@@ -532,6 +563,7 @@ ggplot(inc_age_fe_ind, aes(age, y_m, color = ind_group)) +
     color = "Industry"
   ) +
   theme_minimal()
+ggsave("inc_age_fe_ind.pdf", width = 6, height = 4)
 
 ggplot(var_wage_age_ind, aes(age, v, color = ind_group)) +
   geom_line(size = 1.2) +
@@ -542,6 +574,7 @@ ggplot(var_wage_age_ind, aes(age, v, color = ind_group)) +
     color = "Industry"
   ) +
   theme_minimal()
+ggsave("var_wage_age_ind.pdf", width = 6, height = 4)
 
 ggplot(var_hr_age_ind, aes(age, v, color = ind_group)) +
   geom_line(size = 1.2) +
@@ -552,6 +585,7 @@ ggplot(var_hr_age_ind, aes(age, v, color = ind_group)) +
     color = "Industry"
   ) +
   theme_minimal()
+ggsave("var_hr_age_ind.pdf", width = 6, height = 4)
 ```
 
 ## Wealth groups
@@ -601,6 +635,7 @@ ggplot(lfp_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
     color = "Wealth"
   ) +
   theme_minimal()
+ggsave("lfp_age_fe_wealth.pdf", width = 6, height = 4)
 
 ggplot(wage_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
   geom_line(size = 1.2) +
@@ -611,6 +646,7 @@ ggplot(wage_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
     color = "Wealth"
   ) +
   theme_minimal()
+ggsave("wage_age_fe_wealth.pdf", width = 6, height = 4)
 
 ggplot(hour_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
   geom_line(size = 1.2) +
@@ -621,6 +657,7 @@ ggplot(hour_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
     color = "Wealth"
   ) +
   theme_minimal()
+ggsave("hr_age_fe_wealth.pdf", width = 6, height = 4)
 
 ggplot(inc_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
   geom_line(size = 1.2) +
@@ -631,6 +668,7 @@ ggplot(inc_age_fe_wealth, aes(age, y_m, color = wealth_group)) +
     color = "Wealth"
   ) +
   theme_minimal()
+ggsave("inc_age_fe_wealth.pdf", width = 6, height = 4)
 
 ggplot(var_wage_age_wealth, aes(age, v, color = wealth_group)) +
   geom_line(size = 1.2) +
@@ -641,6 +679,7 @@ ggplot(var_wage_age_wealth, aes(age, v, color = wealth_group)) +
     color = "Wealth"
   ) +
   theme_minimal()
+ggsave("var_wage_age_wealth.pdf", width = 6, height = 4)
 
 ggplot(var_hr_age_wealth, aes(age, v, color = wealth_group)) +
   geom_line(size = 1.2) +
@@ -651,6 +690,7 @@ ggplot(var_hr_age_wealth, aes(age, v, color = wealth_group)) +
     color = "Wealth"
   ) +
   theme_minimal()
+ggsave("var_hr_age_wealth.pdf", width = 6, height = 4)
 ```
 
 
