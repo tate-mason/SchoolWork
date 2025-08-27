@@ -4,7 +4,14 @@ author: Tate Mason
 format: pdf
 ---
 
-## Part 1: Overall Trends:
+# Description of graphs and data
+
+As can be seen, there are overarching patterns which can be seen no matter how we slice the data. For instance, across all groups we see that
+as the units approach age 60, labor hours fall, incomes rise, and variance of hours worked spikes. We see heterogeneity across hourly wages, with
+unexpected results like blue collar workers earning more on an hourly basis and high school graduates who did not attend college exhibiting the same
+behavior. Income is much more in line with expectation, with the wealthiest, most educated, and white collar units having more annualized income than
+their counterparts in the sample. Labor force participation is about what should be expected, with those with higher education and wealth being consistently
+higher in this ranking. 
 
 ```{r, output=FALSE}
 library(AER)
@@ -17,11 +24,11 @@ library(Hmisc)
 library(knitr)
 ```
 
-```{r}
+```{r, output=FALSE}
 df <- read_dta("~/SchoolWork/Y2S1/Macro/Data/PSID/PSID.dta")
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, output=FALSE}
 psid_99_clean <- df %>%
   transmute(
     year = 1999,
@@ -305,13 +312,11 @@ sum_tab <- bind_rows(tab_overall, tab_educ, tab_ind, tab_wealth) %>%
     across(ends_with("_pct"), ~ round(.x, 1)),
     avg_age = round(mean_age, 1)
   )
-
-kable(sum_tab, digits = 1, align = "l")
 ```
 
 # Age profiles
 
-```{r}
+```{r, echo=FALSE, output=FALSE}
 wm <- function(x,w) weighted.mean(x, w, na.rm=TRUE)
 
 age_profile_fe <- function(data, y, base_age = 25, w_col = weight) {
@@ -386,7 +391,9 @@ hr_age_fe <- age_profile_fe(psid_m, hr_worked)
 inc_age_fe <- age_profile_fe(psid_m, inc_real)
 var_wage_age <- var_prof_year_net(psid_m, wage_real)
 var_hr_age <- var_prof_year_net(psid_m, hr_worked)
+```
 
+```{r}
 ggplot(lfp_age_fe, aes(age, y_m)) +
   geom_line(size = 1.2) +
   labs(
@@ -765,6 +772,131 @@ ggplot(var_hr_age_wealth, aes(age, v, color = wealth_tectile)) +
 ggsave("var_hr_age_wealth.pdf", width = 6, height = 4)
 ```
 
+```{=html}
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Group</th>
+      <th>Category</th>
+      <th>Sample Size</th>
+      <th>Observations</th>
+      <th>College (%)</th>
+      <th>White Collar (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 1999 -->
+    <tr><td>1999</td><td>All</td><td>All</td><td>1847</td><td>3795</td><td>22.6</td><td>57</td></tr>
+    <tr><td></td><td>Education</td><td>HS Dropout</td><td>807</td><td>1288</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>HS Grad</td><td>873</td><td>1288</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>College +</td><td>873</td><td>1288</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>Blue Collar</td><td>507</td><td>629</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>White Collar</td><td>507</td><td>629</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Bottom 25%</td><td>1847</td><td>3795</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Middle 50%</td><td>1847</td><td>3795</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Top 25%</td><td>1847</td><td>3795</td><td></td><td></td></tr>
 
+    <!-- 2001 -->
+    <tr><td>2001</td><td>All</td><td>All</td><td>1855</td><td>4078</td><td>24.1</td><td>55.7</td></tr>
+    <tr><td></td><td>Education</td><td>HS Dropout</td><td>883</td><td>1358</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>HS Grad</td><td>883</td><td>1358</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>College +</td><td>883</td><td>1358</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>Blue Collar</td><td>541</td><td>646</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>White Collar</td><td>541</td><td>646</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Bottom 25%</td><td>1855</td><td>4078</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Middle 50%</td><td>1855</td><td>4078</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Top 25%</td><td>1855</td><td>4078</td><td></td><td></td></tr>
+
+    <!-- 2003 -->
+    <tr><td>2003</td><td>All</td><td>All</td><td>1844</td><td>4209</td><td>24.1</td><td>28.2</td></tr>
+    <tr><td></td><td>Education</td><td>HS Dropout</td><td>892</td><td>1384</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>HS Grad</td><td>892</td><td>1384</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>College +</td><td>892</td><td>1384</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>Blue Collar</td><td>597</td><td>773</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>White Collar</td><td>597</td><td>773</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Bottom 25%</td><td>1844</td><td>4209</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Middle 50%</td><td>1844</td><td>4209</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Top 25%</td><td>1844</td><td>4209</td><td></td><td></td></tr>
+
+    <!-- 2005 -->
+    <tr><td>2005</td><td>All</td><td>All</td><td>1814</td><td>4231</td><td>22.1</td><td>26.4</td></tr>
+    <tr><td></td><td>Education</td><td>HS Dropout</td><td>872</td><td>1380</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>HS Grad</td><td>872</td><td>1380</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>College +</td><td>872</td><td>1380</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>Blue Collar</td><td>607</td><td>793</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>White Collar</td><td>607</td><td>793</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Bottom 25%</td><td>1814</td><td>4231</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Middle 50%</td><td>1814</td><td>4231</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Top 25%</td><td>1814</td><td>4231</td><td></td><td></td></tr>
+
+    <!-- 2007 -->
+    <tr><td>2007</td><td>All</td><td>All</td><td>1799</td><td>4349</td><td>21.2</td><td>25.0</td></tr>
+    <tr><td></td><td>Education</td><td>HS Dropout</td><td>866</td><td>1387</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>HS Grad</td><td>866</td><td>1387</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>College +</td><td>866</td><td>1387</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>Blue Collar</td><td>642</td><td>839</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>White Collar</td><td>642</td><td>839</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Bottom 25%</td><td>1799</td><td>4349</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Middle 50%</td><td>1799</td><td>4349</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Top 25%</td><td>1799</td><td>4349</td><td></td><td></td></tr>
+
+    <!-- 2009 -->
+    <tr><td>2009</td><td>All</td><td>All</td><td>1767</td><td>4421</td><td>29.3</td><td>26.2</td></tr>
+    <tr><td></td><td>Education</td><td>HS Dropout</td><td>929</td><td>1522</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>HS Grad</td><td>929</td><td>1522</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>College +</td><td>929</td><td>1522</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>Blue Collar</td><td>627</td><td>856</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>White Collar</td><td>627</td><td>856</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Bottom 25%</td><td>1767</td><td>4421</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Middle 50%</td><td>1767</td><td>4421</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Top 25%</td><td>1767</td><td>4421</td><td></td><td></td></tr>
+
+    <!-- 2011 -->
+    <tr><td>2011</td><td>All</td><td>All</td><td>1713</td><td>4441</td><td>28.0</td><td>27.5</td></tr>
+    <tr><td></td><td>Education</td><td>HS Dropout</td><td>921</td><td>1536</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>HS Grad</td><td>921</td><td>1536</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>College +</td><td>921</td><td>1536</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>Blue Collar</td><td>557</td><td>777</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>White Collar</td><td>557</td><td>777</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Bottom 25%</td><td>1713</td><td>4441</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Middle 50%</td><td>1713</td><td>4441</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Top 25%</td><td>1713</td><td>4441</td><td></td><td></td></tr>
+
+    <!-- 2013 -->
+    <tr><td>2013</td><td>All</td><td>All</td><td>1701</td><td>4475</td><td>27.8</td><td>27.6</td></tr>
+    <tr><td></td><td>Education</td><td>HS Dropout</td><td>928</td><td>1555</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>HS Grad</td><td>928</td><td>1555</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>College +</td><td>928</td><td>1555</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>Blue Collar</td><td>566</td><td>782</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>White Collar</td><td>566</td><td>782</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Bottom 25%</td><td>1701</td><td>4475</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Middle 50%</td><td>1701</td><td>4475</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Top 25%</td><td>1701</td><td>4475</td><td></td><td></td></tr>
+
+    <!-- 2015 -->
+    <tr><td>2015</td><td>All</td><td>All</td><td>1650</td><td>4365</td><td>27.3</td><td>28.1</td></tr>
+    <tr><td></td><td>Education</td><td>HS Dropout</td><td>921</td><td>1512</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>HS Grad</td><td>921</td><td>1512</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>College +</td><td>921</td><td>1512</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>Blue Collar</td><td>566</td><td>782</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>White Collar</td><td>566</td><td>782</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Bottom 25%</td><td>1650</td><td>4365</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Middle 50%</td><td>1650</td><td>4365</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Top 25%</td><td>1650</td><td>4365</td><td></td><td></td></tr>
+
+    <!-- 2017 -->
+    <tr><td>2017</td><td>All</td><td>All</td><td>1908</td><td>4684</td><td>49.3</td><td>NA</td></tr>
+    <tr><td></td><td>Education</td><td>HS Dropout</td><td>880</td><td>1399</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>HS Grad</td><td>880</td><td>1399</td><td></td><td></td></tr>
+    <tr><td></td><td>Education</td><td>College +</td><td>880</td><td>1399</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>Blue Collar</td><td>551</td><td>764</td><td></td><td></td></tr>
+    <tr><td></td><td>Industry</td><td>White Collar</td><td>551</td><td>764</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Bottom 25%</td><td>1908</td><td>4684</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Middle 50%</td><td>1908</td><td>4684</td><td></td><td></td></tr>
+    <tr><td></td><td>Wealth</td><td>Top 25%</td><td>1908</td><td>4684</td><td></td><td></td></tr>
+  </tbody>
+</table>
+```
 
 
