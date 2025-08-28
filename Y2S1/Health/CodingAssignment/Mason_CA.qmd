@@ -1,0 +1,19 @@
+---
+title: "Reduced Form Coding Assignment - ECON 8250"
+author: "Tate Mason"
+format: pdf
+---
+
+# Fixed Effects Model
+
+## 1. Research Question
+
+How does insurance premium rise with age and risk preference?
+
+```{r}
+n <- 1000
+t <- 50
+
+
+
+## 2. 
