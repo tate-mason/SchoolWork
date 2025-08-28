@@ -6,12 +6,20 @@ format: pdf
 
 # Description of graphs and data
 
-As can be seen, there are overarching patterns which can be seen no matter how we slice the data. For instance, across all groups we see that
-as the units approach age 60, labor hours fall, incomes rise, and variance of hours worked spikes. We see heterogeneity across hourly wages, with
-unexpected results like blue collar workers earning more on an hourly basis and high school graduates who did not attend college exhibiting the same
-behavior. Income is much more in line with expectation, with the wealthiest, most educated, and white collar units having more annualized income than
-their counterparts in the sample. Labor force participation is about what should be expected, with those with higher education and wealth being consistently
-higher in this ranking. 
+There are some key data facts worth pointing out. First, in the education data, we see that 
+units act much how one would expect, with the college educated having higher LFP rates, higher annual
+incomes, and higher hourly wages, upon hitting age 40 when many of them have entered long term careers
+if pursuing post graduate education. The variance of wages and hours worked is also very erratic, especially
+for those with college education. When looking at industry, more interesting patterns arise with a larger gulf
+in LFP, hours worked, and income for the white collar segment. Though we do see higher hourly wages for blue 
+collar workers, which could perhaps be explained by white collar incomes being comprised of other sources than
+wages. The variance of income sees a massive spike for the white collar agents at age 56, but is otherwise in 
+lock step with blue collar agents, perhaps due to late career advancement to executive roles or otherwise growing in career
+stature. When segmenting by wealth, the wealthy have higher LFP by a wide margin with slightly higher weekly hours
+worked as well. Wages are much less static, with rankings shifting frequently until around 45 before a ranking is defined for 
+the rest of the time period. Income, of course, is a wide gulf from high to medium and then a smaller gap between medium and low.
+This makes sense given we are segmenting on wealth. Again, in this specification, we see massive variances of wage and hours
+worked, perhaps due to high wealth individuals earnings fluctuating with age and earlier retirement opportunities.
 
 ```{r, output=FALSE}
 library(AER)
@@ -393,7 +401,7 @@ var_wage_age <- var_prof_year_net(psid_m, wage_real)
 var_hr_age <- var_prof_year_net(psid_m, hr_worked)
 ```
 
-```{r}
+```{r, echo=FALSE}
 ggplot(lfp_age_fe, aes(age, y_m)) +
   geom_line(size = 1.2) +
   labs(
@@ -456,7 +464,7 @@ ggsave("var_hr_age.pdf", width = 6, height = 4)
 ```
 
 ## Education groups
-```{r}
+```{r, echo=FALSE}
 wage_age_fe_educ <- psid_m %>%
   filter(!is.na(educ_group)) %>%
   group_by(educ_group) %>%
@@ -494,7 +502,7 @@ var_hr_age_educ <- psid_m %>%
   ungroup()
 ```
 
-```{r}
+```{r, echo=FALSE}
 ggplot(lfp_age_fe_educ, aes(age, y_m, color = educ_group)) +
   geom_line(size = 1.2) +
   labs(
@@ -563,7 +571,7 @@ ggsave("var_hr_age_educ.pdf", width = 6, height = 4)
 ```
 
 ## Industry groups
-```{r}
+```{r, echo=FALSE}
 wage_age_fe_ind <- psid_m %>%
   filter(!is.na(ind_group)) %>%
   group_by(ind_group) %>%
@@ -668,7 +676,7 @@ ggsave("var_hr_age_ind.pdf", width = 6, height = 4)
 ```
 
 ## Wealth groups
-```{r}
+```{r, echo=FALSE}
 wage_age_fe_wealth <- psid_m %>%
   filter(!is.na(wealth_tectile)) %>%
   group_by(wealth_tectile) %>%
