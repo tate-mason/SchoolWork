@@ -30,42 +30,10 @@ Describe the regression results for each of your regressions in words.
 
 How does insurance premium rise with age and risk preference?
 
-## 2. 
-
-```{r, output=FALSE}
-set.seed(0219)
+```{r}
 n <- 1000
-id <- 1:n
-age <- sample(18:70, n, replace = TRUE)
-risk_pref <- rnorm(n, mean = 0, sd = 1)
-unobserved_health <- rnorm(n, mean = 0, sd = 1)
-insprem <- 200 + 5 * age + 20 * risk_pref + 10 * unobserved_health 
-+ rnorm(n, mean = 0, sd = 10)
-data <- data.frame(id, age, risk_pref, insprem, unobserved_health)
+t <- 50
+
 ```
 
-Each agent is a unit, with n=1000. The true model is: $InsPrem_i = \beta_0 + \beta_1\cdot Age_i + \beta_2\cdot RiskPref_i + \beta_3\cdot UnobsHealth_i + \epsilon_i$,
-where $InsPrem_i$ is the insurance premium for agent i, $Age_i$ is the age of agent i, $RiskPref_i$ is the risk preference of agent i, $UnobsHealth_i$ is the
-unobserved health status of agent i, and $\epsilon_i$ is the error term. The true coefficients are: $\beta_0 = 200$, $\beta_1 = 5$, $\beta_2 = 20$, $\beta_3 = 10$.
-
-## 3. Regressions
-
-The regression with endogeneity problem is: $InsPrem_i = \alpha_0 + \alpha_1\cdot Age_i + \alpha_2\cdot RiskPref_i + u_i$, where $u_i$ is the error term
-which includes the unobserved health status. The regression that "fixes" the endogeneity problem is: $InsPrem_i = \gamma_0 + \gamma_1\cdot Age_i + 
-\gamma_2\cdot RiskPref_i + \gamma_3\cdot UnobsHealth_i + v_i$, where $v_i$ is the error term. 
-
-## 4. Summary statistics
-```{r}
-library(psych)
-describe(data)
-```
-
-## 5. Regression results
-```{r}
-library(lmtest)
-library(sandwich)
-model1 <- lm(insprem ~ age + risk_pref, data = data)
-model2 <- lm(insprem ~ age + risk_pref + unobserved_health, data = data)
-summary(model1)
-summary(model2)
-``` 
+## 2. 
