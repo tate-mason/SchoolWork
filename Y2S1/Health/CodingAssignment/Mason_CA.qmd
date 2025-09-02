@@ -4,8 +4,6 @@ author: "Tate Mason"
 format: pdf
 ---
 
-# Fixed Effects Model
-
 1. Start by coming up with a research question where you might use this research design.
 This does not need to be too creative, I just want an example. However, I would prefer
 if it wasn’t the one I used in class and was vaguely related to health. Intuitively and
@@ -26,6 +24,8 @@ outcome variables. You do not need to show me summary statistics for fixed effec
 stata variable names), and not too many variables (i.e. don’t display fixed effects).
 Describe the regression results for each of your regressions in words.
 
+# Fixed Effects Model
+
 ## 1. Research Question
 
 How does insurance premium rise with age and risk preference?
@@ -44,15 +44,18 @@ insprem <- 200 + 5 * age + 20 * risk_pref + 10 * unobserved_health
 data <- data.frame(id, age, risk_pref, insprem, unobserved_health)
 ```
 
-Each agent is a unit, with n=1000. The true model is: $InsPrem_i = \beta_0 + \beta_1\cdot Age_i + \beta_2\cdot RiskPref_i + \beta_3\cdot UnobsHealth_i + \epsilon_i$,
+Each agent is a unit, with n=1000. The true model is: 
+$$InsPrem_i = \beta_0 + \beta_1\cdot Age_i + \beta_2\cdot RiskPref_i + \beta_3\cdot UnobsHealth_i + \epsilon_i,$$
 where $InsPrem_i$ is the insurance premium for agent i, $Age_i$ is the age of agent i, $RiskPref_i$ is the risk preference of agent i, $UnobsHealth_i$ is the
 unobserved health status of agent i, and $\epsilon_i$ is the error term. The true coefficients are: $\beta_0 = 200$, $\beta_1 = 5$, $\beta_2 = 20$, $\beta_3 = 10$.
 
 ## 3. Regressions
 
-The regression with endogeneity problem is: $InsPrem_i = \alpha_0 + \alpha_1\cdot Age_i + \alpha_2\cdot RiskPref_i + u_i$, where $u_i$ is the error term
-which includes the unobserved health status. The regression that "fixes" the endogeneity problem is: $InsPrem_i = \gamma_0 + \gamma_1\cdot Age_i + 
-\gamma_2\cdot RiskPref_i + \gamma_3\cdot UnobsHealth_i + v_i$, where $v_i$ is the error term. 
+The regression with endogeneity problem is: 
+$$InsPrem_i = \alpha_0 + \alpha_1\cdot Age_i + \alpha_2\cdot RiskPref_i + u_i,$$
+where $u_i$ is the error term which includes the unobserved health status. The regression that "fixes" the endogeneity problem is: 
+$$InsPrem_i = \gamma_0 + \gamma_1\cdot Age_i + \gamma_2\cdot RiskPref_i + \gamma_3\cdot UnobsHealth_i + v_i,$$
+where $v_i$ is the error term. 
 
 ## 4. Summary statistics
 ```{r}
@@ -69,3 +72,54 @@ model2 <- lm(insprem ~ age + risk_pref + unobserved_health, data = data)
 summary(model1)
 summary(model2)
 ``` 
+
+The regression results show that in the first model, age and risk preference are both positively correlated with insurance premium, but the coefficients are biased
+due to the omission of unobserved health status. In the second model, after including unobserved health status, the coefficients for age and risk preference are more
+accurate and reflect their true impact on insurance premium. The coefficient for unobserved health status is also positive, indicating that better health leads to 
+lower insurance premiums.
+
+# Difference-in-Differences Model
+
+## 1. Research Question
+How does the implementation of a tax on tobacco products affect respiratory health outcomes?
+
+## 2. Dataset basics
+```{r, output=FALSE}
+set.seed(0219)
+n <- 1000
+id <- 1:n
+time <- rep(c(0, 1), each = n/2)
+treatment <- rep(c(0, 1), times = n/2)
+pre_health <- rnorm(n, mean = 50, sd = 10)
+post_health <- pre_health - 5 * treatment * time + rnorm(n, mean = 0, sd = 5)
+data_diff <- data.frame(id, time, treatment, pre_health, post_health)
+```
+
+The unit of observation is an individual, with n=1000. The true model is:
+$$Health_{it} = \delta_0 + \delta_1\cdot Time_t + \delta_2\cdot Treatment_i + \delta_3\cdot (Time_t \times Treatment_i) + \epsilon_{it},$$
+where $Health_{it}$ is the health outcome for individual i at time t, $Time_t$ is a binary variable indicating pre (0) or post (1) tax implementation, $Treatment_i$ is a binary
+variable indicating whether individual i is in the treatment group (1) or control group (0), and $\epsilon_{it}$ is the error term. The true coefficients are: $\delta_0 = 50$, $\delta_1 = 0$, $\delta_2 = 0$, $\delta_3 = -5$.
+
+## 3. Regressions
+The regression with endogeneity problem is:
+$$Health_{it} = \theta_0 + \theta_1\cdot Time_t + \theta_2\cdot Treatment_i + e_{it},$$
+where $e_{it}$ is the error term. The regression that "fixes" the endogeneity problem is:
+$$Health_{it} = \phi_0 + \phi_1\cdot Time_t + \phi_2\cdot Treatment_i + \phi_3\cdot (Time_t \times Treatment_i) + f_{it},$$
+where $f_{it}$ is the error term.
+
+## 4. Summary statistics
+```{r}
+describe(data_diff)
+```
+
+## 5. Regression results
+```{r}
+model3 <- lm(post_health ~ time + treatment, data = data_diff)
+model4 <- lm(post_health ~ time + treatment + I(time * treatment), data = data_diff)
+summary(model3)
+summary(model4)
+```
+
+The regression results show that in the first model, time and treatment are not significant predictors of health outcomes. In the second model, after including the interaction
+term, the coefficient for the interaction term is negative and significant, indicating that the implementation of the tax on tobacco products has a significant negative effect on respiratory health outcomes
+in the treatment group compared to the control group.
