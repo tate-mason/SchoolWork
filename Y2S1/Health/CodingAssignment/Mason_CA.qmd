@@ -38,23 +38,22 @@ n <- 1000
 id <- 1:n
 age <- sample(18:70, n, replace = TRUE)
 risk_pref <- rnorm(n, mean = 0, sd = 1)
-unobserved_health <- rnorm(n, mean = 0, sd = 1)
-insprem <- 200 + 5 * age + 20 * risk_pref + 10 * unobserved_health 
+insprem <- 200 + 5 * age + 20 * risk_pref 
 + rnorm(n, mean = 0, sd = 10)
-data <- data.frame(id, age, risk_pref, insprem, unobserved_health)
+data <- data.frame(id, age, risk_pref, insprem)
 ```
 
 Each agent is a unit, with n=1000. The true model is: 
-$$InsPrem_i = \beta_0 + \beta_1\cdot Age_i + \beta_2\cdot RiskPref_i + \beta_3\cdot UnobsHealth_i + \epsilon_i,$$
-where $InsPrem_i$ is the insurance premium for agent i, $Age_i$ is the age of agent i, $RiskPref_i$ is the risk preference of agent i, $UnobsHealth_i$ is the
-unobserved health status of agent i, and $\epsilon_i$ is the error term. The true coefficients are: $\beta_0 = 200$, $\beta_1 = 5$, $\beta_2 = 20$, $\beta_3 = 10$.
+$$InsPrem_i = \beta_0 + \beta_1\cdot Age_i + \beta_2\cdot RiskPref_i + \epsilon_i,$$
+where $InsPrem_i$ is the insurance premium for agent i, $Age_i$ is the age of agent i, $RiskPref_i$ is the risk preference of agent i,
+and $\epsilon_i$ is the error term. The true coefficients are: $\beta_0 = 200$, $\beta_1 = 5$, $\beta_2 = 20$, $\beta_3 = 10$.
 
 ## 3. Regressions
 
 The regression with endogeneity problem is: 
-$$InsPrem_i = \alpha_0 + \alpha_1\cdot Age_i + \alpha_2\cdot RiskPref_i + u_i,$$
-where $u_i$ is the error term which includes the unobserved health status. The regression that "fixes" the endogeneity problem is: 
-$$InsPrem_i = \gamma_0 + \gamma_1\cdot Age_i + \gamma_2\cdot RiskPref_i + \gamma_3\cdot UnobsHealth_i + v_i,$$
+$$InsPrem_i = \alpha_0 + \alpha_1\cdot Age_i + u_i,$$
+where $u_i$ is the error term which includes the risk preference parameter. The regression that "fixes" the endogeneity problem is: 
+$$InsPrem_i = \gamma_0 + \gamma_1\cdot Age_i + \gamma_2\cdot RiskPref_i +  v_i,$$
 where $v_i$ is the error term. 
 
 ## 4. Summary statistics
@@ -67,59 +66,67 @@ describe(data)
 ```{r}
 library(lmtest)
 library(sandwich)
-model1 <- lm(insprem ~ age + risk_pref, data = data)
-model2 <- lm(insprem ~ age + risk_pref + unobserved_health, data = data)
+model1 <- lm(insprem ~ age, data = data)
+model2 <- lm(insprem ~ age + risk_pref, data = data)
 summary(model1)
 summary(model2)
 ``` 
 
-The regression results show that in the first model, age and risk preference are both positively correlated with insurance premium, but the coefficients are biased
-due to the omission of unobserved health status. In the second model, after including unobserved health status, the coefficients for age and risk preference are more
-accurate and reflect their true impact on insurance premium. The coefficient for unobserved health status is also positive, indicating that better health leads to 
-lower insurance premiums.
-
-# Difference-in-Differences Model
+# IV Model
 
 ## 1. Research Question
-How does the implementation of a tax on tobacco products affect respiratory health outcomes?
 
-## 2. Dataset basics
+How does exercise frequency affect mental health, using weather as an instrument?
+
+## 2. Dataset
+
 ```{r, output=FALSE}
 set.seed(0219)
 n <- 1000
 id <- 1:n
-time <- rep(c(0, 1), each = n/2)
-treatment <- rep(c(0, 1), times = n/2)
-pre_health <- rnorm(n, mean = 50, sd = 10)
-post_health <- pre_health - 5 * treatment * time + rnorm(n, mean = 0, sd = 5)
-data_diff <- data.frame(id, time, treatment, pre_health, post_health)
+exercise_freq <- rnorm(n, mean = 3, sd = 1)
+weather <- rnorm(n, mean = 0, sd = 1)
+mental_health <- 50 + 2 * exercise_freq + 5 * weather + rnorm(n, mean = 0, sd = 5)
+data_iv <- data.frame(id, exercise_freq, weather, mental_health)
 ```
 
-The unit of observation is an individual, with n=1000. The true model is:
-$$Health_{it} = \delta_0 + \delta_1\cdot Time_t + \delta_2\cdot Treatment_i + \delta_3\cdot (Time_t \times Treatment_i) + \epsilon_{it},$$
-where $Health_{it}$ is the health outcome for individual i at time t, $Time_t$ is a binary variable indicating pre (0) or post (1) tax implementation, $Treatment_i$ is a binary
-variable indicating whether individual i is in the treatment group (1) or control group (0), and $\epsilon_{it}$ is the error term. The true coefficients are: $\delta_0 = 50$, $\delta_1 = 0$, $\delta_2 = 0$, $\delta_3 = -5$.
+Each agent is a unit, with n=1000. The true model is:
+
+$$MentalHealth_i = \beta_0 + \beta_1\cdot ExerciseFreq_i + \beta_2\cdot Weather_i + \epsilon_i,$$
+
+where $MentalHealth_i$ is the mental health score for agent i, $ExerciseFreq_i$ is the exercise 
+frequency of agent i, $Weather_i$ is the weather condition for agent i, and $\epsilon_i$ is the error term.
+The true coefficients are: $\beta_0 = 50$, $\beta_1 = 2$, $\beta_2 = 5$.
 
 ## 3. Regressions
 The regression with endogeneity problem is:
-$$Health_{it} = \theta_0 + \theta_1\cdot Time_t + \theta_2\cdot Treatment_i + e_{it},$$
-where $e_{it}$ is the error term. The regression that "fixes" the endogeneity problem is:
-$$Health_{it} = \phi_0 + \phi_1\cdot Time_t + \phi_2\cdot Treatment_i + \phi_3\cdot (Time_t \times Treatment_i) + f_{it},$$
-where $f_{it}$ is the error term.
+$$MentalHealth_i = \alpha_0 + \alpha_1\cdot ExerciseFreq_i + u_i,$$
+
+where $u_i$ is the error term which includes the weather parameter. The regression that "fixes" the endogeneity problem using IV is:
+First stage:
+
+$$ExerciseFreq_i = \pi_0 + \pi_1\cdot Weather_i + w_i,$$
+
+Second stage:
+
+$$MentalHealth_i = \gamma_0 + \gamma_1\cdot \hat{ExerciseFreq}_i + v_i,$$
+
+where $\hat{ExerciseFreq}_i$ is the predicted exercise frequency from the first stage, and $v_i$ is the error term.
 
 ## 4. Summary statistics
 ```{r}
-describe(data_diff)
+describe(data_iv)
 ```
 
 ## 5. Regression results
 ```{r}
-model3 <- lm(post_health ~ time + treatment, data = data_diff)
-model4 <- lm(post_health ~ time + treatment + I(time * treatment), data = data_diff)
-summary(model3)
-summary(model4)
+library(AER)
+model1_iv <- lm(mental_health ~ exercise_freq, data = data_iv)
+model2_iv <- ivreg(mental_health ~ exercise_freq | weather, data = data_iv)
+summary(model1_iv)
+summary(model2_iv)
 ```
 
-The regression results show that in the first model, time and treatment are not significant predictors of health outcomes. In the second model, after including the interaction
-term, the coefficient for the interaction term is negative and significant, indicating that the implementation of the tax on tobacco products has a significant negative effect on respiratory health outcomes
-in the treatment group compared to the control group.
+As can be seen from the regression results, the first model without the instrument shows a biased estimate of the effect of exercise 
+frequency on mental health due to omitted variable bias. The second model using weather as an instrument provides a more accurate 
+estimate of the causal effect of exercise frequency on mental health.
