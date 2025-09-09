@@ -14,6 +14,8 @@ library(dplyr)
 library(ipumsr)
 library(here)
 library(tidyr)
+library(psych)
+library(stargazer)
 ```
 
 ```{r}
@@ -23,6 +25,28 @@ ddi <- read_ipums_ddi(here("data", "usa_00028.xml")) # Reading in the DDI
 data <- read_ipums_micro(ddi) # Formalizing the microdata c/o IPUMS - UMN
 ```
 
+```{r}
+# Initial data exploration
+str(data) # Structure of the data
+summary(data) # Summary statistics
+head(data) # First few rows of the data
+describe(data$INCTOT)
+```
 
-
-
+# Data cleaning and transformation
+data_clean <- data %>%
+  sort_by(
+    HHID,
+    pernum
+  ) %>%
+  filter(
+    AGE >= 40 & AGE <= 60, # Mid-late career adults
+    pernum == 1, # HH heads only
+    RETIRED != 1 # Not retired
+  ) %>% # Filter for mid-late career adults who are not at risk of retiring 
+  mutate(
+    income = ifelse(INCTOT < 0, 0, INCTOT), # Replace negative income values with 0
+    log_income = log(income + 1), # Log-transform income
+    city = 
+  )
+```

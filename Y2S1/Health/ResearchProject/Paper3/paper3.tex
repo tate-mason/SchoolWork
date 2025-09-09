@@ -152,7 +152,7 @@ to addicts once they find a willing prescriber.
 \subsection{Theoretical Framework}
 \label{subsec:framework}
 
-\subsubsection{Agents and Functions}
+\subsubsection*{Agents and Functions}
 \label{subsubsec:agents&functions}
 There will be two classes of agents in this model, physicians and addicts. 
 \begin{gather*}
@@ -185,12 +185,25 @@ The objective function of the prescriber is:
 
 Where $i_i$ is the cost of insurance for a physician. All other variables are defined above. 
 
-\subsubsection{Equilibrium and Demand/Supply Behavior}
+\subsubsection*{Comparative Statics and Counterfactuals}
+\label{subsubsec:comparative&counterfactuals}
+
+Understanding how willingness to pay and price of a visit affect the equilibrium would be of importance, as these would have a direct effect on the equilibrium matching.
+For a counterfactual, I am interested in modeling some sort of rehabilitation "punishment" for being caught searching. This would be of policy relevance due to the ongoing national drug epidemic.
+Further, I think another comparative static of interest would be the risk probability changing, and responses of both addicts and prescribers.
+
+\subsubsection*{Equilibrium and Demand/Supply Behavior}
 \label{subsubsec:eq&behavior}
 
 Addicts will have monotonic demand, demanding more and more until death due to tolerance parameter $\gamma_i^t$. Physicians will demand new patients until $r_i = p_jx_j$, or until they are not willing to take on any
 more risk in exchange for monetary gain. Equilibrium is achieved when all doctors are matched to either an addict or nothing. Preference ordering of doctors will be dependent on risk tolerance and WTP of addicts.
 For addicts, preferences are determined by willingness to prescribe and proximity. To accomplish these facets, I will need to specify a matching algorithm and a search function for addicts.
+
+\subsubsection*{To-Do}
+\label{subsubsec:todo}
+
+Still under consideration are how to model things like the risk probability, utility from prescriptions, and if the penalty of being caught as an addict removes them from the mechanism or if it
+just makes search cost increase.
 
 % Describe your approach in sufficient detail for reproducibility.
 % Include mathematical formulations, algorithms, and theoretical analysis as needed.

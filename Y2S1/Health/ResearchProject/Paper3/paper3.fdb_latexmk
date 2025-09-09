@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1757433847.07016 "paper3.tex" "paper3.pdf" "paper3" 1757433848.12368 2
+["pdflatex"] 1757437570.84059 "paper3.tex" "paper3.pdf" "paper3" 1757437571.72613 2
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -201,9 +201,9 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1754488232 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "paper3.aux" 1757433847.9803 4719 9a2da0aea67bafe02e09e9e7a534e4cd "pdflatex"
-  "paper3.out" 1757433847.98288 3296 2b2575efe5a12d4b32dd68d7eedf6e83 "pdflatex"
-  "paper3.tex" 1757433845.78051 10402 5d3a44e9f2f28f34ea59911306bebc20 ""
+  "paper3.aux" 1757437571.5873 4576 dff981435d14eb8630312ef792b3d815 "pdflatex"
+  "paper3.out" 1757437571.58996 2855 d9415409da226cefe2633bdc22f53582 "pdflatex"
+  "paper3.tex" 1757437570.49958 11293 c3d9434d7194c3b1dbf4d36259056191 ""
   (generated)
   "paper3.aux"
   "paper3.log"
