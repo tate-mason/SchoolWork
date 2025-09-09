@@ -1,0 +1,28 @@
+---
+title: "Data Cleaning for Macro Project"
+author: "Tate Mason"
+format: pdf
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Load necessary libraries
+library(dplyr)
+library(ipumsr)
+library(here)
+library(tidyr)
+```
+
+```{r}
+# Read in the IPUMS data
+here() # Check working directory
+ddi <- read_ipums_ddi(here("data", "usa_00028.xml")) # Reading in the DDI
+data <- read_ipums_micro(ddi) # Formalizing the microdata c/o IPUMS - UMN
+```
+
+
+
+
