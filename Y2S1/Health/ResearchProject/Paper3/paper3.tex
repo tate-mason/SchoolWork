@@ -29,8 +29,8 @@
     filecolor=magenta,      
     urlcolor=cyan,
     citecolor=red,
-    pdftitle={Your Paper Title},
-    pdfauthor={Your Name},
+    pdftitle={Drug_Search},
+    pdfauthor={Tate Mason},
 }
 
 % Set line spacing
@@ -40,7 +40,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{\thepage}
-\lhead{\textit{Your Paper Title}}
+\lhead{\textit{Drug Search and Physician Hazard}}
 \renewcommand{\headrulewidth}{0.4pt}
 
 % Title page information
@@ -148,6 +148,49 @@ to addicts once they find a willing prescriber.
 
 \section{Methodology}
 \label{sec:methodology}
+
+\subsection{Theoretical Framework}
+\label{subsec:framework}
+
+\subsubsection{Agents and Functions}
+\label{subsubsec:agents&functions}
+There will be two classes of agents in this model, physicians and addicts. 
+\begin{gather*}
+  \text{addicts} \in \mathcal{A} = \{a_1, a_2, \ldots, a_n\} \\
+  \text{physicians} \in \mathcal{M} = \{m_1, m_2, \ldots, m_m\}
+\end{gather*}
+
+The objective function of the addict is given by:
+
+\begin{gather*}
+  \max_p \sum\limits_{t=1}^{T} \delta^t_i p_id_i_{\mathbb{1}(d=1)}\gamma_i^t \\
+  \text{s.t.} \\
+  p_id_i\gamma_i^t = s_i \\
+  s_i = x_ivj + t + r_i
+  x_i = \gamma_i^t\cdot w_i
+\end{gather*}
+
+Where $\delta_i^t$ is discount factor of addicts, $\gamma_i^T$ is a tolerance parameter, indicating how deeply addicted the agent is, $p_i$ is utility from prescriptions, $d_i$ is an indicator for if doctors precscribe or not, 
+$s_i$ is a search cost comprised of $x_i$, a willingness to pay parameter, $v_j$, a visit cost for each doctor, $t$, a fixed time cost, and $r_i$ a risk cost of being reported for the behavior. $x_i$ is comprised
+of one's tolerance scaling their wealth to determine how much they're willing to pay for a chance at drugs.
+
+The objective function of the prescriber is:
+
+\begin{gather*}
+  \max_x x_j\cdot v_i \\
+  \text{s.t.} \\
+  x_j\cdot v_i = i_i \\
+  v_i = p_jx_j - x_{-j} - r_i \\
+\end{gather*}
+
+Where $i_i$ is the cost of insurance for a physician. All other variables are defined above. 
+
+\subsubsection{Equilibrium and Demand/Supply Behavior}
+\label{subsubsec:eq&behavior}
+
+Addicts will have monotonic demand, demanding more and more until death due to tolerance parameter $\gamma_i^t$. Physicians will demand new patients until $r_i = p_jx_j$, or until they are not willing to take on any
+more risk in exchange for monetary gain. Equilibrium is achieved when all doctors are matched to either an addict or nothing. Preference ordering of doctors will be dependent on risk tolerance and WTP of addicts.
+For addicts, preferences are determined by willingness to prescribe and proximity. To accomplish these facets, I will need to specify a matching algorithm and a search function for addicts.
 
 % Describe your approach in sufficient detail for reproducibility.
 % Include mathematical formulations, algorithms, and theoretical analysis as needed.
