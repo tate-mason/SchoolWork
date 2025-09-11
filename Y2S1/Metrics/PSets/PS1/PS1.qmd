@@ -175,18 +175,17 @@ df <- df %>%
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 5 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pNT = sum(Z_i == 1 & D_i == 0) / n,
-    pAT = sum(Z_i == 0 & D_i == 0) / n,
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 0),
     pC = 1 - pAT - pNT
   )
-df$pC
-df$pNT
-df$pAT
+
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 
 cor(df$D_i, df$Z_i)
 ```
 
-As shown in the last part, there can be no always-takers or never-takers as people will not defy treatment $D_i$
+Most are not compliers, with about 0.37 proportion of compliers. The correlation between $D$ and $Z$ is about 0.67.
 
 ## Part 9:
 
@@ -198,23 +197,22 @@ df <- df %>%
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
     pZ = length(Z_i == 1)/length(id),
     pD = length(D_i == 1)/length(id),
-    pNT = sum(Z_i == 1 & D_i == 0) / n,
-    pAT = sum(Z_i == 0 & D_i == 0) / n,
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 0),
     pC = 1 - pAT - pNT
   )
-df$pC
-df$pNT
-df$pAT
+
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 
 cor(df$D_i, df$Z_i)
 ```
 
-The proportion remains the same as the coefficient on $Z_i$ does not effect anything when $Z_i = 0$. Thus, all
-units will comply.
+Proportion of compliers increases quite a bit, from about 0.37 to about 0.52. 
 
 ## Part 10: How does correlation between $D \text{and} Z$ vary with the proportion of compliers when we change $\alpha_Z$?
-While the proportion of compliers does not vary, we see higher correlation when $\alpha_Z = 10$, such that $corr(Z_i, D_i) = 0.96$.
-When $\alpha_Z = 5$, $corr(Z_i, D_i) = 0.67$. 
+
+The correlation also increases from about 0.67 to about 0.96, implying the coefficient on $Z$ has a strong effect on the correlation between $D$ and $Z$.
+
 
 ## Part 11: Show that we can justify the claim of no external validity problems from item 1.
 
