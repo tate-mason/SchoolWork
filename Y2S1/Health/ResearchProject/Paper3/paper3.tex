@@ -163,47 +163,60 @@ There will be two classes of agents in this model, physicians and addicts.
 The objective function of the addict is given by:
 
 \begin{gather*}
-  \max_p \sum\limits_{t=1}^{T} \delta^t_i p_id_i_{\mathbb{1}(d=1)}\gamma_i^t \\
+  \max_p \sum\limits_{t=1}^{T} \delta^t_i \gamma_i^tc_{it}x_i \\
   \text{s.t.} \\
-  p_id_i\gamma_i^t = s_i \\
-  s_i = x_ivj + t + r_i
-  x_i = \gamma_i^t\cdot w_i
+  \gamma_i^tc_{it}x_i <= s_i \\
+  s_i = x_ivj + r_{it}
+  x_i = \gamma_i^t\cdot y_i
 \end{gather*}
 
-Where $\delta_i^t$ is discount factor of addicts, $\gamma_i^T$ is a tolerance parameter, indicating how deeply addicted the agent is, $p_i$ is utility from prescriptions, $d_i$ is an indicator for if doctors precscribe or not, 
-$s_i$ is a search cost comprised of $x_i$, a willingness to pay parameter, $v_j$, a visit cost for each doctor, $t$, a fixed time cost, and $r_i$ a risk cost of being reported for the behavior. $x_i$ is comprised
-of one's tolerance scaling their wealth to determine how much they're willing to pay for a chance at drugs.
+Where $\delta_i^t$ is discount factor of addicts, $\gamma_i^T$ is a tolerance parameter, indicating how deeply addicted the agent is, $c_i$ is utility from prescription consumption, $x_i$, a willingness to pay parameter, 
+$s_i$ is a search cost comprised of  $v_j$, a visit cost for each doctor normalized by the willingness to pay (relative price), and $r_i$ a risk cost of being reported for the behavior. $x_i$ is comprised
+of one's tolerance scaling their money to determine how much they're willing to pay for a chance at drugs.
 
 The objective function of the prescriber is:
 
 \begin{gather*}
-  \max_x x_j\cdot v_i \\
+  \max_x x_i\cdot v_j \\
   \text{s.t.} \\
-  x_j\cdot v_i = i_i \\
-  v_i = p_jx_j - x_{-j} - r_i \\
+  x_j\cdot v_i <= r_j i_j \\
+  v_i = r_jp_j \\
 \end{gather*}
 
-Where $i_i$ is the cost of insurance for a physician. All other variables are defined above. 
+Where $i_i$ is the cost of insurance for a physician and $p_j$ is the amount of active prescriptions they have out. All other variables are defined above, with a subscript j to indicate physician specific parameters.
 
 \subsubsection*{Comparative Statics and Counterfactuals}
 \label{subsubsec:comparative&counterfactuals}
 
 Understanding how willingness to pay and price of a visit affect the equilibrium would be of importance, as these would have a direct effect on the equilibrium matching.
 For a counterfactual, I am interested in modeling some sort of rehabilitation "punishment" for being caught searching. This would be of policy relevance due to the ongoing national drug epidemic.
-Further, I think another comparative static of interest would be the risk probability changing, and responses of both addicts and prescribers.
 
-\subsubsection*{Equilibrium and Demand/Supply Behavior}
+\subsubsection*{Description of Environment and Equilibrium Behavior}
 \label{subsubsec:eq&behavior}
 
-Addicts will have monotonic demand, demanding more and more until death due to tolerance parameter $\gamma_i^t$. Physicians will demand new patients until $r_i = p_jx_j$, or until they are not willing to take on any
-more risk in exchange for monetary gain. Equilibrium is achieved when all doctors are matched to either an addict or nothing. Preference ordering of doctors will be dependent on risk tolerance and WTP of addicts.
-For addicts, preferences are determined by willingness to prescribe and proximity. To accomplish these facets, I will need to specify a matching algorithm and a search function for addicts.
+Let me first define how the order of events occurs each period. First, physicians set price $v_j$, which can vary. Then, addicts will begin searching, meeting with one doctor per period with probability $a(\theta)$.
+After that, if they can secure an appointment, doctors will prescribe with probability $m(\theta) = \theta a(\theta)$. At the end, risk evolves, and if it is larger than a threshold yet to be determined, addicts and 
+doctors will face a repercussion. I think punishments for addicts comprise of overdose or reporting, and thus they move to the illegal market. I am still working on this part, as overdose is risk of prescription and reporting is risk of search.
+In either case, they are removed. Doctors only face risk of removal when their license is seized as a result of frivalous prescribing. Then there is the state of the world in which risk is still under the threshold so nothing changes for either party. 
+
+Each addict can only be mapped to one doctor, but doctors will have a subset $G_j \subset \mathcal{A}$ which can be singleton and empty. $\gamma_{i}$ in period 0 is chosen from a normal distribution, and thus determines an addict natural 
+addiction proclivity. After period 0, it will grow deterministically with prescription consumption. I am still deciding what risk tolerance should be drawn from. It will grow unexpectedly, with the addict being unaware, of how much they need to satiate
+utility. Help here would be massively appreciated. 
+
+The basic search model will look something like:
+
+\begin{gather*}
+  V(c_i, \gamma_i, \theta) = \max_{c_i}\{u(a_{it}) + \sum\sum \Pi(\gamma^{t+1}_i|\gamma_i^t) \Psi(c_{i,t+1}|c_{i,t}, \gamma_i^t)  \mathbb{E}[u(a_{i,t+1})]) \\
+\end{gather*}
+
+It will evenutally include risk probability, but I am still working that out.
+
+Equilibrium is achieved via all available matches being fulfilled and stability is present.
 
 \subsubsection*{To-Do}
 \label{subsubsec:todo}
 
-Still under consideration are how to model things like the risk probability, utility from prescriptions, and if the penalty of being caught as an addict removes them from the mechanism or if it
-just makes search cost increase.
+Work out risk probabilities, work out distributions, incorporate any feedback.
 
 % Describe your approach in sufficient detail for reproducibility.
 % Include mathematical formulations, algorithms, and theoretical analysis as needed.
