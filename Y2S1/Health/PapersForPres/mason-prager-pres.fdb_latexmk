@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1758031506.78714 "mason-prager-pres.tex" "mason-prager-pres.pdf" "mason-prager-pres" 1758031508.99244 2
+["pdflatex"] 1758035494.29479 "mason-prager-pres.tex" "mason-prager-pres.pdf" "mason-prager-pres" 1758035496.38572 0
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcss0800.tfm" 1136768653 1536 16418351df4369b7cef8f784ccb87a85 ""
@@ -210,11 +210,11 @@
   "hhi_cdf12.png" 1758029405.05929 74987 a870a511358bb828d1833cbd0e1781e0 ""
   "hhi_cdf34.png" 1758029416.31934 81890 74acdb4a976772148873f74c35b9d20d ""
   "hhi_concentration.png" 1757960957.4761 260962 6303c62ded98538acb919d21ab1604c7 ""
-  "mason-prager-pres.aux" 1758031508.90755 4677 f4dd2f81d8e05c8844384579abd85021 "pdflatex"
-  "mason-prager-pres.nav" 1758031508.91062 3023 1fcb589fac8f12b6e692ad40f4872d4e "pdflatex"
-  "mason-prager-pres.out" 1758031508.90826 548 1d45730541b028c149c6a0809441fdc2 "pdflatex"
-  "mason-prager-pres.tex" 1758031506.588 15559 3064dd3d6f71645dc3a8defd27a0e5a5 ""
-  "mason-prager-pres.toc" 1758031508.91065 249 99a39a1139b6b11c1292643d73a666b3 "pdflatex"
+  "mason-prager-pres.aux" 1758035496.29743 4677 f4dd2f81d8e05c8844384579abd85021 "pdflatex"
+  "mason-prager-pres.nav" 1758035496.30064 3023 1fcb589fac8f12b6e692ad40f4872d4e "pdflatex"
+  "mason-prager-pres.out" 1758035496.30042 548 1d45730541b028c149c6a0809441fdc2 "pdflatex"
+  "mason-prager-pres.tex" 1758035492.8401 15527 e72299fb36550cd1a090793e8f56cfcb ""
+  "mason-prager-pres.toc" 1758035496.30066 249 99a39a1139b6b11c1292643d73a666b3 "pdflatex"
   "merger_counts.png" 1757960773.75527 90405 c19cde5e9435fa23412105af5d64e115 ""
   "parallel_trends.png" 1757952903.56819 193807 19275bb1cfe6a5623f840fbce5ad3d96 ""
   (generated)
