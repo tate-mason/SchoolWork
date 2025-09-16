@@ -1,0 +1,94 @@
+\documentclass[11pt,a4paper]{article}
+
+% Essential packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{setspace}
+
+
+% Additional useful packages
+\usepackage{fancyhdr}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Configure hyperref
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=red,
+    pdftitle={Your Paper Title},
+    pdfauthor={Your Name},
+}
+
+% Set line spacing
+\onehalfspacing
+
+% Configure headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\textit{Midlife Career Search}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Title page information
+\title{Midflife Career Search: \\
+An Empirical Analysis of Job Search Behavior}
+
+\author{
+    Tate Mason\thanks{Tate.Mason@uga.edu} \\
+    \textit{John Munro Godfrey Sr. Department of Economics} \\
+    \textit{The University of Georgia} \\
+    \textit{Athens, Georgia} \\
+    \\
+}
+
+\date{\today}
+
+% Abstract environment
+\newenvironment{abstract}%
+{\cleardoublepage\null \vfill\begin{center}%
+\bfseries \abstractname \end{center}}%
+{\vfill\null}
+
+\begin{document}
+
+% Title page
+\maketitle
+\thispagestyle{empty}
+
+% Extended Abstract
+%
+
+The main goal of this paper is to analyze the job search behavior of midflife individuals, particularly focusing on 40-60 year olds who are either employed or unemployed and actively seeking work.
+This demographic is not typically the focus of job search studies, which often concentrate on younger workers or recent graduates. However, midlife workers face a unique choice set
+when searching for new employment opportunities, as they may have different priorities and constraints compared to their younger counterparts. Whether it be children, familial obligations,
+or maintenance of a certain lifestyle, midlife workers may have different preferences when it comes to job characteristics such as location, salary, and work-life balance.
+
+To accomplish this research goal, I will utilize a rich dataset that includes detailed information on income, location, and demographic characteristics of individuals in the labor force with IPUMS.
+IPUMS is also nice in that it allows me to link individuals across years, which is crucial for tracking job search behavior over time. Further, there are link codes allowing me to connect a parent and 
+child, which will be useful for controlling for familial obligations in the analysis. I will be looking at waves from 1990-2019, which will provide a comprehensive view of job search behavior over a 
+significant period of time. There are 6,184,437 unique households in my sample. I will restrict, besides just age, to household heads who are not retired or disabled. Median household income among my 
+raw sample is \$54,090, with a mean of \$377,700. Mean age is 38.42, with a mean family size of 3.173. 
+
+The first stages for this paper will involve the formulation of a search and matching model which incorporates the unique choice set of midlife workers. This model will be estimated using a combination of maximum likelihood estimation and simulation methods. The model will account for
+the various factors that influence job search behavior, including individual characteristics, job characteristics, and labor market conditions. The model will also allow for the estimation of the impact of different job characteristics on the job search behavior of midlife workers. Key factors
+I am interested in include location of other family, outcomes of children, and lastly, of course, income. Given many of these people will be settled into their career and location, I am least interested in the effect of wages on their search behavior.
+
+My hope is to find interesting motivations for midlife workers when searching for new employment opportunities. This research will contribute to the existing literature on job search behavior by providing insights into the unique challenges faced by midlife workers, rather than much more studied younger workers.
+Three papers which will be of particular use during this early stage of research are \cite{kennan11search}, \cite{faberman19intensity}, \cite{dahl02roy}. I will now go into each paper, and discuss how they will be useful for my research.
+
+
+\end{document}
