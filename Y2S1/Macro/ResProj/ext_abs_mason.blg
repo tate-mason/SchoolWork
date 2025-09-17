@@ -1,0 +1,15 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[0] Config.pm:311> INFO - Logfile is 'ext_abs_mason.blg'
+[27] biber-darwin:340> INFO - === Wed Sep 17, 2025, 10:26:24
+[33] Biber.pm:420> INFO - Reading 'ext_abs_mason.bcf'
+[63] Biber.pm:994> INFO - Found 3 citekeys in bib section 0
+[69] Biber.pm:4463> INFO - Processing section 0
+[73] Biber.pm:4654> INFO - Looking for bibtex file 'ext_macro_bib.bib' for section 0
+[74] bibtex.pm:1713> INFO - LaTeX decoding ...
+[77] bibtex.pm:1519> INFO - Found BibTeX data source 'ext_macro_bib.bib'
+[97] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[97] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[97] Biber.pm:4283> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[97] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[100] bbl.pm:676> INFO - Writing 'ext_abs_mason.bbl' with encoding 'UTF-8'
+[101] bbl.pm:779> INFO - Output to ext_abs_mason.bbl

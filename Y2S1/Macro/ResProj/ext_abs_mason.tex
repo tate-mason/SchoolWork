@@ -9,7 +9,11 @@
 \usepackage{booktabs}
 \usepackage{url}
 \usepackage{hyperref}
-\usepackage{natbib}
+\usepackage[
+  backend = biber,
+  style = authoryear
+]{biblatex}
+\addbibresource{ext_macro_bib.bib}
 \usepackage{setspace}
 
 
@@ -88,7 +92,21 @@ the various factors that influence job search behavior, including individual cha
 I am interested in include location of other family, outcomes of children, and lastly, of course, income. Given many of these people will be settled into their career and location, I am least interested in the effect of wages on their search behavior.
 
 My hope is to find interesting motivations for midlife workers when searching for new employment opportunities. This research will contribute to the existing literature on job search behavior by providing insights into the unique challenges faced by midlife workers, rather than much more studied younger workers.
-Three papers which will be of particular use during this early stage of research are \cite{kennan11search}, \cite{faberman19intensity}, \cite{dahl02roy}. I will now go into each paper, and discuss how they will be useful for my research.
+Three papers which will be of particular use during this early stage of research. In the following paragraphs, I will describe each paper and how they aid my project.
+
+The first paper is "Mobility and the Return to Education: Testing a Roy Model with Multiple Markets" by \cite{dahl_mobility_2002}. This paper is useful for many reasons. Firstly, and maybe most importantly, it uses similar data to mine to estimate their Roy model. Thus, I can be assured that there is at 
+least some validity to my approach. Secondly, the augmented Roy model utilized here would fit nicely to accumulated human capital through  career experience, and allows for a "taste" parameter which I could use to model tastes for outcomes of children. This paper serves not only as a good baseline of what I 
+can achieve within the framework of my research, but also provides a good twist on traditional search methodologies.
+
+Next, I plan to use "The Intensity of Job Search and Search Duration" by \cite{faberman_intensity_2019}. This paper is mostly of use for the way in which they model search intensity. I would like to implement a similar mechanism given, in my opinion, it makes sense that as someone ages, given they are established,
+they would be less inclined to look for new careers with the same intensity as when they are just starting to come into the workforce.
+
+Finally, the paper which drove my interest in this topic, I will use "The Effect of Expected Income on Individual Migration Decisions" by \cite{kennan_effect_2011}. This paper is useful for the overall modeling of the search model. The model they implement is super complex, but I see this as a benefit,
+allowing me to sort of pick and choose aspects of their model which would be useful in my research's context. I also see great value in their approach to modeling non-monetary tastes (politics, weather), which is what I am more interested in for the cohort of my study. 
+
+In closing, I think the resources I have assembled have established a solid base for me to start creating a structural model and begin to do data work using my IPUMS sample. I also think I have found a good variety of resources which will allow me to be innovative on the topic rather than iterative. I have begun reading other papers within the literature,
+and look forward to adding a more fleshed out literature review in the coming weeks. I am very excited about this topic, and look forward to finding how midlife workers differ in career transitions from their younger counterparts. 
 
 
+\printbibliography
 \end{document}

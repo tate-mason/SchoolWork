@@ -1,0 +1,186 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{dahl_mobility_2002}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7f2c55e231c3146f9c76581fc7cb830b}{%
+           family={Dahl},
+           familyi={D\bibinitperiod},
+           given={Gordon\bibnamedelima B.},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{7f2c55e231c3146f9c76581fc7cb830b}
+      \strng{fullhash}{7f2c55e231c3146f9c76581fc7cb830b}
+      \strng{fullhashraw}{7f2c55e231c3146f9c76581fc7cb830b}
+      \strng{bibnamehash}{7f2c55e231c3146f9c76581fc7cb830b}
+      \strng{authorbibnamehash}{7f2c55e231c3146f9c76581fc7cb830b}
+      \strng{authornamehash}{7f2c55e231c3146f9c76581fc7cb830b}
+      \strng{authorfullhash}{7f2c55e231c3146f9c76581fc7cb830b}
+      \strng{authorfullhashraw}{7f2c55e231c3146f9c76581fc7cb830b}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Self-selected migration presents one potential explanation for why observed returns to a college education in local labor markets vary widely even though U.S. workers are highly mobile. To assess the impact of self-selection on estimated returns, this paper ﬁrst develops a Roy model of mobility and earnings where workers choose in which of the 50 states (plus the District of Columbia) to live and work. Available estimation methods are either infeasible for a selection model with so many alternatives or place potentially severe restrictions on earnings and the selection process. This paper develops an alternative econometric methodology that combines Lee’s (1983) parametric maximum order statistic approach to reduce the dimensionality of the error terms with more recent work on semiparametric estimation of selection models (e.g., Ahn and Powell (1993)). The resulting semiparametric correction is easy to implement and can be adapted to a variety of other polychotomous choice problems. The empirical work, which uses 1990 U.S. Census data, conﬁrms the role of comparative advantage in mobility decisions. The results suggest that self-selection of higher educated individuals to states with higher returns to education generally leads to upward biases in OLS estimates of the returns to education in state-speciﬁc labor markets. While the estimated returns to a college education are signiﬁcantly biased, correcting for the bias does not narrow the range of returns across states. Consistent with the ﬁnding that the corrected return to a college education differs across the U.S., the relative state-tostate migration ﬂows of college- versus high school-educated individuals respond strongly to differences in the return to education and amenities across states.}
+      \field{issn}{0012-9682, 1468-0262}
+      \field{journaltitle}{Econometrica}
+      \field{month}{11}
+      \field{number}{6}
+      \field{shorttitle}{Mobility and the {Return} to {Education}}
+      \field{title}{Mobility and the {Return} to {Education}: {Testing} a {Roy} {Model} with {Multiple} {Markets}}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2025}
+      \field{volume}{70}
+      \field{year}{2002}
+      \field{urldateera}{ce}
+      \field{pages}{2367\bibrangedash 2420}
+      \range{pages}{54}
+      \verb{doi}
+      \verb 10.1111/j.1468-0262.2002.00443.x
+      \endverb
+      \verb{file}
+      \verb PDF:files/2/Dahl - 2002 - Mobility and the Return to Education Testing a Roy Model with Multiple Markets.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://doi.wiley.com/10.1111/j.1468-0262.2002.00443.x
+      \endverb
+      \verb{url}
+      \verb http://doi.wiley.com/10.1111/j.1468-0262.2002.00443.x
+      \endverb
+    \endentry
+    \entry{faberman_intensity_2019}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9fa1925afe99ca18d0cdb2ad5a4e01c0}{%
+           family={Faberman},
+           familyi={F\bibinitperiod},
+           given={R\bibnamedelima Jason},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=617faf6ed766a92535bc3f74f4a5b51a}{%
+           family={Kudlyak},
+           familyi={K\bibinitperiod},
+           given={Marianna},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{5330a309c7fc97a9ce055b714de4cabb}
+      \strng{fullhash}{5330a309c7fc97a9ce055b714de4cabb}
+      \strng{fullhashraw}{5330a309c7fc97a9ce055b714de4cabb}
+      \strng{bibnamehash}{5330a309c7fc97a9ce055b714de4cabb}
+      \strng{authorbibnamehash}{5330a309c7fc97a9ce055b714de4cabb}
+      \strng{authornamehash}{5330a309c7fc97a9ce055b714de4cabb}
+      \strng{authorfullhash}{5330a309c7fc97a9ce055b714de4cabb}
+      \strng{authorfullhashraw}{5330a309c7fc97a9ce055b714de4cabb}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American Economic Journal: Macroeconomics}
+      \field{month}{7}
+      \field{number}{3}
+      \field{title}{The {Intensity} of {Job} {Search} and {Search} {Duration}}
+      \field{volume}{11}
+      \field{year}{2019}
+      \field{pages}{327\bibrangedash 357}
+      \range{pages}{31}
+      \verb{file}
+      \verb PDF:files/8/Faberman and Kudlyak - The Intensity of Job Search and Search Duration.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.jstor.org/stable/10.2307/26727348
+      \endverb
+      \verb{url}
+      \verb https://www.jstor.org/stable/10.2307/26727348
+      \endverb
+    \endentry
+    \entry{kennan_effect_2011}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=c616f5d9d70d20a561497b266ed64003}{%
+           family={Kennan},
+           familyi={K\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=59c3c9305b8c6f0e2f757fa7854b8a14}{%
+           family={Walker},
+           familyi={W\bibinitperiod},
+           given={James\bibnamedelima R},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{85903591707cd03c43d0620554934420}
+      \strng{fullhash}{85903591707cd03c43d0620554934420}
+      \strng{fullhashraw}{85903591707cd03c43d0620554934420}
+      \strng{bibnamehash}{85903591707cd03c43d0620554934420}
+      \strng{authorbibnamehash}{85903591707cd03c43d0620554934420}
+      \strng{authornamehash}{85903591707cd03c43d0620554934420}
+      \strng{authorfullhash}{85903591707cd03c43d0620554934420}
+      \strng{authorfullhashraw}{85903591707cd03c43d0620554934420}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0012-9682}
+      \field{journaltitle}{Econometrica}
+      \field{number}{1}
+      \field{title}{The {Effect} of {Expected} {Income} on {Individual} {Migration} {Decisions}}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2025}
+      \field{volume}{79}
+      \field{year}{2011}
+      \field{urldateera}{ce}
+      \field{pages}{211\bibrangedash 251}
+      \range{pages}{41}
+      \verb{doi}
+      \verb 10.3982/ECTA4657
+      \endverb
+      \verb{file}
+      \verb Full Text:files/14/2011 - The Effect of Expected Income on Individual Migration Decisions.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://doi.wiley.com/10.3982/ECTA4657
+      \endverb
+      \verb{url}
+      \verb http://doi.wiley.com/10.3982/ECTA4657
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
