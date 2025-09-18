@@ -1,0 +1,24 @@
+---
+title: "PS1 - IO"
+author: Tate Mason
+format: pdf
+---
+
+# 1 - Data Import and Descriptive Statistics
+
+```{r}
+# Load necessary libraries
+library(tidyverse)
+library(readr)
+library(psych)
+```
+
+```{r}
+# Import the dataset
+df <- read_delim("~/SchoolWork/Y2S1/IO/PS1/IRI.csv")
+
+glimpse(df)
+describe(df$brand)
+describe(df$parent)
+
+```
