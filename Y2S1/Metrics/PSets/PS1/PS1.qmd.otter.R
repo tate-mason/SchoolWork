@@ -176,7 +176,7 @@ df <- df %>%
     D_i = as.numeric(-4 + 5 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
     pNT = mean(Z_i == 1 & D_i == 0),
-    pAT = mean(Z_i == 0 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 1),
     pC = 1 - pAT - pNT
   )
 
@@ -198,13 +198,15 @@ df <- df %>%
     pZ = length(Z_i == 1)/length(id),
     pD = length(D_i == 1)/length(id),
     pNT = mean(Z_i == 1 & D_i == 0),
-    pAT = mean(Z_i == 0 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 1),
     pC = 1 - pAT - pNT
   )
 
 summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 
 cor(df$D_i, df$Z_i)
+
+
 
 
 
@@ -281,11 +283,13 @@ df <- df %>%
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 5 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 1),
+    pC = 1 - pAT - pNT
   )
-length(df$compliers)
+
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
+
 cor(df$Z_i, df$D_i)
 
 df <- df %>%
@@ -293,11 +297,13 @@ df <- df %>%
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 10 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 1),
+    pC = 1 - pAT - pNT
   )
-length(df$compliers)
+
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
+
 cor(df$Z_i, df$D_i)
 
 
@@ -362,9 +368,9 @@ df <- df %>%
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 5 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 0),
+    pC = 1 - pAT - pNT
   )
 length(df$compliers)
 cor(df$Z_i, df$D_i)
@@ -373,9 +379,9 @@ df <- df %>%
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 10 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 0),
+    pC = 1 - pAT - pNT
   )
 length(df$compliers)
 cor(df$Z_i, df$D_i)
@@ -455,9 +461,9 @@ df <- df %>%
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 10 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 1),
+    pC = 1 - pAT - pNT,
   )
 length(df$compliers)
 cor(df$Z_i, df$D_i)
@@ -528,23 +534,26 @@ df <- df %>%
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 5 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 0),
+    pC = 1 - pAT - pNT
   )
-length(df$compliers)
-cor(df$Z_i, df$D_i)
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
+
+cor(df$D_i, df$Z_i)
+
 df <- df %>%
   mutate(
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 10 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 0),
+    pC = 1 - pAT - pNT
   )
-length(df$compliers)
-cor(df$Z_i, df$D_i)
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
+
+cor(df$D_i, df$Z_i)
 
 
 set.seed(2)
@@ -609,23 +618,27 @@ df <- df %>%
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 5 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 1),
+    pC = 1 - pAT - pNT
   )
-length(df$compliers)
-cor(df$Z_i, df$D_i)
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
+
+cor(df$D_i, df$Z_i)
+  
 df <- df %>%
   mutate(
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 10 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 1),
+    pC = 1 - pAT - pNT
   )
-length(df$compliers)
-cor(df$Z_i, df$D_i)
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
+
+cor(df$D_i, df$Z_i)
+
 
 
 set.seed(3)
@@ -690,23 +703,27 @@ df <- df %>%
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 5 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 1),
+    pC = 1 - pAT - pNT
   )
-length(df$compliers)
-cor(df$Z_i, df$D_i)
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
+
+cor(df$D_i, df$Z_i)
+
 df <- df %>%
   mutate(
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 10 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 1),
+    pC = 1 - pAT - pNT
   )
-length(df$compliers)
-cor(df$Z_i, df$D_i)
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
+
+cor(df$D_i, df$Z_i)
+
 
 
 set.seed(4)
@@ -771,20 +788,23 @@ df <- df %>%
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 5 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 1),
+    pC = 1 - pAT - pNT
   )
-length(df$compliers)
-cor(df$Z_i, df$D_i)
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
+
+cor(df$D_i, df$Z_i)
+
 df <- df %>%
   mutate(
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 10 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 1),
+    pC = 1 - pAT - pNT
   )
-length(df$compliers)
-cor(df$Z_i, df$D_i)
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
+
+cor(df$D_i, df$Z_i)
