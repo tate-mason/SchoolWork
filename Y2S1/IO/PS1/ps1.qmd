@@ -20,5 +20,14 @@ df <- read_delim("~/SchoolWork/Y2S1/IO/PS1/IRI.csv")
 glimpse(df)
 describe(df$brand)
 describe(df$parent)
+```
 
+# 2 - Descriptive Statistics by Brand
+```{r}
+describeBy(df, df$brand)
+```
+
+# 3 - Descriptive Statistics by Parent
+```{r}
+describeBy(df, df$parent)
 ```
