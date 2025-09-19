@@ -1,61 +1,61 @@
----
-title: "Problem Set 1"
-author: "Tate Mason"
-format: pdf
----
 
-# Problem 1: Conceptual Problem
 
-## Part 1: What is the effect of whether a child watches TV on their math skill?
 
-A difference in differences approach could be used in this case. We could run an experiment where we randomly assign a group of children to watch a certain amount
-of TV each day, while another group of children do not watch any TV. We would then measure the math skills of both groups before and after the experiment. The 
-difference in the change in math skills between the two groups would give us an estimate of the effect of watching TV on math skills. Problems could arise from children
-having differing levels of parental involvement, access to educational resources (tutors), or differing levels of innate ability. 
 
-## Part 2: Is working around retirement age good for the person's health?
 
-An RD approach is applicable here. We set the discontinuity at the age of retirement, comparing health outcomes for individuals just below and just above retirement age.
-There is no reason to believe that individuals just below and just above retrirement age would be systematically different in terms of health, other than the fact that one group
-is working and the other is not. Problems arise from factors like pre-existing conditions or differences in access to healthcare.
 
-## Part 3: Is the racial wage gap in part due to discrimination against racial minorities?
-- Note: Consider only two groups: racial minorities vs. racial majority.
 
-Using a model which employs an instrumental variable would likely be the best course. The goal would be to find an instrument which is simultaneously affiliated with race, but 
-uncorrelated with wage. The difficulty arises in this search. For instance, using something like neighborhood as an IV is surely correlated with race, given historical policies
-surrounding how cities were segregated, but there is also likely correlation with wage. 
 
-## Part 4: What is the effect of whether the mother receives welfare money support while the child is young on the child's future income (by age 40)?
 
-There are two approaches which would be equally effective, though both run into similar issues. First, a diff-in-diff approach could be used. This would allow for simple interpretation of
-the effect of income outcomes for those whose families were recipients of welfare benefits vs. those who were not. However, difficulty arises in data access/integrity issues. It is
-difficult to maintain good data over 40 years for a good sample, and is also hard to be granted access to such data if it exists. An RD setup would produce similar ease of interpretation.
-To implement this type of approach, set the cutoff line at the income threshold for receiving welfare benefits, then examine the difference in outcomes for those just above and below the line.
-Data access would be similarly difficult here. Across both setups, an issue also arises in that income is not a fixe state. For instance, there may be years where the mother is on welfare, but
-times where she is not. Thus, the children who spent, say, a couple of months on welfare vs. the kids who spent their entire adolescence in that state should have systematically different
-outcomes.
 
-# Problem 2: Coding
 
-## Part 1: Creating dataset
-1. Set random seed to 1
-2. N = 10000
-3. Draw $\epsilon_i^D$ $\perp \!\!\! \perp$ $\epsilon_i^Y$ $\sim N(0,1)$
-4. Draw $U_i \sim N(0,0.5)$ (Note: s.d. is 0.5)
-5. Create $Z_i = \mathbb{1}(z_i > 0.5)$ where $z_i$ is randomly drawn from a uniform distribution on $[0,1]$
-6. Create $D_i = \mathbb{1}(\alpha_0 + \alpha_Z Z_i + \alpha_UU_i + \epsilon_i^D > 0)$ such that $\alpha_0 = -4, \alpha_Z = 5, \alpha_U = 4$
-7. Create $Y_i = \beta_0 + \beta_D D_i + \beta_Z Z_i + \beta_U U_i + \epsilon_i^Y$ such that $\beta_0 = 3, \beta_D = 2, \beta_Z = 0, \beta_U = 6$
-- $\beta_Z Z_i + \beta_U U_i + \epsilon_i^Y = \epsilon_i$
 
-```{r echo=FALSE, message=FALSE}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 set.seed(1)
 library(dplyr)
 library(tidyr)
 library(AER)
-```
 
-```{r}
+
+
 df <- data.frame(
   id = 1:10000,
   epsilon_D = rnorm(10000, mean = 0, sd = 1),
@@ -70,34 +70,34 @@ df <- df %>%
     D_i = as.numeric(-4 + 5 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y
   )
-```
 
-## Part 2: Estimating the effect of $D$ on $Y$ with OLS
 
-```{r}
+
+
+
 OLS <- lm(Y_i ~ D_i, data = df) 
 summary(OLS)
-```
 
-## Part 3: Estimating the effect of $D$ on $Y$ with IV
 
-```{r}
+
+
+
 IV <- ivreg(Y_i ~ D_i | Z_i, data = df)
 summary(IV)
-```
 
-## Part 4: OLS of $D$ on $Z$ (with a constant)
-- yields: $\hat{D} = (L(D|Z))$ and $\tilde{D} = D - \hat{D}$
 
-  ### a) Regress $Y$ on $\hat{D}$ (with a constant)
 
-  ### b) Regress $Y$ on $D$ and $\tilde{D}$ (with a constant)
-- Explain why the coefficient on $\hat{D}$ in a) is the same as the coefficient on $D$ in b). 
-Explain why both are also the same as the IV estimate from Part 3. What is the intuition behind the coefficient on $\tilde{D}$ in b)?
-Optional: explain the relationship between the standard errors of the estimates in a), b), and Part 3.
 
-#### a)
-```{r}
+
+
+
+
+
+
+
+
+
+
 df <- df %>%
   mutate(
     D_hat = predict(lm(D_i ~ Z_i, data = df)),
@@ -105,43 +105,43 @@ df <- df %>%
   )
 model_a <- lm(Y_i ~ D_hat, data = df)
 summary(model_a)
-```
-#### b)
-```{r}
+
+
+
 model_b <- lm(Y_i ~ D_i + D_tilde, data = df)
 summary(model_b)
-```
 
-$\beta_{\hat{D}}$ in model a) is the same as $\beta_{D}$ in model b) because both models are essentially capturing the same variation in $D$ which is explained by $Z$.
-This is the same as the IV estimate from **3** because the IV method captures the variation in $D$ that is correlated with $Z$. The coefficient on $\tilde{D}$ in model
-b) captures the variation in $D$ that is not explained by $Z$, which is unrelated to the instrument and thus does not contribute to the estimation of the causal effect
-of $D$ on $Y$.
 
-## Part 5: Change DGP s.t. $\beta_Z = 1$, redo 3. Then change DGP s.t. $\beta_Z = -1$, redo 3.
-- Explain why the IV estimates of $\beta_D$ are biased in these two cases, and why the bias changes sign when $\beta_Z$ changes sign.
-Optional: explain the intution for why the bias of the estimator of the coefficient on $D$ changes sign when $\beta_Z = \{0, 1\}$.
 
-```{r}
+
+
+
+
+
+
+
+
+
 df <- df %>%
   mutate(
     Y_i = 3 + 2 * D_i + 1 * Z_i + 6 * U_i + epsilon_Y
 )
 IV5a <- ivreg(Y_i ~ D_i | Z_i, data = df)
 summary(IV5a)
-```
 
-```{r}
+
+
 df <- df %>%
   mutate(
     Y_i = 3 + 2 * D_i + -1 * Z_i + 6 * U_i + epsilon_Y
 )
 IV5b <- ivreg(Y_i ~ D_i | Z_i, data = df)
 summary(IV5b)
-```
 
-## Part 6: 
 
-```{r}
+
+
+
 df <- df %>%
   mutate(
     D_i = as.numeric(-4 + 10 * Z_i + 4 * U_i + epsilon_D > 0),
@@ -149,9 +149,9 @@ df <- df %>%
 )
 IV6a <- ivreg(Y_i ~ D_i | Z_i, data = df)
 summary(IV6a)
-```
 
-```{r}
+
+
 df <- df %>%
   mutate(
     D_i = as.numeric(-4 + 10 * Z_i + 4 * U_i + epsilon_D > 0),
@@ -159,17 +159,17 @@ df <- df %>%
   )
 IV6b <- ivreg(Y_i ~ D_i | Z_i, data = df)
 summary(IV6b)
-```
 
-## Part 7: 
 
-$D_i$ by formation cannot have defiers. When $Z_i = 0$, The sum of $\alpha_0, \alpha_U, \epsilon_i^D$
-is negative as $\alpha_0 = -4$ while $\alpha_U*U + \epsilon_i^D$ is not greater than 4, thus implying $D_i = 0$ when
-$Z_i = 0$.
 
-## Part 8:
 
-```{r}
+
+
+
+
+
+
+
 df <- df %>%
   mutate(
     Z_i = as.numeric(z_i > 0.5),
@@ -183,13 +183,13 @@ df <- df %>%
 summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 
 cor(df$D_i, df$Z_i)
-```
 
-Majority are compliers, with about 82% compliers and a correlation of about 0.67 between $D$ and $Z$.
 
-## Part 9:
 
-```{r}
+
+
+
+
 df <- df %>%
   mutate(
     Z_i = as.numeric(z_i > 0.5),
@@ -205,22 +205,22 @@ df <- df %>%
 summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 
 cor(df$D_i, df$Z_i)
-```
-
-Proportion of compliers increases quite a bit, from about 0.82 to about 0.98. Correlation is now 0.96, a significant increase from before. 
-
-## Part 10: How does correlation between $D \text{and} Z$ vary with the proportion of compliers when we change $\alpha_Z$?
-
-The correlation also increases from about 0.67 to about 0.96, implying the coefficient on $Z$ has a strong effect on the correlation between $D$ and $Z$.
 
 
-## Part 11: Irrespective of whether $\alpha_Z$ = 5 or $\alpha_Z$ = 10, there is no external validity problem (e.g. LATE $\ne$ ATE) in this case. Show that you can justify this assertion directly from item 1 alone.
 
-This is true by construction of the DGP. There are no defiers, implying monotonicity. The instrument, $Z$, is also randomly assigned, implying independence. The exclusion restriction is also satisfied as $Z$ only affects $Y$ through $D$. Thus, all conditions for LATE = ATE are satisfied. 
 
-## Part 12: Repeat with seed values of 2, 3, and 4
 
-```{r}
+
+
+
+
+
+
+
+
+
+
+
 set.seed(2)
 
 df <- data.frame(
@@ -305,9 +305,9 @@ df <- df %>%
 summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 
 cor(df$Z_i, df$D_i)
-```
 
-```{r}
+
+
 set.seed(3)
 df <- data.frame(
   id = 1:10000,
@@ -385,9 +385,9 @@ df <- df %>%
   )
 length(df$compliers)
 cor(df$Z_i, df$D_i)
-```
 
-```{r}
+
+
 set.seed(4)
 
 df <- data.frame(
@@ -467,11 +467,11 @@ df <- df %>%
   )
 length(df$compliers)
 cor(df$Z_i, df$D_i)
-```
 
-## Part 13: Now, recreate DGP with $N=500$.
 
-```{r}
+
+
+
 set.seed(1)
 
 df <- data.frame(
@@ -554,8 +554,8 @@ df <- df %>%
 summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 
 cor(df$D_i, df$Z_i)
-```
-```{r}
+
+
 set.seed(2)
 
 df <- data.frame(
@@ -639,8 +639,8 @@ summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 
 cor(df$D_i, df$Z_i)
 
-```
-```{r}
+
+
 set.seed(3)
 
 df <- data.frame(
@@ -724,8 +724,8 @@ summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 
 cor(df$D_i, df$Z_i)
 
-```
-```{r}
+
+
 set.seed(4)
 
 df <- data.frame(
@@ -808,4 +808,3 @@ df <- df %>%
 summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 
 cor(df$D_i, df$Z_i)
-```
