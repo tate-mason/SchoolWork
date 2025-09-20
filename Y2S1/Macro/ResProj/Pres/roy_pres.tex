@@ -169,41 +169,47 @@
   \end{enumerate}
 \end{frame}
 
-
-
-\begin{frame}{Data}
-  \begin{itemize}
-    \item Describe your dataset
-    \item Number of observations, variables
-    \item Time period, source
+\begin{frame}{Data and Calibration}
+  \begin{itemize}{Data Used}
+    \item Cross-National Equivalent File (CNEF)
+    \item Panel Study of Income Dynamics (PSID)
+    \item German Socio-Economic Panel (GSOEP)
   \end{itemize}
+  \pause
+  Calibration requires variance of earnings shocks to be parameterized. This is done via estimating various moments
 \end{frame}
 
+\begin{frame}{Estimation}
+  \begin{itemize}
+    \item earnings (log): $y_{i,j,t} =\alpha_{ij} + \textbf{\beta_j}\textbf{X_{ijt}} + u_{i,j,t}$
+    \item decomposition of risk, $u_{ijt} = \eta_{ijt-1} + \omega_{ijt}$
+    \item $\omega_{ijt}$ is permanent and follows a random walk, $\eta_{ijt-1}$ is a transitory shock which is i.i.d.
+    \item tax function: $y_a = \phi_0 y_{p}^{1-\phi_1}$
+    \item panel earnings: $y_{it} = \alpha_i + \textbf{\eta}\textbf{H_{it}} + v_{it}$
+    \item probability of switching: $P_{it} \equiv Pr(y_{it}=1|\bar{\hat{v_{it-1}}}) = \psi(\bar{\hat{v_{it-1}}};\beta)$
+    \item mobility cost function: $c(s, \kappa) = \kappa_0 + \kapps_{1s} + \kappa_{2s}^2$ 
+  \end{itemize}
+\end{frame}
 
 % Section 3
 \section{Results}
 
-\begin{frame}{Main Results}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{example-figure.pdf}
-    \caption{Main empirical finding}
-  \end{figure}
+\begin{frame}{Main Results: US}
+  \begin{itemize}
+    \item More social insurance leads to a mobility rate of $20\%$, a 1.3 pp. increase than the baseline
+    \item Workers switch on average 4.3 times in their lifetimes, an $8.2\%$ increase
+    \item We see substitution towards higher risk occupations, leading to a higher average earnings 
+    \item Welfare rises by $4.15\%$ under the German scheme via consumption smoothing and better occupational matches
+  \end{itemize}
 \end{frame}
 
-\begin{frame}{Table of Results}
-  \begin{table}
-    \centering
-    \begin{tabular}{lcc}
-      \toprule
-      Variable & Coef. & Std. Error \\
-      \midrule
-      $X$ & 0.45 & 0.12 \\
-      $Z$ & -0.23 & 0.08 \\
-      \bottomrule
-    \end{tabular}
-    \caption{Regression results}
-  \end{table}
+\begin{frame}{Main Results: Germany}
+  \begin{itemize}
+    \item Less social insurance leads to a decrease in average mobility rate from $2.6\%$ to $2\%$
+    \item Switching decreases from 0.45 to 0.35 times in a lifetime, due to US tax scheme discouraging occupational experimentation
+    \item Mean earnings decrease in all occupations, most notably in the riskiest ones
+    \item We see workers sort from medium risk to low risk occupations, leading to a polarity of risk types
+  \end{itemize}
 \end{frame}
 
 % Section 4
@@ -211,16 +217,10 @@
 
 \begin{frame}{Conclusion}
   \begin{itemize}
-    \item Summarize findings
-    \item Contributions
-    \item Future work
+    \item Uncertainty in earnings and social insurance are important factors in occupational choice 
+    \item Cross-country differences in social insurance can explain differences in occupational mobility and earnings
+    \item Policy implications: designing social insurance programs to balance risk protection and incentives for occupational experimentation
   \end{itemize}
-\end{frame}
-
-% References (optional)
-\begin{frame}[allowframebreaks]{References}
-  \bibliographystyle{apalike}
-  \bibliography{references}
 \end{frame}
 
 \end{document}

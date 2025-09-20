@@ -1,19 +1,13 @@
 # Fdb version 4
-["bibtex roy_pres"] 0 "roy_pres.aux" "roy_pres.bbl" "roy_pres" 1758391433.23335 0
-  "/usr/local/texlive/2025/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "references.bib" 0 -1 0 ""
-  "roy_pres.aux" 0 -1 0 "pdflatex"
-  (generated)
-  "roy_pres.bbl"
-  "roy_pres.blg"
-  (rewritten before read)
-["pdflatex"] 1758391431.46314 "roy_pres.tex" "roy_pres.pdf" "roy_pres" 1758391433.23346 2
+["pdflatex"] 1758399787.46561 "roy_pres.tex" "roy_pres.pdf" "roy_pres" 1758399789.23184 2
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1246382020 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1246382020 928 2dc8d444221b7a635bb58038579b861a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1246382020 908 2921f8a10601f252058503cc6570e581 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1246382020 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1136768653 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -23,6 +17,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1136768653 1316 b636689f1933f24d1294acdf6041daaa ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1136768653 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss8.tfm" 1136768653 1296 d77f431d10d47c8ea2cc18cf45346274 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm" 1136768653 1272 e2d13f0df30bf3ad990bb9d028e37f34 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
@@ -209,13 +204,11 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1758127320 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "example-figure.pdf" 0 -1 0 ""
-  "roy_pres.aux" 1758391433.01214 3759 38af974fa3726a29c871e49fa7ec4588 "pdflatex"
-  "roy_pres.bbl" 0 -1 0 "bibtex roy_pres"
-  "roy_pres.nav" 1758391433.01532 2380 b5bc74832a5da0c6d8af1c90d8bec861 "pdflatex"
-  "roy_pres.out" 1758391433.01462 372 464e0257aa000b6002c3563687893b9f "pdflatex"
-  "roy_pres.tex" 1758391430.46048 6932 895d7c7531709eb122dc2a8bc2ddbd92 ""
-  "roy_pres.toc" 1758391433.01537 186 28b430092de25cacee8531006049edf8 "pdflatex"
+  "roy_pres.aux" 1758399789.09752 3720 08254caed917c319d02d0350c1b50b2a "pdflatex"
+  "roy_pres.nav" 1758399789.09937 2381 cdbb19000cea6fa2e2e8055708290edc "pdflatex"
+  "roy_pres.out" 1758399789.0985 372 464e0257aa000b6002c3563687893b9f "pdflatex"
+  "roy_pres.tex" 1758399785.68123 8484 d927923ece3c096f4f87afd60480c3f3 ""
+  "roy_pres.toc" 1758399789.09944 186 bba8ae7df38a1914782a16c503e5e50a "pdflatex"
   (generated)
   "roy_pres.aux"
   "roy_pres.log"

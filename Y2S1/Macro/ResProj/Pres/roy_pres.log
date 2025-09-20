@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  20 SEP 2025 14:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  20 SEP 2025 16:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -855,33 +855,1791 @@ and I'll forget about whatever was undefined.
 
 ]
 
-[20
+./roy_pres.tex:180: LaTeX Error: Something's wrong--perhaps a missing \item.
 
-]
-
-LaTeX Warning: File `example-figure.pdf' not found on input line 192.
-
-
-./roy_pres.tex:192: Package pdftex.def Error: File `example-figure.pdf' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
+See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.192 \end{frame}
+l.180 \end{frame}
                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \vbox (93.45316pt too high) detected at line 192
- []
+
+[20
+
+]
+
+./roy_pres.tex:180: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.180 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
 
 [21
 
 ]
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ... \displaystyle \f@size {#1}}
+                                                  {\textdef@ \textstyle \f@s...
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...ize {\firstchoice@false #1}}
+                                                  {\textdef@ \textstyle \sf@...
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...ize {\firstchoice@false #1}}
+                                                  {\textdef@ \textstyle \ssf...
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...ize {\firstchoice@false #1}}
+                                                  \check@mathfonts }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...false #1}}\check@mathfonts }
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\text@ ...t in math text}}\beamer@orig@text@ {#1}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ... \displaystyle \f@size {#1}}
+                                                  {\textdef@ \textstyle \f@s...
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...ize {\firstchoice@false #1}}
+                                                  {\textdef@ \textstyle \sf@...
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...ize {\firstchoice@false #1}}
+                                                  {\textdef@ \textstyle \ssf...
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...ize {\firstchoice@false #1}}
+                                                  \check@mathfonts }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...false #1}}\check@mathfonts }
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\text@ ...t in math text}}\beamer@orig@text@ {#1}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing { inserted.
+<to be read again> 
+                   $
+l.192 \end{frame}
+                 
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing { inserted.
+<to be read again> 
+                   $
+l.192 \end{frame}
+                 
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing { inserted.
+<to be read again> 
+                   $
+l.192 \end{frame}
+                 
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing { inserted.
+<to be read again> 
+                   $
+l.192 \end{frame}
+                 
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing { inserted.
+<to be read again> 
+                   $
+l.192 \end{frame}
+                 
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing { inserted.
+<to be read again> 
+                   $
+l.192 \end{frame}
+                 
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ... \displaystyle \f@size {#1}}
+                                                  {\textdef@ \textstyle \f@s...
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...ize {\firstchoice@false #1}}
+                                                  {\textdef@ \textstyle \sf@...
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...ize {\firstchoice@false #1}}
+                                                  {\textdef@ \textstyle \ssf...
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...ize {\firstchoice@false #1}}
+                                                  \check@mathfonts }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...false #1}}\check@mathfonts }
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\text@ ...t in math text}}\beamer@orig@text@ {#1}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ... \displaystyle \f@size {#1}}
+                                                  {\textdef@ \textstyle \f@s...
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...ize {\firstchoice@false #1}}
+                                                  {\textdef@ \textstyle \sf@...
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...ize {\firstchoice@false #1}}
+                                                  {\textdef@ \textstyle \ssf...
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...ize {\firstchoice@false #1}}
+                                                  \check@mathfonts }
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\beamer@orig@text@ ...false #1}}\check@mathfonts }
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Extra }, or forgotten $.
+\text@ ...t in math text}}\beamer@orig@text@ {#1}}
+                                                  
+l.192 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing { inserted.
+<to be read again> 
+                   $
+l.192 \end{frame}
+                 
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing { inserted.
+<to be read again> 
+                   $
+l.192 \end{frame}
+                 
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing { inserted.
+<to be read again> 
+                   $
+l.192 \end{frame}
+                 
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing { inserted.
+<to be read again> 
+                   $
+l.192 \end{frame}
+                 
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing { inserted.
+<to be read again> 
+                   $
+l.192 \end{frame}
+                 
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing { inserted.
+<to be read again> 
+                   $
+l.192 \end{frame}
+                 
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Missing } inserted.
+<inserted text> 
+                }
+l.192 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./roy_pres.tex:192: Undefined control sequence.
+\beamer@doifinframe ...ppa ) = \kappa _0 + \kapps 
+                                                  _{1s} + \kappa _{2s}^2$ \e...
+l.192 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
 
 [22
 
@@ -890,10 +2648,12 @@ Overfull \vbox (93.45316pt too high) detected at line 192
 [23
 
 ]
-No file roy_pres.bbl.
-
 
 [24
+
+]
+
+[25
 
 ]
 \tf@nav=\write6
@@ -914,18 +2674,24 @@ Package rerunfilecheck Info: File `roy_pres.out' has not changed.
 (rerunfilecheck)             Checksum: 464E0257AA000B6002C3563687893B9F;372.
  ) 
 Here is how much of TeX's memory you used:
- 22129 strings out of 473190
- 431363 string characters out of 5715801
+ 22080 strings out of 473190
+ 429706 string characters out of 5715801
  800105 words of memory out of 5000000
- 44876 multiletter control sequences out of 15000+600000
- 566060 words of font info for 62 fonts, out of 8000000 for 9000
+ 44820 multiletter control sequences out of 15000+600000
+ 568282 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,16n,123p,383b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,31n,123p,383b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{Navigation26} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Navigation27} has been referenced but does not exist, replaced by a fixed one
+
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on roy_pres.pdf (24 pages, 195272 bytes).
+Output written on roy_pres.pdf (25 pages, 200809 bytes).
 PDF statistics:
- 867 PDF objects out of 1000 (max. 8388607)
- 736 compressed objects within 8 object streams
- 53 named destinations out of 1000 (max. 500000)
+ 898 PDF objects out of 1000 (max. 8388607)
+ 766 compressed objects within 8 object streams
+ 57 named destinations out of 1000 (max. 500000)
  267 words of extra memory for PDF output out of 10000 (max. 10000000)
 
