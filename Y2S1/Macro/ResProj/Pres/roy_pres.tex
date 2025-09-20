@@ -115,6 +115,62 @@
   \end{gather*}
 \end{frame}
 
+\begin{frame}{Equilibrium}
+  $\Psi_{j,s}(\Omega_s, z, \epsilon)$ is the distribution of workers in occupation $j$ at age $s$ with history $\Omega_s$, general human capital $z$, and shock $\epsilon$. $\Psi$ is defined for all $\Omega_s, z, \epsilon \in \mathbb{R}$\\
+  \pause
+  Mass of newborns:
+  \begin{gather*}
+    \Psi_{j,0}(\Omega_0, z, \epsilon) = \frac{1}{S}f_j \forall j\in\{1,...,J\}
+  \end{gather*}
+  where $f_j$ is the fraction of newborns with initial occupation specific ability $\theta_j$.
+  \pause
+  In period $S+1$:
+  \begin{gather*}
+    \Psi_{j,S+1}(\Omega_{S+1}, z, \epsilon) = 0 \forall j\in\{1,...,J\}
+  \end{gather*}
+  \pause
+  For $s=0,...,S$:
+  \begin{gather*}
+    \Psi_{j,s+1}(\Omega_{s+1}, z', \epsilon) = \sum_{j'}\Psi_{j',s}(\Omega_s, z, \epsilon)I_{j,s}(j', \omega_s, \epsilon, z) \forall j\in\{1,...,J\}
+  \end{gather*}
+\end{frame}
+
+\begin{frame}{Equilibrium cont.}
+  Define aggregate mass of efficiency units in occupation $j$ at age $s$ as:
+  \begin{gather*}
+    N_j = \frac{1}{S} \sum_{s\in S}\int e^ze^{\theta_{j'}}e^{\epsilon_{j'}} + \frac{1}{S}\sum_{s\in S}\sum_{j\ne j'}\int e^{-c(s, \kappa)}d\Psi_{j,s}(\Omega_{s-1}, z, \epsilon) 
+  \end{gather*}
+  \pause
+
+  This let's us define the SCE consisting of 
+  \begin{enumerate}
+    \item set of occupation level wages $\{w_j\}_{j=1}^J$
+    \item occupational populations $\{\Psi_j\}_{j=1}^J$
+    \item set of intermediate goods prices $\{p_j\}_{j=1}^J$
+    \item set of occupational labor inputs $\{N_j\}_{j=1}^J$
+    \item occupation-specific decision rules $\{I_{j,s}\}_{j=1,s=0}^{J,S}$
+    \item value functions $\{V_s\}_{s=0}^S$
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Equilibrium Conditions}
+  \begin{enumerate}
+    \item Above value functions solve optimization problems
+    \item Labor inputs $N_j$ are the solution to the intermediate producer optimnization problem
+    \item Intermediate goods quantities $X_j$ solve the final goods producer's problem
+    \item Prices $p_j$ equate supply and demand of intermediate goods
+    \item Wage in occupation $j$ is the marginal product of an efficiency unit in that occupation s.t.
+    \begin{gather*}
+      w_j = \alpha_j N^{\alpha_j-1}_j \Pi_{j'\ne j}\{N_j'^{\alpha_j'}\}
+    \end{gather*}
+    \item Labor markets clear at occupational level
+    \item In occupation $j$, $\Psi_j$ is the stationary distribution
+    \item Final goods market clears by Walras' Law
+  \end{enumerate}
+\end{frame}
+
+
+
 \begin{frame}{Data}
   \begin{itemize}
     \item Describe your dataset

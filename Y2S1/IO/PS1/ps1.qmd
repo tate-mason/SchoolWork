@@ -31,3 +31,4 @@ describeBy(df, df$brand)
 ```{r}
 describeBy(df, df$parent)
 ```
+

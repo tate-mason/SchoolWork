@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex roy_pres"] 0 "roy_pres.aux" "roy_pres.bbl" "roy_pres" 1758297367.1284 0
+["bibtex roy_pres"] 0 "roy_pres.aux" "roy_pres.bbl" "roy_pres" 1758391433.23335 0
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
   "references.bib" 0 -1 0 ""
   "roy_pres.aux" 0 -1 0 "pdflatex"
@@ -7,7 +7,7 @@
   "roy_pres.bbl"
   "roy_pres.blg"
   (rewritten before read)
-["pdflatex"] 1758297365.52586 "roy_pres.tex" "roy_pres.pdf" "roy_pres" 1758297367.12852 2
+["pdflatex"] 1758391431.46314 "roy_pres.tex" "roy_pres.pdf" "roy_pres" 1758391433.23346 2
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -41,6 +41,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1248133631 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
@@ -209,12 +210,12 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "example-figure.pdf" 0 -1 0 ""
-  "roy_pres.aux" 1758297366.89755 3375 13190ca69451c60f1e2c9f1b91bfc7de "pdflatex"
+  "roy_pres.aux" 1758391433.01214 3759 38af974fa3726a29c871e49fa7ec4588 "pdflatex"
   "roy_pres.bbl" 0 -1 0 "bibtex roy_pres"
-  "roy_pres.nav" 1758297366.90095 2104 f10d782f267ba379d627879b3635cc24 "pdflatex"
-  "roy_pres.out" 1758297366.90047 372 464e0257aa000b6002c3563687893b9f "pdflatex"
-  "roy_pres.tex" 1758297364.46316 4497 adfc528d07932380b57b430db35eff78 ""
-  "roy_pres.toc" 1758297366.90103 186 ef3721df5f79f91d58774aea886a85f2 "pdflatex"
+  "roy_pres.nav" 1758391433.01532 2380 b5bc74832a5da0c6d8af1c90d8bec861 "pdflatex"
+  "roy_pres.out" 1758391433.01462 372 464e0257aa000b6002c3563687893b9f "pdflatex"
+  "roy_pres.tex" 1758391430.46048 6932 895d7c7531709eb122dc2a8bc2ddbd92 ""
+  "roy_pres.toc" 1758391433.01537 186 28b430092de25cacee8531006049edf8 "pdflatex"
   (generated)
   "roy_pres.aux"
   "roy_pres.log"
