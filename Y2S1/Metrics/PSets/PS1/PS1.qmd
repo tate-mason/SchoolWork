@@ -220,7 +220,10 @@ This is true by construction of the DGP. There are no defiers, implying monotoni
 
 ## Part 12: Repeat with seed values of 2, 3, and 4
 
-```{r}
+Changing the seed value does not change the overall results. Estimates for $\beta_D$ remain consistent within each part, and proportions of compliers/never-takers/always-takers remain similar. Correlations between $D$ and $Z$ also remain similar.
+This shows the seed only effects reproducibility of the results, not the actual interpretation of results themselves.
+
+```{r, include=FALSE, message=FALSE}
 set.seed(2)
 
 df <- data.frame(
@@ -307,7 +310,7 @@ summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 cor(df$Z_i, df$D_i)
 ```
 
-```{r}
+```{r, include=FALSE, message=FALSE}
 set.seed(3)
 df <- data.frame(
   id = 1:10000,
@@ -372,8 +375,10 @@ df <- df %>%
     pAT = mean(Z_i == 0 & D_i == 0),
     pC = 1 - pAT - pNT
   )
-length(df$compliers)
+
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 cor(df$Z_i, df$D_i)
+
 df <- df %>%
   mutate(
     Z_i = as.numeric(z_i > 0.5),
@@ -383,11 +388,11 @@ df <- df %>%
     pAT = mean(Z_i == 0 & D_i == 0),
     pC = 1 - pAT - pNT
   )
-length(df$compliers)
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 cor(df$Z_i, df$D_i)
 ```
 
-```{r}
+```{r, include=FALSE, message=FALSE}
 set.seed(4)
 
 df <- data.frame(
@@ -450,12 +455,14 @@ df <- df %>%
     Z_i = as.numeric(z_i > 0.5),
     D_i = as.numeric(-4 + 5 * Z_i + 4 * U_i + epsilon_D > 0),
     Y_i = 3 + 2 * D_i + 0 * Z_i + 6 * U_i + epsilon_Y,
-    pZ = length(Z_i == 1)/length(id),
-    pD = length(D_i == 1)/length(id),
-    compliers = (pZ*D_hat)/pD
+    pNT = mean(Z_i == 1 & D_i == 0),
+    pAT = mean(Z_i == 0 & D_i == 1),
+    pC = 1 - pAT - pNT,
   )
-length(df$compliers)
+
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 cor(df$Z_i, df$D_i)
+
 df <- df %>%
   mutate(
     Z_i = as.numeric(z_i > 0.5),
@@ -465,13 +472,15 @@ df <- df %>%
     pAT = mean(Z_i == 0 & D_i == 1),
     pC = 1 - pAT - pNT,
   )
-length(df$compliers)
+summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 cor(df$Z_i, df$D_i)
 ```
 
 ## Part 13: Now, recreate DGP with $N=500$.
 
-```{r}
+While coefficient estimates remain similar, there is much more variability in proportions of compliers/never-takers/always-takers. Correlation between $D$ and $Z$ also varies more significantly, from about 0.6 to 0.9 depending on the seed value. This shows that smaller sample sizes lead to more variability in estimates and proportions, making it harder to draw reliable conclusions.
+
+```{r, include=FALSE, message=FALSE}
 set.seed(1)
 
 df <- data.frame(
@@ -555,7 +564,8 @@ summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 
 cor(df$D_i, df$Z_i)
 ```
-```{r}
+
+```{r, include=FALSE, message=FALSE}
 set.seed(2)
 
 df <- data.frame(
@@ -640,7 +650,7 @@ summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 cor(df$D_i, df$Z_i)
 
 ```
-```{r}
+```{r, include=FALSE, message=FALSE}
 set.seed(3)
 
 df <- data.frame(
@@ -725,7 +735,7 @@ summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 cor(df$D_i, df$Z_i)
 
 ```
-```{r}
+```{r, include=FALSE, message=FALSE}
 set.seed(4)
 
 df <- data.frame(
@@ -809,3 +819,5 @@ summarize(df, pC = mean(pC), pNT = mean(pNT), pAT = mean(pAT))
 
 cor(df$D_i, df$Z_i)
 ```
+
+
