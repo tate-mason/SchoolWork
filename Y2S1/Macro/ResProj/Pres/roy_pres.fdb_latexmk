@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1758399787.46561 "roy_pres.tex" "roy_pres.pdf" "roy_pres" 1758399789.23184 2
+["pdflatex"] 1758489413.58116 "roy_pres.tex" "roy_pres.pdf" "roy_pres" 1758489415.48033 2
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -204,11 +204,14 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1758127320 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "roy_pres.aux" 1758399789.09752 3720 08254caed917c319d02d0350c1b50b2a "pdflatex"
-  "roy_pres.nav" 1758399789.09937 2381 cdbb19000cea6fa2e2e8055708290edc "pdflatex"
-  "roy_pres.out" 1758399789.0985 372 464e0257aa000b6002c3563687893b9f "pdflatex"
-  "roy_pres.tex" 1758399785.68123 8484 d927923ece3c096f4f87afd60480c3f3 ""
-  "roy_pres.toc" 1758399789.09944 186 bba8ae7df38a1914782a16c503e5e50a "pdflatex"
+  "figgraph/tab5.png" 1758488584.0873 109818 64a2e6b63acfae25b239cfebcc1eefc5 ""
+  "figgraph/tab6.png" 1758488605.55264 101690 37174f1095236fadb0b3c04206d6ddd1 ""
+  "figgraph/welfgraph.png" 1758488641.23147 44815 9dd7238e327c480024b3b23d74b89200 ""
+  "roy_pres.aux" 1758489415.36503 4104 9da0d6b017bf8bdcb8e4dcfa2922e8d6 "pdflatex"
+  "roy_pres.nav" 1758489415.36787 2657 802e82550f0deefb81542d560634b84d "pdflatex"
+  "roy_pres.out" 1758489415.36699 372 464e0257aa000b6002c3563687893b9f "pdflatex"
+  "roy_pres.tex" 1758489413.08916 8957 84a2e889605d2893f804a4469a32af74 ""
+  "roy_pres.toc" 1758489415.36794 186 f848570d21dec4224f016484d1913233 "pdflatex"
   (generated)
   "roy_pres.aux"
   "roy_pres.log"

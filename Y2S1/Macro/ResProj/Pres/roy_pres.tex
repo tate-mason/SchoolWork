@@ -181,10 +181,10 @@
 
 \begin{frame}{Estimation}
   \begin{itemize}
-    \item earnings (log): $y_{i,j,t} =\alpha_{ij} + \textbf{\beta_j}\textbf{X_{ijt}} + u_{i,j,t}$
+    \item earnings (log): $y_{ijt} =\alpha_{ij} + \beta_j X_{ijt} + u_{ijt}$
     \item decomposition of risk, $u_{ijt} = \eta_{ijt-1} + \omega_{ijt}$
     \item $\omega_{ijt}$ is permanent and follows a random walk, $\eta_{ijt-1}$ is a transitory shock which is i.i.d.
-    \item tax function: $y_a = \phi_0 y_{p}^{1-\phi_1}$
+    \item tax function: $y_a = \phi_0 y_p^{1-\phi_1}$
     \item panel earnings: $y_{it} = \alpha_i + \textbf{\eta}\textbf{H_{it}} + v_{it}$
     \item probability of switching: $P_{it} \equiv Pr(y_{it}=1|\bar{\hat{v_{it-1}}}) = \psi(\bar{\hat{v_{it-1}}};\beta)$
     \item mobility cost function: $c(s, \kappa) = \kappa_0 + \kapps_{1s} + \kappa_{2s}^2$ 
@@ -193,6 +193,19 @@
 
 % Section 3
 \section{Results}
+
+\begin{frame}{Baseline vs Counterfactual}
+  \includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Macro/ResProj/Pres/figgraph/tab5.png}
+\end{frame}
+
+\begin{frame}{Baseline vs Counterfactual - Earning and Share by Occupation}
+  \includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Macro/ResProj/Pres/figgraph/tab6.png}
+\end{frame}
+
+\begin{frame}{Welfare Analysis}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{~/SchoolWork/Y2S1/Macro/ResProj/Pres/figgraph/welfgraph.png}
+\end{frame}
 
 \begin{frame}{Main Results: US}
   \begin{itemize}
@@ -211,6 +224,7 @@
     \item We see workers sort from medium risk to low risk occupations, leading to a polarity of risk types
   \end{itemize}
 \end{frame}
+
 
 % Section 4
 \section{Conclusion}
