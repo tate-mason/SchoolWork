@@ -115,6 +115,13 @@
   \end{gather*}
 \end{frame}
 
+\begin{frame}{Value Functions, cont.}
+  Value of returning to an occupation j':
+  \begin{gather*}
+    M_s(\Omega_s, z, j') = \int V_s(\Omega_s, z, \epsilon, j')dF_{j'}(\epsilon)
+  \end{gather*}
+\end{frame}
+
 \begin{frame}{Equilibrium}
   $\Psi_{j,s}(\Omega_s, z, \epsilon)$ is the distribution of workers in occupation $j$ at age $s$ with history $\Omega_s$, general human capital $z$, and shock $\epsilon$. $\Psi$ is defined for all $\Omega_s, z, \epsilon \in \mathbb{R}$\\
   \pause
@@ -185,9 +192,9 @@
     \item decomposition of risk, $u_{ijt} = \eta_{ijt-1} + \omega_{ijt}$
     \item $\omega_{ijt}$ is permanent and follows a random walk, $\eta_{ijt-1}$ is a transitory shock which is i.i.d.
     \item tax function: $y_a = \phi_0 y_p^{1-\phi_1}$
-    \item panel earnings: $y_{it} = \alpha_i + \textbf{\eta}\textbf{H_{it}} + v_{it}$
+    \item panel earnings: $y_{it} = \alpha_i + \eta\cdot H_{it} + v_{it}$
     \item probability of switching: $P_{it} \equiv Pr(y_{it}=1|\bar{\hat{v_{it-1}}}) = \psi(\bar{\hat{v_{it-1}}};\beta)$
-    \item mobility cost function: $c(s, \kappa) = \kappa_0 + \kapps_{1s} + \kappa_{2s}^2$ 
+    \item mobility cost function: $c(s, \kappa) = \kappa_0 + \kappa_{1s} + \kappa_{2s}^2$ 
   \end{itemize}
 \end{frame}
 
