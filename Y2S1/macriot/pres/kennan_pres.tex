@@ -1,0 +1,312 @@
+% ============================================================
+% UGA-Themed Beamer Template (Clean MWE)
+% ============================================================
+
+\documentclass[aspectratio=169,professionalfonts]{beamer}
+
+% ---------- COLORS (swap with official UGA hex if you like) ----------
+\usepackage{xcolor}
+\definecolor{UGARed}{HTML}{BA0C2F}   % Verify with brand guide
+\definecolor{UGABlack}{HTML}{000000}
+\definecolor{UGAGray}{HTML}{8A8D8F}
+
+% ---------- THEME & PROGRESS DOTS ----------
+\usetheme{default}
+\useinnertheme{circles}
+\useoutertheme[subsection=false]{miniframes} % dots across top
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+
+% Head/foot colors
+\setbeamercolor{section in head/foot}{fg=white,bg=UGARed}
+\setbeamercolor{subsection in head/foot}{fg=white,bg=UGARed}
+\setbeamercolor{headline}{bg=UGARed,fg=white}
+\setbeamercolor{footline}{bg=UGABlack,fg=white}
+\setbeamercolor{frametitle}{fg=UGABlack}
+\setbeamercolor{title}{fg=UGABlack}
+\setbeamercolor{normal text}{fg=UGABlack}
+\setbeamercolor{structure}{fg=UGARed}
+
+% Simple footline with slide numbers
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex,leftskip=1em,rightskip=1em]{footline}%
+      \insertshortauthor{} \hfill \insertframenumber/\inserttotalframenumber
+    \end{beamercolorbox}}%
+}
+
+% ---------- PACKAGES ----------
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+
+% ---------- METADATA (fill these later) ----------
+\title[Short Title]{Full Talk Title Goes Here}
+\subtitle{Optional Subtitle}
+\author[Your Name]{Your Name}
+\institute[UGA]{Department / Program \\ University of Georgia}
+\date{\today}
+
+% ---------- AUTO-AGENDA EACH SECTION ----------
+\AtBeginSection[]{
+  \begin{frame}{Roadmap}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% ---------- MACROS ----------
+% Numbered equation with label
+\newcommand{\beq}[1]{\begin{equation}\label{#1}}
+\newcommand{\eeq}{\end{equation}}
+% Accent color highlight
+\newcommand{\hl}[1]{\textbf{\textcolor{UGARed}{#1}}}
+% Simple figure placeholder macro
+\newcommand{\figph}[2][0.9\linewidth]{%
+  \begin{figure}
+    \centering
+    \fbox{\rule{0pt}{0.55#1}\rule{#1}{0pt}}%
+    \caption{#2}
+  \end{figure}
+}
+
+% ============================================================
+\begin{document}
+
+% ---------- TITLE ----------
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ---------- FULL AGENDA ----------
+\begin{frame}{Roadmap}
+  \tableofcontents
+\end{frame}
+
+% ============================================================
+% 1) REFRESHER + CONTRIBUTION
+% ============================================================
+\section{Market Power Refresher \& Contribution}
+
+\begin{frame}{Refresher on Market Power}
+  \begin{itemize}
+    \item Definitions, mechanisms, canonical refs.
+    \item Where this paper fits in the literature.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Contribution (Short Discussion)}
+  \begin{itemize}
+    \item \hl{What’s new}: data/setting/ID/outcome.
+    \item \hl{Why it matters}: economic or policy relevance.
+    \item One-slide pitch of your innovation.
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+% 2) STORY / KEY FINDINGS + MAIN RESULTS OVERVIEW
+% ============================================================
+\section{Story \& Key Findings}
+
+\begin{frame}{Paper’s Story / Key Findings}
+  \begin{itemize}
+    \item Narrative arc in 3–4 bullets.
+    \item \hl{Key quantitative takeaways} (numbers to remember).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Main Results — One-Slide Overview}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.52\linewidth}
+    \end{column}
+    \begin{column}{0.44\linewidth}
+      \begin{itemize}
+        \item Very short preview of signs and magnitudes.
+        \item Brief intuition for the result.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ============================================================
+% 3) DATA + PROCESS OF USE
+% ============================================================
+\section{Data}
+
+\begin{frame}{Data: Sources \& Coverage}
+  \begin{itemize}
+    \item Hospital data (coverage, time, variables).
+    \item Geographic data (units, merges).
+    \item Worker data (sample definition).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Process of Use (for Each Data Type)}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\linewidth}
+      \begin{itemize}
+        \item Cleaning and harmonization steps.
+        \item Linkage logic across sources.
+        \item Key variable definitions.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\linewidth}
+      \begin{table}
+        \centering
+        \caption{Summary Statistics (Illustrative)}
+        \begin{adjustbox}{max width=\linewidth}
+        \begin{tabular}{lccc}
+          \toprule
+          \textbf{Group} & Mean & SD & N \\
+          \midrule
+          Hospitals   &   &   &   \\
+          Geographies &   &   &   \\
+          Workers     &   &   &   \\
+          \bottomrule
+        \end{tabular}
+        \end{adjustbox}
+      \end{table}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ============================================================
+% 4) EMPIRICAL STRATEGY
+% ============================================================
+\section{Empirical Strategy}
+
+\begin{frame}{Model / Estimating Equation}
+  \beq{eq:main}
+    $y_{it} = \beta\,\mathrm{Treat}_{it} + \gamma X_{it} + \alpha_i + \tau_t + \varepsilon_{it}$
+  \eeq
+  \begin{itemize}
+    \item Units, timing, FE, SEs.
+    \item Interpretation of $\beta$ and threats to ID.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Summary Statistics \& Balance}
+  \begin{table}
+    \centering
+    \caption{Summary / Balance (Illustrative)}
+    \begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{lccc}
+      \toprule
+      \textbf{Variable} & Control & Treat & Diff \\
+      \midrule
+      Outcome (baseline) &  &  &  \\
+      Covariate A        &  &  &  \\
+      Covariate B        &  &  &  \\
+      \bottomrule
+    \end{tabular}
+    \end{adjustbox}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Treatment vs.\ Control (Definition)}
+  \begin{itemize}
+    \item Operational definition of \hl{treatment} and \hl{control}.
+    \item Timing / exposure, staggered adoption if any.
+    \item Sample restrictions and measurement windows.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Alternative Specifications — Preview}
+  \begin{itemize}
+    \item Heterogeneity (hospital size, region, worker type).
+    \item Functional form variants / additional controls.
+    \item Event study / placebo / robustness roadmap.
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+% 5) RESULTS
+% ============================================================
+\section{Results}
+
+\begin{frame}{Main Results: Table}
+  \begin{table}
+    \centering
+    \caption{Main Specification (Illustrative)}
+    \begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{lcccc}
+      \toprule
+      & \textbf{(1)} & \textbf{(2)} & \textbf{(3)} & \textbf{(4)} \\
+      \midrule
+      Treat     &   &   &   &   \\
+      Controls  &   &   &   &   \\
+      FE        &   &   &   &   \\
+      \midrule
+      N         &   &   &   &   \\
+      $R^2$     &   &   &   &   \\
+      \bottomrule
+    \end{tabular}
+    \end{adjustbox}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Main Results: Graph}
+  \figph{Event-study / coefficient plot placeholder}
+\end{frame}
+
+\begin{frame}{Side-by-Side Comparisons}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\linewidth}
+    \end{column}
+    \begin{column}{0.48\linewidth}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ============================================================
+% 6) ALT-SPEC RESULTS
+% ============================================================
+\section{Alternative Specifications}
+
+\begin{frame}{Robustness / Alternative Specs}
+  \begin{itemize}
+    \item Sensitivity to windows / bandwidths.
+    \item Alternative outcomes / subsamples.
+    \item Placebo and permutation checks.
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+% 7) CONCLUSION
+% ============================================================
+\section{Conclusion}
+
+\begin{frame}{Conclusion}
+  \begin{itemize}
+    \item \hl{What we learned} — 2–3 bullets.
+    \item \hl{Policy/economic implications}.
+    \item \hl{Limitations} and next steps.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Thank You}
+  \centering
+  \Large Questions?
+\end{frame}
+
+% ============================================================
+% APPENDIX / BACKUP
+% ============================================================
+\appendix
+\section{Backup}
+
+\begin{frame}{Additional Robustness}
+  \figph{Extra plot / table}
+\end{frame}
+
+\begin{frame}{Data Details}
+  \begin{itemize}
+    \item Construction and variable definitions.
+    \item Additional balance / coverage checks.
+  \end{itemize}
+\end{frame}
+
+\end{document}
