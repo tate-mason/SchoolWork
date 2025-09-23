@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  22 SEP 2025 12:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  23 SEP 2025 13:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -771,7 +771,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [7
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png, id=613, 577.15625pt x 294.09875pt>
+<~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png, id=841, 577.15625pt x 294.09875pt>
 File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png Graphic file (type png)
 <use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png>
 Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png  used on input line 141.
@@ -791,84 +791,128 @@ Overfull \hbox (20.71503pt too wide) in paragraph at lines 141--141
 
 ]
 
+./kennan_pres.tex:156: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.156 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
 [10
 
 ]
 
 [11
 
-] (./kennan_pres.toc)
+]
 
 [12
 
 ]
-./kennan_pres.tex:198: Display math should end with $$.
-<to be read again> 
-                   y
-l.198 \end{frame}
-                 
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-./kennan_pres.tex:198: Missing $ inserted.
-<inserted text> 
-                $
-l.198 \end{frame}
-                 
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-./kennan_pres.tex:198: LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.198 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./kennan_pres.tex:198: You can't use `\eqno' in horizontal mode.
-\veqno ->\@kernel@eqno 
-                       \aftergroup \ignorespaces 
-l.198 \end{frame}
-                 
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-./kennan_pres.tex:198: Missing $ inserted.
-<inserted text> 
-                $
-l.198 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./kennan_pres.tex:198: Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.198 \end{frame}
-                 
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-
 
 [13
 
 ]
+./kennan_pres.tex:208: Undefined control sequence.
+<argument> ...1}^K\alpha _kY_k(l^0)+\alpha ^H\Chi 
+                                                  (l^0=h) \\ &+ \xi (l^0,\om...
+l.208 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./kennan_pres.tex:208: Undefined control sequence.
+<argument> ...1}^K\alpha _kY_k(l^0)+\alpha ^H\Chi 
+                                                  (l^0=h) \\ &+ \xi (l^0,\om...
+l.208 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
 
 [14
 
 ]
+./kennan_pres.tex:222: Undefined control sequence.
+<argument> ... \gamma _1D(l^0, j) - \gamma _2\Chi 
+                                                  (j\in \mathbb {A}(l^0)) \\...
+l.222 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./kennan_pres.tex:222: Undefined control sequence.
+<argument> ...athbb {A}(l^0)) \\ &- \gamma _3\Chi 
+                                                  (j=l^1) + \gamma _4a - \ga...
+l.222 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./kennan_pres.tex:222: Undefined control sequence.
+<argument> ...1) + \gamma _4a - \gamma _5n_j)\Chi 
+                                                  (j\ne l^0) \end {split}
+l.222 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./kennan_pres.tex:222: Undefined control sequence.
+<argument> ... \gamma _1D(l^0, j) - \gamma _2\Chi 
+                                                  (j\in \mathbb {A}(l^0)) \\...
+l.222 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./kennan_pres.tex:222: Undefined control sequence.
+<argument> ...athbb {A}(l^0)) \\ &- \gamma _3\Chi 
+                                                  (j=l^1) + \gamma _4a - \ga...
+l.222 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./kennan_pres.tex:222: Undefined control sequence.
+<argument> ...1) + \gamma _4a - \gamma _5n_j)\Chi 
+                                                  (j\ne l^0) \end {split}
+l.222 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
 
 [15
 
@@ -882,239 +926,67 @@ So I shall assume that you typed `$$' both times.
 
 ]
 
+./kennan_pres.tex:257: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.257 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./kennan_pres.tex:257: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.257 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
 [18
 
 ]
-./kennan_pres.tex:262: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   .
-l.262 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
 
-
-./kennan_pres.tex:262: Package calc Error: `.' invalid at this point.
-
-See the calc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.262 \end{frame}
-                 
-I expected to see one of: + - * / )
-
-./kennan_pres.tex:262: Missing number, treated as zero.
-<to be read again> 
-                   !
-l.262 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./kennan_pres.tex:262: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   !
-l.262 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-./kennan_pres.tex:262: Extra }, or forgotten \endgroup.
-<recently read> }
-                 
-l.262 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./kennan_pres.tex:262: Extra }, or forgotten \endgroup.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.262 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./kennan_pres.tex:262: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.262 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./kennan_pres.tex:262: Missing } inserted.
-<inserted text> 
-                }
-l.262 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./kennan_pres.tex:262: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.262 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./kennan_pres.tex:262: Missing } inserted.
-<inserted text> 
-                }
-l.262 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./kennan_pres.tex:262: Undefined control sequence.
-\beamer@@tmpl@caption ... name}\insertcaptionname 
-                                                  \usebeamertemplate {captio...
-l.262 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./kennan_pres.tex:262: Undefined control sequence.
-\beamer@@tmpl@caption ...eparator}}\insertcaption 
-                                                  \par 
-l.262 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./kennan_pres.tex:262: LaTeX Error: \begin{figure} on input line 262 ended by \end{center}.
+./kennan_pres.tex:270: LaTeX Error: Something's wrong--perhaps a missing \item.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.262 \end{frame}
+l.270 \end{frame}
                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
-./kennan_pres.tex:262: LaTeX Error: \begin{beamer@framepauses} on input line 262 ended by \end{figure}.
+./kennan_pres.tex:270: LaTeX Error: Something's wrong--perhaps a missing \item.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.262 \end{frame}
+l.270 \end{frame}
                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./kennan_pres.tex:262: LaTeX Error: \begin{beamer@frameslide} on input line 262 ended by \end{beamer@framepauses}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.262 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./kennan_pres.tex:262: Missing } inserted.
-<inserted text> 
-                }
-l.262 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./kennan_pres.tex:262: Too many }'s.
-\endbeamer@frameslide ...amer@framepauses}\egroup 
-                                                  \ifx \beamer@frametitle \@...
-l.262 \end{frame}
-                 
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-./kennan_pres.tex:262: Undefined control sequence.
-\endbeamer@frameslide ...box \else \beamer@zoomer 
-                                                  \fi \beamer@undolabels \be...
-l.262 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./kennan_pres.tex:262: LaTeX Error: \begin{document} ended by \end{beamer@frameslide}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.262 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./kennan_pres.tex:262: Extra \endgroup.
-\end  ...end#1\endcsname \@checkend {#1}\endgroup 
-                                                  \UseHook {env/#1/after}\if...
-l.262 \end{frame}
-                 
-Things are pretty mixed up, but I think the worst is over.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
 
 [19
 
-]
+] (./kennan_pres.toc)
 
 [20
 
-] (./kennan_pres.toc)
+]
 
 [21
 
@@ -1122,7 +994,7 @@ Things are pretty mixed up, but I think the worst is over.
 
 [22
 
-] (./kennan_pres.toc)
+]
 
 [23
 
@@ -1135,243 +1007,532 @@ Things are pretty mixed up, but I think the worst is over.
 [25
 
 ]
+./kennan_pres.tex:350: Limit controls must follow a math operator.
+<argument> ...ega ^i\in \Omega (N_i)}(\Pi \limits 
+                                                  _{t=1}^{T_i}\psi _{it}(\om...
+l.350 \end{frame}
+                 
+I'm ignoring this misplaced \limits or \nolimits command.
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\translate ' on input line 308.
+./kennan_pres.tex:350: Limit controls must follow a math operator.
+<argument> ...ega ^i\in \Omega (N_i)}(\Pi \limits 
+                                                  _{t=1}^{T_i}\psi _{it}(\om...
+l.350 \end{frame}
+                 
+I'm ignoring this misplaced \limits or \nolimits command.
 
-(./kennan_pres.toc)
+
 
 [26
 
 ]
-./kennan_pres.tex:312: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   .
-l.312 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-./kennan_pres.tex:312: Package calc Error: `.' invalid at this point.
-
-See the calc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.312 \end{frame}
-                 
-I expected to see one of: + - * / )
-
-./kennan_pres.tex:312: Missing number, treated as zero.
-<to be read again> 
-                   !
-l.312 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./kennan_pres.tex:312: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   !
-l.312 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-./kennan_pres.tex:312: Extra }, or forgotten \endgroup.
-<recently read> }
-                 
-l.312 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./kennan_pres.tex:312: Extra }, or forgotten \endgroup.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.312 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./kennan_pres.tex:312: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.312 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./kennan_pres.tex:312: Missing } inserted.
-<inserted text> 
-                }
-l.312 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./kennan_pres.tex:312: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.312 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./kennan_pres.tex:312: Missing } inserted.
-<inserted text> 
-                }
-l.312 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./kennan_pres.tex:312: Undefined control sequence.
-\beamer@@tmpl@caption ... name}\insertcaptionname 
-                                                  \usebeamertemplate {captio...
-l.312 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./kennan_pres.tex:312: Undefined control sequence.
-\beamer@@tmpl@caption ...eparator}}\insertcaption 
-                                                  \par 
-l.312 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./kennan_pres.tex:312: LaTeX Error: \begin{figure} on input line 312 ended by \end{center}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.312 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./kennan_pres.tex:312: LaTeX Error: \begin{beamer@framepauses} on input line 312 ended by \end{figure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.312 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./kennan_pres.tex:312: LaTeX Error: \begin{beamer@frameslide} on input line 312 ended by \end{beamer@framepauses}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.312 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./kennan_pres.tex:312: Missing } inserted.
-<inserted text> 
-                }
-l.312 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./kennan_pres.tex:312: Too many }'s.
-\endbeamer@frameslide ...amer@framepauses}\egroup 
-                                                  \ifx \beamer@frametitle \@...
-l.312 \end{frame}
-                 
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-./kennan_pres.tex:312: Undefined control sequence.
-\endbeamer@frameslide ...box \else \beamer@zoomer 
-                                                  \fi \beamer@undolabels \be...
-l.312 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./kennan_pres.tex:312: LaTeX Error: \begin{document} ended by \end{beamer@frameslide}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.312 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./kennan_pres.tex:312: Extra \endgroup.
-\end  ...end#1\endcsname \@checkend {#1}\endgroup 
-                                                  \UseHook {env/#1/after}\if...
-l.312 \end{frame}
-                 
-Things are pretty mixed up, but I think the worst is over.
-
-
 
 [27
 
 ]
 
 [28
+
+]
+
+[29
+
+] (./kennan_pres.toc)
+
+[30
+
+]
+
+[31
+
+]
+./kennan_pres.tex:414: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   .
+l.414 \end{frame}
+                 
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+./kennan_pres.tex:414: Package calc Error: `.' invalid at this point.
+
+See the calc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.414 \end{frame}
+                 
+I expected to see one of: + - * / )
+
+./kennan_pres.tex:414: Missing number, treated as zero.
+<to be read again> 
+                   !
+l.414 \end{frame}
+                 
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./kennan_pres.tex:414: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   !
+l.414 \end{frame}
+                 
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+./kennan_pres.tex:414: Extra }, or forgotten \endgroup.
+<recently read> }
+                 
+l.414 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./kennan_pres.tex:414: Extra }, or forgotten \endgroup.
+\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
+                                                  \kern \fboxsep \color@endg...
+l.414 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./kennan_pres.tex:414: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.414 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./kennan_pres.tex:414: Missing } inserted.
+<inserted text> 
+                }
+l.414 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./kennan_pres.tex:414: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.414 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./kennan_pres.tex:414: Missing } inserted.
+<inserted text> 
+                }
+l.414 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./kennan_pres.tex:414: Undefined control sequence.
+\beamer@@tmpl@caption ... name}\insertcaptionname 
+                                                  \usebeamertemplate {captio...
+l.414 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./kennan_pres.tex:414: Undefined control sequence.
+\beamer@@tmpl@caption ...eparator}}\insertcaption 
+                                                  \par 
+l.414 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./kennan_pres.tex:414: LaTeX Error: \begin{figure} on input line 414 ended by \end{center}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.414 \end{frame}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./kennan_pres.tex:414: LaTeX Error: \begin{beamer@framepauses} on input line 414 ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.414 \end{frame}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./kennan_pres.tex:414: LaTeX Error: \begin{beamer@frameslide} on input line 414 ended by \end{beamer@framepauses}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.414 \end{frame}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./kennan_pres.tex:414: Missing } inserted.
+<inserted text> 
+                }
+l.414 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./kennan_pres.tex:414: Too many }'s.
+\endbeamer@frameslide ...amer@framepauses}\egroup 
+                                                  \ifx \beamer@frametitle \@...
+l.414 \end{frame}
+                 
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+./kennan_pres.tex:414: Undefined control sequence.
+\endbeamer@frameslide ...box \else \beamer@zoomer 
+                                                  \fi \beamer@undolabels \be...
+l.414 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./kennan_pres.tex:414: LaTeX Error: \begin{document} ended by \end{beamer@frameslide}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.414 \end{frame}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./kennan_pres.tex:414: Extra \endgroup.
+\end  ...end#1\endcsname \@checkend {#1}\endgroup 
+                                                  \UseHook {env/#1/after}\if...
+l.414 \end{frame}
+                 
+Things are pretty mixed up, but I think the worst is over.
+
+
+
+[32
+
+]
+
+[33
+
+] (./kennan_pres.toc)
+
+[34
+
+]
+
+[35
+
+] (./kennan_pres.toc)
+
+[36
+
+]
+
+[37
+
+]
+
+[38
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\translate ' on input line 460.
+
+(./kennan_pres.toc)
+
+[39
+
+]
+./kennan_pres.tex:464: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   .
+l.464 \end{frame}
+                 
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+./kennan_pres.tex:464: Package calc Error: `.' invalid at this point.
+
+See the calc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.464 \end{frame}
+                 
+I expected to see one of: + - * / )
+
+./kennan_pres.tex:464: Missing number, treated as zero.
+<to be read again> 
+                   !
+l.464 \end{frame}
+                 
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./kennan_pres.tex:464: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   !
+l.464 \end{frame}
+                 
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+./kennan_pres.tex:464: Extra }, or forgotten \endgroup.
+<recently read> }
+                 
+l.464 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./kennan_pres.tex:464: Extra }, or forgotten \endgroup.
+\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
+                                                  \kern \fboxsep \color@endg...
+l.464 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./kennan_pres.tex:464: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.464 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./kennan_pres.tex:464: Missing } inserted.
+<inserted text> 
+                }
+l.464 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./kennan_pres.tex:464: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.464 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./kennan_pres.tex:464: Missing } inserted.
+<inserted text> 
+                }
+l.464 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./kennan_pres.tex:464: Undefined control sequence.
+\beamer@@tmpl@caption ... name}\insertcaptionname 
+                                                  \usebeamertemplate {captio...
+l.464 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./kennan_pres.tex:464: Undefined control sequence.
+\beamer@@tmpl@caption ...eparator}}\insertcaption 
+                                                  \par 
+l.464 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./kennan_pres.tex:464: LaTeX Error: \begin{figure} on input line 464 ended by \end{center}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.464 \end{frame}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./kennan_pres.tex:464: LaTeX Error: \begin{beamer@framepauses} on input line 464 ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.464 \end{frame}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./kennan_pres.tex:464: LaTeX Error: \begin{beamer@frameslide} on input line 464 ended by \end{beamer@framepauses}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.464 \end{frame}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./kennan_pres.tex:464: Missing } inserted.
+<inserted text> 
+                }
+l.464 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./kennan_pres.tex:464: Too many }'s.
+\endbeamer@frameslide ...amer@framepauses}\egroup 
+                                                  \ifx \beamer@frametitle \@...
+l.464 \end{frame}
+                 
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+./kennan_pres.tex:464: Undefined control sequence.
+\endbeamer@frameslide ...box \else \beamer@zoomer 
+                                                  \fi \beamer@undolabels \be...
+l.464 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./kennan_pres.tex:464: LaTeX Error: \begin{document} ended by \end{beamer@frameslide}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.464 \end{frame}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./kennan_pres.tex:464: Extra \endgroup.
+\end  ...end#1\endcsname \@checkend {#1}\endgroup 
+                                                  \UseHook {env/#1/after}\if...
+l.464 \end{frame}
+                 
+Things are pretty mixed up, but I think the worst is over.
+
+
+
+[40
+
+]
+
+[41
 
 ]
 \tf@nav=\write6
@@ -1389,21 +1550,21 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `kennan_pres.out' has not changed.
-(rerunfilecheck)             Checksum: E343E930A59BEB917DA5634DF9918661;1027.
+(rerunfilecheck)             Checksum: 2D76104D5867CE2FCA1C553A7A75A980;1121.
  ) 
 Here is how much of TeX's memory you used:
- 23686 strings out of 473190
- 454805 string characters out of 5715801
- 842053 words of memory out of 5000000
- 46362 multiletter control sequences out of 15000+600000
+ 23752 strings out of 473190
+ 455649 string characters out of 5715801
+ 860259 words of memory out of 5000000
+ 46400 multiletter control sequences out of 15000+600000
  567636 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,19n,123p,386b,806s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb>
-Output written on kennan_pres.pdf (28 pages, 193757 bytes).
+ 128i,21n,123p,386b,806s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb>
+Output written on kennan_pres.pdf (41 pages, 307150 bytes).
 PDF statistics:
- 1890 PDF objects out of 2073 (max. 8388607)
- 1029 compressed objects within 11 object streams
- 67 named destinations out of 1000 (max. 500000)
- 120 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3804 PDF objects out of 4296 (max. 8388607)
+ 2011 compressed objects within 21 object streams
+ 93 named destinations out of 1000 (max. 500000)
+ 128 words of extra memory for PDF output out of 10000 (max. 10000000)
 
