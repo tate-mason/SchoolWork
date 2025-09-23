@@ -149,6 +149,23 @@
     \item \hl{Information:} Current location wage known; other locations' matches known only by visiting (experience good).
     \item \hl{Decision:} Maximize expected lifetime income net of moving costs.
   \end{itemize}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\linewidth}
+      \begin{tikzpicture}[node distance=2.5m, auto, >=Stealth]
+        \node (y1) {$y_1 = \eta + v_1 + \varepsilon_1$};
+        \node[right=of y1, yshift=1.2cm] (y2move) {$y_2 = \eta + v' + \varepsilon_2$};
+        \draw[->] (y1) -- (y2move) node[midway, above left] {$\rho(\nu)$};
+        \node[right=of y1, yshift=-1.2cm] (y2stay) {$y_2 = \eta + \tilde{v}^S + \varepsilon_2$};
+        \draw[->] (y1) -- (y2stay) node[midway, below left] {$1 - \rho(v)$};
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{0.48\linewidth}
+      \begin{itemize}
+        \item with probability $\rho(v)$, move and get observed wage $y_2 = \eta + v' + \varepsilon_2$
+        \item with probability $1-\rho(v)$, stay and get $y_2 = \eta + \tilde{v}^S + \varepsilon_2$ in which $\tilde{v}^S$ is the censored random wage derived by discarding the realized wages of movers
+      \end{itemize}
+    \end{column}
+  \end{columns}
   % FULL VALUE FUNCTION/CHOICE PROBABILITIES MOVED TO BACKUP.
 \end{frame}
 
@@ -170,23 +187,7 @@
     \item \hl{Idea:} Keep only the most recent $M$ locations for wages/matches.
     \item Preserves behavior seen in the data while making DP feasible.
   \end{itemize}
-  \begin{columns}[T,onlytextwidth]
-    \begin{column}{0.48\linewidth}
-      \begin{tikzpicture}[node distance=2.5m, auto, >=Stealth]
-        \node (y1) {$y_1 = \eta + v_1 + \varepsilon_1$};
-        \node[right=of y1, yshift=1.2cm] (y2move) {$y_2 = \eta + v' + \varepsilon_2$};
-        \draw[->] (y1) -- (y2move) node[midway, above left] {$\rho(\nu)$};
-        \node[right=of y1, yshift=-1.2cm] (y2stay) {$y_2 = \eta + \tilde{v}^S + \varepsilon_2$};
-        \draw[->] (y1) -- (y2stay) node[midway, below left] {$1 - \rho(v)$};
-      \end{tikzpicture}
-    \end{column}
-    \begin{column}{0.48\linewidth}
-      \begin{itemize}
-        \item with probability $\rho(v)$, move and get observed wage $y_2 = \eta + v' + \varepsilon_2$
-        \item with probability $1-\rho(v)$, stay and get $y_2 = \eta + \tilde{v}^S + \varepsilon_2$ in which $\tilde{v}^S$ is the censored random wage derived by discarding the realized wages of movers
-      \end{itemize}
-    \end{column}
-  \end{columns}
+  \figph{Schematic: Huge state space $\Rightarrow$ truncated recent-history state}
   % FORMAL STATE TRANSITIONS/LIKELIHOOD IN BACKUP.
 \end{frame}
 
