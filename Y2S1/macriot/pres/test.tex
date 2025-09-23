@@ -1,0 +1,364 @@
+% ============================================================
+% UGA-Themed Beamer Template (Clean MWE)
+% ============================================================
+
+\documentclass[aspectratio=169,professionalfonts]{beamer}
+
+% ---------- COLORS (swap with official UGA hex if you like) ----------
+\usepackage{xcolor}
+\definecolor{UGARed}{HTML}{BA0C2F}   % Verify with brand guide
+\definecolor{UGABlack}{HTML}{000000}
+\definecolor{UGAGray}{HTML}{8A8D8F}
+
+% ---------- THEME & PROGRESS DOTS ----------
+\usetheme{default}
+\useinnertheme{circles}
+\useoutertheme[subsection=false]{miniframes} % dots across top
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+
+% Head/foot colors
+\setbeamercolor{section in head/foot}{fg=white,bg=UGARed}
+\setbeamercolor{subsection in head/foot}{fg=white,bg=UGARed}
+\setbeamercolor{headline}{bg=UGARed,fg=white}
+\setbeamercolor{footline}{bg=UGABlack,fg=white}
+\setbeamercolor{frametitle}{fg=UGABlack}
+\setbeamercolor{title}{fg=UGABlack}
+\setbeamercolor{normal text}{fg=UGABlack}
+\setbeamercolor{structure}{fg=UGARed}
+
+% Simple footline with slide numbers
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex,leftskip=1em,rightskip=1em]{footline}%
+      \insertshortauthor{} \hfill \insertframenumber/\inserttotalframenumber
+    \end{beamercolorbox}}%
+}
+
+% ---------- PACKAGES ----------
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
+% ---------- METADATA (fill these later) ----------
+\title[Migration Decisions]{The Effect of Expected Income on Individual Migration Decisions}
+\subtitle{John Kennan and James R. Walker}
+\author[Tate Mason]{Tate Mason}
+\institute[UGA]{John Munro Godfrey Sr. Dept. of Economics \\ University of Georgia}
+\date{\today}
+
+% ---------- AUTO-AGENDA EACH SECTION ----------
+\AtBeginSection[]{
+  \begin{frame}{Roadmap}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% ---------- MACROS ----------
+% Numbered equation with label
+\newcommand{\beq}[1]{\begin{equation}\label{#1}}
+\newcommand{\eeq}{\end{equation}}
+% Accent color highlight
+\newcommand{\hl}[1]{\textbf{\textcolor{UGARed}{#1}}}
+% Simple figure placeholder macro
+\newcommand{\figph}[2][0.9\linewidth]{%
+  \begin{figure}
+    \centering
+    \fbox{\rule{0pt}{0.55#1}\rule{#1}{0pt}}%
+    \caption{#2}
+  \end{figure}
+}
+
+% ============================================================
+
+% ===== Added helper macros for talk version =====
+\usepackage{booktabs, adjustbox}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=UGARed, urlcolor=UGARed}
+
+% Subtle highlight macro
+\newcommand{\hl}[1]{\textbf{\color{UGARed}{#1}}}
+
+% Figure/table placeholder
+\newcommand{\figph}[1]{\begin{center}\fbox{\parbox{0.85\linewidth}{\centering \vspace{0.6em} \textit{#1} \vspace{0.6em}}}\end{center}}
+
+
+\begin{document}
+
+% ------------------------------------------------------------
+% Title
+% ------------------------------------------------------------
+\begin{frame}
+  \titlepage
+  % TALK GOAL: Speak ~45 minutes. Slides are intentionally concise.
+  % Use Notes or presenter view for your speaking points.
+\end{frame}
+
+% ------------------------------------------------------------
+% Agenda (auto via miniframes) + Explicit roadmap slide
+% ------------------------------------------------------------
+\begin{frame}{Roadmap (Talk-First Design)}
+  \begin{enumerate}
+    \item Motivation \& Stylized Facts
+    \item Model Intuition 
+    \item Estimation Idea
+    \item Results: What Drives Migration?
+    \item Interpretation \& Policy Angles
+    \item Q\&A (Backup: all proofs/derivations/robustness)
+  \end{enumerate}
+  \vspace{0.5em}
+\end{frame}
+
+% ============================================================
+\section{Motivation \& Facts}
+% ============================================================
+
+\begin{frame}{Question \& Motivation}
+  \begin{itemize}
+    \item \hl{Question:} Do expected income differences drive interstate migration?
+    \item Migration is common for the young; repeat and return moves are pervasive.
+    \item Policy relevance: local shocks, subsidies, welfare differentials.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Stylized Facts (NLSY79)}
+  \centering
+  \includegraphics[width=0.85\textwidth]{~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png}
+  \begin{itemize}
+    \item Repeat moves are about half of all moves; many are returns to origin.
+    \item Movers are younger; return migration is substantial.
+  \end{itemize}
+  % OMITTED DETAILS FOR TALK – BACKUP has sample construction and full Table I.
+\end{frame}
+
+% ============================================================
+\section{Model Intuition}
+% ============================================================
+
+\begin{frame}{Model Basics}
+  \begin{itemize}
+    \item \hl{Setup:} Locations differ in mean wages and match quality; moving is costly.
+    \item \hl{Information:} Current location wage known; other locations' matches known only by visiting (experience good).
+    \item \hl{Decision:} Maximize expected lifetime income net of moving costs.
+  \end{itemize}
+  \begin{center}
+\begin{tikzpicture}[
+  level distance=1.7cm,
+  level 1/.style={sibling distance=6.2cm},
+  level 2/.style={sibling distance=3.6cm},
+  every node/.style={font=\small},
+  edge from parent/.style={-Latex}
+]
+\node[align=center] (root) {State at $t$:\\ current location $\ell_0$, known $w_{\ell_0}$}
+  child { node[align=center] {Stay}
+    child { node[draw, rounded corners, align=center, inner sep=4pt] {$u_t = \alpha_0 w_{\ell_0} + \text{amenities} + \zeta_{\ell_0}$\\ $+\, \beta \mathbb{E}[V_{t+1}|\text{age}+1,\ell_0]$} }
+  edge from parent node[above left, font=\footnotesize] {prob. $\mathbb{E}(v(\text{stay}))$} }
+  child { node[align=center] {Move to $j\neq \ell_0$}
+    child { node[draw, rounded corners, align=center, inner sep=4pt] {$u_t = \alpha_0 w_{j} - \Delta(\ell_0,j)$\\ $+\, \text{amenities} + \zeta_{j}$\\ $+\, \beta \mathbb{E}[V_{t+1}|\text{age}+1,j]$} }
+  edge from parent node[above right, font=\footnotesize] {prob. $\mathbb{E}(v(j))$} };
+\end{tikzpicture}
+\end{center}
+  % FULL VALUE FUNCTION/CHOICE PROBABILITIES MOVED TO BACKUP.
+\end{frame}
+
+\begin{frame}{Why Dynamic \& Many Locations?}
+  \begin{itemize}
+    \item Return migration and onward moves require dynamics.
+    \item Many alternatives matter: returning is a choice among many states.
+  \end{itemize}
+  \begin{center}
+\begin{tikzpicture}[x=1.1cm,y=1.2cm]
+  \draw[->] (0,0) -- (11,0) node[right]{time};
+  % ticks
+  \foreach \x/\lbl in {0/20,2/22,4/24,6/26,8/28,10/30} {
+    \draw (\x,0.1) -- (\x,-0.1) node[below]{\lbl};
+  }
+  % locations and wages
+  \node[draw, rounded corners, fill=UGAGray!15] at (1,1) {$\ell_0$: $w_0$ good};
+  \draw[UGARed, thick, -Latex] (2,0.4) -- (3,0.4) node[midway, above]{move};
+  \node[draw, rounded corners, fill=UGAGray!15] at (4,1) {$\ell_1$: $w_1$ bad};
+  \draw[UGARed, thick, -Latex] (6,0.4) -- (7,0.4) node[midway, above]{return};
+  \node[draw, rounded corners, fill=UGAGray!15] at (8,1) {$\ell_0$: $w_0$ known};
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+% ============================================================
+\section{Estimation Idea}
+% ============================================================
+
+\begin{frame}{Computational Challenge \texorpdfstring{$\rightarrow$}{->} Limited-History Approximation}
+  \begin{itemize}
+    \item Full state space explodes with locations and match histories.
+    \item \hl{Idea:} Keep only the most recent $M$ locations for wages/matches.
+    \item Preserves behavior seen in the data while making DP feasible.
+  \end{itemize}
+  \begin{center}
+\begin{tikzpicture}
+  \node[draw, rounded corners, align=left, inner sep=6pt] (full) {Full state (infeasible):\\
+  $\big(\text{all past locations},\ \{\text{all }w,\xi\}\big)$};
+  \node[right=3.8cm of full, draw, rounded corners, align=left, inner sep=6pt, fill=UGAGray!10] (limited) {Limited history ($M$ recent):\\
+  $\big((\ell_0,\ell_1),\ (w_{\ell_0},w_{\ell_1}),\ (\xi_{\ell_0},\xi_{\ell_1})\big)$};
+  \draw[-{Latex[length=3mm]}] (full) -- node[above]{truncate to last $M$} (limited);
+\end{tikzpicture}
+\end{center}
+  % FORMAL STATE TRANSITIONS/LIKELIHOOD IN BACKUP.
+\end{frame}
+
+\begin{frame}{Wage Components (What Matters for Moves)}
+  \begin{itemize}
+    \item Mean wage by location; permanent match component; person FE; transitory shocks.
+    \item Migration choice depends on \textit{differences} in expected income and moving cost, not levels.
+  \end{itemize}
+  \begin{block}{Wage decomposition (relevant pieces in bold)}
+\begin{equation*}
+\underbrace{w_{ij}(a,t)}_{\text{observed}}=
+\underbrace{\mu_j}_{\text{mean by location}} + \ \underbrace{\boldsymbol{\upsilon_{ij}}}_{\textbf{match}} + G(X_i,a,t) + \eta_i + \varepsilon_{ijt}
+\end{equation*}
+\end{block}
+\begin{itemize}
+  \item Migration choice depends on $\boldsymbol{\mu_j + \upsilon_{ij}}$ and moving cost $\Delta(\ell_0,j)$.
+\end{itemize}
+\end{frame}
+
+% ============================================================
+\section{Results}
+% ============================================================
+
+\begin{frame}{What Drives Migration? (Headlines)}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\linewidth}
+      \begin{itemize}
+        \item \hl{Expected income matters}: moves respond to geographic mean wages and bad current matches.
+        \item \hl{Costs matter}: distance penalty; strong home premium; cheaper to return.
+        \item \hl{Population size} of destination reduces cost (network/proximity channels).
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\linewidth}
+      \includegraphics[width=0.88\textwidth]{~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Economic Magnitudes}
+  \begin{itemize}
+    \item Moving cost equivalent $\approx$ \$300k (PV terms, order of magnitude).
+    \item Good match + high-mean state \texorpdfstring{$\Rightarrow$}{->} $\approx\$$22k / year gain (1989).
+  \end{itemize}
+\end{frame}
+\begin{frame}{Tables of Magnitudes}
+  \centering
+  \includegraphics[width=0.55\textwidth]{~/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png}
+  
+  \includegraphics[width=0.55\textwidth]{~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png}
+\end{frame}
+
+\begin{frame}{Fit \& Mechanism}
+  \begin{itemize}
+    \item Model reproduces repeat/return migration shares qualitatively.
+    \item Negative association: higher realized income this period $\Rightarrow$ lower out-migration probability.
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+\section{Interpretation \& Policy}
+% ============================================================
+
+\begin{frame}{What We Learn}
+  \begin{itemize}
+    \item Migration resembles optimal search over locations.
+    \item Both mean differences and idiosyncratic match quality drive moves.
+    \item Structural approach enables policy counterfactuals.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Policy Angles \& Extensions}
+  \begin{itemize}
+    \item Local labor demand shocks \& wage equalization dynamics.
+    \item Subsidies or relocation assistance: who moves more?
+    \item Household joint decisions; welfare benefit differentials; retirement migration.
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+\section{Conclusion}
+% ============================================================
+
+\begin{frame}{Takeaways}
+  \begin{itemize}
+    \item Expected income plays a sizable role in interstate migration.
+    \item High moving costs + payoff shocks reconcile low average move rates with meaningful gains.
+    \item Model provides a tractable template for counterfactual policy analysis.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Thanks!}
+  \centering
+  Questions? \quad \href{mailto:}{tate.mason@uga.edu}
+\end{frame}
+
+% ============================================================
+% BACKUP (Dense Slides Live Here)
+% ============================================================
+\appendix
+\section{Backup}
+
+\begin{frame}{Data \& Sample Construction \textit{(Backup)}}
+  \begin{itemize}
+    \item NLSY79 cross-section; white non-Hispanic HS grads; ages 20+; not in military.
+    \item Attrition and consistency checks; AFQT use; state means from Census PUMS (1990).
+  \end{itemize}
+  \figph{Full Table I (repeat/return migration) or cite in small font}
+\end{frame}
+
+\begin{frame}{Value Function \& Choice Probabilities \textit{(Backup)}}
+  \begin{block}{Bellman equation}
+\begin{align*}
+V(x,\boldsymbol{\zeta}) &= \max_{j\in \mathcal{J}} \{\, v(x,j) + \zeta_j \,\},\\
+v(x,j) &= u(x,j) + \beta \mathbb{E}_{x'}[\, \bar V(x') \mid x,j\,], \quad \bar V(x)=\mathbb{E}_{\zeta}[V(x,\zeta)].
+\end{align*}
+\end{block}
+\begin{block}{Extreme value shocks $\Rightarrow$ logit choice probabilities}
+\begin{equation*}
+\rho(x,j)=\frac{\exp(v(x,j))}{\sum_{k\in\mathcal{J}} \exp(v(x,k))},\qquad
+\exp(\bar V(x))=e^{\bar\gamma}\sum_{k}\exp(v(x,k)).
+\end{equation*}
+\end{block}
+\end{frame}
+
+\begin{frame}{Limited-History State Transitions \textit{(Backup)}}
+  \begin{block}{State and transitions (with $M=2$ recent locations)}
+State: $x=(\ell_0,\ell_1,\ \omega_{\ell_0}^{(w)},\omega_{\ell_1}^{(w)},\ \omega_{\ell_0}^{(\xi)},\omega_{\ell_1}^{(\xi)},\ a).$\\[0.3em]
+If stay: $x'=(\ell_0,\ell_1,\ \cdot,\cdot,\cdot,\cdot,\ a+1).$\\
+If move to previous $\ell_1$: swap $(\ell_0,\ell_1)$ and their components, $a\leftarrow a+1.$\\
+If move to new $j$: shift $(\ell_0\!\leftarrow\! j,\ \ell_1\!\leftarrow\! \ell_0)$ and draw new $(\omega_j^{(w)},\omega_j^{(\xi)})$.
+\end{block}
+\end{frame}
+
+\begin{frame}{Likelihood \& Identification Sketch \textit{(Backup)}}
+  \begin{itemize}
+    \item Joint likelihood of income \& choices; mixture over unobserved components.
+    \item Nonparametric intuition: selection on bad current draws $\uparrow$ move probability.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Key Estimates (Full) \textit{(Backup)}}
+  \includegraphics[width=0.8\textwidth]
+\end{frame}
+
+\begin{frame}{Robustness \textit{(Backup)}}
+  \begin{itemize}
+    \item Vary $\beta$, horizon $T$, include preference match, extra amenities.
+    \item Fit diagnostics; simulated vs. observed migration rates.
+  \end{itemize}
+\end{frame}
+
+\end{document}

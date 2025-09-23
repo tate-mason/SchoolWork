@@ -43,6 +43,8 @@
 \usepackage{array}
 \usepackage{adjustbox}
 \usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
 
 % ---------- METADATA (fill these later) ----------
 \title[Migration Decisions]{The Effect of Expected Income on Individual Migration Decisions}
@@ -349,38 +351,37 @@
   \end{equation}
 \end{frame}
 
-\begin{frame}{Summary Statistics \& Balance}
-  \begin{table}
-    \centering
-    \caption{Summary / Balance (Illustrative)}
-    \begin{adjustbox}{max width=\linewidth}
-    \begin{tabular}{lccc}
-      \toprule
-      \textbf{Variable} & Control & Treat & Diff \\
-      \midrule
-      Outcome (baseline) &  &  &  \\
-      Covariate A        &  &  &  \\
-      Covariate B        &  &  &  \\
-      \bottomrule
-    \end{tabular}
-    \end{adjustbox}
-  \end{table}
+\begin{frame}{Nonparametric Identification of Choice Probabilities}
+  \begin{itemize}
+  \item Wage matching cannot be observed directly
+  \item We observe a match with error
+  \item Dealt with via likelihood integrating over the distributions  of the errors
+  \item Still, heavily reliant on assumptions
+  \end{itemize}
+  Wage residual can be defined as such
+  \begin{equation}
+    y_{it} = \eta_i + v_{ij(t)}+\epsilon_{it}
+  \end{equation}
 \end{frame}
 
-\begin{frame}{Treatment vs.\ Control (Definition)}
-  \begin{itemize}
-    \item Operational definition of \hl{treatment} and \hl{control}.
-    \item Timing / exposure, staggered adoption if any.
-    \item Sample restrictions and measurement windows.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Alternative Specifications — Preview}
-  \begin{itemize}
-    \item Heterogeneity (hospital size, region, worker type).
-    \item Functional form variants / additional controls.
-    \item Event study / placebo / robustness roadmap.
-  \end{itemize}
+\begin{frame}{DGP}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\linewidth}
+      \begin{tikzpicture}[node distance=2.5m, auto, >=Stealth]
+        \node (y1) {$y_1 = \eta + v_1 + \varepsilon_1$};
+        \node[right=of y1, yshift=1.2cm] (y2move) {$y_2 = \eta + v' + \varepsilon_2$};
+        \draw[->] (y1) -- (y2move) node[midway, above left] {$\rho(\nu)$};
+        \node[right=of y1, yshift=-1.2cm] (y2stay) {$y_2 = \eta + \tilde{v}^S + \varepsilon_2$};
+        \draw[->] (y1) -- (y2stay) node[midway, below left] {$1 - \rho(v)$};
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{0.48\linewidth}
+      \begin{itemize}
+        \item with probability $\rho(v)$, move and get observed wage $y_2 = \eta + v' + \varepsilon_2$
+        \item with probability $1-\rho(v)$, stay and get $y_2 = \eta + \tilde{v}^S + \varepsilon_2$ in which $\tilde{v}^S$ is the censored random wage derived by discarding the realized wages of movers
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 % ============================================================
@@ -388,25 +389,16 @@
 % ============================================================
 \section{Results}
 
+\begin{frame}{Preliminaries}
+  \begin{itemize}
+    \item set $\beta = 0.95$
+    \item set $T = 40$
+    \item set $M = 2$
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Main Results: Table}
-  \begin{table}
     \centering
-    \caption{Main Specification (Illustrative)}
-    \begin{adjustbox}{max width=\linewidth}
-    \begin{tabular}{lcccc}
-      \toprule
-      & \textbf{(1)} & \textbf{(2)} & \textbf{(3)} & \textbf{(4)} \\
-      \midrule
-      Treat     &   &   &   &   \\
-      Controls  &   &   &   &   \\
-      FE        &   &   &   &   \\
-      \midrule
-      N         &   &   &   &   \\
-      $R^2$     &   &   &   &   \\
-      \bottomrule
-    \end{tabular}
-    \end{adjustbox}
-  \end{table}
 \end{frame}
 
 \begin{frame}{Main Results: Graph}
