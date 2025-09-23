@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1758557539.25505 "kennan_pres.tex" "kennan_pres.pdf" "kennan_pres" 1758557542.83485 2
+["pdflatex"] 1758557554.93633 "kennan_pres.tex" "kennan_pres.pdf" "kennan_pres" 1758557558.50661 2
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcss1000.tfm" 1136768653 1536 293044035fd171bb1d18cf655049b101 ""
@@ -214,11 +214,11 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "graphics/tab1.png" 1758557392.26133 45305 7e89672aaf63606f572cae9a64c0f9d7 ""
-  "kennan_pres.aux" 1758557542.74427 6851 c407476a55fb8781346db827cb5e2b76 "pdflatex"
-  "kennan_pres.nav" 1758557542.74791 4354 5596560bec9a1739ccc3589140770464 "pdflatex"
-  "kennan_pres.out" 1758557542.74769 1027 e343e930a59beb917da5634df9918661 "pdflatex"
-  "kennan_pres.tex" 1758557537.62409 10220 9cd0ace3798c3ffb1bdfe4af92b293df ""
-  "kennan_pres.toc" 1758557542.74795 408 fd9b02a6482931909980ce5dc46b152f "pdflatex"
+  "kennan_pres.aux" 1758557558.41022 6851 c407476a55fb8781346db827cb5e2b76 "pdflatex"
+  "kennan_pres.nav" 1758557558.41351 4354 5596560bec9a1739ccc3589140770464 "pdflatex"
+  "kennan_pres.out" 1758557558.41329 1027 e343e930a59beb917da5634df9918661 "pdflatex"
+  "kennan_pres.tex" 1758557554.60288 10174 8fb1c2ec9f03e7aacc0c9bddd625527c ""
+  "kennan_pres.toc" 1758557558.41355 408 fd9b02a6482931909980ce5dc46b152f "pdflatex"
   (generated)
   "kennan_pres.aux"
   "kennan_pres.log"

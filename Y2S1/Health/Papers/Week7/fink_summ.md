@@ -10,7 +10,7 @@ At a high level, this paper seeks to identify unused observables and their impac
 
 # Specific Research Question
 
-Can risk relevant characteristics, which are correlated with demand, be identified and used to improve insurance pricing? Asymmetric use in this context refers to insurance firms ignoring all risk-relevant information to set prices, while consumers use all available information to make purchasing decisions.
+Using residential location as an unused characteristic, is there evidence that pricing policy in the annuity market is impacted by asymmetric information?
 
 # Why Should Policymakers Care?
 
@@ -21,3 +21,5 @@ Policymakers should care about this question because if insurance firms are not 
 Economists should care about this question because it touches on fundamental concepts of market efficiency, information asymmetry, and consumer behavior. Understanding how unused observables impact insurance pricing can provide insights into how markets function when all relevant information is not utilized. This can help to inform market behavior and differences across different types of insurance products.
 
 # What Did We Learn?
+
+We learned that there is credible evidence that socioeconomic status is a key source of mortality information which is not priced by the insurance companies. Further, we learn about testing for these unobservables and their importance to actual inference.
