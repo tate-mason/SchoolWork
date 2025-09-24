@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  23 SEP 2025 19:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  24 SEP 2025 09:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -852,7 +852,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png, id=356, 577.15625pt x 294.09875pt>
 File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png Graphic file (type png)
 <use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png  used on input line 140.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png  used on input line 139.
 (pdftex.def)             Requested size: 338.59023pt x 172.53845pt.
 
 
@@ -875,7 +875,7 @@ Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png  used 
 [9
 
 ]
-Overfull \hbox (17.47498pt too wide) in paragraph at lines 214--214
+Overfull \hbox (17.47498pt too wide) in paragraph at lines 211--211
  [] 
  []
 
@@ -895,8 +895,17 @@ Overfull \hbox (17.47498pt too wide) in paragraph at lines 214--214
 <~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png, id=846, 1202.4925pt x 1124.2pt>
 File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png Graphic file (type png)
 <use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png  used on input line 249.
-(pdftex.def)             Requested size: 168.25764pt x 157.30115pt.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png  used on input line 246.
+(pdftex.def)             Requested size: 210.32207pt x 196.61787pt.
+
+Overfull \hbox (19.12125pt too wide) in paragraph at lines 246--246
+[][]  
+ []
+
+
+Overfull \vbox (0.27158pt too high) detected at line 246
+ []
+
 
 
 [13
@@ -909,12 +918,12 @@ Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png  used 
 <~/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png, id=962, 1078.0275pt x 576.1525pt>
 File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png Graphic file (type png)
 <use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png  used on input line 262.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png  used on input line 259.
 (pdftex.def)             Requested size: 219.08743pt x 117.09222pt.
 <~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png, id=963, 1078.0275pt x 313.17pt>
 File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png Graphic file (type png)
 <use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png  used on input line 262.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png  used on input line 259.
 (pdftex.def)             Requested size: 219.08743pt x 63.64594pt.
 
 
@@ -951,243 +960,31 @@ Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png  used 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\translate ' on input line 312.
+(hyperref)                removing `\translate ' on input line 309.
 
 (./test.toc)
 
 [23
 
 ]
-./test.tex:320: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   .
-l.320 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-./test.tex:320: Package calc Error: `.' invalid at this point.
-
-See the calc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.320 \end{frame}
-                 
-I expected to see one of: + - * / )
-
-./test.tex:320: Missing number, treated as zero.
-<to be read again> 
-                   !
-l.320 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./test.tex:320: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   !
-l.320 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-./test.tex:320: Extra }, or forgotten \endgroup.
-<recently read> }
-                 
-l.320 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./test.tex:320: Extra }, or forgotten \endgroup.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.320 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./test.tex:320: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.320 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./test.tex:320: Missing } inserted.
-<inserted text> 
-                }
-l.320 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./test.tex:320: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.320 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./test.tex:320: Missing } inserted.
-<inserted text> 
-                }
-l.320 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./test.tex:320: Undefined control sequence.
-\beamer@@tmpl@caption ... name}\insertcaptionname 
-                                                  \usebeamertemplate {captio...
-l.320 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./test.tex:320: Undefined control sequence.
-\beamer@@tmpl@caption ...eparator}}\insertcaption 
-                                                  \par 
-l.320 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./test.tex:320: LaTeX Error: \begin{figure} on input line 320 ended by \end{center}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.320 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./test.tex:320: LaTeX Error: \begin{beamer@framepauses} on input line 320 ended by \end{figure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.320 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./test.tex:320: LaTeX Error: \begin{beamer@frameslide} on input line 320 ended by \end{beamer@framepauses}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.320 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./test.tex:320: Missing } inserted.
-<inserted text> 
-                }
-l.320 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./test.tex:320: Too many }'s.
-\endbeamer@frameslide ...amer@framepauses}\egroup 
-                                                  \ifx \beamer@frametitle \@...
-l.320 \end{frame}
-                 
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-./test.tex:320: Undefined control sequence.
-\endbeamer@frameslide ...box \else \beamer@zoomer 
-                                                  \fi \beamer@undolabels \be...
-l.320 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./test.tex:320: LaTeX Error: \begin{document} ended by \end{beamer@frameslide}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.320 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./test.tex:320: Extra \endgroup.
-\end  ...end#1\endcsname \@checkend {#1}\endgroup 
-                                                  \UseHook {env/#1/after}\if...
-l.320 \end{frame}
-                 
-Things are pretty mixed up, but I think the worst is over.
-
-
 
 [24
 
 ]
+Overfull \hbox (8.0691pt too wide) in paragraph at lines 353--353
+[][]  
+ []
+
+
 
 [25
 
 ]
+Overfull \hbox (8.0691pt too wide) in paragraph at lines 386--386
+[][]  
+ []
+
+
 
 [26
 
@@ -1197,30 +994,31 @@ Things are pretty mixed up, but I think the worst is over.
 
 ]
 
-./test.tex:355: LaTeX Error: File `\end ' not found.
+[28
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.355 \end{frame}
-                 
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+]
 
-./test.tex:362: Extra }, or forgotten \endgroup.
-\endframe ->\egroup 
-                    \begingroup \def \@currenvir {frame}
-l.362 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
+[29
 
+]
+
+[30
+
+]
+<~/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png, id=1626, 1188.44pt x 1057.9525pt>
+File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png Graphic file (type png)
+<use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png  used on input line 429.
+(pdftex.def)             Requested size: 239.00558pt x 212.76518pt.
+
+Overfull \vbox (8.68553pt too high) detected at line 429
+ []
+
+
+
+[31
+
+ </Users/tate/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png>]
 \tf@nav=\write6
 \openout6 = `test.nav'.
 
@@ -1230,63 +1028,28 @@ deleted material, e.g., by typing `I$}'.
 \tf@snm=\write8
 \openout8 = `test.snm'.
 
-
-./test.tex:364: LaTeX Error: \begin{frame} on input line 357 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.364 \end{document}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-(./test.aux)
+ (./test.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `test.out' has not changed.
-(rerunfilecheck)             Checksum: A7B978CFCDC8920E190411705D13A92C;884.
-
-./test.tex:364: You can't use `\end' in internal vertical mode.
-\enddocument ...cument/end}\deadcycles \z@ \@@end 
-                                                  
-l.364 \end{document}
-                    
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
-./test.tex:364: LaTeX Error: \begin{frame} on input line 357 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.364 \end{document}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-)
-! Emergency stop.
-<*> test.tex
-            
-*** (job aborted, no legal \end found)
-
- 
+(rerunfilecheck)             Checksum: 3A7BFF09ED24A60F3935D5DAB545D686;894.
+ ) 
 Here is how much of TeX's memory you used:
- 27293 strings out of 473190
- 540712 string characters out of 5715801
- 925682 words of memory out of 5000000
- 49909 multiletter control sequences out of 15000+600000
- 577561 words of font info for 105 fonts, out of 8000000 for 9000
+ 27262 strings out of 473190
+ 540305 string characters out of 5715801
+ 929756 words of memory out of 5000000
+ 49871 multiletter control sequences out of 15000+600000
+ 578212 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,19n,123p,379b,1141s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb>
+Output written on test.pdf (31 pages, 840412 bytes).
+PDF statistics:
+ 1785 PDF objects out of 2073 (max. 8388607)
+ 978 compressed objects within 10 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 132 words of extra memory for PDF output out of 10000 (max. 10000000)
+

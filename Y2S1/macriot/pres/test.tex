@@ -112,7 +112,7 @@
     \item Estimation Idea
     \item Results: What Drives Migration?
     \item Interpretation \& Policy Angles
-    \item Q\&A (Backup: all proofs/derivations/robustness)
+    \item Q\&A (Appendix: all proofs/derivations/robustness)
   \end{enumerate}
   \vspace{0.5em}
 \end{frame}
@@ -136,7 +136,6 @@
     \item Repeat moves are about half of all moves; many are returns to origin.
     \item Movers are younger; return migration is substantial.
   \end{itemize}
-  % OMITTED DETAILS FOR TALK – BACKUP has sample construction and full Table I.
 \end{frame}
 
 % ============================================================
@@ -166,7 +165,6 @@
   edge from parent node[above right, font=\footnotesize] {prob. $\mathbb{E}(v(j))$} };
 \end{tikzpicture}
 \end{center}
-  % FULL VALUE FUNCTION/CHOICE PROBABILITIES MOVED TO BACKUP.
 \end{frame}
 
 \begin{frame}{Why Dynamic \& Many Locations?}
@@ -210,7 +208,6 @@
   \draw[-{Latex[length=3mm]}] (full) -- node[above]{truncate to last $M$} (limited);
 \end{tikzpicture}
 \end{center}
-  % FORMAL STATE TRANSITIONS/LIKELIHOOD IN BACKUP.
 \end{frame}
 
 \begin{frame}{Wage Components (What Matters for Moves)}
@@ -243,7 +240,7 @@
       \end{itemize}
     \end{column}
     \begin{column}{0.48\linewidth}
-      \includegraphics[width=0.88\textwidth]{~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png}
+      \includegraphics[width=1.1\textwidth]{~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png}
     \end{column}
   \end{columns}
 \end{frame}
@@ -309,17 +306,86 @@
 % BACKUP (Dense Slides Live Here)
 % ============================================================
 \appendix
-\section{Backup}
+\section{Appendix}
 
-\begin{frame}{Data \& Sample Construction \textit{(Backup)}}
+\begin{frame}{Data \& Sample Construction \textit{(Appendix)}}
   \begin{itemize}
     \item NLSY79 cross-section; white non-Hispanic HS grads; ages 20+; not in military.
     \item Attrition and consistency checks; AFQT use; state means from Census PUMS (1990).
   \end{itemize}
-  \figph{Full Table I (repeat/return migration) or cite in small font}
 \end{frame}
 
-\begin{frame}{Value Function \& Choice Probabilities \textit{(Backup)}}
+\begin{frame}{Sample Selection}
+\footnotesize
+\setlength{\tabcolsep}{4pt}%
+\renewcommand{\arraystretch}{0.7}%
+\begin{tabular}{%
+  >{\raggedright\arraybackslash}p{0.66\linewidth}
+  >{\raggedleft\arraybackslash}p{0.14\linewidth}
+  >{\raggedleft\arraybackslash}p{0.16\linewidth}}
+\toprule
+ & \textbf{Respondents} & \textbf{Person-Years} \\
+\midrule
+White non-Hispanic males (cross-section sample) & 2,439 & 39,024 \\
+\addlinespace[2pt]
+\multicolumn{3}{l}{\textit{Restrictions applied to respondents}}\\
+Ever in military & $-246$ & \\
+High school dropouts and college graduates & $-1{,}290$ & \\
+Attended college & $-130$ & \\
+Older than age 20 at start of sample period & $-134$ & \\
+Missing AFQT score & $-41$ & \\
+Attend or graduate from high school at age 20 & $-87$ & \\
+Not in labor force for more than 1 year after age 19 & $-44$ & \\
+Location at age 20 not reported & $-20$ & \\
+Income information inconsistent & $-1$ & \\
+Died before age 30 & $-4$ & \\
+Residence at age 14 not reported & $-2$ & \\
+In jail in 1993 & $-1$ & \\
+Subtotal & $-2{,}000$ & 6,585 \\
+\addlinespace[2pt]
+\multicolumn{3}{l}{\textit{Restrictions applied to periods}}\\
+Delete periods after first gap in history & $-1$ & $-1{,}104$ \\
+Delete periods before age 20 & $-6$ & $-1{,}207$ \\
+\addlinespace[2pt]
+\textbf{Analysis sample} & \textbf{432} & \textbf{4,274} \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Sample Selection — Years per person}
+\footnotesize
+\setlength{\tabcolsep}{4pt}%
+\renewcommand{\arraystretch}{.9}%
+\begin{tabular}{%
+  >{\raggedright\arraybackslash}p{0.66\linewidth}
+  >{\raggedleft\arraybackslash}p{0.14\linewidth}
+  >{\raggedleft\arraybackslash}p{0.16\linewidth}}
+\toprule
+ & \textbf{Respondents} & \textbf{Person-Years} \\
+\midrule
+\textit{Years per person} & & \\
+1  & 14 & 14 \\
+2  & 16 & 32 \\
+3  & 19 & 57 \\
+4  & 14 & 56 \\
+5  & 14 & 70 \\
+6  & 14 & 84 \\
+7  & 13 & 91 \\
+8  & 9  & 72 \\
+9  & 34 & 306 \\
+10 & 61 & 610 \\
+11 & 53 & 583 \\
+12 & 44 & 528 \\
+13 & 45 & 585 \\
+14 & 44 & 616 \\
+15 & 38 & 570 \\
+\midrule
+\textbf{Total} & \textbf{432} & \textbf{4,274} \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Value Function \& Choice Probabilities \textit{(Appendix)}}
   \begin{block}{Bellman equation}
 \begin{align*}
 V(x,\boldsymbol{\zeta}) &= \max_{j\in \mathcal{J}} \{\, v(x,j) + \zeta_j \,\},\\
@@ -334,7 +400,7 @@ v(x,j) &= u(x,j) + \beta \mathbb{E}_{x'}[\, \bar V(x') \mid x,j\,], \quad \bar V
 \end{block}
 \end{frame}
 
-\begin{frame}{Limited-History State Transitions \textit{(Backup)}}
+\begin{frame}{Limited-History State Transitions \textit{(Appendix)}}
   \begin{block}{State and transitions (with $M=2$ recent locations)}
 State: $x=(\ell_0,\ell_1,\ \omega_{\ell_0}^{(w)},\omega_{\ell_1}^{(w)},\ \omega_{\ell_0}^{(\xi)},\omega_{\ell_1}^{(\xi)},\ a).$\\[0.3em]
 If stay: $x'=(\ell_0,\ell_1,\ \cdot,\cdot,\cdot,\cdot,\ a+1).$\\
@@ -343,22 +409,23 @@ If move to new $j$: shift $(\ell_0\!\leftarrow\! j,\ \ell_1\!\leftarrow\! \ell_0
 \end{block}
 \end{frame}
 
-\begin{frame}{Likelihood \& Identification Sketch \textit{(Backup)}}
+\begin{frame}{Likelihood \& Identification Sketch \textit{(Appendix)}}
   \begin{itemize}
     \item Joint likelihood of income \& choices; mixture over unobserved components.
     \item Nonparametric intuition: selection on bad current draws $\uparrow$ move probability.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Key Estimates (Full) \textit{(Backup)}}
-  \includegraphics[width=0.8\textwidth]
-\end{frame}
-
-\begin{frame}{Robustness \textit{(Backup)}}
+\begin{frame}{Robustness \textit{(Appendix)}}
   \begin{itemize}
     \item Vary $\beta$, horizon $T$, include preference match, extra amenities.
     \item Fit diagnostics; simulated vs. observed migration rates.
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Robustness (Appendix)}
+  \centering
+  \includegraphics[width=0.6\textwidth]{~/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png}
 \end{frame}
 
 \end{document}
