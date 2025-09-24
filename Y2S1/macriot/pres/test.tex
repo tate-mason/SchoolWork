@@ -158,8 +158,8 @@
 ]
 \node[align=center] (root) {State at $t$:\\ current location $\ell_0$, known $w_{\ell_0}$}
   child { node[align=center] {Stay}
-    child { node[draw, rounded corners, align=center, inner sep=4pt] {$u_t = \alpha_0 w_{\ell_0} + \text{amenities} + \zeta_{\ell_0}$\\ $+\, \beta \mathbb{E}[V_{t+1}|\text{age}+1,\ell_0]$} }
-  edge from parent node[above left, font=\footnotesize] {prob. $\mathbb{E}(v(\text{stay}))$} }
+    child { node[draw, rounded corners, align=center, inner sep=4pt] {$u_t = \alpha_0 w_{\ell_0} + \text{amenities} + \zeta_{\ell_0}$\\ $+\, \beta[V_{t+1}|\text{age}+1,\ell_0]$} }
+  edge from parent node[above left, font=\footnotesize] {prob. $v(\text{stay})$} }
   child { node[align=center] {Move to $j\neq \ell_0$}
     child { node[draw, rounded corners, align=center, inner sep=4pt] {$u_t = \alpha_0 w_{j} - \Delta(\ell_0,j)$\\ $+\, \text{amenities} + \zeta_{j}$\\ $+\, \beta \mathbb{E}[V_{t+1}|\text{age}+1,j]$} }
   edge from parent node[above right, font=\footnotesize] {prob. $\mathbb{E}(v(j))$} };

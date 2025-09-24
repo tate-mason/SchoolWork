@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1758720003.61848 "test.tex" "test.pdf" "test" 1758720007.86 2
+["pdflatex"] 1758720484.3779 "test.tex" "test.pdf" "test" 1758720488.33081 2
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcss1095.tfm" 1136768653 1536 f0fa079cdc83a6ffeda21e42352cf1ea ""
@@ -272,11 +272,11 @@
   "graphics/tab2.png" 1758667359.06073 306964 2de1657e167d11a01105d0f79ccce8f8 ""
   "graphics/tab3.png" 1758667385.87236 89962 263b4c1138419ce048416917abc7ab36 ""
   "graphics/tab4.png" 1758667399.68939 46554 588d0d1ed4f9a510fc3bb9e8f5443c00 ""
-  "test.aux" 1758720007.70871 6832 c5105dadcecfa9e3451829fa06e78b2b "pdflatex"
-  "test.nav" 1758720007.71244 4459 0e8587a26a5d35356e984b202fb1c00e "pdflatex"
-  "test.out" 1758720007.71224 894 3a7bff09ed24a60f3935d5dab545d686 "pdflatex"
-  "test.tex" 1758720002.59897 16332 ee187ca0e1d4d6d5ee8cd17d6560d312 ""
-  "test.toc" 1758720007.71247 354 61c29477f5c2518e6bf4c0491095daf4 "pdflatex"
+  "test.aux" 1758720488.18354 6832 c5105dadcecfa9e3451829fa06e78b2b "pdflatex"
+  "test.nav" 1758720488.18627 4459 0e8587a26a5d35356e984b202fb1c00e "pdflatex"
+  "test.out" 1758720488.18608 894 3a7bff09ed24a60f3935d5dab545d686 "pdflatex"
+  "test.tex" 1758720483.20598 16309 4c4e0d2f6ac67b4bbf6f150c975bf65b ""
+  "test.toc" 1758720488.18631 354 61c29477f5c2518e6bf4c0491095daf4 "pdflatex"
   (generated)
   "test.aux"
   "test.log"
