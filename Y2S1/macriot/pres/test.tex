@@ -129,12 +129,31 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Stylized Facts (NLSY79)}
-  \centering
-  \includegraphics[width=0.85\textwidth]{~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png}
+\begin{frame}{Models of Migration}
   \begin{itemize}
-    \item Repeat moves are about half of all moves; many are returns to origin.
-    \item Movers are younger; return migration is substantial.
+    \item Migration models are used to estimate how and why agents move within an economy
+    \item Typically used to look at isolated migration events, which may be too shallow of a viewpoint
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Contribution}
+  \begin{itemize}
+    \item \hl{What’s new}: Develops a tractable econometric model focusing on expected income's influence on migration which allows for dynamic decision making
+    \item \hl{Why it matters}: Adds possibility of both repeat and return migration, creating a context for this model to solve a job-search problem
+    \item Using data from NLSY, gain an understanding of the motives behind and patterns exhibited by movers in the framework of this model
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Paper’s Story / Key Findings}
+  \begin{itemize}
+    \item The paper aims to look at white men with high school education, utilizing the NLSY to track agents through time
+    \item Expected income prospects are a major contributor to interstate migration decisions
+    \item Further, there is evidence of geographic factors taking place once income realization is met, and the current location is found to be suboptimal
+    \item \hl{Key quantitative takeaways}
+    \begin{itemize}
+      \item Value of moving from a bad location to a good one equates to a \$17,000 per year
+      \item Moving is mostly decided by fit of draw: if good, they stay; if bad: they try again, incurring a cost
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -142,12 +161,83 @@
 \section{Model Intuition}
 % ============================================================
 
-\begin{frame}{Model Basics}
+\begin{frame}{Model Assumptions}
   \begin{itemize}
-    \item \hl{Setup:} Locations differ in mean wages and match quality; moving is costly.
-    \item \hl{Information:} Current location wage known; other locations' matches known only by visiting (experience good).
-    \item \hl{Decision:} Maximize expected lifetime income net of moving costs.
+    \item Assume wages are a local product of skill bundles
+    \item $J$ locations
+    \item $y_{ij}$ is individual $i$'s income in location $j$ with a known distribution
+    \item Migration occurs to maximize expected discounted value of lifetime utility
+    \item Ignore assets for this case, only seeking to maximize expected lifetime income, net of moving costs
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Value Function}
+  \begin{equation}
+    V(x, \zeta) = \max_j(v(x,j) + \zeta_j)
+  \end{equation}
+  where,
+  \begin{gather*}
+    v(x,j) = u(x,j) + \beta\sum_{x'}p(x'|x,j)\bar{v}(x') \\
+    \shortintertext{and} \\
+    \bar{v}(x) = \mathbb{E}_{\zeta}V(x,\zeta)
+  \end{gather*}
+\end{frame}
+
+\begin{frame}{Value Function, cont.}
+  Further,
+  \begin{gather*}
+    \exp(\bar{v}(x)) = \exp(\bar{\gamma})\sum\limits_{j=1}^J\exp(v(x,k)), \\
+    \shortintertext{and} \\
+    \rho(x,j) = \exp(\bar{\gamma}+v(x,j)-\bar{v}(x))
+  \end{gather*}
+  where $\bar{\gamma}$ is the Euler constant, $\rho(x,j)$ is the probability of choosing $j$ when in state $x$
+\end{frame}
+
+\begin{frame}{Wages}
+  Wage of agent $i$ in location $j$ at age $a$ during time $t$ is as follows,
+  \begin{equation}
+    w_{ij}(a) = \mu_j + v_{ij} + G(X_i, a, t) + \eta_i + \epsilon_{ij}(a)
+  \end{equation}
+  \begin{itemize}
+  \item Quality of match governed by the difference between $\mu_j + v_{ij}$ and $\mu_k + v_{ik}$, the current quality versus the prospective quality of another location
+  \item Match quality is known for current and, where possible, most recent location
+  \item Prospects of all other locations are unknown
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{State Variables \& Flow Payoffs}
+  \begin{itemize}
+    \item $l = (l^0, l^1, ..., l^{M-1})$ be an $M$ vector containing the sequence of previous locations, beginning with the current location
+    \item $\omega$ is an $M$ vector containing wage and utility information at these locations
+    \item $l,\omega, a \in x$, the state vector
+  \end{itemize}
+  \begin{equation}
+    \tilde{u}_h(x,j) = u_h(x,j) + \zeta_j,
+  \end{equation}
+  where,
+  \begin{gather*}
+    \begin{split}
+      u_h(x,j) &= \alpha_0w(l^0,\omega) + \sum\limits_{k=1}^K\alpha_kY_k(l^0)+\alpha^H\Chi(l^0=h) \\
+              &+ \xi(l^0,\omega) - \Delta_{\tau}(x,j)
+    \end{split}
+  \end{gather*}
+\end{frame}
+
+\begin{frame}{Moving Costs}
+  \begin{itemize}
+    \item $D(l^0, j)$ represents distance from current location to some other location $j$
+    \item $\mathbb{A}(l^0)$ set of locations adjacent to $l^0$
+  \end{itemize}
+  Thus, define moving cost as
+  \begin{equation}
+    \begin{split}
+      \Delta_{\tau}(x,j) &= (\gamma_{0,\tau} + \gamma_1D(l^0, j) - \gamma_2\Chi(j\in\mathbb{A}(l^0)) \\
+                 &- \gamma_3\Chi(j=l^1) + \gamma_4a - \gamma_5n_j)\Chi(j\ne l^0)
+    \end{split}
+  \end{equation}
+\end{frame}
+
+\begin{frame}{Value of Moving}
   \begin{center}
 \begin{tikzpicture}[
   level distance=1.7cm,
@@ -193,42 +283,88 @@
 \section{Estimation Idea}
 % ============================================================
 
-\begin{frame}{Computational Challenge \texorpdfstring{$\rightarrow$}{->} Limited-History Approximation}
+\begin{frame}{Likelihoood Function}
+  \begin{equation}
+    \Lambda(\theta) = \sum\limits_{n=1}^N\log(\sum\limits_{\tau=1}^K\pi_{\tau}L_i(\theta_{\tau}))
+  \end{equation}
   \begin{itemize}
-    \item Full state space explodes with locations and match histories.
-    \item \hl{Idea:} Keep only the most recent $M$ locations for wages/matches.
-    \item Preserves behavior seen in the data while making DP feasible.
+    \item Observed income
+    \item Location choice
   \end{itemize}
-  \begin{center}
-\begin{tikzpicture}
-  \node[draw, rounded corners, align=left, inner sep=6pt] (full) {Full state (infeasible):\\
-  $\big(\text{all past locations},\ \{\text{all }w,\xi\}\big)$};
-  \node[right=3.8cm of full, draw, rounded corners, align=left, inner sep=6pt, fill=UGAGray!10] (limited) {Limited history ($M$ recent):\\
-  $\big((\ell_0,\ell_1),\ (w_{\ell_0},w_{\ell_1}),\ (\xi_{\ell_0},\xi_{\ell_1})\big)$};
-  \draw[-{Latex[length=3mm]}] (full) -- node[above]{truncate to last $M$} (limited);
-\end{tikzpicture}
-\end{center}
 \end{frame}
 
-\begin{frame}{Wage Components (What Matters for Moves)}
+\begin{frame}{Likelihoods}
+  Let $\psi_{it}(\omega_i, \theta)$ correspond to likelihood of observed income of agent $i$ in period $t$
+  \begin{equation}
+    \begin{split}
+      \psi_{it} &(\omega_i,\theta_{\tau})  \\
+      &=\frac{1}{\sigma_{\epsilon}(\omega_{\epsilon}^i)}\phi(\frac{w_{it} - \mu_{l^0(i,t)} 0 G(X_i, a_{it},\theta_{\tau}) - v(\omega_v^i(\kappa_{it}^0)) - \eta(\omega_{\eta}^i)}{\sigma_{\epsilon}(\omega_{\epsilon}^i)})
+    \end{split}
+  \end{equation}
+  Let $\lambda_{it}(\omega^i, \theta_{\tau})$ be the likelihood of the destination chosen by agent $i$ in period $t$
+  \begin{equation}
+    \begin{split}
+      \lambda_{it}(\omega^i, \theta_t) =& \rho_{h(i)}(l(i,t), \omega_v^i(\kappa_{it}^0), \omega_v^i(\kappa_{it}^1), \omega_{\xi}^i(\kappa_{it}^0), \\
+                   & \omega_{\xi}^i(\kappa_{it}^1), a_{it}, l^0(i, t+1), \theta_{\tau})
+    \end{split}
+  \end{equation}
+\end{frame}
+
+\begin{frame}{Likelihoods, cont.}
+  Likelihood of individual history for a person of type $\tau$ is
+  \begin{equation}
+    \begin{split}
+      L_i(\theta_{\tau}) = &\frac{1}{n_{\eta}n_{\epsilon}n_{\xi}(n_v)^{N_i}} \\
+      & \times \sum\limits_{\omega^i\in\Omega(N_i)}(\Pi\limits_{t=1}^{T_i}\psi_{it}(\omega^i,\theta_{\tau})\lambda_{it}(\omega^i,\theta_{\tau}))
+    \end{split}
+  \end{equation}
+\end{frame}
+
+\begin{frame}{Nonparametric Identification of Choice Probabilities}
   \begin{itemize}
-    \item Mean wage by location; permanent match component; person FE; transitory shocks.
-    \item Migration choice depends on \textit{differences} in expected income and moving cost, not levels.
+  \item Wage matching cannot be observed directly
+  \item We observe a match with error
+  \item Dealt with via likelihood integrating over the distributions  of the errors
+  \item Still, heavily reliant on assumptions
   \end{itemize}
-  \begin{block}{Wage decomposition (relevant pieces in bold)}
-\begin{equation*}
-\underbrace{w_{ij}(a,t)}_{\text{observed}}=
-\underbrace{\mu_j}_{\text{mean by location}} + \ \underbrace{\boldsymbol{\upsilon_{ij}}}_{\textbf{match}} + G(X_i,a,t) + \eta_i + \varepsilon_{ijt}
-\end{equation*}
-\end{block}
-\begin{itemize}
-  \item Migration choice depends on $\boldsymbol{\mu_j + \upsilon_{ij}}$ and moving cost $\Delta(\ell_0,j)$.
-\end{itemize}
+  Wage residual can be defined as such
+  \begin{equation}
+    y_{it} = \eta_i + v_{ij(t)}+\epsilon_{it}
+  \end{equation}
+\end{frame}
+
+\begin{frame}{DGP}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\linewidth}
+      \begin{tikzpicture}[node distance=2.5m, auto, >=Stealth]
+        \node (y1) {$y_1 = \eta + v_1 + \varepsilon_1$};
+        \node[right=of y1, yshift=1.2cm] (y2move) {$y_2 = \eta + v' + \varepsilon_2$};
+        \draw[->] (y1) -- (y2move) node[midway, above left] {$\rho(\nu)$};
+        \node[right=of y1, yshift=-1.2cm] (y2stay) {$y_2 = \eta + \tilde{v}^S + \varepsilon_2$};
+        \draw[->] (y1) -- (y2stay) node[midway, below left] {$1 - \rho(v)$};
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{0.48\linewidth}
+      \begin{itemize}
+        \item with probability $\rho(v)$, move and get observed wage $y_2 = \eta + v' + \varepsilon_2$
+        \item with probability $1-\rho(v)$, stay and get $y_2 = \eta + \tilde{v}^S + \varepsilon_2$ in which $\tilde{v}^S$ is the censored random wage derived by discarding the realized wages of movers
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 % ============================================================
 \section{Results}
 % ============================================================
+
+\begin{frame}{Computational Preliminaries}
+  \begin{itemize}
+    \item Use a version of Newton's algorithm with numerical derivatives
+    \item set $\beta = 0.95$
+    \item set $T=40$
+    \item set $M = 2$
+  \end{itemize}
+\end{frame}
 
 \begin{frame}{What Drives Migration? (Headlines)}
   \begin{columns}[T,onlytextwidth]

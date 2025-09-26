@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  24 SEP 2025 09:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  24 SEP 2025 14:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -849,16 +849,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [4
 
 ]
-<~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png, id=356, 577.15625pt x 294.09875pt>
-File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png Graphic file (type png)
-<use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png  used on input line 139.
-(pdftex.def)             Requested size: 338.59023pt x 172.53845pt.
-
 
 [5
 
- </Users/tate/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png>] (./test.toc)
+]
 
 [6
 
@@ -866,20 +860,15 @@ Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab1.png  used 
 
 [7
 
-]
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./test.toc)
 
 [8
 
-] (./test.toc)
+]
 
 [9
 
 ]
-Overfull \hbox (17.47498pt too wide) in paragraph at lines 211--211
- [] 
- []
-
-
 
 [10
 
@@ -887,49 +876,113 @@ Overfull \hbox (17.47498pt too wide) in paragraph at lines 211--211
 
 [11
 
-] (./test.toc)
+]
 
 [12
 
 ]
-<~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png, id=846, 1202.4925pt x 1124.2pt>
-File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png Graphic file (type png)
-<use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png  used on input line 246.
-(pdftex.def)             Requested size: 210.32207pt x 196.61787pt.
+./test.tex:224: Undefined control sequence.
+<argument> ...1}^K\alpha _kY_k(l^0)+\alpha ^H\Chi 
+                                                  (l^0=h) \\ &+ \xi (l^0,\om...
+l.224 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-Overfull \hbox (19.12125pt too wide) in paragraph at lines 246--246
-[][]  
- []
-
-
-Overfull \vbox (0.27158pt too high) detected at line 246
- []
+./test.tex:224: Undefined control sequence.
+<argument> ...1}^K\alpha _kY_k(l^0)+\alpha ^H\Chi 
+                                                  (l^0=h) \\ &+ \xi (l^0,\om...
+l.224 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 
 
 [13
 
- </Users/tate/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png>]
+]
+./test.tex:238: Undefined control sequence.
+<argument> ... \gamma _1D(l^0, j) - \gamma _2\Chi 
+                                                  (j\in \mathbb {A}(l^0)) \\...
+l.238 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./test.tex:238: Undefined control sequence.
+<argument> ...athbb {A}(l^0)) \\ &- \gamma _3\Chi 
+                                                  (j=l^1) + \gamma _4a - \ga...
+l.238 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./test.tex:238: Undefined control sequence.
+<argument> ...1) + \gamma _4a - \gamma _5n_j)\Chi 
+                                                  (j\ne l^0) \end {split}
+l.238 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./test.tex:238: Undefined control sequence.
+<argument> ... \gamma _1D(l^0, j) - \gamma _2\Chi 
+                                                  (j\in \mathbb {A}(l^0)) \\...
+l.238 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./test.tex:238: Undefined control sequence.
+<argument> ...athbb {A}(l^0)) \\ &- \gamma _3\Chi 
+                                                  (j=l^1) + \gamma _4a - \ga...
+l.238 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./test.tex:238: Undefined control sequence.
+<argument> ...1) + \gamma _4a - \gamma _5n_j)\Chi 
+                                                  (j\ne l^0) \end {split}
+l.238 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
 
 [14
 
-{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<~/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png, id=962, 1078.0275pt x 576.1525pt>
-File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png Graphic file (type png)
-<use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png  used on input line 259.
-(pdftex.def)             Requested size: 219.08743pt x 117.09222pt.
-<~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png, id=963, 1078.0275pt x 313.17pt>
-File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png Graphic file (type png)
-<use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png  used on input line 259.
-(pdftex.def)             Requested size: 219.08743pt x 63.64594pt.
-
+]
 
 [15
 
- </Users/tate/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png> </Users/tate/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png>]
+]
 
 [16
 
@@ -945,7 +998,22 @@ Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png  used 
 
 [19
 
-] (./test.toc)
+]
+./test.tex:321: Limit controls must follow a math operator.
+<argument> ...ega ^i\in \Omega (N_i)}(\Pi \limits 
+                                                  _{t=1}^{T_i}\psi _{it}(\om...
+l.321 \end{frame}
+                 
+I'm ignoring this misplaced \limits or \nolimits command.
+
+./test.tex:321: Limit controls must follow a math operator.
+<argument> ...ega ^i\in \Omega (N_i)}(\Pi \limits 
+                                                  _{t=1}^{T_i}\psi _{it}(\om...
+l.321 \end{frame}
+                 
+I'm ignoring this misplaced \limits or \nolimits command.
+
+
 
 [20
 
@@ -955,14 +1023,57 @@ Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png  used 
 
 ]
 
+./test.tex:354: Package PGF Math Error: Unknown operator `m' or `m@' (in '2.5m').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.354 \end{frame}
+                 
+This error message was generated by an \errmessage
+command, so I can't give any explicit help.
+Pretend that you're Hercule Poirot: Examine all clues,
+and deduce the truth by order and method.
+
+
+./test.tex:354: Package PGF Math Error: Unknown operator `m' or `m@' (in '2.5m').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.354 \end{frame}
+                 
+(That was another \errmessage.)
+
+
+./test.tex:354: Package PGF Math Error: Unknown operator `m' or `m@' (in '2.5m').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.354 \end{frame}
+                 
+(That was another \errmessage.)
+
+
+./test.tex:354: Package PGF Math Error: Unknown operator `m' or `m@' (in '2.5m').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.354 \end{frame}
+                 
+(That was another \errmessage.)
+
+
+
 [22
 
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\translate ' on input line 309.
-
-(./test.toc)
+] (./test.toc)
 
 [23
 
@@ -971,32 +1082,48 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [24
 
 ]
-Overfull \hbox (8.0691pt too wide) in paragraph at lines 353--353
+<~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png, id=2068, 1202.4925pt x 1124.2pt>
+File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png Graphic file (type png)
+<use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png  used on input line 382.
+(pdftex.def)             Requested size: 210.32207pt x 196.61787pt.
+
+Overfull \hbox (19.12125pt too wide) in paragraph at lines 382--382
 [][]  
+ []
+
+
+Overfull \vbox (0.27158pt too high) detected at line 382
  []
 
 
 
 [25
 
-]
-Overfull \hbox (8.0691pt too wide) in paragraph at lines 386--386
-[][]  
- []
-
-
+ </Users/tate/SchoolWork/Y2S1/macriot/pres/graphics/tab2.png>]
 
 [26
 
 ]
+<~/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png, id=2230, 1078.0275pt x 576.1525pt>
+File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png Graphic file (type png)
+<use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png  used on input line 395.
+(pdftex.def)             Requested size: 219.08743pt x 117.09222pt.
+<~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png, id=2231, 1078.0275pt x 313.17pt>
+File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png Graphic file (type png)
+<use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png  used on input line 395.
+(pdftex.def)             Requested size: 219.08743pt x 63.64594pt.
+
 
 [27
 
-]
+ </Users/tate/SchoolWork/Y2S1/macriot/pres/graphics/tab3.png> </Users/tate/SchoolWork/Y2S1/macriot/pres/graphics/tab4.png>]
 
 [28
 
-]
+] (./test.toc)
 
 [29
 
@@ -1005,18 +1132,81 @@ Overfull \hbox (8.0691pt too wide) in paragraph at lines 386--386
 [30
 
 ]
-<~/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png, id=1626, 1188.44pt x 1057.9525pt>
-File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png Graphic file (type png)
-<use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png  used on input line 429.
-(pdftex.def)             Requested size: 239.00558pt x 212.76518pt.
 
-Overfull \vbox (8.68553pt too high) detected at line 429
+[31
+
+] (./test.toc)
+
+[32
+
+]
+
+[33
+
+]
+
+[34
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\translate ' on input line 445.
+
+(./test.toc)
+
+[35
+
+]
+
+[36
+
+]
+Overfull \hbox (8.0691pt too wide) in paragraph at lines 489--489
+[][]  
  []
 
 
 
-[31
+[37
+
+]
+Overfull \hbox (8.0691pt too wide) in paragraph at lines 522--522
+[][]  
+ []
+
+
+
+[38
+
+]
+
+[39
+
+]
+
+[40
+
+]
+
+[41
+
+]
+
+[42
+
+]
+<~/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png, id=3062, 1188.44pt x 1057.9525pt>
+File: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png Graphic file (type png)
+<use ~/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png  used on input line 565.
+(pdftex.def)             Requested size: 239.00558pt x 212.76518pt.
+
+Overfull \vbox (8.68553pt too high) detected at line 565
+ []
+
+
+
+[43
 
  </Users/tate/SchoolWork/Y2S1/macriot/pres/graphics/tab14.png>]
 \tf@nav=\write6
@@ -1033,23 +1223,30 @@ Overfull \vbox (8.68553pt too high) detected at line 429
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `test.out' has not changed.
-(rerunfilecheck)             Checksum: 3A7BFF09ED24A60F3935D5DAB545D686;894.
+
+
+Package rerunfilecheck Warning: File `test.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `test.out':
+(rerunfilecheck)             Before: 57BF0C9B23925157156B74D7DC826E3E;462
+(rerunfilecheck)             After:  3A7BFF09ED24A60F3935D5DAB545D686;894.
  ) 
 Here is how much of TeX's memory you used:
- 27262 strings out of 473190
- 540305 string characters out of 5715801
- 929672 words of memory out of 5000000
- 49871 multiletter control sequences out of 15000+600000
- 578212 words of font info for 107 fonts, out of 8000000 for 9000
+ 27336 strings out of 473190
+ 541407 string characters out of 5715801
+ 940018 words of memory out of 5000000
+ 49921 multiletter control sequences out of 15000+600000
+ 576064 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,19n,123p,379b,1141s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb>
-Output written on test.pdf (31 pages, 840424 bytes).
+ 128i,19n,123p,379b,1133s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb>
+Output written on test.pdf (43 pages, 843416 bytes).
 PDF statistics:
- 1785 PDF objects out of 2073 (max. 8388607)
- 978 compressed objects within 10 object streams
- 71 named destinations out of 1000 (max. 500000)
- 132 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3226 PDF objects out of 3580 (max. 8388607)
+ 1706 compressed objects within 18 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 95 words of extra memory for PDF output out of 10000 (max. 10000000)
 
