@@ -38,7 +38,7 @@ library(scales)
 # Read in the IPUMS data
 
 here() # Check working directory
-ddi <- read_ipums_ddi(here("data", "usa_00030.xml")) # Reading in the DDI
+ddi <- read_ipums_ddi(here("data", "usa_00031.xml")) # Reading in the DDI
 data <- read_ipums_micro(ddi) # Formalizing the microdata c/o IPUMS - UMN
 names(data) <- tolower(names(data)) # Convert column names to lowercase
 ```
@@ -56,15 +56,10 @@ describe(data$inctot)
 ```{r, Data Cleaning, eval=FALSE}
 
 data_clean <- data %>%
-  arrange(
-    year,
-    serial,
-    pernum,
-  ) %>%
   filter(
+    pernum == 1, # Filter for household heads
     age >= 40,
-    age <= 60,
-    relate == 1, # Filter for household heads
+    age <= 60
   )
 saveRDS(data_clean, file = here("data", "clean.rds")) # Save cleaned data
 ```
@@ -72,9 +67,10 @@ saveRDS(data_clean, file = here("data", "clean.rds")) # Save cleaned data
 # Load cleaned data
 ```{r, Load Cleaned Data}
 data_clean <- readRDS(here("data", "clean.rds")) # Load cleaned data
+mig_state <- 1:56
 df <- data_clean %>%
-  arrange(year, serial, pernum) %>%
   mutate(
+    hhwt = as.numeric(hhwt)/100,
     self_emp = classwkr %in% c(10, 13, 14),
     married = marst == 1,
     unmarried = marst %in% c(3, 4, 5, 6),
@@ -97,14 +93,12 @@ df <- data_clean %>%
     incother = ifelse(incother < 0 | incother > 99998, NA, incother),
     metarea = ifelse(metarea == 000, NA, metarea),
     nchild = ifelse(nchild < 0, NA, nchild),
-    mover = case_when(
-      migrate1 == 3 ~ 1L,
-      migrate1 %in% c(1, 2, 4) ~ 0L,
+    mig_st_valid = !is.na(migplac1) & migplac1 %in% mig_state,
+    moved = case_when(
+      mig_st_valid & migplac1 != statefip ~ 1L,
+      mig_st_valid & migplac1 == statefip ~ 0L,
       TRUE ~ NA_integer_
-    ),
-    disabled = disabwrk == 3,
-    new_state = if_else(statefip != lead(statefip), 1, 0),
-    moved = if_else(new_state == 1 & mover == 1, 1, 0)
+    )
   )
 ```
 
@@ -117,11 +111,14 @@ describe(df)
 
 df_summ <- df %>%
   group_by(age) %>%
-  summarize(moved_count = sum(moved == 1, na.rm = TRUE),
-    denom = sum(!is.na(n())),
-    moved_rate = moved_count / denom,
+  summarise(
+    n_hh = sum(hhwt, na.rm = TRUE),
+    movers = sum(hhwt * (moved == 1), na.rm = TRUE),
+    denom = sum(hhwt * (!is.na(moved)), na.rm = TRUE),
+    moved_rate = movers / denom,
     .groups = "drop"
-  )
+  ) %>%
+  arrange(age)
 
 ggplot(df_summ, aes(x = age, y = moved_rate)) +
   geom_line(color = "#BA0C2F", size = 1) +
@@ -129,7 +126,7 @@ ggplot(df_summ, aes(x = age, y = moved_rate)) +
        x = "Age",
        y = "Proportion Moved (1)") +
   theme_minimal()
-
+```
 # Graphing the proportion of individuals who moved by kids status
 
 df_kids <- df %>%
@@ -212,7 +209,7 @@ ggplot(df_inc, aes(x = age, y = inc_rate, color = inc_ter)) +
   scale_color_manual(values = c(
     "Low" = "#004E60",
     "Medium" = "#B4BD00",
-    "High" = "#BA0C2F"
+    "High" = "#228B22"
   ), name = "Income Tercile") +
   labs(title = "Proportion of Movers by Income Tercile",
        x = "Age",
