@@ -1,0 +1,431 @@
+% ============================================================
+% UGA-Themed Beamer Template (Clean MWE)
+% ============================================================
+
+\documentclass[aspectratio=169,professionalfonts]{beamer}
+
+% ---------- COLORS (swap with official UGA hex if you like) ----------
+\usepackage{xcolor}
+\definecolor{UGARed}{HTML}{BA0C2F}   % Verify with brand guide
+\definecolor{UGABlack}{HTML}{000000}
+\definecolor{UGAGray}{HTML}{8A8D8F}
+
+% ---------- THEME & PROGRESS DOTS ----------
+\usetheme{default}
+\useinnertheme{circles}
+\useoutertheme[subsection=false]{miniframes} % dots across top
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+
+% Head/foot colors
+\setbeamercolor{section in head/foot}{fg=white,bg=UGARed}
+\setbeamercolor{subsection in head/foot}{fg=white,bg=UGARed}
+\setbeamercolor{headline}{bg=UGARed,fg=white}
+\setbeamercolor{footline}{bg=UGABlack,fg=white}
+\setbeamercolor{frametitle}{fg=UGABlack}
+\setbeamercolor{title}{fg=UGABlack}
+\setbeamercolor{normal text}{fg=UGABlack}
+\setbeamercolor{structure}{fg=UGARed}
+
+% Simple footline with slide numbers
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex,leftskip=1em,rightskip=1em]{footline}%
+      \insertshortauthor{} \hfill \insertframenumber/\inserttotalframenumber
+    \end{beamercolorbox}}%
+}
+
+% ---------- PACKAGES ----------
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs, tabularx, threeparttable, caption, siunitx}
+\usepackage{pgfplotstable,pgfplots}
+\pgfplotsset{compat=1.18}
+\sisetup{
+  group-separator = {,},
+  group-minimum-digits = 4,
+  table-number-alignment = center,
+  table-text-alignment = center,
+}
+\usepackage{array}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+
+% ---------- METADATA (fill these later) ----------
+\title[Nearly Universal]{The Impact of Nearly Universal Insurance Coverage on Health Care Utilization: Evidence from Medicare}
+\subtitle{Card, Dobkin, Maestas (2008)}
+\author[Tate Mason]{Tate Mason}
+\institute[UGA]{John Munro Godfrey Sr. Dept. of Economics \\ University of Georgia}
+\date{\today}
+
+% ---------- AUTO-AGENDA EACH SECTION ----------
+\AtBeginSection[]{
+  \begin{frame}{Roadmap}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% ---------- MACROS ----------
+% Numbered equation with label
+\newcommand{\beq}[1]{\begin{equation}\label{#1}}
+\newcommand{\eeq}{\end{equation}}
+% Accent color highlight
+\newcommand{\hl}[1]{\textbf{\textcolor{UGARed}{#1}}}
+% Simple figure placeholder macro
+\newcommand{\figph}[2][0.9\linewidth]{%
+  \begin{figure}
+    \centering
+    \fbox{\rule{0pt}{0.55#1}\rule{#1}{0pt}}%
+    \caption{#2}
+  \end{figure}
+}
+\newenvironment{slidetable}[1][\scriptsize]{\begin{center}#1\setlength{\tabcolsep}{4pt}}{\end{center}}
+% tight figure spacing
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{0pt}
+
+% ============================================================
+\begin{document}
+
+% ---------- TITLE ----------
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ---------- FULL AGENDA ----------
+\begin{frame}{Roadmap}
+  \tableofcontents
+\end{frame}
+
+% ============================================================
+% 1) REFRESHER + CONTRIBUTION
+% ============================================================
+\section{Paper Overview \& Contribution}
+
+\begin{frame}{Overview of Paper}
+  \begin{itemize}
+    \item $\frac{1}{5}$ of non-elderly uninsured in 2005.
+    \item Due to Medicare eligibility at 65, $ < 1\%$ of elderly are uninsured.
+    \item \hl{Research question}: How does gaining near-universal insurance at 65 affect health care utilization?
+    \item \hl{Identification}: RD exploiting sharp age cutoff.
+    \item \hl{Data}: Hospital discharge records from CA, FL, NY and NHIS survey data.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Contribution (Short Discussion)}
+  \begin{itemize}
+    \item \hl{What’s new}: Broader range of outcomes than previous work, quantify differences after receiving Medicare between groups 
+    \item \hl{Why it matters}: Inform policy debates about expanding insurance coverage.
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+% 2) STORY / KEY FINDINGS + MAIN RESULTS OVERVIEW
+% ============================================================
+\section{Story \& Key Findings}
+
+\begin{frame}{Paper’s Story / Key Findings}
+  \hl{Key qualitative takeaways}
+  \begin{itemize}
+    \item Increase in overall coverage, with lessening coverage gaps.
+    \item Increase in multiple coverage, especially for highly educated, non-minorities.
+    \item Increase in medical care utilization, though effects differ by group
+  \end{itemize}
+  \hl{Key quantitative takeaways}
+  \begin{itemize}
+    \item Medicare coverage increases 60 pp at age 65.
+    \item Probability of any insurance coverage increases by 9.5 pp
+    \item Probability of multiple coverage increases by 44.1 pp
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Main Results — One-Slide Overview}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.7\linewidth}
+      \includegraphics[width=1.1\linewidth]{~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig1.png}
+    \end{column}
+    \begin{column}{0.3\linewidth}
+      \begin{itemize}
+        \item Sharp increase in Medicare coverage at 65.
+        \item Increase in any insurance coverage at 65.
+        \item Large increase in multiple forms of coverage at 65.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ============================================================
+% 3) DATA + PROCESS OF USE
+% ============================================================
+\section{Data}
+
+\begin{frame}{Data: Sources \& Coverage}
+  \begin{itemize}
+    \item National Health Interview Survey (NHIS).
+    \item Hospital discharge records from CA, FL, NY.
+    \item 1992-2003, ages 55-75, 160,821 agents in HIS, 2.8 - 4.0 million in discharge records.
+  \end{itemize}
+\end{frame}
+
+
+% ============================================================
+% 4) EMPIRICAL STRATEGY
+% ============================================================
+\section{Empirical Strategy}
+
+\begin{frame}{Reduced-Form Specification}
+  \beq{eq:main}
+    y_{ija} = X_{ija}\alpha + f_j(a;\beta) + \Sigma_k C_{ija}^k\delta^k + u_{ija}
+  \eeq
+  \begin{itemize}
+    \item $y_{ija}$: outcome for individual $i$ in group $j$ at age $a$.
+    \item $X_{ija}$: individual, regional, etc. controls 
+    \item $f_j(a;\beta)$: smoothing function based on age profile
+    \item $C_{ija}^k$: characteristics of insurance coverage, can include coverage indicator or other insurance covariates
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Coverage Functions}
+  \beq{eq:any coverage}
+    C_{ija}^1 = X_{ija}\beta_j^1 + g_j^1(a) + D_a\pi_j^1 + v_{ija}^1
+  \eeq
+  \beq{eq:generous coverage}
+    C_{ija}^2 = X_{ija}\beta_j^2 + g_j^2(a) + D_a\pi_j^2 + v_{ija}^2
+  \eeq
+  \begin{itemize}
+    \item $\beta_j^1, \beta_j^2$: group-specific coefficients.
+    \item $g_j^1(a), g_j^2(a)$: smoother for group-specific age profiles.
+    \item $D_a$: indicator for age 65+.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Final Reduced Form}
+  \beq{eq:final}
+    y_{ija} = X_{ija}(\alpha_j + \beta_j^1\delta_j^1 + \beta_j^2\delta_j^2) + h_j(a) + D_a\pi_j^y + \nu_{ija}^y
+  \eeq
+  \begin{itemize}
+    \item $h_j(a)$: reduced form age profile.
+    \item $\pi_j^y$: aggregated effect of Medicare eligibility on outcome $y$.
+    \item $\nu_{ija}^y$: new error term.
+  \end{itemize}
+  Assuming profiles $f_j(a), g_j^1(a), g_j^2(a)$ are all continuous at 65, any discontinuity in $y$ at 65 is due to Medicare eligibility.
+\end{frame}
+
+\begin{frame}{Overcoming Pitfalls}
+  \begin{itemize}
+    \item \hl{Lack of Data} Unable to clearly observe information on insurance packages of each individual
+    \item \textcolor{blue}{Solution}: Use at least two measures of coverage to proxy for insurance generosity.
+    \item \hl{Endogeneity of Coverage} Insurance coverage is all that matters, meaning the effect will differ by group.
+    \item \textcolor{blue}{Solution}: Estimate separate age profiles and coverage functions by group.
+    \beq{eq:disconinuity est}
+      \pi_j^y = \delta^0 + \delta^1\pi_j^1 + \delta^2\pi_j^2 + e_j
+    \eeq
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Summary Figure}
+\end{frame}
+
+\begin{frame}{Treatment vs.\ Control (Definition)}
+  \begin{itemize}
+    \item Operational definition of \hl{treatment} and \hl{control}.
+    \item Timing / exposure, staggered adoption if any.
+    \item Sample restrictions and measurement windows.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Alternative Specifications — Preview}
+  \begin{itemize}
+    \item Heterogeneity (hospital size, region, worker type).
+    \item Functional form variants / additional controls.
+    \item Event study / placebo / robustness roadmap.
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+% 5) RESULTS
+% ============================================================
+\section{Results}
+
+\begin{frame}{Table 1 — Insurance Characteristics Just Before Age 65}
+\scriptsize % or \tiny if needed
+\begin{slidetable}
+\begin{threeparttable}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l *{10}{c}}
+\toprule
+& \multicolumn{2}{c}{On Medicare} & \multicolumn{2}{c}{Any insurance} &
+  \multicolumn{2}{c}{Private coverage} & \multicolumn{2}{c}{2+ Forms} &
+  \multicolumn{2}{c}{Managed care} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}\cmidrule(lr){10-11}
+& 63–64 & RD@65 & 63–64 & RD@65 & 63–64 & RD@65 & 63–64 & RD@65 & 63–64 & RD@65 \\
+\midrule
+Overall sample & 12.3 & 59.7 & 87.9 & 9.5 & 71.8 & –2.9 & 40.8 & 44.1 & 59.4 & –28.4 \\
+\addlinespace
+\multicolumn{11}{l}{\textit{Classified by ethnicity and education:}}\\
+White non-Hispanic, HS dropout    & 21.1 & 58.5 & 84.1 & 13.0 & 63.5 & -6.2 & 15.0 & 34.3 & 48.1 & -25.0 \\
+White non-Hispanic, HS graduate   & 11.4 & 64.7 & 92.0 & 7.6  & 80.5 & -1.9 & 19.7 & 31.1 & 51.8 & -15.4 \\
+White non-Hispanic, $\ge$ some college & 6.1  & 68.4 & 94.6 & 4.4  & 85.6 & -2.3 & 8.8  & 35.1 & 69.1 & -40.1 \\
+\addlinespace
+Minority, HS dropout              & 19.5 & 44.5 & 66.8 & 21.5 & 33.2 & -1.2 & 11.4 & 19.4 & 39.1 & -8.3 \\
+Minority, HS graduate             & 16.7 & 44.6 & 85.2 & 8.9  & 60.9 & -5.8 & 13.6 & 23.4 & 54.2 & -15.4 \\
+Minority, $\ge$ some college      & 10.3 & 52.1 & 89.1 & 5.8  & 73.3 & -5.4 & 11.1 & 38.4 & 66.2 & -22.3 \\
+\addlinespace
+\multicolumn{11}{l}{\textit{Classified by ethnicity only:}}\\
+White non-Hispanic (all)          & 10.8 & 65.2 & 91.8 & 7.3  & 79.7 & -2.8 & 10.4 & 51.9 & 61.9 & -33.6 \\
+Black non-Hispanic (all)          & 17.9 & 48.5 & 84.6 & 11.9 & 57.1 & -4.2 & 13.4 & 27.8 & 48.2 & -13.5 \\
+Hispanic (all)                    & 16.0 & 44.4 & 70.0 & 7.3  & 42.5 & -2.0 & 10.8 & 21.7 & 52.9 & -12.1 \\
+\bottomrule
+\end{tabular}}
+\begin{tablenotes}\scriptsize
+\item \textit{Note:} Percentages at ages 63–64 shown in odd-numbered columns; even-numbered columns are RD estimates at 65 \\ from linear probability models with quadratic age controls and covariates for gender, race/ethnicity, education,\\ region, and sample year. Standard errors in parentheses in the original table.
+\end{tablenotes}
+\end{threeparttable}
+\end{slidetable}
+\end{frame}
+
+\begin{frame}{Table 2 — Employment Discontinuities at Age 65}
+\scriptsize
+\begin{slidetable}
+\begin{threeparttable}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{2}{c}{Data from NHIS} & \multicolumn{4}{c}{Data from March CPS} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-7}
+& Employed & Full time & Employed & Hours/Wk & Retired & Earnings (1000s) \\
+\midrule
+Overall sample & 0.3 & 0.8 & 1.8 & 1.3 & -1.6 & -0.2 \\
+White, HS dropout & -0.6 & -0.5 & -1.2 & -0.7 & 2.0 & -0.4 \\
+White, HS grad    & 0.4 & 0.9 & 2.0 & 1.6 & -1.7 & -0.3 \\
+White, $\ge$ some college & 0.8 & 1.3 & 2.6 & 1.8 & -2.3 & -0.5 \\
+Minority, HS dropout & -0.2 & -0.6 & -0.7 & -0.5 & 1.0 & -0.1 \\
+Minority, HS grad    & 0.1 & 0.4 & 1.5 & 0.9 & -1.1 & -0.2 \\
+Minority, $\ge$ some college & 0.6 & 0.8 & 2.2 & 1.4 & -1.9 & -0.3 \\
+\bottomrule
+\end{tabular}}
+\begin{tablenotes}\scriptsize
+\item \textit{Note:} RD estimates at age 65 with quadratic age controls. Controls include gender, race/ethnicity, education, region, and sample year. SEs clustered by quarter (cols 1–2) or year (cols 3–6).
+\end{tablenotes}
+\end{threeparttable}
+\end{slidetable}
+\end{frame}
+
+\begin{frame}{Figure 2 - Employment Rates by Age and Demographic Group}
+  \centering
+  \includegraphics[width=0.86\linewidth]{~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig2.png}
+\end{frame}
+
+\begin{frame}{Table 3 — Access to Care and RD at 65}
+\scriptsize
+\begin{slidetable}
+\begin{threeparttable}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccc}
+\toprule
+& \multicolumn{4}{c}{1997–2003 NHIS} & \multicolumn{4}{c}{1992–2003 NHIS} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}
+& Delay (63–64) & RD@65 & No care (63–64) & RD@65 &
+  Saw doctor (63–64) & RD@65 & Hosp. stay (63–64) & RD@65 \\
+\midrule
+Overall sample & 7.2 & -1.8 & 4.9 & -1.3 & 84.8 & 1.3 & 11.8 & 1.2 \\
+White, HS dropout & 9.1 & -2.5 & 6.7 & -1.7 & 81.5 & 1.5 & 10.9 & 1.4 \\
+White, HS grad    & 6.8 & -1.6 & 4.3 & -1.1 & 86.7 & 1.1 & 12.2 & 1.0 \\
+White, $\ge$ some college & 5.4 & -1.2 & 3.8 & -0.9 & 88.9 & 1.0 & 11.4 & 0.8 \\
+Minority, HS dropout & 12.5 & -3.0 & 9.2 & -2.0 & 75.3 & 1.9 & 10.7 & 1.7 \\
+Minority, HS grad    & 8.3 & -2.1 & 5.6 & -1.5 & 83.0 & 1.4 & 11.6 & 1.3 \\
+Minority, $\ge$ some college & 6.9 & -1.7 & 4.7 & -1.2 & 86.2 & 1.2 & 12.0 & 1.1 \\
+\bottomrule
+\end{tabular}}
+\begin{tablenotes}\scriptsize
+\item \textit{Note:} Odd columns show means for ages 63–64; even columns are RD estimates at 65. Models include linear/quadratic age controls and covariates. SEs in parentheses in source table.
+\end{tablenotes}
+\end{threeparttable}
+\end{slidetable}
+\end{frame}
+
+\begin{frame}{Table 4 — Hospital Admissions and Insurance at 65}
+\scriptsize
+\begin{slidetable}
+\begin{threeparttable}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccc}
+\toprule
+& \multicolumn{2}{c}{All} & \multicolumn{2}{c}{Whites} &
+  \multicolumn{2}{c}{Hispanics} & \multicolumn{2}{c}{Blacks} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+& Rate 60–64 & RD@65 & Rate 60–64 & RD@65 &
+  Rate 60–64 & RD@65 & Rate 60–64 & RD@65 \\
+\midrule
+All admissions & 1443 & 7.57 & 1407 & 7.74 & 1262 & 9.47 & 2008 & 4.39 \\
+ER admission   & 761  & 3.30 & 688  & 3.70 & 774  & 2.63 & 1313 & 1.93 \\
+Non-ER admission & 682 & 12.16 & 718 & 11.51 & 488 & 19.89 & 695 & 8.92 \\
+Heart disease  & 220  & 8.40 & 215  & 8.90 & 203  & 9.60 & 310  & 5.80 \\
+Hip fracture   & 95   & 5.90 & 90   & 6.20 & 72   & 7.50 & 118  & 4.10 \\
+\midrule
+Probability of coverage & 82.7 & 15.0 & 86.7 & 12.7 & 69.1 & 20.3 & 79.0 & 17.6 \\
+\bottomrule
+\end{tabular}}
+\begin{tablenotes}\scriptsize
+\item \textit{Note:} Top rows are fractions insured; bottom rows are RD estimates in log admissions at 65. Quadratic age controls included. SEs in parentheses in source table.
+\end{tablenotes}
+\end{threeparttable}
+\end{slidetable}
+\end{frame}
+
+\begin{frame}{Figure 3 - Hospital Admission Rates by Age and Ethnicity}
+  \centering
+  \includegraphics[width=0.86\linewidth]{~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig3.png}
+\end{frame}
+
+\begin{frame}{Table 5 — Summary of Effects on Disparities}
+\scriptsize
+\begin{slidetable}
+\begin{threeparttable}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccrrrrrr}
+\toprule
+& Coeff. on cov. RD & $R^2$ &
+Low-ed min.–Hi-ed W & Black–White & Hisp.–White &
+\% change: Low-ed min.–Hi-ed W & \% change: Black–White & \% change: Hisp.–White \\
+\midrule
+\multicolumn{9}{l}{\textit{Panel A: Based on change at 65}}\\
+Delay in care last year & -0.19 & 0.72 & 7.6 & 5.2 & 6.8 & -42.8 & -36.0 & -29.4 \\
+No care last year       & -0.12 & 0.39 & 8.0 & 4.9 & 6.0 & -25.6 & -24.5 & -19.0 \\
+Saw doctor last year    & 0.07  & 0.31 & -10.5 & -8.2 & -7.6 & 18.0 & 15.5 & 13.9 \\
+Hospital stay last year & 0.11  & 0.44 & 2.4 & 1.9 & 1.7 & 45.8 & 36.5 & 32.0 \\
+\addlinespace
+\multicolumn{9}{l}{\textit{Panel B: Based on multiple coverage at 65}}\\
+Total admissions        & 0.03 & 0.74 & 230 & 724 & -193 & 3.9 & -0.1 & 5.8 \\
+Hip/knee replacement    & 0.05 & 0.66 & 12 & 41 & -9 & 4.1 & 3.6 & 3.3 \\
+Heart failure           & 0.07 & 0.52 & 21 & 65 & -14 & 9.0 & 7.4 & 6.5 \\
+\bottomrule
+\end{tabular}}
+\begin{tablenotes}\scriptsize
+\item \textit{Note:} Col (1) coefficients are from regressions of RD outcomes on coverage RD. Col (2) shows $R^2$. Cols (3–5) show disparities at 63–64; Cols (6–8) show share of disparity explained by coverage. SEs in parentheses in source.
+\end{tablenotes}
+\end{threeparttable}
+\end{slidetable}
+\end{frame}
+
+% ============================================================
+% 7) CONCLUSION
+% ============================================================
+\section{Conclusion}
+
+\begin{frame}{Conclusion}
+  \hl{What we learned}:
+  \begin{itemize}
+    \item Medicare eligibility at 65 leads to large increases in healthcare utilization, especially for minorities
+    \item Medicare leads to increased insurance coverage, especially multiple coverage
+    \item admissions for discretionary procedures increase more than emergency admissions across all groups, though is particularly pronounced for Hispanics
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Thank You}
+  \centering
+  \Large Questions?
+\end{frame}
+
+\end{document}
