@@ -105,10 +105,26 @@ df <- data_clean %>%
 # Exploratory Data Analysis
 
 ```{r, EDA}
-describe(df)
+df_move <- df %>%
+  group_by(age) %>%
+  summarise(
+    n_hh = sum(hhwt, na.rm = TRUE),
+    movers = sum(hhwt * (moved == 1), na.rm = TRUE),
+    denom = sum(hhwt * (!is.na(n_hh)), na.rm = TRUE),
+    mover_prop = movers / denom,
+    .groups = "drop"
+  ) %>%
+  arrange(age)
 
+ggplot(df_move, aes(x = age, y = mover_prop)) +
+  geom_line(color = "#BA0C2F", size = 1) +
+  labs(title = "Proportion of Movers by Age",
+       x = "Age",
+       y = "Proportion Moved") +
+  theme_minimal()
+```
 # Graphing the proportion of individuals who moved by age
-
+```{r, age}
 df_summ <- df %>%
   group_by(age) %>%
   summarise(
@@ -122,12 +138,13 @@ df_summ <- df %>%
 
 ggplot(df_summ, aes(x = age, y = moved_rate)) +
   geom_line(color = "#BA0C2F", size = 1) +
-  labs(title = "Proportion of Individuals Who Moved by Age",
+  labs(title = "Share of Movers by Age",
        x = "Age",
        y = "Proportion Moved (1)") +
   theme_minimal()
 ```
 # Graphing the proportion of individuals who moved by kids status
+```{r, kids}
 
 df_kids <- df %>%
   mutate(
@@ -138,34 +155,35 @@ df_kids <- df %>%
   filter(!is.na(has_kids)) %>%
   group_by(age) %>%
   summarize(
-    kids_moved = sum(has_kids & moved==1, na.rm = TRUE),
-    no_kids_moved = sum(not_kids & moved==1, na.rm = TRUE),
-    denom = sum(!is.na(n())),
+    kids_moved = sum(hhwt * (has_kids == 1 & moved == 1), na.rm = TRUE),
+    no_kids_moved = sum(hhwt * (has_kids == 0 & moved == 1), na.rm = TRUE),
+    denom = sum(hhwt * (!is.na(moved))),
     kids_rate = kids_moved / denom,
     no_kids_rate = no_kids_moved / denom,
     .groups = "drop"
-  )
+  ) %>%
+  arrange(age)
+
 ggplot(df_kids, aes(x = age)) +
-  geom_line(aes(y = kids_rate,
-    color = "With Kids"),
-    linewidth = 1) +
-  geom_line(aes(y = no_kids_rate,
-    color = "Without Kids"),
-    linewidth = 1) +
+  geom_line(aes(y = kids_rate, color = "With Kids"),
+            linewidth = 1) +
+  geom_line(aes(y = no_kids_rate, color = "Without Kids"),
+            linewidth = 1) +
   geom_point(aes(y = kids_rate, color = "With Kids"), size = 1.2, alpha = 0.9) +
-  geom_point(aes(y = no_kids_rate, color = "Without Kids"), size = 1.2, alpha = 0.9) +
+  geom_point(aes(y = no_kids_rate, color = "Without Kids"),
+             size = 1.2, alpha = 0.9) +
   scale_y_continuous(
     expand = expansion(mult = c(0, 0.05))
   ) +
   scale_x_continuous(breaks = pretty_breaks(n = 8)) +
   scale_color_manual(values = c(
-    "With Kids" = "#B4BD00",
+    "With Kids" = "#228B22",
     "Without Kids" = "#BA0C2F"
   ), name = "Status of Kids") +
-  labs(title = "Proportion of Movers by Kids Status",
+  labs(title = "Share of Movers by Kids Status",
        x = "Age",
-       y = "Proportion Moved (1)",
-        color = "Legend") +
+       y = "Proportion Moved",
+       color = "Legend") +
   theme_minimal(base_size = 14) + 
   theme(
     panel.grid.minor = element_blank(),
@@ -176,9 +194,9 @@ ggplot(df_kids, aes(x = age)) +
     axis.title.x = element_text(margin = margin(t = 8))
   ) +
   guides(color = guide_legend(override.aes = list(linewidth = 2)))
-
-#Graphing the proportion of individuals who moved by income tercile
-
+```
+# Graphing the proportion of individuals who moved by income tercile
+```{r, Income}
 df_inc <- df %>%
   filter(!is.na(inctot)) %>%
   group_by(age) %>%
@@ -192,10 +210,11 @@ df_inc <- df %>%
   ) %>%
   group_by(age, inc_ter) %>%
   summarize(
-    inc_moved = sum(moved == 1, na.rm = TRUE),
-    denom = sum(!is.na(n())),
+    inc_moved = sum(hhwt * (moved == 1), na.rm = TRUE),
+    denom = sum(hhwt * (!is.na(moved))),
     inc_rate = inc_moved / denom 
-  )
+  ) %>%
+  arrange(inc_ter)
 
 describe(df_inc$inc_ter)
 
@@ -208,12 +227,12 @@ ggplot(df_inc, aes(x = age, y = inc_rate, color = inc_ter)) +
   scale_x_continuous(breaks = pretty_breaks(n = 8)) +
   scale_color_manual(values = c(
     "Low" = "#004E60",
-    "Medium" = "#B4BD00",
+    "Medium" = "#BA0C2F",
     "High" = "#228B22"
   ), name = "Income Tercile") +
-  labs(title = "Proportion of Movers by Income Tercile",
+  labs(title = "Share of Movers by Income Tercile",
        x = "Age",
-       y = "Proportion Moved (1)",
+       y = "Proportion Moved",
        color = "Income Tercile") +
   theme_minimal(base_size = 14) +
   theme(
@@ -225,4 +244,23 @@ ggplot(df_inc, aes(x = age, y = inc_rate, color = inc_ter)) +
     axis.title.x = element_text(margin = margin(t = 8))
   ) +
   guides(color = guide_legend(override.aes = list(linewidth = 2)))
+```
+# Returning to birth state
+```{r, Returners}
+df_ret <- df %>%
+  filter(bpl %in% c(001:056)) %>%
+  group_by(age) %>%
+  mutate(
+    returner = sum(hhwt * (moved == 1 & statefip == bpl), na.rm = TRUE),
+    denom = sum(hhwt * !is.na(moved)),
+    return_rate = returner / denom
+  ) %>%
+  arrange(age)
+
+ggplot(df_ret, aes(x = age, y = return_rate)) +
+  geom_line(color = "#BA0C2F", linewidth = 1) + 
+  labs(title = "Share of Movers Who Return to Birth State",
+       x = "Age",
+       y = "Proportion Retunring") + 
+  theme_minimal()
 ```
