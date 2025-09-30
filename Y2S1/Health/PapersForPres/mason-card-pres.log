@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  28 SEP 2025 17:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  30 SEP 2025 08:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -949,7 +949,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [7
 
 ]
-<~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig1.png, id=652, 679.53876pt x 457.71pt>
+<~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig1.png, id=601, 679.53876pt x 457.71pt>
 File: ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig1.png Graphic file (type png)
 <use ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig1.png>
 Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig1.png  used on input line 156.
@@ -995,11 +995,16 @@ Overfull \vbox (10.24986pt too high) detected at line 156
 
 [15
 
-]
+] (./mason-card-pres.toc)
 
 [16
 
 ]
+Overfull \hbox (58.00296pt too wide) in paragraph at lines 267--267
+ [] 
+ []
+
+
 
 [17
 
@@ -1007,12 +1012,22 @@ Overfull \vbox (10.24986pt too high) detected at line 156
 
 [18
 
-] (./mason-card-pres.toc)
+]
+<~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig2.png, id=1339, 679.53876pt x 444.66125pt>
+File: ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig2.png Graphic file (type png)
+<use ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig2.png>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig2.png  used on input line 299.
+(pdftex.def)             Requested size: 342.57143pt x 224.16202pt.
+
+Overfull \vbox (20.08237pt too high) detected at line 299
+ []
+
+
 
 [19
 
-]
-Overfull \hbox (58.00296pt too wide) in paragraph at lines 286--286
+ </Users/tate/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig2.png>]
+Overfull \hbox (112.9566pt too wide) in paragraph at lines 327--327
  [] 
  []
 
@@ -1021,25 +1036,30 @@ Overfull \hbox (58.00296pt too wide) in paragraph at lines 286--286
 [20
 
 ]
+Overfull \hbox (20.472pt too wide) in paragraph at lines 356--356
+ [] 
+ []
+
+
 
 [21
 
 ]
-<~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig2.png, id=1669, 679.53876pt x 444.66125pt>
-File: ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig2.png Graphic file (type png)
-<use ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig2.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig2.png  used on input line 318.
-(pdftex.def)             Requested size: 342.57143pt x 224.16202pt.
+<~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig3.png, id=1535, 679.53876pt x 446.66875pt>
+File: ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig3.png Graphic file (type png)
+<use ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig3.png>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig3.png  used on input line 361.
+(pdftex.def)             Requested size: 342.57143pt x 225.17403pt.
 
-Overfull \vbox (20.08237pt too high) detected at line 318
+Overfull \vbox (21.09438pt too high) detected at line 361
  []
 
 
 
 [22
 
- </Users/tate/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig2.png>]
-Overfull \hbox (112.9566pt too wide) in paragraph at lines 346--346
+ </Users/tate/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig3.png>]
+Overfull \hbox (288.88953pt too wide) in paragraph at lines 391--391
  [] 
  []
 
@@ -1047,49 +1067,17 @@ Overfull \hbox (112.9566pt too wide) in paragraph at lines 346--346
 
 [23
 
-]
-Overfull \hbox (20.472pt too wide) in paragraph at lines 375--375
- [] 
- []
-
-
+] (./mason-card-pres.toc)
 
 [24
 
 ]
-<~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig3.png, id=1882, 679.53876pt x 446.66875pt>
-File: ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig3.png Graphic file (type png)
-<use ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig3.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig3.png  used on input line 380.
-(pdftex.def)             Requested size: 342.57143pt x 225.17403pt.
-
-Overfull \vbox (21.09438pt too high) detected at line 380
- []
-
-
 
 [25
 
- </Users/tate/SchoolWork/Y2S1/Health/PapersForPres/card-figs/fig3.png>]
-Overfull \hbox (288.88953pt too wide) in paragraph at lines 410--410
- [] 
- []
-
-
+]
 
 [26
-
-] (./mason-card-pres.toc)
-
-[27
-
-]
-
-[28
-
-]
-
-[29
 
 ]
 \tf@nav=\write6
@@ -1110,18 +1098,18 @@ Package rerunfilecheck Info: File `mason-card-pres.out' has not changed.
 (rerunfilecheck)             Checksum: 440B79B67E9B368C5773044F674A0451;725.
  ) 
 Here is how much of TeX's memory you used:
- 42450 strings out of 473190
- 1033180 string characters out of 5715801
- 1501532 words of memory out of 5000000
- 64911 multiletter control sequences out of 15000+600000
+ 42438 strings out of 473190
+ 1033075 string characters out of 5715801
+ 1499173 words of memory out of 5000000
+ 64905 multiletter control sequences out of 15000+600000
  566592 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,19n,123p,737b,1025s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on mason-card-pres.pdf (29 pages, 380110 bytes).
+Output written on mason-card-pres.pdf (26 pages, 371734 bytes).
 PDF statistics:
- 2280 PDF objects out of 2487 (max. 8388607)
- 1210 compressed objects within 13 object streams
- 70 named destinations out of 1000 (max. 500000)
+ 1905 PDF objects out of 2073 (max. 8388607)
+ 1020 compressed objects within 11 object streams
+ 64 named destinations out of 1000 (max. 500000)
  106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

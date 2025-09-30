@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1759095904.72635 "mason-card-pres.tex" "mason-card-pres.pdf" "mason-card-pres" 1759095909.0003 0
+["pdflatex"] 1759234877.42361 "mason-card-pres.tex" "mason-card-pres.pdf" "mason-card-pres" 1759234881.33984 0
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -284,11 +284,11 @@
   "card-figs/fig1.png" 1759088991.30013 103327 64098bd40154264a4e57fea1e12a87f8 ""
   "card-figs/fig2.png" 1759089599.16487 78672 e7ffb7ff134a1a136cdce7f78bf8264d ""
   "card-figs/fig3.png" 1759089624.60807 87944 02d7cd6d860e81e9a1d35393f3889170 ""
-  "mason-card-pres.aux" 1759095908.91645 6545 5e1d4192195af6e0b18532199182d955 "pdflatex"
-  "mason-card-pres.nav" 1759095908.9178 3843 0d17eb9a9dbb6d8958fc6c2eb93fcb65 "pdflatex"
-  "mason-card-pres.out" 1759095908.91755 725 440b79b67e9b368c5773044f674a0451 "pdflatex"
-  "mason-card-pres.tex" 1759095903.31212 17534 12c72fb156904e342b122ee421812b49 ""
-  "mason-card-pres.toc" 1759095908.91784 309 6b3fe14409bea9a449192dddebcdfcb5 "pdflatex"
+  "mason-card-pres.aux" 1759234881.25371 6161 d39f07b493b667761ead85e22e61f7fa "pdflatex"
+  "mason-card-pres.nav" 1759234881.2575 3567 015fdcd1199c79fb2077ee4a46e7db1c "pdflatex"
+  "mason-card-pres.out" 1759234881.25664 725 440b79b67e9b368c5773044f674a0451 "pdflatex"
+  "mason-card-pres.tex" 1759234871.53162 16938 02102acd594e23a62434fab09b1feee3 ""
+  "mason-card-pres.toc" 1759234881.25756 309 fe2baaa916274e6f80003fa963da692c "pdflatex"
   (generated)
   "mason-card-pres.aux"
   "mason-card-pres.log"

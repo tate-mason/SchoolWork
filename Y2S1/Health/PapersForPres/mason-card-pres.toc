@@ -2,5 +2,5 @@
 \beamer@sectionintoc {2}{Story \& Key Findings}{6}{0}{2}
 \beamer@sectionintoc {3}{Data}{9}{0}{3}
 \beamer@sectionintoc {4}{Empirical Strategy}{11}{0}{4}
-\beamer@sectionintoc {5}{Results}{19}{0}{5}
-\beamer@sectionintoc {6}{Conclusion}{27}{0}{6}
+\beamer@sectionintoc {5}{Results}{16}{0}{5}
+\beamer@sectionintoc {6}{Conclusion}{24}{0}{6}
