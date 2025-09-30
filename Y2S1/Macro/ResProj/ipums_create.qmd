@@ -18,6 +18,12 @@ format:
     df-print: kable
 ---
 
+The data I will be using for my research project on midlife interstate migration will come from IPUMS census data. I will be using yearly ACS surverys from 2001 - 2019, with the 5\% and 1\% decennial 
+census data from 1990 and 2010. The data will be restricted to household heads between the ages of 40 and 60. The key variable will be whether or not the individual moved in the past year, as well as
+individual and household characteristics such as income, number of children, marital status, home ownership, and employment status. Further, there are variables indicating the state of birth and state of residence one year ago, 
+which will allow me to identify return migration. Beyond these variables, I also have rules which link children to their parents, though implementing this is still a work in progress. My goal is to
+understand how the presence of children, as well as income and other household characteristics, impact the likelihood of moving once out of the "formative years" of one's working life.
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   echo = TRUE
@@ -356,4 +362,12 @@ sum_gt <- sum_tbl %>%
 sum_gt
 ```
 
+The first graph depicts the proportion of movers from the overall sample who move. As can be seen, (disregarding 1990-2000, need to continue to diagnose this) movers are a relatively small part of the sample, with about 1.75\%
+of people moving in the most concentrated year. The second graph then conditions on someone being a mover, and breaks down the proportion by age. Here, we see that as people approach retirement, they move with greater frequency.
+Almost 20\% of movers are moving at age 60, compared to about 14\% at age 45. Next, we break down the mover proportion by whether or not the individual has children. Here, we see that individuals without children move at a higher rate than those with children, and this gap
+widend as people age. When breaking out by income terciles, we see that high income people move at a massively higher rate than low and medium income people, who are relatively similar. However, we still maintain the pattern that
+as people grow older, they move more frequently. Finally, the last graph depicts return migration, or those who go back to their birth state. Here, we see that return migration is relatively rare, with only about 4\% of movers returning to their birth state at age 60.
 
+From the summary statistics, we can see that there are ten million+ observations in the sample, with about 139,426 households being movers and 788,430 not moving (weighted by given IPUMS household weights). Movers have higher average incomes, pay a higher average rent, and have a
+higher average home value. Furhter, movers are less likely to be married and less likely to own their home than the overall sample. Overall, this is a good starting point for understanding the data, and I will continue to explore and clean as I move forward with my analysis. There
+are clear hiccups I need to address, and will continue to refine the data cleaning and exploratory data analysis process.
