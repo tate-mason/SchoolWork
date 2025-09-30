@@ -24,11 +24,29 @@ describe(df$parent)
 
 # 2 - Descriptive Statistics by Brand
 ```{r}
-describeBy(df, df$brand)
+df_market <- df %>%
+  mutate(
+    cereal_vars = c(
+      price,
+      brand_num = n_distinct(brand),
+      parent_num = n_distinct(parent),
+      flavored,
+      fortified,
+      fiber,
+      sugars,
+      sold = (price*quantity)
+    )
+  ) %>%
+  group_by(week_id, store_id) %>%
+  summarise(
+    across(all_of(cereal_vars), 
+      list(
+      mean = ~ mean(.x, na.rm = TRUE),
+      sd = ~ sd(.x, na.rm = TRUE),
+      var = ~ var(.x, na.rm = TRUE),
+      median = ~ median(.x, na.rm = TRUE),
+      max = ~ max(.x, na.rm = TRUE),
+      min = ~ min(.x, na.rm = TRUE)),
+    .names = "{.col}_{.fn}"))
+  
 ```
-
-# 3 - Descriptive Statistics by Parent
-```{r}
-describeBy(df, df$parent)
-```
-
