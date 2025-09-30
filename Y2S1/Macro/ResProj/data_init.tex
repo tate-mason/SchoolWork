@@ -1,0 +1,125 @@
+\documentclass[11pt,a4paper]{article}
+
+% Essential packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{setspace}
+
+
+% Additional useful packages
+\usepackage{fancyhdr}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Configure hyperref
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=red,
+    pdftitle={Data Preliminaries},
+    pdfauthor={Tate Mason},
+}
+
+% Set line spacing
+\onehalfspacing
+
+% Configure headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\textit{Data Preliminaries}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Title page information
+\title{Data Preliminaries: Middle Aged Moving}
+
+\author{
+    Tate Mason \\
+    \textit{John Munro Godfrey, Sr. Department of Economics} \\
+    \textit{University of Georgia} \\
+    \textit{Athens, Georgia} \\
+}
+
+\date{\today}
+
+% Abstract environment
+\newenvironment{abstract}%
+{\cleardoublepage\null \vfill\begin{center}%
+\bfseries \abstractname \end{center}}%
+{\vfill\null}
+
+\begin{document}
+
+% Title page
+\maketitle
+\thispagestyle{empty}
+
+\newpage
+\setcounter{page}{1}
+
+The data I will be using for my research project on midlife interstate migration will come from IPUMS census data. I will be using yearly ACS surverys from 2001 - 2019, with the 5\% and 1\% decennial 
+census data from 1990 and 2010. The data will be restricted to household heads between the ages of 40 and 60. The key variable will be whether or not the individual moved in the past year, as well as
+individual and household characteristics such as income, number of children, marital status, home ownership, and employment status. Further, there are variables indicating the state of birth and state of residence one year ago, 
+which will allow me to identify return migration. Beyond these variables, I also have rules which link children to their parents, though implementing this is still a work in progress. My goal is to
+understand how the presence of children, as well as income and other household characteristics, impact the likelihood of moving once out of the "formative years" of one's working life.
+
+The first graph depicts the proportion of movers from the overall sample who move. As can be seen, (disregarding 1990-2000, need to continue to diagnose this) movers are a relatively small part of the sample, with about 1.75\%
+of people moving in the most concentrated year. The second graph then conditions on someone being a mover, and breaks down the proportion by age. Here, we see that as people approach retirement, they move with greater frequency.
+Almost 20\% of movers are moving at age 60, compared to about 14\% at age 45. Next, we break down the mover proportion by whether or not the individual has children. Here, we see that individuals without children move at a higher rate than those with children, and this gap
+widend as people age. When breaking out by income terciles, we see that high income people move at a massively higher rate than low and medium income people, who are relatively similar. However, we still maintain the pattern that
+as people grow older, they move more frequently. Finally, the last graph depicts return migration, or those who go back to their birth state. Here, we see that return migration is relatively rare, with only about 4\% of movers returning to their birth state at age 60.
+
+From the summary statistics, we can see that there are 139,426 households being movers and 670,370 not moving (weighted by given IPUMS household weights). Overall, we have 13+ million observations for the entire sample across 20 years. Movers have higher average incomes, pay a higher average rent, and have a
+higher average home value. Further, movers are less likely to be married and less likely to own their home than the overall sample. Overall, this is a good starting point for understanding the data, and I will continue to explore and clean as I move forward with my analysis. There
+are clear hiccups I need to address, and will continue to refine the data cleaning and exploratory data analysis process over the coming days and reconvene about strategy.
+
+
+
+\includegraphics{/Volumes/TDP/macro/ipums_create_files/figure-pdf/age-1.pdf}
+
+\includegraphics{/Volumes/TDP/macro/ipums_create_files/figure-pdf/EDA-1.pdf}
+
+\includegraphics{/Volumes/TDP/macro/ipums_create_files/figure-pdf/Income-1.pdf}
+
+\includegraphics{/Volumes/TDP/macro/ipums_create_files/figure-pdf/kids-1.pdf}
+
+\includegraphics{/Volumes/TDP/macro/ipums_create_files/figure-pdf/Returners-1.pdf}
+
+% requires: \usepackage{booktabs, threeparttable}
+\begin{frame}{Summary: Movers vs. Non-movers}
+\centering
+\renewcommand{\arraystretch}{1.15}
+\scriptsize
+\begin{threeparttable}
+\begin{tabular}{lrr}
+\toprule
+ & \textbf{Movers} & \textbf{Non-movers} \\
+\midrule
+N (households; weighted by hhwt)      & 119,469   & 670,370 \\
+\% own home                           & 34.5\%    & 32.3\%  \\
+\% married                            & 49.7\%    & 36.7\%  \\
+Avg household income                  & \$54,774.23 & \$41,266.67 \\
+Avg rent (renters / non-miss.)        & \$639.34    & \$560.47   \\
+Avg home value (owners / non-miss.)   & \$309,435   & \$281,540  \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item All statistics weighted by \texttt{hhwt}. N is total households.
+\end{tablenotes}
+\end{threeparttable}
+\end{frame}
+
+\end{document}

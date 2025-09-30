@@ -2,20 +2,8 @@
 title: "Data Cleaning for Macro Project"
 author: "Tate Mason"
 format: 
-  html:
-    toc: true
-    toc-depth: 2
-    toc-location: left
-    number-sections: true
-    theme: cosmo
-    code-fold: true
-    code-summary: "Click to show/hide code"
-    fig-width: 7
-    fig-height: 5
-    fig-align: center
-    css: styles.css
-    highlight-style: tango
-    df-print: kable
+  html: default
+  pdf: default
 ---
 
 The data I will be using for my research project on midlife interstate migration will come from IPUMS census data. I will be using yearly ACS surverys from 2001 - 2019, with the 5\% and 1\% decennial 
@@ -41,6 +29,9 @@ library(psych)
 library(stargazer)
 library(ggplot2)
 library(scales)
+library(data.table)
+
+setDTthreads(0)
 ```
 
 ```{r, Read Data, eval=FALSE}
@@ -66,7 +57,7 @@ describe(data$inctot)
 
 data_clean <- data %>%
   filter(
-    pernum == 1, # Filter for household heads
+    relate == 1, # Filter for household heads
     age >= 40,
     age <= 60,
   )
@@ -114,20 +105,26 @@ df <- data_clean %>%
 # Exploratory Data Analysis
 
 ```{r, EDA, warning=FALSE, echo=FALSE}
+sum(df$hhwt, na.rm = TRUE)
+nrow(df)
+
 df_move <- df %>%
+  filter(year > 2000) %>%
   group_by(year) %>%
   summarise(
-    n_hh = sum(hhwt, na.rm = TRUE),
-    movers = sum(hhwt[moved == 1], na.rm = TRUE),
+    n_hh = sum((nrow(df)), na.rm = TRUE),
+    movers = sum(hhwt * (!is.na(moved == 1)), na.rm = TRUE),
     mover_prop = movers / n_hh,
     .groups = "drop"
   ) %>%
   arrange(year)
 
+df_move$n_hh
+
 ggplot(df_move, aes(x = year, y = mover_prop)) +
   geom_line(color = "#BA0C2F", size = 1) +
-  labs(title = "Proportion of Movers by Age",
-       x = "Age",
+  labs(title = "Proportion of Movers by Year",
+       x = "Year",
        y = "Proportion Moved") +
   theme_minimal()
 ```
@@ -309,7 +306,7 @@ is_married <- function(marst) {
 summ_group <- function(d, label) {
   tibble(
     metric = c(
-      "N (households, weighted ∑hhwt)",
+      "N (households, weighted by hhwt)",
       "% own home",
       "% married",
       "Avg household income",
@@ -317,7 +314,7 @@ summ_group <- function(d, label) {
       "Avg home value (owners / non-miss.)"
     ),
     !!label := c(
-      comma(sum(d$hhwt, na.rm = TRUE)),                                    # N as weighted households
+      comma(sum(nrow(d), na.rm = TRUE)),                                    # N as weighted households
       percent(w_mean(is_owned(d$ownershp), d$hhwt), accuracy = 0.1),
       percent(w_mean(is_married(d$marst),   d$hhwt), accuracy = 0.1),
       dollar(w_mean(d$inctot, d$hhwt)),
@@ -350,7 +347,7 @@ sum_gt <- sum_tbl %>%
   gt(rowname_col = "metric") %>%
   tab_header(
     title = md("**Summary: Overall vs. Movers vs. Non-movers**"),
-    subtitle = "All stats weighted by hhwt; N is total households (∑hhwt)"
+    subtitle = "All stats weighted by hhwt; N is total households"
   ) %>%
   cols_label(
     Overall = "Overall Obs.",
