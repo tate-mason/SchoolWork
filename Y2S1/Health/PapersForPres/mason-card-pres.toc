@@ -3,4 +3,4 @@
 \beamer@sectionintoc {3}{Data}{9}{0}{3}
 \beamer@sectionintoc {4}{Empirical Strategy}{11}{0}{4}
 \beamer@sectionintoc {5}{Results}{16}{0}{5}
-\beamer@sectionintoc {6}{Conclusion}{24}{0}{6}
+\beamer@sectionintoc {6}{Conclusion}{25}{0}{6}
