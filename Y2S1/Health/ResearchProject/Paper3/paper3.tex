@@ -146,77 +146,76 @@ to addicts once they find a willing prescriber.
 % Identify specific gaps, limitations, or open problems in existing approaches.
 % This motivates why your work is needed and positions your contributions.
 
-\section{Methodology}
+\section{Model}
 \label{sec:methodology}
 
-\subsection{Theoretical Framework}
-\label{subsec:framework}
+\subsection{Addicts}
 
-\subsubsection*{Agents and Functions}
-\label{subsubsec:agents&functions}
-There will be two classes of agents in this model, physicians and addicts. 
+There is a continuum of addicts in this model such that $\mathcal{A} = \{a_1, a_2, ..., a_N\}$, all of whom value consumption of prescriptions. Each lived period, they
+are granted a single unit of time with which they will search for a physician to prescribe them something. There is no terminal period for now, but there are
+3 pathways through which addicts are jettisoned from the model. First, their assumed risk, a product of continued search, outweighs the utility they get from
+searching. In this case, we can say that they were barred from being able to see new doctors due to being registered as someone searching for drugs to abuse.
+The next reason for exit is when tolerance augmented consumption $\gamma_i\times c_{it}$ is higher than consumption. This is the idea that they cannot satiate their
+drug craving through the search anymore, and may transition to other means. Finally, the cost of search becomes higher than the benefit of consuming the drugs.
+
+Addicts follow a CRRA utility formula, and can only make one proposal to a doctor each period. With probability $a(\theta)$, they will be able to see a doctor,
+with probability $m(\theta)$, the doctor will give a prescription. This allows for the possibility of periods in which agents will not be given anything, adding 
+a potential risk to leaving a current match, and allowing for the exit via consumption needs not being met. Addicts can drop their matches, or be dropped by a 
+doctor. In this case, they either enter the search process again or will exit.
+
+\subsection{Doctors}
+
+There is a continuum of doctors such that $\mathcal{M} = \{m_1, m_2, ..., m_K\}$ who value profit. They will exist in the model until they have overprescribed,
+taking on too much risk, $p_{jt} > r_{jt}$. Doctors can be matched with many addicts, with $p_{jt} = \sum\limits_{i = 1}^{I} c_{it}$, for all patients $I \subset \mathcal{A}$
+matched to them. They will drop patients when their consumption needs threaten their risk constraint, thus allowing them to bring in a new, lower risk, patient.
+The doctor's optimization is as follows
+
+\begin{equation}
+  \max\limits_{v_{j}} x_iv_j - i_jr_{jt} \\
+\end{equation}
 \begin{gather*}
-  \text{addicts} \in \mathcal{A} = \{a_1, a_2, \ldots, a_n\} \\
-  \text{physicians} \in \mathcal{M} = \{m_1, m_2, \ldots, m_m\}
+  \shortintertext{s.t.} \\
+  v_j = r_{jt}p_{jt} + \xi
 \end{gather*}
 
-The objective function of the addict is given by:
+Where $v_{j}$ is a visit cost, which is initially a flat $\xi$ and will evolve according to how many patients they prescribe to. $x_i$ is how much the patient pays
+for a visit. This can be thought of as the co-pay for a visit. $i_j$ is a flat physician's insurance cost which is raised by amount of risk. Basically, they
+want to maximize visit revenue, net of their risk adjusted fixed cost.
 
+\subsection{Addicts' Optimization}
+
+In the first period:
+\begin{equation}
+  V_a^0(\gamma_i, r_i) = \{u(c_i) + \beta(1-a(\theta))V_a(\gamma_i, r_i) + \beta(a(\theta)m(\theta))V_a(\gamma_i, r_i') + \beta(a(\theta)(1-m(\theta)))V_a(\gamma_i, r_i')\} \\
+\end{equation}
 \begin{gather*}
-  \max_p \sum\limits_{t=1}^{T} \delta^t_i \gamma_i^tc_{it}x_i \\
-  \text{s.t.} \\
-  \gamma_i^tc_{it}x_i <= s_i \\
-  s_i = x_ivj + r_{it}
-  x_i = \gamma_i^t\cdot y_i
+  \shortintertext{s.t.} \\
+  u(c) = \frac{c_i^{1-\sigma}}{1-\sigma} \\
+  r_i' = r_i + \epsilon_{a}
 \end{gather*}
 
-Where $\delta_i^t$ is discount factor of addicts, $\gamma_i^T$ is a tolerance parameter, indicating how deeply addicted the agent is, $c_i$ is utility from prescription consumption, $x_i$, a willingness to pay parameter, 
-$s_i$ is a search cost comprised of  $v_j$, a visit cost for each doctor normalized by the willingness to pay (relative price), and $r_i$ a risk cost of being reported for the behavior. $x_i$ is comprised
-of one's tolerance scaling their money to determine how much they're willing to pay for a chance at drugs.
+In proceeding periods:
 
-The objective function of the prescriber is:
-
+\begin{equation}
+  V_a^m(\gamma_i, r_i) = \max\{V_a^s(\gamma_i, r_i), V_a^f(\gamma_i, r_i')\} \\
+\end{equation}
 \begin{gather*}
-  \max_x x_i\cdot v_j \\
-  \text{s.t.} \\
-  x_j\cdot v_i <= r_j i_j \\
-  v_i = r_jp_j \\
+  \shortintertext{s.t.} \\
+  V_a^s(\gamma_i, r_i) = \{u(c_i) + \beta V_a^m(\gamma_i, r_i')\} \\
+  V_a^f(\gamma_i, r_i') = \{u(c_i) + \beta(1-a(\theta))V_a(\gamma_i, r_i') + \beta(a(\theta)m(\theta))V_a(\gamma_i, r_i'') + \beta(a(\theta)(1-m(\theta)))V_a(\gamma_i, r_i'')\} \\
+  u(c) = \frac{c_i^{1-\sigma}}{1-\sigma} \\
+  r_i' = r_i + \epsilon_a
 \end{gather*}
 
-Where $i_i$ is the cost of insurance for a physician and $p_j$ is the amount of active prescriptions they have out. All other variables are defined above, with a subscript j to indicate physician specific parameters.
+Further, both risk, $r_i$, and tolerance $\gamma_i$ are drawn from normal distributions, and $a(\theta), \ m(\theta)$ are drawn from uniform distrubtions.
 
-\subsubsection*{Comparative Statics and Counterfactuals}
-\label{subsubsec:comparative&counterfactuals}
+\subsection{Estimation}
 
-Understanding how willingness to pay and price of a visit affect the equilibrium would be of importance, as these would have a direct effect on the equilibrium matching.
-For a counterfactual, I am interested in modeling some sort of rehabilitation "punishment" for being caught searching. This would be of policy relevance due to the ongoing national drug epidemic.
+To estimate, using method of simuated moments, I would need to get moments of the variance of risk for each type of $\gamma_i$, which I think I will classify as either low, average, or high.
+I am still working on this part, and will hope to have more in the next couple of weeks. I have been looking over  literature using the Roy model since I think it makes the
+most sense to use for a simpler case like this. Hopefully, I will have more for this soon, but I think the bones are there. I am still just looking for more understanding of the 
+estimation process.
 
-\subsubsection*{Description of Environment and Equilibrium Behavior}
-\label{subsubsec:eq&behavior}
-
-Let me first define how the order of events occurs each period. First, physicians set price $v_j$, which can vary. Then, addicts will begin searching, meeting with one doctor per period with probability $a(\theta)$.
-After that, if they can secure an appointment, doctors will prescribe with probability $m(\theta) = \theta a(\theta)$. At the end, risk evolves, and if it is larger than a threshold yet to be determined, addicts and 
-doctors will face a repercussion. I think punishments for addicts comprise of overdose or reporting, and thus they move to the illegal market. I am still working on this part, as overdose is risk of prescription and reporting is risk of search.
-In either case, they are removed. Doctors only face risk of removal when their license is seized as a result of frivalous prescribing. Then there is the state of the world in which risk is still under the threshold so nothing changes for either party. 
-
-Each addict can only be mapped to one doctor, but doctors will have a subset $G_j \subset \mathcal{A}$ which can be singleton and empty. $\gamma_{i}$ in period 0 is chosen from a normal distribution, and thus determines an addict natural 
-addiction proclivity. After period 0, it will grow deterministically with prescription consumption. I am still deciding what risk tolerance should be drawn from. It will grow unexpectedly, with the addict being unaware, of how much they need to satiate
-utility. Help here would be massively appreciated. 
-
-The basic search model will look something like:
-
-\begin{gather*}
-  V(c_i, \gamma_i, \theta) = \max_{c_i}\{u(a_{it}) + \sum\sum \Pi(\gamma^{t+1}_i|\gamma_i^t) \Psi(c_{i,t+1}|c_{i,t}, \gamma_i^t)  \mathbb{E}[u(a_{i,t+1})]) \\
-\end{gather*}
-
-It will evenutally include risk probability, but I am still working that out.
-
-Equilibrium is achieved via all available matches being fulfilled and stability is present.
-
-\subsubsection*{To-Do}
-\label{subsubsec:todo}
-
-Work out risk probabilities, work out distributions, incorporate any feedback.
 
 % Describe your approach in sufficient detail for reproducibility.
 % Include mathematical formulations, algorithms, and theoretical analysis as needed.
