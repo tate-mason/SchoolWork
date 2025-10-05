@@ -202,12 +202,13 @@ In proceeding periods:
 \begin{gather*}
   \shortintertext{s.t.} \\
   V_a^s(\gamma_i, r_i) = \{u(c_i) + \beta V_a^m(\gamma_i, r_i')\} \\
-  V_a^f(\gamma_i, r_i') = \{u(c_i) + \beta(1-a(\theta))V_a(\gamma_i, r_i') + \beta(a(\theta)m(\theta))V_a(\gamma_i, r_i'') + \beta(a(\theta)(1-m(\theta)))V_a(\gamma_i, r_i'')\} \\
+  V_a^f(\gamma_i, r_i') = \{u(c_i) + \mathbb{E}_{t}[\beta(1-a(\theta))V_a(\gamma_i, r_i') + \beta(a(\theta)m(\theta))V_a(\gamma_i, r_i'') + \beta(a(\theta)(1-m(\theta)))V_a(\gamma_i, r_i'')]\} \\
   u(c) = \frac{c_i^{1-\sigma}}{1-\sigma} \\
   r_i' = r_i + \epsilon_a
 \end{gather*}
 
-Further, both risk, $r_i$, and tolerance $\gamma_i$ are drawn from normal distributions, and $a(\theta), \ m(\theta)$ are drawn from uniform distrubtions.
+Further, both risk, $r_i$, and tolerance $\gamma_i$ are drawn from normal distributions, and $a(\theta)$ is a function $\theta(\gamma_i, r_{it}, t)$, so their probability depends on their tolerance, risk tolerance, and time in model. Still trying to flesh out the $m(\theta)$ part. I know the
+probability of prescribing needs to depend on risk of physicians, but I am trying to decide what else. Maybe patient load?
 
 \subsection{Estimation}
 

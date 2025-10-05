@@ -2,8 +2,20 @@
 title: "Data Cleaning for Macro Project"
 author: "Tate Mason"
 format: 
-  html: default
-  pdf: default
+  html:
+    toc: true
+    toc-depth: 2
+    toc-location: left
+    number-sections: true
+    theme: cosmo
+    code-fold: true
+    code-summary: "Click to show/hide code"
+    fig-width: 7
+    fig-height: 5
+    fig-align: center
+    css: styles.css
+    highlight-style: tango
+    df-print: kable
 ---
 
 The data I will be using for my research project on midlife interstate migration will come from IPUMS census data. I will be using yearly ACS surverys from 2001 - 2019, with the 5\% and 1\% decennial 
@@ -22,6 +34,7 @@ knitr::opts_chunk$set(
 ```{r, Libraries, echo=FALSE, output=FALSE}
 # Load necessary libraries
 library(dplyr)
+library(broom)
 library(ipumsr)
 library(here)
 library(tidyr)
@@ -29,12 +42,9 @@ library(psych)
 library(stargazer)
 library(ggplot2)
 library(scales)
-library(data.table)
-
-setDTthreads(0)
 ```
 
-```{r, Read Data, eval=FALSE}
+```{r, Read Data, eval = FALSE}
 # Read in the IPUMS data
 
 here() # Check working directory
@@ -43,7 +53,7 @@ data <- read_ipums_micro(ddi) # Formalizing the microdata c/o IPUMS - UMN
 names(data) <- tolower(names(data)) # Convert column names to lowercase
 ```
 
-```{r, Initial Data Exploration, eval=FALSE}
+```{r, Initial Data Exploration, eval = FALSE}
 # Initial data exploration
 
 str(data) # Structure of the data
@@ -53,11 +63,12 @@ describe(data$inctot)
 ```
 
 # Data cleaning and transformation
-```{r, Data Cleaning, eval=FALSE}
+```{r, Data Cleaning, eval = FALSE}
 
 data_clean <- data %>%
   filter(
-    relate == 1, # Filter for household heads
+    pernum == 1, # Filter for household heads
+    labforce == 2,
     age >= 40,
     age <= 60,
   )
@@ -68,8 +79,26 @@ saveRDS(data_clean, file = here("data", "clean.rds")) # Save cleaned data
 ```{r, Load Cleaned Data, echo=FALSE, warning=FALSE}
 data_clean <- readRDS(here("data", "clean.rds")) # Load cleaned data
 mig_state <- 1:56
+library(tibble)
+
+# CPI table (base 2010 = 100)
+cpi_tbl <- tribble(
+  ~year, ~cpi,
+  1990,130.7, 1991,136.2, 1992,140.3, 1993,144.5, 1994,148.2,
+  1995,152.4, 1996,156.9, 1997,160.5, 1998,163.0, 1999,166.6,
+  2000,172.2, 2001,177.1, 2002,179.9, 2003,184.0, 2004,188.9,
+  2005,195.3, 2006,201.6, 2007,207.3, 2008,215.3, 2009,214.5,
+  2010,218.1, 2011,224.9, 2012,229.6, 2013,232.9, 2014,236.7,
+  2015,237.0, 2016,240.0, 2017,245.1, 2018,251.1, 2019,255.7
+) %>%
+  mutate(cpi_ratio_2010 = 218.056 / cpi)
+
 df <- data_clean %>%
+  left_join(cpi_tbl, by = "year") %>%
   mutate(
+    rentgrs = rentgrs * cpi_ratio_2010,
+    valueh = valueh * cpi_ratio_2010,
+    inctot = inctot * cpi_ratio_2010,
     hhwt = as.numeric(hhwt)/100,
     self_emp = classwkr %in% c(10, 13, 14),
     married = marst == 1,
@@ -102,29 +131,64 @@ df <- data_clean %>%
   )
 ```
 
+# reating Profiles
+
+```{r, Age Profiles}
+df <- df %>%
+  mutate(
+    age_bin = cut(
+      age,
+      breaks = seq(40, 60, by = 2),
+      right = FALSE,
+      labels = paste(seq(40,59,2), seq(41,60,2), sep = "-")
+    )
+  )
+
+lm_move <- lm(
+  moved ~ 0 + factor(age_bin) + factor(year),
+  data = df,
+  weights = hhwt
+)
+
+age_prof_move <- broom::tidy(lm_move) %>%
+  filter(grepl("^factor\\(age_bin\\)", term)) %>%
+  mutate(
+    age_bin = gsub("factor\\(age_bin\\)", "", term),
+    age_bin = gsub("[\\(\\)]", "", age_bin)
+  ) %>%
+  transmute(age_bin, move_rate = estimate)
+
+
+ggplot(age_prof_move, aes(x = age_bin, y = move_rate, group = 1)) +
+  geom_line(size = 1.2, color = "#E74C3C") + 
+  geom_point(size = 2, color = "#E74C3C") + 
+  labs(
+    x = "Age(2-year bins, 40-60)",
+    y = "Probability of Moving",
+    title = "Age Profile of Interstate Moving"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+
 # Exploratory Data Analysis
 
-```{r, EDA, warning=FALSE, echo=FALSE}
-sum(df$hhwt, na.rm = TRUE)
-nrow(df)
-
+```{r, EDA}
 df_move <- df %>%
-  filter(year > 2000) %>%
   group_by(year) %>%
   summarise(
-    n_hh = sum((nrow(df)), na.rm = TRUE),
-    movers = sum(hhwt * (!is.na(moved == 1)), na.rm = TRUE),
+    n_hh = sum(n_distinct(n()), na.rm = TRUE),
+    movers = sum(hhwt[moved == 1], na.rm = TRUE),
     mover_prop = movers / n_hh,
     .groups = "drop"
   ) %>%
   arrange(year)
 
-df_move$n_hh
-
 ggplot(df_move, aes(x = year, y = mover_prop)) +
   geom_line(color = "#BA0C2F", size = 1) +
-  labs(title = "Proportion of Movers by Year",
-       x = "Year",
+  labs(title = "Proportion of Movers by Age",
+       x = "Age",
        y = "Proportion Moved") +
   theme_minimal()
 ```
@@ -306,7 +370,7 @@ is_married <- function(marst) {
 summ_group <- function(d, label) {
   tibble(
     metric = c(
-      "N (households, weighted by hhwt)",
+      "N (households, weighted ∑hhwt)",
       "% own home",
       "% married",
       "Avg household income",
@@ -314,7 +378,7 @@ summ_group <- function(d, label) {
       "Avg home value (owners / non-miss.)"
     ),
     !!label := c(
-      comma(sum(nrow(d), na.rm = TRUE)),                                    # N as weighted households
+      comma(sum(d$hhwt, na.rm = TRUE)),                                    # N as weighted households
       percent(w_mean(is_owned(d$ownershp), d$hhwt), accuracy = 0.1),
       percent(w_mean(is_married(d$marst),   d$hhwt), accuracy = 0.1),
       dollar(w_mean(d$inctot, d$hhwt)),
@@ -347,7 +411,7 @@ sum_gt <- sum_tbl %>%
   gt(rowname_col = "metric") %>%
   tab_header(
     title = md("**Summary: Overall vs. Movers vs. Non-movers**"),
-    subtitle = "All stats weighted by hhwt; N is total households"
+    subtitle = "All stats weighted by hhwt; N is total households (∑hhwt)"
   ) %>%
   cols_label(
     Overall = "Overall Obs.",

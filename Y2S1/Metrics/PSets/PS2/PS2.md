@@ -7,13 +7,14 @@ author: "Tate Mason"
 
 ## Question 1: What is the research Question
 
-  How did being in the Vietnam war affect labor outcomes, specifically earnings? They induce randomization via the draft lottery, implying there was no endogeneity since people were selected, ostensibly, at random.
+How did being in the Vietnam war affect labor outcomes, specifically earnings? They induce randomization via the draft lottery, implying there was no endogeneity since people were selected, ostensibly, at random.
 
 ## Question 2: Why is it important to answer such a question?
 
-  This is an important question for both moral and political reasons. Morally, it is important to know if soldiers are fairly compensated after their service. There should not be a penalty for service, and thus understanding how being a soldier impacts labor outcomes is important. Policy-wise, understanding labor market outcomes is important when implementing legislation which is targeted at soldiers and veterans. 
+This is an important question for both moral and political reasons. Morally, it is important to know if soldiers are fairly compensated after their service. There should not be a penalty for service, and thus understanding how being a soldier impacts labor outcomes is important. Policy-wise, understanding labor market outcomes is important when implementing legislation     which is targeted at soldiers and veterans. 
 
 ## Question 3: What are the key endogeneity concerns?
+
 
 
 ## Question 4: What is the argument for the relevance of the IV of the paper? Does the paper show any evidence in favor of that?
