@@ -15,9 +15,11 @@ This is an important question for both moral and political reasons. Morally, it 
 
 ## Question 3: What are the key endogeneity concerns?
 
-
+Endogeneity concerns lie in health status as well as education status. For instance, healthy individuals are likely to be eligible, while those in college could likely defer service. Thus, units being healthier or more educated, two covariates which impact earning potential, could be endogenous to the treatment.
 
 ## Question 4: What is the argument for the relevance of the IV of the paper? Does the paper show any evidence in favor of that?
+
+The paper argues that the draft lottery is effectively random and thus is a relevant instrument.
 
 ## Question 5: What is the argument for the validity of the IV of the paper? Does the paper show any evidence in favor of that?
 
