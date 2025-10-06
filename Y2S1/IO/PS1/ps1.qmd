@@ -319,7 +319,9 @@ reg_data <- reg_data %>%
   mutate(
     z = sugars * sugar_price
   )
-stage1 <- lm(p_jmt ~ sugar_price, data = reg_data)
+stage1 <- lm(p_jmt ~ sugar_price + fiber + sugars + flavored + fortified +
+                 market_fe + manufacturer_fe + time_fe + brand_fe,
+               data = reg_data)
 summary(stage1)
 reg_data <- reg_data %>%
   mutate(p_hat = predict(stage1))
@@ -337,6 +339,64 @@ ggplot(reg_data, aes(x = own_price_elasticity_2sls)) +
   theme_minimal()
 ```
 
-This is obviously not a good methodology. Own price changes result in positive
-demand changes, which is not sensible for a normal good. Thus, we likely need
-to use a different kind of methodology.
+Using 2SLS results in estimates which are more negative than the OLS estimates,
+indicating that the OLS estimates were biased towards zero.
+
+## 2.4
+
+```{r}
+#| label: q2-4
+# Elasticity Matrix for Top 5 Brands by Sales
+## Create average matrix by taking average of market level elaticity matrices
+
+top_brands <- reg_data %>%
+  group_by(brand) %>%
+  summarise(total_sales = sum(quantity, na.rm = TRUE), .groups = "drop") %>%
+  arrange(desc(total_sales)) %>%
+  slice_head(n = 5) %>%
+  pull(brand)
+elasticity_matrices <- list()
+for (mkt in unique(reg_data$market_id)) {
+  mkt_data <- reg_data %>% filter(market_id == mkt, brand %in% top_brands)
+  n <- nrow(mkt_data)
+  if (n < 5) next  # Skip markets with fewer than 5 top brands
+  elas_matrix <- matrix(0, nrow = n, ncol = n)
+  rownames(elas_matrix) <- mkt_data$brand
+  colnames(elas_matrix) <- mkt_data$brand
+  for (i in 1:n) {
+    for (j in 1:n) {
+      if (i == j) {
+        elas_matrix[i, j] <- coef(stage2)["p_hat"] * mkt_data$p_jmt[i] * (1 - mkt_data$sj[i])
+      } else {
+        elas_matrix[i, j] <- -coef(stage2)["p_hat"] * mkt_data$p_jmt[j] * mkt_data$sj[i]
+      }
+    }
+  }
+  elasticity_matrices[[as.character(mkt)]] <- elas_matrix
+}
+# Average elasticity matrix
+avg_elasticity_matrix <- Reduce("+", elasticity_matrices) / length(elasticity_matrices)
+avg_elasticity_matrix
+```
+
+## 2.5
+```{r}
+#| label: q2-5
+# Calculaete markups for each manufacturer
+reg_data <- reg_data %>%
+  mutate(
+    own_price_elasticity_2sls = coef(stage2)["p_hat"] * p_jmt * (1 - sj),
+    markup = -p_jmt / own_price_elasticity_2sls
+  )
+markup_summary <- reg_data %>%
+  group_by(parent) %>%
+  summarise(
+    avg_markup = mean(markup, na.rm = TRUE),
+    sd_markup = sd(markup, na.rm = TRUE),
+    median_markup = median(markup, na.rm = TRUE),
+    max_markup = max(markup, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(avg_markup))
+markup_summary
+```
