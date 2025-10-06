@@ -13,12 +13,16 @@ format: pdf
 ```{r}
 # Packages
 library(tidyverse)
+library(lubridate)
+
 # Data
 iri <- read_tsv("~/SchoolWork/Y2S1/IO/PS1/IRI.csv", show_col_types = FALSE) 
 names(iri) <- gsub("^t", "", names(iri))  # Clean names
 iri <- iri %>%
   mutate(
-    market_id = interaction(store_id, week_id, drop = TRUE)
+    market_id = interaction(store_id, week_id, drop = TRUE),
+    date_id = interaction(year, month, drop = TRUE),
+    date = as.Date(paste(year, month, "01", sep = "-"))
   )
 ```
 
@@ -253,9 +257,52 @@ p_hhi_both <- ggplot(hhi_both, aes(x = week_id)) +
 
 p_hhi_both
 ggsave("HHI_brand_vs_parent.png", p_hhi_both, width = 10, height = 6, dpi = 300)
-
-# Optional numeric outputs
-# write_csv(hhi_brand_week,  "hhi_brand_by_week.csv")
-# write_csv(hhi_parent_week, "hhi_parent_by_week.csv")
-# write_csv(hhi_both,        "hhi_brand_parent_by_week.csv")
 ```
+
+# Question 2:
+
+```{r}
+#| label: q2-1
+# Prepare data for regression
+reg_data <- iri %>%
+  group_by(market_id) %>%
+  mutate(
+    market_fe = as.factor(state),
+    manufacturer_fe = as.factor(parent),
+    time_fe = as.factor(week_id),
+    brand_fe = as.factor(brand),
+    p_jmt = price,
+    total_sales = sum(quantity, na.rm = TRUE),
+    sj = quantity / M,
+    s0 = 1 - (total_sales / M),
+    u = log(sj) - log(s0)
+  ) %>%
+  ungroup() 
+```
+
+Our estimation model is thus: 
+$$ u_{jmt} = \alpha p_{jmt} + \beta\mathbb{X}_{jmt} + \xi_{jmt} $$
+
+where $\mathbb{X}_{jmt}$ includes the product characteristics fiber,
+sugars, flavored, and fortified, as well as fixed effects for market, manufacturer, and time.
+and $u_{jmt}$ is the log-odds of product j's market share in market m at time t.
+
+```{r}
+#| label: q2-2
+# Regression model
+reg_model <- lm(u ~ p_jmt + fiber + sugars + flavored + fortified +
+                  market_fe + manufacturer_fe + time_fe + brand_fe,
+                data = reg_data)
+summary(reg_model)
+
+# Histogram of own price elasticities
+reg_data <- reg_data %>%
+  mutate(own_price_elasticity = coef(reg_model)["p_jmt"] * p_jmt * (1 - sj))
+
+ggplot(reg_data, aes(x = own_price_elasticity)) +
+  geom_histogram(bins = 30, fill = "steelblue", color = "black", alpha = 0.7) +
+  labs(title = "Histogram of Own Price Elasticities",
+       x = "Own Price Elasticity", y = "Frequency") +
+  theme_minimal()
+```
+
