@@ -407,3 +407,130 @@ ggplot(markup_summary, aes(x = reorder(parent, -avg_markup), y = avg_markup)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+
+## 2.6
+
+```{r}
+#| label: q2-6
+# Nested by segment - construct data and calculate conditional shares
+reg_data <- reg_data %>%
+  mutate(
+    nest = as.factor(segment)
+  ) %>%
+  group_by(market_id, nest) %>%
+  mutate(
+    total_nest_sales = sum(quantity, na.rm = TRUE),
+    share_con = if_else(total_nest_sales > 0, quantity / total_nest_sales, 0)
+  ) %>%
+  ungroup()
+```
+
+The estimating equation is now:
+$$ u_{jmt} = \alpha p_{jmt} + \beta\mathbb{X}_{jmt} + \sigma_g s_{j|g} + \xi_{jmt} $$
+
+where $s_{j|g}$ is the conditional share of product j within its nest g.
+
+## 2.7
+
+```{r}
+#| label: q2-7
+#2SLS with Price Instrument: Price*Quantity of Sugar and Conditional Share Instrument total products
+
+reg_data <- reg_data %>%
+  mutate(
+    z_cond = as.numeric(nest) * (total_nest_sales / M),
+    z = sugars * sugar_price
+  )
+s1_nest <- lm(p_jmt ~ sugar_price + z_cond + fiber + sugars + flavored + fortified +
+                 market_fe + manufacturer_fe + time_fe + brand_fe,
+               data = reg_data)
+summary(s1_nest)
+reg_data <- reg_data %>%
+  mutate(p_hat_nest = predict(s1_nest))
+s2_nest <- lm(u ~ p_hat_nest + fiber + sugars + flavored + fortified + share_con +
+                 market_fe + manufacturer_fe + time_fe + brand_fe,
+               data = reg_data)
+summary(s2_nest)
+# Histogram of own price elasticities (2SLS Nested)
+reg_data <- reg_data %>%
+  mutate(own_price_elasticity_2sls_nest = coef(s2_nest)["p_hat_nest"] * p_jmt * (1 - sj))
+ggplot(reg_data, aes(x = own_price_elasticity_2sls_nest)) +
+  geom_histogram(bins = 30, fill = "purple", color = "black", alpha = 0.7) +
+  labs(title = "Histogram of Own Price Elasticities (2SLS Nested)",
+       x = "Own Price Elasticity (2SLS Nested)", y = "Frequency") +
+  theme_minimal()
+```
+
+## 2.8
+
+```{r}
+#| label: q2-8
+# Elasticity Matrix for Top 5 Brands by Sales (Nested)
+top_nest_brands <- reg_data %>%
+  group_by(brand, nest) %>%
+  summarise(total_sales = sum(quantity, na.rm = TRUE), .groups = "drop") %>%
+  arrange(desc(total_sales)) %>%
+  slice_head(n = 5) %>%
+  pull(brand)
+elasticity_nest_matrices <- list()
+for (mkt in unique(reg_data$market_id)) {
+  mkt_data <- reg_data %>% filter(market_id == mkt, brand %in% top_nest_brands)
+  n <- nrow(mkt_data)
+  if (n < 5) next  # Skip markets with fewer than 5 top brands
+  elas_matrix_nest <- matrix(0, nrow = n, ncol = n)
+  rownames(elas_matrix_nest) <- mkt_data$brand
+  colnames(elas_matrix_nest) <- mkt_data$brand
+  for (i in 1:n) {
+    for (j in 1:n) {
+      if (i == j) {
+        elas_matrix_nest[i, j] <- coef(s2_nest)["p_hat_nest"] * mkt_data$p_jmt[i] * (1 - mkt_data$sj[i])
+      } else if (mkt_data$nest[i] == mkt_data$nest[j]) {
+        elas_matrix_nest[i, j] <- -coef(s2_nest)["p_hat_nest"] * mkt_data$p_jmt[j] * (mkt_data$sj[i] * (1 - mkt_data$share_con[i]))
+      } else {
+        elas_matrix_nest[i, j] <- -coef(s2_nest)["p_hat_nest"] * mkt_data$p_jmt[j] * (mkt_data$sj[i] * (1 - mkt_data$share_con[i]))
+      }
+    }
+  }
+  elasticity_nest_matrices[[as.character(mkt)]] <- elas_matrix_nest
+}
+# Average elasticity matrix (Nested)
+avg_elasticity_nest_matrix <- Reduce("+", elasticity_nest_matrices) /
+  length(elasticity_nest_matrices)
+avg_elasticity_nest_matrix
+```
+
+## 2.9
+
+```{r}
+#| label: q2-9
+# Calculate average markups for each manufacturer (Nested)
+reg_data <- reg_data %>%
+  mutate(
+    ope_nest = coef(s2_nest)["p_hat_nest"] * p_jmt * (1 - sj),
+    markup_nest = -1 / ope_nest
+  )
+markup_nest_summary <- reg_data %>%
+  group_by(parent) %>%
+  summarise(
+    avg_markup_nest = mean(markup_nest, na.rm = TRUE),
+    sd_markup_nest = sd(markup_nest, na.rm = TRUE),
+    median_markup_nest = median(markup_nest, na.rm = TRUE),
+    max_markup_nest = max(markup_nest, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(avg_markup_nest))
+markup_nest_summary
+ggplot(markup_nest_summary, aes(x = reorder(parent, -avg_markup_nest),
+                                y = avg_markup_nest)) +
+  geom_bar(stat = "identity", fill = "orange", alpha = 0.7) +
+  labs(title = "Average Markup by Manufacturer (Nested)",
+       x = "Manufacturer", y = "Average Markup (Nested)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## 2.10
+
+```{r}
+print("HI")
+```
