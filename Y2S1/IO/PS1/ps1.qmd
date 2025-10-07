@@ -386,7 +386,7 @@ avg_elasticity_matrix
 reg_data <- reg_data %>%
   mutate(
     own_price_elasticity_2sls = coef(stage2)["p_hat"] * p_jmt * (1 - sj),
-    markup = -p_jmt / own_price_elasticity_2sls
+    markup = -1 / own_price_elasticity_2sls
   )
 markup_summary <- reg_data %>%
   group_by(parent) %>%
@@ -399,4 +399,11 @@ markup_summary <- reg_data %>%
   ) %>%
   arrange(desc(avg_markup))
 markup_summary
+
+ggplot(markup_summary, aes(x = reorder(parent, -avg_markup), y = avg_markup)) +
+  geom_bar(stat = "identity", fill = "darkgreen", alpha = 0.7) +
+  labs(title = "Average Markup by Manufacturer",
+       x = "Manufacturer", y = "Average Markup") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
