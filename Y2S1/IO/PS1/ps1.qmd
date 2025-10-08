@@ -14,6 +14,9 @@ format: pdf
 # Packages
 library(tidyverse)
 library(lubridate)
+library(stargazer)
+library(fixest)
+
 
 # Data
 iri <- read_tsv("~/SchoolWork/Y2S1/IO/PS1/IRI.csv", show_col_types = FALSE) 
@@ -269,7 +272,7 @@ ggsave("HHI_brand_vs_parent.png", p_hhi_both, width = 10, height = 6, dpi = 300)
 reg_data <- iri %>%
   group_by(market_id) %>%
   mutate(
-    market_fe = as.factor(state),
+    market_fe = as.factor(store_id),
     manufacturer_fe = as.factor(parent),
     time_fe = as.factor(week_id),
     brand_fe = as.factor(brand),
@@ -294,10 +297,13 @@ and $u_{jmt}$ is the log-odds of product j's market share in market m at time t.
 ```{r}
 #| label: q2-2
 # Regression model
-reg_model <- lm(u ~ p_jmt + fiber + sugars + flavored + fortified +
-                  market_fe + manufacturer_fe + time_fe + brand_fe,
-                data = reg_data)
-summary(reg_model)
+list <- c("fiber", "sugars", "flavored", "fortified",
+          "market_fe", "manufacturer_fe", "time_fe")
+reg_model <- feols(
+  u ~ p_jmt + fiber + sugars + flavored + fortified |
+  market_fe + manufacturer_fe + time_fe,
+  data = reg_data
+)
 
 # Histogram of own price elasticities
 reg_data <- reg_data %>%
@@ -317,21 +323,17 @@ ggplot(reg_data, aes(x = own_price_elasticity)) +
 
 reg_data <- reg_data %>%
   mutate(
-    z = sugars * sugar_price
+    z = sugars * sugar_price,
+    z = log(z)
+
   )
-stage1 <- lm(p_jmt ~ sugar_price + fiber + sugars + flavored + fortified +
-                 market_fe + manufacturer_fe + time_fe + brand_fe,
-               data = reg_data)
-summary(stage1)
-reg_data <- reg_data %>%
-  mutate(p_hat = predict(stage1))
-stage2 <- lm(u ~ p_hat + fiber + sugars + flavored + fortified +
-                 market_fe + manufacturer_fe + time_fe + brand_fe,
+stage2 <- feols(u ~ fiber + sugars + flavored + fortified |
+                 market_fe + manufacturer_fe + time_fe | p_jmt ~ z,
                data = reg_data)
 summary(stage2)
 # Histogram of own price elasticities (2SLS)
 reg_data <- reg_data %>%
-  mutate(own_price_elasticity_2sls = coef(stage2)["p_hat"] * p_jmt * (1 - sj))
+  mutate(own_price_elasticity_2sls = coef(stage2)["fit_p_jmt"] * p_jmt * (1 - sj))
 ggplot(reg_data, aes(x = own_price_elasticity_2sls)) +
   geom_histogram(bins = 30, fill = "firebrick", color = "black", alpha = 0.7) +
   labs(title = "Histogram of Own Price Elasticities (2SLS)",
@@ -366,9 +368,9 @@ for (mkt in unique(reg_data$market_id)) {
   for (i in 1:n) {
     for (j in 1:n) {
       if (i == j) {
-        elas_matrix[i, j] <- coef(stage2)["p_hat"] * mkt_data$p_jmt[i] * (1 - mkt_data$sj[i])
+        elas_matrix[i, j] <- coef(stage2)["fit_p_jmt"] * mkt_data$p_jmt[i] * (1 - mkt_data$sj[i])
       } else {
-        elas_matrix[i, j] <- -coef(stage2)["p_hat"] * mkt_data$p_jmt[j] * mkt_data$sj[i]
+        elas_matrix[i, j] <- -coef(stage2)["fit_p_jmt"] * mkt_data$p_jmt[j] * mkt_data$sj[i]
       }
     }
   }
@@ -385,7 +387,7 @@ avg_elasticity_matrix
 # Calculaete markups for each manufacturer
 reg_data <- reg_data %>%
   mutate(
-    own_price_elasticity_2sls = coef(stage2)["p_hat"] * p_jmt * (1 - sj),
+    own_price_elasticity_2sls = coef(stage2)["fit_p_jmt"] * p_jmt * (1 - sj),
     markup = -1 / own_price_elasticity_2sls
   )
 markup_summary <- reg_data %>%
@@ -439,21 +441,19 @@ where $s_{j|g}$ is the conditional share of product j within its nest g.
 reg_data <- reg_data %>%
   mutate(
     z_cond = as.numeric(nest) * (total_nest_sales / M),
-    z = sugars * sugar_price
+    z = sugars * sugar_price,
+    z_cond = log(z_cond),
+    z = log(z)
+
   )
-s1_nest <- lm(p_jmt ~ sugar_price + z_cond + fiber + sugars + flavored + fortified +
-                 market_fe + manufacturer_fe + time_fe + brand_fe,
-               data = reg_data)
-summary(s1_nest)
-reg_data <- reg_data %>%
-  mutate(p_hat_nest = predict(s1_nest))
-s2_nest <- lm(u ~ p_hat_nest + fiber + sugars + flavored + fortified + share_con +
-                 market_fe + manufacturer_fe + time_fe + brand_fe,
-               data = reg_data)
+s2_nest <- feols(u ~ fiber + sugars + flavored + fortified |
+                    market_fe + manufacturer_fe + time_fe | p_jmt + share_con ~ z + z_cond,
+                  data = reg_data)
 summary(s2_nest)
+
 # Histogram of own price elasticities (2SLS Nested)
 reg_data <- reg_data %>%
-  mutate(own_price_elasticity_2sls_nest = coef(s2_nest)["p_hat_nest"] * p_jmt * (1 - sj))
+  mutate(own_price_elasticity_2sls_nest = coef(s2_nest)["fit_p_jmt"] * p_jmt * (1 - sj))
 ggplot(reg_data, aes(x = own_price_elasticity_2sls_nest)) +
   geom_histogram(bins = 30, fill = "purple", color = "black", alpha = 0.7) +
   labs(title = "Histogram of Own Price Elasticities (2SLS Nested)",
@@ -467,7 +467,7 @@ ggplot(reg_data, aes(x = own_price_elasticity_2sls_nest)) +
 #| label: q2-8
 # Elasticity Matrix for Top 5 Brands by Sales (Nested)
 top_nest_brands <- reg_data %>%
-  group_by(brand, nest) %>%
+  group_by(brand) %>%
   summarise(total_sales = sum(quantity, na.rm = TRUE), .groups = "drop") %>%
   arrange(desc(total_sales)) %>%
   slice_head(n = 5) %>%
@@ -483,11 +483,11 @@ for (mkt in unique(reg_data$market_id)) {
   for (i in 1:n) {
     for (j in 1:n) {
       if (i == j) {
-        elas_matrix_nest[i, j] <- coef(s2_nest)["p_hat_nest"] * mkt_data$p_jmt[i] * (1 - mkt_data$sj[i])
+        elas_matrix_nest[i, j] <- coef(s2_nest)["fit_p_jmt"] * mkt_data$p_jmt[i] * (1 - mkt_data$sj[i])
       } else if (mkt_data$nest[i] == mkt_data$nest[j]) {
-        elas_matrix_nest[i, j] <- -coef(s2_nest)["p_hat_nest"] * mkt_data$p_jmt[j] * (mkt_data$sj[i] * (1 - mkt_data$share_con[i]))
+        elas_matrix_nest[i, j] <- -coef(s2_nest)["fit_p_jmt"] * mkt_data$p_jmt[j] * (mkt_data$sj[i] * (1 - mkt_data$share_con[i]))
       } else {
-        elas_matrix_nest[i, j] <- -coef(s2_nest)["p_hat_nest"] * mkt_data$p_jmt[j] * (mkt_data$sj[i] * (1 - mkt_data$share_con[i]))
+        elas_matrix_nest[i, j] <- -coef(s2_nest)["fit_p_jmt"] * mkt_data$p_jmt[j] * (mkt_data$sj[i] * (1 - mkt_data$share_con[i]))
       }
     }
   }
@@ -506,7 +506,7 @@ avg_elasticity_nest_matrix
 # Calculate average markups for each manufacturer (Nested)
 reg_data <- reg_data %>%
   mutate(
-    ope_nest = coef(s2_nest)["p_hat_nest"] * p_jmt * (1 - sj),
+    ope_nest = coef(s2_nest)["fit_p_jmt"] * p_jmt * (1 - sj),
     markup_nest = -1 / ope_nest
   )
 markup_nest_summary <- reg_data %>%

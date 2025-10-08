@@ -68,9 +68,8 @@ describe(data$inctot)
 data_clean <- data %>%
   filter(
     pernum == 1, # Filter for household heads
-    labforce == 2,
     age >= 40,
-    age <= 60,
+    age <= 80
   )
 saveRDS(data_clean, file = here("data", "clean.rds")) # Save cleaned data
 ```
@@ -131,7 +130,7 @@ df <- data_clean %>%
   )
 ```
 
-# reating Profiles
+# Creating Profiles
 
 ```{r, Age Profiles}
 df <- df %>%
@@ -423,12 +422,21 @@ sum_gt <- sum_tbl %>%
 sum_gt
 ```
 
-The first graph depicts the proportion of movers from the overall sample who move. As can be seen, (disregarding 1990-2000, need to continue to diagnose this) movers are a relatively small part of the sample, with about 1.75\%
-of people moving in the most concentrated year. The second graph then conditions on someone being a mover, and breaks down the proportion by age. Here, we see that as people approach retirement, they move with greater frequency.
-Almost 20\% of movers are moving at age 60, compared to about 14\% at age 45. Next, we break down the mover proportion by whether or not the individual has children. Here, we see that individuals without children move at a higher rate than those with children, and this gap
-widend as people age. When breaking out by income terciles, we see that high income people move at a massively higher rate than low and medium income people, who are relatively similar. However, we still maintain the pattern that
-as people grow older, they move more frequently. Finally, the last graph depicts return migration, or those who go back to their birth state. Here, we see that return migration is relatively rare, with only about 4\% of movers returning to their birth state at age 60.
+```{r}
+df <- df %>%
+  group_by(statefip, year) %>%
+  summarise(
+    mean_value = mean(valueh, na.rm = TRUE),
+    mean_rent = mean(rentgrs, na.rm = TRUE),
+    mean_inctot = mean(inctot, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  arrange(statefip, year)
 
-From the summary statistics, we can see that there are ten million+ observations in the sample, with about 139,426 households being movers and 788,430 not moving (weighted by given IPUMS household weights). Movers have higher average incomes, pay a higher average rent, and have a
-higher average home value. Furhter, movers are less likely to be married and less likely to own their home than the overall sample. Overall, this is a good starting point for understanding the data, and I will continue to explore and clean as I move forward with my analysis. There
-are clear hiccups I need to address, and will continue to refine the data cleaning and exploratory data analysis process.
+ggplot(df, aes(x = year, y = mean_inctot, group = statefip)) +
+  geom_line(alpha = 0.3) +
+  labs(title = "Average Income by State Over Time",
+       x = "Year",
+       y = "Average Income") +
+  theme_minimal()
+```
