@@ -484,11 +484,20 @@ for (mkt in unique(reg_data$market_id)) {
   for (i in 1:n) {
     for (j in 1:n) {
       if (i == j) {
-        elas_matrix_nest[i, j] <- coef(s2_nest)["fit_p_jmt"] * mkt_data$p_jmt[i] *(1/(1-coef(s2_nest)["fit_sjg"]))*((1-coef(s2_nest)["fit_sjg"]*mkt_data$sjg[i]) - (1-coef(s2_nest)["fit_sjg"])*mkt_data$sj[i])
+        elas_matrix_nest[i, j] <- coef(s2_nest)["fit_p_jmt"] *
+          mkt_data$p_jmt[i] * (1 / (1 - coef(s2_nest)["fit_sjg"])) *
+          ((1 - coef(s2_nest)["fit_sjg"] * mkt_data$sjg[i]) - (1
+            - coef(s2_nest)["fit_sjg"]) * mkt_data$sj[i])
       } else if (mkt_data$nest[i] == mkt_data$nest[j]) {
-        elas_matrix_nest[i, j] <- -coef(s2_nest)["fit_p_jmt"] * mkt_data$p_jmt[i] *(1/(1-coef(s2_nest)["fit_sjg"]))*((1-coef(s2_nest)["fit_sjg"]*mkt_data$sjg[i]) - (1-coef(s2_nest)["fit_sjg"])*mkt_data$sj[i])
+        elas_matrix_nest[i, j] <- -coef(s2_nest)["fit_p_jmt"] *
+          mkt_data$p_jmt[i] * (1 / (1 - coef(s2_nest)["fit_sjg"])) *
+          ((1 - coef(s2_nest)["fit_sjg"] * mkt_data$sjg[i]) - (1 
+            - coef(s2_nest)["fit_sjg"]) * mkt_data$sj[i])
       } else {
-        elas_matrix_nest[i, j] <- coef(s2_nest)["fit_p_jmt"] * mkt_data$p_jmt[i] *(1/(1-coef(s2_nest)["fit_sjg"]))*((1-coef(s2_nest)["fit_sjg"]*mkt_data$sjg[i]) - (1-coef(s2_nest)["fit_sjg"])*mkt_data$sj[i])
+        elas_matrix_nest[i, j] <- coef(s2_nest)["fit_p_jmt"] *
+          mkt_data$p_jmt[i] * (1 / (1 - coef(s2_nest)["fit_sjg"])) *
+          ((1 - coef(s2_nest)["fit_sjg"] * mkt_data$sjg[i]) - (1 - 
+            coef(s2_nest)["fit_sjg"]) * mkt_data$sj[i])
 
       }
     }
@@ -535,4 +544,21 @@ ggplot(markup_nest_summary, aes(x = reorder(parent, -avg_markup_nest),
 
 ```{r}
 print("HI")
+```
+
+# Question 3:
+
+## 3.1
+```{r}
+#| label: q3-1
+# Mixed Logit Preparation
+library(mlogit)
+kids_dat <- read_tsv("~/SchoolWork/Y2S1/IO/PS1/kids.csv", show_col_types = FALSE)
+inc_dat <- read_tsv("~/SchoolWork/Y2S1/IO/PS1/income.csv", show_col_types = FALSE)
+
+# Merge data
+kids_dat <- mkt_data %>%
+  left_join(inc_dat, by = "year", "puma") %>%
+  left_join(inc_data, by = c("year", "puma")
+  )
 ```
