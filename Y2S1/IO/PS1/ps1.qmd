@@ -439,21 +439,22 @@ where $s_{j|g}$ is the conditional share of product j within its nest g.
 #2SLS with Price Instrument: Price*Quantity of Sugar and Conditional Share Instrument total products
 
 reg_data <- reg_data %>%
+  group_by(market_id) %>%
   mutate(
-    z_cond = as.numeric(nest) * (total_nest_sales / M),
+    z_cond = log(n_distinct(brand)),
+    sjg = log(share_con),
     z = sugars * sugar_price,
-    z_cond = log(z_cond),
     z = log(z)
-
   )
 s2_nest <- feols(u ~ fiber + sugars + flavored + fortified |
-                    market_fe + manufacturer_fe + time_fe | p_jmt + share_con ~ z + z_cond,
+                    market_fe + manufacturer_fe + time_fe | p_jmt + sjg ~ z + z_cond,
                   data = reg_data)
 summary(s2_nest)
 
 # Histogram of own price elasticities (2SLS Nested)
 reg_data <- reg_data %>%
-  mutate(own_price_elasticity_2sls_nest = coef(s2_nest)["fit_p_jmt"] * p_jmt * (1 - sj))
+  mutate(own_price_elasticity_2sls_nest = coef(s2_nest)["fit_p_jmt"] * p_jmt * (1 - sj),
+  sgj = log(coef(s2_nest)["fit_share_con"]))
 ggplot(reg_data, aes(x = own_price_elasticity_2sls_nest)) +
   geom_histogram(bins = 30, fill = "purple", color = "black", alpha = 0.7) +
   labs(title = "Histogram of Own Price Elasticities (2SLS Nested)",
@@ -483,11 +484,12 @@ for (mkt in unique(reg_data$market_id)) {
   for (i in 1:n) {
     for (j in 1:n) {
       if (i == j) {
-        elas_matrix_nest[i, j] <- coef(s2_nest)["fit_p_jmt"] * mkt_data$p_jmt[i] * (1 - mkt_data$sj[i])
+        elas_matrix_nest[i, j] <- coef(s2_nest)["fit_p_jmt"] * mkt_data$p_jmt[i] *(1/(1-coef(s2_nest)["fit_sjg"]))*((1-coef(s2_nest)["fit_sjg"]*mkt_data$sjg[i]) - (1-coef(s2_nest)["fit_sjg"])*mkt_data$sj[i])
       } else if (mkt_data$nest[i] == mkt_data$nest[j]) {
-        elas_matrix_nest[i, j] <- -coef(s2_nest)["fit_p_jmt"] * mkt_data$p_jmt[j] * (mkt_data$sj[i] * (1 - mkt_data$share_con[i]))
+        elas_matrix_nest[i, j] <- -coef(s2_nest)["fit_p_jmt"] * mkt_data$p_jmt[i] *(1/(1-coef(s2_nest)["fit_sjg"]))*((1-coef(s2_nest)["fit_sjg"]*mkt_data$sjg[i]) - (1-coef(s2_nest)["fit_sjg"])*mkt_data$sj[i])
       } else {
-        elas_matrix_nest[i, j] <- -coef(s2_nest)["fit_p_jmt"] * mkt_data$p_jmt[j] * (mkt_data$sj[i] * (1 - mkt_data$share_con[i]))
+        elas_matrix_nest[i, j] <- coef(s2_nest)["fit_p_jmt"] * mkt_data$p_jmt[i] *(1/(1-coef(s2_nest)["fit_sjg"]))*((1-coef(s2_nest)["fit_sjg"]*mkt_data$sjg[i]) - (1-coef(s2_nest)["fit_sjg"])*mkt_data$sj[i])
+
       }
     }
   }
