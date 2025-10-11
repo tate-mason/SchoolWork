@@ -687,3 +687,4 @@ blp_out <- estimateBLP(
 )
 summary(blp_out)
 ```
+

@@ -1,0 +1,94 @@
+```{r}
+#| label: q3-1
+# Mixed Logit Preparation
+
+library(BLPestimatoR)
+library(dplyr)
+library(tidyr)
+library(readr)
+library(stringr)
+
+
+iri <- read_tsv("~/SchoolWork/Y2S1/IO/PS1/IRI.csv")
+
+iri <- iri %>%
+  mutate(
+    cdid = str_c("m_", store_id, "_", week_id), # market id
+    pid = str_c("p_", brand, "_", store_id, "_", week_id), # product id
+    firm_id = parent, # firm id
+    share = pmax(quantity / M, 1e-12)
+  )
+
+comp_avg <- function(x) {
+  n <- length(x)
+  s <- sum(x)
+  ifelse(n > 1, (s - x) / (n - 1), 0)
+}
+
+iri <- iri %>%
+  group_by(cdid) %>%
+  mutate(
+    avg_other_sugars = comp_avg(sugars),
+    avg_other_fiber = comp_avg(fiber),
+    blp_sugar = (avg_other_sugars - sugars)^2,
+    blp_fiber = (avg_other_fiber - fiber)^2
+  ) %>%
+  ungroup() %>%
+  select(-avg_other_sugars, -avg_other_fiber)
+
+inc <- read_tsv("~/SchoolWork/Y2S1/IO/PS1/simulated_agents_income.csv")
+nchild <- read_tsv("~/SchoolWork/Y2S1/IO/PS1/simulated_agents_nchild.csv")
+
+inc_mean <- inc %>%
+  pivot_longer(-c(year, puma), names_to = "draw", values_to = "income") %>%
+  group_by(year, puma) %>%
+  summarise(
+    income = mean(income, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+nchild_mean <- nchild %>%
+  pivot_longer(-c(year, puma), names_to = "draw", values_to = "nchild") %>%
+  group_by(year, puma) %>%
+  summarise(
+    nchild = mean(nchild, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+iri <- iri %>%
+  left_join(inc_mean, by = c("year", "puma")) %>%
+  left_join(nchild_mean, by = c("year", "puma")) %>%
+  mutate(
+    incsq = income^2,
+    fiber_inc = fiber * income,
+    sugars_inc = sugars * income,
+    fiber_nchild = fiber * nchild,
+    sugars_nchild = sugars * nchild
+  )
+
+comp_avg <- function(x) {
+  n <- length(x)
+  s <- sum(x)
+  ifelse(n > 1, (s - x) / (n - 1), 0)
+}
+
+iri <- iri %>%
+  group_by(cdid) %>%
+  mutate(
+    avg_other_sugars = comp_avg(sugars),
+    avg_other_fiber = comp_avg(fiber),
+    blp_sugar = (avg_other_sugars - sugars)^2,
+    blp_fiber = (avg_other_fiber - fiber)^2
+  ) %>%
+  ungroup() %>%
+  select(-avg_other_sugars, -avg_other_fiber)
+
+productData <- iri %>%
+  transmute(
+    cdid, product_id,
+    share = pmax(sj, 1e-12),
+    price,
+    sugars, fiber, fortified
+  )
+
+```
