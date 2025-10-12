@@ -547,143 +547,49 @@ ggplot(markup_nest_summary, aes(x = reorder(parent, -avg_markup_nest),
 ## 2.10
 
 ```{r}
-print("HI")
+#| label: q2-10
+# Cross - market diversion ratios between cheerios and corn flakes/froot loops
+brands <- c("GENERAL MILLS CHEERIOS", "KELLOGGS CORN FLAKES", "KELLOGGS FROOT LOOPS")
+
+row_stats <- reg_data %>%
+  filter(brand %in% brands) %>%
+  mutate(sj = pmin(sj, 0.999999)) %>%
+  group_by(brand) %>%
+  summarise(row_value = mean(-own_price_elasticity_2sls_nest * (sj / (1 - sj)), na.rm = TRUE),
+            .groups = "drop")
+
+diversion_matrix <- matrix(NA_real_, 3, 3, dimnames = list(brands, brands))
+row_vals <- setNames(row_stats$row_value, row_stats$brand)
+
+for (b in brands) {
+  if (!is.na(row_vals[b])) diversion_matrix[b, setdiff(brands, b)] <- row_vals[b]
+}
+
+diversion_matrix
+```
+
+
+## 2.11
+
+```{r}
+#| label: q2-11
+# Find average markup for a hypothetical merger between General Mills and Kelloggs
+merged_markup <- reg_data %>%
+  mutate(
+    parent_merged = if_else(parent %in% c("GENERAL MILLS", "KELLOGGS"), "GM_K", parent)
+  ) %>%
+  group_by(parent_merged) %>%
+  summarise(
+    avg_markup_merged = mean(markup_nest, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(avg_markup_merged))
+merged_markup
+
+# The average markup for the merged entity "GM_K" is:
+merged_markup %>% filter(parent_merged == "GM_K") %>% pull(avg_markup_merged)
+# This is higher than the individual average markups of General Mills and Kelloggs,
+# indicating that the merger could lead to increased market power and higher markups
 ```
 
 # Question 3:
-
-## 3.1
-
-```{r}
-#| label: q3-1
-library(BLPestimatoR)
-library(tidyverse)
-library(Formula)
-
-set.seed(219)
-
-iri <- read_tsv(
-  "~/SchoolWork/Y2S1/IO/PS1/IRI.csv",
-  show_col_types = FALSE
-)
-
-iri <- iri %>%
-  mutate(
-    cdid = str_c("m_", store_id, "_", week_id),,
-    pdid = str_c("p_", brand, "_", store_id, "_", week_id),
-    share = pmax(quantity / M, 1e-10)
-  )
-
-comp_avg <- function(x) {
-  n <- length(x)
-  s <- sum(x)
-  ifelse(n > 1, (s - x) / (n - 1), 0)
-}
-
-iri <- iri %>%
-  group_by(cdid) %>%
-  mutate(
-    blp_sugar = (comp_avg(sugars) - sugars)^2,
-    blp_fiber = (comp_avg(fiber) - fiber)^2,
-  ) %>%
-  ungroup()
-
-inc <- read_tsv("~/SchoolWork/Y2S1/IO/PS1/simulated_agents_income.csv")
-nchild <- read_tsv("~/SchoolWork/Y2S1/IO/PS1/simulated_agents_nchild.csv")
-
-inc_mean <- inc %>%
-  pivot_longer(-c(year, puma), names_to = "draw", values_to = "income") %>%
-  group_by(year, puma) %>%
-  summarise(income = mean(income, na.rm = TRUE), .groups = "drop")
-
-nchild_mean <- nchild %>%
-  pivot_longer(-c(year, puma), names_to = "draw", values_to = "nchild") %>%
-  group_by(year, puma) %>%
-  summarise(nchild = mean(nchild, na.rm = TRUE), .groups = "drop")
-
-iri <- iri %>%
-  left_join(inc_mean, by = c("year", "puma")) %>%
-  left_join(nchild_mean, by = c("year", "puma")) %>%
-  mutate(
-    fiber_inc = fiber * income,
-    sugars_nchild = sugars * nchild,
-    sugar_inc = sugars * income,
-    fiber_nchild = fiber * nchild,
-    income_sq = income^2
-  )
-
-nevos_model <- as.formula(
-  "share ~ price + fiber + sugars + flavored + fortified |
-  0 + pdid |
-  fiber + sugars + flavored + fortified |
-  0 + blp_sugar + blp_fiber + sugar_inc + fiber_inc + sugars_nchild +
-  fiber_nchild + sugar_price"
-)
-
-M <- 5
-R <- 3
-
-productData <- iri %>%
-  transmute(
-    pdid, cdid, brand, parent, price, 
-    share = pmax(share, 1e-10), fiber, sugars,
-    flavored, fortified, blp_sugar, blp_fiber, sugar_price,
-    sugar_inc, fiber_inc, sugars_nchild, fiber_nchild,
-  )
-
-head(productData)
-
-inc_stack <- inc %>%
-  pivot_longer(-c(year, puma), names_to = "draw", values_to = "income") %>%
-  mutate(draw = as.integer(gsub("draw_", "", draw))) %>%
-  select(year, puma, draw, income)
-
-nchild_stack <- nchild %>%
-  pivot_longer(-c(year, puma), names_to = "draw", values_to = "nchild") %>%
-  mutate(draw = as.integer(gsub("draw_", "", draw))) %>%
-  select(year, puma, draw, nchild)
-
-demo_stack <- inner_join(inc_stack, nchild_stack, by = c("year" ,"puma", "draw"))
-
-demo_data <- iri %>%
-  distinct(cdid, year, puma) %>%
-  left_join(demo_stack, by = c("year", "puma")) %>%
-  select(cdid, income, nchild)
-
-demographicDraws <- demo_data %>%
-  slice_sample(n = R, replace = TRUE) %>%
-  transmute(
-    cdid,
-    income = income,
-    nchild = nchild
-  ) %>%
-  as.matrix()
-
-integration_draws <- matrix(rnorm(R * M), nrow = R, ncol = M)
-
-head(demographicDraws)
-
-blp_data <- BLP_data(
-  model = nevos_model,
-  market_identifier = "cdid",
-  product_identifier = "pdid",
-  productData = productData,
-  demographic_draws = demographicDraws,
-  integration_draws = demo_stack,
-  integration_weights = rep(1 / 7, 7),
-  blp_inner_tol = 1e-6,
-  blp_inner_maxit = 100
-)
-blp_out <- estimateBLP(
-  blp_data = blp_data,
-  par_theta2 = seq_lin(-1, 1, length.out = M),
-  solver_method = "BFGS",
-  solver_maxit = 100,
-  solver_tol = 1e-6,
-  n_threads = 4,
-  standardError = "heteroskedastic",
-  extremumCheck = FALSE,
-  printLevel = 1
-)
-summary(blp_out)
-```
