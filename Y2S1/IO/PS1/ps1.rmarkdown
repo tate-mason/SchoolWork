@@ -594,3 +594,305 @@ merged_markup %>% filter(parent_merged == "GM_K") %>% pull(avg_markup_merged)
 
 # Question 3:
 
+```{r}
+#| label: q3-1
+# Mixed Logit
+
+# --- Packages ----------------------------------------------------------------
+library(tidyverse)
+library(fastDummies)     # if you later want sparse FEs (optional)
+library(matrixStats)
+
+set.seed(8210)
+
+# --- File paths (TODO: point these to your copies) ---------------------------
+iri_path   <- "~/SchoolWork/Y2S1/IO/PS1/IRI.csv"
+inc_path <- "~/SchoolWork/Y2S1/IO/PS1/simulated_agents_income.csv"
+nkids_path <- "~/SchoolWork/Y2S1/IO/PS1/simulated_agents_nchild.csv"
+
+# --- Load data ---------------------------------------------------------------
+iri <- read_tsv(iri_path,
+                col_types = cols()) %>%
+  # Define market as (store_id, week_id); outside good handled via M
+  mutate(market_id = paste0(store_id, "_", week_id),
+         time_id   = week_id)  # week_id uniquely identifies time
+
+# Basic sanity checks you may find useful
+stopifnot(all(c("year","puma","price","quantity","M","fiber","sugars",
+                "flavored","fortified","parent","brand") %in% names(iri)))
+
+# Observed market shares and outside share per market
+iri <- iri %>%
+  group_by(market_id) %>%
+  mutate(
+    s_j = pmax(quantity, 0) / first(M),
+    s0  = pmax(1 - sum(pmax(quantity,0))/first(M), .Machine$double.eps)
+  ) %>%
+  ungroup()
+
+# --- Agent draws (by puma, year) --------------------------------------------
+inc  <- read_tsv(inc_path,  col_types = cols())
+nkid <- read_tsv(nkids_path, col_types = cols())
+
+# Pivot wide -> long for draws, then merge
+long_inc <- inc %>%
+  pivot_longer(cols = starts_with("income"),
+               names_to = "draw_id", values_to = "income") %>%
+  mutate(draw_id = as.integer(str_remove(draw_id, "income")))
+
+long_nkid <- nkid %>%
+  pivot_longer(cols = starts_with("nchild"),
+               names_to = "draw_id", values_to = "nchild") %>%
+  mutate(draw_id = as.integer(str_remove(draw_id, "nchild")))
+
+agent_draws <- long_inc %>%
+  inner_join(long_nkid, by = c("year","puma","draw_id")) %>%
+  # (Optional) trim or winsorize extremely small incomes to avoid 1/y blowups
+  mutate(income = pmax(income, 1e-3))
+
+# We will link agents to products via (year, puma). Each (market_id) is in a (year,puma)
+# Note: a market has many products; each (year,puma) has MANY agent draws.
+
+# --- BLP-style instruments for random coefficients ---------------------------
+# BLP_x_jmt = (avg of competitors' X in same market & year - own X)^2
+add_blp_iv <- function(df, xvar){
+  df %>%
+    group_by(market_id) %>%
+    mutate(
+      comp_avg = (sum(.data[[xvar]]) - .data[[xvar]]) / pmax(n()-1,1),
+      !!paste0("blp_", xvar) := (comp_avg - .data[[xvar]])^2
+    ) %>% ungroup() %>% select(-comp_avg)
+}
+
+iri_iv <- iri %>%
+  add_blp_iv("sugars") %>%
+  add_blp_iv("fiber") %>%
+  mutate(
+    # Additional IVs called for in the prompt
+    sugarprice = sugar_price,
+    fiber_x_inc  = fiber  * 0,   # placeholders—demographic interactions enter nonlinearly
+    sugar_x_inc  = sugars * 0,
+    fiber_x_kids = fiber  * 0,
+    sugar_x_kids = sugars * 0
+  )
+
+# --- Design matrices & identifiers ------------------------------------------
+# X characteristics with random coefficients on fiber and sugars only
+X_names <- c("flavored","fortified")   # fixed coefficients (β̄) here
+RC_names <- c("fiber","sugars")        # random coefficients (β̄ + β*z + σ*ν)
+price_var <- "price"
+
+# Orthonormalize/binary-clean coded vars:
+iri_iv <- iri_iv %>%
+  mutate(
+    flavored  = as.numeric(flavored),
+    fortified = as.numeric(fortified)
+  )
+
+# Indexing helpers
+prod_index <- iri_iv %>% mutate(prod_id = cur_group_id()) %>% pull(prod_id) # not used directly
+markets <- iri_iv %>% distinct(market_id) %>% pull(market_id)
+
+# --- Parameter vector and unpacking -----------------------------------------
+# θ_nl = c(
+#   alpha,                              # price sensitivity level (used as α / income_i)
+#   beta_bar for X_names,               # fixed part (flavored, fortified)
+#   beta_bar for RC_names,              # base tastes for fiber, sugars
+#   beta_demog (RC_names x demographics z): (fiber: income, kids), (sugars: income, kids)
+#   sigma (std dev) for RC_names        # σ_fiber, σ_sugars
+# )
+param_template <- list(
+  alpha = -1.0,                         # <0
+  beta_bar_fixed = rep(0.1, length(X_names)),
+  beta_bar_rc    = rep(0.1, length(RC_names)),
+  beta_demog     = c(                    # order: fiber_income, fiber_kids, sugars_income, sugars_kids
+                     0.0, 0.0, 0.0, 0.0
+                   ),
+  sigma_rc       = c(0.1, 0.1)
+)
+
+pack_params <- function(p){
+  c(
+    p$alpha,
+    p$beta_bar_fixed,
+    p$beta_bar_rc,
+    p$beta_demog,
+    p$sigma_rc
+  )
+}
+
+unpack_params <- function(theta){
+  k_fixed <- length(X_names)
+  k_rc    <- length(RC_names)
+  list(
+    alpha          = theta[1],
+    beta_bar_fixed = theta[1 + seq_len(k_fixed)],
+    beta_bar_rc    = theta[1 + k_fixed + seq_len(k_rc)],
+    beta_demog     = theta[1 + k_fixed + k_rc + seq_len(k_rc*2)],  # 4 entries
+    sigma_rc       = theta[(length(theta)-k_rc+1):length(theta)]
+  )
+}
+
+# --- Utilities to build agent-specific tastes --------------------------------
+# Given params and an agent row (income, nchild), produce (alpha_i, beta_i for RC names)
+agent_tastes <- function(pars, income, nchild, n_draws){
+  # alpha_i = alpha / income
+  alpha_i <- pars$alpha / income
+
+  # β_i for RC dimensions
+  # Order in beta_demog: [fiber_income, fiber_kids, sugars_income, sugars_kids]
+  bd <- pars$beta_demog
+  # Repeat across draws
+  inc_v  <- rep(income,  length.out = n_draws)
+  kid_v  <- rep(nchild,  length.out = n_draws)
+  # Random shocks ν ~ N(0,1)
+  nu <- matrix(rnorm(n_draws * length(RC_names)), ncol = length(RC_names))
+
+  beta_rc_means <- cbind(
+    pars$beta_bar_rc[1] + bd[1]*inc_v + bd[2]*kid_v,  # fiber
+    pars$beta_bar_rc[2] + bd[3]*inc_v + bd[4]*kid_v   # sugars
+  )
+  beta_rc <- beta_rc_means + sweep(nu, 2, pars$sigma_rc, `*`)
+
+  list(alpha_i = alpha_i, beta_rc = beta_rc)  # each length n_draws
+}
+
+# --- Market simulation (given δ and params, compute model shares) ------------
+# δ is mean utility vector (length = #products) indexed as iri_iv rows
+# We’ll compute for each market separately (easier to reason about).
+simulate_market_shares <- function(df_mkt, delta_mkt, pars, agent_df){
+  # df_mkt: products in market m (data frame)
+  # agent_df: all agent draws for that market's (year, puma). If empty, fallback to national draws?
+
+  # Build X_fixed and X_rc for this market
+  X_fixed <- as.matrix(df_mkt[, X_names, drop = FALSE])
+  X_rc    <- as.matrix(df_mkt[, RC_names, drop = FALSE])
+  price   <- df_mkt[[price_var]]
+
+  if(nrow(agent_df) == 0){
+    # If no local draws for (year,puma), you can fallback (TODO: choose strategy)
+    # For now, return logit with representative income  => not ideal, but keeps code stable.
+    alpha_i <- pars$alpha / mean(100.0) # placeholder
+    util    <- delta_mkt - alpha_i*price + X_fixed %*% pars$beta_bar_fixed
+    expu    <- exp(util - max(util))
+    sj      <- expu / (sum(expu) + 1)     # simple outside good normalization
+    return(sj)
+  }
+
+  # For each distinct draw_id in agent_df, compute choice probabilities and average over draws
+  draws <- split(agent_df, agent_df$draw_id)
+  probs <- matrix(0, nrow = nrow(df_mkt), ncol = length(draws))
+
+  for (d in seq_along(draws)){
+    dr <- draws[[d]][1, ]  # income & nchild are constant within draw_id row
+    tastes <- agent_tastes(pars, income = dr$income, nchild = dr$nchild, n_draws = 1)
+    alpha_i <- tastes$alpha_i[1]
+    # For RCs, we have one draw => one vector for [fiber, sugars]
+    # Map to product utility via X_rc %*% beta_rc_draw
+    beta_rc_draw <- tastes$beta_rc[1, ]   # length 2
+    util <- as.numeric(delta_mkt + X_fixed %*% pars$beta_bar_fixed +
+                         X_rc %*% beta_rc_draw - alpha_i * price)
+    # Numerically stable softmax with outside good (normalized utility 0 for outside)
+    mm   <- max(util)
+    expu <- exp(util - mm)
+    denom <- sum(expu) + exp(-mm)  # exp(0 - mm) = exp(-mm) for outside
+    probs[, d] <- expu / denom
+  }
+
+  rowMeans(probs)
+}
+
+# --- Berry contraction mapping ----------------------------------------------
+# Solve for δ such that model shares match observed s_j in each market
+berry_contraction <- function(df, pars, agent_draws, maxit = 1000, tol = 1e-8, verbose = FALSE){
+  df <- df %>% arrange(market_id)
+  delta <- log(pmax(df$s_j, 1e-12)) - log(pmax(df$s0,  1e-12))  # MNL starting value
+
+  by_mkt <- split(seq_len(nrow(df)), df$market_id)
+  for (it in 1:maxit){
+    model_s <- numeric(nrow(df))
+    # Compute model shares for each market at current delta
+    for (m in names(by_mkt)){
+      idx <- by_mkt[[m]]
+      df_mkt <- df[idx, , drop=FALSE]
+
+      # Agent draws for this market's (year, puma)
+      ad <- agent_draws %>%
+        filter(year == first(df_mkt$year), puma == first(df_mkt$puma))
+
+      model_s[idx] <- simulate_market_shares(df_mkt, delta[idx], pars, ad)
+    }
+
+    # Update δ
+    delta_new <- delta + log(pmax(df$s_j, 1e-12)) - log(pmax(model_s, 1e-12))
+    diff <- max(abs(delta_new - delta))
+    delta <- delta_new
+    if(verbose && it %% 10 == 0) cat("[Contraction]", it, "gap =", signif(diff, 3), "\n")
+    if(diff < tol) break
+  }
+  delta
+}
+
+# --- GMM objective (sketch) --------------------------------------------------
+# Minimal GMM: use your IVs (sugarprice, BLP sugar, BLP fiber, and the interactions appearing in prompt)
+# Here we show a *skeleton*. You will likely expand instruments and add weighting matrix.
+build_instruments <- function(df){
+  df %>%
+    transmute(
+      z1 = sugarprice,
+      z2 = blp_sugars,
+      z3 = blp_fiber
+      # You can add interacted IVs once you wire in demographics at the agent level
+    ) %>%
+    as.matrix()
+}
+
+gmm_objective <- function(theta, df, agent_draws){
+  pars  <- unpack_params(theta)
+
+  # 1) Solve for delta given theta
+  delta_hat <- berry_contraction(df, pars, agent_draws, maxit = 500, tol = 1e-6, verbose = FALSE)
+
+  # 2) Residual “xi” (mean utility net of observables)
+  X_fixed <- as.matrix(df[, X_names, drop = FALSE])
+  X_rc    <- as.matrix(df[, RC_names, drop = FALSE])  # RC enter only through delta step
+  price   <- df[[price_var]]
+
+  # For the linear projection, remove the parts explained by fixed X only (RC effects are baked into delta_hat)
+  xi <- delta_hat - as.numeric(X_fixed %*% pars$beta_bar_fixed)
+
+  # 3) Instruments and simple 2-norm GMM (use identity W for starter)
+  Z <- build_instruments(df)
+  # Moment: Z' * xi -> minimize quadratic form
+  g <- crossprod(Z, xi)
+  obj <- as.numeric(t(g) %*% g)
+  obj
+}
+
+# --- Estimation driver -------------------------------------------------------
+starter_theta <- pack_params(param_template)
+
+# Keep only the columns we use repeatedly
+est_df <- iri_iv %>%
+  select(market_id, year, puma, s_j, s0, price, all_of(X_names), all_of(RC_names),
+         sugarprice, starts_with("blp_")) %>%
+  arrange(market_id)
+
+# You can subset to a smaller period/markets first to test speed:
+# est_df <- est_df %>% filter(year == 2008)  # TODO: narrow for debugging
+
+opt <- optim(
+  par = starter_theta,
+  fn  = gmm_objective,
+  df  = est_df,
+  agent_draws = agent_draws,
+  method = "BFGS",
+  control = list(maxit = 200, trace = 1, reltol = 1e-6)
+)
+
+opt$convergence
+opt$value
+final_pars <- unpack_params(opt$par)
+final_pars
+```
+
