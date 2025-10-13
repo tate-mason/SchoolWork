@@ -1,16 +1,16 @@
----
-title: "PS1 - IO"
-author: Tate Mason
-format: pdf
----
 
-```{r}
+
+
+
+
+
+
 #| label: setup
 #| include: true
 #| echo: true
-```
 
-```{r}
+
+
 # Packages
 library(tidyverse)
 library(lubridate)
@@ -31,11 +31,11 @@ iri <- iri %>%
     date_id = interaction(year, month, drop = TRUE),
     date = as.Date(paste(year, month, "01", sep = "-"))
   )
-```
-# Question 1:
-## 1.1
 
-```{r}
+
+
+
+
 #| label: q11-compute
 # Distinct counts per market
 brands_per_market <- iri %>%
@@ -136,10 +136,10 @@ summary_11 <- bind_rows(
 summary_11
 # If you want a file:
 # write_csv(summary_11, "summary_11_descriptives.csv")
-```
 
-## 1.2
-```{r}
+
+
+
 #| label: q12-ts
 ts_simple <- iri %>%
   group_by(week_id) %>%
@@ -187,10 +187,10 @@ p_dual <- ggplot(ts_long_scaled, aes(x = week_id, y = value, color = series)) +
 
 p_dual
 ggsave("avg_price_sales_dual.png", p_dual, width = 10, height = 6, dpi = 300)
-```
 
-## 1.3
-```{r}
+
+
+
 #| label: q13-hhi
 # Brand HHI per market
 brand_shares <- iri %>%
@@ -264,13 +264,13 @@ p_hhi_both <- ggplot(hhi_both, aes(x = week_id)) +
 
 p_hhi_both
 ggsave("HHI_brand_vs_parent.png", p_hhi_both, width = 10, height = 6, dpi = 300)
-```
 
-# Question 2:
 
-## 2.1
 
-```{r}
+
+
+
+
 #| label: q2-1
 # Prepare data for regression
 reg_data <- iri %>%
@@ -287,18 +287,18 @@ reg_data <- iri %>%
     u = log(sj) - log(s0)
   ) %>%
   ungroup() 
-```
 
-Our estimation model is thus: 
-$$ u_{jmt} = \alpha p_{jmt} + \beta\mathbb{X}_{jmt} + \xi_{jmt} $$
 
-where $\mathbb{X}_{jmt}$ includes the product characteristics fiber,
-sugars, flavored, and fortified, as well as fixed effects for market, manufacturer, and time.
-and $u_{jmt}$ is the log-odds of product j's market share in market m at time t.
 
-## 2.2
 
-```{r}
+
+
+
+
+
+
+
+
 #| label: q2-2
 # Regression model
 list <- c("fiber", "sugars", "flavored", "fortified",
@@ -318,10 +318,10 @@ ggplot(reg_data, aes(x = own_price_elasticity)) +
   labs(title = "Histogram of Own Price Elasticities",
        x = "Own Price Elasticity", y = "Frequency") +
   theme_minimal()
-```
 
-## 2.3
-```{r}
+
+
+
 #| label: q2-3
 # 2SLS with Price Instrument: Price*Quantity of Sugar
 
@@ -343,14 +343,14 @@ ggplot(reg_data, aes(x = own_price_elasticity_2sls)) +
   labs(title = "Histogram of Own Price Elasticities (2SLS)",
        x = "Own Price Elasticity (2SLS)", y = "Frequency") +
   theme_minimal()
-```
 
-Using 2SLS results in estimates which are more negative than the OLS estimates,
-indicating that the OLS estimates were biased towards zero.
 
-## 2.4
 
-```{r}
+
+
+
+
+
 #| label: q2-4
 # Elasticity Matrix for Top 5 Brands by Sales
 ## Create average matrix by taking average of market level elaticity matrices
@@ -383,10 +383,10 @@ for (mkt in unique(reg_data$market_id)) {
 # Average elasticity matrix
 avg_elasticity_matrix <- Reduce("+", elasticity_matrices) / length(elasticity_matrices)
 avg_elasticity_matrix
-```
 
-## 2.5
-```{r}
+
+
+
 #| label: q2-5
 # Calculaete markups for each manufacturer
 reg_data <- reg_data %>%
@@ -412,11 +412,11 @@ ggplot(markup_summary, aes(x = reorder(parent, -avg_markup), y = avg_markup)) +
        x = "Manufacturer", y = "Average Markup") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-```
 
-## 2.6
 
-```{r}
+
+
+
 #| label: q2-6
 # Nested by segment - construct data and calculate conditional shares
 reg_data <- reg_data %>%
@@ -429,16 +429,16 @@ reg_data <- reg_data %>%
     share_con = if_else(total_nest_sales > 0, quantity / total_nest_sales, 0)
   ) %>%
   ungroup()
-```
 
-The estimating equation is now:
-$$ u_{jmt} = \alpha p_{jmt} + \beta\mathbb{X}_{jmt} + \sigma_g s_{j|g} + \xi_{jmt} $$
 
-where $s_{j|g}$ is the conditional share of product j within its nest g.
 
-## 2.7
 
-```{r}
+
+
+
+
+
+
 #| label: q2-7
 #2SLS with Price Instrument: Price*Quantity of Sugar and Conditional Share Instrument total products
 
@@ -464,11 +464,11 @@ ggplot(reg_data, aes(x = own_price_elasticity_2sls_nest)) +
   labs(title = "Histogram of Own Price Elasticities (2SLS Nested)",
        x = "Own Price Elasticity (2SLS Nested)", y = "Frequency") +
   theme_minimal()
-```
 
-## 2.8
 
-```{r}
+
+
+
 #| label: q2-8
 # Elasticity Matrix for Top 5 Brands by Sales (Nested)
 top_nest_brands <- reg_data %>%
@@ -512,11 +512,11 @@ for (mkt in unique(reg_data$market_id)) {
 avg_elasticity_nest_matrix <- Reduce("+", elasticity_nest_matrices) /
   length(elasticity_nest_matrices)
 avg_elasticity_nest_matrix
-```
 
-## 2.9
 
-```{r}
+
+
+
 #| label: q2-9
 # Calculate average markups for each manufacturer (Nested)
 reg_data <- reg_data %>%
@@ -542,11 +542,11 @@ ggplot(markup_nest_summary, aes(x = reorder(parent, -avg_markup_nest),
        x = "Manufacturer", y = "Average Markup (Nested)") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-```
 
-## 2.10
 
-```{r}
+
+
+
 #| label: q2-10
 # Cross - market diversion ratios between cheerios and corn flakes/froot loops
 brands <- c("GENERAL MILLS CHEERIOS", "KELLOGGS CORN FLAKES", "KELLOGGS FROOT LOOPS")
@@ -566,12 +566,12 @@ for (b in brands) {
 }
 
 diversion_matrix
-```
 
 
-## 2.11
 
-```{r}
+
+
+
 #| label: q2-11
 # Find average markup for a hypothetical merger between General Mills and Kelloggs
 merged_markup <- reg_data %>%
@@ -590,6 +590,3 @@ merged_markup
 merged_markup %>% filter(parent_merged == "GM_K") %>% pull(avg_markup_merged)
 # This is higher than the individual average markups of General Mills and Kelloggs,
 # indicating that the merger could lead to increased market power and higher markups
-```
-
-# Question 3:

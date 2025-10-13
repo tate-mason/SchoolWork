@@ -593,3 +593,4 @@ merged_markup %>% filter(parent_merged == "GM_K") %>% pull(avg_markup_merged)
 ```
 
 # Question 3:
+
