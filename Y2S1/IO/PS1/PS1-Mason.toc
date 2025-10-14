@@ -1,0 +1,21 @@
+\contentsline {section}{\numberline {1}Data Import and Descriptive Statistics}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Descriptive Table of Market Statistics}{2}{}%
+\contentsline {subsection}{\numberline {1.2}Time Series: Average Price and Sales}{2}{}%
+\contentsline {subsection}{\numberline {1.3}HHI Over Time}{4}{}%
+\contentsline {section}{\numberline {2}Multinomial Logit and Nested Logit}{5}{}%
+\contentsline {subsection}{\numberline {2.1}Estimating Equation (MNL)}{5}{}%
+\contentsline {subsection}{\numberline {2.2}OLS Estimates (MNL)}{5}{}%
+\contentsline {subsection}{\numberline {2.3}2SLS Estimates (MNL)}{6}{}%
+\contentsline {subsection}{\numberline {2.4}Elasticity Matrix (Top 5 Brands, MNL)}{7}{}%
+\contentsline {paragraph}{Average elasticity matrix across markets (own and cross):}{7}{}%
+\contentsline {subsection}{\numberline {2.5}Manufacturer Markups (MNL Assumption: Independent Pricing)}{8}{}%
+\contentsline {subsection}{\numberline {2.6}Nested Logit: Data and Estimation}{8}{}%
+\contentsline {paragraph}{Estimating equation (include $\sigma $):}{8}{}%
+\contentsline {subsection}{\numberline {2.7}Elasticity Matrix (Top 5 Brands, Nested Logit)}{9}{}%
+\contentsline {subsection}{\numberline {2.8}Manufacturer Markups (Nested Logit; Multi-Product Ownership)}{10}{}%
+\contentsline {subsection}{\numberline {2.9}Diversion Ratios}{10}{}%
+\contentsline {paragraph}{Average diversion ratios across markets:}{10}{}%
+\contentsline {subsection}{\numberline {2.10}Merger Simulation Sketch}{11}{}%
+\contentsline {section}{\numberline {3}Mixed Logit}{11}{}%
+\contentsline {subsection}{\numberline {3.1}Specification and Instruments}{11}{}%
+\contentsline {subsection}{\numberline {3.2}Estimates (Mixed Logit)}{11}{}%

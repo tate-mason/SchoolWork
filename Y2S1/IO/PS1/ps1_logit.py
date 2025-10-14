@@ -39,7 +39,7 @@ df['firm_ids'] = df['parent']  # Parent company is the firm
 df['product_ids'] = df['brand'] + '_' + df['parent']
 
 # Take subset for testing
-test_markets = df['market_ids'].unique()
+test_markets = df['market_ids'].unique()[:500]
 df_test = df[df['market_ids'].isin(test_markets)].copy().reset_index(drop=True)
 
 print(f"Dataset: {len(df_test)} obs, {df_test['market_ids'].nunique()} markets")
@@ -284,3 +284,27 @@ pyplot.show()
 print("\nHistogram of own price elasticities displayed.")
 
 # Construct elasticity matrix for top 5 brands in terms of sales (own and cross-price elasticities)
+
+top_brands = df_test.groupby('brand')['quantity'].sum().nlargest(5).index
+top_brand_data = df_test[df_test['brand'].isin(top_brands)].copy().reset_index(drop=True)
+top_brand_problem = pyblp.Problem(
+    product_formulations=product_formulations,
+    product_data=top_brand_data,
+    agent_formulation=agent_formulation,
+    agent_data=agent_data
+)
+top_brand_problem.solve(
+    sigma=results.sigma,
+    pi=results.pi,
+    beta=results.beta
+    top_brand_elasticities = top_brand_problem.compute_elasticities()
+)
+
+print("\nTop 5 Brands Elasticity Matrix (Own and Cross-Price Elasticities):")
+elasticity_matrix = pd.DataFrame(
+    top_brand_elasticities,
+    index=top_brand_data['brand'],
+    columns=top_brand_data['brand']
+)
+print(elasticity_matrix)
+
