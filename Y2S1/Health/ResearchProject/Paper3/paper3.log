@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  5 OCT 2025 12:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  18 OCT 2025 19:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -692,12 +692,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.160 
-       [1]
-./paper3.tex:179: Undefined control sequence.
+l.161 \begin{equation}
+                       [1]
+./paper3.tex:168: Undefined control sequence.
 <argument>  \shortintertext 
-                            {s.t.} \\ v_j = r_{jt}p_{jt} + \xi 
-l.179 \end{gather*}
+                            {s.t.} \\ u(c) = \frac {c_i^{1-\sigma }}{1-\sigm...
+l.168 \end{gather*}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -705,10 +705,32 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./paper3.tex:179: Undefined control sequence.
+./paper3.tex:168: Undefined control sequence.
 <argument>  \shortintertext 
-                            {s.t.} \\ v_j = r_{jt}p_{jt} + \xi 
-l.179 \end{gather*}
+                            {s.t.} \\ u(c) = \frac {c_i^{1-\sigma }}{1-\sigm...
+l.168 \end{gather*}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper3.tex:182: Undefined control sequence.
+<argument>  \shortintertext 
+                            {s.t.} \\ V_a^s(\gamma _i, r_i) = \{u(c_i) + \be...
+l.182 \end{gather*}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper3.tex:182: Undefined control sequence.
+<argument>  \shortintertext 
+                            {s.t.} \\ V_a^s(\gamma _i, r_i) = \{u(c_i) + \be...
+l.182 \end{gather*}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -726,10 +748,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [2]
-./paper3.tex:195: Undefined control sequence.
+./paper3.tex:207: Undefined control sequence.
 <argument>  \shortintertext 
-                            {s.t.} \\ u(c) = \frac {c_i^{1-\sigma }}{1-\sigm...
-l.195 \end{gather*}
+                            {s.t.} \\ v_j = r_{jt}^2\sum \limits _{i=1}^{I} ...
+l.207 \end{gather*}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -737,43 +759,16 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./paper3.tex:195: Undefined control sequence.
+./paper3.tex:207: Undefined control sequence.
 <argument>  \shortintertext 
-                            {s.t.} \\ u(c) = \frac {c_i^{1-\sigma }}{1-\sigm...
-l.195 \end{gather*}
+                            {s.t.} \\ v_j = r_{jt}^2\sum \limits _{i=1}^{I} ...
+l.207 \end{gather*}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
-
-./paper3.tex:208: Undefined control sequence.
-<argument>  \shortintertext 
-                            {s.t.} \\ V_a^s(\gamma _i, r_i) = \{u(c_i) + \be...
-l.208 \end{gather*}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./paper3.tex:208: Undefined control sequence.
-<argument>  \shortintertext 
-                            {s.t.} \\ V_a^s(\gamma _i, r_i) = \{u(c_i) + \be...
-l.208 \end{gather*}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Overfull \hbox (26.75749pt too wide) detected at line 208
-[]
- []
 
 
 
@@ -803,21 +798,21 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `paper3.out' has not changed.
-(rerunfilecheck)             Checksum: D61E683F804A8067727B90C8FDCE62E0;3119.
+(rerunfilecheck)             Checksum: 00DA3C606524CF868935C189EF0A82F7;2953.
  ) 
 Here is how much of TeX's memory you used:
- 24754 strings out of 473190
- 447401 string characters out of 5715801
- 830266 words of memory out of 5000000
- 47578 multiletter control sequences out of 15000+600000
+ 24752 strings out of 473190
+ 447371 string characters out of 5715801
+ 829266 words of memory out of 5000000
+ 47577 multiletter control sequences out of 15000+600000
  577724 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,11n,91p,409b,446s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,12n,91p,409b,460s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on paper3.pdf (5 pages, 270776 bytes).
+Output written on paper3.pdf (5 pages, 273390 bytes).
 PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
- 191 compressed objects within 2 object streams
- 32 named destinations out of 1000 (max. 500000)
- 205 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 187 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

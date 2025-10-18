@@ -151,42 +151,15 @@ to addicts once they find a willing prescriber.
 
 \subsection{Addicts}
 
-There is a continuum of addicts in this model such that $\mathcal{A} = \{a_1, a_2, ..., a_N\}$, all of whom value consumption of prescriptions. Each lived period, they
-are granted a single unit of time with which they will search for a physician to prescribe them something. There is no terminal period for now, but there are
-3 pathways through which addicts are jettisoned from the model. First, their assumed risk, a product of continued search, outweighs the utility they get from
-searching. In this case, we can say that they were barred from being able to see new doctors due to being registered as someone searching for drugs to abuse.
-The next reason for exit is when tolerance augmented consumption $\gamma_i\times c_{it}$ is higher than consumption. This is the idea that they cannot satiate their
-drug craving through the search anymore, and may transition to other means. Finally, the cost of search becomes higher than the benefit of consuming the drugs.
-
-Addicts follow a CRRA utility formula, and can only make one proposal to a doctor each period. With probability $a(\theta)$, they will be able to see a doctor,
-with probability $m(\theta)$, the doctor will give a prescription. This allows for the possibility of periods in which agents will not be given anything, adding 
-a potential risk to leaving a current match, and allowing for the exit via consumption needs not being met. Addicts can drop their matches, or be dropped by a 
-doctor. In this case, they either enter the search process again or will exit.
-
-\subsection{Doctors}
-
-There is a continuum of doctors such that $\mathcal{M} = \{m_1, m_2, ..., m_K\}$ who value profit. They will exist in the model until they have overprescribed,
-taking on too much risk, $p_{jt} > r_{jt}$. Doctors can be matched with many addicts, with $p_{jt} = \sum\limits_{i = 1}^{I} c_{it}$, for all patients $I \subset \mathcal{A}$
-matched to them. They will drop patients when their consumption needs threaten their risk constraint, thus allowing them to bring in a new, lower risk, patient.
-The doctor's optimization is as follows
-
-\begin{equation}
-  \max\limits_{v_{j}} x_iv_j - i_jr_{jt} \\
-\end{equation}
-\begin{gather*}
-  \shortintertext{s.t.} \\
-  v_j = r_{jt}p_{jt} + \xi
-\end{gather*}
-
-Where $v_{j}$ is a visit cost, which is initially a flat $\xi$ and will evolve according to how many patients they prescribe to. $x_i$ is how much the patient pays
-for a visit. This can be thought of as the co-pay for a visit. $i_j$ is a flat physician's insurance cost which is raised by amount of risk. Basically, they
-want to maximize visit revenue, net of their risk adjusted fixed cost.
-
-\subsection{Addicts' Optimization}
-
+There is a continuum of addicts in this model such that $\mathcal{A} = \{a_1, a_2, ..., a_N\}$, each with an individual type $\gamma_i \in \{\gamma_l, \gamma_h\}$,
+corresponding to high or low predisposition to addiction. Each addict maximizes their utility over an infinite horizon, with discount factor $\beta$.
+Each addict also has a tolerance for risk of being cut off from search, $r_i$, which evolves according to their type and consumption behavior. Each
+period, they choose to search for a physician, and will successfully receive a prescription with probability $m(\theta)$, where $\theta$ is the 
+measure of physicians willing to prescribe. Searching comes at a cost $s_i$, which depletes their health budget, and increases their risk of being cut off.
+Each period, their risk evolves according to $r_i' = r_i + \epsilon_{a}$, where $\epsilon_{a} \sim N(\mu_a, \sigma_a^2)$. Addicts optimize over the following:
 In the first period:
 \begin{equation}
-  V_a^0(\gamma_i, r_i) = \{u(c_i) + \beta(1-a(\theta))V_a(\gamma_i, r_i) + \beta(a(\theta)m(\theta))V_a(\gamma_i, r_i') + \beta(a(\theta)(1-m(\theta)))V_a(\gamma_i, r_i')\} \\
+  V_a^0(\gamma_i, r_i) = \{u(c_i) + \beta\mathbb{E}_t(1-a(\theta))V_a(\gamma_i, r_i) + \beta\mathbb{E}_{t}a(\theta)V_a(\gamma_i, r_i')\} \\
 \end{equation}
 \begin{gather*}
   \shortintertext{s.t.} \\
@@ -202,13 +175,42 @@ In proceeding periods:
 \begin{gather*}
   \shortintertext{s.t.} \\
   V_a^s(\gamma_i, r_i) = \{u(c_i) + \beta V_a^m(\gamma_i, r_i')\} \\
-  V_a^f(\gamma_i, r_i') = \{u(c_i) + \mathbb{E}_{t}[\beta(1-a(\theta))V_a(\gamma_i, r_i') + \beta(a(\theta)m(\theta))V_a(\gamma_i, r_i'') + \beta(a(\theta)(1-m(\theta)))V_a(\gamma_i, r_i'')]\} \\
+  V_a^f(\gamma_i, r_i') = \{u(c_i) + \mathbb{E}_{t}[\beta(1-a(\theta))V_a(\gamma_i, r_i') + \beta \mathbb{E}_{t}[a(\theta)V_a(\gamma_i, r_i')]]\} \\
   u(c) = \frac{c_i^{1-\sigma}}{1-\sigma} \\
-  r_i' = r_i + \epsilon_a
+  r_i' = r_i + \epsilon_a \\
+  c_i =\gamma_ip_{it} + r_i^{1/\gamma_i} - \sum s_{it}
 \end{gather*}
 
-Further, both risk, $r_i$, and tolerance $\gamma_i$ are drawn from normal distributions, and $a(\theta)$ is a function $\theta(\gamma_i, r_{it}, t)$, so their probability depends on their tolerance, risk tolerance, and time in model. Still trying to flesh out the $m(\theta)$ part. I know the
-probability of prescribing needs to depend on risk of physicians, but I am trying to decide what else. Maybe patient load?
+Where $V_a^0$ is the value function for an addict in their first period of search, and $V_a^m$ is the value function for an addict in proceeding periods, if they choose
+to search again, $V_a^f$, or to forgo search, $V_a^s$. $u(c_i)$ is the utility from consumption, with CRRA parameter $\sigma$. Risk evolves as before, and 
+consumption is a function of risk tolerance and type, with higher type addicts consuming more for a given risk level due to their predisposition. Addicts
+will continue to search until they are cut off, which happens when their risk exceeds a threshold set by physicians. Finally, the constraint on consumption
+is made up of prescription amount, $p_{it}$, risk tolerance, and search cost.
+
+
+\subsection{Doctors}
+
+There is a continuum of doctors such that $\mathcal{M} = \{m_1, m_2, ..., m_K\}$ who value profit. They will exist in the model until they have overprescribed,
+taking on too much risk, $p_{jt} > r_{jt}$. Doctors can be matched with many addicts, with $p_{jt} = \sum\limits_{i = 1}^{I} c_{it}$, for all patients $I \subset \mathcal{A}$
+matched to them. They will drop patients when their consumption needs threaten their risk constraint, thus allowing them to bring in a new, lower risk, patient. Doctors
+will prescribe to addicts with probability $m(\theta)$, where $\theta$ is the measure of physicians willing to prescribe. Each period, their risk evolves according to
+$r_{jt}' = r_{jt} + \epsilon_{d}$, where $\epsilon_{d} \sim N(\mu_d, \sigma_d^2)$.
+
+The doctor's optimization is as follows
+
+\begin{equation}
+  \max\limits_{v_{j}} x_iv_j - i_jr_{jt} \\
+\end{equation}
+\begin{gather*}
+  \shortintertext{s.t.} \\
+  v_j = r_{jt}^2\sum\limits_{i=1}^{I} c_{it} + \xi \\
+\end{gather*}
+
+Where $v_{j}$ is a visit cost, which is initially a flat $\xi$ and will evolve according to how many patients they prescribe to. $x_i$ is how much the patient pays
+for a visit. This can be thought of as the co-pay for a visit. $i_j$ is a flat physician's insurance cost which is raised by amount of risk. This can be thought of as
+malpractice insurance, or something to that effect. Basically, they want to maximize visit revenue, net of their risk adjusted fixed cost.
+
+Doctors who do not prescribe will have a different optimization, which is simply maximizing their revenue from visits, net of risk cost, which is $0$ since they do not prescribe.
 
 \subsection{Estimation}
 

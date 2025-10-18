@@ -1,0 +1,752 @@
+---
+title: "Midlife Interstate Migration"
+author: "Tate Mason"
+format: pdf
+---
+
+The data I will be using for my research project on midlife interstate migration will come from IPUMS census data. I will be using yearly ACS surverys from 2001 - 2019, with the 5\% and 1\% decennial 
+census data from 1990 and 2010. The data will be restricted to household heads between the ages of 40 and 60. The key variable will be whether or not the individual moved in the past year, as well as
+individual and household characteristics such as income, number of children, marital status, home ownership, and employment status. Further, there are variables indicating the state of birth and state of residence one year ago, 
+which will allow me to identify return migration. Beyond these variables, I also have rules which link children to their parents, though implementing this is still a work in progress. My goal is to
+understand how the presence of children, as well as income and other household characteristics, impact the likelihood of moving once out of the "formative years" of one's working life.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE
+)
+
+```
+
+```{r, Libraries, echo=FALSE, output=FALSE}
+# Load necessary libraries
+library(dplyr)
+library(broom)
+library(ipumsr)
+library(here)
+library(tidyr)
+library(psych)
+library(stargazer)
+library(ggplot2)
+library(scales)
+```
+
+```{r, Read Data, eval=FALSE}
+# Read in the IPUMS data
+
+here() # Check working directory
+ddi <- read_ipums_ddi(here("data", "usa_00031.xml")) # Reading in the DDI
+data <- read_ipums_micro(ddi) # Formalizing the microdata c/o IPUMS - UMN
+names(data) <- tolower(names(data)) # Convert column names to lowercase
+```
+
+```{r, Initial Data Exploration, eval=FALSE}
+# Initial data exploration
+
+str(data) # Structure of the data
+summary(data) # Summary statistics
+head(data) # First few rows of the data
+describe(data$inctot)
+```
+
+# Data cleaning and transformation
+```{r, Data Cleaning, eval=FALSE}
+
+data_clean <- data %>%
+  filter(
+    pernum == 1, # Filter for household heads
+    age >= 40,
+    age <= 80
+  )
+saveRDS(data_clean, file = here("data", "clean.rds")) # Save cleaned data
+```
+
+# Load cleaned data
+```{r, Load Cleaned Data, echo=FALSE, warning=FALSE}
+data_clean <- readRDS(here("data", "clean.rds")) # Load cleaned data
+mig_state <- 1:56
+library(tibble)
+
+# CPI table (base 2010 = 100)
+cpi_tbl <- tribble(
+  ~year, ~cpi,
+  1990,130.7, 1991,136.2, 1992,140.3, 1993,144.5, 1994,148.2,
+  1995,152.4, 1996,156.9, 1997,160.5, 1998,163.0, 1999,166.6,
+  2000,172.2, 2001,177.1, 2002,179.9, 2003,184.0, 2004,188.9,
+  2005,195.3, 2006,201.6, 2007,207.3, 2008,215.3, 2009,214.5,
+  2010,218.1, 2011,224.9, 2012,229.6, 2013,232.9, 2014,236.7,
+  2015,237.0, 2016,240.0, 2017,245.1, 2018,251.1, 2019,255.7
+) %>%
+  mutate(cpi_ratio_2010 = 218.056 / cpi)
+
+df <- data_clean %>%
+  left_join(cpi_tbl, by = "year") %>%
+  filter(gq == 1) %>% # Exclude group quarters
+  mutate(
+    rentgrs = rentgrs * cpi_ratio_2010,
+    valueh = valueh * cpi_ratio_2010,
+    inctot = inctot * cpi_ratio_2010,
+    hhwt = as.numeric(hhwt)/100,
+    self_emp = classwkr %in% c(10, 13, 14),
+    married = marst == 1,
+    unmarried = marst %in% c(3, 4, 5, 6),
+    black = race == 2,
+    asian = race %in% c(4:6),
+    hispanic = hispan %in% c(1:4),
+    white = race == 1 & hispan == 0,
+    uninsured = hcovany == 1,
+    emp_ins = hinsemp == 2,
+    priv_ins = hinspur == 2,
+    medicaid = hinscaid == 2,
+    medicare = hinscare == 2,
+    labforce = labforce %in% c(1, 2),
+    unemployed = empstat == 2,
+    employed = empstat == 1,
+    bought_home = case_when(ownershp != lag(ownershp) ~ 1L,
+                            TRUE ~ 0L), 
+    inctot = ifelse(inctot < 0 | inctot >= 9999998, NA, inctot),
+    incwage = ifelse(incwage < 0 | incwage >= 9999998, NA, incwage),
+    incwelfr = ifelse(incwelfr < 0 | incwelfr > 99999, NA, incwelfr),
+    incinvst = ifelse(incinvst < 0 | incinvst > 999999, NA, incinvst),
+    incother = ifelse(incother < 0 | incother > 99998, NA, incother),
+    metarea = ifelse(metarea == 000, NA, metarea),
+    nchild = ifelse(nchild < 0, NA, nchild)
+  ) %>%
+  mutate(
+    mig_st_valid = !is.na(migplac1) & migplac1 %in% mig_state,
+    origin = migplac1,
+    destination = statefip,
+    moved = case_when(
+      mig_st_valid & migplac1 != statefip ~ 1L,
+      mig_st_valid & migplac1 == statefip ~ 0L,
+      TRUE ~ NA_integer_
+    )
+  )
+```
+
+# Creating Profiles
+
+```{r, Age Profiles}
+df <- df %>%
+  mutate(
+    age_bin = cut(
+      age,
+      breaks = seq(40, 80, by = 2),
+      right = FALSE,
+      labels = paste(seq(40,79,2), seq(41,80,2), sep = "-")
+    )
+  )
+
+lm_move <- lm(
+  moved ~ 0 + factor(age_bin) + factor(year),
+  data = df,
+  weights = hhwt
+)
+
+age_prof_move <- broom::tidy(lm_move) %>%
+  filter(grepl("^factor\\(age_bin\\)", term)) %>%
+  mutate(
+    age_bin = gsub("factor\\(age_bin\\)", "", term),
+    age_bin = gsub("[\\(\\)]", "", age_bin)
+  ) %>%
+  transmute(age_bin, move_rate = estimate)
+
+
+ggplot(age_prof_move, aes(x = age_bin, y = move_rate, group = 1)) +
+  geom_line(size = 1.2, color = "#E74C3C") + 
+  geom_point(size = 2, color = "#E74C3C") + 
+  labs(
+    x = "Age(2-year bins, 40-80)",
+    y = "Probability of Moving",
+    title = "Age Profile of Interstate Moving"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Ownership by Age Profile
+
+
+df <- df %>%
+  mutate(
+    age_bin = cut(
+      age,
+      breaks = seq(40, 80, by = 2),
+      right = FALSE,
+      labels = paste(seq(40,79,2), seq(41,80,2), sep = "-")
+    )
+  )
+
+lm_own <- lm(
+  bought_home ~ 0 + factor(age_bin) + factor(year),
+  data = df,
+  weights = hhwt
+)
+
+age_prof_own <- broom::tidy(lm_own) %>%
+  filter(grepl("^factor\\(age_bin\\)", term)) %>%
+  mutate(
+    age_bin = gsub("factor\\(age_bin\\)", "", term),
+    age_bin = gsub("[\\(\\)]", "", age_bin)
+  ) %>%
+  transmute(age_bin, own_rate = estimate)
+
+ggplot(age_prof_own, aes(x = age_bin, y = own_rate, group = 1)) +
+  geom_line(size = 1.2, color = "#2E86C1") + 
+  geom_point(size = 2, color = "#2E86C1") + 
+  labs(
+    x = "Age(2-year bins, 40-80)",
+    y = "Probability of Buying a Home",
+    title = "Age Profile of Home Purchases"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+
+# State Level 
+```{r, State Level Movers}
+hh <- df %>%
+  filter(gq != 1) %>%
+  mutate(
+    is_owner = ownershpd %/% 10 == 1,
+    is_renter = ownershpd %/% 10 == 2
+  )
+
+state_home <- hh %>%
+  filter(is_owner, valueh > 0) %>%
+  group_by(statefip) %>%
+  summarise(
+    mean_hval = weighted.mean(valueh, hhwt, na.rm = TRUE),
+    n_own = sum(hhwt, na.rm = TRUE)
+  ) %>%
+  ungroup()
+
+state_rent <- hh %>%
+  filter(is_renter, rentgrs > 0) %>%
+  group_by(statefip) %>%
+  summarise(
+    mean_rent = weighted.mean(rentgrs, hhwt, na.rm = TRUE),
+    n_rent = sum(hhwt, na.rm = TRUE)
+  ) %>%
+  ungroup()
+
+state_utils <- hh %>%
+  mutate(
+    elec = ifelse(costelec >0, costelec, NA),
+    gas = ifelse(costgas >0, costgas, NA),
+    water = ifelse(costwatr >0, costwatr, NA)
+  ) %>%
+  group_by(statefip) %>%
+  summarise(
+    mean_elec = weighted.mean(elec, hhwt, na.rm = TRUE),
+    mean_gas = weighted.mean(gas, hhwt, na.rm = TRUE),
+    mean_water = weighted.mean(water, hhwt, na.rm = TRUE)
+  ) %>% 
+  ungroup()
+  
+state_inc <- df %>%
+  filter(inctot > 0, gq != 1) %>%
+  group_by(statefip) %>%
+  summarise(
+    mean_inc = weighted.mean(inctot, hhwt, na.rm = TRUE),
+  ) %>%
+  ungroup()
+
+state_summ <- state_home %>%
+  left_join(state_rent, by = "statefip") %>%
+  left_join(state_utils, by = "statefip") %>%
+  left_join(state_inc, by = "statefip")
+describe(state_summ)
+
+# Probability of Buying a Home by State
+
+library(dplyr)
+library(ggplot2)
+library(scales)
+
+# ---- 1) Build a consecutive-year change flag for OWNERSHIP ----
+df2 <- df %>%
+  arrange(serial, year) %>%
+  group_by(serial) %>%
+  mutate(
+    own_changed   = ownershp != lag(ownershp),
+    consecutive   = year == lag(year) + 1,
+    own_change_consec = own_changed & consecutive
+  ) %>%
+  ungroup()
+
+# ---- 2) Weighted probability of change by year ----
+p_by_year_w <- df2 %>%
+  filter(consecutive, !is.na(own_change_consec), !is.na(hhwt)) %>%
+  group_by(year) %>%
+  summarise(
+    p_change = weighted.mean(as.integer(own_change_consec), w = hhwt, na.rm = TRUE),
+    n_pairs  = n(),
+    w_sum    = sum(hhwt),
+    .groups = "drop"
+  )
+
+# Quick sanity check: if this is zero, your plot will be blank
+print(nrow(p_by_year_w))
+
+# ---- 3) Plot and explicitly print (prevents "no output") ----
+p <- ggplot(p_by_year_w, aes(x = year, y = p_change)) +
+  geom_line() +
+  geom_point() +
+  scale_y_continuous(labels = percent_format()) +
+  labs(
+    x = "Year",
+    y = "Pr(ownership changed from t-1 to t)",
+    caption = "Denominator: consecutive household-year pairs (t-1, t), weighted by hhwt"
+  ) +
+  theme_minimal()
+
+print(p)
+```
+
+
+# Exploratory Data Analysis
+
+```{r, EDA}
+df_move <- df %>%
+  group_by(year) %>%
+  summarise(
+    n_hh = sum(hhwt*!is.na(moved), na.rm = TRUE),
+    movers = sum(hhwt[moved == 1], na.rm = TRUE),
+    mover_prop = movers / n_hh,
+    .groups = "drop"
+  ) %>%
+  arrange(year)
+
+ggplot(df_move, aes(x = year, y = mover_prop)) +
+  geom_line(color = "#BA0C2F", size = 1) +
+  labs(title = "Proportion of Movers by Age",
+       x = "Age",
+       y = "Proportion Moved") +
+  theme_minimal()
+```
+
+# Graphing the proportion of individuals who moved by age
+```{r, age, warning=FALSE, echo=FALSE}
+df_summ <- df %>%
+  group_by(age) %>%
+  summarise(
+    n_hh = sum(hhwt, na.rm = TRUE),
+    movers = sum(hhwt * (moved == 1), na.rm = TRUE),
+    denom = sum(hhwt * (!is.na(moved)), na.rm = TRUE),
+    moved_rate = movers / denom,
+    .groups = "drop"
+  ) %>%
+  arrange(age)
+
+ggplot(df_summ, aes(x = age, y = moved_rate)) +
+  geom_line(color = "#BA0C2F", size = 1) +
+  labs(title = "Share of Movers by Age",
+       x = "Age",
+       y = "Proportion Moved (1)") +
+  theme_minimal()
+```
+# Graphing the proportion of individuals who moved by kids status
+```{r, kids, warning=FALSE, echo=FALSE}
+
+df_kids <- df %>%
+  mutate(
+    kids = ifelse(nchild < 0 | nchild > 98, NA, nchild),
+    has_kids = ifelse(kids > 0, 1, 0),
+    not_kids = ifelse(kids == 0, 1, 0)
+  ) %>%
+  filter(!is.na(has_kids)) %>%
+  group_by(age) %>%
+  summarize(
+    kids_moved = sum(hhwt * (has_kids == 1 & moved == 1), na.rm = TRUE),
+    no_kids_moved = sum(hhwt * (has_kids == 0 & moved == 1), na.rm = TRUE),
+    denom = sum(hhwt * (!is.na(moved))),
+    kids_rate = kids_moved / denom,
+    no_kids_rate = no_kids_moved / denom,
+    .groups = "drop"
+  ) %>%
+  arrange(age)
+
+ggplot(df_kids, aes(x = age)) +
+  geom_line(aes(y = kids_rate, color = "With Kids"),
+            linewidth = 1) +
+  geom_line(aes(y = no_kids_rate, color = "Without Kids"),
+            linewidth = 1) +
+  geom_point(aes(y = kids_rate, color = "With Kids"), size = 1.2, alpha = 0.9) +
+  geom_point(aes(y = no_kids_rate, color = "Without Kids"),
+             size = 1.2, alpha = 0.9) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0.05))
+  ) +
+  scale_x_continuous(breaks = pretty_breaks(n = 8)) +
+  scale_color_manual(values = c(
+    "With Kids" = "#228B22",
+    "Without Kids" = "#BA0C2F"
+  ), name = "Status of Kids") +
+  labs(title = "Share of Movers by Kids Status",
+       x = "Age",
+       y = "Proportion Moved",
+       color = "Legend") +
+  theme_minimal(base_size = 14) + 
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold"),
+    axis.title.y = element_text(margin = margin(r = 8)),
+    axis.title.x = element_text(margin = margin(t = 8))
+  ) +
+  guides(color = guide_legend(override.aes = list(linewidth = 2)))
+```
+# Graphing the proportion of individuals who moved by income tercile
+
+```{r, Income, warning=FALSE, echo=FALSE}
+df_inc <- df %>%
+  filter(!is.na(inctot)) %>%
+  group_by(age) %>%
+  mutate(
+    ter_num = ntile(inctot, 3),
+    inc_ter = factor(
+      ter_num, level = 1:3,
+      labels = c("Low", "Medium", "High"),
+      ordered = TRUE
+    )
+  ) %>%
+  group_by(age, inc_ter) %>%
+  summarize(
+    inc_moved = sum(hhwt * (moved == 1), na.rm = TRUE),
+    denom = sum(hhwt * (!is.na(moved))),
+    inc_rate = inc_moved / denom 
+  ) %>%
+  arrange(inc_ter)
+
+ggplot(df_inc, aes(x = age, y = inc_rate, color = inc_ter)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 1.2, alpha = 0.9) + 
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0.05))
+  ) +
+  scale_x_continuous(breaks = pretty_breaks(n = 8)) +
+  scale_color_manual(values = c(
+    "Low" = "#004E60",
+    "Medium" = "#BA0C2F",
+    "High" = "#228B22"
+  ), name = "Income Tercile") +
+  labs(title = "Share of Movers by Income Tercile",
+       x = "Age",
+       y = "Proportion Moved",
+       color = "Income Tercile") +
+  theme_minimal(base_size = 14) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold"),
+    axis.title.y = element_text(margin = margin(r = 8)),
+    axis.title.x = element_text(margin = margin(t = 8))
+  ) +
+  guides(color = guide_legend(override.aes = list(linewidth = 2)))
+```
+
+# Returning to birth state
+
+```{r, Returners,eval=FALSE, warning=FALSE, echo=FALSE}
+df_ret <- df %>%
+  filter(bpl %in% c(001:056)) %>%
+  group_by(age) %>%
+  mutate(
+    returner = sum(hhwt * (moved == 1 & statefip == bpl), na.rm = TRUE),
+    denom = sum(hhwt * !is.na(moved)),
+    return_rate = returner / denom
+  ) %>%
+  arrange(age)
+
+ggplot(df_ret, aes(x = age, y = return_rate)) +
+  geom_line(color = "#BA0C2F", linewidth = 1) + 
+  labs(title = "Share of Movers Who Return to Birth State",
+       x = "Age",
+       y = "Proportion Retunring") +
+  theme_minimal()
+```
+
+```{r, Summary Table, echo=FALSE}
+library(dplyr)
+library(haven)   # for as_factor() if IPUMS labels are present
+library(gt)
+library(scales)
+
+# ---- weighted mean helper ----
+w_mean <- function(x, w) {
+  ok <- !is.na(x) & !is.na(w)
+  if (!any(ok)) return(NA_real_)
+  sum(x[ok] * w[ok]) / sum(w[ok])
+}
+
+# ---- indicator helpers (label-robust) ----
+is_owned <- function(ownershp) {
+  if (inherits(ownershp, "labelled")) {
+    lab <- as_factor(ownershp, levels = "labels")
+    return(grepl("^Owned", as.character(lab)))
+  }
+  ownershp %in% c(1, 10, 11, 12, 13)
+}
+
+is_married <- function(marst) {
+  if (inherits(marst, "labelled")) {
+    lab <- as_factor(marst, levels = "labels")
+    return(grepl("^Married", as.character(lab)))
+  }
+  marst %in% c(1, 2)  # 1=married spouse present, 2=married spouse absent
+}
+
+# ---- group summarizer (NO unweighted rows) ----
+summ_group <- function(d, label) {
+  tibble(
+    metric = c(
+      "N (households, weighted ∑hhwt)",
+      "% own home",
+      "% married",
+      "Avg household income",
+      "Avg rent (renters / non-miss.)",
+      "Avg home value (owners / non-miss.)"
+    ),
+    !!label := c(
+      comma(sum(d$hhwt, na.rm = TRUE)),                                    # N as weighted households
+      percent(w_mean(is_owned(d$ownershp), d$hhwt), accuracy = 0.1),
+      percent(w_mean(is_married(d$marst),   d$hhwt), accuracy = 0.1),
+      dollar(w_mean(d$inctot, d$hhwt)),
+      dollar(w_mean(d$rentgrs, d$hhwt)),                                    # renters ~ non-missing rent
+      dollar(w_mean(ifelse(is_owned(d$ownershp), d$valueh, NA_real_), d$hhwt))
+    )
+  )
+}
+
+# ---- build groups: Overall / Movers / Non-movers ----
+dfg <- df %>%
+  mutate(
+    .group = case_when(
+      moved == 1 ~ "Movers",
+      moved == 0 ~ "Non-movers",
+      TRUE       ~ NA_character_
+    )
+  )
+
+overall_tbl   <- summ_group(dfg, "Overall")
+movers_tbl    <- summ_group(filter(dfg, .group == "Movers"), "Movers")
+nonmovers_tbl <- summ_group(filter(dfg, .group == "Non-movers"), "Non-movers")
+
+sum_tbl <- overall_tbl %>%
+  left_join(movers_tbl,    by = "metric") %>%
+  left_join(nonmovers_tbl, by = "metric")
+
+# ---- consolidated gt table ----
+sum_gt <- sum_tbl %>%
+  gt(rowname_col = "metric") %>%
+  tab_header(
+    title = md("**Summary: Overall vs. Movers vs. Non-movers**"),
+    subtitle = "All stats weighted by hhwt; N is total households (∑hhwt)"
+  ) %>%
+  cols_label(
+    Overall = "Overall Obs.",
+    `Movers` = "Movers",
+    `Non-movers` = "Non-movers"
+  ) %>%
+  tab_options(data_row.padding = px(4))
+
+sum_gt
+```
+
+```{r}
+st_means <- df %>%
+  filter(statefip %in% 1:56) %>%
+  group_by(statefip, year) %>%
+  summarise(
+    mean_value = weighted.mean(valueh, na.rm = TRUE),
+    mean_rent = weighted.mean(rentgrs, hhwt, na.rm = TRUE),
+    mean_inctot = weighted.mean(inctot, perwt, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  arrange(statefip, year)
+
+ggplot(st_means, aes(x = year, y = mean_inctot, color = as.factor(statefip))) +
+  geom_line(alpha = 0.3) +
+  labs(title = "Average Income by State Over Time",
+       x = "Year",
+       y = "Average Income",
+       colors = "State") +
+  theme_minimal()
+
+ggplot(st_means, aes(x = year, y = mean_value, color = as.factor(statefip))) +
+  geom_line(alpha = 0.3) +
+  labs(title = "Average Home Value by State Over Time",
+       x = "Year",
+       y = "Average Home Value",
+       colors = "State") +
+  theme_minimal()
+
+ggplot(st_means, aes(x = year, y = mean_rent, color = as.factor(statefip))) +
+  geom_line(alpha = 0.3) +
+  labs(title = "Average Rent by State Over Time",
+       x = "Year",
+       y = "Average Rent",
+       colors = "State") +
+  theme_minimal()
+```
+
+# Aggregate Migration Flows
+```{r, Migration Flows}
+origin_var <- case_when(
+  "migsp" %in% names(df) ~ "migsp",
+  "migplac1" %in% names(df) ~ "migplac1",
+  TRUE ~ NA_character_
+)
+
+valid_codes <- c(1:56, 72)
+
+flows_base <- df %>%
+  transmute(
+    year = as.integer(year),
+    origin = as.integer(.data[[origin_var]]),
+    destination = as.integer(statefip),
+    hhwt = as.numeric(hhwt),
+    age = as.integer(age)
+  ) %>%
+  filter(
+    !is.na(origin),
+    origin %in% valid_codes,
+    !is.na(destination),
+    destination %in% valid_codes
+  )
+
+top_n <- 25
+
+flows_overall_forfif <- flows_base %>%
+  filter(age >= 40 & age <= 50) %>%
+  group_by(origin, destination) %>%
+  summarise(
+    movers = sum(hhwt, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  filter(origin != destination) %>%
+  arrange(desc(movers)) %>%
+  slice_head(n = top_n) %>%
+  mutate(flow = paste0(sprintf("%02d", origin), "→", sprintf("%02d", destination)))
+
+flows_overall_onenine <- flows_base %>%
+  filter(age > 50 & age <= 60) %>%
+  group_by(origin, destination) %>%
+  summarise(
+    movers = sum(hhwt, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  filter(origin != destination) %>%
+  arrange(desc(movers)) %>%
+  slice_head(n = top_n) %>%
+  mutate(flow = paste0(sprintf("%02d", origin), "→", sprintf("%02d", destination)))
+
+flows_over_sixplus <- flows_base %>%
+  filter(age > 60 & age <= 85) %>%
+  group_by(origin, destination) %>%
+  summarise(
+    movers = sum(hhwt, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  filter(origin != destination) %>%
+  arrange(desc(movers)) %>%
+  slice_head(n = top_n) %>%
+  mutate(flow = paste0(sprintf("%02d", origin), "→", sprintf("%02d", destination)))
+
+ggplot(flows_overall_forfif, aes(x = reorder(flow, -movers), y = movers)) +
+  geom_bar(stat = "identity", fill = "#2E86C1") +
+  labs(
+    title = "Top 25 Migration Flows (Ages 40-50)",
+    x = "Migration Flow (Origin → Destination)",
+    y = "Number of Movers"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplot(flows_overall_onenine, aes(x = reorder(flow, -movers), y = movers)) +
+  geom_bar(stat = "identity", fill = "#28B463") +
+  labs(
+    title = "Top 25 Migration Flows (Ages 51-60)",
+    x = "Migration Flow (Origin → Destination)",
+    y = "Number of Movers"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplot(flows_over_sixplus, aes(x = reorder(flow, -movers), y = movers)) +
+  geom_bar(stat = "identity", fill = "#AF7AC5") +
+  labs(
+    title = "Top 25 Migration Flows (Ages 61-85)",
+    x = "Migration Flow (Origin → Destination)",
+    y = "Number of Movers"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+flows_overall <- flows_base %>%
+  group_by(origin, destination) %>%
+  summarise(
+    movers = sum(hhwt, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  filter(origin != destination) %>%
+  arrange(desc(movers)) %>%
+  slice_head(n = top_n) %>%
+  mutate(flow = paste0(sprintf("%02d", origin), "→", sprintf("%02d", destination)))
+
+ggplot(flows_overall, aes(x = reorder(flow, -movers), y = movers)) +
+  geom_bar(stat = "identity", fill = "#E74C3C") +
+  labs(
+    title = "Top 25 Migration Flows (All Ages)",
+    x = "Migration Flow (Origin → Destination)",
+    y = "Number of Movers"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+# Modeling Migration Decisions
+```{r, Migration Model}
+model_data <- df %>%
+  filter(!is.na(moved), inctot > 0, nchild >= 0) %>%
+  mutate(
+    log_inctot = log(inctot),
+    has_kids = ifelse(nchild > 0, 1, 0),
+    is_owner = ifelse(ownershp %/% 10 == 1, 1, 0),
+    is_renter = ifelse(ownershp %/% 10 == 2, 1, 0),
+    married = ifelse(marst == 1, 1, 0),
+    unmarried = ifelse(marst %in% c(3, 4, 5, 6), 1, 0),
+    black = ifelse(race == 2, 1, 0),
+    asian = ifelse(race %in% c(4:6), 1, 0),
+    hispanic = ifelse(hispan %in% c(1:4), 1, 0),
+    white = ifelse(race == 1 & hispan == 0, 1, 0),
+    uninsured = ifelse(hcovany == 1, 1, 0),
+    emp_ins = ifelse(hinsemp == 2, 1, 0),
+    priv_ins = ifelse(hinspur == 2, 1, 0),
+    medicaid = ifelse(hinscaid == 2, 1, 0),
+    medicare = ifelse(hinscare == 2, 1, 0),
+    unemployed = ifelse(empstat == 2, 1, 0),
+    employed = ifelse(empstat == 1, 1, 0)
+  ) %>%
+  select(
+    moved, hhwt, year, age, log_inctot, has_kids, is_owner, is_renter,
+    married, unmarried, black, asian, hispanic, white,
+    uninsured, emp_ins, priv_ins, medicaid, medicare,
+    labforce, unemployed, employed, valueh, rentgrs, statefip
+  )
+model <- glm(
+  moved ~ age + log_inctot + has_kids + is_owner + is_renter +
+    married + unmarried + black + asian + hispanic + white +
+    uninsured + emp_ins + priv_ins + medicaid + medicare +
+    labforce + unemployed + employed + valueh + rentgrs + statefip +
+    factor(year),
+  data = model_data,
+  weights = hhwt,
+  family = binomial(link = "logit")
+)
+stargazer(model, type = "text", single.row = TRUE, no.space = TRUE)
+```
+

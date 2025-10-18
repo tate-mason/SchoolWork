@@ -1,0 +1,186 @@
+\documentclass[12pt]{article}
+
+% --- Minimal, useful packages ---
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bm}            % bold math symbols
+\usepackage{enumitem}      % compact lists
+\usepackage{hyperref}      % clickable references
+\usepackage{xcolor}        % (optional) for TODOs
+
+% --- Theorem-like environments ---
+\newtheorem{assumption}{Assumption}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+% --- Handy macros ---
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\1}{\mathbf{1}}
+\newcommand{\argmax}{\mathop{\mathrm{arg\,max}}\nolimits}
+\newcommand{\argmin}{\mathop{\mathrm{arg\,min}}\nolimits}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\vect}[1]{\bm{#1}}
+\newcommand{\set}[1]{\left\{\,#1\,\right\}}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\brak}[1]{\left[#1\right]}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO:} #1}}
+
+% --- Title info ---
+\title{Model Explanation - Mid/Later Life Interstate Moving}
+\author{Tate Mason}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+  The purpose of this model is to estimate the motivations of different types of agents to move across states in the US. The model incorportates two sorts of agents,
+  working and retired. The working agents are motivated by wage increases and the opportunity to buy a house. They give all time to labor, and at the end of each period have
+  the opportunity to move. This is when they can purchase a house if their home savings are hight enough. The retired agents, however, are motivated by amenities 
+  and non-monetary factors associated with moving. These agents do not work, of course, and still can move at the end of each period. Motivated by the data, these agents
+  have a low probability of purchasing a home. Thus, I have taken away that choice and instead make it so in retirement, if a young agent did not buy a home, their home
+  savings will meld into their retirement savings. The model, for simplicity, forgoes any sort of labor or health shocks, saying agents only have the trade-off of moving or not moving.
+  The model is solved using value function iteration and the results will be compared to the data to see how well the model fits the data.
+\end{abstract}
+
+\section{Environment}
+\begin{itemize}[leftmargin=1.2em]
+  \item \textbf{Time:} Discrete $t=40, 41, ..., 85$. 
+  \item \textbf{Agents:}
+  \begin{enumerate}
+    \item A continuum of working agents $\Pi_Y = \frac{1 -x}{(1-x) + (1-y)}$.
+   \item A continuum of retired agents $\Pi_O = \frac{1 -y}{(1-x) + (1-y)}$.
+  \item \textbf{Endowments/States:}
+    \begin{itemize}
+      \item Working agents: age $t$, home savings $a$, retirement savings $s$, income $w$, state $z$.
+      \item Retired agents: age $t$, wealth $s$, pension $ss$, state $z$.
+      \item \textbf{Uncertainty:} Probability of retirement each period $p^{retire}_t = (1-x)$, and probability of death $p^{die}_t = (1-y)$.
+\end{itemize}
+
+\section{Preferences}
+    \subsection{Working Agents}
+    Working agents have preferences over consumption $c$, housing $h(z)$, and state amentiies $m(z)$, and experience disutility from moving $\gamma(z')$:
+    \begin{equation}
+      U(c, h(z), m(z); t) = \frac{c^{1-\sigma}}{1 - \sigma} + \alpha_h \log(h(z)) + \alpha_m \log(m(z)) - \gamma(z') \cdot \1\{z' \neq z\}.,
+    \end{equation}
+    where $\sigma$ is the coefficient of relative risk aversion, $\alpha_h$ and $\alpha_m$ are the weights on housing and amenities,
+    respectively, and $\gamma(z')$ is the moving cost to state $z'$.
+
+    \subsection{Retired Agents}
+    Retired agents, on the other hand only have preferences over consumption and amenities, and also experience disutility from moving:
+    \begin{equation}
+      U(c, m(z); t) = \frac{c^{1-\sigma}}{1 - \sigma} + \alpha_m \log(m(z)) - \gamma(z') \cdot \1\{z' \neq z\}.
+    \end{equation}
+    The parameters are the same as above, except there is no housing term. These agents do not have the option to buy a house, and thus do not derive utility from it.
+
+\section{Information and Timing}
+\begin{enumerate}[leftmargin=1.2em]
+  \item At the beginning of each period, agents observe their state variables and the aggregate state $S_t$.
+  \item Working agents choose consumption $c_t$ and investments $a_{t+1}$, $s_{t+1}$
+  \item At the end of the period, agents will decide whether or not to move. If they move, they pay the moving cost $\gamma(z')$ and update their state to $z'$. 
+  If they do not move, they remain in state $z$. They will then observe if their savings $a_t$ are high enough to purchase a house. If they can, they 
+  will buy a house and their home savings will be reset to zero.
+  \item Finally, they will observe if they retire.
+  \item Retired agents choose consumption $c_t$ and investments $s_{t+1}$.
+  \item At the end of the period, retired agents will decide whether or not to move. If they move, they pay the moving cost $\gamma(z')$ and update their state to $z'$. 
+  If they do not move, they remain in state $z$. 
+  \item Finally, they will observe if they die.
+\end{enumerate}
+
+If an agent dies, their wealth disappears from the economy. There is no bequest motive. They are then replaced by a newborn working agent with zero savings and randomly assigned state.
+
+\section{Constraints and Market Clearing}
+    \subsection{Working Agents}
+      \begin{align}
+        c_t + a_{t+1} + s_{t+1} \;=\; (1+r_t(z))a_t + (1+r^s_t(z))s_t + w_t(z) - \tau(w_t(z)) \\
+        + (\1\{a_t \geq A_{house}\} \cdot (-A_{house}(z) + a_t))\1\{z' \ne z\},
+      \end{align}
+          where $A_{house}$ is the price of a house in state $z$, and $\tau(\cdot)$ is the fixed tax in state $z$. It is a 
+          wasted tax, meaning it does not go to the government or anyone else in the economy. It is simply removed from the economy.
+
+    \subsection{Retired Agents}
+      \begin{equation}
+        c_t + s_{t+1} \;=\; (1+r^s_t(z))s_t + ss_t(z) + \1\{a_t < A_{house}\} \cdot a_t,
+      \end{equation}
+          where the last term is the home savings that meld into retirement savings if the agent did not buy a house when they were working. In the next period after retiring, $s_{t+1} = s_t + a_t$.
+
+Aggregate feasibility / market clearing:
+\begin{equation}
+  \int c_t(z) d\Pi_Y + \int c_t(z) d\Pi_O \;=\; \int w_t(z) d\Pi_Y + \int ss_t(z) d\Pi_O.
+\end{equation}
+The goods market clears, meaning all consumption must be equal to all income in the economy. There are no investments in this economy, so all income must be consumed.
+There is no government spending, so the taxes are simply removed from the economy.
+
+\section{Agent Problems}
+\subsection{Working Agents}
+\begin{equation}
+  V_y(t, a, s, z) \;=\; \max\{V_y^m(t, a, s, z), V_y^s(t, a, s, z)\}, \\
+\end{equation}
+such that,
+\begin{gather*}
+  V^m_y(t, a, s, z) \;=\; \max_{c, a', s', z'} \; U(c, h(z), m(z); t) + x\beta \E[V_y(t+1, a', s', z')|z] \\
+  \;+\; (1-x)\beta \E[V_o(t+1, 0, s', z')|z] \\
+\end{gather*}
+\begin{gather*}
+  \quad \text{s.t.} \quad c + a' + s' = (1+r_t(z))a + (1+r^s_t(z))s + w_t(z) - \tau(w_t(z)) \\ 
+  + (\1\{a \geq A_{house}\} \cdot (-A_{house}(z) + a))\1\{z'\ne z\}, \\
+  \quad a' \geq 0, \; s' \geq 0, \; z' \in \{1, ..., Z\}, \\
+\end{gather*}
+\begin{gather*}
+  V^s_y(t, a, s, z) \;=\; \max_{c, a', s'} \; U(c, h(z), m(z); t) + x\beta \E[V_y(t+1, a', s', z)|z] \\
+  \;+\; (1-x)\beta \E[V_o(t+1, 0, s', z)|z] \\
+\end{gather*}
+\begin{gather*}
+  \quad \text{s.t.} \quad c + a' + s' = (1+r_t(z))a + (1+r^s_t(z))s + w_t(z) - \tau(w_t(z)), \\
+  \quad a' \geq 0, \; s' \geq 0.
+\end{gather*}
+
+State variables are time $t$, home savings $a$, retirement savings $s$, and state $z$. The value function is the maximum of moving and staying. If the agent moves, they choose consumption $c$,
+next period home savings $a'$, next period retirement savings $s'$, and next period state $z'$. They receive utility from consumption, housing, and amenities, and pay a home purchase cost if they move. They then
+face the probability of remaining working $x$ and receiving the working value function next period, or retiring with probability $1-x$ and receiving the retired value function next period. The agent faces the
+budget constraint, which includes income, returns on savings, and the cost of moving and buying a house if they have enough home savings. If the agent does not move, they choose the same variables except for $z'$,
+and do not have the option to buy a house.
+ 
+\subsection{Retired Agents}
+\begin{equation}
+  V_o(t, s, z) = \max\{V_o^m(t, s, z), V_o^s(t, s, z)\}, \\
+\end{equation}
+such that,
+\begin{gather*}
+  V^m_o(t, s, z) = \max_{c, s', z'} \; U(c, m(z); t) + y\beta \E[V_o(t+1, s', z')|z] \\
+\end{gather*}
+\begin{gather*}
+  \quad \text{s.t.} \quad c + s' = (1+r^s_t(z))s + ss_t(z) + \1\{a < A_{house}\} \cdot a,
+  \quad s' \geq 0, \; z' \in \{1, ..., Z\}, \\
+\end{gather*}
+\begin{gather*}
+  V^s_o(t, s, z) = \max_{c, s'} \; U(c, m(z); t) + y\beta \E[V_o(t+1, s', z)|z] \\
+  \quad \text{s.t.} \quad c + s' = (1+r^s_t(z))s + ss_t(z) + \1\{a < A_{house}\} \cdot a,
+  \quad s' \geq 0.
+\end{gather*}
+
+State variables are time $t$, retirement savings $s$, and state $z$. The value function is the maximum of moving and staying. If the agent moves, they choose consumption $c$,
+next period retirement savings $s'$, and next period state $z'$. They receive utility from consumption and amenities, and pay a moving cost if they move. They then
+face the probability of remaining retired $y$ and receiving the retired value function next period. The agent faces the budget constraint, which includes pension income, 
+returns on savings, and the home savings that meld into retirement savings if they did not buy a house when they were working. If the agent does not move, they choose 
+the same variables except for $z'$, and do not pay the moving cost.
+
+
+\section{Conclusion}
+
+This model provides a framework to understand the motivations of mid/later life agents to move across states in the US. By incorporating both working and retired agents, as well as
+the option to purchase a house, the model captures the key trade-offs faced by these agents. The next step is to calibrate the model to match key moments in the data, such as the
+proportion of movers by age, income, and presence of children. Once calibrated, the model can be used to conduct counterfactual experiments, such as changes in moving costs or housing prices,
+to understand their impact on moving behavior. Overall, this model provides a useful tool to analyze mid/later life interstate moving.
+
+
+\end{document}

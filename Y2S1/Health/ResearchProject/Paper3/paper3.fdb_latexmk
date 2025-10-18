@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1759683170.69198 "paper3.tex" "paper3.pdf" "paper3" 1759683171.68382 2
+["pdflatex"] 1760831578.69007 "paper3.tex" "paper3.pdf" "paper3" 1760831579.69057 2
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -197,12 +197,12 @@
   "/usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty" 1727642399 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1739380943 42148 61becc7c670cd061bb319c643c27fdd4 ""
-  "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1758127320 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
+  "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1754488232 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "paper3.aux" 1759683171.55691 4478 042444eb30c5f347365bb11739f3024f "pdflatex"
-  "paper3.out" 1759683171.55928 3119 d61e683f804a8067727b90c8fdce62e0 "pdflatex"
-  "paper3.tex" 1759683166.12328 12838 71eac367fdb29f4709cc380edd04369e ""
+  "paper3.aux" 1760831579.5772 4350 1cb45d80c9e5cc17d42c1ac1f5d2f1c8 "pdflatex"
+  "paper3.out" 1760831579.58 2953 00da3c606524cf868935c189ef0a82f7 "pdflatex"
+  "paper3.tex" 1760831577.67232 13011 51fbc5509096918008bfbb6f58cc404c ""
   (generated)
   "paper3.aux"
   "paper3.log"
