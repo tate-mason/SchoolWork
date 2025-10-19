@@ -126,8 +126,8 @@
 \begin{frame}{Model Overview}
   \begin{itemize}
     \item Two types: Workers, Retirees
-    \item Workers supply labor inelastically, earn wages based on location
-    \item Retirees receive pension income, base moving decisions on amenities
+    \item Workers supply labor inelastically, earn wages based on location, retire with probability $1-x$ each period
+    \item Retirees receive pension income, base moving decisions on amenities, die with probability $1-y$ each period, replaced by new workers
     \item Both types maximize lifetime utility over consumption and amenities
   \end{itemize}
 \end{frame}
@@ -157,10 +157,10 @@
     \item $V_w^M$: value of moving, $V_w^S$: value of staying
   \end{itemize}
   \begin{equation}
-    \item $V^S_w(s_t, z_t; t) = \max_{c_t, s_{t+1}} \{U(c_t, m(z_t), \mu) + x\beta \sum_{\mu'}\Pi(\mu'|\mu)V^w(s_{t+1}, z_t; t+1)\}$
+    \item $V^S_w(s_t, z_t; t) = \max_{c_t, s_{t+1}} \{U(c_t, m(z_t), \mu) + x\beta \sum_{\mu'}\Pi(\mu'|\mu)V^w(s_{t+1}, z_t; t+1) + (1-x)\betaV^r(s_{t+1}, z_t; t+1)\}$
   \end{equation}
   \begin{equation}
-    \item $V^M_w(s_t, z_t; t) = \max_{z', c_t, s_{t+1}} \{U(c_t, m(z'), \mu) + x\beta \sum_{\mu'}\Pi(\mu'|\mu)V^w(s_{t+1}, z'; t+1)\}$
+    \item $V^M_w(s_t, z_t; t) = \max_{z', c_t, s_{t+1}} \{U(c_t, m(z'), \mu) + x\beta \sum_{\mu'}\Pi(\mu'|\mu)V^w(s_{t+1}, z'; t+1) + (1-x)\betaV^r(s_{t+1}, z'; t+1)\}$
   \end{equation}
 \end{frame}
 \begin{frame}{Decision Problem, Retirees}
@@ -171,10 +171,10 @@
     \item $V_r^M$: value of moving, $V_r^S$: value of staying
   \end{itemize}
   \begin{equation}
-    \item $V^S_r(s_t, z_t; t) = \max_{c_t, s_{t+1}} \{U(c_t, m(z_t)) + \beta V^r(s_{t+1}, z_t; t+1)\}$
+    \item $V^S_r(s_t, z_t; t) = \max_{c_t, s_{t+1}} \{U(c_t, m(z_t)) + y\beta V^r(s_{t+1}, z_t; t+1)\}$
   \end{equation}
   \begin{equation}
-    \item $V^M_r(s_t, z_t; t) = \max_{z', c_t, s_{t+1}} \{U(c_t, m(z')) + \beta V^r(s_{t+1}, z'; t+1)\}$
+    \item $V^M_r(s_t, z_t; t) = \max_{z', c_t, s_{t+1}} \{U(c_t, m(z')) + y\beta V^r(s_{t+1}, z'; t+1)\}$
   \end{equation}
 \end{frame}
 \section{Next Steps}

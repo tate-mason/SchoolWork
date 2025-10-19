@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  19 OCT 2025 14:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  19 OCT 2025 17:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -925,6 +925,17 @@ Underfull \hbox (badness 10000) detected at line 165
 [][]
  []
 
+./uptate_pres.tex:165: Undefined control sequence.
+\beamer@doifinframe ...}, z_t; t+1) + (1-x)\betaV 
+                                                  ^r(s_{t+1}, z_t; t+1)\}$ \...
+l.165 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 
 ./uptate_pres.tex:165: LaTeX Error: Bad math environment delimiter.
 
@@ -1011,6 +1022,17 @@ If that doesn't work, type  X <return>  to quit.
 Underfull \hbox (badness 10000) detected at line 165
 [][]
  []
+
+./uptate_pres.tex:165: Undefined control sequence.
+\beamer@doifinframe ...1}, z'; t+1) + (1-x)\betaV 
+                                                  ^r(s_{t+1}, z'; t+1)\}$ \e...
+l.165 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 
 ./uptate_pres.tex:165: LaTeX Error: Bad math environment delimiter.
@@ -1326,15 +1348,15 @@ Package rerunfilecheck Info: File `uptate_pres.out' has not changed.
 (rerunfilecheck)             Checksum: 74E5CAECB00434A4D764B35A22D92263;451.
  ) 
 Here is how much of TeX's memory you used:
- 22031 strings out of 473190
- 428711 string characters out of 5715801
- 791801 words of memory out of 5000000
- 44782 multiletter control sequences out of 15000+600000
+ 22032 strings out of 473190
+ 428716 string characters out of 5715801
+ 792801 words of memory out of 5000000
+ 44783 multiletter control sequences out of 15000+600000
  567005 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,16n,123p,386b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb>
-Output written on uptate_pres.pdf (19 pages, 233004 bytes).
+Output written on uptate_pres.pdf (19 pages, 233319 bytes).
 PDF statistics:
  752 PDF objects out of 1000 (max. 8388607)
  630 compressed objects within 7 object streams
