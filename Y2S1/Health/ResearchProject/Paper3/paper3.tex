@@ -178,11 +178,11 @@ In proceeding periods:
   V_a^f(\gamma_i, r_i') = \{u(c_i) + \mathbb{E}_{t}[\beta(1-a(\theta))V_a(\gamma_i, r_i') + \beta \mathbb{E}_{t}[a(\theta)V_a(\gamma_i, r_i')]]\} \\
   u(c) = \frac{c_i^{1-\sigma}}{1-\sigma} \\
   r_i' = r_i + \epsilon_a \\
-  c_i =\gamma_ip_{it} + r_i^{1/\gamma_i} - \sum s_{it}
+  c_i =\gamma_ip_{it} + r_i^{1/\gamma_i} \times \sum s_{it}
 \end{gather*}
 
 Where $V_a^0$ is the value function for an addict in their first period of search, and $V_a^m$ is the value function for an addict in proceeding periods, if they choose
-to search again, $V_a^f$, or to forgo search, $V_a^s$. $u(c_i)$ is the utility from consumption, with CRRA parameter $\sigma$. Risk evolves as before, and 
+to find a new doctor, $V_a^f$, or to stay with their current match, $V_a^s$. $u(c_i)$ is the utility from consumption, with CRRA parameter $\sigma$. Risk evolves as before, and 
 consumption is a function of risk tolerance and type, with higher type addicts consuming more for a given risk level due to their predisposition. Addicts
 will continue to search until they are cut off, which happens when their risk exceeds a threshold set by physicians. Finally, the constraint on consumption
 is made up of prescription amount, $p_{it}$, risk tolerance, and search cost.
@@ -199,16 +199,16 @@ $r_{jt}' = r_{jt} + \epsilon_{d}$, where $\epsilon_{d} \sim N(\mu_d, \sigma_d^2)
 The doctor's optimization is as follows
 
 \begin{equation}
-  \max\limits_{v_{j}} x_iv_j - i_jr_{jt} \\
+  \max\limits_{v_{j}} v_j - i_jr_{jt} \\
 \end{equation}
 \begin{gather*}
   \shortintertext{s.t.} \\
   v_j = r_{jt}^2\sum\limits_{i=1}^{I} c_{it} + \xi \\
 \end{gather*}
 
-Where $v_{j}$ is a visit cost, which is initially a flat $\xi$ and will evolve according to how many patients they prescribe to. $x_i$ is how much the patient pays
-for a visit. This can be thought of as the co-pay for a visit. $i_j$ is a flat physician's insurance cost which is raised by amount of risk. This can be thought of as
-malpractice insurance, or something to that effect. Basically, they want to maximize visit revenue, net of their risk adjusted fixed cost.
+Where $v_{j}$ is a visit cost, which is initially a flat $\xi$ and will evolve according to how many patients they prescribe to. $i_j$ is a flat physician's insurance cost which 
+is raised by amount of risk. This can be thought of as malpractice insurance, or something to that effect. Basically, they want to maximize visit revenue, net of their 
+risk adjusted fixed cost.
 
 Doctors who do not prescribe will have a different optimization, which is simply maximizing their revenue from visits, net of risk cost, which is $0$ since they do not prescribe.
 
