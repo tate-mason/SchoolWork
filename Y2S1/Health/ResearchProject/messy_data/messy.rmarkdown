@@ -1,0 +1,75 @@
+---
+title: "Messy Data Project - Health"
+author: "Tate Mason"
+format: pdf
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readr)
+library(lubridate)
+library(here)
+```
+
+# Purpose of document
+
+Attempting to simulate what an ideal dataset would look like for addict search project.
+
+## Creating the data
+```{r}
+set.seed(219)
+
+n <- 10000
+data <- tibble(
+  id = 1:n,
+  r = rbinom(n, 1, 0.5),
+  beta = 0.94,
+  gamma = rnorm(n, mean = 5, sd = 2),
+  xi = rnorm(n, mean = 0, sd = 1),
+  sigma = rnorm(n, mean = 0, sd = 1),
+  eps_d = rnorm(n, mean = 0, sd = 1),
+  eps_a = rnorm(n, mean = 0, sd = 1),
+  pi0 = 0,
+  pjt = rnorm(n, mean = 50, sd = 10),
+  ij = rnorm(n, mean = 5, sd = 2)
+)
+
+data <- data %>%
+  mutate(
+    rd_p = r + eps_d,
+    ra_p = r + eps_a,
+    s = rnorm(n, mean = 10, sd = 3),
+    c = gamma * pjt + r^(1 / gamma) * sum(s),
+    uc = ((c^(1 - sigma)) / (1 - sigma)),
+    gamma_p = gamma + ra_p * rnorm(n, mean = 0, sd = 0.5),
+    profit_doc = r^2 * sum(c) + xi - (ij * r)
+  )
+
+# Quick look at the data
+head(data)
+```
+
+## Start to optimize prescription decisions based on simulated profit and utility
+```{r}
+library(lpSolve)
+
+# Define the objective function coefficients (profit from prescriptions)
+obj_coeffs <- data$profit_doc
+# Define the constraints matrix
+const_matrix <- matrix(1, nrow = 1, ncol = n)
+# Define the direction of the constraints
+const_dir <- c("<=")
+# Define the right-hand side of the constraints
+const_rhs <- c(data$r)  # Example constraint: total prescriptions <= 5000
+# Solve the linear programming problem
+lp_solution <- lp("max", obj_coeffs, const_matrix, const_dir, const_rhs)
+# Get the optimal prescription decisions
+optimal_prescriptions <- lp_solution$solution
+# Add optimal prescription decisions to the data
+data <- data %>%
+  mutate(optimal_prescribe = optimal_prescriptions)
+# Summary of optimal prescription decisions
+table(data$prescribe, data$optimal_prescribe)
+```
+
