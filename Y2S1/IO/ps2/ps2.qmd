@@ -246,9 +246,58 @@ Comparing to the results from 2.1, inclusion of investment seems to improve mode
 ### 2.3
 ```{r}
 #| label: 2-3 OP Estimation
-library(plm)
-# Prepare data for panel data estimation
-pdata_col <- pdata.frame(data_col, index = c("id", "year"))
-pdata_chi <- pdata.frame(data_chi, index = c("id", "year"))
+# First stage: estimate log_y2 = log_l + phi(log_k) s.t. phi = alpha_0 + 
+# alpha_k*log_k + a(i*t*k)^2 + b(i*t*k) + c
 
+data_col <- data_col %>%
+  arrange(id, year) %>%
+  group_by(id) %>%
+  mutate(
+    log_k_next = lead(log_K),
+    log_y2_next = lead(log_Y2)
+  ) %>%
+  ungroup()
+data_chi <- data_chi %>%
+  arrange(id, year) %>%
+  group_by(id) %>%
+  mutate(
+    log_k_next = lead(log_K),
+    log_y2_next = lead(log_Y2)
+  ) %>%
+  ungroup()
+
+# Define a function to perform the first stage regression and get phi_hat
+first_stage <- function(data) {
+  data <- data %>%
+    mutate(
+      k_sq = log_K^2,
+      it_k = as.numeric(factor(paste(id, year))) * log_K,
+      it_k_sq = it_k^2,
+      inv_sq = log_i^2,
+      k_inv = log_K * log_i,
+      k_inv_sq = k_inv^2,
+      rhs = cbind(log_L, log_K, k_sq, log_i, inv_sq, k_inv, k_inv_sq)
+    )
+  fs_model <- lm(log_Y2 ~ rhs, data = data)
+  data$phi_hat <- predict(fs_model, newdata = data)
+  return(data)
+}
+data_col <- first_stage(data_col)
+data_chi <- first_stage(data_chi)
+
+# Second stage: estimate y2_{t+1} - alpha_l*l_{t+1} = alpha_0 + alpha_k*k_{t+1} 
+# + g(phi_hat_t - alpha_k*k_t - alpha_0) + error
+
+form_op <- as.formula("log_y2_next - log_L ~ log_K + I(phi_hat - log_K)")
+op_col <- lm(form_op, data = data_col)
+summary(op_col)
+op_chi <- lm(form_op, data = data_chi)
+summary(op_chi)
+
+# Estimate varying parameters across industries using OP for each country
+form_op_ind <- as.formula("log_y2_next - log_L ~ log_K + I(phi_hat - log_K) + industry")
+op_ind_col <- lm(form_op_ind, data = data_col)
+summary(op_ind_col)
+op_ind_chi <- lm(form_op_ind, data = data_chi)
+summary(op_ind_chi)
 ```
