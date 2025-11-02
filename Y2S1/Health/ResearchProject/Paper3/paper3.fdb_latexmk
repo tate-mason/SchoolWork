@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1760895628.43353 "paper3.tex" "paper3.pdf" "paper3" 1760895629.37044 2
+["pdflatex"] 1762108040.33322 "paper3.tex" "paper3.pdf" "paper3" 1762108041.38966 2
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -18,6 +18,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecti1200.tfm" 1136768653 3072 8b5a64dc91775463bc95e2d818524028 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1136768653 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm0800.tfm" 1136768653 1536 05df9db6aeccc4eea94fec15c9024f79 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm" 1246382020 996 a18840b13b499c08ac2de96a99eda4bc ""
@@ -200,9 +201,15 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1754488232 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "paper3.aux" 1760895629.23793 4350 1cb45d80c9e5cc17d42c1ac1f5d2f1c8 "pdflatex"
-  "paper3.out" 1760895629.23844 2953 00da3c606524cf868935c189ef0a82f7 "pdflatex"
-  "paper3.tex" 1760895625.96215 12939 63d95b5acfb5336cf357751707ab5e79 ""
+  "figures/addict_search_stock_distribution.png" 1762106474.35372 22031 c4719160ba329a3c96dbfe57a3739053 ""
+  "figures/counterfactual_addict_value.png" 1762106475.6927 21360 034a95de8ad137213a14cffc6bb812f1 ""
+  "figures/counterfactual_doctor_exits.png" 1762106475.30713 29273 649b3702ae80fee770bcf778984d68b2 ""
+  "figures/counterfactual_doctor_profit.png" 1762106475.60673 22295 8740f3c569e7ea41ca166e3233af9269 ""
+  "figures/doctor_exits_over_time.png" 1762106474.96729 53856 d65c0c2f34eb372915bec936df8d7b5c ""
+  "figures/doctor_profit_distribution.png" 1762106473.96507 16378 127ce4e305ca4a08ac19c406a23ed21e ""
+  "paper3.aux" 1762108041.27187 3188 1c90ad9a04da1285e39a7f6dbdfaba44 "pdflatex"
+  "paper3.out" 1762108041.27274 2167 a4f5a21207bbb44ac06e28f95e3378b5 "pdflatex"
+  "paper3.tex" 1762108039.25764 14259 ea076e110ad69cca832f8bfa5ab54570 ""
   (generated)
   "paper3.aux"
   "paper3.log"

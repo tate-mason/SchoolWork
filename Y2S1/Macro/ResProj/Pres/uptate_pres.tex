@@ -133,8 +133,8 @@
 \end{frame}
 \begin{frame}{Utility Function}
   \begin{itemize}
-    \item Workers: $U^w(c, m(z);t) = \frac{c^{1-\sigma}}{1-\sigma} + \log(h(z)) - \gamma\cdot\{z'\ne z\}$
-    \item Retirees: $U^r(c, m(z);t) = \frac{c^{1-\sigma}}{1-\sigma} + \log(hc(z)) - \gamma\cdot\{z'\ne z\}$
+    \item Workers: $U^w(c, m(z);t) = \frac{-(c-\bar{c})^2}{2} - \gamma\cdot\{z'\ne z\}$
+    \item Retirees: $U^r(c, m(z);t) = \frac{-(c-\bar{c})^2}{2} - \gamma\cdot\{z'\ne z\}$
     \item $c$: consumption, $m(z)$: amenities in location $z$
     \item $h(z)$: housing quality for workers, $hc(z)$: health care quality for retirees
     \item $\gamma$: moving cost parameter
@@ -142,39 +142,39 @@
 \end{frame}
 \begin{frame}{Budget Constraints}
   \begin{itemize}
-    \item Workers: $c_t + s_{t+1} = (1 + r)s_t + w(\mu,z_t) - \tau(z_t) - c(h(z))$
-    \item $s_t$: savings, $r$: interest rate, $\mu_i$: productivity
+    \item Workers: $c_t = w(z_t) - \tau(z_t) - \mathbb{E}[c(h(z))|\delta]$
+    \item $\delta$: Prior assumptions about housing costs in location $z'$
     \item $w(z_t)$: wage in location $z_t$, $\tau(z_t)$: taxes, $c(h(z))$: housing cost
-    \item Retirees: $c_t + s_{t+1} = (1 + r)s_t + p - c(hc(z))$
+    \item Retirees: $c_t + s_{t+1} = (1 + r)s_t + p - \mathbb{E}[c(hc(z))|\delta]$
     \item $p$: pension income
   \end{itemize}
 \end{frame}
 \begin{frame}{Decision Problem: Workers}
   \begin{equation}
-    $V^w(s_t, z_t; t) = \max\{V_w^M(s_t, z_t; t), V_w^S(s_t, z_t; t)\}$
+    $V^w(\delta, z_t, t) = \max\{V_w^M(\delta, z_t, t), V_w^S(\delta, z_t, t)\}$
   \end{equation}
   \begin{itemize}
     \item $V_w^M$: value of moving, $V_w^S$: value of staying
   \end{itemize}
   \begin{equation}
-    \item $V^S_w(s_t, z_t; t) = \max_{c_t, s_{t+1}} \{U(c_t, m(z_t), \mu) + x\beta \sum_{\mu'}\Pi(\mu'|\mu)V^w(s_{t+1}, z_t; t+1) + (1-x)\betaV^r(s_{t+1}, z_t; t+1)\}$
+    \item $V^S_w(\delta, z_t, t) = \max_{c_t} \{U(c_t) + x\beta V^w(\delta, z_t, t+1) + (1-x)\betaV^r(\delta,z_t, t+1)\}$
   \end{equation}
   \begin{equation}
-    \item $V^M_w(s_t, z_t; t) = \max_{z', c_t, s_{t+1}} \{U(c_t, m(z'), \mu) + x\beta \sum_{\mu'}\Pi(\mu'|\mu)V^w(s_{t+1}, z'; t+1) + (1-x)\betaV^r(s_{t+1}, z'; t+1)\}$
+    \item $V^M_w(s_t, z_t; t) = \max_{z', c_t} \{U(c_t, m(z')) + x\beta \mathbb{E}[V^w(\delta', z'; t+1)|\delta] + (1-x)\beta\mathbb{E}[V^r(\delta', z'; t+1)|\delta]\}$
   \end{equation}
 \end{frame}
 \begin{frame}{Decision Problem, Retirees}
   \begin{equation}
-    $V^r(s_t, z_t; t) = \max\{V_r^M(s_t, z_t; t), V_r^S(s_t, z_t; t)\}$
+    $V^r(\delta, z_t; t) = \max\{V_r^M(\delta, z_t; t), V_r^S(z_t; t)\}$
   \end{equation}
   \begin{itemize}
     \item $V_r^M$: value of moving, $V_r^S$: value of staying
   \end{itemize}
   \begin{equation}
-    \item $V^S_r(s_t, z_t; t) = \max_{c_t, s_{t+1}} \{U(c_t, m(z_t)) + y\beta V^r(s_{t+1}, z_t; t+1)\}$
+    \item $V^S_r(z_t; t) = \max_{c_t} \{U(c_t, m(z_t)) + y\beta V^r(\delta, z_t; t+1)\}$
   \end{equation}
   \begin{equation}
-    \item $V^M_r(s_t, z_t; t) = \max_{z', c_t, s_{t+1}} \{U(c_t, m(z')) + y\beta V^r(s_{t+1}, z'; t+1)\}$
+    \item $V^M_r(\delta, z_t; t) = \max_{z', c_t} \{U(c_t, m(z')) + y\beta V^r(\delta', z'; t+1)\}$
   \end{equation}
 \end{frame}
 \section{Next Steps}

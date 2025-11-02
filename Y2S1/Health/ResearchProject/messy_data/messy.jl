@@ -21,7 +21,7 @@ r_vals = [0.1, 0.5]  # Different risk sensitivities
 
 # Search Space
 # ========================
-S_max = 10.0       # Maximum state value
+S_max = 100.0       # Maximum state value
 S_grid = 0:S_max
 
 # Doctor risk and cost params
@@ -117,11 +117,13 @@ active = trues(n_d)
 # ========================
 
 exit_count_over_time = zeros(T)
+mean_search_over_time = zeros(T)
 for t in 1:T
   active_docs= findall(active)
   if isempty(active_docs)
     println("All doctors have exceeded risk capacity at time $t")
     exit_count_over_time[t:end] .= sum(.!active)
+    mean_search_over_time[t:end] .= mean(S_a)
     break
   end
   matches = rand(1:n_d, n_a)
@@ -155,6 +157,7 @@ for t in 1:T
       end
   end
   exit_count_over_time[t] = sum(.!active)  # total number of inactive doctors at end of period t
+  mean_search_over_time[t] = mean(S_a)
 end
 new_exits_per_period = diff([0; exit_count_over_time])   
 # doctor profits
@@ -206,7 +209,225 @@ p_flow = bar(
     legend = false,
 )
 
-plot(p_cum, p_flow, layout = (2,1))
+p_search = plot(
+    1:T,
+    mean_search_over_time,
+    xlabel = "Time period",
+    ylabel = "Mean Search Stock S",
+    title = "Mean Addict Search Stock Over Time",
+    linewidth = 2,
+    legend = false,
+)
+plot(p_cum, p_flow, p_search, layout = (3,1))
 savefig("doctor_exits_over_time.png")
 # End of Code
 
+# Counterfactual Experiments
+# ========================
+
+struct MarketParams
+    n_a::Int # Number of addicts
+    n_d::Int # Number of doctors
+    T::Int  # Time periods
+    
+    λ_match::Float64  # match probability parameter
+    risk_cap_low::Float64 # min draw for risk cap of doctors
+    risk_cap_high::Float64 # max draw for risk cap of doctors
+
+    exposure_scale::Float64 # how fast exposure accumulates
+    exit_penalty::Int # penalty to addict value upon relapse
+
+    seed::Int # random seed
+end
+
+function simulate_market(params::MarketParams)
+    (; n_a, n_d, T, λ_match, risk_cap_low, risk_cap_high,
+       exposure_scale, exit_penalty, seed) = params
+
+    Random.seed!(seed)
+    # --- types ---
+    # addicts
+    γ_vals = [0.5, 1.5]
+    r_vals = [0.1, 0.5]
+    γ_a = rand(Categorical([0.5, 0.5]), n_a)
+    r_a = rand(Categorical([0.5, 0.5]), n_a)
+
+    # doctors
+    r_d = rand(Categorical([0.5, 0.5]), n_d)
+  
+    # --- states over time ---
+    S_a = zeros(Int, n_a)  # Initial states for addicts
+    V_a = zeros(Float64, n_a)
+    P_total = zeros(Float64, n_d)
+    a_count = zeros(Int, n_d)
+    risk_exposure = zeros(Float64, n_d)
+    active = trues(n_d)
+
+    risk_cap = rand(Uniform(risk_cap_low, risk_cap_high), n_d)
+    exit_count_over_time = zeros(T)
+    mean_search_over_time = zeros(T)
+
+    for t in 1:T
+      active_docs= findall(active)
+      if isempty(active_docs)
+        println("All doctors have exceeded risk capacity at time $t")
+        exit_count_over_time[t:end] .= sum(.!active)
+        mean_search_over_time[t:end] .= mean(S_a)
+        break
+      end
+      matches = rand(1:n_d, n_a)
+      for i in 1:n_a
+          doc_idx = matches[i]
+          γ = γ_vals[γ_a[i]]; risk_a = r_vals[r_a[i]]
+          s = S_a[i]
+
+          if !active[doc_idx]
+              S_a[i] = min(s + exit_penalty, 100.0)
+              continue
+          end
+
+          matched = rand() < λ_match
+          if matched
+              p = 1 + rand()
+              y = γ*p - risk_a^(1/γ)*s
+              U = y
+              V_a[i] = U + 0.95 * V_a[i]
+              S_a[i] = 0
+              # Update doctor stats
+              P_total[doc_idx] += p
+              a_count[doc_idx] += 1
+              risk_exposure[doc_idx] += exposure_scale * r_vals[r_d[doc_idx]]*p
+              if risk_exposure[doc_idx] > risk_cap[doc_idx]
+                  active[doc_idx] = false
+                  S_a[i] = min(s+exit_penalty, 100.0)
+              end
+          else
+          S_a[i] = min(s+1, 100.0)
+          end
+      end
+
+      exit_count_over_time[t] = sum(.!active)  # total number of inactive doctors at end of period t
+      mean_search_over_time[t] = mean(S_a)
+    end
+
+    i_choice = 1.0
+    π_doctors = similar(P_total)
+    for j in 1:n_d
+        risk_doc = r_vals[r_d[j]]
+        π_doctors[j] = risk_doc^2 * P_total[j] + a_count[j] - i_choice * risk_doc
+    end
+    return (
+        exit_path = exit_count_over_time,
+        search_path = mean_search_over_time,
+        final_search = copy(S_a),
+        active_doctors_end = sum(active),
+        pct_active_end = mean(active),
+        avg_doctor_profit = mean(π_doctors[active]),
+        avg_addict_value = mean(V_a),
+        params = params
+    )
+end
+
+baseline_params = MarketParams(
+  1000,
+  600,
+  100,
+  0.3,
+  10.0,
+  20.0,
+  1.0,
+  1,
+  219
+)
+baseline_result = simulate_market(baseline_params)
+println("Baseline avg doctor profit: ", baseline_result.avg_doctor_profit)
+println("Baseline avg addict value: ", baseline_result.avg_addict_value)
+
+# Counterfactual: Higher risk
+cf_params = MarketParams(
+  1000,
+  600,
+  100,
+  0.3,
+  5.0,
+  10.0,
+  1.0,
+  1,
+  219
+)
+
+cf_result = simulate_market(cf_params)
+println("Counterfactual avg doctor profit: ", cf_result.avg_doctor_profit)
+println("Counterfactual avg addict value: ", cf_result.avg_addict_value)
+println("Doctors active at end (CF): ", cf_result.active_doctors_end)
+println("Doctors active at end (Baseline): ", baseline_result.active_doctors_end)
+println("Difference in avg addict value: ", cf_result.avg_addict_value - baseline_result.avg_addict_value)
+println("Difference in Addict Search Stock Mean: ", mean(cf_result.final_search) - mean(baseline_result.final_search))
+
+T = baseline_params.T
+tgrid = 1:T
+
+p_exit = plot(
+  tgrid,
+  baseline_result.exit_path,
+  label = "Baseline",
+  xlabel = "Time Period",
+  ylabel = "Cumulative Doctor Exits",
+  title = "Doctor Exits Over Time",
+  linewidth = 2,
+)
+
+plot!(
+  p_exit,
+  tgrid,
+  cf_result.exit_path,
+  label = "Increased Risk",
+  linestyle = :dash,
+  linewidth = 2,
+)
+
+display(p_exit)
+savefig("counterfactual_doctor_exits.png")
+
+p_search = plot(
+  tgrid,
+  baseline_result.search_path,
+  label = "Baseline",
+  xlabel = "Time Period",
+  ylabel = "Mean Addict Search Stock S",
+  title = "Mean Addict Search Stock Over Time",
+  linewidth = 2,
+)
+plot!(
+  p_search,
+  tgrid,
+  cf_result.search_path,
+  label = "Increased Risk",
+  linestyle = :dash,
+  linewidth = 2,
+)
+display(p_search)
+savefig("counterfactual_addict_search_stock.png")
+
+p_profit = bar(
+    ["Baseline", "Increased Risk"],
+    [baseline_result.avg_doctor_profit, cf_result.avg_doctor_profit],
+    xlabel = "Scenario",
+    ylabel = "Average Doctor Profit",
+    title = "Average Doctor Profit: Baseline vs Increased Risk",
+    legend = false,
+)
+display(p_profit)
+savefig("counterfactual_doctor_profit.png")
+
+p_value = bar(
+    ["Baseline", "Increased Risk"],
+    [baseline_result.avg_addict_value, cf_result.avg_addict_value],
+    xlabel = "Scenario",
+    ylabel = "Average Addict Value",
+    title = "Average Addict Value: Baseline vs Increased Risk",
+    legend = false,
+)
+display(p_value)
+savefig("counterfactual_addict_value.png")
+# End of Code

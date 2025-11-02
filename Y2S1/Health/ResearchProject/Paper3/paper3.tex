@@ -178,15 +178,13 @@ In proceeding periods:
   V_a^f(\gamma_i, r_i') = \{u(c_i) + \mathbb{E}_{t}[\beta(1-a(\theta))V_a(\gamma_i, r_i') + \beta \mathbb{E}_{t}[a(\theta)V_a(\gamma_i, r_i')]]\} \\
   u(c) = \frac{c_i^{1-\sigma}}{1-\sigma} \\
   r_i' = r_i + \epsilon_a \\
-  c_i =\gamma_ip_{it} + r_i^{1/\gamma_i} \times \sum s_{it}
+  c_i =\gamma_ip_{it} - r_i^{1/\gamma_i} \times \sum s_{it}
 \end{gather*}
 
 Where $V_a^0$ is the value function for an addict in their first period of search, and $V_a^m$ is the value function for an addict in proceeding periods, if they choose
-to find a new doctor, $V_a^f$, or to stay with their current match, $V_a^s$. $u(c_i)$ is the utility from consumption, with CRRA parameter $\sigma$. Risk evolves as before, and 
-consumption is a function of risk tolerance and type, with higher type addicts consuming more for a given risk level due to their predisposition. Addicts
-will continue to search until they are cut off, which happens when their risk exceeds a threshold set by physicians. Finally, the constraint on consumption
-is made up of prescription amount, $p_{it}$, risk tolerance, and search cost.
-
+to find a new doctor, $V_a^f$, or to stay with their current match, $V_a^s$. $u(c_i)$ is the utility from consumption, with CRRA parameter $\sigma$. $c_i$ is comprised 
+of prescription utility (weighted by tolerance), minus the addicts search costs augmented by risk. Addicts will always search if they are unmatched, and will choose
+to search again if their value from searching exceeds that of staying with their current physician, or they are cut off.
 
 \subsection{Doctors}
 
@@ -203,7 +201,7 @@ The doctor's optimization is as follows
 \end{equation}
 \begin{gather*}
   \shortintertext{s.t.} \\
-  v_j = r_{jt}^2\sum\limits_{i=1}^{I} c_{it} + \xi \\
+  v_j = r_d^2\sum\limits_{i=1}^{I} p_{it} + \sum\limits_{i=1}^Ia_i \\
 \end{gather*}
 
 Where $v_{j}$ is a visit cost, which is initially a flat $\xi$ and will evolve according to how many patients they prescribe to. $i_j$ is a flat physician's insurance cost which 
@@ -214,88 +212,63 @@ Doctors who do not prescribe will have a different optimization, which is simply
 
 \subsection{Estimation}
 
-To estimate, using method of simuated moments, I would need to get moments of the variance of risk for each type of $\gamma_i$, which I think I will classify as either low, average, or high.
-I am still working on this part, and will hope to have more in the next couple of weeks. I have been looking over  literature using the Roy model since I think it makes the
-most sense to use for a simpler case like this. Hopefully, I will have more for this soon, but I think the bones are there. I am still just looking for more understanding of the 
-estimation process.
+This was estimated via VFI. Estimation procedure is as follows:
+\begin{enumerate}
+  \item Initialize parameters for addicts and doctors, as well as initial value functions.
+  \item For each iteration:
+  \begin{enumerate}
+    \item Solve the addict's dynamic programming problem using value function iteration.
+    \item Solve the doctor's optimization problem given the current distribution of addicts.
+    \item Update the measure of physicians willing to prescribe, $\theta$, based on the current matches.
+    \item Check for convergence of value functions and policies.
+  \end{enumerate}
+  \item Once converged, simulate the model to generate synthetic data for analysis.
+  \item Simulate counterfactual scenarios to assess policy impacts.
+\end{enumerate}
 
+\section{Simulated Results}
+\label{sec:results}
+% Present your experimental setup, datasets, and evaluation metrics.
 
-% Describe your approach in sufficient detail for reproducibility.
-% Include mathematical formulations, algorithms, and theoretical analysis as needed.
-
-\subsection{Problem Formulation}
-\label{subsec:formulation}
-
-% Formally define the problem you're solving using mathematical notation.
-% Establish assumptions, constraints, and objectives clearly.
-
-\subsection{Proposed Approach}
-\label{subsec:approach}
-
-% Detail your methodology including:
-% - Core algorithms and their rationale
-% - Mathematical derivations and proofs
-% - Implementation details crucial for reproducibility
-% - Complexity analysis if relevant
-
-\section{Experimental Evaluation}
-\label{sec:experiments}
-
-% Present your experimental design, results, and analysis.
-% Be objective and thorough in reporting both positive and negative results.
-
-\subsection{Experimental Setup}
-\label{subsec:setup}
-
-
-\subsection{Datasets}
-\label{subsec:datasets}
-
-\subsection{Results}
-\label{subsec:results}
-
-% Present results clearly and objectively:
-% - Use tables and figures effectively
-% - Report statistical significance where appropriate
-% - Include error bars or confidence intervals
-% - Compare against all relevant baselines
-% - Report both quantitative metrics and qualitative observations
-
-\subsection{Analysis}
-\label{subsec:analysis}
-
-% Provide deeper analysis of your results:
-% - Statistical significance tests
-% - Ablation studies showing contribution of different components
-% - Error analysis and failure cases
-% - Computational complexity and runtime analysis
-% - Sensitivity analysis for key parameters
-
+\subsection{Baseline Simulation}
+\label{subsec:baseline_simulation}
+% Describe your baseline simulation setup. Include parameter settings, initial conditions, and any assumptions made.
+In the baseline simulation, we set the following parameters:
+\begin{itemize}
+  \item Addict discount factor $\beta = 0.95$
+  \item High addiction predisposition $\gamma_h = 1.5$ and low addiction predisposition $\gamma_l = 0.5$
+  \item Probability of successful prescription $m(\theta) = 0.3$
+  \item Search cost $s_i = 1$
+  \item Risk caps: $r_d = \{10, 30\}; \ r_a = \{5, 15\}$
+  \item Number of addicts $N = 1000$ and number of doctors $K = 600$
+\end{itemize}
+\subsection{Policy Simulations}
+\label{subsec:policy_simulations}
+The main counterfactual changed risk for doctors, making the risk cap lower, simulating increased regulation and oversight. This was done to see how physicians would react to increased risk of prescribing, and how that would affect addict behavior.
 \section{Discussion}
 \label{sec:discussion}
+In the baseline, it can be seen that doctors are willing to take on increasing risk for about 25 periods, after which we begin to see exit from the prescribing market.
+This is likely due to the accumulation of risk from prescribing to addicts, who have increasing tolerance and thus require more prescriptions over time. Addicts, however, seem to have a relatively stable search pattern, with high initial search 
+stock, which decreases after about 10 straight periods. Doctor profits take a bimodal distribution, with some doctors making very high profits, while others make very little. This is likely a side effect of only having two types of risk tolerance 
+for doctors.
 
-% Interpret your findings, discuss broader implications, and acknowledge limitations honestly.
+\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.png}
+\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.png}
+\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.png}
 
-\subsection{Interpretation of Results}
-\label{subsec:interpretation}
+In the policy simulation, we see that doctors exit the prescribing market much earlier, and we see that addicts have significant lower value due to the increased difficulty in finding a willing prescriber.
 
-% Explain what your results mean in the context of your research questions:
-% - How do findings relate to your hypotheses?
-% - What insights do the results provide?
-% - How do they compare to previous work?
-% - What are the practical implications?
+\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.png}
+\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.png}
 
-\subsection{Limitations}
-\label{subsec:limitations}
+Interestingly, we do not see a significant decrease in the profits of doctors in the counterfacutal, likely due to the fact that those who remain prescribing are doing so at a higher rate, picking up the slack of those who have exited
 
-% Honestly discuss limitations of your work:
-% - Methodological limitations
-% - Dataset limitations or biases
-% - Assumptions that may not hold in practice
-% - Scope limitations
-% - Computational or resource constraints
+\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.png}
 
-\subsection{Future Work}
-\label{subsec:future_work}
+
+\section{Next Steps}
+\label{sec:next_steps}
+Next steps for this project include refining the model to better capture the nuances of addict and physician behavior. Furthermore, I plan to calibrate the model using real-world data on prescription drug abuse and physician prescribing patterns.
+I also hope to explore additional policy scenarios, such as the impact of prescription drug monitoring programs (PDMPs) and educational interventions for physicians. Lastly, I hope to better quantify the welfare implications for both addicts and physicians under various policy regimes.
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  19 OCT 2025 13:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  2 NOV 2025 13:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -579,11 +579,7 @@ or  <return>  to continue without it.
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count341
 \l__pdf_internal_box=\box69
-) (./paper3.aux
-
-LaTeX Warning: Label `subsec:limitations' multiply defined.
-
-)
+) (./paper3.aux)
 \openout1 = `paper3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
@@ -748,10 +744,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [2]
-./paper3.tex:207: Undefined control sequence.
+./paper3.tex:205: Undefined control sequence.
 <argument>  \shortintertext 
-                            {s.t.} \\ v_j = r_{jt}^2\sum \limits _{i=1}^{I} ...
-l.207 \end{gather*}
+                            {s.t.} \\ v_j = r_d^2\sum \limits _{i=1}^{I} p_{...
+l.205 \end{gather*}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -759,10 +755,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./paper3.tex:207: Undefined control sequence.
+./paper3.tex:205: Undefined control sequence.
 <argument>  \shortintertext 
-                            {s.t.} \\ v_j = r_{jt}^2\sum \limits _{i=1}^{I} ...
-l.207 \end{gather*}
+                            {s.t.} \\ v_j = r_d^2\sum \limits _{i=1}^{I} p_{...
+l.205 \end{gather*}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -780,6 +776,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [3]
+<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.png, id=120, 602.25pt x 401.5pt>
+File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.png Graphic file (type png)
+<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.png>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.png  used on input line 255.
+(pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
+<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.png, id=121, 602.25pt x 401.5pt>
+File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.png Graphic file (type png)
+<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.png>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.png  used on input line 256.
+(pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
+<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.png, id=122, 602.25pt x 401.5pt>
+File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.png Graphic file (type png)
+<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.png>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.png  used on input line 257.
+(pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 255--258
+[][]
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -788,31 +805,90 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[4] (./paper3.aux)
+[4]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[5 </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.png> </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.png>]
+<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.png, id=134, 602.25pt x 401.5pt>
+File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.png Graphic file (type png)
+<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.png>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.png  used on input line 261.
+(pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
+<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.png, id=135, 602.25pt x 401.5pt>
+File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.png Graphic file (type png)
+<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.png>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.png  used on input line 262.
+(pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 261--263
+[][]
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[6 </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.png> </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.png>]
+<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.png, id=141, 602.25pt x 401.5pt>
+File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.png Graphic file (type png)
+<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.png>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.png  used on input line 266.
+(pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 266--267
+[][] 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[7 </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.png> </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.png>]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[8] (./paper3.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `paper3.out' has not changed.
-(rerunfilecheck)             Checksum: 00DA3C606524CF868935C189EF0A82F7;2953.
+(rerunfilecheck)             Checksum: A4F5A21207BBB44AC06E28F95E3378B5;2167.
  ) 
 Here is how much of TeX's memory you used:
- 24752 strings out of 473190
- 447371 string characters out of 5715801
- 830266 words of memory out of 5000000
- 47577 multiletter control sequences out of 15000+600000
- 577724 words of font info for 84 fonts, out of 8000000 for 9000
+ 24796 strings out of 473190
+ 451276 string characters out of 5715801
+ 829007 words of memory out of 5000000
+ 47614 multiletter control sequences out of 15000+600000
+ 578065 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,12n,91p,409b,460s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,12n,91p,409b,534s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on paper3.pdf (5 pages, 273166 bytes).
+Output written on paper3.pdf (9 pages, 417081 bytes).
 PDF statistics:
- 236 PDF objects out of 1000 (max. 8388607)
- 187 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
- 197 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 250 PDF objects out of 1000 (max. 8388607)
+ 190 compressed objects within 2 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 179 words of extra memory for PDF output out of 10000 (max. 10000000)
 
