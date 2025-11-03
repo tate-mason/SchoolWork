@@ -29,7 +29,7 @@ end
 
 "Consumption for a worker in location z with belief type d"
 function c_worker(z::Int, d::Int, M::Model)
-  # c = w(z) - τ(z) - E[c(h_cost(z))| δ]
+  # c = w(z)*τ(z) - E[c(h_cost(z))| δ]
     return M.wage[z] - M.tax[z] - M.h_cost[z, d]
 end
 
@@ -174,6 +174,8 @@ function solve_model(M::Model)
     return Vw, Vr, pol_w, pol_r
 end
 
+
+
 # Calibration and Simulation
 # ============================
 const state_names = [
@@ -261,7 +263,7 @@ function model()
     x = 0.90
     y = 0.98
     γ = 12.0
-    cbar = 50.0
+    cbar = 1
 
     T_min = 40
     T_max = 80
@@ -270,9 +272,9 @@ function model()
     D = 2 # number of belief types
 
     wage_vec = build_wage_vector() 
-    tax_vec = 0.18 .* wage_vec .+ 2.0
+    tax_vec = 0.2 * wage_vec # flat 20% tax rate for simplicity
     h_cost, health_cost = build_cost_matrices(D = D, seed = 1234)
-    pension = 40.0
+    pension = mean(wage_vec)*0.3
 
     M = Model(
         β, x, y, γ, cbar,
@@ -288,10 +290,6 @@ function model()
 end
 
 using StatsBase, Plots
-
-###########################################################
-# Simulate one agent’s life with migration tracking
-###########################################################
 
 ###########################################################
 # Simulation with top-10 restriction and realistic survival
@@ -331,10 +329,12 @@ function simulate_life(M::Model, Vw, Vr, pol_w, pol_r; z0::Int=1, d0::Int=1, see
             loc_path[idx] = current_z
 
             # smoother retirement: raise chance only after 60
-            retire_prob = if t < 60
-                0.01
-            else
-                0.10
+            retire_prob = if t < 62
+                0.03
+            elseif t < 70
+                0.1
+            else 
+                1.0
             end
             if rand() < retire_prob
                 is_retired = true
@@ -349,11 +349,11 @@ function simulate_life(M::Model, Vw, Vr, pol_w, pol_r; z0::Int=1, d0::Int=1, see
 
             # low annual mortality until very old
             death_prob = if t < 75
-                0.002
-            elseif t < 80
-                0.01
-            else
                 0.05
+            elseif t < 80
+                0.1
+            else
+                1
             end
             if rand() < death_prob
                 alive = false

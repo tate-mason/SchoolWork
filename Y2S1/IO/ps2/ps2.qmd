@@ -156,12 +156,16 @@ data_col <- data_col %>%
   group_by(industry) %>%
   mutate(
     log_L = log(L),
+    log_K_ind_col = log(K),
+    log_L_ind_col = log(L)
   ) %>%
   ungroup()
 data_chi <- data_chi %>%
   group_by(industry) %>%
   mutate(
     log_L = log(L),
+    log_K_ind_chi = log(K),
+    log_L_ind_chi = log(L)
   ) %>%
   ungroup()
 
@@ -209,12 +213,13 @@ ols_chi <- lm(log(Y2) ~ log_L + log(K), data = data_chi)
 summary(ols_chi)
 
 # Estimate varying parameters across industries using OLS for each country
-form <- as.formula("log(Y2) ~ log_L + log(K) + industry")
 
-ols_ind_col <- lm(form, data = data_col)
+ols_ind_col <- lm(log(Y2) ~ log_L_ind_col + log_K_ind_col + industry,
+  data = data_col)
 summary(ols_ind_col)
 
-ols_ind_chi <- lm(form, data = data_chi)
+ols_ind_chi <- lm(log(Y2) ~ log_L_ind_chi + log_K_ind_chi + industry,
+  data = data_chi)
 summary(ols_ind_chi)
 ```
 
@@ -225,16 +230,17 @@ in productivity across industries via the industry coefficients.
 ```{r}
 #| label: 2-1 OLS w/ Investment
 form_hom <- as.formula("log(Y2) ~ log_L + log(K) + log_i")
-form_het <- as.formula("log(Y2) ~ log_L + log(K) + log_i + industry")
 
 ols_inv_col <- lm(form_hom, data = data_col)
 summary(ols_inv_col)
 ols_inv_chi <- lm(form_hom, data = data_chi)
 summary(ols_inv_chi)
 
-ols_inv_ind_col <- lm(form_het, data = data_col)
+ols_inv_ind_col <- lm(log(Y2) ~ log_L_ind_col + log_K_ind_col +
+  log_i*industry + industry, data = data_col)
 summary(ols_inv_ind_col)
-ols_inv_ind_chi <- lm(form_het, data = data_chi)
+ols_inv_ind_chi <- lm(log(Y2) ~ log_L_ind_chi + log_K_ind_chi +
+  log_i*industry + industry, data = data_chi)
 summary(ols_inv_ind_chi)
 ```
 
@@ -288,14 +294,50 @@ data_chi <- first_stage(data_chi)
 # Second stage: estimate y2_{t+1} - alpha_l*l_{t+1} = alpha_0 + alpha_k*k_{t+1} 
 # + g(phi_hat_t - alpha_k*k_t - alpha_0) + error
 
-form_op <- as.formula("log_y2_next - log_L ~ log_k_next + I(phi_hat - log_K)")
-op_col <- lm(form_op, data = data_col)
-summary(op_col)
-op_chi <- lm(form_op, data = data_chi)
-summary(op_chi)
+first_stage_ind <- function(data) {
+  data <- data %>%
+    mutate(
+      k_sq_ind = log_K^2*industry,
+      it_k_ind = as.numeric(factor(paste(id, year))) * log_K * industry,
+      it_k_sq_ind = it_k_ind^2,
+      inv_sq_ind = log_i^2*industry,
+      k_inv_ind = log_K * log_i * industry,
+      k_inv_sq_ind = k_inv_ind^2,
+      rhs_ind = cbind(log_L, log_K, k_sq_ind, log_i, inv_sq_ind,
+        k_inv_ind, k_inv_sq_ind)
+    )
+  fs_model_ind <- lm(log_Y2 ~ rhs_ind + industry, data = data)
+  data$phi_hat_ind <- predict(fs_model_ind, newdata = data)
+  return(data)
+}
 
-# Estimate varying parameters across industries using OP for each country
-form_op_ind <- as.formula("log_y2_next - log_L ~ log_k_next + I(phi_hat - log_K) + industry")
+data_col <- data_col %>%
+  arrange(id, year) %>%
+  group_by(id) %>%
+  mutate(
+    log_k_next = lead(log_K),
+    log_y2_next = lead(log_Y2)
+  ) %>%
+  ungroup()
+data_chi <- data_chi %>%
+  arrange(id, year) %>%
+  group_by(id) %>%
+  mutate(
+    log_k_next = lead(log_K),
+    log_y2_next = lead(log_Y2)
+  ) %>%
+  ungroup()
+data_col <- first_stage_ind(data_col)
+data_chi <- first_stage_ind(data_chi)
+
+form_op_ind <- as.formula("log_Y2 ~ rhs_ind + industry")
+fs_ind_col <- lm(form_op_ind, data = data_col)
+data_col$phi_hat_ind <- predict(fs_ind_col, newdata = data_col)
+fs_ind_chi <- lm(form_op_ind, data = data_chi)
+data_chi$phi_hat_ind <- predict(fs_ind_chi, newdata = data_chi)
+
+form_op_ind <- as.formula("log_y2_next - log_L ~ log_k_next + 
+    I(phi_hat_ind - log_K) + industry")
 op_ind_col <- lm(form_op_ind, data = data_col)
 summary(op_ind_col)
 op_ind_chi <- lm(form_op_ind, data = data_chi)
