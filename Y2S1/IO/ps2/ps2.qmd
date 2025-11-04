@@ -425,3 +425,38 @@ summary(acf_ind_chi)
 
 ## Question 3
 ### 3.1
+```{r}
+#| label: 3-1 Estimating ω
+# Using OP estimates from 2.3 to estimate omega
+alpha_0_col <- coef(op_col)[1]
+alpha_K_col <- coef(op_col)[2]
+alpha_L_col <- 1 - alpha_K_col
+data_col <- data_col %>%
+  mutate(
+    omega_hat = log_Y2 - alpha_0_col - alpha_L_col * log_L - alpha_K_col * log_K
+  )
+alpha_0_chi <- coef(op_chi)[1]
+alpha_K_chi <- coef(op_chi)[2]
+alpha_L_chi <- 1 - alpha_K_chi
+data_chi <- data_chi %>%
+  mutate(
+    omega_hat = log_Y2 - alpha_0_chi - alpha_L_chi * log_L - alpha_K_chi * log_K
+  )
+```
+
+### 3.2
+```{r}
+#| label: 3-2 Plotting ω
+# Plotting omega over time for each industry in each country
+ggplot(data_col, aes(x = year, y = omega_hat, color = industry))
+  geom_line(alpha = 0.5) +
+  labs(title = "Estimated Productivity (ω) over Time by Industry (Colombia)",
+       x = "Year",
+       y = "Estimated ω") +
+  theme_minimal()
+ggplot(data_chi, aes(x = year, y = omega_hat, color = industry)) +
+  geom_line(alpha = 0.5) +
+  labs(title = "Estimated Productivity (ω) over Time by Industry (Chile)",
+       x = "Year",
+       y = "Estimated ω") +
+  theme_minimal()
