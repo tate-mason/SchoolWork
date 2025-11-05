@@ -1,17 +1,17 @@
----
-title: "Problem Set 2 - IO"
-author: "Tate Mason"
-format: pdf
----
 
-```{r setup, include=FALSE}
+
+
+
+
+
+
 knitr::opts_chunk$set(echo = TRUE)
-```
 
-## Question 1
-Exploring the Data
 
-```{r}
+
+
+
+
 # Load necessary libraries
 library(dplyr)
 library(ggplot2)
@@ -28,10 +28,10 @@ data <- data %>%
 
 # Display the first few rows of the dataset
 head(data)
-```
 
-### 1.1
-```{r}
+
+
+
 #| label: 1-1 Summary Statistics
 # Summary Statistics of the data
 data %>%
@@ -54,28 +54,28 @@ data %>%
   print()
 
 
-```
 
-**Chile**: 1. Food - 2584, 2. Metal - 1038, 3. Wood - 867, 4. Apparel - 856, 5. Textile - 836
-**Colombia**: 1. Food - 908, 2. Apparel - 744, 3. Metal - 632, 4. Textile - 475, 5. Wood - 173
 
-**Apparel Over Time** - 1979: 354 $\rightarrow$ 1996: 292
-- Peak at 1981 - 979
 
-**Food Over Time** - 1979: 1171 $\rightarrow$ 1996: 1178
-- Peak at 1981 - 1951
 
-**Metal Over Time** - 1979: 373 $\rightarrow$ 1996: 443
-- Peak at 1981 - 890
 
-**Textiles Over Time** - 1979: 391 $\rightarrow$ 1996: 304
-- Peak at 1981 - 752
 
-**Wood Over Time** - 1979: 340 $\rightarrow$ 1996: 290
-- Peak at 1981 - 465
 
-### 1.2
-```{r}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #| label: 1-2 Histograms of Investment
 # Creation of Investment Variable with 10 per depreciation rate
 data <- data %>%
@@ -111,13 +111,13 @@ ggplot(data_chi, aes(x = log_i)) +
        x = "Log Investment",
        y = "Frequency") +
   theme_minimal()
-```
 
-From these graphs, it seems that most industries have similar levels of investment,
-though textiles, wood, and metal appear to have slightly higher investment levels on average, while apparel is lower.
 
-### 1.3
-```{r}
+
+
+
+
+
 #| label: 1-3 Histograms of Output
 data_col <- data_col %>%
   group_by(industry) %>%
@@ -148,10 +148,10 @@ ggplot(data_chi, aes(x = log_Y)) +
        x = "Log Output",
        y = "Frequency") +
   theme_minimal()
-```
 
-### 1.4
-```{r}
+
+
+
 #| label: 1-4 Scatter Plots
 # Scatter plot of log_Y and log_L for each sector in each country
 data_col <- data_col %>%
@@ -188,24 +188,24 @@ ggplot(data_chi, aes(x = log_L, y = log_Y)) +
        x = "Log Labor",
        y = "Log Output") +
   theme_minimal()
-```
 
-## Question 2
 
-### 2.1
 
-The estimating equation is as follows: 
 
-$$ \log(Y_{it}) = \alpha_0 + \omega_{it} + \epsilon_{it} + \alpha_L\log(L_{it}) + \alpha_K\log(K_{it}) $$
 
-To get here, we take the log of:
 
-$$ Y2_{it} = e^{\alpha_0 + \omega_{it} + \epsilon_{it}}L_{it}^{\alpha_L}K_{it}^{\alpha_K} $$ 
 
-Where $Y_{it}$ is the value added output of firm $i$ at time $t$, $L_{it}$ is labor input and $K_{it}$ is capital input. The $\omega_{it}$ term is heterogeneous productivity shocks, varying across firms and years.
-As discussed in class, we can use OLS to estimate, but we will have some issues with endogeneity via $\omega_{it}$ showing up in the labor FOC.
 
-```{r}
+
+
+
+
+
+
+
+
+
+
 #| label: 2-1 OLS
 # Estimate homogenous parameteres using OLS for each country
 ols_col <- lm(log(Y2) ~ log_L + log_K, data = data_col)
@@ -229,13 +229,13 @@ modelsummary(
   stars = c('*' = 0.1, '**' = 0.05, '***' = 0.01),
   output = "kableExtra"
 )
-```
 
-As can be seen in the regression outputs, when we add heterogeneity across industries, the estimates for labor and capital change slightly. However, we can now ascertain differences
-in productivity across industries via the industry coefficients.
 
-### 2.2
-```{r}
+
+
+
+
+
 #| label: 2-1 OLS w/ Investment
 form_hom <- as.formula("log(Y2) ~ log_L + log(K) + log_i")
 
@@ -257,15 +257,15 @@ modelsummary(
   stars = c('*' = 0.1, '**' = 0.05, '***' = 0.01),
   output = "kableExtra"
 )
-```
 
-When we add investment as a regressor, we see that the coefficients on labor and capital change slightly again. The investment coefficient is positive and significant across all specifications,
-indicating that higher investment is associated with higher value added output. Industry level heterogeneity remains mostly significant as well. 
 
-Comparing to the results from 2.1, inclusion of investment seems to improve model fit slightly, as seen in the adjusted R-squared values, suggesting that investment is a factor worth considering when modeling firm output.
 
-### 2.3
-```{r}
+
+
+
+
+
+
 #| label: 2-3 OP Estimation
 # First stage: estimate log_y2 = log_l + phi(log_k) s.t. phi = alpha_0 + 
 # alpha_k*log_k + a(i*t*k)^2 + b(i*t*k) + c
@@ -337,11 +337,11 @@ modelsummary(
   stars = c('*' = 0.1, '**' = 0.05, '***' = 0.01),
   output = "kableExtra"
 )
-```
 
-### 2.4
 
-```{r}
+
+
+
 #| label: 2-4 LP Estimation
 first_stage_lp <- function(data) {
   data <- data %>%
@@ -402,10 +402,10 @@ modelsummary(
   stars = c('*' = 0.1, '**' = 0.05, '***' = 0.01),
   output = "kableExtra"
 )
-```
 
-### 2.5
-```{r}
+
+
+
 #| label: 2-5 ACF Estimation 
 # ACF Estimation for each country
 acf_fs <- function(data) {
@@ -462,13 +462,13 @@ modelsummary(
   output = "kableExtra"
 )
 
-```
 
-ACF estimates 
 
-## Question 3
-### 3.1
-```{r}
+
+
+
+
+
 #| label: 3-1 Estimating ω
 # Using OP estimates from 2.3 to estimate omega = exp(phi_it - alpha_0 - alpha_k*log(K_it))
 
@@ -497,13 +497,12 @@ data_chi <- data_chi %>%
 
 print(paste("Colombia - Mean Omega:", data_col$mean_omega_col[1], "SD Omega:", data_col$sd_omega_col[1]))
 print(paste("Chile - Mean Omega:", data_chi$mean_omega_chi[1], "SD Omega:", data_chi$sd_omega_chi[1]))
-```
 
-As can be seen, Colombia is more productive on average, with a mean $\omega$ of $\approx 110.33$ compared to Chile's
-  mean of $\approx 81.73$. However, Colombia also has a higher standard deviation of $\approx 310.55$ versus Chile's
-  $\approx 153.75$, indicating greater variability in productivity among Colombian firms.
 
-### 3.2
-```{r}
+
+
+
+
+
+
 #| label: 3-2 Using OP estimates by Industry to estimate ω
-```
