@@ -122,92 +122,126 @@ Weakest part of the paper?
 
 Brevity of actual experiment. Ended wanting more analysis, though the point of the paper was to showcase the methodology.
 
-## Paper 3: ""
+## Paper 3: "The Deterrence Effect of Prison: Dynamic Theory and Evidence - Lee and McCrary (2016)"
 
 ### Question 1:
 What is the research question?
 
+How does the change in criminal sanctions occurring before and after an individual's 18th birthday affect recidivism rates? 
 
 ### Question 2:
 Why is it important to answer this question?
 
+This is an important question given the societal cost of crime and incarceration. Gaining insight into how sentencing affects criminal behavior can aid in the design of more effective criminal justice policies.
 
 ### Question 3:
 What are key endogeneity concerns?
 
+A key concern is the manipulation of behavior around the age cutoff. Chiefly, an individual may partake in less risky behavior as their 18th birthday approaches to avoid harsher penalties, which could confound the results.
 
 ### Question 4: 
 Argument for RDD relevance, and supporting evidence?
 
+Relevance is shown via the significant increase in the probability of being charged as an adult once an individual turns 18, as well as receiving sentencing to adult prison. These are shown in figures 2(a) and 2(b).
 
 ### Question 5:
 Argument for RDD validity, and supporting evidence?
+
+The RDD is valid because individuals cannot finely manipulate either their birth date or the timing of sentencing around their birthday. While one could attempt to rush/delay sentencing, there is much beureaucracy involved, making precise manipulation unlikely. Further, there is no reason to believe that individuals just below and just above the age cutoff differ systematically in unobserved characteristics affecting recidivism. Figure 1(a) and 1(b) support this, showing no discontinuities in probability of arrest at 17 or 19. 
 
 
 ### Question 6:
 Argument for RDD monotonicity, and supporting evidence?
 
+Monotonicity holds because individuals sentenced just after their 18th birthday are more likely to receive adult sanctions compared to those sentenced just before turning 18. This is supported by the clear discontinuities in figures 2(a) and 2(b), indicating that turning 18 increases the likelihood of adult charges and sentencing.
+
 
 ### Question 7:
 RDD estimates LATE, can 1 and 2 hold for LATE instead of ATE?
+
+Yes, since there are no defiers in this context. An individual cannot choose to be sentenced as a juvenile if they are sentenced after turning 18, and vice versa. Thus, the LATE applies to compliers who are affected by the age cutoff.
 
 
 ### Question 8:
 Criticism of validity and monotonicity?
 
+Validity could be challenged if individuals chose to alter their behavior around their 18th birthday in ways that affect recidivism, such as avoiding risky activities. Figure 4 shows a decrease in numbers of arrests leading up to one's 18th birthday, corroborating this is a real concern. Monotonicity could be questioned if there were individuals who, despite being sentenced after turning 18, received juvenile sanctions due to mitigating circumstances, though this is unlikely to occur.
+
 
 ### Question 9:
 Additional evidence to assuage concerns in (8)?
+
+The concern around monotonicity is minimal given the legal structure. For validity, the authors actually do a good job showing the main source of variation comes from the sentencing change at age 18, not from other behavioral changes. This is shown via the lack of discontinuities in arrests for index crimes (3(a)).
 
 
 ### Question 10:
 Strongest part of the paper?
 
+The strongest part of the paper is its application of a clear and well-defined RDD to a significant policy question, along with robust data analysis which lends itself to credible inference.
 
 ### Question 11:
 Weakest part of the paper?
 
-## Paper 4: ""
+The weakest part of the paper is the limited ability to generalize findings beyond the specific context of age-based sentencing, as well as potential unobserved behavioral changes around the cutoff that may not be fully accounted for.
+
+## Paper 4: "Using Maimonides' Rule to Estimate the Effect of Class Size on Student Achievement - Angrist and Lavy (1999)"
 
 ### Question 1:
 What is the research question?
 
+How does class size affect student achievement in primary schools in Israel,as measured by standardized test scores?
 
 ### Question 2:
 Why is it important to answer this question?
 
+Education policy is a critical area of public policy, thus understanding the impact of class sizes on student outcomes can inform decisions on resource allocation and educational strategies. The Israeli context provides a unique setting due to Maimonides' Rule, which creates exogenous variation in class sizes.
 
 ### Question 3:
 What are key endogeneity concerns?
+
+A key concern is manipulation on the parent side, with parents potentially choosing school districts based on anticipated class sizes. However, the authors argue that this is unlikely due to law around school assignments and the relative rarity of private school attendance.
 
 
 ### Question 4: 
 Argument for RDD relevance, and supporting evidence?
 
+Relevance is established through Maimonides' Rule, which mandates that class sizes cannot exceed 40 students. This creates a discontinuity in class sizes at enrollment thresholds (multiples of 40). The authors provide evidence of this discontinuity in class sizes in Figure 1, showing a clear jump in average class size at these thresholds. Besides multiples of 40, the class sizes grow roughly linearly with enrollment.
+
 
 ### Question 5:
 Argument for RDD validity, and supporting evidence?
 
+The RDD is valid because the assignment of students to classes based on enrollment thresholds is exogenous. Students cannot manipulate their enrollment numbers to influence class sizes, as these are determined by overall school enrollment. There is difficulty in manipulation, as discussed in (3).
 
 ### Question 6:
 Argument for RDD monotonicity, and supporting evidence?
+
+Monotonicity holds because as enrollment increases past the thresholds set by Maimonides' Rule, class sizes increase for all students. There are no students who would experience a decrease in class size as enrollment crosses these thresholds. This is supported by the consistent increase in class sizes observed in Figure 1 at the enrollment cutoffs.
 
 
 ### Question 7:
 RDD estimates LATE, can 1 and 2 hold for LATE instead of ATE?
 
+Yes, since there are no defiers in this context. Students cannot choose to be in smaller classes when enrollment exceeds the threshold, thus the LATE applies to compliers affected by the class size changes at the cutoffs.
+
 
 ### Question 8:
 Criticism of validity and monotonicity?
 
+Validity is challenged by the fact that the schools with larger enrollment are located in larger cities, which likely have unobserved characteristics affecting student achievement. Monotonicity could be questioned if there were schools that, despite increased enrollment, managed to keep class sizes small through additional resources or policies, though this is unlikely given the strictness of Maimonides' Rule.
 
 ### Question 9:
 Additional evidence to assuage concerns in (8)?
+
+The authors argue that their design reduces bias from unobserved school characteristics and reduces within school bias, by controlling for school fixed effects and other covariates. This helps address the validity concern. For monotonicity, the legal structure of Maimonides' Rule makes it unlikely that schools can deviate from the class size increases dictated by enrollment thresholds. That said, their main argument is the relative rarity of alternatives. Giving some sort of evidence on this would have been nice.
 
 
 ### Question 10:
 Strongest part of the paper?
 
+The strongest part of the paper is its innovative use of Maimonides' Rule to create a natural experiment for studying the effects of class size on student achievement. The clear discontinuities in class sizes at enrollment thresholds provide a robust basis for causal inference. It is an early and influential paper in the RDD literature, to the extreme that they refer to the mechanism as IV. This implementation is easy to interpret, and thus lays a strong foundation for future work.
 
 ### Question 11:
 Weakest part of the paper?
+
+The weakest part of the paper is the potential for unobserved confounding factors related to school location and characteristics that may not be fully accounted for, which could bias the estimated effects of class size on student achievement. I also think more could have been shown on the rarity of alternatives to attending these public schools, as this is a key assumption for their identification strategy.
