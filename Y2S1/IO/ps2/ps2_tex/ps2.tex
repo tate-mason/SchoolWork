@@ -82,7 +82,108 @@ industry has a weaker correlation. In Chile, all industries show a strong positi
 \section*{Problem 2: Estimation Techniques}
 \subsection*{Part A: OLS}
 
+To estimate via OLS, we estimate the following equation:
+\begin{equation}
+  Y_{it} = e^{\alpha_0 + \omega_{it} + \varepsilon_{it}} K_{it}^{\alpha_k} L_{it}^{\alpha_l}
+\end{equation}
+
+\begin{equation}
+  y_{it} = \alpha_0 + \omega_{it} + \alpha_k k_{it} + \alpha_l l_{it} + \varepsilon_{it}
+\end{equation}
+Where $y$ is log of value-added output, $k$ is log capital, $l$ is log labor, and $\omega$ is the productivity shock. We estimate this equation for both Colombia and Chile,
+first homogenous across industries, then heterogenous by industry.
+
+\textbf{OLS Homogenous Results:}
+
+\begin{center}
+\begin{tabular}[h]{|lcccc|}
+  \hline
+  \textbf{Country} & \textbf{$\alpha_0$} & \textbf{$\alpha_k$} & \textbf{$\alpha_l$} & \textbf{R$^2$} \\
+  \hline
+  Colombia (Homogenous) & 2.186 & 0.273 & 0.831 & 0.823 \\
+  Chile (Homogenous) & 2.351 & 0.887 & 0.303 & 0.660 \\
+  \hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+\textbf{OLS Heterogenous Results:}
+\begin{center}
+\begin{tabular}[h]{|lccccc|}
+  \hline
+  \textbf{Country} & \textbf{Industry} & \textbf{$\alpha_0$} & \textbf{$\alpha_k$} & \textbf{$\alpha_l$} & \textbf{R$^2$} \\
+  \hline
+  \hline
+  Colombia & & & & & \\
+  \hline
+   & Food & 2.238 & 0.321 & 0.754 & 0.831 \\
+   & Apparel & 2.510 & 0.133 & 0.921 & 0.831 \\
+   & Metal & 1.974 & 0.208 & 0.998 & 0.831 \\
+   & Textile & 2.316 & 0.257 & 0.858 & 0.831 \\
+   & Wood & 2.559 & 0.117 & 0.858 & 0.831 \\
+   \hline
+  Chile & & & & & \\
+  \hline
+   & Food & 1.950 & 0.334 & 0.896 & 0.689 \\
+   & Apparel & 2.865 & 0.150 & 1.055 & 0.689 \\
+   & Metal & 2.734 & 0.232 & 0.994 & 0.689 \\
+   & Textile & 2.709 & 0.243 & 0.874 & 0.689 \\
+   & Wood & 2.488 & 0.174 & 1.016 & 0.689 \\
+   \hline
+\end{tabular}
+\end{center}
+
+These results indicate that there are significant differences in the production function parameters across countries and industries. Colombia has a higher labor
+elasticity compared to Chile, suggesting that labor plays a more important role in production in Colombia. Conversely, Chile has a higher capital elasticity, 
+indicating that capital is more important in their production process. When looking at heterogenous estimates, we see that within each country, different industries 
+have varying elasticities, reflecting the unique production processes and input requirements of each industry.
+
 \subsection*{Part B: OLS with Investment}
+
+To estimate via OLS with investment, we modify our previous equation to include investment as an additional regressor:
+\begin{equation}
+  y_{it} = \alpha_0 + \omega_{it} + \alpha_k k_{it} + \alpha_l l_{it} + \alpha_i i_{it} + \varepsilon_{it}
+\end{equation}
+Where $i$ is log investment. We estimate this equation for both Colombia and Chile, first homogenous across industries, then heterogenous by industry.
+
+\textbf{OLS with Investment Homogenous Results:}
+\begin{center}
+\begin{tabular}[h]{|lccccc|}
+  \hline
+  \textbf{Country} & \textbf{$\alpha_0$} & \textbf{$\alpha_k$} & \textbf{$\alpha_l$} & \textbf{$\alpha_i$} & \textbf{R$^2$} \\
+  \hline
+  Colombia (Homogenous) & 2.282 & 0.242 & 0.828 & 0.031 & 0.836 \\
+  Chile (Homogenous) & 2.521 & 0.299 & 0.844 & 0.017 & 0.689 \\
+  \hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+\textbf{OLS with Investment Heterogenous Results:}
+\begin{center}
+\begin{tabular}[h]{|lcccccc|}
+  \hline
+  \textbf{Country} & \textbf{Industry} & \textbf{$\alpha_0$} & \textbf{$\alpha_k$} & \textbf{$\alpha_l$} & \textbf{$\alpha_i$} & \textbf{R$^2$} \\
+  \hline
+  \hline
+  Colombia & & & & & & \\
+  \hline
+   & Food & 2.384 & 0.267 & 0.767 & 0.042 & 0.844 \\
+   & Apparel & 2.545 & 0.119 & 0.925 & 0.015 & 0.844 \\
+   & Metal & 2.041 & 0.196 & 0.985 & 0.017 & 0.844 \\
+   & Textile & 2.278 & 0.230 & 0.834 & 0.045 & 0.844 \\
+   & Wood & 2.518 & 0.139 & 0.954 & -0.001 & 0.844 \\
+   \hline
+  Chile & & & & & & \\
+  \hline
+   & Food & 2.021 & 0.300 & 0.882 & 0.020 & 0.702 \\
+   & Apparel & 2.925 & 0.120 & 1.032 & 0.018 & 0.702 \\
+   & Metal & 2.784 & 0.200 & 0.980 & 0.019 & 0.702 \\
+   & Textile & 2.759 & 0.210 & 0.860 & 0.021 & 0.702 \\
+   & Wood & 2.538 & 0.150 & 1.002 & 0.022 & 0.702 \\
+   \hline
+\end{tabular}
+\end{center}
 
 \subsection*{Part C: OP Estimation}
 
@@ -94,51 +195,65 @@ industry has a weaker correlation. In Chile, all industries show a strong positi
 
 \subsection*{Part A: Estimation of $\omega$ Using OP Estimates - Homogenous}
 
-\begin{tabular}[h]{l|c|c}
+\begin{center}
+\begin{tabular}[h]{|lcc|}
+  \hline
   \textbf{Country} & \textbf{Mean of $\omega$} & \textbf{Std. Dev. of $\omega$} \\
   \hline
-  Colombia & 110.323 & 310.548 \\
-  Chile & 81.732 & 153.754
+  Colombia & 294.294 & 702.900 \\
+  Chile & 74.876 & 82.639 \\
+  \hline
 \end{tabular}
+\end{center}
 
+In Colombia, we see a much higher mean productivity level compared to Chile, with a much larger standard deviation as well. This indicates that Colombian firms
+are generally more productive, but also have a wider range of productivity levels compared to Chilean firms. Thus, Colombia's calculation seems to have some sort
+of outlier issue, as the standard deviation is more than double the mean. This warrants further investigation into the data and estimation process to ensure accuracy.
 
 \subsection*{Part B: Estimation of $\omega$ Using OP Estimates - Heterogenous}
 
-\begin{tabular}[h]{l|c|c|c}
+\begin{center}
+\begin{tabular}[h]{|lccc|}
+  \hline
   \textbf{Country} & \textbf{Industry} & \textbf{Mean of $\omega$} & \textbf{Std. Dev. of $\omega$} \\
   \hline
   Colombia & & & \\
-   & Food & 110 & 160 \\
-   & Apparel & 111 & 92.8 \\
-   & Metal & 100 & 69.2 \\
-   & Textile & 159 & 125 \\
-   & Wood & 341 & 370 \\
+  \hline
+   & Food & 61.7 & 115 \\
+   & Apparel & 163 & 376 \\
+   & Metal & 238 & 400 \\
+   & Textile & 124 & 279 \\
+   & Wood & 294 & 1310 \\
   Chile & & & \\
-   & Food & 33.2 & 32 \\
-   & Apparel & 23.3 & 17.7 \\
-   & Metal & 44.3 & 30.6 \\
-   & Textile & 43.4 & 43.2 \\
-   & Wood & 54.1 & 43.9 
+  \hline
+   & Food & 90.9 & 124 \\
+   & Apparel & 460 & 1849 \\
+   & Metal & 88.7 & 119 \\
+   & Textile & 62.7 & 134 \\
+   & Wood & 357 & 619 \\
+    \hline
 \end{tabular}
+\end{center}
+
+These are super weird results due to the massive standard deviations, likely caused by outliers in the data. What can be seen is that Colombia has a generally
+higher mean productivity than Chile across all industries except wood and apparel. Within Colombia, wood and metal industries have the highest mean productivity,
+while food has the lowest. In Chile, apparel and wood have the highest mean productivity, while textiles and metal have the lowest. 
 
 \subsection*{Part C: Time Trends in Productivity}
 
 \subsubsection*{Homogenous Productivity Trends}
 
-\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_avg_prod_hom_col.pdf}
-\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_sd_prod_hom_col.pdf}
-\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_avg_prod_hom_chi.pdf}
-\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_sd_prod_hom_chi.pdf}
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_hom_col.pdf}
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_hom_chi.pdf}
 
 \subsubsection*{Heterogenous Productivity Trends by Industry}
 
-\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_prod_time_ind_col.pdf}
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_mean.pdf}
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_sd.pdf}
 
-\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_sd_prod_time_ind_col.pdf}
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_mean.pdf}
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_sd.pdf}
 
-\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_prod_time_ind_chi.pdf}
-
-\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_sd_prod_time_ind_chi.pdf}
 
 
 \subsubsection*{Discussion}

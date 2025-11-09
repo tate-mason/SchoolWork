@@ -280,7 +280,7 @@ modelsummary(
   output = "kableExtra"
 )
 
-form_ind <- as.formula("log(Y2) ~ industry + log_L:industry + log_K:industry + log_i")
+form_ind <- as.formula("log(Y2) ~ industry + log_L:industry + log_K:industry + log_i:industry")
 ols_inv_ind_col <- lm(form_ind, data = data_col)
 ols_inv_ind_chi <- lm(form_ind, data = data_chi)
 
@@ -614,14 +614,14 @@ Labor estimates are more consistent and significant across industries, also incr
 #| label: 3-1 Estimating ω
 # Using OP estimates from 2.3 to estimate omega = exp(phi_it - alpha_0 - alpha_k*log(K_it))
 
-alpha_0_col <- coef(op_col)["(Intercept)"]
-alpha_k_col <- coef(op_col)["log_k_next"]
+alpha_0_col <- coef(op_col)[["beta0"]]
+alpha_k_col <- coef(op_col)[["betak"]]
 data_col <- data_col %>%
   mutate(
     omega_it = exp(phi_hat - alpha_0_col - alpha_k_col * log_K)
   )
-alpha_0_chi <- coef(op_chi)["(Intercept)"]
-alpha_k_chi <- coef(op_chi)["log_k_next"]
+alpha_0_chi <- coef(op_chi)[["beta0"]]
+alpha_k_chi <- coef(op_chi)[["betak"]]
 data_chi <- data_chi %>%
   mutate(
     omega_it = exp(phi_hat - alpha_0_chi - alpha_k_chi * log_K)
@@ -647,12 +647,150 @@ As can be seen, Colombia is more productive on average, with a mean $\omega$ of 
 
 ### 3.2
 
+```{r}
+#| label: 3-2 Estimating ω by Industry
+
+## Colombia: extract industry-specific OP parameters
+coef_col_ind <- coef(op_ind_col)
+
+beta0_col_ind  <- coef_col_ind[grep("^beta0", names(coef_col_ind))]
+betak_col_ind  <- coef_col_ind[grep("^betak", names(coef_col_ind))]
+# betag_col_ind <- coef_col_ind[grep("^betag", names(coef_col_ind))] # not needed for omega
+
+# Make sure 'ind' matches the order of industry_factor levels used in nls
+# ind = as.integer(industry_factor) is already set upstream
+
+data_col <- data_col %>%
+  mutate(
+    alpha0_ind = beta0_col_ind[ind],
+    alphaK_ind = betak_col_ind[ind],
+    omega_it_het = exp(phi_hat - alpha0_ind * 1 - alphaK_ind * log_K)
+  )
+
+## Chile
+coef_chi_ind <- coef(op_ind_chi)
+
+beta0_chi_ind <- coef_chi_ind[grep("^beta0", names(coef_chi_ind))]
+betak_chi_ind <- coef_chi_ind[grep("^betak", names(coef_chi_ind))]
+
+data_chi <- data_chi %>%
+  mutate(
+    alpha0_ind = beta0_chi_ind[ind],
+    alphaK_ind = betak_chi_ind[ind],
+    omega_it_het = exp(phi_hat - alpha0_ind * 1 - alphaK_ind * log_K)
+  )
+
+omega_industry_col <- data_col %>%
+  group_by(industry) %>%
+  summarise(
+    mean_omega = mean(omega_it_het, na.rm = TRUE),
+    sd_omega   = sd(omega_it_het, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+omega_industry_chi <- data_chi %>%
+  group_by(industry) %>%
+  summarise(
+    mean_omega = mean(omega_it_het, na.rm = TRUE),
+    sd_omega   = sd(omega_it_het, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+print("Colombia - Mean and SD Omega by Industry:")
+print(omega_industry_col)
+print("Chile - Mean and SD Omega by Industry:")
+print(omega_industry_chi)
+```
+
 Allowing for industry heterogeneity, we see that Colombia still has higher average productivity across all industries compared to Chile.
 In both countries, the wood industry has the highest average productivity ($\approx 341$ for Colombia and $\approx 54$ for Chile), while
 the metal industry has the lowest for Colombia ($\approx 100$), while it is apparel for Chile ($\approx 23$). Standard deviations
 are also higher in Colombia across all industries, indicating greater variability in productivity among Colombian firms within each industry.
 
 ### 3.3
+
+```{r}
+#| label: 3-3 Trends in Productivity
+# Calculate yearly mean and sd of omega_it_het for each country
+prod_trends_col <- data_col %>%
+  group_by(year) %>%
+  summarise(
+    mean_omega = mean(omega_it_het, na.rm = TRUE),
+    sd_omega   = sd(omega_it_het, na.rm = TRUE),
+    .groups = "drop"
+  )
+prod_trends_chi <- data_chi %>%
+  group_by(year) %>%
+  summarise(
+    mean_omega = mean(omega_it_het, na.rm = TRUE),
+    sd_omega   = sd(omega_it_het, na.rm = TRUE),
+    .groups = "drop"
+  )
+# Plot trends over time for each country
+ggplot(prod_trends_col, aes(x = year)) +
+  geom_line(aes(y = mean_omega, color = "Mean Productivity")) +
+  geom_line(aes(y = sd_omega, color = "SD Productivity")) +
+  labs(title = "Trends in Productivity over Time (Colombia)",
+       x = "Year",
+       y = "Productivity") +
+  scale_color_manual(values = c("Mean Productivity" = "blue", "SD Productivity" = "red")) +
+  theme_minimal()
+ggsave("3.3_hom_col.pdf", width = 10, height = 6)
+ggplot(prod_trends_chi, aes(x = year)) +
+  geom_line(aes(y = mean_omega, color = "Mean Productivity")) +
+  geom_line(aes(y = sd_omega, color = "SD Productivity")) +
+  labs(title = "Trends in Productivity over Time (Chile)",
+       x = "Year",
+       y = "Productivity") +
+  scale_color_manual(values = c("Mean Productivity" = "blue", "SD Productivity" = "red")) +
+  theme_minimal()
+ggsave("3.3_hom_chi.pdf", width = 10, height = 6)
+
+# Now by industry for each country
+prod_trends_ind_col <- data_col %>%
+  group_by(year, industry) %>%
+  summarise(
+    mean_omega = mean(omega_it_het, na.rm = TRUE),
+    sd_omega   = sd(omega_it_het, na.rm = TRUE),
+    .groups = "drop"
+  )
+prod_trends_ind_chi <- data_chi %>%
+  group_by(year, industry) %>%
+  summarise(
+    mean_omega = mean(omega_it_het, na.rm = TRUE),
+    sd_omega   = sd(omega_it_het, na.rm = TRUE),
+    .groups = "drop"
+  )
+# Plot trends over time by industry for each country
+ggplot(prod_trends_ind_col, aes(x = year)) +
+  geom_line(aes(y = mean_omega, color = industry)) +
+  labs(title = "Trends in Productivity over Time by Industry (Colombia)",
+       x = "Year",
+       y = "Mean Productivity") +
+  theme_minimal()
+ggsave("3.3_ind_col_mean.pdf", width = 10, height = 6)
+ggplot(prod_trends_ind_col, aes(x = year)) +
+  geom_line(aes(y = sd_omega, color = industry)) +
+  labs(title = "Trends in Productivity over Time by Industry (Colombia)",
+       x = "Year",
+       y = "SD Productivity") +
+  theme_minimal()
+ggsave("3.3_ind_col_sd.pdf", width = 10, height = 6)
+ggplot(prod_trends_ind_chi, aes(x = year)) +
+  geom_line(aes(y = mean_omega, color = industry)) +
+  labs(title = "Trends in Productivity over Time by Industry (Chile)",
+       x = "Year",
+       y = "Mean Productivity") +
+  theme_minimal()
+ggsave("3.3_ind_chi_mean.pdf", width = 10, height = 6)
+ggplot(prod_trends_ind_chi, aes(x = year)) +
+  geom_line(aes(y = sd_omega, color = industry)) +
+  labs(title = "Trends in Productivity over Time by Industry (Chile)",
+       x = "Year",
+       y = "SD Productivity") +
+  theme_minimal()
+ggsave("3.3_ind_chi_sd.pdf", width = 10, height = 6)
+```
 
 In Colombia, average productivity trends upward over the time horizon, with a slightly lesser increase in standard deviation, indicating that the firms
 are becoming more productive on average with time, while variability is not increasing to the same degree. In Chile, we see a a spike in productivity after
