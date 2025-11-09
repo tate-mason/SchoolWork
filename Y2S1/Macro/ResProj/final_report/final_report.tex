@@ -1,0 +1,296 @@
+\documentclass[11pt,a4paper]{article}
+
+% Essential packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{setspace}
+
+
+% Additional useful packages
+\usepackage{fancyhdr}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Configure hyperref
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=red,
+    pdftitle={Your Paper Title},
+    pdfauthor={Your Name},
+}
+
+% Set line spacing
+\onehalfspacing
+
+% Configure headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\textit{Location and Career Search}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Title page information
+\title{Your Academic Paper Title: \\
+A Comprehensive Investigation}
+
+\author{
+    Tate Mason\thanks{Tate.Mason@uga.edu} \\
+    \textit{John Munro Godfrey Sr. Department of Economics} \\
+    \textit{The University of Georgia} \\
+    \textit{Athens, Georgia} \\
+    \\
+}
+
+\date{\today}
+
+% Abstract environment
+\newenvironment{abstract}%
+{\cleardoublepage\null \vfill\begin{center}%
+\bfseries \abstractname \end{center}}%
+{\vfill\null}
+
+\begin{document}
+
+% Title page
+\maketitle
+\thispagestyle{empty}
+
+% Abstract
+\begin{abstract}
+\noindent % Write a concise summary (150-250 words) covering: research problem, methodology, key findings, and significance. State your main contributions clearly.
+
+This work investigates adds to a broad literature on location search as well as the literature examining differences between workers and retirees.
+Looking at individuals in the middle-late stage of their working careers, I seek to understand how motivations for relocating may differ from retirees.
+Using data from the International Public Use Microdata Series (IPUMS) and the American Community Survey (ACS), I analyze patterns of migration among workers aged 40-80,
+focusing on the differing motivations and outcomes for movers in this age group. Using structural modeling, I attempt to simulate the decision-making process of these individuals,
+incorporating non-career factors like housing conditions and location-specific amentities. The findings suggest that those still working are likely to move to reduce cost of living
+while also hoping to maintain or improve their career prospects, whereas retirees prioritize quality of life factors. This research contributes to a better understanding of the complex interplay
+between career and non-career factors in relocation decisions among older adults, with implications for policymakers and urban planners aiming to attract and retain this demographic.
+
+\vspace{0.3cm}
+\noindent \textbf{Keywords:} % List 3-6 keywords relevant to your research
+Location search, retirement decisions, career outcomes.
+\end{abstract}
+
+\newpage
+\setcounter{page}{1}
+
+% Main content
+\section{Introduction}
+\label{sec:introduction}
+
+Much of the existing literature on location search focuses on young adults and their career-building moves. However, this leaves a gap in understanding how older adults,
+particularly those in the later stages of their careers or approaching retirement, make relocation decisions. This paper aims to fill that gap by examining the motivations
+and outcomes of location search among individuals aged 40-80. This demographic is particularly interesting as they may have different priorities compared to younger movers,
+balancing career considerations with quality of life factors as they near retirement. Understanding these dynamics is crucial for policymakers and urban planners who seek to attract and retain older adults,
+a demographic that is growing in many regions due to aging populations. 
+
+In this paper, I utilize data from the International Public Use Microdata Series (IPUMS) and the American Community Survey (ACS) to analyze migration patterns among older adults. I look to identify the non-career
+factors that influence their relocation decisions, such as housing conditions, cost of living, and access to amenities. By employing structural modeling techniques, I aim to simulate the decision-making process of
+these individuals, providing insights into how they weigh various factors when considering a move.
+
+This research contributes to the broader literature on migration and career search by highlighting the unique considerations of older adults. The findings have implications for urban development strategies,
+as attracting this demographic can have significant economic and social benefits for communities. Further, contribution to the retirement literature is made by exploring how relocation decisions differ once
+an agent exits the workforce. By creating an index of location-specific amenity factors that influence location choice, this work provides a foundation for future research into the complex interplay between 
+career and non-career motivations in relocation decisions. 
+
+Section II of this paper reviews related work in the field. Section III details the methodology employed in this study.
+Section IV presents the analysis procedure, including datasets, modeling, calibration, results, and analysis. Section V discusses
+the findings and potential future work. Finally, Section VI concludes the paper.
+
+\section{Related Work}
+\label{sec:related_work}
+
+% Comprehensively review relevant prior work. Organize thematically, not chronologically.
+% Show how your work builds on, differs from, or improves upon existing approaches.
+
+\subsection{Previous Approaches}
+\label{subsec:previous_approaches}
+
+% Survey existing methods and approaches relevant to your problem.
+% Group similar approaches and explain their key ideas, strengths, and weaknesses.
+
+\subsection{Limitations of Existing Work}
+\label{subsec:limitations}
+
+% Identify specific gaps, limitations, or open problems in existing approaches.
+% This motivates why your work is needed and positions your contributions.
+
+\section{Methodology}
+\label{sec:methodology}
+
+% Describe your approach in sufficient detail for reproducibility.
+% Include mathematical formulations, algorithms, and theoretical analysis as needed.
+
+\subsection{Model Overview}
+\label{subsec:formulation}
+
+There are two types of agents in the model: workers and retirees. Workers will supply labor inelastically, for which they will earn a wage depending on the state they are in, $w(z)$. Each
+period, they will retire with probability $1-x$. Retirees will receive pension income, $p$, and will die with probability $1-y$ each period, being replaced by a new worker. Both types of 
+agents will maximize lifetime utility over consumption, $c$, and amenities, $m(z)$, in their location, as well as experience disutility from moving, $\gamma(z)$. 
+
+\subsection{Utility Function}
+\label{subsec:utility}
+The utility functions for workers and retirees are defined as follows:
+\begin{equation}
+  U^i(c, m(z);t) = \frac{c^{1-\sigma}}{1-\sigma} - \gamma\cdot\{z'\ne z\} \ \forall \ i \in \{w, r\}
+\end{equation}
+
+where $c$ is consumption, $m(z)$ represents amenities in location $z$, and $\gamma$ is the moving cost parameter. The worker and retiree share common preferences over consumption and amenties, but
+differ in their income sources and decision-making horizons. The constraint for workers is given by:
+
+\begin{equation}
+c_t = w(z_t) - \tau(z_t) - \mathbb{E}[c(h(z))|\delta]
+\end{equation}
+
+where $\delta$ represents prior assumptions about housing costs in location $z'$, $w(z_t)$ is the wage in location $z_t$, $\tau(z_t)$ are taxes, and $c(h(z))$ is the housing cost. $\delta$ can take
+one of three values: optimistic, neutral, or pessimistic, representing different beliefs about housing costs in state $z'$. These beliefs will be updated each period, and the agents
+will not hold onto prior beliefs. Thus, one can think of $\delta$ as a sufficient statistic for the agent's belief about housing costs in each state.
+
+For retirees, the budget constraint is:
+
+\begin{equation}
+  c_t = p\times w_t - \mathbb{E}[c(hc(z))|\delta]
+\end{equation}
+
+where $p\times w_t$ is the pension replacement rate. The health care cost, $c(hc(z))$, is also influenced by the agent's belief $\delta$ about costs in location $z'$.
+Similarly, $\delta$ can take one of three values: optimistic, neutral, or pessimistic, representing different beliefs about health care costs in location $z'$. These beliefs will also 
+be updated each period and will not be held onto from prior periods.
+
+\subsection{Decision Problem: Workers}
+\label{subsec:worker_decision}
+The value function for workers is defined as:
+\begin{equation}
+  V^w(\delta, z_t, t) = \max\{V_w^M(\delta, z_t, t), V_w^S(\delta, z_t, t)\}
+\end{equation}
+where $V_w^M$ is the value of moving and $V_w^S$ is the value of staying. The value of staying is given by:
+\begin{equation}
+  V^S_w(\delta, z_t, t) = \max_{c_t} \{U(c_t) + x\beta V^w(\delta, z_t, t+1) + (1-x)\beta V^r(\delta,z_t, t+1)\}
+\end{equation}
+The value of moving is given by:
+\begin{equation}
+  V^M_w(\delta, z_t; t) = \max_{z', c_t} \{U(c_t, m(z')) + x\beta \mathbb{E}[V^w(\delta', z'; t+1)|\delta] + (1-x)\beta\mathbb{E}[V^r(\delta', z'; t+1)|\delta]\}
+\end{equation}
+
+Here, $\delta'$ represents the updated belief about housing costs in the new location $z'$. If a worker stays, they retain their current belief $\delta$; if they move, they form a new belief $\delta'$
+based on the observed costs in the new location and discard priod beliefs $\delta$. 
+
+\subsection{Decision Problem: Retirees}
+\label{subsec:retiree_decision}
+The value function for retirees is defined as:
+\begin{equation}
+  V^r(\delta, z_t; t) = \max\{V_r^M(\delta, z_t; t), V_r^S(z_t; t)\}
+\end{equation}
+where $V_r^M$ is the value of moving and $V_r^S$ is the value of staying. The value of staying is given by:
+\begin{equation}
+  V^S_r(z_t; t) = \max_{c_t} \{U(c_t, m(z_t)) + y\beta V^r(\delta, z_t; t+1)\}
+\end{equation}
+The value of moving is given by:
+\begin{equation}
+  V^M_r(\delta, z_t; t) = \max_{z', c_t} \{U(c_t, m(z')) + y\beta \mathbb{E}[V^r(\delta', z'; t+1)|\delta]\}
+\end{equation}
+Similar to workers, retirees update their beliefs about health care costs in the new location $z'$ upon moving, forming a new belief $\delta'$ and discarding prior beliefs $\delta$.
+
+\subsection{Proposed Approach}
+\label{subsec:approach}
+
+To solve the model, I will employ dynamic programming techniques to compute the value functions for both workers and retirees. The state space will include the current location $z_t$,
+the belief state $\delta$, and the time period $t$. I will discretize the state space to make the problem computationally tractable. I will use value function iteration to solve for the optimal policies for moving or staying
+for both types of agents. The model will be calibrated using observed migration patterns from the IPUMS and ACS datasets, adjusting parameters such as moving costs, wage functions,
+and pension replacement rates to match empirical data from FRED. 
+
+
+\subsection{Datasets}
+\label{subsec:datasets}
+
+I will utilize data from the International Public Use Microdata Series (IPUMS) and the American Community Survey (ACS) to analyze migration patterns among individuals aged 40-80. These datasets provide rich demographic and
+socioeconomic information, allowing for a comprehensive analysis of relocation decisions in this age group. I will extract relevant variables such as age, income, housing conditions, and migration history to inform the model calibration and validation.
+Further, using data from FRED, I will calibrate macroeconomic parameters such as wage growth, pension replacement rates, and cost of living indices to ensure the model accurately reflects real-world conditions. I have also created an index of location-specific
+amenity factors that influence location choice, which will be incorporated into the model to capture non-career motivations for relocation. These amenity factors include climate, healthcare quality, recreational opportunities, and cultural amenities. These
+factors are sourced from...
+
+\subsection{Summary Statistics}
+\label{subsec:summary_statistics}
+
+
+\section{Calibration and Results}
+\label{sec:results_analysis}
+
+\subsection{Calibration}
+\label{subsec:calibration}
+
+To calibrate the model, I will use a combination of method of moments and maximum likelihood estimation. The calibration process will involve adjusting model parameters to match key empirical moments observed in the IPUMS and ACS datasets.
+These moments include migration rates, moving decisions based on age and income, and the distribution of movers across different locations. I will also calibrate parameters related to moving costs, wage functions, and pension replacement rates
+using data from FRED. The calibration will be performed iteratively, refining parameters until the model closely aligns with observed data.
+
+I will validate the calibrated model by comparing its predictions to out-of-sample data, ensuring that it accurately captures the dynamics of relocation decisions among older adults.
+
+\subsection{Results}
+\label{subsec:results}
+
+% Present results clearly and objectively:
+% - Use tables and figures effectively
+% - Report statistical significance where appropriate
+% - Include error bars or confidence intervals
+% - Compare against all relevant baselines
+% - Report both quantitative metrics and qualitative observations
+
+\subsection{Analysis}
+\label{subsec:analysis}
+
+% Provide deeper analysis of your results:
+% - Statistical significance tests
+% - Ablation studies showing contribution of different components
+% - Error analysis and failure cases
+% - Computational complexity and runtime analysis
+% - Sensitivity analysis for key parameters
+
+\section{Discussion}
+\label{sec:discussion}
+
+% Interpret your findings, discuss broader implications, and acknowledge limitations honestly.
+
+\subsection{Interpretation of Results}
+\label{subsec:interpretation}
+
+% Explain what your results mean in the context of your research questions:
+% - How do findings relate to your hypotheses?
+% - What insights do the results provide?
+% - How do they compare to previous work?
+% - What are the practical implications?
+
+\subsection{Future Work}
+\label{subsec:future_work}
+
+% Suggest concrete directions for future research:
+% - How could your approach be extended or improved?
+% - What new research questions arise from your work?
+% - How could limitations be addressed?
+% - What are the next logical steps?
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+% Summarize your main contributions, key findings, and their significance.
+% Avoid simply repeating the abstract - provide a synthesis that reinforces your contributions.
+
+
+% Bibliography
+\bibliographystyle{plainnat}
+\bibliography{references} % Make sure you have a references.bib file
+
+\end{document}

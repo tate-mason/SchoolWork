@@ -21,6 +21,7 @@ library(lubridate)
 library(here)
 library(kableExtra)
 library(modelsummary)
+library(gmm)
 # Load the dataset
 data <- read_csv(here("Y2S1/IO/ps2/data", "prod_data_all.csv"))
 # Clean dataset to harmonize year discrepancy - 1981 = 81
@@ -115,6 +116,7 @@ ggplot(data_col, aes(x = log_i)) +
        x = "Log Investment",
        y = "Frequency") +
   theme_minimal()
+ggsave("1.2_col.pdf", width = 10, height = 6)
 
 ggplot(data_chi, aes(x = log_i)) +
   geom_histogram(binwidth = 0.5, fill = "green", color = "black", alpha = 0.7) +
@@ -123,6 +125,7 @@ ggplot(data_chi, aes(x = log_i)) +
        x = "Log Investment",
        y = "Frequency") +
   theme_minimal()
+ggsave("1.2_chi.pdf", width = 10, height = 6)
 ```
 
 In Colombia, the is much more dispersion in investment levels across industries, with some industries even experiencing negative investment.
@@ -155,6 +158,8 @@ ggplot(data_col, aes(x = log_Y)) +
        x = "Log Output",
        y = "Frequency") +
   theme_minimal()
+ggsave("1.3_col.pdf", width = 10, height = 6)
+
 ggplot(data_chi, aes(x = log_Y)) +
   geom_histogram(binwidth = 0.5, fill = "green", color = "black", alpha = 0.7) +
   facet_wrap(~ industry, scales = "free") +
@@ -162,6 +167,7 @@ ggplot(data_chi, aes(x = log_Y)) +
        x = "Log Output",
        y = "Frequency") +
   theme_minimal()
+ggsave("1.3_chi.pdf", width = 10, height = 6)
 ```
 
 In Colombia, output levels do not vary too much across industries, with means around 7-10 and similar distributions. In Chile, distribtions
@@ -197,6 +203,7 @@ ggplot(data_col, aes(x = log_L, y = log_Y)) +
        x = "Log Labor",
        y = "Log Output") +
   theme_minimal()
+ggsave("1.4_col.pdf", width = 10, height = 6)
 
 ggplot(data_chi, aes(x = log_L, y = log_Y)) +
   geom_point(alpha = 0.5) +
@@ -206,6 +213,7 @@ ggplot(data_chi, aes(x = log_L, y = log_Y)) +
        x = "Log Labor",
        y = "Log Output") +
   theme_minimal()
+ggsave("1.4_chi.pdf", width = 10, height = 6)
 ```
 
 In both countries, there is a positive relationship between labor input and output across all industries. The strength of this relationship
@@ -321,7 +329,8 @@ first_stage <- function(data) {
       k_inv_sq = k_inv^2,
       rhs = cbind(log_L, log_K, k_sq, log_i, inv_sq, k_inv, k_inv_sq)
     )
-  fs_model <- lm(log_Y2 ~ rhs, data = data)
+  fs_model <- lm(log_Y2 ~ log_L + rhs, data = data)
+  data$bl_hat <- coef(fs_model)["log_L"]
   data$phi_hat <- predict(fs_model, newdata = data)
   return(data)
 }
@@ -331,7 +340,7 @@ data_chi <- first_stage(data_chi)
 # Second stage: estimate y2_{t+1} - alpha_l*l_{t+1} = alpha_0 + alpha_k*k_{t+1} 
 # + g(phi_hat_t - alpha_k*k_t - alpha_0) + error
 
-form_op <- as.formula("log_y2_next - log_L ~ log_k_next + I(phi_hat - log_K)")
+form_op <- as.formula("log_y2_next  ~ log_k_next + I(phi_hat - log_K) + bl_hat*log_L")
 op_col <- lm(form_op, data = data_col)
 op_chi <- lm(form_op, data = data_chi)
 
@@ -350,7 +359,7 @@ data_chi <- data_chi %>%
   mutate(
     industry_factor = as.factor(industry)
   )
-form_op_ind <- as.formula("log_y2_next - log_L:industry_factor ~ industry_factor + log_k_next:industry_factor + I(phi_hat - log_K:industry_factor)")
+form_op_ind <- as.formula("log_y2_next ~ bl_hat*log_L:industry_factor + industry_factor + log_k_next:industry_factor + I(phi_hat - log_K:industry_factor)")
 op_ind_col <- lm(form_op_ind, data = data_col)
 op_ind_chi <- lm(form_op_ind, data = data_chi)
 
@@ -389,7 +398,8 @@ first_stage_lp <- function(data) {
       rhs = cbind(log_L, log_K, k_sq, log_M, m_sq, log_i, inv_sq,
                   k_inv, k_inv_sq, k_m, k_m_sq, m_inv, m_inv_sq)
     )
-  fs_model <- lm(log_Y2 ~ rhs, data = data)
+  fs_model <- lm(log_Y2 ~ log_L + rhs, data = data)
+  data$bl_hat <- coef(fs_model)["log_L"]
   data$phi_hat <- predict(fs_model, newdata = data)
   return(data)
 }
@@ -398,7 +408,7 @@ data_col_lp <- first_stage_lp(data_col)
 data_chi_lp <- first_stage_lp(data_chi)
 
 # Second stage for LP
-form_lp <- as.formula("log_y2_next - log_L ~ log_k_next + log_M_next + I(phi_hat - log_K - log_M)")
+form_lp <- as.formula("log_y2_next ~ bl_hat*log_L + log_k_next + log_M_next + I(phi_hat - log_K - log_M)")
 lp_col <- lm(form_lp, data = data_col_lp)
 lp_chi <- lm(form_lp, data = data_chi_lp)
 
@@ -419,7 +429,7 @@ data_chi_lp <- data_chi_lp %>%
     industry_factor = as.factor(industry),
     log_M_next = lead(log_M)
   )
-form_lp_ind <- as.formula("log_y2_next - log_L:industry_factor ~ industry_factor + log_k_next:industry_factor + log_M_next:industry_factor + I(phi_hat - log_K:industry_factor - log_M:industry_factor)")
+form_lp_ind <- as.formula("log_y2_next ~ log_L:industry_factor + industry_factor + log_k_next:industry_factor + log_M_next:industry_factor + I(phi_hat - log_K:industry_factor - log_M:industry_factor)")
 
 lp_ind_col <- lm(form_lp_ind, data = data_col_lp)
 lp_ind_chi <- lm(form_lp_ind, data = data_chi_lp)
@@ -640,6 +650,7 @@ ggplot(prod_time_col, aes(x = year, y = mean_omega_year)) +
        x = "Year",
        y = "Average Productivity (omega)") +
   theme_minimal()
+ggsave("3.3_avg_prod_hom_col.pdf", width = 14, height = 10)
 ggplot(prod_time_chi, aes(x = year, y = mean_omega_year)) +
   geom_line(color = "green") +
   geom_point() +
@@ -647,6 +658,7 @@ ggplot(prod_time_chi, aes(x = year, y = mean_omega_year)) +
        x = "Year",
        y = "Average Productivity (omega)") +
   theme_minimal()
+ggsave("3.3_avg_prod_hom_chi.pdf", width = 14, height = 10)
 ggplot(prod_time_col, aes(x = year, y = sd_omega_year)) +
   geom_line(color = "blue") +
   geom_point() +
@@ -654,6 +666,8 @@ ggplot(prod_time_col, aes(x = year, y = sd_omega_year)) +
        x = "Year",
        y = "SD of Productivity (omega)") +
   theme_minimal()
+ggsave("3.3_sd_prod_hom_col.pdf", width = 14, height = 10)
+
 ggplot(prod_time_chi, aes(x = year, y = sd_omega_year)) +
   geom_line(color = "green") +
   geom_point() +
@@ -661,6 +675,7 @@ ggplot(prod_time_chi, aes(x = year, y = sd_omega_year)) +
        x = "Year",
        y = "SD of Productivity (omega)") +
   theme_minimal()
+ggsave("3.3_sd_prod_hom_chi.pdf", width = 14, height = 10)
 # Average productivity over time for each industry in each country
 prod_time_ind_col <- data_col %>%
   group_by(year, industry) %>%
@@ -675,34 +690,43 @@ prod_time_ind_chi <- data_chi %>%
     sd_omega_year_ind   = sd(omega_it,   na.rm = TRUE)
   )
 # Plot productivity over time by industry
-ggplot(prod_time_ind_col, aes(x = year, y = mean_omega_year_ind, color = industry)) +
+prod_time_col <- ggplot(prod_time_ind_col, aes(x = year, y = mean_omega_year_ind, color = industry)) +
   geom_line() +
   geom_point() +
-  labs(title = "Average Productivity Over Time by Industry (Colombia)",
+  labs(
+       title = "Average Productivity Over Time by Industry (Colombia)",
        x = "Year",
        y = "Average Productivity (omega)") +
   theme_minimal()
-ggplot(prod_time_ind_chi, aes(x = year, y = mean_omega_year_ind, color = industry)) +
+ggsave("3.3_prod_time_ind_col.pdf", plot = prod_time_col, width = 14, height = 10)
+prod_time_chi <- ggplot(prod_time_ind_chi, aes(x = year, y = mean_omega_year_ind, color = industry)) +
   geom_line() +
   geom_point() +
-  labs(title = "Average Productivity Over Time by Industry (Chile)",
+  labs(
+       title = "Average Productivity Over Time by Industry (Chile)",
        x = "Year",
        y = "Average Productivity (omega)") +
   theme_minimal()
-ggplot(prod_time_ind_col, aes(x = year, y = sd_omega_year_ind, color = industry)) +
+ggsave("3.3_prod_time_ind_chi.pdf", plot = prod_time_chi, width = 14, height = 10)
+sd_p_t_col <- ggplot(prod_time_ind_col, aes(x = year, y = sd_omega_year_ind, color = industry)) +
   geom_line() +
   geom_point() +
-  labs(title = "SD of Productivity Over Time by Industry (Colombia)",
+  labs(
+       title = "SD of Productivity Over Time by Industry (Colombia)",
        x = "Year",
        y = "SD of Productivity (omega)") +
   theme_minimal()
-ggplot(prod_time_ind_chi, aes(x = year, y = sd_omega_year_ind, color = industry)) +
+ggsave("3.3_sd_prod_time_ind_col.pdf", plot = sd_p_t_col, width = 14, height = 10)
+
+sd_p_t_chi <- ggplot(prod_time_ind_chi, aes(x = year, y = sd_omega_year_ind, color = industry)) +
   geom_line() +
   geom_point() +
-  labs(title = "SD of Productivity Over Time by Industry (Chile)",
+  labs(
+       title = "SD of Productivity Over Time by Industry (Chile)",
        x = "Year",
        y = "SD of Productivity (omega)") +
   theme_minimal()
+ggsave("3.3_sd_prod_time_ind_chi.pdf", plot = sd_p_t_chi, width = 14, height = 10)
 ```
 
 In Colombia, average productivity trends upward over the time horizon, with a slightly lesser increase in standard deviation, indicating that the firms

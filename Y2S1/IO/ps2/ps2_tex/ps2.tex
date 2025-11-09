@@ -1,0 +1,157 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\begin{document}
+
+\title{Problem Set 2}
+\author{Tate Mason}
+\date{\today}
+\maketitle
+
+\section*{Problem 1: Data Overview and Analysis}
+
+\subsection*{Part A: Data Summary}
+
+In Colombia, we see fewer overall observations in every sector:
+\begin{itemize}
+  \item Food Industry: 6140
+  \item Apparel Industry: 4454
+  \item Metal Industry: 3678 
+  \item Textile Industry: 2840 
+  \item Wood Industry: 964
+\end{itemize}
+
+So, we see that Colombia has a huge food and manufacturing sector, whereas they have a smaller industry producing raw materials like wood.
+
+In Chile, we see an interesting distribution of observations:
+\begin{itemize}
+  \item Food Industry: 18833
+  \item Metal Industry: 5856
+  \item Textile Industry: 5447
+  \item Wood Industry: 4835 
+  \item Apparel Industry: 4694 
+\end{itemize}
+
+So, Chile has a massive food industry, but also has a balanced manufacturing sector with a lot of metal, textile, and wood production.
+
+Over time, we see varying trends, indicating some industrial growth and some decline in different sectors for both countries. Further, what may be a data aggregation
+issue, 1981 has disproportionately more observations than other years for both countries. Something to look back at.
+
+\begin{tabular}{l|c|c}
+  \textbf{Year} & \textbf{Colombia Observations} & \textbf{Chile Observations} \\
+  \hline
+  1979 & 
+
+\end{tabular}
+
+\subsection*{Part B: Analysis of Investment by Industry}
+
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/1.2_col.pdf}
+  \hfill
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/1.2_chi.pdf}
+
+In Colombia, the is much more dispersion in investment levels across industries, with someindustries even experiencing negative investment. Food, metal,
+and textiles have very similarinvestment patterns, with means around 5. Apparel and wood are similar to the other three,though a bit lower. In Chile,
+investment levels are super consistent across industries, with allindustries having means aound 5-7. Distributions are also much tighter, though most do
+have some negative investment observations.
+
+\subsection*{Part C: Analysis of Ouput by Industry}
+
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/1.3_col.pdf}
+  \hfill
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/1.3_chi.pdf}
+
+In Colombia, output levels do not vary too much across industries, with means around 7-10and similar distributions. In Chile, distribtions are also similar,
+though there is a bit morevariation. Textiles and food have a wider distribution of output levels, while apparel and metal are a bit tighter.
+
+\subsection*{Part D: Analysis of Labor Output Correlation by Industry}
+
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/1.4_col.pdf}
+  \hfill
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/1.4_chi.pdf}
+
+In both countries, there is a positive relationship between labor input and output across allindustries. The strength of this relationship varies by industry,
+with some industries showing astronger correlation than others. For example, in Colombia, the food industry shows a strongpositive correlation, while the wood
+industry has a weaker correlation. In Chile, all industries show a strong positive correlation.
+
+\section*{Problem 2: Estimation Techniques}
+\subsection*{Part A: OLS}
+
+\subsection*{Part B: OLS with Investment}
+
+\subsection*{Part C: OP Estimation}
+
+\subsection*{Part D: LP Estimation}
+
+\subsection*{Part E: ACF Estimation}
+
+\section*{Problem 3: Productivity Dynamics}
+
+\subsection*{Part A: Estimation of $\omega$ Using OP Estimates - Homogenous}
+
+\begin{tabular}[h]{l|c|c}
+  \textbf{Country} & \textbf{Mean of $\omega$} & \textbf{Std. Dev. of $\omega$} \\
+  \hline
+  Colombia & 110.323 & 310.548 \\
+  Chile & 81.732 & 153.754
+\end{tabular}
+
+
+\subsection*{Part B: Estimation of $\omega$ Using OP Estimates - Heterogenous}
+
+\begin{tabular}[h]{l|c|c|c}
+  \textbf{Country} & \textbf{Industry} & \textbf{Mean of $\omega$} & \textbf{Std. Dev. of $\omega$} \\
+  \hline
+  Colombia & & & \\
+   & Food & 110 & 160 \\
+   & Apparel & 111 & 92.8 \\
+   & Metal & 100 & 69.2 \\
+   & Textile & 159 & 125 \\
+   & Wood & 341 & 370 \\
+  Chile & & & \\
+   & Food & 33.2 & 32 \\
+   & Apparel & 23.3 & 17.7 \\
+   & Metal & 44.3 & 30.6 \\
+   & Textile & 43.4 & 43.2 \\
+   & Wood & 54.1 & 43.9 
+\end{tabular}
+
+\subsection*{Part C: Time Trends in Productivity}
+
+\subsubsection*{Homogenous Productivity Trends}
+
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_avg_prod_hom_col.pdf}
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_sd_prod_hom_col.pdf}
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_avg_prod_hom_chi.pdf}
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_sd_prod_hom_chi.pdf}
+
+\subsubsection*{Heterogenous Productivity Trends by Industry}
+
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_prod_time_ind_col.pdf}
+
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_sd_prod_time_ind_col.pdf}
+
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_prod_time_ind_chi.pdf}
+
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/3.3_sd_prod_time_ind_chi.pdf}
+
+
+\subsubsection*{Discussion}
+
+In Colombia, average productivity trends upward over the time horizon, with a slightly lesser increase in standard deviation, indicating that the firms
+are becoming more productive on average with time, while variability is not increasing to the same degree. In Chile, we see a a spike in productivity after
+1985, continuing until 1990 before slowing. Standard deviation also increases over time, with more consistency in growth. This suggests that Chilean
+firms are also becoming more productive on average, but with greater variability among firms.
+
+When splitting out by industry, we see that Colombian textile industries are the most productive on average, while wood and apparel are the least. However,
+teh textile industry also exhibits the highest variability, while food is the least so. In Chile, all industries are increasing in productivity over time to similar
+degrees, with textiles being the most productive until about 1992 when food overtakes it. Apparel is the least productive until about 1994, when metal
+takes over as least prductive. Food and apparel are the most variable industries in Chile when looking at growth in standard deviation, though textiles
+have the highest level until about 1990. Over the whole horizon, wood and metal are the least variable.
+
+\end{document}
