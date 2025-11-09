@@ -438,6 +438,13 @@ data_col_lp <- data_col_lp %>%
     log_M_next = lead(log_M),
     lhs = log_y2_next - bl_hat * lead(log_L)
   )
+data_chi_lp <- data_chi_lp %>%
+  mutate(
+    log_y2_next = lead(log_Y2),
+    log_k_next = lead(log_K),
+    log_M_next = lead(log_M),
+    lhs = log_y2_next - bl_hat * lead(log_L)
+  )
 
 # Second stage for LP
 form_lp <- as.formula("lhs ~ beta0 + betak*log_k_next + betam*log_M_next + betag*I(phi_hat - betak*log_K - betam*log_M)")
@@ -456,21 +463,24 @@ modelsummary(
 data_col_lp <- data_col_lp %>%
   mutate(
     industry_factor = as.factor(industry),
+    ind = as.integer(industry_factor),
     log_M_next = lead(log_M)
   )
 data_chi_lp <- data_chi_lp %>%
   mutate(
     industry_factor = as.factor(industry),
+    ind = as.integer(industry_factor),
     log_M_next = lead(log_M)
   )
-form_lp_ind <- as.formula("lhs:industry_factor ~ beta0*industry_factor +
-  betak*log_k_next:industry_factor + betam*log_M_next:industry_factor +
-  betag*I(phi_hat - betak*log_K:industry_factor - betam*log_M:industry_factor):industry_factor")
 
+n_ind_col <- nlevels(data_col_lp$industry_factor)
+n_ind_chi <- nlevels(data_chi_lp$industry_factor)
+
+form_lp_ind <- as.formula("lhs ~ beta0[ind] + betak[ind]*log_k_next + betam[ind]*log_M_next + betag[ind]*I(phi_hat - betak[ind]*log_K - betam[ind]*log_M)")
 lp_ind_col <- nls(form_lp_ind, data = data_col_lp,
-  start = list(beta0 = 0, betak = 0.3, betam = 0.3, betag = 0.3))
+  start = list(beta0 = rep(0, n_ind_col), betak = rep(0.3, n_ind_col), betam = rep(0.3, n_ind_col), betag = rep(0.3, n_ind_col)))
 lp_ind_chi <- nls(form_lp_ind, data = data_chi_lp,
-  start = list(beta0 = 0, betak = 0.3, betam = 0.3, betag = 0.3))
+  start = list(beta0 = rep(0, n_ind_chi), betak = rep(0.3, n_ind_chi), betam = rep(0.3, n_ind_chi), betag = rep(0.3, n_ind_chi)))                            
 
 modelsummary(
   list(Colombia_Ind = lp_ind_col, Chile_Ind = lp_ind_chi),
@@ -485,62 +495,108 @@ modelsummary(
 
 
 
-#| label: 2-5 ACF Estimation 
-# ACF Estimation for each country
+
+#| label: 2-5 ACF Estimation
 acf_fs <- function(data) {
   data <- data %>%
+    arrange(id, year) %>%
+    group_by(id) %>%
     mutate(
-      lag_log_L = lag(log_L),
-      lag_log_K = lag(log_K),
-      t2_lag_log_L = lag(lag_log_L),
-      t2_lag_log_K = lag(lag_log_K),
-      k_sq = log_K^2,
-      it_k = as.numeric(factor(paste(id, year))) * log_K,
-      it_k_sq = it_k^2,
-      l_sq = log_L^2,
-      it_l = as.numeric(factor(paste(id, year))) * log_L,
-      it_l_sq = it_l^2,
-      l_k = log_L * log_K,
+      lag_log_L    = lag(log_L, 1),
+      lag_log_K    = lag(log_K, 1),
+      t2_lag_log_L = lag(log_L, 2),
+      t2_lag_log_K = lag(log_K, 2)
+    ) %>%
+    ungroup() %>%
+    mutate(
+      k_sq   = log_K^2,
+      l_sq   = log_L^2,
+      l_k    = log_L * log_K,
       l_k_sq = l_k^2,
-      rhs = cbind(lag_log_L, lag_log_K, t2_lag_log_L, t2_lag_log_K,
-                  k_sq, l_sq, it_k, it_k_sq, it_l, it_l_sq, l_k, l_k_sq)
+      log_M = log(M),
+      m_sq = log_M^2,
+      l_m = log_L * log_M,
+      l_m_sq = l_m^2,
+      k_m = log_K * log_M,
+      k_m_sq = k_m^2,
+      l_k_m = log_L * log_K * log_M,
+      l_k_m_sq = l_k_m^2
+
     )
-  fs_model <- lm(log_Y2 ~ rhs, data = data)
-  data$phi_hat <- predict(fs_model, newdata = data)
-  return(data)
+
+  fs_model <- lm(
+    log_Y2 ~ log_L + log_K + log_M + k_sq + l_sq + l_k + l_k_sq +
+               m_sq + l_m + l_m_sq + k_m + k_m_sq + l_k_m + l_k_m_sq,
+    data = data
+  )
+
+  data$phi_hat <- as.numeric(predict(fs_model, newdata = data))
+
+  data
 }
 
 data_col_acf <- acf_fs(data_col)
-data_chi_acf <- acf_fs(data_chi) 
-# Second stage for ACF
-form_acf <- as.formula("log_Y2 ~ log_L + log_K + I(phi_hat)")
-acf_col <- lm(form_acf, data = data_col_acf)
-acf_chi <- lm(form_acf, data = data_chi_acf)
+data_chi_acf <- acf_fs(data_chi)
+
+acf_nls <- function(df) {
+  df_nls <- df %>%
+    filter(
+      !is.na(log_Y2),
+      !is.na(log_L),
+      !is.na(log_K),
+      !is.na(phi_hat),
+      !is.na(lag_log_K),
+      !is.na(lag_log_L),
+      !is.na(t2_lag_log_L)
+    )
+
+  start_vals <- list(
+    beta0  = 0,
+    betal  = 0.3,
+    betak  = 0.3,
+    betag  = 0.7
+  )
+
+  nls(
+    log_Y2 ~ beta0 + betal  * log_L + betak  * log_K + betag  * (phi_hat - (betak * lag_log_K + betal * lag_log_L)),
+    data    = df_nls,
+    start   = start_vals
+  )
+}
+
+acf_col <- acf_nls(data_col_acf)
+acf_chi <- acf_nls(data_chi_acf)
 
 modelsummary(
   list(Colombia = acf_col, Chile = acf_chi),
   stars = c('*' = 0.1, '**' = 0.05, '***' = 0.01),
   output = "kableExtra"
 )
+
 # Estimate varying parameters across industries using ACF for each country
 data_col_acf <- data_col_acf %>%
   mutate(
-    industry_factor = as.factor(industry)
+    industry_factor = as.factor(industry),
+    ind = as.integer(industry_factor)
   )
 data_chi_acf <- data_chi_acf %>%
   mutate(
-    industry_factor = as.factor(industry)
+    industry_factor = as.factor(industry), 
+    ind = as.integer(industry_factor)
   )
-form_acf_ind <- as.formula("log_Y2 ~ industry_factor + log_L:industry_factor + log_K:industry_factor + I(phi_hat):industry_factor")
-acf_ind_col <- lm(form_acf_ind, data = data_col_acf)
-acf_ind_chi <- lm(form_acf_ind, data = data_chi_acf)
+n_ind_col <- nlevels(data_col_acf$industry_factor)
+n_ind_chi <- nlevels(data_chi_acf$industry_factor)
 
+form_acf_ind <- as.formula("log_Y2 ~ beta0[ind] + betal[ind] * log_L + betak[ind] * log_K + betag[ind] * (phi_hat - (betak[ind] * lag_log_K + betal[ind] * lag_log_L))")
+acf_ind_col <- nls(form_acf_ind, data = data_col_acf,
+  start = list(beta0 = rep(0, n_ind_col), betal = rep(0.3, n_ind_col), betak = rep(0.3, n_ind_col), betag = rep(0.7, n_ind_col)))
+acf_ind_chi <- nls(form_acf_ind, data = data_chi_acf,
+  start = list(beta0 = rep(0, n_ind_chi), betal = rep(0.3, n_ind_chi), betak = rep(0.3, n_ind_chi), betag = rep(0.7, n_ind_chi)))
 modelsummary(
   list(Colombia_Ind = acf_ind_col, Chile_Ind = acf_ind_chi),
   stars = c('*' = 0.1, '**' = 0.05, '***' = 0.01),
   output = "kableExtra"
 )
-
 
 
 
@@ -583,185 +639,3 @@ data_chi <- data_chi %>%
 
 print(paste("Colombia - Mean Omega:", data_col$mean_omega_col[1], "SD Omega:", data_col$sd_omega_col[1]))
 print(paste("Chile - Mean Omega:", data_chi$mean_omega_chi[1], "SD Omega:", data_chi$sd_omega_chi[1]))
-
-
-
-
-
-
-
-
-#| label: 3-2 Using OP estimates by Industry to estimate ω
-# Using OP estimates from 2.3 to estimate omega by industry
-op_ind_coefs_col <- coef(op_ind_col)
-op_ind_coefs_chi <- coef(op_ind_chi)
-
-get_coef_safe <- function(coefs, candidates) {
-  hits <- candidates[candidates %in% names(coefs)]
-  if (length(hits) == 0) stop("Missing coefficient: tried ", paste(candidates, collapse = ", "))
-  unname(coefs[hits[1]])
-}
-
-build_industry_omega <- function(data, coefs) {
-  inds <- sort(unique(data$industry))
-
-  # industry_factor<ind> dummies in coefs; base = one without its dummy
-  dummy_names <- paste0("industry_factor", inds)
-  has_dummy   <- dummy_names %in% names(coefs)
-  base_ind    <- inds[!has_dummy]
-  if (length(base_ind) != 1) stop("Could not identify unique base industry")
-
-  data %>%
-    mutate(
-      # intercept by industry
-      alpha_0_ind =
-        if_else(
-          industry == base_ind,
-          get_coef_safe(coefs, "(Intercept)"),
-          get_coef_safe(coefs, "(Intercept)") +
-            get_coef_safe(coefs, paste0("industry_factor", industry))
-        ),
-
-      # slope on capital by industry:
-      # in your OP-ind table coefficients are on log_k_next, so read those
-      alpha_k_ind = vapply(
-        industry,
-        function(ind) {
-          get_coef_safe(
-            coefs,
-            c(
-              paste0("log_k_next:industry_factor", ind),
-              paste0("industry_factor", ind, ":log_k_next")
-            )
-          )
-        },
-        numeric(1)
-      ),
-
-      # omega_it for each obs in that industry
-      omega_it_ind = exp(phi_hat - alpha_0_ind - alpha_k_ind * log_K)
-    ) %>%
-    group_by(industry) %>%
-    summarise(
-      mean_omega_ind = mean(omega_it_ind, na.rm = TRUE),
-      sd_omega_ind   = sd(omega_it_ind,   na.rm = TRUE),
-      .groups = "drop"
-    )
-}
-
-op_ind_coefs_col <- coef(op_ind_col)
-op_ind_coefs_chi <- coef(op_ind_chi)
-
-col_omega <- build_industry_omega(data_col, op_ind_coefs_col)
-chi_omega <- build_industry_omega(data_chi, op_ind_coefs_chi)
-
-cat("Colombia - Omega by Industry:\n"); print(col_omega)
-cat("\nChile - Omega by Industry:\n"); print(chi_omega)
-
-
-
-
-
-
-
-
-
-#| label: 3-3 Productivity over Time
-# Average productivity over time for each country
-prod_time_col <- data_col %>%
-  group_by(year) %>%
-  summarise(
-    mean_omega_year = mean(omega_it, na.rm = TRUE),
-    sd_omega_year   = sd(omega_it,   na.rm = TRUE)
-  )
-prod_time_chi <- data_chi %>%
-  group_by(year) %>%
-  summarise(
-    mean_omega_year = mean(omega_it, na.rm = TRUE),
-    sd_omega_year   = sd(omega_it,   na.rm = TRUE)
-  )
-# Plot productivity over time
-ggplot(prod_time_col, aes(x = year, y = mean_omega_year)) +
-  geom_line(color = "blue") +
-  geom_point() +
-  labs(title = "Average Productivity Over Time (Colombia)",
-       x = "Year",
-       y = "Average Productivity (omega)") +
-  theme_minimal()
-ggsave("3.3_avg_prod_hom_col.pdf", width = 14, height = 10)
-ggplot(prod_time_chi, aes(x = year, y = mean_omega_year)) +
-  geom_line(color = "green") +
-  geom_point() +
-  labs(title = "Average Productivity Over Time (Chile)",
-       x = "Year",
-       y = "Average Productivity (omega)") +
-  theme_minimal()
-ggsave("3.3_avg_prod_hom_chi.pdf", width = 14, height = 10)
-ggplot(prod_time_col, aes(x = year, y = sd_omega_year)) +
-  geom_line(color = "blue") +
-  geom_point() +
-  labs(title = "Standard Deviation of Productivity Over Time (Colombia)",
-       x = "Year",
-       y = "SD of Productivity (omega)") +
-  theme_minimal()
-ggsave("3.3_sd_prod_hom_col.pdf", width = 14, height = 10)
-
-ggplot(prod_time_chi, aes(x = year, y = sd_omega_year)) +
-  geom_line(color = "green") +
-  geom_point() +
-  labs(title = "Standard Deviation of Productivity Over Time (Chile)",
-       x = "Year",
-       y = "SD of Productivity (omega)") +
-  theme_minimal()
-ggsave("3.3_sd_prod_hom_chi.pdf", width = 14, height = 10)
-# Average productivity over time for each industry in each country
-prod_time_ind_col <- data_col %>%
-  group_by(year, industry) %>%
-  summarise(
-    mean_omega_year_ind = mean(omega_it, na.rm = TRUE),
-    sd_omega_year_ind   = sd(omega_it,   na.rm = TRUE)
-  )
-prod_time_ind_chi <- data_chi %>%
-  group_by(year, industry) %>%
-  summarise(
-    mean_omega_year_ind = mean(omega_it, na.rm = TRUE),
-    sd_omega_year_ind   = sd(omega_it,   na.rm = TRUE)
-  )
-# Plot productivity over time by industry
-prod_time_col <- ggplot(prod_time_ind_col, aes(x = year, y = mean_omega_year_ind, color = industry)) +
-  geom_line() +
-  geom_point() +
-  labs(
-       title = "Average Productivity Over Time by Industry (Colombia)",
-       x = "Year",
-       y = "Average Productivity (omega)") +
-  theme_minimal()
-ggsave("3.3_prod_time_ind_col.pdf", plot = prod_time_col, width = 14, height = 10)
-prod_time_chi <- ggplot(prod_time_ind_chi, aes(x = year, y = mean_omega_year_ind, color = industry)) +
-  geom_line() +
-  geom_point() +
-  labs(
-       title = "Average Productivity Over Time by Industry (Chile)",
-       x = "Year",
-       y = "Average Productivity (omega)") +
-  theme_minimal()
-ggsave("3.3_prod_time_ind_chi.pdf", plot = prod_time_chi, width = 14, height = 10)
-sd_p_t_col <- ggplot(prod_time_ind_col, aes(x = year, y = sd_omega_year_ind, color = industry)) +
-  geom_line() +
-  geom_point() +
-  labs(
-       title = "SD of Productivity Over Time by Industry (Colombia)",
-       x = "Year",
-       y = "SD of Productivity (omega)") +
-  theme_minimal()
-ggsave("3.3_sd_prod_time_ind_col.pdf", plot = sd_p_t_col, width = 14, height = 10)
-
-sd_p_t_chi <- ggplot(prod_time_ind_chi, aes(x = year, y = sd_omega_year_ind, color = industry)) +
-  geom_line() +
-  geom_point() +
-  labs(
-       title = "SD of Productivity Over Time by Industry (Chile)",
-       x = "Year",
-       y = "SD of Productivity (omega)") +
-  theme_minimal()
-ggsave("3.3_sd_prod_time_ind_chi.pdf", plot = sd_p_t_chi, width = 14, height = 10)
