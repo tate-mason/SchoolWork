@@ -37,17 +37,17 @@ In Chile, we see an interesting distribution of observations:
   \item Apparel Industry: 4694 
 \end{itemize}
 
-So, Chile has a massive food industry, but also has a balanced manufacturing sector with a lot of metal, textile, and wood production.
+Chile also has a massive food industry, but also has a balanced manufacturing sector with a lot of metal, textile, and wood production.
 
-Over time, we see varying trends, indicating some industrial growth and some decline in different sectors for both countries. Further, what may be a data aggregation
-issue, 1981 has disproportionately more observations than other years for both countries. Something to look back at.
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/1.1_col.pdf}
+  \hfill
+\includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/1.1_chi.pdf}
 
-\begin{tabular}{l|c|c}
-  \textbf{Year} & \textbf{Colombia Observations} & \textbf{Chile Observations} \\
-  \hline
-  1979 & 
+In Colombia, there appears to be a lack of data across the entire time span, with most data concentrated to the early 1980s.
+Thus, we see a massive decline in observations after 1981. In Chile, we see more diverse patterns in the data, with food and metal 
+industries seeing a drop and then rebound, while apparel, textile, and wood industries see a more modest rebound from a valley in the
+late 1980s.
 
-\end{tabular}
 
 \subsection*{Part B: Analysis of Investment by Industry}
 
@@ -323,26 +323,26 @@ The second stage is now different, using lagged inputs as instruments to control
 \vspace{1cm}
 Now, for heterogenous estimates:
 \begin{center}
-\begin{tabular}[h]{|lcccc|}
+\begin{tabular}[h]{|lccccc|}
   \hline
-  \textbf{Country} & \textbf{Industry} & \textbf{$\alpha_0$} & \textbf{$\alpha_k$} & \textbf{$\alpha_{\phi}$} \\
+  \textbf{Country} & \textbf{Industry} & \textbf{$\alpha_0$} & \textbf{$\alpha_k$} & \textbf{$\alpha_l$} & \textbf{$\alpha_{\phi}$} \\
   \hline
   \hline
-  Colombia & & & & \\
+  Colombia & & & & & \\
   \hline
-   & Food & 1.200 & 0.287 & 0.150 \\
-   & Apparel & 2.224 & 0.123 & 0.210 \\
-   & Metal &  & 0.198 & 0.290 \\
-   & Textile & 1.678 & 0.256 & 0.130 \\
-   & Wood & 1.602 & 0.102 & 0.270 \\
+   & Food & 1.200 & 0.402 & 0.677 & 0.352 \\
+   & Apparel & 2.224 & 0.140 & 0.921 & 0.107 \\
+   & Metal & 1.436 & 0.263 & 0.970 & 0.178 \\
+   & Textile & 1.702 & 0.321 & 0.812 & 0.131 \\
+   & Wood & 2.046 & 0.109 & 1.057 & 0.098 \\
    \hline
-  Chile & & & & \\
+  Chile & & & & & \\
   \hline
-   & Food & 1.432 & 0.326 & 0.180 \\
-   & Apparel & 2.112 & 0.098 & 0.320 \\
-   & Metal & 2.345 & 0.210 & 0.220 \\
-   & Textile & 2.789 & 0.225 & 0.090 \\
-   & Wood & 1.689 & 0.150 & 0.260 \\
+   & Food & 1.068 & 0.383 & 0.893 & 0.289 \\
+   & Apparel & 2.268 & 0.149 & 1.086 & 0.149 \\
+   & Metal & 2.395 & 0.237 & 1.013 & 0.210 \\
+   & Textile & 2.232 & 0.278 & 0.858 & 0.219 \\
+   & Wood & 1.948 & 0.181 & 1.042 & 0.140 \\
    \hline
 \end{tabular}
 \end{center}

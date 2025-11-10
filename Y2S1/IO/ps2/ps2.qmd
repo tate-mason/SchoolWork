@@ -68,6 +68,25 @@ obs_by_year_sector_chi <- data_chi %>%
   arrange(year, industry)
 print("Colombia Observations by Year and Sector:")
 print(obs_by_year_sector_col)
+print("Chile Observations by Year and Sector:")
+print(obs_by_year_sector_chi)
+
+ggplot(data_col, aes(x = year, y = ..count..)) +
+  geom_line(stat = "count") +
+  facet_wrap(~ industry, scales = "free_y") +
+  labs(title = "Colombia: Observations by Year and Industry",
+       x = "Year",
+       y = "Number of Observations") +
+  theme_minimal()
+ggsave("1.1_col.pdf", width = 10, height = 6)
+ggplot(data_chi, aes(x = year, y = ..count..)) +
+  geom_line(stat = "count") +
+  facet_wrap(~ industry, scales = "free_y") +
+  labs(title = "Chile: Observations by Year and Industry",
+       x = "Year",
+       y = "Number of Observations") +
+  theme_minimal()
+ggsave("1.1_chi.pdf", width = 10, height = 6)
 
 
 ```
