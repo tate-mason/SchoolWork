@@ -176,20 +176,176 @@ Where $i$ is log investment. We estimate this equation for both Colombia and Chi
    \hline
   Chile & & & & & & \\
   \hline
-   & Food & 2.021 & 0.300 & 0.882 & 0.020 & 0.702 \\
-   & Apparel & 2.925 & 0.120 & 1.032 & 0.018 & 0.702 \\
-   & Metal & 2.784 & 0.200 & 0.980 & 0.019 & 0.702 \\
-   & Textile & 2.759 & 0.210 & 0.860 & 0.021 & 0.702 \\
-   & Wood & 2.538 & 0.150 & 1.002 & 0.022 & 0.702 \\
+   & Food & 2.091 & 0.339 & 0.843 & 0.015 & 0.715 \\
+   & Apparel & 3.106 & 0.146 & 1.006 & 0.016 & 0.715 \\
+   & Metal & 3.207 & 0.218 & 0.943 & 0.022 & 0.715 \\
+   & Textile & 2.359 & 0.202 & 0.846 & 0.027 & 0.715 \\
+   & Wood & 2.624 & 0.176 & 0.977 & 0.020 & 0.715 \\
    \hline
 \end{tabular}
 \end{center}
 
 \subsection*{Part C: OP Estimation}
 
+Now, when we estiamte with the Olley-Pakes method, we follow the two-step procedure outlined in the literature.
+In the first step, we estimate the production function parameters using a non-parametric approach to control for the endogeneity of input choices.
+In the second step, we use the estimated parameters to recover the productivity shocks.
+
+That is, we estimate the following equation:
+\begin{equation}
+  y_{it} = \alpha_l l_{it} + \phi(i_{it}, k_{it}) + \varepsilon_{it}
+\end{equation}
+Where $\phi = \alpha_0 + \alpha_k k_{it} + \alpha_i i_{it} + h(i_t, k_{it})$. We estimate this equation for both Colombia and Chile, first homogenous across industries, then heterogenous by industry.       
+We estimate via a second stage regression to recover $\alpha_k$ and $\alpha_{\phi}$:
+\begin{equation}
+  y_{t+1} + \alpha_l l_{t+1} = \alpha_k k_{t+1} + \alpha_i i_{t+1} g(\phi_t - \alpha_i i_t - \alpha_k k_t - \alpha_0) + \varepsilon_{t+1}
+\end{equation}
+
+\begin{center}
+\begin{tabular}[h]{|lcccc|}
+  \hline
+  \textbf{Country} & \textbf{$\alpha_0$} & \textbf{$\alpha_k$} & \textbf{$\alpha_l$} & \textbf{$\alpha_{\phi}$}\\
+  \hline
+  \hline
+  Colombia (Homogenous) & 0.839 & 0.218 & 0.776 & 0.510 \\
+  Chile (Homogenous) & 0.755 & 0.440 & 0.786 & 0.522 \\
+  \hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+Now, for heterogenous estimates:
+\begin{center}
+\begin{tabular}[h]{|lcccc|}
+  \hline
+  \textbf{Country} & \textbf{Industry} & \textbf{$\alpha_0$} & \textbf{$\alpha_k$} & \textbf{$\alpha_{\phi}$} \\
+  \hline
+  \hline
+  Colombia & & & & \\
+  \hline
+   & Food & 1.944 & 0.279 & 0.092 \\
+   & Apparel & 1.947 & 0.093 & 0.214 \\
+   & Metal & 1.227 & 0.165 & 0.309 \\
+   & Textile & 1.807 & 0.262 & 0.122 \\
+   & Wood & 1.746 & 0.058 & 0.288  \\
+   \hline
+  Chile & & & & \\
+  \hline
+   & Food & 1.356 & 0.357 & 0.154  \\
+   & Apparel & 2.053 & 0.064 & 0.337  \\
+   & Metal & 2.480 & 0.218 & 0.228  \\
+   & Textile & 2.936 & 0.235 & 0.080  \\
+   & Wood & 1.759 & 0.152 & 0.263  \\
+   \hline
+\end{tabular}
+\end{center}
+
 \subsection*{Part D: LP Estimation}
 
+To estimate via Levinsohn-Petrin, we modify our previous equation to include intermediate inputs as a proxy for unobserved productivity shocks:
+\begin{equation}
+  y_{it} = \alpha_l l_{it} + \phi(m_{it}, k_{it}) + \varepsilon_{it}
+\end{equation}
+Where $m$ is log intermediate inputs. We estimate this equation for both Colombia and Chile, first homogenous across industries, then heterogenous by industry.
+
+We then estimate via a second stage regression to recover $\alpha_k$ and $\alpha_{\phi}$:
+\begin{equation}
+  y_{t+1} + \alpha_l l_{t+1} = \alpha_k k_{t+1} + \alpha_m m_{t+1} g(\phi_t - \alpha_m m_t - \alpha_k k_t - \alpha_0) + \varepsilon_{t+1}
+\end{equation}
+
+\begin{center}
+\begin{tabular}[h]{|lccccc|}
+  \hline
+  \textbf{Country} & \textbf{$\alpha_0$} & \textbf{$\alpha_k$} & \textbf{$\alpha_l$} & \textbf{$\alpha_m$} & \textbf{$\alpha_{\phi}$} \\
+  \hline
+  Colombia (Homogenous) & 1.131 & 0.083 & 0.616 & 0.350 & 0.112 \\
+  Chile (Homogenous) & 0.673 & 0.0.186 & 0.481 & 0.396 & 0.203 \\
+  \hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+Now, for heterogenous estimates:
+\begin{center}
+\begin{tabular}[h]{|lccccc|}
+  \hline
+  \textbf{Country} & \textbf{Industry} & \textbf{$\alpha_0$} & \textbf{$\alpha_k$} & \textbf{$\alpha_m$} & \textbf{$\alpha_{\phi}$} \\
+  \hline
+  \hline
+  Colombia & & & & & \\
+  \hline
+   & Food & 0.976 & 0.074 & 0.412 & 0.010 \\
+   & Apparel & 1.403 & 0.029 & 0.267 & 0.216 \\
+   & Metal & 1.040 & 0.067 & 0.434 & 0.037 \\
+   & Textile & 1.086 & 0.118 & 0.451 & -0.143 \\
+   & Wood & 1.309 & 0.047 & 0.237 & 0.275 \\
+   \hline
+  Chile & & & & & \\
+  \hline
+   & Food & 0.014 & 0.155 & 0.495 & 0.177 \\
+   & Apparel & 1.153 & 0.009 & 0.221 & 0.518 \\
+   & Metal & 1.456 & 0.113 & 0.372 & 0.308 \\
+   & Textile & 1.536 & 0.136 & 0.275 & 0.308 \\
+   & Wood & 0.648 & 0.075 & 0.441 & 0.244 \\
+   \hline
+\end{tabular}
+\end{center}
+
 \subsection*{Part E: ACF Estimation}
+
+To estimate via Ackerberg-Caves-Frazer, we follow a similar two-step procedure as in the OP method, but we also account for the simultaneity bias in input choices.
+In the first step, we now include intermediate inputs in the non-parametric function, $\phi$, for estimation:
+\begin{equation}
+  y_{it} = \alpha_0 + \alpha_k k_{it} + \alpha_l l_{it} + \alpha_m m_{it} + f^{-1}(m_{it}, k_{it}, l_{it}) + \varepsilon_{it}
+\end{equation}
+
+Which can be used to recover productivity shocks as:
+\begin{equation}
+  y_{it} = \phi(m_{it}, k_{it}, l_{it}) + \varepsilon_{it}  
+\end{equation}
+
+The second stage is now different, using lagged inputs as instruments to control for simultaneity bias:
+\begin{equation}
+  y_t = \alpha_k k_t + \alpha_l l_t + g(\phi_{t-1} - \alpha_k k_{t-1} - \alpha_m m_{t-1} - \alpha_l l_{t-1} - \alpha_0) + \varepsilon_t
+\end{equation}
+
+\begin{center}
+\begin{tabular}[h]{|lcccc|}
+  \hline
+  \textbf{Country} & \textbf{$\alpha_0$} & \textbf{$\alpha_k$} & \textbf{$\alpha_l$} & \textbf{$\alpha_{\phi}$} \\
+  \hline
+  Colombia (Homogenous) & 1.473 & 0.317 & 0.814 & 0.244 \\
+  Chile (Homogenous) & 1.525 & 0.344 & 0.885 & 0.249 \\
+  \hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+Now, for heterogenous estimates:
+\begin{center}
+\begin{tabular}[h]{|lcccc|}
+  \hline
+  \textbf{Country} & \textbf{Industry} & \textbf{$\alpha_0$} & \textbf{$\alpha_k$} & \textbf{$\alpha_{\phi}$} \\
+  \hline
+  \hline
+  Colombia & & & & \\
+  \hline
+   & Food & 1.200 & 0.287 & 0.150 \\
+   & Apparel & 2.224 & 0.123 & 0.210 \\
+   & Metal &  & 0.198 & 0.290 \\
+   & Textile & 1.678 & 0.256 & 0.130 \\
+   & Wood & 1.602 & 0.102 & 0.270 \\
+   \hline
+  Chile & & & & \\
+  \hline
+   & Food & 1.432 & 0.326 & 0.180 \\
+   & Apparel & 2.112 & 0.098 & 0.320 \\
+   & Metal & 2.345 & 0.210 & 0.220 \\
+   & Textile & 2.789 & 0.225 & 0.090 \\
+   & Wood & 1.689 & 0.150 & 0.260 \\
+   \hline
+\end{tabular}
+\end{center}
 
 \section*{Problem 3: Productivity Dynamics}
 

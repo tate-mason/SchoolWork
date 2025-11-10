@@ -28,6 +28,7 @@ data <- read_csv(here("Y2S1/IO/ps2/data", "prod_data_all.csv"))
 # Clean dataset to harmonize year discrepancy - 1981 = 81
 data <- data %>%
   mutate(year = ifelse(year < 100, year + 1900, year)) %>%
+  filter(Y2 > 0, L > 0, K > 0, M > 0)%>%
   drop_na()
 
 # Display the first few rows of the dataset
@@ -501,11 +502,23 @@ acf_fs <- function(data) {
   data <- data %>%
     arrange(id, year) %>%
     group_by(id) %>%
+    filter(
+      !is.na(log_Y2),
+      !is.na(log_L),
+      !is.na(log_K),
+      !is.na(M)
+    ) %>%
     mutate(
       lag_log_L    = lag(log_L, 1),
       lag_log_K    = lag(log_K, 1),
       t2_lag_log_L = lag(log_L, 2),
       t2_lag_log_K = lag(log_K, 2)
+    ) %>%
+    filter(
+      !is.na(lag_log_L),
+      !is.na(lag_log_K),
+      !is.na(t2_lag_log_L),
+      !is.na(t2_lag_log_K)
     ) %>%
     ungroup() %>%
     mutate(
@@ -531,7 +544,6 @@ acf_fs <- function(data) {
   )
 
   data$phi_hat <- as.numeric(predict(fs_model, newdata = data))
-
   data
 }
 
@@ -548,6 +560,9 @@ acf_nls <- function(df) {
       !is.na(lag_log_K),
       !is.na(lag_log_L),
       !is.na(t2_lag_log_L)
+    ) %>%
+    mutate(
+      lag_phi_hat = lag(phi_hat, 1)
     )
 
   start_vals <- list(
@@ -558,7 +573,7 @@ acf_nls <- function(df) {
   )
 
   nls(
-    log_Y2 ~ beta0 + betal  * log_L + betak  * log_K + betag  * (phi_hat - (betak * lag_log_K + betal * lag_log_L)),
+    log_Y2 ~ beta0 + betal  * log_L + betak  * log_K + betag  * (lag_phi_hat - (betak * lag_log_K + betal * lag_log_L)),
     data    = df_nls,
     start   = start_vals
   )
@@ -577,17 +592,19 @@ modelsummary(
 data_col_acf <- data_col_acf %>%
   mutate(
     industry_factor = as.factor(industry),
-    ind = as.integer(industry_factor)
+    ind = as.integer(industry_factor),
+    lag_phi_hat = lag(phi_hat, 1)
   )
 data_chi_acf <- data_chi_acf %>%
   mutate(
     industry_factor = as.factor(industry), 
-    ind = as.integer(industry_factor)
+    ind = as.integer(industry_factor),
+    lag_phi_hat = lag(phi_hat, 1)
   )
 n_ind_col <- nlevels(data_col_acf$industry_factor)
 n_ind_chi <- nlevels(data_chi_acf$industry_factor)
 
-form_acf_ind <- as.formula("log_Y2 ~ beta0[ind] + betal[ind] * log_L + betak[ind] * log_K + betag[ind] * (phi_hat - (betak[ind] * lag_log_K + betal[ind] * lag_log_L))")
+form_acf_ind <- as.formula("log_Y2 ~ beta0[ind] + betal[ind] * log_L + betak[ind] * log_K + betag[ind] * (lag_phi_hat - (betak[ind] * lag_log_K + betal[ind] * lag_log_L))")
 acf_ind_col <- nls(form_acf_ind, data = data_col_acf,
   start = list(beta0 = rep(0, n_ind_col), betal = rep(0.3, n_ind_col), betak = rep(0.3, n_ind_col), betag = rep(0.7, n_ind_col)))
 acf_ind_chi <- nls(form_acf_ind, data = data_chi_acf,
