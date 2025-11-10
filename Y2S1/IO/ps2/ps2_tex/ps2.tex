@@ -26,8 +26,6 @@ In Colombia, we see fewer overall observations in every sector:
   \item Wood Industry: 964
 \end{itemize}
 
-So, we see that Colombia has a huge food and manufacturing sector, whereas they have a smaller industry producing raw materials like wood.
-
 In Chile, we see an interesting distribution of observations:
 \begin{itemize}
   \item Food Industry: 18833
@@ -37,7 +35,10 @@ In Chile, we see an interesting distribution of observations:
   \item Apparel Industry: 4694 
 \end{itemize}
 
-Chile also has a massive food industry, but also has a balanced manufacturing sector with a lot of metal, textile, and wood production.
+Both Chile and Colombia have massive food industries, in terms of observations. Chile, however, has more than 
+three times the observations in Colombia. In Colombia, the apparel industry is the second largest, while in Chile,
+the metal industry is the second largest. The wood industry is the smallest in Colombia, while apparel is the smallest
+in Chile.
 
 \includegraphics[width=\linewidth]{~/SchoolWork/Y2S1/IO/ps2/1.1_col.pdf}
   \hfill
@@ -80,6 +81,36 @@ with some industries showing astronger correlation than others. For example, in 
 industry has a weaker correlation. In Chile, all industries show a strong positive correlation.
 
 \section*{Problem 2: Estimation Techniques}
+
+\subsection*{Comparison of Estimation Techniques}
+
+In OLS, we perform a simple linear regression of value-added output on inputs. This method yields very high estimates for labor elasticity in Colombia and high capital
+elasticity in Chile, suggesting that these inputs play a significant role in production. However, OLS does not account for potential endogeneity of inputs, which can bias the estimates.
+In the heterogeneous case, we see that while labor elasticity remains high in Colombia, Chile flips, and capital elasticity becomes smaller than labor elasticity across all industries.
+
+When we add investment to our OLS regression, we see a slight decrease in capital and labor elasticities in both countries, with labor elasticity still being dominant in both countries.
+This suggests that investment may be capturing some of the effects previously attributed to capital and labor. In the heterogeneous case, we see similar patterns, with investment 
+elasticity being small but positive across most industries, though not all.
+
+The Olley-Pakes (OP) method addresses the endogeneity of inputs by using investment as a proxy for unobserved productivity shocks. This method yields lower estiamtes for both capital and labor elasticities,
+suggesting that previous OLS specifications may have been biased upwards. In the heterogeneous case, we see that capital elasticity is even lower across almost all industries, as is the coefficient on the 
+productivity shock function, $\alpha_{\phi}$.
+
+Levinsohn-Petrin (LP) further refines the estimation by using intermediate inputs as a proxy for productivity shocks. This method yields even lower estimates for capital and labor elasticities, with
+intermediate input elasticity being relatively large in both countries. This suggests that intermediate inputs play a large role in production, potentially capturing effects previously attributed
+to the capital and labor inputs. In the heterogeneous case, we see that intermediate input elasticity is mostly larger than in the homogenous case in Colombia, while in Chile it is mostly smaller. 
+Comparing to OP, LP yields lower capital elasticities in all industries in Colombia as well as in Chile. This points to intermediate inputs being a more relevant proxy than investment for productivity
+shocks.
+
+Finally, ACF builds on OP and LP, addressing simulataneity bias in input choices. This method yields higher estimates for both capital and labor elasticities compared to OP and LP, but still lower than OLS.
+This suggests thtat while ACF corrects for some bias, it still does not fully capture the whole effect of endogeneity. In the heterogeneous case, We see mostly higher labor elasticities in Colombia, with only
+food and textile industries having lower labor elasticities compared to the homogenous case. In Chile, all industries have higher labor elasticities compared to the homogenous case, except for textiles. For capital,
+the case is mixed, with apparel, metal, and wood having lower capital elasticities in Colombia, while this is the case for all but food in Chile. Comparing to OP and LP, ACF yields higher capital elasticities across
+inductries, for the most part, in both countries. This suggests that ACF is able to better capture the true effect of capital on production.
+
+Overall, it is obvious that the choice of estimation technique has a significant impact on the estimated production function parameters. Different methods yield varying estiamtes for capital, labor, and the other
+inputs considered. This underscores the importance of selecting an appropriate estimation method that adequately addresses endogeneity and simultaneity biases in input choices.
+
 \subsection*{Part A: OLS}
 
 To estimate via OLS, we estimate the following equation:
@@ -362,9 +393,10 @@ Now, for heterogenous estimates:
 \end{tabular}
 \end{center}
 
-In Colombia, we see a much higher mean productivity level compared to Chile, with a much larger standard deviation as well. This indicates that Colombian firms
-are generally more productive, but also have a wider range of productivity levels compared to Chilean firms. Thus, Colombia's calculation seems to have some sort
-of outlier issue, as the standard deviation is more than double the mean. This warrants further investigation into the data and estimation process to ensure accuracy.
+Colombia possesses much higher mean productivity than Chile, more than quadruple the mean.
+However, Colombia also has a much higher standard deviation, indicating significant disparities in productivity among firms.
+In fact, this standard deviation is so large that it suggests the presence of extreme outliers in the Colombian data.
+This warrants further looking into how Colombian productivity is distributed to better understand the underlying dynamics.
 
 \subsection*{Part B: Estimation of $\omega$ Using OP Estimates - Heterogenous}
 
@@ -395,6 +427,12 @@ These are super weird results due to the massive standard deviations, likely cau
 higher mean productivity than Chile across all industries except wood and apparel. Within Colombia, wood and metal industries have the highest mean productivity,
 while food has the lowest. In Chile, apparel and wood have the highest mean productivity, while textiles and metal have the lowest. 
 
+However, when looking at the output graphs for Colombia in 1.C, we actually see Wood and Metal firms having lower mean log output than other 
+industries, despite having the highest mean productivity here. This suggests that these industries may have higher productivity but lower output levels, possibly due to
+smaller scale of operations or other factors limiting output. When looking at Chile's output graphs, we see that apparel and food do not have the highest mean log outputs,
+despite having the highest mean productivity here. This again suggests that higher productivity does not necessarily translate to higher output levels, likely due to
+other limiting factors.
+
 \subsection*{Part C: Time Trends in Productivity}
 
 \subsubsection*{Homogenous Productivity Trends}
@@ -414,15 +452,18 @@ while food has the lowest. In Chile, apparel and wood have the highest mean prod
 
 \subsubsection*{Discussion}
 
-In Colombia, average productivity trends upward over the time horizon, with a slightly lesser increase in standard deviation, indicating that the firms
-are becoming more productive on average with time, while variability is not increasing to the same degree. In Chile, we see a a spike in productivity after
-1985, continuing until 1990 before slowing. Standard deviation also increases over time, with more consistency in growth. This suggests that Chilean
-firms are also becoming more productive on average, but with greater variability among firms.
+In both countries, we observe growth in productivity over time, with increasing standard deviations as well,
+indicating growing disparities among firms. Homogenous productivity trends show a steady, moderate increase in 
+productivity for both countries, with standard deviations growing during the same period. 
 
-When splitting out by industry, we see that Colombian textile industries are the most productive on average, while wood and apparel are the least. However,
-teh textile industry also exhibits the highest variability, while food is the least so. In Chile, all industries are increasing in productivity over time to similar
-degrees, with textiles being the most productive until about 1992 when food overtakes it. Apparel is the least productive until about 1994, when metal
-takes over as least prductive. Food and apparel are the most variable industries in Chile when looking at growth in standard deviation, though textiles
-have the highest level until about 1990. Over the whole horizon, wood and metal are the least variable.
+Heterogeneous producitivity trends show interesting patterns for different industries. In Colombia,
+The food industry is the most productive industry with the highest growth in productivity over time. However, it
+also possesses the highest standard deviation, indicating significant disparities among firms. The other industries also show
+growth in productivity, but at a slower rate. The other industries also have lower standard deviations, which mostly do not grow,
+indicating more uniform productivity levels among firms.
+
+In Chile, the apparel and food industries are the most productive, with apparel having the highest growth rate. However, apparel also has
+the highest standard deviation, indicating significant disparities among firms. The other industries show almost no growth in productivity,
+with almost no changes in standard deviations as well, indicating uniform productivity levels among firms.
 
 \end{document}

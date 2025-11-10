@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  10 NOV 2025 11:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  10 NOV 2025 14:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -335,15 +335,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <~/SchoolWork/Y2S1/IO/ps2/1.1_col.pdf, id=4, 722.7pt x 433.62pt>
 File: ~/SchoolWork/Y2S1/IO/ps2/1.1_col.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/IO/ps2/1.1_col.pdf>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.1_col.pdf  used on input line 42.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.1_col.pdf  used on input line 43.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
 <~/SchoolWork/Y2S1/IO/ps2/1.1_chi.pdf, id=5, 722.7pt x 433.62pt>
 File: ~/SchoolWork/Y2S1/IO/ps2/1.1_chi.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/IO/ps2/1.1_chi.pdf>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.1_chi.pdf  used on input line 44.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.1_chi.pdf  used on input line 45.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 42--45
+Overfull \hbox (15.0pt too wide) in paragraph at lines 43--46
 [][]
  []
 
@@ -355,12 +355,12 @@ Overfull \hbox (15.0pt too wide) in paragraph at lines 42--45
 <~/SchoolWork/Y2S1/IO/ps2/1.2_col.pdf, id=18, 722.7pt x 433.62pt>
 File: ~/SchoolWork/Y2S1/IO/ps2/1.2_col.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/IO/ps2/1.2_col.pdf>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.2_col.pdf  used on input line 54.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.2_col.pdf  used on input line 55.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
 <~/SchoolWork/Y2S1/IO/ps2/1.2_chi.pdf, id=19, 722.7pt x 433.62pt>
 File: ~/SchoolWork/Y2S1/IO/ps2/1.2_chi.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/IO/ps2/1.2_chi.pdf>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.2_chi.pdf  used on input line 56.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.2_chi.pdf  used on input line 57.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
 
 
@@ -368,12 +368,12 @@ Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.2_chi.pdf  used on input lin
 <~/SchoolWork/Y2S1/IO/ps2/1.3_col.pdf, id=34, 722.7pt x 433.62pt>
 File: ~/SchoolWork/Y2S1/IO/ps2/1.3_col.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/IO/ps2/1.3_col.pdf>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.3_col.pdf  used on input line 65.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.3_col.pdf  used on input line 66.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
 <~/SchoolWork/Y2S1/IO/ps2/1.3_chi.pdf, id=35, 722.7pt x 433.62pt>
 File: ~/SchoolWork/Y2S1/IO/ps2/1.3_chi.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/IO/ps2/1.3_chi.pdf>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.3_chi.pdf  used on input line 67.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.3_chi.pdf  used on input line 68.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
 
 
@@ -381,12 +381,12 @@ Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.3_chi.pdf  used on input lin
 <~/SchoolWork/Y2S1/IO/ps2/1.4_col.pdf, id=57, 722.7pt x 433.62pt>
 File: ~/SchoolWork/Y2S1/IO/ps2/1.4_col.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/IO/ps2/1.4_col.pdf>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.4_col.pdf  used on input line 74.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.4_col.pdf  used on input line 75.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
 <~/SchoolWork/Y2S1/IO/ps2/1.4_chi.pdf, id=58, 722.7pt x 433.62pt>
 File: ~/SchoolWork/Y2S1/IO/ps2/1.4_chi.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/IO/ps2/1.4_chi.pdf>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.4_chi.pdf  used on input line 76.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.4_chi.pdf  used on input line 77.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
 
 
@@ -399,54 +399,55 @@ Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/1.4_chi.pdf  used on input lin
 [7]
 
 [8]
-<~/SchoolWork/Y2S1/IO/ps2/3.3_hom_col.pdf, id=143, 722.7pt x 433.62pt>
-File: ~/SchoolWork/Y2S1/IO/ps2/3.3_hom_col.pdf Graphic file (type pdf)
-<use ~/SchoolWork/Y2S1/IO/ps2/3.3_hom_col.pdf>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/3.3_hom_col.pdf  used on input line 402.
-(pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
-<~/SchoolWork/Y2S1/IO/ps2/3.3_hom_chi.pdf, id=144, 722.7pt x 433.62pt>
-File: ~/SchoolWork/Y2S1/IO/ps2/3.3_hom_chi.pdf Graphic file (type pdf)
-<use ~/SchoolWork/Y2S1/IO/ps2/3.3_hom_chi.pdf>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/3.3_hom_chi.pdf  used on input line 403.
-(pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
-
 
 [9]
-<~/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_mean.pdf, id=153, 722.7pt x 433.62pt>
+
+[10]
+<~/SchoolWork/Y2S1/IO/ps2/3.3_hom_col.pdf, id=156, 722.7pt x 433.62pt>
+File: ~/SchoolWork/Y2S1/IO/ps2/3.3_hom_col.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/IO/ps2/3.3_hom_col.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/3.3_hom_col.pdf  used on input line 440.
+(pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
+<~/SchoolWork/Y2S1/IO/ps2/3.3_hom_chi.pdf, id=157, 722.7pt x 433.62pt>
+File: ~/SchoolWork/Y2S1/IO/ps2/3.3_hom_chi.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/IO/ps2/3.3_hom_chi.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/3.3_hom_chi.pdf  used on input line 441.
+(pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
+<~/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_mean.pdf, id=158, 722.7pt x 433.62pt>
 File: ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_mean.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_mean.pdf>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_mean.pdf  used on input line 407.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_mean.pdf  used on input line 445.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
-<~/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_sd.pdf, id=154, 722.7pt x 433.62pt>
+<~/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_sd.pdf, id=159, 722.7pt x 433.62pt>
 File: ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_sd.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_sd.pdf>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_sd.pdf  used on input line 408.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_sd.pdf  used on input line 446.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
 
 
-[10 </Users/tate/SchoolWork/Y2S1/IO/ps2/3.3_hom_col.pdf> </Users/tate/SchoolWork/Y2S1/IO/ps2/3.3_hom_chi.pdf>]
-<~/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_mean.pdf, id=171, 722.7pt x 433.62pt>
+[11 </Users/tate/SchoolWork/Y2S1/IO/ps2/3.3_hom_col.pdf> </Users/tate/SchoolWork/Y2S1/IO/ps2/3.3_hom_chi.pdf>]
+<~/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_mean.pdf, id=176, 722.7pt x 433.62pt>
 File: ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_mean.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_mean.pdf>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_mean.pdf  used on input line 410.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_mean.pdf  used on input line 448.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
-<~/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_sd.pdf, id=172, 722.7pt x 433.62pt>
+<~/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_sd.pdf, id=177, 722.7pt x 433.62pt>
 File: ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_sd.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_sd.pdf>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_sd.pdf  used on input line 411.
+Package pdftex.def Info: ~/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_sd.pdf  used on input line 449.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 410--412
+Overfull \hbox (15.0pt too wide) in paragraph at lines 448--450
 [][]
  []
 
 
 
-[11 </Users/tate/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_mean.pdf> </Users/tate/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_sd.pdf>]
+[12 </Users/tate/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_mean.pdf> </Users/tate/SchoolWork/Y2S1/IO/ps2/3.3_ind_col_sd.pdf>]
 
-[12 </Users/tate/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_mean.pdf> </Users/tate/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_sd.pdf>]
+[13 </Users/tate/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_mean.pdf> </Users/tate/SchoolWork/Y2S1/IO/ps2/3.3_ind_chi_sd.pdf>]
 
-[13] (./ps2.aux)
+[14] (./ps2.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -455,18 +456,18 @@ Package rerunfilecheck Info: File `ps2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 10282 strings out of 473190
- 159063 string characters out of 5715801
+ 10284 strings out of 473190
+ 159081 string characters out of 5715801
  573358 words of memory out of 5000000
  33383 multiletter control sequences out of 15000+600000
  567035 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,8n,79p,250b,505s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on ps2.pdf (13 pages, 3527119 bytes).
+Output written on ps2.pdf (14 pages, 3531186 bytes).
 PDF statistics:
- 280 PDF objects out of 1000 (max. 8388607)
- 206 compressed objects within 3 object streams
- 42 named destinations out of 1000 (max. 500000)
+ 286 PDF objects out of 1000 (max. 8388607)
+ 211 compressed objects within 3 object streams
+ 44 named destinations out of 1000 (max. 500000)
  71 words of extra memory for PDF output out of 10000 (max. 10000000)
 
