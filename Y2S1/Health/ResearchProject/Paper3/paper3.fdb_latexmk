@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1762108040.33322 "paper3.tex" "paper3.pdf" "paper3" 1762108041.38966 2
+["pdflatex"] 1762884693.46215 "paper3.tex" "paper3.pdf" "paper3" 1762884694.71403 2
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -207,9 +207,9 @@
   "figures/counterfactual_doctor_profit.png" 1762106475.60673 22295 8740f3c569e7ea41ca166e3233af9269 ""
   "figures/doctor_exits_over_time.png" 1762106474.96729 53856 d65c0c2f34eb372915bec936df8d7b5c ""
   "figures/doctor_profit_distribution.png" 1762106473.96507 16378 127ce4e305ca4a08ac19c406a23ed21e ""
-  "paper3.aux" 1762108041.27187 3188 1c90ad9a04da1285e39a7f6dbdfaba44 "pdflatex"
-  "paper3.out" 1762108041.27274 2167 a4f5a21207bbb44ac06e28f95e3378b5 "pdflatex"
-  "paper3.tex" 1762108039.25764 14259 ea076e110ad69cca832f8bfa5ab54570 ""
+  "paper3.aux" 1762884694.57766 3188 54c373211e925211cfb9b6c019496b13 "pdflatex"
+  "paper3.out" 1762884694.57942 2167 cca1a60088cfad34926536e5a94403d4 "pdflatex"
+  "paper3.tex" 1762884692.25059 15474 d4097c16e793360ab7c4026f6b8398e2 ""
   (generated)
   "paper3.aux"
   "paper3.log"

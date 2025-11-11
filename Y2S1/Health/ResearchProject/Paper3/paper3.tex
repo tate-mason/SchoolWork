@@ -266,9 +266,20 @@ Interestingly, we do not see a significant decrease in the profits of doctors in
 \includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.png}
 
 
-\section{Next Steps}
-\label{sec:next_steps}
-Next steps for this project include refining the model to better capture the nuances of addict and physician behavior. Furthermore, I plan to calibrate the model using real-world data on prescription drug abuse and physician prescribing patterns.
-I also hope to explore additional policy scenarios, such as the impact of prescription drug monitoring programs (PDMPs) and educational interventions for physicians. Lastly, I hope to better quantify the welfare implications for both addicts and physicians under various policy regimes.
+\section{Messy Data}
+\label{sec:messy_data}
+
+When thinking about data that would be fruitful for this project, there are a few avenues that should be explored. First, and most obviously, claims data would allow me to get an idea of the search process of addicts. This would allow me to parse
+out how many physicians an addict visits before finding a willing prescriber, along with frequency of visits, and prescription amounts. These insights would allow me to recover $\gamma$ and $s_i$ for addicts, as well as give me a better idea of the 
+distribution of addict types, instead of just high or low.
+
+Next, survey data from the NSDAS could be useful to understand the behavior of addicts, especially over time. This data would let me see how addicts' $\gamma$ evolves over time as well, while also giving me a better sense of their budget constraints.
+Further, it may be helpful for understanding exit conditions of addicts, who have to leave due to cost or desire for more prescription consumption turning into illicit drug use.
+
+Finally, physician data from state medical boards or the AMA could be useful to understand prescribing behavior. This data could help me understand how physicians' risk tolerance evolves over time, as well as give me a better idea of the distribution of
+physician types. Further, this data could help me understand exit conditions for physicians, who may leave the prescribing market due to risk of losing their license or malpractice suits.
+
+These data sources together would provide a comprehensive view of the addict-physician interaction, allowing for more accurate parameter estimation and model validation. Additionally, I would be able to extend the model to include more sources of 
+uncertainty and heterogeneity, leading to richer policy implications.
 
 \end{document}
