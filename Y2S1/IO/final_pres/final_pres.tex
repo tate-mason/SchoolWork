@@ -1,0 +1,186 @@
+% ============================================================
+% UGA-Themed Beamer Template (Clean MWE)
+% ============================================================
+
+\documentclass[aspectratio=169,professionalfonts]{beamer}
+
+% ---------- COLORS (swap with official UGA hex if you like) ----------
+\usepackage{xcolor}
+\definecolor{UGARed}{HTML}{BA0C2F}   % Verify with brand guide
+\definecolor{UGABlack}{HTML}{000000}
+\definecolor{UGAGray}{HTML}{8A8D8F}
+
+% ---------- THEME & PROGRESS DOTS ----------
+\usetheme{default}
+\useinnertheme{circles}
+\useoutertheme[subsection=false]{miniframes} % dots across top
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+
+% Head/foot colors
+\setbeamercolor{section in head/foot}{fg=white,bg=UGARed}
+\setbeamercolor{subsection in head/foot}{fg=white,bg=UGARed}
+\setbeamercolor{headline}{bg=UGARed,fg=white}
+\setbeamercolor{footline}{bg=UGABlack,fg=white}
+\setbeamercolor{frametitle}{fg=UGABlack}
+\setbeamercolor{title}{fg=UGABlack}
+\setbeamercolor{normal text}{fg=UGABlack}
+\setbeamercolor{structure}{fg=UGARed}
+
+% Simple footline with slide numbers
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex,leftskip=1em,rightskip=1em]{footline}%
+      \insertshortauthor{} \hfill \insertframenumber/\inserttotalframenumber
+    \end{beamercolorbox}}%
+}
+
+% ---------- PACKAGES ----------
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
+% ---------- METADATA (fill these later) ----------
+\title[Vertical Integration and E-commerce Competition]{Evidence from Amazon Marketplace}
+\subtitle{Luca Bennati}
+\author[Tate Mason]{Tate Mason}
+\institute[UGA]{John Munro Godfrey Sr. Dept. of Economics \\ University of Georgia}
+\date{\today}
+
+% ---------- AUTO-AGENDA EACH SECTION ----------
+\AtBeginSection[]{
+  \begin{frame}{Roadmap}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% ---------- MACROS ----------
+% Numbered equation with label
+\newcommand{\beq}[1]{\begin{equation}\label{#1}}
+\newcommand{\eeq}{\end{equation}}
+% Accent color highlight
+\newcommand{\hl}[1]{\textbf{\textcolor{UGARed}{#1}}}
+% Simple figure placeholder macro
+\newcommand{\figph}[2][0.9\linewidth]{%
+  \begin{figure}
+    \centering
+    \fbox{\rule{0pt}{0.55#1}\rule{#1}{0pt}}%
+    \caption{#2}
+  \end{figure}
+}
+
+% ============================================================
+
+% ===== Added helper macros for talk version =====
+\usepackage{booktabs, adjustbox}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=UGARed, urlcolor=UGARed}
+
+% Subtle highlight macro
+\newcommand{\hl}[1]{\textbf{\color{UGARed}{#1}}}
+
+% Figure/table placeholder
+\newcommand{\figph}[1]{\begin{center}\fbox{\parbox{0.85\linewidth}{\centering \vspace{0.6em} \textit{#1} \vspace{0.6em}}}\end{center}}
+
+
+\begin{document}
+
+% ------------------------------------------------------------
+% Title
+% ------------------------------------------------------------
+\begin{frame}
+  \titlepage
+  % TALK GOAL: Speak ~45 minutes. Slides are intentionally concise.
+  % Use Notes or presenter view for your speaking points.
+\end{frame}
+
+% ------------------------------------------------------------
+% Agenda (auto via miniframes) + Explicit roadmap slide
+% ------------------------------------------------------------
+\begin{frame}{Roadmap (Talk-First Design)}
+  \begin{enumerate}
+    \item Motivation \& Background Facts
+    \item Model Intuition 
+    \item Estimation Idea
+    \item Counterfactual
+    \item Results: How is Consumer Welfare Affected?
+    \item Interpretation
+  \end{enumerate}
+  \vspace{0.5em}
+\end{frame}
+
+% ============================================================
+\section{Motivation \& Facts}
+% ============================================================
+
+\begin{frame}{Question \& Motivation}
+  \begin{itemize}
+    \item \hl{Question:} Does Amazon's vertical integration structure harm competition on its marketplace platform? 
+    \item Amazon is able to act as both a retailer and a platform for third-party sellers (3PS)
+    \item What is the effect of this dual role as both competitor and marketplace operator on consumer welfare and competition?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Background Facts}
+  \begin{itemize}
+    \item Amazon's share of US e-commerce sales increased from 27\% in 2015 to 41\% in 2022
+    \item 3PS account for over 50\% of units sold on Amazon
+    \item Amazon Retail (AR) has consistently been the top-selling seller on its own platform
+    \item AR can use non-public data from 3PS to inform its own pricing and product decisions
+    \item Concerns about potential anti-competitive behavior have led to regulatory scrutiny in the US and EU
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Contribution}
+  \begin{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Paper’s Story / Key Findings}
+  \begin{itemize}
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+\section{Model Intuition}
+% ============================================================
+
+
+% ============================================================
+\section{Estimation Idea}
+% ============================================================
+
+
+% ============================================================
+\section{Results}
+% ============================================================
+
+
+% ============================================================
+\section{Interpretation \& Policy}
+% ============================================================
+
+
+% ============================================================
+\section{Conclusion}
+% ============================================================
+
+\begin{frame}{Takeaways}
+  \begin{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Thanks!}
+  \centering
+  Questions? \quad \href{mailto:}{tate.mason@uga.edu}
+\end{frame}
+
+\end{document}
