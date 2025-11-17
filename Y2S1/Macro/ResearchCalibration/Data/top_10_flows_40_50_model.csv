@@ -1,0 +1,11 @@
+origin_idx,dest_idx,origin_fips,dest_fips,origin_name,dest_name,prob
+29,41,32,45,Nevada,South Carolina,0.04228028503562945
+12,37,15,40,Hawaii,Oklahoma,0.03981723237597911
+22,5,25,6,Massachusetts,California,0.0395587675922404
+8,3,10,4,Delaware,Arizona,0.039278815196394076
+20,1,23,1,Maine,Alabama,0.037944664031620556
+38,4,41,5,Oregon,Arkansas,0.03751103265666372
+32,37,35,40,New Mexico,Oklahoma,0.03711558854718982
+45,43,49,47,Utah,Tennessee,0.03676470588235294
+51,34,56,37,Wyoming,North Carolina,0.03664495114006515
+49,34,54,37,West Virginia,North Carolina,0.03643966547192354

@@ -1,0 +1,11 @@
+origin_idx,dest_idx,origin_fips,dest_fips,origin_name,dest_name,prob
+44,3,48,4,Texas,Arizona,0.060109289617486336
+7,1,9,1,Connecticut,Alabama,0.05255878284923928
+5,3,6,4,California,Arizona,0.05202661826981246
+3,34,4,37,Arizona,North Carolina,0.050530255770430445
+37,1,40,1,Oklahoma,Alabama,0.05006418485237484
+3,37,4,40,Arizona,Oklahoma,0.049906425452276984
+41,3,45,4,South Carolina,Arizona,0.04937458854509546
+41,5,45,6,South Carolina,California,0.04937458854509546
+4,5,5,6,Arkansas,California,0.04914150384843102
+8,43,10,47,Delaware,Tennessee,0.04909365558912387
