@@ -131,24 +131,85 @@
 
 \begin{frame}{Background Facts}
   \begin{itemize}
-    \item Amazon's share of US e-commerce sales increased from 27\% in 2015 to 41\% in 2022
-    \item 3PS account for over 50\% of units sold on Amazon
-    \item Amazon Retail (AR) has consistently been the top-selling seller on its own platform
-    \item AR can use non-public data from 3PS to inform its own pricing and product decisions
-    \item Concerns about potential anti-competitive behavior have led to regulatory scrutiny in the US and EU
+    \item Amazon's share of total e-commerce sales was 40.4\% in 2024
+    \item Amazon experiences higher demand for its own products than 3PS do for theirs
+    \begin{itemize}
+      \item 3PS sell 3 products per week
+      \item Amazon brands sell 221 per week
+      \item Amazon is only seller of $\approx$ half of the product it offers
+    \end{itemize}
+    \item 3PS have two modes of fulfillment:
+    \begin{itemize}
+      \item Fulfilled by Amazon: Amazon fulfills delivery for a fee
+      \item Fulfilled by Merchant: Cost of storage and delivery
+    \end{itemize}
+    \item \hl{What to do?}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Contribution}
   \begin{itemize}
+    \item Estimate a counterfactual in which Amazon is no longer a competitor
+    \item Extend counterfactual to have a 3PS take Amazon's place
+    \item Estimates demand, indirect utility, find bounds on fixed costs, structural separation
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Paper’s Story / Key Findings}
   \begin{itemize}
+    \item Counterfactual:
+    \begin{itemize}
+      \item \hl{No Re-entry:} Consumer welfare falls 18.6\%, price increases by 1.7 pp., 20.6\% profit increase for 3PS
+      \item \hl{Re-entry:} Consumer welfare still falls, but up to 4.4 pp. less than in the above case
+    \end{itemize}
+    \item Amazon as a seller appears to contribute value, thus implying the need for thought on the part of regulators
   \end{itemize}
 \end{frame}
 
+% ============================================================
+\section{Setting + Data}
+% ============================================================
+
+\begin{frame}{Setting: Amazon Marketplace}
+  \begin{itemize}
+    \item Logistics: FBA vs FBM
+    \item Referral Fees: A percentage of final price paid by consumer, typically 8\%-15\%
+    \item Recommendation System:
+    \begin{itemize}
+      \item Page Ranking: How a product is listed in search based on characteristics
+      \item Buy-Box: A group of sellers are listed on a page, but one is given more visibility
+      \item Frequently Bought Together: Grouped together by being bought together often
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Data}
+  \begin{itemize}
+    \item Keepa: Amazon scraper that provides product and offer characteristics for all listed products
+    \begin{itemize}
+      \item Product Characteristics: title, brand, manufacturer, product description, real time changes in sales rank, product rating, number of reviews, Buy-Box sellers
+      \item Offer Characteristics: seller's name, logistic method, real time changes in prices/shipping costs
+    \end{itemize}
+    \item AmzScout: market intelligence data utilized by 3PS
+    \begin{itemize}
+      \item estimate agg. quantity sold from sales rank, keyword searches to compute the market
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Data Cont.}
+  \begin{itemize}
+    \item Focuses on wireless bluetooth headphones
+    \begin{itemize}
+      \item Positive Sales
+      \item Product is a distinct barcode
+    \end{itemize}
+    \item Assumes observed sales are only realized by the Buy-Box sellers, given most sales go through that channel
+  \end{itemize}
+\end{itemize}
+
+\begin{frame}{Descriptives}
+  
 % ============================================================
 \section{Model Intuition}
 % ============================================================
