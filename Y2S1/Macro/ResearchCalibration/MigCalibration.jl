@@ -21,6 +21,8 @@ Conventions:
 - Retirees: Use pension*wage and healthcare cost arrays
 """
 
+Random.seed!(0219)
+
 struct DataEnv
   Z::Int                # number of states
   ages::Vector{Int}     # 40:80
