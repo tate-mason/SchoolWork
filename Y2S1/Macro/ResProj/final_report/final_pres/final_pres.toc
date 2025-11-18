@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Data}{4}{0}{2}
+\beamer@sectionintoc {3}{Empirical Facts}{6}{0}{3}
+\beamer@sectionintoc {4}{Model}{11}{0}{4}
+\beamer@sectionintoc {5}{Estimation and Results}{16}{0}{5}
