@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  18 NOV 2025 20:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  19 NOV 2025 10:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -720,32 +720,101 @@ Dictionary: translator-numbers-dictionary, Language: English
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 ) (./final_pres.nav)
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 21--21
+ [][][][]  
+ []
+
+
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 26--26
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
 
 [1
 
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./final_pres.toc)
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 31--31
+ [][][][]  
+ []
+
+(./final_pres.toc)
+
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
 
 [2
 
 ]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 40--40
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
 
 [3
 
 ]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 51--51
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
 
 [4
 
 ]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 60--60
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
 
 [5
 
 ]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 70--70
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
 
 [6
 
 ]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 90--90
+ [][][][]  
+ []
+
 LaTeX Font Info:    Trying to load font information for U+msa on input line 90.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 90.
@@ -757,51 +826,117 @@ LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inpu
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 )
 
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
 [7
 
 ]
-<figures/age_profile_move.pdf, id=267, 578.16pt x 361.35pt>
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 98--98
+ [][][][]  
+ []
+
+<figures/age_profile_move.pdf, id=271, 578.16pt x 361.35pt>
 File: figures/age_profile_move.pdf Graphic file (type pdf)
 <use figures/age_profile_move.pdf>
 Package pdftex.def Info: figures/age_profile_move.pdf  used on input line 98.
 (pdftex.def)             Requested size: 273.83728pt x 171.14679pt.
 
 
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
 [8
 
  <./figures/age_profile_move.pdf>]
-<figures/mover_prop_income.pdf, id=302, 578.16pt x 361.35pt>
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 105--105
+ [][][][]  
+ []
+
+<figures/mover_prop_income.pdf, id=306, 578.16pt x 361.35pt>
 File: figures/mover_prop_income.pdf Graphic file (type pdf)
 <use figures/mover_prop_income.pdf>
 Package pdftex.def Info: figures/mover_prop_income.pdf  used on input line 105.
 (pdftex.def)             Requested size: 273.83728pt x 171.14679pt.
 
 
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
 [9
 
  <./figures/mover_prop_income.pdf>]
-<~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_flows.pdf, id=341, 396.48125pt x 251.94125pt>
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 112--112
+ [][][][]  
+ []
+
+<~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_flows.pdf, id=345, 396.48125pt x 251.94125pt>
 File: ~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_flows.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_flows.pdf>
 Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_flows.pdf  used on input line 112.
 (pdftex.def)             Requested size: 273.83728pt x 174.01263pt.
 
 
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
 [10
 
  </Users/tate/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_flows.pdf>]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 120--120
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
 
 [11
 
 ]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 128--128
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
 
 [12
 
 ]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 137--137
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
 
 [13
 
 ]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 151--151
+ [][][][]  
+ []
+
 ./final_pres.tex:151: Display math should end with $$.
 <to be read again> 
                    V
@@ -1035,10 +1170,19 @@ The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
 
+
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
 
 [14
 
 ]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 165--165
+ [][][][]  
+ []
+
 ./final_pres.tex:165: Display math should end with $$.
 <to be read again> 
                    V
@@ -1273,14 +1417,33 @@ So I shall assume that you typed `$$' both times.
 
 
 
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
 [15
 
 ]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 183--183
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
 
 [16
 
 ]
-<~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/age_profiles_model_vs_data.pdf, id=562, 602.25pt x 401.5pt>
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 190--190
+ [][][][]  
+ []
+
+<~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/age_profiles_model_vs_data.pdf, id=565, 602.25pt x 401.5pt>
 File: ~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/age_profiles_model_vs_data.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/age_profiles_model_vs_data.pdf>
 Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/age_profiles_model_vs_data.pdf  used on input line 190.
@@ -1291,32 +1454,75 @@ Overfull \vbox (2.10684pt too high) detected at line 190
 
 
 
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
 [17
 
  </Users/tate/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/age_profiles_model_vs_data.pdf>]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 197--197
+ [][][][]  
+ []
+
 File: ~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_flows.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_flows.pdf>
 Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_flows.pdf  used on input line 197.
 (pdftex.def)             Requested size: 273.83728pt x 174.01263pt.
 
 
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
 [18
 
 ]
-<~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_model_flows.pdf, id=623, 504.88625pt x 215.80624pt>
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 204--204
+ [][][][]  
+ []
+
+<~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_model_flows.pdf, id=626, 504.88625pt x 215.80624pt>
 File: ~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_model_flows.pdf Graphic file (type pdf)
 <use ~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_model_flows.pdf>
 Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_model_flows.pdf  used on input line 204.
 (pdftex.def)             Requested size: 273.83728pt x 117.04732pt.
 
 
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
 [19
 
  </Users/tate/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_model_flows.pdf>]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 211--211
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
 
 [20
 
 ]
+Overfull \hbox (77.19537pt too wide) in paragraph at lines 218--218
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (77.19537pt too wide) has occurred while \output is active
+ [][][][]  
+ []
 
 [21
 
@@ -1335,29 +1541,22 @@ Package pdftex.def Info: ~/SchoolWork/Y2S1/Macro/ResearchCalibration/Figs/top10_
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-Package rerunfilecheck Warning: File `final_pres.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `final_pres.out':
-(rerunfilecheck)             Before: FF1C5BD26A17B473CCC3CFC056EA39DF;355
-(rerunfilecheck)             After:  227DC99FFEB18C0B100781227488C67E;514.
+Package rerunfilecheck Info: File `final_pres.out' has not changed.
+(rerunfilecheck)             Checksum: 227DC99FFEB18C0B100781227488C67E;514.
  ) 
 Here is how much of TeX's memory you used:
- 22050 strings out of 473190
- 429732 string characters out of 5715801
- 793015 words of memory out of 5000000
- 44797 multiletter control sequences out of 15000+600000
+ 22051 strings out of 473190
+ 429744 string characters out of 5715801
+ 793181 words of memory out of 5000000
+ 44798 multiletter control sequences out of 15000+600000
  570149 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,16n,123p,385b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on final_pres.pdf (21 pages, 225833 bytes).
+Output written on final_pres.pdf (21 pages, 227339 bytes).
 PDF statistics:
- 788 PDF objects out of 1000 (max. 8388607)
- 665 compressed objects within 7 object streams
+ 791 PDF objects out of 1000 (max. 8388607)
+ 668 compressed objects within 7 object streams
  49 named destinations out of 1000 (max. 500000)
- 154 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 162 words of extra memory for PDF output out of 10000 (max. 10000000)
 
