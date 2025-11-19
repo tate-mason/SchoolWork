@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1763509233.61961 "final_pres.tex" "final_pres.pdf" "final_pres" 1763509239.68444 2
+["pdflatex"] 1763560705.07163 "final_pres.tex" "final_pres.pdf" "final_pres" 1763560711.29359 2
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcss1000.tfm" 1136768653 1536 293044035fd171bb1d18cf655049b101 ""
@@ -237,16 +237,16 @@
   "/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty" 1727642399 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1655411236 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1739380943 42148 61becc7c670cd061bb319c643c27fdd4 ""
-  "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1758127320 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
+  "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1754488232 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "bennati_markups.png" 1763508616 90545 497ccb0c20756e2589752aec0a47da5c ""
-  "final_pres.aux" 1763509239.56429 7628 39ad9807b51c8e425e2670a59755aa8f "pdflatex"
-  "final_pres.nav" 1763509239.56824 4727 b0fbbe660887f42049447b7cb68ff8e7 "pdflatex"
-  "final_pres.out" 1763509239.56796 782 f9b213df9bc40276d9df3461ff6ba810 "pdflatex"
-  "final_pres.tex" 1763509232.28517 21114 038e7ca89a4554cfe445e3c22ad3446c ""
-  "final_pres.toc" 1763509239.57104 350 fe4084b8b046845d15471a922445ae9a "pdflatex"
-  "variety.png" 1763509003 270090 c96cc939fd1e2a9f21e7895617f0c4b9 ""
+  "bennati_markups.png" 1763560584.9333 90545 497ccb0c20756e2589752aec0a47da5c ""
+  "final_pres.aux" 1763560711.18104 7628 39ad9807b51c8e425e2670a59755aa8f "pdflatex"
+  "final_pres.nav" 1763560711.18408 4727 b0fbbe660887f42049447b7cb68ff8e7 "pdflatex"
+  "final_pres.out" 1763560711.18383 782 f9b213df9bc40276d9df3461ff6ba810 "pdflatex"
+  "final_pres.tex" 1763560703.70982 21094 7ff7649e568344a50def695c864c7d9a ""
+  "final_pres.toc" 1763560711.18412 350 fe4084b8b046845d15471a922445ae9a "pdflatex"
+  "variety.png" 1763560584.93947 270090 c96cc939fd1e2a9f21e7895617f0c4b9 ""
   (generated)
   "final_pres.aux"
   "final_pres.log"
