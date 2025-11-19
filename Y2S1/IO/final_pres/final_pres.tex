@@ -206,28 +206,429 @@
     \end{itemize}
     \item Assumes observed sales are only realized by the Buy-Box sellers, given most sales go through that channel
   \end{itemize}
-\end{itemize}
+\end{frame}
 
 \begin{frame}{Descriptives}
-  
-% ============================================================
-\section{Model Intuition}
-% ============================================================
+  \begin{table}
+    \centering
+    \caption{Summary Statistics}
+    \begin{adjustbox}{max width=0.9\linewidth}
+      \begin{tabular}{lr}
+        # Products & 3688 \\
+        # Sellers & 2253 \\
+        \% Producers & 5.73 \\
+        # Amazon Brands & 2 \\
+        \% 3PS FBA & 78.79 \\
+        \% Using FBA and FBM & 8.30
+      \end{tabular}
+    \end{adjustbox}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Descriptives Cont.}
+  \begin{table}
+    \centering
+    \caption{Weekly Averages}
+    \begin{adjustbox}{max width=0.9\linewidth}
+      \begin{tabular}{lr}
+        # Products & 2345.07 \\
+        # Sellers & 849 \\
+        # Sellers/Product & 1.20 \\
+        # Products from 3PS & 3.05 \\
+        # Products from Amazon & 220.77 \\
+        Price Amazon & 156.20 USD \\
+        Price 3PS & 80.90 \\
+        Quantity Sold Amazon Retailer & 49.45 \\
+        Quantity Sold Amazon Brands & 38.87 \\
+        HHI & 665
+      \end{tabular}
+    \end{adjustbox}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Descriptives Cont.}
+  \begin{table}
+    \centering
+    \caption{Largest Sellers}
+    \begin{adjustbox}{max width=0.9\linewidth}
+      \begin{tabular}{lcc}
+        \toprule
+        Seller & Type & # Products/Week \\
+        \midrule
+        Amazon.com & Retailer/Producer & 220.77 \\
+        Sampell & Retailer & 95.70 \\
+        Zihnic & Producer & 34.80 \\
+        Thousandshores Inc & Retailer & 30.30 \\
+        Woot & Retailer & 25.20 \\
+        HEYE & Retailer & 24.87 \\
+        Avantree Direct USA & Producer & 24.47 \\
+        JLab Store & Producer & 23.47 \\
+        Trusted Kids Products & Retailer & 23.33 \\
+        Anker Direct & Producer & 23.00 \\
+        \bottomrule
+      \end{tabular}
+    \end{adjustbox}
+  \end{table}
+\end{frame}
+
+\section{Model}
+
+\begin{frame}{Model Setup}
+  \begin{itemize}
+    \item Discrete choice demand model
+    \item Products indexed by $j = 1, \ldots, J$ sold by sellers $r = 1, \ldots, R$ over weeks $t = 1, \ldots, T$ and months $m = 1, \ldots, M$
+    \item 3PS pay fee $\phi$ dependent upon upon charged price, and additional fixed $\tau$ if using FBA
+    \item FBM seller $r$ has a product $j \in \mathcal{J}_{rt}$ with price $p_{rt}$
+    \item FBA seller $r$ has product $j \in \tilde{\mathcal{J}}_{rt}$ with price $p_{rt}$
+    \item Sellers make two choices each week: set of products to offer and prices
+    \item Set $\textbf{\mathcal{J}}_{rt} = \{\mathcal{J}_{rt}, \tilde{\mathcal{J}}_{rt}\}$ defines all products offered by seller $r$ in week $t$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Demand}
+  \begin{itemize}
+    \item Indirect utility of consumer $i$ for product $j$ in week $t$ is:
+    \beq{eq:utility}
+    U_{ijt} = \beta\textbf{X}_{jrt} - \alpha_ip_{jrt} + \gamma_j + \gamma_m + \xi_{jrt} + \epsilon_{ijrt}
+    \eeq
+    \item $\X_{jrt}$: observed seller and product characteristics
+    \item $\gamma_j$: product fixed effects
+    \item $\gamma_m$: month fixed effects
+    \item $\xi_{jrt}$: unobserved product characteristics
+    \item $\epsilon_{ijrt}$: i.i.d. extreme value error term s.t. outside option $U_{i0t} = \epsilon_{i0t}$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Demand Cont.}
+  \begin{itemize}
+    \item Market share prediction is:
+    \beq{eq:share}
+      s_{jrt}
+      = \int
+      \frac{
+        \exp\{\delta_{jrt} + \sigma \mu_i\}
+      }{
+        1
+        + \sum_{r = 1}^R \sum_{j \in \mathcal{J}_{rt}} \exp\{\delta_{jrt}\}
+        + \sum_{j \in \mathcal{J}_{at}} \exp\{\delta_{jat} + \sigma \mu_i\}
+      } \, dF(\mu)
+    \eeq
+    \item $\delta_{jrt} = \beta\X_{jrt} - \alpha p_{jrt} + \gamma_j + \gamma_m + \xi_{jrt}$
+    \item $\sigma\mu_i$: random coefficient on price
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Variable Profit}
+  \begin{itemize}
+    \item Marginal cost for 3PS differs by fulfillment method:
+    \begin{itemize}
+      \item FBM: $c_{jrt}$
+      \item FBA: $\tilde{c}_{jrt}$
+    \end{itemize}
+    \item Firm variable profits:
+    \begin{align}
+      \pi_{rt}(\mathcal{J}_{rt}, X_t)
+      &= \mathcal{M}_t \Bigg(
+        \sum_{j\in\mathcal{J}_{rt}} s_{jrt}(p_t, X_t)\big[(1-\phi)p_{jrt} - c_{jrt}\big] \\
+      &\qquad\quad
+        + \sum_{j\in\tilde{\mathcal{J}}_{rt}} s_{jrt}(p_t, X_t)\big[(1-\phi)p_{jrt} - \tilde{c}_{jrt} - \tau\big]
+      \Bigg)
+    \end{align}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Amazon Profit}
+  \begin{itemize}
+    \item Amazon profit:
+    \begin{align}
+      \pi_{at}(\mathcal{J}_{at}, X_t)
+      &= \mathcal{M}_t \Bigg(
+        \sum_{j\in\mathcal{J}_{at}} s_{jat}(p_t, X_t)\big[p_{jat} - c_{jat}\big] \\
+      &\qquad\quad
+        + \sum_{r\ne a}\sum_{j\in\mathcal{J}_{rt}} s_{jrt}(p_t, X_t)\,\phi\,p_{jrt}
+        + \sum_{r\ne a} \tau \cdot \mathbf{1}\{j\in\tilde{\mathcal{J}}_{rt}\}
+      \Bigg)
+    \end{align}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Costs}
+  \begin{itemize}
+    \item Marginal Costs are are derived from supply functions:
+    \beq{eq:marginal_cost}
+      c_{jrt} = (\delta_1 + \delta_2 \mathbf{1}_{r=a})\mathbf{1}_{FBA} + \zeta_j + \zeta_t + \omega_{jrt}
+    \eeq
+    \item $\zeta_j$: product fixed effects, $\zeta_t$: week fixed effects, $\omega_{jrt}$: error
+    \item Fixed costs
+    \beq{eq:fixed_cost}
+      f_{jrt} = \begin{cases}
+        \theta_a + \psi_{jat}, & \text{if Amazon} \\
+        \theta + \psi_{jrt}, & \text{if 3PS using FBM} \\
+        \tilde{\theta} + \tilde{\psi}_{jrt}, & \text{if 3PS using FBA}
+      \end{cases}
+    \eeq
+    \item $\psi$: product-seller specific unobserved fixed cost component
+    \item $\tilde{\theta}$ takes into account opportunity cost of using FBA vs. other methods
+    \item $\theta_a$ represents inventory costs and opportunity cost of selling for Amazon
+    \item $\theta$ represents fixed costs for 3PS using FBM, including storage, refilling stock, etc.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Seller's Game}
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,line width=1pt]
+
+  % outer box
+  \draw (0,0) rectangle (12,4);
+
+  % timeline
+  \draw (1,2) -- (11,2);
+
+  % stage ticks
+  \draw (5,1.4) -- (5,2.6);
+  \draw (9,1.4) -- (9,2.6);
+
+  % text: left
+  \node at (3,2.6) {Sellers learn $\psi$};
+
+  % Stage 1
+  \node[font=\bfseries] at (5,3.0) {Stage 1};
+  \node at (5,1.0) {Sellers choose};
+  \node at (5,0.6) {products};
+
+  % middle text
+  \node at (7,2.6) {Sellers learn $\xi$ and $\omega$};
+
+  % Stage 2
+  \node[font=\bfseries] at (9,3.0) {Stage 2};
+  \node at (9,1.0) {Sellers compete};
+  \node at (9,0.6) {à la Bertrand};
+
+  % caption
+  \node[font=\small] at (6,-0.4)
+    {\textit{Timing of the Game}};
+
+\end{tikzpicture}
+\end{frame}
+
 
 
 % ============================================================
 \section{Estimation Idea}
 % ============================================================
 
+\begin{frame}{Estimation Overview}
+  \begin{itemize}
+    \item Estimate demand via GMM using BLP framework, recover $(\beta, \alpha, \gamma, \sigma)$
+    \begin{itemize}
+      \item Instruments: BLP and product characteristics of other products
+    \end{itemize}
+    \item Recover marginal costs via first order conditions of profit maximization
+    \item Back out bounds on fixed costs via entry/exit decisions (revealed preferences)
+  \end{itemize}
+\end{frame}
 
 % ============================================================
 \section{Results}
 % ============================================================
 
+\begin{frame}{Demand}
+\centering
+\begin{adjustbox}{max width=\linewidth, max totalheight=\textheight, keepaspectratio}
+  {\scriptsize
+\begin{tabular}{lccc}
+\toprule
+& \multicolumn{3}{c}{Estimates} \\
+\cmidrule(lr){2-4}
+& (1) & (2) & (3) \\
+\midrule
+Intercept                      & -8.739 *** & -4.195 *** & -2.586 *  \\
+Price                          & -0.009 *** & -0.080 *** & -0.108 ***\\
+Amazon                         & 1.483 ***  & 1.409 ***  & 1.374 *** \\
+Fulfilled by Amazon (FBA)      & 0.438 ***  & 0.378 ***  & 0.395 *** \\
+Product Rating\textsubscript{week-1}
+                               & 0.167 ***  & 0.229 ***  & 0.299 *** \\
+Log Reviews\textsubscript{week-1}
+                               & 0.079 ***  & 0.069 ***  & 0.083 *** \\
+$\sigma$                       &            &            & 0.018 **  \\
+                               &            &            & (0.007)   \\
+\midrule
+Product FE                     & Yes        & Yes        & Yes       \\
+Month FE                       & Yes        & Yes        & Yes       \\
+IV                             & No         & Yes        & Yes       \\
+Model                          & Logit      & Logit      & RC Logit  \\
+\midrule
+Median $\eta_{\text{own}}$     & -0.402     & -3.653     & -4.631    \\
+Mean $\eta_{\text{own}}$       & -0.762     & -6.924     & -7.292    \\
+\bottomrule
+\end{tabular}
+  }
+\end{adjustbox}
+\end{frame}
+
+\begin{frame}{Cross-Price Elasticities}
+\centering
+\begin{adjustbox}{max width=\linewidth}
+{\small
+\begin{tabular}{lrrrrrrrr}
+\toprule
+& \multicolumn{8}{c}{\textit{Seller -- Product -- Brand}} \\
+\cmidrule(lr){2-9}
+& r1-j1-Sony
+& r2-j2-PowerLocus
+& r3-j3-QearFun
+& r4-j4-Perytong
+& r5-j5-Jabra
+& a-j6-Beats
+& a-j7-Belkin
+& a-j8-Kef \\
+\midrule
+r1-j1-Sony      & \bcell{-10.837} & 0.001 & 0.001 & 0.001 & 0.003 & 0.003 & 0.001 & 0.003 \\
+r2-j2-PowerLocus& 0 & \bcell{-3.178} & 0 & 0 & 0 & 0 & 0 & 0 \\
+r3-j3-QearFun   & 0 & 0 & \bcell{-2.497} & 0 & 0 & 0 & 0 & 0 \\
+r4-j4-Perytong  & 0 & 0.001 & 0.001 & \bcell{-2.099} & 0 & 0 & 0.001 & 0 \\
+r5-j5-Jabra     & 0.010 & 0.002 & 0.002 & 0.002 & \bcell{-14.772} & 0.025 & 0.002 & 0.026 \\
+a-j6-Beats      & 0.030 & 0.003 & 0.003 & 0.002 & 0.067 & \bcell{-20.348} & 0.004 & \hl{0.131} \\
+a-j7-Belkin     & 0 & 0 & 0 & 0 & 0 & 0 & \bcell{-3.429} & 0 \\
+a-j8-Kef        & 0.001 & 0 & 0 & 0 & 0.003 & 0.006 & 0 & \bcell{-26.371} \\
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{frame}
+
+\begin{frame}{Marginal Costs}
+  \centering
+  \begin{adjustbox}{max width=\linewidth}
+    {\small
+\begin{tabular}{lc}
+  \toprule
+  Variable & Estimates \\
+  \midrule
+  FBA & -3.99 *** \\
+  Amazon & 7.13 *** \\  
+  \midrule
+  Product FE & Yes \\
+  Week FE & Yes \\
+  \midrule
+  Observations & 84149 \\
+  \bottomrule
+\end{tabular}
+    }
+  \end{adjustbox}
+\end{frame}
+
+\begin{frame}{Markups and Lerner Index}
+  \begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{bennati_markups.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Fixed Costs Bounds}
+  \centering
+  \begin{adjustbox}{max width=\linewidth}
+    {\small
+\begin{tabular}{lcc}
+  \toprule
+  $\hat{\theta}$ & Estimated Bounds (USD) & 95\% C.I.\\
+  \midrule
+  $\theta$ & [ 6, 45 ] & [ 5, 50 ] \\
+  $\tilde{\theta}$ & [ 15, 76 ] & [ 12, 80 ] \\
+  $\theta_a$ & [ 18, 244 ] & [ 8, 272 ] \\
+  \bottomrule
+\end{tabular}
+    }
+  \end{adjustbox}
+\end{frame}
 
 % ============================================================
-\section{Interpretation \& Policy}
+\section{Counterfactual Analysis}
 % ============================================================
+
+\begin{frame}{Counterfactual Setup}
+  \begin{itemize}
+    \item Remove Amazon as a seller
+    \item Two scenarios:
+    \begin{itemize}
+      \item No Re-entry: 3PS cannot enter to fill Amazon's spot
+      \item Re-entry: A new 3PS enters to fill Amazon's spot
+    \end{itemize}
+    \item Solve for new equilibrium prices and quantities
+    \item Compute consumer welfare changes via compensating variation
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Counterfactual Results}
+\centering
+\begin{adjustbox}{max width=\linewidth}
+{\small
+\begin{tabular}{lccccc}
+\toprule
+& \textbf{Basis} & \textbf{No Entry} & \textbf{No Entry} &
+\multicolumn{1}{c}{\textbf{FBM Entrant}} &
+\multicolumn{1}{c}{\textbf{FBA Entrant}} \\
+
+& (US\$) & (\%$\Delta$) & (\%$\Delta$) &
+{\small[min \%$\Delta$, max \%$\Delta$]} &
+{\small[min \%$\Delta$, max \%$\Delta$]} \\
+\midrule
+
+\textbf{Consumer Surplus} &
+28’530’493 & -18.57 & -3.48 &
+[0.04, 0.16] &
+[1.76, 1.95] \\[0.3em]
+
+\textbf{Amazon} \\
+
+Amazon Profit &
+20’487’548 & -25.69 & -38.75 &
+[-36.77, -36.70] &
+[-34.27, -34.11] \\
+
+Amazon Fees Revenues &
+12’023’255 & 26.62 & 4.37 &
+[7.75, 7.86] &
+[12.00, 12.28] \\[0.3em]
+
+\textbf{Incumbent non-Amazon Sellers} \\
+
+Variable Profit &
+10’270’051 & 20.60 & 46.92 &
+[41.65, 41.87] &
+[39.29, 39.64] \\
+
+Prices &
+81 & 0.37 & -4.91 &
+[-5.0, -5.0] &
+[-5.1, -5.08] \\[0.3em]
+
+\textbf{Amazon-sold products pre-ban} \\
+
+Incumbent non-Amazon Sellers Prices &
+0 & 0.51 & -4.21 &
+[-4.27, -4.26] &
+[-4.29, -4.28] \\
+
+Entrant Prices &
+0 & 0 & 0 &
+[-6.04, -5.06] &
+[-7.11, -5.94] \\
+
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{frame}
+
+\begin{frame}{Counterfactual Results}
+  \centering
+  \begin{figure}
+    \includegraphics[width=\linewidth]{variety.png}
+    \caption{Change in Product Variety by Policy}
+  \end{figure}
+\end{frame}
+
 
 
 % ============================================================
@@ -236,6 +637,9 @@
 
 \begin{frame}{Takeaways}
   \begin{itemize}
+    \item Amazon's dual role as both a retailer and a platform operator has significant effects on competition and consumer welfare
+    \item Counterfactual analysis shows that removing Amazon as a seller leads to a decrease in consumer welfare, even with potential re-entry by other sellers
+    \item The presence of Amazon as a seller appears to contribute value to the marketplace, suggesting that regulators should carefully consider the implications of vertical integration in e-commerce platforms
   \end{itemize}
 \end{frame}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  17 NOV 2025 11:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  18 NOV 2025 18:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -872,31 +872,630 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [10
 
-])
-Runaway argument?
-\@kernel@before@enddocument \UseOneTimeHook {enddocument}\@kernel@after@enddocument \ETC.
-! File ended while scanning use of \beamer@collect@@body.
-<inserted text> 
-                \par 
-<*> final_pres.tex
-                  
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
+]
 
-! Emergency stop.
-<*> final_pres.tex
-                  
-*** (job aborted, no legal \end found)
+[11
 
- 
+]
+./final_pres.tex:226: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.226 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:226: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.226 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:226: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.226 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:226: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.226 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:226: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.226 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:226: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.226 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:226: Illegal parameter number in definition of \beamer@doifinframe.
+<to be read again> 
+                    
+l.226 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:226: Illegal parameter number in definition of \beamer@doifinframe.
+<to be read again> 
+                    
+l.226 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:226: Illegal parameter number in definition of \beamer@doifinframe.
+<to be read again> 
+                    
+l.226 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:226: You can't use `macro parameter character #' in restricted horizontal mode.
+<recently read> ##
+                  
+l.226 \end{frame}
+                 
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./final_pres.tex:226: You can't use `macro parameter character #' in restricted horizontal mode.
+<recently read> ##
+                  
+l.226 \end{frame}
+                 
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./final_pres.tex:226: You can't use `macro parameter character #' in restricted horizontal mode.
+<recently read> ##
+                  
+l.226 \end{frame}
+                 
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+
+[12
+
+]
+./final_pres.tex:247: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: Illegal parameter number in definition of \beamer@doifinframe.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: Illegal parameter number in definition of \beamer@doifinframe.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: Illegal parameter number in definition of \beamer@doifinframe.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: Illegal parameter number in definition of \beamer@doifinframe.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: Illegal parameter number in definition of \beamer@doifinframe.
+<to be read again> 
+                    
+l.247 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:247: You can't use `macro parameter character #' in restricted horizontal mode.
+<recently read> ##
+                  
+l.247 \end{frame}
+                 
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./final_pres.tex:247: You can't use `macro parameter character #' in restricted horizontal mode.
+<recently read> ##
+                  
+l.247 \end{frame}
+                 
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./final_pres.tex:247: You can't use `macro parameter character #' in restricted horizontal mode.
+<recently read> ##
+                  
+l.247 \end{frame}
+                 
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./final_pres.tex:247: You can't use `macro parameter character #' in restricted horizontal mode.
+<recently read> ##
+                  
+l.247 \end{frame}
+                 
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./final_pres.tex:247: You can't use `macro parameter character #' in restricted horizontal mode.
+<recently read> ##
+                  
+l.247 \end{frame}
+                 
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+
+[13
+
+]
+./final_pres.tex:272: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.272 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:272: Illegal parameter number in definition of \iterate.
+<to be read again> 
+                    
+l.272 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:272: Illegal parameter number in definition of \beamer@doifinframe.
+<to be read again> 
+                    
+l.272 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./final_pres.tex:272: You can't use `macro parameter character #' in restricted horizontal mode.
+<recently read> ##
+                  
+l.272 \end{frame}
+                 
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+
+[14
+
+] (./final_pres.toc)
+
+[15
+
+]
+
+./final_pres.tex:286: LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.286 \end{frame}
+                 
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[16
+
+]
+./final_pres.tex:300: Undefined control sequence.
+<recently read> \X 
+                   
+l.300 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+
+[17
+
+]
+./final_pres.tex:319: Undefined control sequence.
+\beamer@doifinframe ... $\delta _{jrt} = \beta \X 
+                                                  _{jrt} - \alpha p_{jrt} + ...
+l.319 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+
+[18
+
+]
+
+[19
+
+]
+
+[20
+
+]
+
+[21
+
+]
+
+[22
+
+] (./final_pres.toc)
+
+[23
+
+]
+
+[24
+
+] (./final_pres.toc)
+
+[25
+
+]
+
+[26
+
+]
+./final_pres.tex:498: Undefined control sequence.
+\beamer@doifinframe ...idrule r1-j1-Sony & \bcell 
+                                                  {-10.837} & 0.001 & 0.001 ...
+l.498 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./final_pres.tex:498: Undefined control sequence.
+\beamer@doifinframe ...-j2-PowerLocus& 0 & \bcell 
+                                                  {-3.178} & 0 & 0 & 0 & 0 &...
+l.498 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./final_pres.tex:498: Undefined control sequence.
+\beamer@doifinframe ...3-QearFun & 0 & 0 & \bcell 
+                                                  {-2.497} & 0 & 0 & 0 & 0 &...
+l.498 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./final_pres.tex:498: Undefined control sequence.
+\beamer@doifinframe ...0 & 0.001 & 0.001 & \bcell 
+                                                  {-2.099} & 0 & 0 & 0.001 &...
+l.498 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./final_pres.tex:498: Undefined control sequence.
+\beamer@doifinframe ...2 & 0.002 & 0.002 & \bcell 
+                                                  {-14.772} & 0.025 & 0.002 ...
+l.498 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./final_pres.tex:498: Undefined control sequence.
+\beamer@doifinframe ...3 & 0.002 & 0.067 & \bcell 
+                                                  {-20.348} & 0.004 & \hl {0...
+l.498 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./final_pres.tex:498: Undefined control sequence.
+\beamer@doifinframe ...0 & 0 & 0 & 0 & 0 & \bcell 
+                                                  {-3.429} & 0 \\ a-j8-Kef &...
+l.498 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./final_pres.tex:498: Undefined control sequence.
+\beamer@doifinframe ...0.003 & 0.006 & 0 & \bcell 
+                                                  {-26.371} \\ \bottomrule \...
+l.498 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+
+[27
+
+]
+
+[28
+
+]
+<bennati_markups.png, id=2698, 883.3pt x 353.32pt>
+File: bennati_markups.png Graphic file (type png)
+<use bennati_markups.png>
+Package pdftex.def Info: bennati_markups.png  used on input line 526.
+(pdftex.def)             Requested size: 398.3386pt x 159.33757pt.
+
+
+[29
+
+ <./bennati_markups.png>]
+
+[30
+
+] (./final_pres.toc)
+
+[31
+
+]
+
+[32
+
+]
+
+[33
+
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+<variety.png, id=3152, 500.87125pt x 531.9875pt>
+File: variety.png Graphic file (type png)
+<use variety.png>
+Package pdftex.def Info: variety.png  used on input line 630.
+(pdftex.def)             Requested size: 398.3386pt x 423.10664pt.
+
+Overfull \vbox (256.57144pt too high) detected at line 630
+ []
+
+
+
+[34
+
+ <./variety.png>] (./final_pres.toc)
+
+[35
+
+]
+
+[36
+
+]
+
+[37
+
+]
+\tf@nav=\write6
+\openout6 = `final_pres.nav'.
+
+\tf@toc=\write7
+\openout7 = `final_pres.toc'.
+
+\tf@snm=\write8
+\openout8 = `final_pres.snm'.
+
+ (./final_pres.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+
+
+Package rerunfilecheck Warning: File `final_pres.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `final_pres.out':
+(rerunfilecheck)             Before: D1179F8560F941947BC89BAD2A7A15D4;788
+(rerunfilecheck)             After:  F9B213DF9BC40276D9DF3461FF6BA810;782.
+ ) 
 Here is how much of TeX's memory you used:
- 26929 strings out of 473190
- 533590 string characters out of 5715801
- 911828 words of memory out of 5000000
- 49608 multiletter control sequences out of 15000+600000
- 567589 words of font info for 70 fonts, out of 8000000 for 9000
+ 27143 strings out of 473190
+ 536944 string characters out of 5715801
+ 944770 words of memory out of 5000000
+ 49750 multiletter control sequences out of 15000+600000
+ 571030 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,19n,123p,385b,809s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb>
+Output written on final_pres.pdf (37 pages, 523380 bytes).
+PDF statistics:
+ 3567 PDF objects out of 3580 (max. 8388607)
+ 1871 compressed objects within 19 object streams
+ 86 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
+
