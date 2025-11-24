@@ -1,0 +1,48 @@
+---
+title: "Problem Set 4"
+author: "Tate Mason"
+format: pdf
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1:
+
+```{r}
+# Load necessary libraries
+library(tidyverse)
+library(haven)
+library(here)
+library(stargazer)
+library(broom)
+library(modelsummary)
+library(psych)
+```
+
+```{r}
+# Load the dataset
+mc_dat <- read_dta(here("Y2S1/Metrics/PSets/PS4/data", "medicarePS.dta"))
+
+describe(mc_dat)
+summarise(mc_dat)
+```
+
+### Part A
+
+Becuase at 65 all individuals are eligible for Medicare, it inherently acts as a treatment
+on ```Ninsurance``` (the number of insurance plans possessed by an agent). So, using 65
+as the threshold for RDD is appropriate due to:
+1. The amount ```Ninsurance``` changes discontinuously at age 65, seeing agents go from at least zero to 1, or from 1 to 2.
+2. It is fair to assume that individuals just before and just after their 65th birthday are similar in all other respects, meaning
+that any discontinuous change in the outcome variable can be ascribed to the treatment.
+3. The running variable (age) is continuous around the threshold of 65.
+
+### Part B
+
+```{r}
+# Plotting averages per quarter of age: outcome, first stage, validity
+mc_dat <- mc_dat %>%
+  mutate(age_quarter = floor(Age * 4) / 4)
+```
