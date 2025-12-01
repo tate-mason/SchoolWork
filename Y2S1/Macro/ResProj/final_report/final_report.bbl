@@ -1,0 +1,45 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Cubas and Silos(2020)]{cubas_social_2020}
+German Cubas and Pedro Silos.
+\newblock Social {Insurance} and {Occupational} {Mobility}.
+\newblock \emph{Int Economic Review}, 61\penalty0 (1):\penalty0 219--240, February 2020.
+\newblock ISSN 0020-6598, 1468-2354.
+\newblock \doi{10.1111/iere.12422}.
+\newblock URL \url{https://onlinelibrary.wiley.com/doi/10.1111/iere.12422}.
+
+\bibitem[Dahl(2002)]{dahl_mobility_2002}
+Gordon~B. Dahl.
+\newblock Mobility and the {Return} to {Education}: {Testing} a {Roy} {Model} with {Multiple} {Markets}.
+\newblock \emph{Econometrica}, 70\penalty0 (6):\penalty0 2367--2420, November 2002.
+\newblock ISSN 0012-9682, 1468-0262.
+\newblock \doi{10.1111/j.1468-0262.2002.00443.x}.
+\newblock URL \url{http://doi.wiley.com/10.1111/j.1468-0262.2002.00443.x}.
+
+\bibitem[Kennan and Walker(2011)]{kennan_effect_2011}
+John Kennan and James~R Walker.
+\newblock The {Effect} of {Expected} {Income} on {Individual} {Migration} {Decisions}.
+\newblock \emph{Econometrica}, 79\penalty0 (1):\penalty0 211--251, 2011.
+\newblock ISSN 0012-9682.
+\newblock \doi{10.3982/ECTA4657}.
+\newblock URL \url{http://doi.wiley.com/10.3982/ECTA4657}.
+
+\bibitem[Molloy et~al.(2011)Molloy, Smith, and Wozniak]{molloy_internal_2011}
+Raven Molloy, Christopher~L Smith, and Abigail Wozniak.
+\newblock Internal {Migration} in the {United} {States}.
+\newblock \emph{Journal of Economic Perspectives}, 25\penalty0 (3):\penalty0 173--196, August 2011.
+\newblock ISSN 0895-3309.
+\newblock \doi{10.1257/jep.25.3.173}.
+\newblock URL \url{https://pubs.aeaweb.org/doi/10.1257/jep.25.3.173}.
+
+\bibitem[Ruggles et~al.(2025)Ruggles, Flood, Sobek, Backman, Cooper, Drew, Richards, Rodgers, Schroeder, and Williams]{ruggles_ipums_2025}
+Steven Ruggles, Sarah Flood, Matthew Sobek, Daniel Backman, Grace Cooper, Julia A.~Rivera Drew, Stephanie Richards, Renae Rodgers, Jonathan Schroeder, and Kari Williams.
+\newblock {IPUMS} {USA}: {Version} 16.0, 2025.
+\newblock URL \url{https://usa.ipums.org}.
+
+\end{thebibliography}

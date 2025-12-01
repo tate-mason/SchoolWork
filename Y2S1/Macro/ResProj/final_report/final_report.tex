@@ -28,13 +28,13 @@
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=cyan,
-    citecolor=red,
+    citecolor=blue,
     pdftitle={Your Paper Title},
     pdfauthor={Your Name},
 }
 
 % Set line spacing
-\onehalfspacing
+\doublespacing
 
 % Configure headers and footers
 \pagestyle{fancy}
@@ -73,13 +73,7 @@ The Motivation for Migration After 40}
 \begin{abstract}
 \noindent % Write a concise summary (150-250 words) covering: research problem, methodology, key findings, and significance. State your main contributions clearly.
 
-This work investigates adds to a broad literature on location search as well as the literature examining differences between workers and retirees.
-Looking at individuals in the middle-late stage of their working careers, I seek to understand how motivations for relocating may differ from retirees.
-Using data from the International Public Use Microdata Series (IPUMS) and the American Community Survey (ACS), I analyze patterns of migration among workers aged 40-80,
-focusing on the differing motivations and outcomes for movers in this age group. Using structural modeling, I attempt to simulate the decision-making process of these individuals,
-incorporating non-career factors like housing conditions and location-specific amentities. The findings suggest that those still working are likely to move to reduce cost of living
-while also hoping to maintain or improve their career prospects, whereas retirees prioritize quality of life factors. This research contributes to a better understanding of the complex interplay
-between career and non-career factors in relocation decisions among older adults, with implications for policymakers and urban planners aiming to attract and retain this demographic.
+This work adds to a broad literature on location search. Looking at individuals in the middle-late stage of their working careers, I seek to understand how motivations for relocating may differ from retirees. Using data from the International Public Use Microdata Series (IPUMS) and the American Community Survey (ACS), I analyze patterns of migration among workers aged 40-80, focusing on the differing motivations and outcomes for movers in this age group. Using structural modeling, I attempt to simulate the decision-making process of these individuals, incorporating non-career factors like housing conditions and location-specific amentities. The findings suggest that those still working are likely to move to reduce cost of living while also hoping to maintain or improve their career prospects, whereas retirees prioritize quality of life factors. This research contributes to a better understanding of the complex interplay between career and non-career factors in relocation decisions among older adults, with implications for policymakers and urban planners aiming to attract and retain this demographic.
 
 \vspace{0.3cm}
 \noindent \textbf{Keywords:} % List 3-6 keywords relevant to your research
@@ -93,83 +87,61 @@ Location search, retirement decisions, career outcomes.
 \section{Introduction}
 \label{sec:introduction}
 
-Much of the existing literature on location search focuses on young adults and their career-building moves. However, this leaves a gap in understanding how older adults,
-particularly those in the later stages of their careers or approaching retirement, make relocation decisions. This paper aims to fill that gap by examining the motivations
-and outcomes of location search among individuals aged 40-80. This demographic is particularly interesting as they may have different priorities compared to younger movers,
-balancing career considerations with quality of life factors as they near retirement. Understanding these dynamics is crucial for policymakers and urban planners who seek to attract and retain older adults,
-a demographic that is growing in many regions due to aging populations. 
+The decision to move is a complex one, motivated by a variety of factors which can vary across different stages of life. Much attention has been paid to understanding migration patterns among younger adults, or in response to major economic shocks like the Great Recession as in \cite{molloy_internal_2011}. However, this has left a gap in our understanding of how older adults, particularly those in the mid to late stages of their working lives and entering retirement, make relocation decisions. This paper seeks to fill that gap by investigating the motivations behind migration decisions for individuals in this group. 
 
-In this paper, I utilize data from the International Public Use Microdata Series (IPUMS) and the American Community Survey (ACS) to analyze migration patterns among older adults. I look to identify the non-career
-factors that influence their relocation decisions, such as housing conditions, cost of living, and access to amenities. By employing structural modeling techniques, I aim to simulate the decision-making process of
-these individuals, providing insights into how they weigh various factors when considering a move.
+Using data from the International Public Use Microdata Series (IPUMS), via \cite{ruggles_ipums_2025}, and the American Community Survey (ACS), I analyze the flows of movement for individuals aged 40-80, focusing primarily on the 40-50 group and the 65+ group. My primary objective is to understand the differences in motivations for moving between those who are still working, though established in their careers, and those who are retired. To achieve this, I develop a structural model that captures the decision-making process of these individuals, incorporating both monetary factors, such as wages and housing costs, and non-monetary factors, such as location-specific amenities. The model allows for the simulation of migration decisions under various scenarios, providing insights into how different factors influence relocation choices.
 
-This research contributes to the broader literature on migration and career search by highlighting the unique considerations of older adults. The findings have implications for urban development strategies,
-as attracting this demographic can have significant economic and social benefits for communities. Further, contribution to the retirement literature is made by exploring how relocation decisions differ once
-an agent exits the workforce. By creating an index of location-specific amenity factors that influence location choice, this work provides a foundation for future research into the complex interplay between 
-career and non-career motivations in relocation decisions. 
+From the model, I am able to draw some key findings. Firstly, it appears that retirees place a significant emphasis on quality of life factors when making relocation decisions, prioritizing amenities such as climate. Workers, on the other hand, seem to remain concerned with monetary factors, particularly wages and cost of living, though they also consider amenities to a lesser extent. This suggests that while career considerations remain important for workers, non-career factors begin to play a more prominent role as individuals approach retirement.
 
-Section II of this paper reviews related work in the field. Section III details the methodology employed in this study.
-Section IV presents the analysis procedure, including datasets, modeling, calibration, results, and analysis. Section V discusses
-the findings and potential future work. Finally, Section VI concludes the paper.
+The rest of the paper is organized as follows: Section II of this paper reviews related work in the field. Section III details the methodology employed in this study, as well as an introduction to the data and some key data facts.Section IV presents the analysis procedure, including calibration, results, and analysis. Section V discusses the findings and potential future work. Finally, Section VI concludes the paper.
 
 \section{Related Work}
 \label{sec:related_work}
 
-% Comprehensively review relevant prior work. Organize thematically, not chronologically.
-% Show how your work builds on, differs from, or improves upon existing approaches.
+There is a rich body of literature which seeks to understand migration patterns and location search behavior. Much of this work focuses on younger adults and moving to improve career prospects. For example, \cite{kennan_effect_2011} analyze how young workers make location decisions based on wage opportunities and, secondarily, amenities. They find that young workers primarily move for wage opportunities, with the primary driver of migration being a low earnings potential in the current location. This effect is particularly emphasized by their finding that the value of going from a low-wage to a high-wage location is \$17,000 per year.
 
-\subsection{Previous Approaches}
-\label{subsec:previous_approaches}
+Other work, such as \cite{dahl_mobility_2002}, examines the role of self-selection in migration decisions. Dahl finds that there is significant self-selection in migration patterns. Upon observing migration patterns for individuals of different education levels, he finds that higher-educated agents will move to areas with higher returns to education, which will bias the estimated returns to education in those locations. This suggests that migration decisions are not solely based on observable factors like wages and amenities, but also on unobservable characteristics such as individual ability and preferences.
 
-% Survey existing methods and approaches relevant to your problem.
-% Group similar approaches and explain their key ideas, strengths, and weaknesses.
+When looking more broadly at the literature on mobility, \cite{cubas_social_2020} investigates the role of social insurance on occupational mobility. They fit a dynamic assignment model to data from PSID and CNEF to see how social insurance programs, such as unemployment benefits, influence workers' decisions to switch between occupations and varying levels of risk. They find that a more generous social insurance system increases occupational mobility, especially for the riskier occupations. Upon simulating a reduction in social insurance, they find a loss of occupation switching and a loss in mobility rate for workers under this system.
 
-\subsection{Limitations of Existing Work}
-\label{subsec:limitations}
-
-% Identify specific gaps, limitations, or open problems in existing approaches.
-% This motivates why your work is needed and positions your contributions.
+While the existing literature provides valuable insights and methodologies for understanding migration patterns, there are limitations that this paper seeks to add. First, much of the existing work is concerned with young adults and career-building moves. This leaves a gap in understanding how older adults, particularly those who are settled into careers through retirement, make relocation decisions. Second, there is limited work that examines the role of non-career factors, such as location specific amenities. This work seeks to fill those gaps by focusing on individuals aged 40-80 and analyzing how their migration decisions are influenced by a combination of monetary and non-pecuniary factors.
 
 \section{Methodology}
 \label{sec:methodology}
 
-% Describe your approach in sufficient detail for reproducibility.
-% Include mathematical formulations, algorithms, and theoretical analysis as needed.
-
 \subsection{Model Overview}
 \label{subsec:formulation}
 
-There are two types of agents in the model: workers and retirees. Workers will supply labor inelastically, for which they will earn a wage depending on the state they are in, $w(z)$. Each
-period, they will retire with probability $1-x$. Retirees will receive pension income, $p$, and will die with probability $1-y$ each period, being replaced by a new worker. Both types of 
-agents will maximize lifetime utility over consumption, $c$, and amenities, $m(z)$, in their location, as well as experience disutility from moving, $\gamma(z)$. 
+There are two types of agents in the model: workers and retirees. Workers will supply labor inelastically, for which they will earn a wage depending on the state they are in, $w(z)$. Each period, they will retire with probability $1-x$. Retirees will receive pension income, $p$, and will die with probability $1-y$ each period, being replaced by a new worker. Both types of agents will maximize lifetime utility over consumption, $c$, and amenities, $m(z)$, in their location, as well as experience disutility from moving, $\gamma(z)$. 
 
 \subsection{Utility Function}
 \label{subsec:utility}
-The utility functions for workers and retirees are defined as follows:
+The utility functions for workers is defined as follows:
 \begin{equation}
-  U^i(c, m(z);t) = \frac{c^{1-\sigma}}{1-\sigma} - \gamma\cdot\{z'\ne z\} \ \forall \ i \in \{w, r\}
+  U^i(c, z;t) = \frac{(c-\bar{c})^{1-\sigma}}{1-\sigma} + \alpha_i\cdot m(z) - \gamma\cdot\{z'\ne z\} \ \forall \ i \in \{w, r\}
 \end{equation}
 
-where $c$ is consumption, $m(z)$ represents amenities in location $z$, and $\gamma$ is the moving cost parameter. The worker and retiree share common preferences over consumption and amenties, but
-differ in their income sources and decision-making horizons. The constraint for workers is given by:
+where $c$ is consumption, $\bar{c}$ is a constant cost of living, $m(z)$ represents amenities in location $z$, with $\alpha_i$ being the weight agent $i$ places on amenities in that state, and $\gamma$ is the moving cost parameter. The worker and retiree share common preferences over consumption and amenties, but differ in their income sources and decision-making horizons. The constraint for workers is given by:
 
 \begin{equation}
-c_t = w(z_t) - \tau(z_t) - \mathbb{E}[c(h(z))|\delta]
+  c_t = w(z_t)(1 - \tau(z_t)) - c(h(z)) 
 \end{equation}
 
-where $\delta$ represents prior assumptions about housing costs in location $z'$, $w(z_t)$ is the wage in location $z_t$, $\tau(z_t)$ are taxes, and $c(h(z))$ is the housing cost. $\delta$ can take
-one of three values: optimistic, neutral, or pessimistic, representing different beliefs about housing costs in state $z'$. These beliefs will be updated each period, and the agents
-will not hold onto prior beliefs. Thus, one can think of $\delta$ as a sufficient statistic for the agent's belief about housing costs in each state.
+where $w(z_t)(1 - \tau(z_t))$ is the after-tax wage income in location $z_t$, and $c(h(z))$ is the housing cost (rent) in that location..
 
-For retirees, the budget constraint is:
+The utility function for retirees is similar:
 
 \begin{equation}
-  c_t = p\times w_t - \mathbb{E}[c(hc(z))|\delta]
+  U^r(c, z;t) = \frac{c^{1-\sigma}}{1-\sigma} + \alpha_r\cdot m(z) - \gamma\cdot\{z'\ne z\}
 \end{equation}
 
-where $p\times w_t$ is the pension replacement rate. The health care cost, $c(hc(z))$, is also influenced by the agent's belief $\delta$ about costs in location $z'$.
-Similarly, $\delta$ can take one of three values: optimistic, neutral, or pessimistic, representing different beliefs about health care costs in location $z'$. These beliefs will also 
-be updated each period and will not be held onto from prior periods.
+The budget constraint for retirees is given by:
+
+\begin{equation}
+  c_t = p\cdot (1 - \tau(z_t))w(z_t) - c(hc(z)) 
+\end{equation}
+
+where $p\cdot (1 - \tau(z_t))w(z_t)$ is the pension income after taxes, and $c(hc(z))$ is the health care cost in location $z$. The reitrees do not face the constant cost of living $\bar{c}$ as workers do. This is because retirees are assumed to have a different consumption profile, which is channeled towards health care and leisure rather than other expenses.
 
 \subsection{Decision Problem: Workers}
 \label{subsec:worker_decision}
@@ -186,8 +158,7 @@ The value of moving is given by:
   V^M_w(\delta, z_t; t) = \max_{z', c_t} \{U(c_t, m(z')) + x\beta \mathbb{E}[V^w(\delta', z'; t+1)|\delta] + (1-x)\beta\mathbb{E}[V^r(\delta', z'; t+1)|\delta]\}
 \end{equation}
 
-Here, $\delta'$ represents the updated belief about housing costs in the new location $z'$. If a worker stays, they retain their current belief $\delta$; if they move, they form a new belief $\delta'$
-based on the observed costs in the new location and discard priod beliefs $\delta$. 
+Here, $\delta'$ represents the updated belief about housing costs in the new location $z'$. If a worker stays, they retain their current belief $\delta$; if they move, they form a new belief $\delta'$ based on the observed costs in the new location and discard priod beliefs $\delta$. $\delta$ can take one of three values: optimistic, neutral, or pessimistic, representing different beliefs about housing costs in state $z'$. 
 
 \subsection{Decision Problem: Retirees}
 \label{subsec:retiree_decision}
@@ -208,24 +179,118 @@ Similar to workers, retirees update their beliefs about health care costs in the
 \subsection{Proposed Approach}
 \label{subsec:approach}
 
-To solve the model, I will employ dynamic programming techniques to compute the value functions for both workers and retirees. The state space will include the current location $z_t$,
-the belief state $\delta$, and the time period $t$. I will discretize the state space to make the problem computationally tractable. I will use value function iteration to solve for the optimal policies for moving or staying
-for both types of agents. The model will be calibrated using observed migration patterns from the IPUMS and ACS datasets, adjusting parameters such as moving costs, wage functions,
-and pension replacement rates to match empirical data from FRED. 
+To solve the model, I will employ dynamic programming techniques to compute the value functions for both workers and retirees. The state space will include the current location $z_t$, the belief state $\delta$, and the time period $t$. I will discretize the state space to make the problem computationally tractable. I will use value function iteration to solve for the optimal policies for moving or staying for both types of agents. The model will be calibrated using observed migration patterns from the IPUMS and ACS datasets, adjusting parameters such as moving costs, wage functions, and pension replacement rates to match empirical data. 
 
 
 \subsection{Datasets}
 \label{subsec:datasets}
 
-I will utilize data from the International Public Use Microdata Series (IPUMS) and the American Community Survey (ACS) to analyze migration patterns among individuals aged 40-80. These datasets provide rich demographic and
-socioeconomic information, allowing for a comprehensive analysis of relocation decisions in this age group. I will extract relevant variables such as age, income, housing conditions, and migration history to inform the model calibration and validation.
-Further, using data from FRED, I will calibrate macroeconomic parameters such as wage growth, pension replacement rates, and cost of living indices to ensure the model accurately reflects real-world conditions. I have also created an index of location-specific
-amenity factors that influence location choice, which will be incorporated into the model to capture non-career motivations for relocation. These amenity factors include climate, healthcare quality, recreational opportunities, and cultural amenities. These
-factors are sourced from...
+My primary datasource is the IPUMS USA dataset, which provides detailed microdata on individuals' demographic, economic, and housing characteristics in the United States. I will focus on individuals between the ages of 40 and 80, analyzing their migration patterns throughout their lifetime. To supplement the decennial census data from IPUMS, I will also use the American Community Survey (ACS), which offers annual data for a smaller subset of the population. I can link this annual data to the decennial census via a serial number, allowing me to track individuals' migration decisions over time, along with other relevant characteristics such as income and housing conditions.
+
+More specifically, I will extract wages via computing the average wage income for individuals in each state. I also compute amenity indices for each state, where workers value transportation time to work, taken from IPUMS, and retirees value the climate, taken from NOAA data\footnote{Cooling degree days calculated as in Kennan and Walker (2011)}. Housing costs are computed by taking the average rent paid by renters in each state. Health care costs are computed using data from the CMS on average Medicare spending per enrollee in each state. 
 
 \subsection{Summary Statistics}
 \label{subsec:summary_statistics}
 
+When looking at the summary statistics for individuals aged 40-80 in the IPUMS and ACS datasets, I find a total sample size of 21,138,046 individuals. The average age in this group is 57.62 years. The mean wage income is \$33,251.83, while the average gross rent paid by renters is \$170.07 per month. Health care costs average \$6,336.11 annually for retirees in this age group. Approximately 17\% of individuals in this cohort moved to a different state within the observed period.
+
+\begin{table}[htbp]
+\centering
+\caption{Summary Statistics}
+\label{tab:summ_stats}
+  \begin{tabular}{|l|c|}
+    \hline
+    \hline
+    n & 21,138,046 \\
+    Average Age & 57.62 \\
+    Average Wages & 33251.83 \\
+    Average Gross Rent & 170.07\\
+    Average Health Costs & 6336.11 \\
+    Mover \% & 17\% \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Next, I examine migration patterns by age. I create age profiles, plotting the probability of moving against two year age bins. The results show that the probability of moving peaks around age 65 until age 69. This implies there are a lot of movers around retirement age, which may suggest that individuals are making relocation decisions based on retirement plans and non-career factors.
+
+\begin{figure}[htbp]
+  \centering
+  \caption{Age Profile of Movers}
+  \label{fig:age_profile}
+  \includegraphics[width=0.7\textwidth]{final_pres/figures/age_profile_move.pdf}
+\end{figure}
+
+Further, I analyze migration patterns by different agent characteristics. I find that higher education levels are associated with higher mobility rates. The probability of moving increases as one climbs the educational attainment ladder, with those holding at least a bachelor's degree being the most mobile. Income shows similar patterns, where individuals in higher income brackets exhibit greater mobility. Additionally, the presence of children in the household reduces the likelihood of moving, suggesting that family considerations play a significant role in relocation decisions.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{final_pres/figures/mover_prop_educ.pdf}
+    \caption{Mobility by Education Level}
+    \label{fig:edu_profile}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{final_pres/figures/mover_prop_income.pdf}
+    \caption{Mobility by Income Level}
+    \label{fig:income_profile}
+  \end{subfigure}
+  \caption{Mobility Patterns by Agent Characteristics}
+  \label{fig:mobility_patterns}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\textwidth]{final_pres/figures/mover_prop_kids.pdf}
+  \caption{Mobility by Presence of Children}
+  \label{fig:kid_profile}
+\end{figure}
+
+Finally, having a baseline understanding of migration flows in the data is crucial for calibrating the structural model and validating its predictions against observed patterns. Below, I present heat maps showing migration flows between states for workers and retirees. The intensity of the color indicates the volume of movers between each pair of states. These visualizations help identify popular destinations and origins for both groups, providing insights into how career and non-career factors influence relocation decisions.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{final_pres/figures/map_40_50_origins.pdf}
+    \caption{Worker Migration Origins}
+    \label{fig:worker_origin_heatmap}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{final_pres/figures/map_40_50_dests.pdf}
+    \caption{Worker Migration Destinations}
+    \label{fig:worker_dest_heatmap}
+  \end{subfigure}
+  \caption{Worker Migration Heatmaps}
+  \label{fig:worker_heatmaps}
+\end{figure}
+
+The figures show that workers tend to move to states in proximity of their current states which also have strong job markets, such as California, Texas, and Florida.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{final_pres/figures/map_65p_origins.pdf}
+    \caption{Retiree Migration Origins}
+    \label{fig:retiree_origin_heatmap}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{final_pres/figures/map_65p_dests.pdf}
+    \caption{Retiree Migration Destinations}
+    \label{fig:retiree_dest_heatmap}
+  \end{subfigure}
+  \caption{Retiree Migration Heatmaps}
+  \label{fig:retiree_heatmaps}
+\end{figure}
+
+Retirees, on the other hand, show a strong preference for moving to states with favorable climates and lower costs of living, such as Florida and Arizona. These patterns highlight the differing motives for migration between workers and retirees, which the structural model aims to capture.
 
 \section{Calibration and Results}
 \label{sec:results_analysis}
@@ -233,64 +298,136 @@ factors are sourced from...
 \subsection{Calibration}
 \label{subsec:calibration}
 
-To calibrate the model, I will use a combination of method of moments and maximum likelihood estimation. The calibration process will involve adjusting model parameters to match key empirical moments observed in the IPUMS and ACS datasets.
-These moments include migration rates, moving decisions based on age and income, and the distribution of movers across different locations. I will also calibrate parameters related to moving costs, wage functions, and pension replacement rates
-using data from FRED. The calibration will be performed iteratively, refining parameters until the model closely aligns with observed data.
+To calibrate the model, I am mainly focused on matching observed migration patterns from the IPUMS and ACS datasets. Key parameters to be calibrated are the moving disuitility, $\gamma$, wage functions $w(z)$, and weights on amenities $\alpha_im(z)$. I will use a method of simulated moments approach, where I simulate migration decisions using the model and adjust parameters to minimize the distance between simulated and observed migration rates and patterns. It will take the form of a simple logit choice function, where the probability of moving to location $z'$ from $z$ is given by:
+\begin{equation}
+  P^o_{ijt} = Pr(z | i, t) = \frac{\exp(\tilde{U}^o_{ijt})}{\sum_{k=1}^{Z}\exp(\tilde{U}^o_{ikt})}
+\end{equation}
 
-I will validate the calibrated model by comparing its predictions to out-of-sample data, ensuring that it accurately captures the dynamics of relocation decisions among older adults.
+for $o \in \{w, r\}$. For workers, define $\tilde{U}^w_{ijt}$ as:
+\begin{equation}
+  \tilde{U}^w_{ijt} = \frac{(c - \bar{c})^{1-\sigma}}{1-\sigma} + \alpha_w m(z_j) - \gamma\cdot\{z_j \ne z_i\} + \beta\mathbb{E}[V^w(\delta', z_j; t+1)|\delta] + \epsilon_{ijt}
+\end{equation}
+and for retirees, $\tilde{U}^r_{ijt}$ as:
+\begin{equation}
+  \tilde{U}^r_{ijt} = \frac{c^{1-\sigma}}{1-\sigma} + \alpha_r m(z_j) - \gamma\cdot\{z_j \ne z_i\} + \beta\mathbb{E}[V^r(\delta', z_j; t+1)|\delta] + \epsilon_{ijt}
+\end{equation}
+Here, $\epsilon_{ijt}$ captures unobserved preferences for location $j$ by individual $i$ at time $t$ and is assumed to be i.i.d. extreme value distributed.
+
+I set the following baseline parameters based on empirical data and literature:
+\begin{itemize}
+  \item Risk aversion parameter, $\sigma = 2$
+  \item Discount factor, $\beta = 0.96$
+  \item Prior belief states, $\delta \in \{-1, 0, 1\}$ representing pessimistic, neutral, and optimistic beliefs
+\end{itemize}
+
+I also allow for probability of death and retirement in each stage of the model, in which retirement probability is set at 6\% per year for workers over 40, and death probability is set at 3\% per year for retirees over 65.
 
 \subsection{Results}
 \label{subsec:results}
 
-% Present results clearly and objectively:
-% - Use tables and figures effectively
-% - Report statistical significance where appropriate
-% - Include error bars or confidence intervals
-% - Compare against all relevant baselines
-% - Report both quantitative metrics and qualitative observations
+After calibrating the model, I recover the following estimates for $\gamma_i$ and $\alpha_i$:
+\begin{table}[htbp]
+\centering
+\caption{Calibrated Parameters}
+\label{tab:calibrated_params}
+  \begin{tabular}{|l|c|c|}
+    \hline
+    \hline
+    Parameter & Workers & Retirees \\
+    \hline
+    $\gamma$ & 5.37 & 3.01 \\
+    $\alpha$ & -0.02 & 0.52 \\
+    \hline
+  \end{tabular}
+\end{table}
 
-\subsection{Analysis}
+Workers have a higher disutility for moving. This likely reflects the career costs associated with moving, as well as unobserved factors like social ties or other frictions. Retirees, however, have lower disutility, alluding to their changing life circumstances and priorities. Further, retirees place a much higher weight on amenities, suggesting that non-career factors play a significant role in their migration decisions. Workers have a slightly negative weight on amenities, which likely suggests there is a better amenity to use when their migration decisions, such as proximity to family or job networks.
+
+Next, I compare the model's prediction of probability of moving by age against the observed data.
+
+\begin{figure}[htbp]
+  \centering
+  \caption{Age Profile of Movers: Model vs Data}
+  \label{fig:age_profile_model_vs_data}
+    \includegraphics[width=0.8\linewidth]{final_pres/figures/age_profiles_model_vs_data.pdf}
+\end{figure}
+
+Figure 6 shows that the model slightly overpredicts the moving frequency for workers until about age 54, at which point it is relatively close to the trend in the data. However, it vastly overpredicts the retirement effect, with workers of prime retirement age moving with nearly double the frequency as observed in the data. This points to a misspecification in the model, where key factors keeping new retirees from moving are not being captured, like proximity to loved ones or health considerations. However, at age 68, the model comes back in line with the data, suggesting that those who do move after retirement are being captured well by the model. Overall, the model is mostly able to capture the general trend of moving frequency by age for workers, but it struggles to accurately replicate the peak at retirement, instead shooting up. While this is a shortcoming, it does suggest that the model is capturing some of the key drivers of migration decisions for workers, and at least understanding of the retirement peak.
+
+Next, I compare the top migration flows predicted by the model against those observed in the data for both workers and retirees.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{final_pres/figures/map_model_40_50_origins.pdf}
+    \caption{Worker Migration Origins: Model}
+    \label{fig:worker_origin_heatmap_model}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{final_pres/figures/map_model_40_50_dests.pdf}
+    \caption{Worker Migration Destinations: Model}
+    \label{fig:worker_dest_heatmap_model}
+  \end{subfigure}
+  \caption{Worker Migration Heatmaps: Model}
+  \label{fig:worker_heatmaps_model}
+\end{figure}
+
+For workers, we see a mixed bag. Firstly, the model overemphasizes the midwest origins of many workers, as well as pockets in the north east. It is in the neighborhood of the data origins, but does not go further west than Wyoming. However, when looking at destinations, the  model picks up three of the ten top destinations in the data, and is in the ballpark for many others. It correctly identifies North Carolina, California, and Washington as top destinations, though it misses Texas and Minnesota. However, it does get Michigan, a neighbor of Minnesota, and Mississippi, close to Texas. It does, however, completely miss the north eastern states. The model does a decent job of capturing worker migration patterns, but there is still room for improvement, likely through refinement of amenities. 
+
+Retiree migration patterns are captured quite well by the model.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{final_pres/figures/map_model_65p_origins.pdf}
+    \caption{Retiree Migration Origins: Model}
+    \label{fig:retiree_origin_heatmap_model}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{final_pres/figures/map_model_65p_dests.pdf}
+    \caption{Retiree Migration Destinations: Model}
+    \label{fig:retiree_dest_heatmap_model}
+  \end{subfigure}
+  \caption{Retiree Migration Heatmaps: Model}
+  \label{fig:retiree_heatmaps_model}
+\end{figure}
+
+Here, we can see the general trend of moving from colder states to warmer ones coming to fruition, with all retirees moving to Florida. In the data, Florida is the top destination for retirees, and the model captures this perfectly. The model also captures the direction of migration, moving from the north to the south. There are interesting departures, however, such as leaving New Mexico for Florida, when in the data it would be likely a retiree would go to Arizona instead. Overall, the model does a good job of capturing retiree migration patterns, particularly the strong preference for Florida as a destination. However, there is still room for improvement in capturing the full range of migration flows observed in the data. This is likely, again, in the form of implementation of some sort of proximity preference into the utility function.
+
+\subsection{Analysis of Results}
 \label{subsec:analysis}
 
-% Provide deeper analysis of your results:
-% - Statistical significance tests
-% - Ablation studies showing contribution of different components
-% - Error analysis and failure cases
-% - Computational complexity and runtime analysis
-% - Sensitivity analysis for key parameters
+The results above show that the model has both strengths and weaknesses in capturing migration patterns among older adults. For retirees, the model performs well, accurately reflecting the strong preference for warmer climates and lower costs of living. This suggests that non-career factors, such as amenities, play a significant role in retirees' relocation decisions, which the model successfully captures through the high weight on amenities and lower moving disutility. However, the model also overpredicts the probability of moving as one approaches retirement age, indicating that there are additional factors at play that are not fully captured by the current specification. Further, there is an overemphasization of Florida as a destination, suggesting that a more nuanced amenity bundle may be necessary to fully capture retirees' preferences.
 
-\section{Discussion}
+Workers are a much more varied story. While the model does a decent job of capturing general migration probabilities and some of the flows, it struggles to accurately replicate the upward trend approaching retirement age. Instead, we see a relatively flat line until shooting up after 60. Furhter, while some of the states from the data are present in the model flows, there are many missing, particularly in the northeast and south. This suggests that the model may be missing key factors that influence workers' migration decisions, such as proximity to family or job networks. The negative weight on amenities also suggests that the current specification may not be capturing the full range of factors that workers consider when making relocation decisions. Overall, while the model provides a useful starting point for understanding migration patterns among older adults, there is still significant room for improvement, particularly in capturing the complexities of workers' relocation decisions.
+
+\section{Discussion of Findings}
 \label{sec:discussion}
 
-% Interpret your findings, discuss broader implications, and acknowledge limitations honestly.
-
-\subsection{Interpretation of Results}
-\label{subsec:interpretation}
-
-% Explain what your results mean in the context of your research questions:
-% - How do findings relate to your hypotheses?
-% - What insights do the results provide?
-% - How do they compare to previous work?
-% - What are the practical implications?
+The results of this study highlight the complex interplay between career and non-career factors in the migration decisions of older adults. For retirees, the model successfully captures the importance of climate and cost of living in their relocation choices, closely alignging with the observed data. This suggests that retirees prioritize quality of life factors when deciding where to move, a finding that makes intuitive sense given their stage in life. However, the model's shortcomings emphasize the need for further refinement, particularly in understanding the migration behavior of workers. The overprediction of moving rates among workers indicates that additional factors, such as proximity preferences and job switching costs, may play a significant role in their decision-making process. Future research should explore these aspects in greater detail to enhance the model's accuracy and predictive power. The decision to stray from career-based factors in favor of non-career considerations likely leads to a severe lack of understanding of the true motivations for migration among older workers. Overall, this study contributes to a deeper understanding of the motivations behind migration decisions in later life stages, with implications for policymakers and urban planners aiming to attract and retain this demographic.
 
 \subsection{Future Work}
 \label{subsec:future_work}
 
-% Suggest concrete directions for future research:
-% - How could your approach be extended or improved?
-% - What new research questions arise from your work?
-% - How could limitations be addressed?
-% - What are the next logical steps?
+Further work on this project could take several directions. First, refinding the model to better capture what drives workers' decisions to move is crucial. This could include incorporating proximity preferences more explicity, such as adding a function of distance into the utility function. Additionally, job switching costs could be improved with more explicit modeling. This could involve adding a cost function that depends on the difference in wages between current and potential locations. Another avenue for this project's future is to explore agent heterogeneity more deeply. For instance, allowing for different levels of $\gamma$ based on individual characteristics such as income, education, or family status could provide a more nuanced understanding of migration decisions. Finally, expanding the dataset to include additional demographic variables could enhance the robustness of the findings and allow for a more comprehensive analysis of migration patterns among older adults.
+
+Also, incorporating dynamic elements into the model could provide insights into how migration decisions evolve over time. This could involve modeling life-cycle events, such as health shocks or changes in family structure, which may influence relocation choices. Additionally, exploring the role of social networks and community ties in migration decisions could add another layer of complexity to the model. Understanding how these social factors interact with economic considerations could lead to a more holistic view of migration behavior among older adults. There is also an opportunity to investigate at a smaller scale, such as IPUMS' PUMA level data, to see how migration patterns differ by urban versus rural settings. This could provide insights into how local amenities and economic conditions influence migration decisions at a more granular level.
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-% Summarize your main contributions, key findings, and their significance.
-% Avoid simply repeating the abstract - provide a synthesis that reinforces your contributions.
-
+This paper investigates the differences in motivations for migration between mid-late career workers and retirees using a structural model calibrated to data from IPUMS and ACS. The findings recovered from the model suggest that retirees prioritize non-career factors, such as climate preferences, while workers remain more focused on monetary considerations, such as wages and cost of living. However, the model struggles to accurately capture the migration patterns of workers, particularly around retirement age, indicating that additional factors may be at play. Future work should focus on refining the model to better account for these complexities, potentially through the incorporation of proximity preferences and job switching costs. Overall, this study contributes to a deeper understanding of the motivations behind migration decisions in later life stages, with implications for policymakers and urban planners aiming to attract and retain this demographic.
 
 % Bibliography
 \bibliographystyle{plainnat}
-\bibliography{references} % Make sure you have a references.bib file
+\bibliography{final_bib} % Make sure you have a references.bib file
+
+\printbibliography
 
 \end{document}
