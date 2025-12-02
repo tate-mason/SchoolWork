@@ -254,9 +254,21 @@ Further, I analyze migration patterns by different agent characteristics. I find
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.7\textwidth]{final_pres/figures/mover_prop_kids.pdf}
-  \caption{Mobility by Presence of Children}
-  \label{fig:kid_profile}
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{final_pres/figures/mover_prop_kids.pdf}
+    \caption{Mobility by Presence of Children}
+    \label{fig:kid_profile}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{final_pres/figures/mover_prop_marst.pdf}
+    \caption{Mobility by Marital Status}
+    \label{fig:marst_profile}
+  \end{subfigure}
+  \caption{Mobility Patterns by Family Characteristics}
+  \label{fig:family_mobility_patterns}
 \end{figure}
 
 Finally, having a baseline understanding of migration flows in the data is crucial for calibrating the structural model and validating its predictions against observed patterns. Below, I present heat maps showing migration flows between states for workers and retirees. The intensity of the color indicates the volume of movers between each pair of states. These visualizations help identify popular destinations and origins for both groups, providing insights into how career and non-career factors influence relocation decisions.
@@ -328,6 +340,7 @@ I set the following baseline parameters based on empirical data and literature:
 \begin{itemize}
   \item Risk aversion parameter, $\sigma = 2$
   \item Discount factor, $\beta = 0.96$
+  \item $\bar{c} = 1000$ representing a minimum cost of \$1000 for workers
   \item Prior belief states, $\delta \in \{-1, 0, 1\}$ representing pessimistic, neutral, and optimistic beliefs
 \end{itemize}
 
@@ -335,7 +348,7 @@ I also allow for probability of death and retirement in each stage of the model,
 
 \subsection{Results}
 \label{subsec:results}
-
+       $
 After calibrating the model, I recover the following estimates for $\gamma_i$ and $\alpha_i$:
 \begin{table}[htbp]
 \centering
