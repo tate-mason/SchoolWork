@@ -198,7 +198,7 @@ My primary datasource is the IPUMS USA dataset, which provides detailed microdat
 
 More specifically, I will extract wages via computing the average wage income for individuals in each state. I also compute amenity indices for each state, where workers value transportation time to work, taken from IPUMS, and retirees value the climate, taken from NOAA data\footnote{Cooling degree days calculated as in Kennan and Walker (2011)}. Housing costs are computed by taking the average rent paid by renters in each state. Health care costs are computed using data from the CMS on average Medicare spending per enrollee in each state. 
 
-The data spans from 2000-2019, covering the 2000 and 2010 decennial censuses, as well as all interyear data from the ACS. This gives me a comprehensive view of migration patterns over two decades. All dollar amounts are normalized to 2010 dollars using the CPI index from the BLS.
+The data spans from 2000-2019, covering the 2000 and 2010 decennial censuses, as well as all interyear data from the ACS. This gives me a comprehensive view of migration patterns over two decades. All dollar amounts are normalized to 2010 dollars using the CPI index from the BLS. I restrict my sample to heads of household to simplify computaion, and I drop individuals who reside in group quarters, such as nursing homes or prisons, as their migration decisions may be influenced by factors not captured in the model.
 
 \subsection{Summary Statistics}
 \label{subsec:summary_statistics}
@@ -231,7 +231,8 @@ Next, I examine migration patterns by age. I create age profiles, plotting the p
   \includegraphics[width=0.7\textwidth]{final_pres/figures/age_profile_move.pdf}
 \end{figure}
 
-Further, I analyze migration patterns by different agent characteristics. I find that higher education levels are associated with higher mobility rates. The probability of moving increases as one climbs the educational attainment ladder, with those holding at least a bachelor's degree being the most mobile. Income shows similar patterns, where individuals in higher income brackets exhibit greater mobility. Additionally, the presence of children in the household reduces the likelihood of moving, suggesting that family considerations play a significant role in relocation decisions.
+Further, I analyze migration patterns by different agent characteristics. I find that higher education levels are associated with higher mobility rates. The probability of moving increases as one climbs the educational attainment ladder, with those holding at least a bachelor's degree being the most mobile. Income shows similar patterns, where individuals in higher income brackets exhibit greater mobility. Additionally, the presence of children in the household reduces the likelihood of moving, suggesting that family considerations play a significant role in relocation decisions. Interestingly, marital status influences mobility such that married individuals are more likely to move compared to their single counterparts, possibly due to dual-income households having more flexibility in relocation or the fact that there are now two individuals to consider in the decision-making process.
+
 
 \begin{figure}[htbp]
   \centering
@@ -348,7 +349,6 @@ I also allow for probability of death and retirement in each stage of the model,
 
 \subsection{Results}
 \label{subsec:results}
-       $
 After calibrating the model, I recover the following estimates for $\gamma_i$ and $\alpha_i$:
 \begin{table}[htbp]
 \centering
