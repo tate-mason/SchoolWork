@@ -1,9 +1,17 @@
-\begin{thebibliography}{5}
+\begin{thebibliography}{11}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Chade et~al.(2017)Chade, Eeckhout, and Smith]{chade_sorting_2017}
+Hector Chade, Jan Eeckhout, and Lones Smith.
+\newblock Sorting through {Search} and {Matching} {Models} in {Economics}.
+\newblock \emph{Journal of Economic Literature}, 55\penalty0 (2):\penalty0 493--544, June 2017.
+\newblock ISSN 0022-0515.
+\newblock \doi{10.1257/jel.20150777}.
+\newblock URL \url{https://pubs.aeaweb.org/doi/10.1257/jel.20150777}.
 
 \bibitem[Cubas and Silos(2020)]{cubas_social_2020}
 German Cubas and Pedro Silos.
@@ -21,6 +29,14 @@ Gordon~B. Dahl.
 \newblock \doi{10.1111/j.1468-0262.2002.00443.x}.
 \newblock URL \url{http://doi.wiley.com/10.1111/j.1468-0262.2002.00443.x}.
 
+\bibitem[Glaeser and Maré(2001)]{glaeser_cities_2001}
+Edward L. Glaeser and David C. Maré.
+\newblock Cities and {Skills}.
+\newblock \emph{Journal of Labor Economics}, 19\penalty0 (2):\penalty0 316--342, April 2001.
+\newblock ISSN 0734-306X, 1537-5307.
+\newblock \doi{10.1086/319563}.
+\newblock URL \url{https://www.journals.uchicago.edu/doi/10.1086/319563}.
+
 \bibitem[Kennan and Walker(2011)]{kennan_effect_2011}
 John Kennan and James~R Walker.
 \newblock The {Effect} of {Expected} {Income} on {Individual} {Migration} {Decisions}.
@@ -28,6 +44,22 @@ John Kennan and James~R Walker.
 \newblock ISSN 0012-9682.
 \newblock \doi{10.3982/ECTA4657}.
 \newblock URL \url{http://doi.wiley.com/10.3982/ECTA4657}.
+
+\bibitem[Lippman and McCall(1976)]{lippman_job_1976}
+Steven~A Lippman and John~J McCall.
+\newblock Job search in a dynamic economy.
+\newblock \emph{Journal of Economic Theory}, 12\penalty0 (3):\penalty0 365--390, June 1976.
+\newblock ISSN 00220531.
+\newblock \doi{10.1016/0022-0531(76)90034-X}.
+\newblock URL \url{https://linkinghub.elsevier.com/retrieve/pii/002205317690034X}.
+
+\bibitem[Manning and Petrongolo(2017)]{manning_how_2017}
+Alan Manning and Barbara Petrongolo.
+\newblock How {Local} {Are} {Labor} {Markets}? {Evidence} from a {Spatial} {Job} {Search} {Model}.
+\newblock \emph{American Economic Review}, 107\penalty0 (10):\penalty0 2877--2907, October 2017.
+\newblock ISSN 0002-8282.
+\newblock \doi{10.1257/aer.20131026}.
+\newblock URL \url{https://pubs.aeaweb.org/doi/10.1257/aer.20131026}.
 
 \bibitem[Molloy et~al.(2011)Molloy, Smith, and Wozniak]{molloy_internal_2011}
 Raven Molloy, Christopher~L Smith, and Abigail Wozniak.
@@ -37,9 +69,25 @@ Raven Molloy, Christopher~L Smith, and Abigail Wozniak.
 \newblock \doi{10.1257/jep.25.3.173}.
 \newblock URL \url{https://pubs.aeaweb.org/doi/10.1257/jep.25.3.173}.
 
+\bibitem[Roy(1951)]{roy_thoughts_1951}
+A.~D. Roy.
+\newblock Some {Thoughts} on the {Distribution} of {Earnings} 1.
+\newblock \emph{Oxford Economic Papers}, 3\penalty0 (2):\penalty0 135--146, June 1951.
+\newblock ISSN 1464-3812, 0030-7653.
+\newblock \doi{10.1093/oxfordjournals.oep.a041827}.
+\newblock URL \url{https://academic.oup.com/oep/article-lookup/doi/10.1093/oxfordjournals.oep.a041827}.
+
 \bibitem[Ruggles et~al.(2025)Ruggles, Flood, Sobek, Backman, Cooper, Drew, Richards, Rodgers, Schroeder, and Williams]{ruggles_ipums_2025}
 Steven Ruggles, Sarah Flood, Matthew Sobek, Daniel Backman, Grace Cooper, Julia A.~Rivera Drew, Stephanie Richards, Renae Rodgers, Jonathan Schroeder, and Kari Williams.
 \newblock {IPUMS} {USA}: {Version} 16.0, 2025.
 \newblock URL \url{https://usa.ipums.org}.
+
+\bibitem[Çenesiz and Guimarães(2022)]{cenesiz_cyclicality_2022}
+M~Alper Çenesiz and Luís Guimarães.
+\newblock The {Cyclicality} of {Job} {Search} {Effort} in {Matching} {Models}.
+\newblock \emph{Oxford Economic Papers}, 74\penalty0 (4):\penalty0 1195--1213, September 2022.
+\newblock ISSN 0030-7653, 1464-3812.
+\newblock \doi{10.1093/oep/gpac001}.
+\newblock URL \url{https://academic.oup.com/oep/article/74/4/1195/6520619}.
 
 \end{thebibliography}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  2 DEC 2025 09:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  2 DEC 2025 13:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -722,10 +722,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [5]
-<final_pres/figures/age_profile_move.pdf, id=150, 578.16pt x 361.35pt>
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[6]
+<final_pres/figures/age_profile_move.pdf, id=174, 578.16pt x 361.35pt>
 File: final_pres/figures/age_profile_move.pdf Graphic file (type pdf)
 <use final_pres/figures/age_profile_move.pdf>
-Package pdftex.def Info: final_pres/figures/age_profile_move.pdf  used on input line 224.
+Package pdftex.def Info: final_pres/figures/age_profile_move.pdf  used on input line 231.
 (pdftex.def)             Requested size: 317.07614pt x 198.16968pt.
 
 
@@ -736,41 +745,41 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[6 <./final_pres/figures/age_profile_move.pdf>]
-<final_pres/figures/mover_prop_educ.pdf, id=163, 504.88625pt x 360.34625pt>
+[7 <./final_pres/figures/age_profile_move.pdf>]
+<final_pres/figures/mover_prop_educ.pdf, id=187, 504.88625pt x 360.34625pt>
 File: final_pres/figures/mover_prop_educ.pdf Graphic file (type pdf)
 <use final_pres/figures/mover_prop_educ.pdf>
-Package pdftex.def Info: final_pres/figures/mover_prop_educ.pdf  used on input line 233.
+Package pdftex.def Info: final_pres/figures/mover_prop_educ.pdf  used on input line 240.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
-<final_pres/figures/mover_prop_income.pdf, id=164, 578.16pt x 361.35pt>
+<final_pres/figures/mover_prop_income.pdf, id=188, 578.16pt x 361.35pt>
 File: final_pres/figures/mover_prop_income.pdf Graphic file (type pdf)
 <use final_pres/figures/mover_prop_income.pdf>
-Package pdftex.def Info: final_pres/figures/mover_prop_income.pdf  used on input line 240.
+Package pdftex.def Info: final_pres/figures/mover_prop_income.pdf  used on input line 247.
 (pdftex.def)             Requested size: 203.83417pt x 127.39519pt.
-<final_pres/figures/mover_prop_kids.pdf, id=165, 578.16pt x 361.35pt>
+<final_pres/figures/mover_prop_kids.pdf, id=189, 578.16pt x 361.35pt>
 File: final_pres/figures/mover_prop_kids.pdf Graphic file (type pdf)
 <use final_pres/figures/mover_prop_kids.pdf>
-Package pdftex.def Info: final_pres/figures/mover_prop_kids.pdf  used on input line 250.
+Package pdftex.def Info: final_pres/figures/mover_prop_kids.pdf  used on input line 257.
 (pdftex.def)             Requested size: 317.07614pt x 198.16968pt.
-<final_pres/figures/map_40_50_origins.pdf, id=166, 504.88625pt x 360.34625pt>
+<final_pres/figures/map_40_50_origins.pdf, id=190, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_40_50_origins.pdf Graphic file (type pdf)
 <use final_pres/figures/map_40_50_origins.pdf>
-Package pdftex.def Info: final_pres/figures/map_40_50_origins.pdf  used on input line 261.
+Package pdftex.def Info: final_pres/figures/map_40_50_origins.pdf  used on input line 268.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
-<final_pres/figures/map_40_50_dests.pdf, id=167, 504.88625pt x 360.34625pt>
+<final_pres/figures/map_40_50_dests.pdf, id=191, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_40_50_dests.pdf Graphic file (type pdf)
 <use final_pres/figures/map_40_50_dests.pdf>
-Package pdftex.def Info: final_pres/figures/map_40_50_dests.pdf  used on input line 268.
+Package pdftex.def Info: final_pres/figures/map_40_50_dests.pdf  used on input line 275.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
-<final_pres/figures/map_65p_origins.pdf, id=168, 504.88625pt x 360.34625pt>
+<final_pres/figures/map_65p_origins.pdf, id=192, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_65p_origins.pdf Graphic file (type pdf)
 <use final_pres/figures/map_65p_origins.pdf>
-Package pdftex.def Info: final_pres/figures/map_65p_origins.pdf  used on input line 282.
+Package pdftex.def Info: final_pres/figures/map_65p_origins.pdf  used on input line 289.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
-<final_pres/figures/map_65p_dests.pdf, id=169, 504.88625pt x 360.34625pt>
+<final_pres/figures/map_65p_dests.pdf, id=193, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_65p_dests.pdf Graphic file (type pdf)
 <use final_pres/figures/map_65p_dests.pdf>
-Package pdftex.def Info: final_pres/figures/map_65p_dests.pdf  used on input line 289.
+Package pdftex.def Info: final_pres/figures/map_65p_dests.pdf  used on input line 296.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
 
 
@@ -781,7 +790,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[7 <./final_pres/figures/mover_prop_educ.pdf> <./final_pres/figures/mover_prop_income.pdf> <./final_pres/figures/mover_prop_kids.pdf>]
+[8 <./final_pres/figures/mover_prop_educ.pdf> <./final_pres/figures/mover_prop_income.pdf> <./final_pres/figures/mover_prop_kids.pdf>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -790,7 +799,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[8 <./final_pres/figures/map_40_50_origins.pdf> <./final_pres/figures/map_40_50_dests.pdf> <./final_pres/figures/map_65p_origins.pdf> <./final_pres/figures/map_65p_dests.pdf>]
+[9 <./final_pres/figures/map_40_50_origins.pdf> <./final_pres/figures/map_40_50_dests.pdf> <./final_pres/figures/map_65p_origins.pdf> <./final_pres/figures/map_65p_dests.pdf>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -799,21 +808,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[9]
-<final_pres/figures/age_profiles_model_vs_data.pdf, id=242, 602.25pt x 401.5pt>
+[10]
+<final_pres/figures/age_profiles_model_vs_data.pdf, id=265, 602.25pt x 401.5pt>
 File: final_pres/figures/age_profiles_model_vs_data.pdf Graphic file (type pdf)
 <use final_pres/figures/age_profiles_model_vs_data.pdf>
-Package pdftex.def Info: final_pres/figures/age_profiles_model_vs_data.pdf  used on input line 356.
+Package pdftex.def Info: final_pres/figures/age_profiles_model_vs_data.pdf  used on input line 363.
 (pdftex.def)             Requested size: 362.37569pt x 241.59413pt.
-<final_pres/figures/map_model_40_50_origins.pdf, id=243, 504.88625pt x 360.34625pt>
+<final_pres/figures/map_model_40_50_origins.pdf, id=266, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_model_40_50_origins.pdf Graphic file (type pdf)
 <use final_pres/figures/map_model_40_50_origins.pdf>
-Package pdftex.def Info: final_pres/figures/map_model_40_50_origins.pdf  used on input line 367.
+Package pdftex.def Info: final_pres/figures/map_model_40_50_origins.pdf  used on input line 374.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
-<final_pres/figures/map_model_40_50_dests.pdf, id=244, 504.88625pt x 360.34625pt>
+<final_pres/figures/map_model_40_50_dests.pdf, id=267, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_model_40_50_dests.pdf Graphic file (type pdf)
 <use final_pres/figures/map_model_40_50_dests.pdf>
-Package pdftex.def Info: final_pres/figures/map_model_40_50_dests.pdf  used on input line 374.
+Package pdftex.def Info: final_pres/figures/map_model_40_50_dests.pdf  used on input line 381.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
 
 
@@ -824,16 +833,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[10 <./final_pres/figures/age_profiles_model_vs_data.pdf>]
-<final_pres/figures/map_model_65p_origins.pdf, id=251, 504.88625pt x 360.34625pt>
+[11 <./final_pres/figures/age_profiles_model_vs_data.pdf>]
+<final_pres/figures/map_model_65p_origins.pdf, id=274, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_model_65p_origins.pdf Graphic file (type pdf)
 <use final_pres/figures/map_model_65p_origins.pdf>
-Package pdftex.def Info: final_pres/figures/map_model_65p_origins.pdf  used on input line 390.
+Package pdftex.def Info: final_pres/figures/map_model_65p_origins.pdf  used on input line 397.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
-<final_pres/figures/map_model_65p_dests.pdf, id=252, 504.88625pt x 360.34625pt>
+<final_pres/figures/map_model_65p_dests.pdf, id=275, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_model_65p_dests.pdf Graphic file (type pdf)
 <use final_pres/figures/map_model_65p_dests.pdf>
-Package pdftex.def Info: final_pres/figures/map_model_65p_dests.pdf  used on input line 397.
+Package pdftex.def Info: final_pres/figures/map_model_65p_dests.pdf  used on input line 404.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
 
 
@@ -844,7 +853,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[11 <./final_pres/figures/map_model_40_50_origins.pdf> <./final_pres/figures/map_model_40_50_dests.pdf> <./final_pres/figures/map_model_65p_origins.pdf> <./final_pres/figures/map_model_65p_dests.pdf>]
+[12 <./final_pres/figures/map_model_40_50_origins.pdf> <./final_pres/figures/map_model_40_50_dests.pdf> <./final_pres/figures/map_model_65p_origins.pdf> <./final_pres/figures/map_model_65p_dests.pdf>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -853,7 +862,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[12]
+[13]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -862,7 +871,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[13] (./final_report.bbl
+[14] (./final_report.bbl
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -871,9 +880,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[14])
-./final_report.tex:443: Undefined control sequence.
-l.443 \printbibliography
+[15]
+Underfull \hbox (badness 1484) in paragraph at lines 73--79
+[]\T1/cmr/m/n/10.95 A. D. Roy.  Some Thoughts on the Dis-tri-bu-tion of Earn-ings 1.  \T1/cmr/m/it/10.95 Ox-ford Eco-nomic
+ []
+
+
+Underfull \hbox (badness 3364) in paragraph at lines 73--79
+\T1/cmr/m/it/10.95 Pa-pers\T1/cmr/m/n/10.95 , 3(2):135--146, June 1951.  ISSN 1464-3812, 0030-7653.  doi: $10 . 1093 /
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[16])
+./final_report.tex:450: Undefined control sequence.
+l.450 \printbibliography
                         
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -890,7 +918,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[15] (./final_report.aux)
+[17] (./final_report.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -899,21 +927,21 @@ Package rerunfilecheck Info: File `final_report.out' has not changed.
 (rerunfilecheck)             Checksum: 8F6F232F4254EB06906B59904D8BB775;2251.
  ) 
 Here is how much of TeX's memory you used:
- 24949 strings out of 473190
- 454330 string characters out of 5715801
- 829290 words of memory out of 5000000
- 47737 multiletter control sequences out of 15000+600000
+ 24975 strings out of 473190
+ 454958 string characters out of 5715801
+ 830529 words of memory out of 5000000
+ 47755 multiletter control sequences out of 15000+600000
  578379 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,12n,91p,1374b,564s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,12n,91p,1374b,578s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on final_report.pdf (16 pages, 1031595 bytes).
+Output written on final_report.pdf (18 pages, 1041102 bytes).
 PDF statistics:
- 429 PDF objects out of 1000 (max. 8388607)
- 325 compressed objects within 4 object streams
- 63 named destinations out of 1000 (max. 500000)
+ 466 PDF objects out of 1000 (max. 8388607)
+ 360 compressed objects within 4 object streams
+ 71 named destinations out of 1000 (max. 500000)
  214 words of extra memory for PDF output out of 10000 (max. 10000000)
 
