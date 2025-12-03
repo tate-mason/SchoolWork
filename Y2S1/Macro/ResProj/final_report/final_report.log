@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  2 DEC 2025 17:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  2 DEC 2025 18:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -272,6 +272,9 @@ LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count301
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box54
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@headwidth=\skip57
@@ -308,6 +311,7 @@ Package caption Info: Standard document class detected.
 \c@caption@flags=\count302
 \c@continuedfloat=\count303
 Package caption Info: hyperref package is loaded.
+Package caption Info: threeparttable package is loaded.
 )
 Package caption Info: New subtype `subfigure' on input line 238.
 \c@subfigure=\count304
@@ -318,7 +322,7 @@ Package caption Info: New subtype `subtable' on input line 238.
 \pgfutil@tempdima=\dimen186
 \pgfutil@tempdimb=\dimen187
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box54
+\pgfutil@abb=\box55
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)
 Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
 ))
@@ -328,7 +332,8 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
 \pgfkeys@pathtoks=\toks28
 \pgfkeys@temptoks=\toks29
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
 \pgfkeys@tmptoks=\toks30
 ))
 \pgf@x=\dimen188
@@ -351,8 +356,7 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \t@pgf@tokb=\toks32
 \t@pgf@tokc=\toks33
 \pgf@sys@id@count=\count310
-
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
 Driver file for pgf: pgfsys-pdftex.def
@@ -387,14 +391,14 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen198
 \pgfmath@count=\count313
-\pgfmath@box=\box55
+\pgfmath@box=\box56
 \pgfmath@toks=\toks34
 \pgfmath@stack@operand=\toks35
 \pgfmath@stack@operation=\toks36
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count314
-))
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@picminx=\dimen199
 \pgf@picmaxx=\dimen256
@@ -420,9 +424,9 @@ File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@shorten@start@additional=\dimen272
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box56
-\pgf@hbox=\box57
-\pgf@layerbox@main=\box58
+\pgfpic=\box57
+\pgf@hbox=\box58
+\pgf@layerbox@main=\box59
 \pgf@picture@serial@count=\count315
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -450,7 +454,7 @@ File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box59
+\pgfexternal@startupbox=\box60
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
@@ -461,17 +465,17 @@ File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box60
+\pgfnodeparttextbox=\box61
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
 \pgf@nodesepstart=\dimen279
 \pgf@nodesepend=\dimen280
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
-))
-(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
 \pgffor@iter=\dimen281
 \pgffor@skip=\dimen282
@@ -492,10 +496,10 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@lastmovetoy=\dimen289
 \tikzleveldistance=\dimen290
 \tikzsiblingdistance=\dimen291
-\tikz@figbox=\box61
-\tikz@figbox@bg=\box62
-\tikz@tempbox=\box63
-\tikz@tempbox@bg=\box64
+\tikz@figbox=\box62
+\tikz@figbox@bg=\box63
+\tikz@tempbox=\box64
+\tikz@tempbox@bg=\box65
 \tikztreelevel=\count319
 \tikznumberofchildren=\count320
 \tikznumberofcurrentchild=\count321
@@ -515,9 +519,9 @@ Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environ
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count327
 \float@exts=\toks39
-\float@box=\box65
+\float@box=\box66
 \@float@everytoks=\toks40
-\@floatcapt=\box66
+\@floatcapt=\box67
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 )
@@ -533,7 +537,7 @@ Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 \algorithmicindent=\skip72
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count333
-\lst@gtempboxa=\box67
+\lst@gtempboxa=\box68
 \lst@token=\toks42
 \lst@length=\count334
 \lst@currlwidth=\dimen292
@@ -550,22 +554,22 @@ File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 \c@lstnumber=\count339
 \lst@skipnumbers=\count340
-\lst@framebox=\box68
+\lst@framebox=\box69
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2024/09/23 1.10c listings configuration
 ))
 Package: listings 2024/09/23 1.10c (Carsten Heinz)
-Package hyperref Info: Option `colorlinks' set `true' on input line 34.
+Package hyperref Info: Option `colorlinks' set `true' on input line 35.
 
 
-./final_report.tex:64: LaTeX Error: Command \abstract already defined.
+./final_report.tex:65: LaTeX Error: Command \abstract already defined.
                Or name \end... illegal, see p.192 of the manual.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.64 {\vfill\null}
+l.65 {\vfill\null}
                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -574,28 +578,28 @@ or  <return>  to continue without it.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count341
-\l__pdf_internal_box=\box69
+\l__pdf_internal_box=\box70
 ) (./final_report.aux)
 \openout1 = `final_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -635,7 +639,7 @@ LaTeX Font Info:    ... okay on input line 66.
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count342
 \scratchdimen=\dimen296
-\scratchbox=\box70
+\scratchbox=\box71
 \nofMPsegments=\count343
 \nofMParguments=\count344
 \everyMPshowfont=\toks43
@@ -650,7 +654,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 66.
+Package hyperref Info: Link coloring ON on input line 67.
  (./final_report.out) (./final_report.out)
 \@outlinefile=\write4
 \openout4 = `final_report.out'.
@@ -660,11 +664,11 @@ Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count348
-LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 71.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 71.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -684,7 +688,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.104 
+l.105 
        [1]
 
 
@@ -734,7 +738,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <final_pres/figures/age_profile_move.pdf, id=174, 578.16pt x 361.35pt>
 File: final_pres/figures/age_profile_move.pdf Graphic file (type pdf)
 <use final_pres/figures/age_profile_move.pdf>
-Package pdftex.def Info: final_pres/figures/age_profile_move.pdf  used on input line 231.
+Package pdftex.def Info: final_pres/figures/age_profile_move.pdf  used on input line 258.
 (pdftex.def)             Requested size: 317.07614pt x 198.16968pt.
 
 
@@ -745,56 +749,56 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[7 <./final_pres/figures/age_profile_move.pdf>]
-<final_pres/figures/mover_prop_educ.pdf, id=187, 504.88625pt x 360.34625pt>
+[7]
+<final_pres/figures/mover_prop_educ.pdf, id=182, 504.88625pt x 360.34625pt>
 File: final_pres/figures/mover_prop_educ.pdf Graphic file (type pdf)
 <use final_pres/figures/mover_prop_educ.pdf>
-Package pdftex.def Info: final_pres/figures/mover_prop_educ.pdf  used on input line 241.
+Package pdftex.def Info: final_pres/figures/mover_prop_educ.pdf  used on input line 268.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
-<final_pres/figures/mover_prop_income.pdf, id=188, 578.16pt x 361.35pt>
+<final_pres/figures/mover_prop_income.pdf, id=183, 578.16pt x 361.35pt>
 File: final_pres/figures/mover_prop_income.pdf Graphic file (type pdf)
 <use final_pres/figures/mover_prop_income.pdf>
-Package pdftex.def Info: final_pres/figures/mover_prop_income.pdf  used on input line 248.
+Package pdftex.def Info: final_pres/figures/mover_prop_income.pdf  used on input line 275.
 (pdftex.def)             Requested size: 203.83417pt x 127.39519pt.
-<final_pres/figures/mover_prop_kids.pdf, id=189, 578.16pt x 361.35pt>
+<final_pres/figures/mover_prop_kids.pdf, id=184, 578.16pt x 361.35pt>
 File: final_pres/figures/mover_prop_kids.pdf Graphic file (type pdf)
 <use final_pres/figures/mover_prop_kids.pdf>
-Package pdftex.def Info: final_pres/figures/mover_prop_kids.pdf  used on input line 260.
+Package pdftex.def Info: final_pres/figures/mover_prop_kids.pdf  used on input line 287.
 (pdftex.def)             Requested size: 203.83417pt x 127.39519pt.
-<final_pres/figures/mover_prop_marst.pdf, id=190, 504.88625pt x 360.34625pt>
+<final_pres/figures/mover_prop_marst.pdf, id=185, 504.88625pt x 360.34625pt>
 File: final_pres/figures/mover_prop_marst.pdf Graphic file (type pdf)
 <use final_pres/figures/mover_prop_marst.pdf>
-Package pdftex.def Info: final_pres/figures/mover_prop_marst.pdf  used on input line 267.
+Package pdftex.def Info: final_pres/figures/mover_prop_marst.pdf  used on input line 294.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
-<final_pres/figures/map_40_50_origins.pdf, id=191, 504.88625pt x 360.34625pt>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[8 <./final_pres/figures/age_profile_move.pdf> <./final_pres/figures/mover_prop_educ.pdf> <./final_pres/figures/mover_prop_income.pdf>]
+<final_pres/figures/map_40_50_origins.pdf, id=212, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_40_50_origins.pdf Graphic file (type pdf)
 <use final_pres/figures/map_40_50_origins.pdf>
-Package pdftex.def Info: final_pres/figures/map_40_50_origins.pdf  used on input line 281.
+Package pdftex.def Info: final_pres/figures/map_40_50_origins.pdf  used on input line 308.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
-<final_pres/figures/map_40_50_dests.pdf, id=192, 504.88625pt x 360.34625pt>
+<final_pres/figures/map_40_50_dests.pdf, id=213, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_40_50_dests.pdf Graphic file (type pdf)
 <use final_pres/figures/map_40_50_dests.pdf>
-Package pdftex.def Info: final_pres/figures/map_40_50_dests.pdf  used on input line 288.
+Package pdftex.def Info: final_pres/figures/map_40_50_dests.pdf  used on input line 315.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[8 <./final_pres/figures/mover_prop_educ.pdf> <./final_pres/figures/mover_prop_income.pdf> <./final_pres/figures/mover_prop_kids.pdf> <./final_pres/figures/mover_prop_marst.pdf>]
-<final_pres/figures/map_65p_origins.pdf, id=229, 504.88625pt x 360.34625pt>
+<final_pres/figures/map_65p_origins.pdf, id=214, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_65p_origins.pdf Graphic file (type pdf)
 <use final_pres/figures/map_65p_origins.pdf>
-Package pdftex.def Info: final_pres/figures/map_65p_origins.pdf  used on input line 302.
+Package pdftex.def Info: final_pres/figures/map_65p_origins.pdf  used on input line 329.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
-<final_pres/figures/map_65p_dests.pdf, id=230, 504.88625pt x 360.34625pt>
+<final_pres/figures/map_65p_dests.pdf, id=215, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_65p_dests.pdf Graphic file (type pdf)
 <use final_pres/figures/map_65p_dests.pdf>
-Package pdftex.def Info: final_pres/figures/map_65p_dests.pdf  used on input line 309.
+Package pdftex.def Info: final_pres/figures/map_65p_dests.pdf  used on input line 336.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
 
 
@@ -805,7 +809,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[9 <./final_pres/figures/map_40_50_origins.pdf> <./final_pres/figures/map_40_50_dests.pdf> <./final_pres/figures/map_65p_origins.pdf> <./final_pres/figures/map_65p_dests.pdf>]
+[9 <./final_pres/figures/mover_prop_kids.pdf> <./final_pres/figures/mover_prop_marst.pdf> <./final_pres/figures/map_40_50_origins.pdf> <./final_pres/figures/map_40_50_dests.pdf>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -814,11 +818,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[10]
+[10 <./final_pres/figures/map_65p_origins.pdf> <./final_pres/figures/map_65p_dests.pdf>]
 <final_pres/figures/age_profiles_model_vs_data.pdf, id=271, 602.25pt x 401.5pt>
 File: final_pres/figures/age_profiles_model_vs_data.pdf Graphic file (type pdf)
 <use final_pres/figures/age_profiles_model_vs_data.pdf>
-Package pdftex.def Info: final_pres/figures/age_profiles_model_vs_data.pdf  used on input line 376.
+Package pdftex.def Info: final_pres/figures/age_profiles_model_vs_data.pdf  used on input line 403.
 (pdftex.def)             Requested size: 362.37569pt x 241.59413pt.
 
 
@@ -829,26 +833,36 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[11 <./final_pres/figures/age_profiles_model_vs_data.pdf>]
-<final_pres/figures/map_model_40_50_origins.pdf, id=278, 504.88625pt x 360.34625pt>
+[11]
+<final_pres/figures/map_model_40_50_origins.pdf, id=277, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_model_40_50_origins.pdf Graphic file (type pdf)
 <use final_pres/figures/map_model_40_50_origins.pdf>
-Package pdftex.def Info: final_pres/figures/map_model_40_50_origins.pdf  used on input line 387.
+Package pdftex.def Info: final_pres/figures/map_model_40_50_origins.pdf  used on input line 414.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
-<final_pres/figures/map_model_40_50_dests.pdf, id=279, 504.88625pt x 360.34625pt>
+<final_pres/figures/map_model_40_50_dests.pdf, id=278, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_model_40_50_dests.pdf Graphic file (type pdf)
 <use final_pres/figures/map_model_40_50_dests.pdf>
-Package pdftex.def Info: final_pres/figures/map_model_40_50_dests.pdf  used on input line 394.
+Package pdftex.def Info: final_pres/figures/map_model_40_50_dests.pdf  used on input line 421.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
-<final_pres/figures/map_model_65p_origins.pdf, id=280, 504.88625pt x 360.34625pt>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[12 <./final_pres/figures/age_profiles_model_vs_data.pdf> <./final_pres/figures/map_model_40_50_origins.pdf> <./final_pres/figures/map_model_40_50_dests.pdf>]
+<final_pres/figures/map_model_65p_origins.pdf, id=299, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_model_65p_origins.pdf Graphic file (type pdf)
 <use final_pres/figures/map_model_65p_origins.pdf>
-Package pdftex.def Info: final_pres/figures/map_model_65p_origins.pdf  used on input line 410.
+Package pdftex.def Info: final_pres/figures/map_model_65p_origins.pdf  used on input line 437.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
-<final_pres/figures/map_model_65p_dests.pdf, id=281, 504.88625pt x 360.34625pt>
+<final_pres/figures/map_model_65p_dests.pdf, id=300, 504.88625pt x 360.34625pt>
 File: final_pres/figures/map_model_65p_dests.pdf Graphic file (type pdf)
 <use final_pres/figures/map_model_65p_dests.pdf>
-Package pdftex.def Info: final_pres/figures/map_model_65p_dests.pdf  used on input line 417.
+Package pdftex.def Info: final_pres/figures/map_model_65p_dests.pdf  used on input line 444.
 (pdftex.def)             Requested size: 203.83417pt x 145.47755pt.
 
 
@@ -859,7 +873,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[12 <./final_pres/figures/map_model_40_50_origins.pdf> <./final_pres/figures/map_model_40_50_dests.pdf> <./final_pres/figures/map_model_65p_origins.pdf> <./final_pres/figures/map_model_65p_dests.pdf>]
+[13 <./final_pres/figures/map_model_65p_origins.pdf> <./final_pres/figures/map_model_65p_dests.pdf>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -868,16 +882,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[13]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[14] (./final_report.bbl
+[14]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -887,6 +892,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [15]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[16] (./final_report.bbl
 Underfull \hbox (badness 1484) in paragraph at lines 73--79
 []\T1/cmr/m/n/10.95 A. D. Roy.  Some Thoughts on the Dis-tri-bu-tion of Earn-ings 1.  \T1/cmr/m/it/10.95 Ox-ford Eco-nomic
  []
@@ -905,9 +919,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[16])
-./final_report.tex:463: Undefined control sequence.
-l.463 \printbibliography
+[17])
+./final_report.tex:492: Undefined control sequence.
+l.492 \printbibliography
                         
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -924,23 +938,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[17] (./final_report.aux)
+[18] (./final_report.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `final_report.out' has not changed.
 (rerunfilecheck)             Checksum: 8F6F232F4254EB06906B59904D8BB775;2251.
  ) 
 Here is how much of TeX's memory you used:
- 24986 strings out of 473190
- 455396 string characters out of 5715801
- 830780 words of memory out of 5000000
- 47766 multiletter control sequences out of 15000+600000
+ 25058 strings out of 473190
+ 456853 string characters out of 5715801
+ 835851 words of memory out of 5000000
+ 47832 multiletter control sequences out of 15000+600000
  578379 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,91p,1374b,578s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -948,10 +958,10 @@ Here is how much of TeX's memory you used:
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on final_report.pdf (18 pages, 1045970 bytes).
+Output written on final_report.pdf (19 pages, 1049872 bytes).
 PDF statistics:
- 472 PDF objects out of 1000 (max. 8388607)
- 364 compressed objects within 4 object streams
- 71 named destinations out of 1000 (max. 500000)
+ 480 PDF objects out of 1000 (max. 8388607)
+ 371 compressed objects within 4 object streams
+ 73 named destinations out of 1000 (max. 500000)
  219 words of extra memory for PDF output out of 10000 (max. 10000000)
 

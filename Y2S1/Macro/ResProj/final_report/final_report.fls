@@ -111,6 +111,8 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/natbib/natbib.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/natbib/natbib.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/caption/subcaption.sty

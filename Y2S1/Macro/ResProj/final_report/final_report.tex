@@ -11,6 +11,7 @@
 \usepackage{hyperref}
 \usepackage{natbib}
 \usepackage{setspace}
+\usepackage{threeparttable}
 
 
 % Additional useful packages
@@ -203,24 +204,50 @@ The data spans from 2000-2019, covering the 2000 and 2010 decennial censuses, as
 \subsection{Summary Statistics}
 \label{subsec:summary_statistics}
 
-When looking at the summary statistics for individuals aged 40-80 in the IPUMS and ACS datasets, I find a total sample size of 21,138,046 individuals. The average age in this group is 57.62 years. The mean wage income is \$33,251.83, while the average gross rent paid by renters is \$170.07 per month. Health care costs average \$6,336.11 annually for retirees in this age group. Approximately 17\% of individuals in this cohort moved to a different state within the observed period.
+When looking at the summary statistics for my data, I find some interesting patterns. Table 1 presents key statistics for three age groups: 40-50, 51-64, and 65+. As expected, average wages decline with age, from \$49,570 for the 40-50 group to just \$8,420 for the 65+ group. Gross rent also decreases with age, reflecting a potential downsizing in housing or relocation to lower-cost areas. Health care costs are only available for the 65+ group, averaging \$6,336 annually. Mobility rates increase with age, from 15\% for the 40-50 group to 20\% for the 65+ group, suggesting that older individuals may be more inclined to relocate, possibly for retirement or lifestyle reasons. Marital status shows a decline in marriage rates with age, from 61\% in the youngest group to 52\% in the oldest, perhaps due to death of spouse. Educational attainment also decreases with age, with college graduation rates dropping from 33\% in the 40-50 group to 25\% in the 65+ group, while high school graduation rates increase. This is likely due to cohort effects, as older generations had lower college attendance rates.
 
 \begin{table}[htbp]
 \centering
+\begin{threeparttable}
 \caption{Summary Statistics}
 \label{tab:summ_stats}
-  \begin{tabular}{|l|c|}
-    \hline
-    \hline
-    n & 21,138,046 \\
-    Average Age & 57.62 \\
-    Average Wages & 33251.83 \\
-    Average Gross Rent & 170.07\\
-    Average Health Costs & 6336.11 \\
-    Mover \% & 17\% \\
-    \hline
-  \end{tabular}
+
+\begin{tabular}{|l|c|c|c|}
+\hline
+\hline
+Statistic & 40--50 & 51--64 & 65+ \\
+\hline
+n & 5,640,580 & 6,999,381 & 5,241,806 \\
+\hline
+Average Age & 45.11 & 57.24 & 71.63 \\
+            & (3.17) & (4.00) & (4.53) \\
+\hline
+Average Wages & 49,570.30 & 39,886.88 & 8,420.25 \\
+              & (60,736.55) & (58,640.88) & (32,099.85) \\
+\hline
+Average Gross Rent & 245.43 & 161.14 & 112.20 \\
+                   & (500.61) & (404.33) & (330.68) \\
+\hline
+Average Health Costs & -- & -- & 6,336.11 \\
+                     & -- & -- & (1,291.34) \\
+\hline
+Mover \% & 15\% & 18\% & 20\% \\
+Married \% & 61\% & 59\% & 52\% \\
+College+ \% & 33\% & 31\% & 25\% \\
+HS Grad \% & 34\% & 36\% & 40\% \\
+No HS \% & 8\% & 10\% & 17\% \\
+\hline
+\hline
+\end{tabular}
+
+\begin{tablenotes}
+\footnotesize
+\item Standard deviations are shown in parentheses beneath each mean.
+\end{tablenotes}
+
+\end{threeparttable}
 \end{table}
+
 
 Next, I examine migration patterns by age. I create age profiles, plotting the probability of moving against two year age bins. The results show that the probability of moving peaks around age 65 until age 69. This implies there are a lot of movers around retirement age, which may suggest that individuals are making relocation decisions based on retirement plans and non-career factors.
 
@@ -455,6 +482,8 @@ Through this framework, we can glean a better understanding of the muultifaceted
 This paper investigates the differences in motivations for migration between mid-late career workers and retirees using a structural model calibrated to data from IPUMS and ACS. The findings recovered from the model suggest that retirees prioritize non-career factors, such as climate preferences, while workers remain more focused on monetary considerations, such as wages and cost of living. However, the model struggles to accurately capture the migration patterns of workers, particularly around retirement age, indicating that additional factors may be at play. Future work should focus on refining the model to better account for these complexities, potentially through the incorporation of proximity preferences and job switching costs. Overall, this study contributes to a deeper understanding of the motivations behind migration decisions in later life stages, with implications for policymakers and urban planners aiming to attract and retain this demographic.
 
 The migration literature is rich and warrants continued contributions. Both movers, who are mainly focused on wage maximization, and retirees who appear to maximize comfort provide a rich set of behaviors which lends itself to multiple avenues for analysis. 
+
+\newpage
 
 % Bibliography
 \bibliographystyle{plainnat}
