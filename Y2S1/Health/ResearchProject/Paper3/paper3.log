@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  16 NOV 2025 18:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  3 DEC 2025 12:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -555,21 +555,21 @@ File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 File: listings.cfg 2024/09/23 1.10c listings configuration
 ))
 Package: listings 2024/09/23 1.10c (Carsten Heinz)
-Package hyperref Info: Option `colorlinks' set `true' on input line 34.
+Package hyperref Info: Option `colorlinks' set `true' on input line 36.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 34.
+(hyperref)                removing `subscript' on input line 36.
 
 
-./paper3.tex:62: LaTeX Error: Command \abstract already defined.
+./paper3.tex:64: LaTeX Error: Command \abstract already defined.
                Or name \end... illegal, see p.192 of the manual.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.62 {\vfill\null}
+l.64 {\vfill\null}
                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -582,24 +582,24 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (./paper3.aux)
 \openout1 = `paper3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -654,7 +654,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 64.
+Package hyperref Info: Link coloring ON on input line 66.
  (./paper3.out) (./paper3.out)
 \@outlinefile=\write4
 \openout4 = `paper3.out'.
@@ -664,11 +664,11 @@ Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count348
-LaTeX Font Info:    Trying to load font information for U+msa on input line 68.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -688,53 +688,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.161 \begin{equation}
-                       [1]
-./paper3.tex:168: Undefined control sequence.
-<argument>  \shortintertext 
-                            {s.t.} \\ u(c) = \frac {c_i^{1-\sigma }}{1-\sigm...
-l.168 \end{gather*}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./paper3.tex:168: Undefined control sequence.
-<argument>  \shortintertext 
-                            {s.t.} \\ u(c) = \frac {c_i^{1-\sigma }}{1-\sigm...
-l.168 \end{gather*}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./paper3.tex:182: Undefined control sequence.
-<argument>  \shortintertext 
-                            {s.t.} \\ V_a^s(\gamma _i, r_i) = \{u(c_i) + \be...
-l.182 \end{gather*}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./paper3.tex:182: Undefined control sequence.
-<argument>  \shortintertext 
-                            {s.t.} \\ V_a^s(\gamma _i, r_i) = \{u(c_i) + \be...
-l.182 \end{gather*}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
+l.114 
+       [1]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -744,29 +699,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [2]
-./paper3.tex:205: Undefined control sequence.
-<argument>  \shortintertext 
-                            {s.t.} \\ v_j = r_d^2\sum \limits _{i=1}^{I} p_{...
-l.205 \end{gather*}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./paper3.tex:205: Undefined control sequence.
-<argument>  \shortintertext 
-                            {s.t.} \\ v_j = r_d^2\sum \limits _{i=1}^{I} p_{...
-l.205 \end{gather*}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -776,25 +708,49 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [3]
-<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.png, id=120, 602.25pt x 401.5pt>
-File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.png Graphic file (type png)
-<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.png  used on input line 255.
-(pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
-<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.png, id=121, 602.25pt x 401.5pt>
-File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.png Graphic file (type png)
-<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.png  used on input line 256.
-(pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
-<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.png, id=122, 602.25pt x 401.5pt>
-File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.png Graphic file (type png)
-<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.png  used on input line 257.
-(pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
+./paper3.tex:167: Undefined control sequence.
+<argument>  \shortintertext 
+                            {s.t.} \\ u(c) = \frac {c_i^{1-\sigma }}{1-\sigm...
+l.167 \end{gather*}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-Overfull \hbox (17.0pt too wide) in paragraph at lines 255--258
-[][]
- []
+./paper3.tex:167: Undefined control sequence.
+<argument>  \shortintertext 
+                            {s.t.} \\ u(c) = \frac {c_i^{1-\sigma }}{1-\sigm...
+l.167 \end{gather*}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper3.tex:181: Undefined control sequence.
+<argument>  \shortintertext 
+                            {s.t.} \\ V_a^s(\gamma _i, r_i) = \{u(c_i) + \be...
+l.181 \end{gather*}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper3.tex:181: Undefined control sequence.
+<argument>  \shortintertext 
+                            {s.t.} \\ V_a^s(\gamma _i, r_i) = \{u(c_i) + \be...
+l.181 \end{gather*}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 
 
@@ -806,6 +762,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [4]
+./paper3.tex:204: Undefined control sequence.
+<argument>  \shortintertext 
+                            {s.t.} \\ v_j = r_d^2\sum \limits _{i=1}^{I} p_{...
+l.204 \end{gather*}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./paper3.tex:204: Undefined control sequence.
+<argument>  \shortintertext 
+                            {s.t.} \\ v_j = r_d^2\sum \limits _{i=1}^{I} p_{...
+l.204 \end{gather*}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -814,19 +793,42 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[5 </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.png> </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.png>]
-<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.png, id=134, 602.25pt x 401.5pt>
-File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.png Graphic file (type png)
-<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.png  used on input line 261.
+[5]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[6]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[7]
+<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.pdf, id=182, 602.25pt x 401.5pt>
+File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.pdf  used on input line 306.
 (pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
-<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.png, id=135, 602.25pt x 401.5pt>
-File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.png Graphic file (type png)
-<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.png  used on input line 262.
+<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.pdf, id=183, 602.25pt x 401.5pt>
+File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.pdf  used on input line 307.
+(pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
+<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.pdf, id=184, 602.25pt x 401.5pt>
+File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.pdf  used on input line 308.
 (pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
 
-Overfull \hbox (17.0pt too wide) in paragraph at lines 261--263
+Overfull \hbox (17.0pt too wide) in paragraph at lines 306--309
 [][]
  []
 
@@ -839,14 +841,53 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[6 </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.png> </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.png>]
-<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.png, id=141, 602.25pt x 401.5pt>
-File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.png Graphic file (type png)
-<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.png>
-Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.png  used on input line 266.
+[8]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[9 </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.pdf> </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.pdf>]
+<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.pdf, id=196, 602.25pt x 401.5pt>
+File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.pdf  used on input line 312.
+(pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
+<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_search_stock.pdf, id=197, 602.25pt x 401.5pt>
+File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_search_stock.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_search_stock.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_search_stock.pdf  used on input line 313.
+(pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
+<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.pdf, id=198, 602.25pt x 401.5pt>
+File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.pdf  used on input line 314.
 (pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
 
-Overfull \hbox (17.0pt too wide) in paragraph at lines 266--267
+Overfull \hbox (17.0pt too wide) in paragraph at lines 312--315
+[][]
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[10 </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.pdf> </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.pdf>]
+<~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.pdf, id=205, 602.25pt x 401.5pt>
+File: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.pdf Graphic file (type pdf)
+<use ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.pdf>
+Package pdftex.def Info: ~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.pdf  used on input line 318.
+(pdftex.def)             Requested size: 452.9679pt x 301.98807pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 318--319
 [][] 
  []
 
@@ -859,7 +900,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[7 </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.png> </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.png>]
+[11 </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_search_stock.pdf> </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.pdf>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -868,27 +909,59 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[8] (./paper3.aux)
+[12 </Users/tate/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.pdf>]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[13] (./paper3.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 68--72
+\T1/cmtt/m/n/10.95 / / nida . nih . gov / research-[]topics / trends-[]statistics / overdose-[]death-[]rates # Fig4$[][]\T1/cmr/m/n/10.95 .
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[14])
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[15] (./paper3.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `paper3.out' has not changed.
-(rerunfilecheck)             Checksum: CCA1A60088CFAD34926536E5A94403D4;2167.
+(rerunfilecheck)             Checksum: 15E57973506FF354E3250A65C6EEC65E;2229.
  ) 
 Here is how much of TeX's memory you used:
- 24796 strings out of 473190
- 451276 string characters out of 5715801
- 829007 words of memory out of 5000000
- 47614 multiletter control sequences out of 15000+600000
- 578065 words of font info for 85 fonts, out of 8000000 for 9000
+ 24880 strings out of 473190
+ 453843 string characters out of 5715801
+ 828646 words of memory out of 5000000
+ 47673 multiletter control sequences out of 15000+600000
+ 578379 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,12n,91p,409b,534s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on paper3.pdf (9 pages, 417875 bytes).
+ 84i,12n,91p,1438b,580s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on paper3.pdf (16 pages, 476526 bytes).
 PDF statistics:
- 250 PDF objects out of 1000 (max. 8388607)
- 190 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 179 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 355 PDF objects out of 1000 (max. 8388607)
+ 282 compressed objects within 3 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 192 words of extra memory for PDF output out of 10000 (max. 10000000)
 

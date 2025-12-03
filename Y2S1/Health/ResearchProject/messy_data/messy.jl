@@ -171,13 +171,13 @@ println("Mean search stock at end = ", mean(S_a))
 # Plotting Results
 # ========================
 histogram(π_d, bins=30, title="Doctor Profit Distribution", xlabel="Profit", ylabel="Frequency")
-savefig("doctor_profit_distribution.png")
+savefig("doctor_profit_distribution.pdf")
 
 histogram(V_a, bins=30, title="Addict Value Distribution", xlabel="Value", ylabel="Frequency")
-savefig("addict_value_distribution.png")
+savefig("addict_value_distribution.pdf")
 
 histogram(S_a, bins = 0:1:maximum(S_a), xlabel = "Search stock S (Periods Without a Match", ylabel = "Density", title = "Distribution of Addict Search Stock S", legend = false)
-savefig("addict_search_stock_distribution.png")
+savefig("addict_search_stock_distribution.pdf")
 
 plot(
     risk_cap,
@@ -187,7 +187,7 @@ plot(
     ylabel = "Final Exposure",
     title = "Doctor Exposures vs Risk Caps",
 )
-savefig("doctor_exposure_vs_capacity.png")
+savefig("doctor_exposure_vs_capacity.pdf")
 
 p_cum = plot(
     1:T,
@@ -219,7 +219,7 @@ p_search = plot(
     legend = false,
 )
 plot(p_cum, p_flow, p_search, layout = (3,1))
-savefig("doctor_exits_over_time.png")
+savefig("doctor_exits_over_time.pdf")
 # End of Code
 
 # Counterfactual Experiments
@@ -263,6 +263,9 @@ function simulate_market(params::MarketParams)
     risk_exposure = zeros(Float64, n_d)
     active = trues(n_d)
 
+    addict_active = trues(n_a)
+    addict_exit_over_time = zeros(T)
+
     risk_cap = rand(Uniform(risk_cap_low, risk_cap_high), n_d)
     exit_count_over_time = zeros(T)
     mean_search_over_time = zeros(T)
@@ -273,16 +276,24 @@ function simulate_market(params::MarketParams)
         println("All doctors have exceeded risk capacity at time $t")
         exit_count_over_time[t:end] .= sum(.!active)
         mean_search_over_time[t:end] .= mean(S_a)
+        addict_exit_over_time[t:end] .= sum(.!addict_active)
         break
       end
       matches = rand(1:n_d, n_a)
       for i in 1:n_a
+          if !addict_active[i]
+              continue
+          end
+
           doc_idx = matches[i]
           γ = γ_vals[γ_a[i]]; risk_a = r_vals[r_a[i]]
           s = S_a[i]
 
           if !active[doc_idx]
               S_a[i] = min(s + exit_penalty, 100.0)
+              if S_a[i] >= 100.0
+                  addict_active[i] = false
+              end
               continue
           end
 
@@ -300,14 +311,21 @@ function simulate_market(params::MarketParams)
               if risk_exposure[doc_idx] > risk_cap[doc_idx]
                   active[doc_idx] = false
                   S_a[i] = min(s+exit_penalty, 100.0)
+                  if S_a[i] >= 100.0
+                      addict_active[i] = false
+                  end
               end
           else
-          S_a[i] = min(s+1, 100.0)
+            S_a[i] = min(s+1, 100.0)
+            if S_a[i] >= 100.0
+                addict_active[i] = false
+            end
           end
       end
 
       exit_count_over_time[t] = sum(.!active)  # total number of inactive doctors at end of period t
       mean_search_over_time[t] = mean(S_a)
+      addict_exit_over_time[t] = sum(.!addict_active)
     end
 
     i_choice = 1.0
@@ -318,6 +336,7 @@ function simulate_market(params::MarketParams)
     end
     return (
         exit_path = exit_count_over_time,
+        addict_exit_path = addict_exit_over_time,
         search_path = mean_search_over_time,
         final_search = copy(S_a),
         active_doctors_end = sum(active),
@@ -363,6 +382,8 @@ println("Doctors active at end (CF): ", cf_result.active_doctors_end)
 println("Doctors active at end (Baseline): ", baseline_result.active_doctors_end)
 println("Difference in avg addict value: ", cf_result.avg_addict_value - baseline_result.avg_addict_value)
 println("Difference in Addict Search Stock Mean: ", mean(cf_result.final_search) - mean(baseline_result.final_search))
+println("Addict exits (CF): ", cf_result.addict_exit_path[end])
+println("Addict exits (Baseline): ", baseline_result.addict_exit_path[end])
 
 T = baseline_params.T
 tgrid = 1:T
@@ -385,9 +406,29 @@ plot!(
   linestyle = :dash,
   linewidth = 2,
 )
-
 display(p_exit)
-savefig("counterfactual_doctor_exits.png")
+savefig("counterfactual_doctor_exits.pdf")
+
+p_addict = plot(
+  tgrid,
+  baseline_result.addict_exit_path,
+  label = "Baseline",
+  xlabel = "Time Period",
+  ylabel = "Cumulative Addict Exits",
+  title = "Addict Exits Over Time",
+  linewidth = 2,
+)
+plot!(
+  p_addict,
+  tgrid,
+  cf_result.addict_exit_path,
+  label = "Increased Risk",
+  linestyle = :dash,
+  linewidth = 2,
+)
+display(p_addict)
+savefig("counterfactual_addict_exits.pdf")
+
 
 p_search = plot(
   tgrid,
@@ -407,7 +448,7 @@ plot!(
   linewidth = 2,
 )
 display(p_search)
-savefig("counterfactual_addict_search_stock.png")
+savefig("counterfactual_addict_search_stock.pdf")
 
 p_profit = bar(
     ["Baseline", "Increased Risk"],
@@ -418,7 +459,7 @@ p_profit = bar(
     legend = false,
 )
 display(p_profit)
-savefig("counterfactual_doctor_profit.png")
+savefig("counterfactual_doctor_profit.pdf")
 
 p_value = bar(
     ["Baseline", "Increased Risk"],
@@ -429,5 +470,6 @@ p_value = bar(
     legend = false,
 )
 display(p_value)
-savefig("counterfactual_addict_value.png")
+savefig("counterfactual_addict_value.pdf")
+
 # End of Code

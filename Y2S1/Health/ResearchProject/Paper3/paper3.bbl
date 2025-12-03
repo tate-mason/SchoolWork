@@ -1,0 +1,79 @@
+\begin{thebibliography}{10}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bernheim and Rangel(2005)]{bernheim_neuroscience_2005}
+B.~Douglas Bernheim and Antonio Rangel.
+\newblock From {Neuroscience} to {Public} {Policy}: {A} {New} {Economic} {View} of {Addiction}.
+\newblock \emph{Swedish Economic Policy Review}, 12:\penalty0 11--56, 2005.
+
+\bibitem[Cartwright(2008)]{cartwright_critical_2008}
+William~S. Cartwright.
+\newblock A critical review of accounting and economic methods for estimating the costs of addiction treatment.
+\newblock \emph{Journal of Substance Abuse Treatment}, 34\penalty0 (3):\penalty0 302--310, April 2008.
+\newblock ISSN 07405472.
+\newblock \doi{10.1016/j.jsat.2007.04.011}.
+\newblock URL \url{https://linkinghub.elsevier.com/retrieve/pii/S0740547207001419}.
+
+\bibitem[Goodman(2009)]{goodman_economic_2009}
+Allen~C. Goodman.
+\newblock Economic analyses of multiple addictions for men and women.
+\newblock \emph{J Ment Health Policy Econ}, 12\penalty0 (3):\penalty0 139--155, September 2009.
+\newblock ISSN 1091-4358.
+
+\bibitem[Hansen et~al.(2011)Hansen, Oster, Edelsberg, Woody, and Sullivan]{hansen_economic_2011}
+Ryan~N. Hansen, Gerry Oster, John Edelsberg, George~E. Woody, and Sean~D. Sullivan.
+\newblock Economic {Costs} of {Nonmedical} {Use} of {Prescription} {Opioids}.
+\newblock \emph{The Clinical Journal of Pain}, 27\penalty0 (3):\penalty0 194--202, March 2011.
+\newblock ISSN 0749-8047.
+\newblock \doi{10.1097/AJP.0b013e3181ff04ca}.
+\newblock URL \url{https://journals.lww.com/00002508-201103000-00002}.
+
+\bibitem[Kenkel et~al.(2001)Kenkel, Mathios, and Pacula]{kenkel_economics_2001}
+Donald Kenkel, Alan~D. Mathios, and Rosalie~L. Pacula.
+\newblock Economics of youth drug use, addiction and gateway effects.
+\newblock \emph{Addiction}, 96\penalty0 (1):\penalty0 151--164, January 2001.
+\newblock ISSN 0965-2140, 1360-0443.
+\newblock \doi{10.1046/j.1360-0443.2001.96115111.x}.
+\newblock URL \url{https://onlinelibrary.wiley.com/doi/10.1046/j.1360-0443.2001.96115111.x}.
+
+\bibitem[Laux(2000)]{laux_addiction_2000}
+Fritz~L Laux.
+\newblock Addiction as a market failure: using rational addiction results to justify tobacco regulation.
+\newblock \emph{Journal of Health Economics}, 19\penalty0 (4):\penalty0 421--437, July 2000.
+\newblock ISSN 01676296.
+\newblock \doi{10.1016/S0167-6296(99)00040-5}.
+\newblock URL \url{https://linkinghub.elsevier.com/retrieve/pii/S0167629699000405}.
+
+\bibitem[Leffler(1981)]{leffler_persuasion_1981}
+Keith~B. Leffler.
+\newblock Persuasion or {Information}? {The} {Economics} of {Prescription} {Drug} {Advertising}.
+\newblock \emph{The Journal of Law and Economics}, 24\penalty0 (1):\penalty0 45--74, April 1981.
+\newblock ISSN 0022-2186, 1537-5285.
+\newblock \doi{10.1086/466973}.
+\newblock URL \url{https://www.journals.uchicago.edu/doi/10.1086/466973}.
+
+\bibitem[McCollister and French(2003)]{mccollister_relative_2003}
+Kathryn~E. McCollister and Michael~T. French.
+\newblock The relative contribution of outcome domains in the total economic benefit of addiction interventions: a review of first findings.
+\newblock \emph{Addiction}, 98\penalty0 (12):\penalty0 1647--1659, December 2003.
+\newblock ISSN 0965-2140, 1360-0443.
+\newblock \doi{10.1111/j.1360-0443.2003.00541.x}.
+\newblock URL \url{https://onlinelibrary.wiley.com/doi/10.1111/j.1360-0443.2003.00541.x}.
+
+\bibitem[{National Institute on Drug Abuse}(2025)]{nida_2025}
+{National Institute on Drug Abuse}.
+\newblock {Drug} overdose {Deaths}: {Facts} and {Figures}, 2025.
+\newblock URL \url{https://nida.nih.gov/research-topics/trends-statistics/overdose-death-rates#Fig4}.
+\newblock Accessed: 2025-12-03.
+
+\bibitem[Temin(1980)]{temin_regulation_1980}
+P.~Temin.
+\newblock Regulation and the choice of prescription drugs.
+\newblock \emph{Am Econ Rev}, 70\penalty0 (2):\penalty0 301--305, 1980.
+\newblock ISSN 0002-8282.
+
+\end{thebibliography}

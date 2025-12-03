@@ -1,3 +1,4 @@
+% !TEX root = paper3.tex
 \documentclass[11pt,a4paper]{article}
 
 % Essential packages
@@ -9,7 +10,8 @@
 \usepackage{booktabs}
 \usepackage{url}
 \usepackage{hyperref}
-\usepackage{natbib}
+\usepackage[authoryear]{natbib}
+\bibliographystyle{plainnat}
 \usepackage{setspace}
 
 
@@ -28,13 +30,13 @@
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=cyan,
-    citecolor=red,
+    citecolor=blue,
     pdftitle={Drug_Search},
     pdfauthor={Tate Mason},
 }
 
 % Set line spacing
-\onehalfspacing
+\doublespacing
 
 % Configure headers and footers
 \pagestyle{fancy}
@@ -71,8 +73,10 @@ An Investigation into Addict Behavior and Policy Remedies}
 \begin{abstract}
 \noindent % Write a concise summary (150-250 words) covering: research problem, methodology, key findings, and significance. State your main contributions clearly.
 
+In this paper, I develop a model to analyze the behavior of both prescription drug addicts and prescribers. The model captures a quasi-dynamic interaction where addicts search for physicians willing to prescribe controlled substances, while physicians weigh the risks and rewards of prescribing to these patients. I estimate the model using simulated data and explore counterfactual scenarios to assess the impact of regulatory policies on physician behavior and addict outcomes. The results indicate that increased regulatory scrutiny leads to a significant reduction in the number of physicians willing to prescribe, which in turn increases the search costs for addicts. This has important implications for public health policy, suggesting that while stricter regulations may reduce inappropriate prescribing, they may also inadvertently push addicts towards illicit drug use. This can be seen in counterfactual analysis, where as doctors are less willing to take on risk, addict search increases by about 4 periods on average. This is one avenue which would push addicts to the black market. The findings highlight the need for balanced policies that consider both prescriber incentives and addict welfare.
+
 \vspace{0.3cm}
-\noindent \textbf{Keywords:} % List 3-6 keywords relevant to your research
+\noindent \textbf{Keywords:} Prescription Drug Abuse, Physician Behavior, Public Health Policy, Addiction
 \end{abstract}
 
 \newpage
@@ -88,9 +92,10 @@ An Investigation into Addict Behavior and Policy Remedies}
 \subsection{Background and Motivation}
 \label{subsec:background}
 
-Over the last few decades, prescription drug abuse has become a significant and growing public health concern across the globe. The misuse of prescription drugs, specifially opioids, benzodiazepines, and stimulants, has led to the question of how to mitigate the practice of
-physician search. Physician search refers to the practice of patients seeking multiple doctors in the hope of "scoring" a presription to continue their addiction. While there are preventative measures in place, like registries of offenders, the practice persists. Coninciding
-with this question, it would be of great use to ascertain the incentive for physicians to enable the misuse of drugs, gaining a repeat source of revenue.
+The prescription drug epidemic has become a significant public health crisis, with millions of individuals either directly or inadvertently affected by prescription drug abuse. According to the National Institute on Drug Abuse (NIDA), there was a marked increase in prescription drug overdoses between 1999 and 2017, with opioid overdoses alone rising form 3,442 deaths to 17,029 deaths in that time frame \cite{nida_2025}. This epidemic has far-reaching consequences, not only for addicts themselves, but also for their famililes, communities, and the healthcare system at large. Physicians play a crucial role in this epidemic, as they are the gatekeepers to prescription medications. However,
+physicians face a complex decision-making process when it comes to prescribing controlled substances, balancing the need to manage patient pain with the risk of contributing to a on averageddiction and abuse. Current policy remedies often focus on providing lists of physicians who are known to prescribe controlled substances, but these measures may not fully address the underlying dynamics between addicts and physicians.
+
+In many states, there is a registry for patients who are prescribed controlled substances, which physicians can consult to avoid overprescribing. However, this approach may not be sufficient, as it does not account for the behavior of addicts who may seek out multiple physicians or find ways to circumvent these regulations. Additionally, physicians may face moral and fiscal incentives that influence their prescribing behavior, which are not adequately addressed by current policies. While this is not an observable behavior, it is important to understand how physicians weigh these incentives when making prescribing decisions.
 
 This paper seeks to understand the interplay of addicts and physician search, in hope of policy remedies which are more effective than a list. Further, the analysis of prescriber responsibility is also of great importance. Being able to understand how morals and fiscal
 incentives contrast in this case could help to implement policy which negates the opportunity for prescribers to mis-prescribe a sensitive drug. Finally, this paper will look to gain an insight into potential rehabilitation remedies which may help take the onus off both
@@ -108,25 +113,17 @@ for the profits associated with increased and repeat prescriptions? This would b
 word of mouth advertisement. The last one may be increased as addicts see a pathway to drug access, but that would also increase liabilty and risk of loss of their licensure.
 
 For addicts, it is interesting to inquire about their search cost allocation, as well as habit based expenditure on health. Tolerance necessarily grows with prolonged use of drugs, thus modeling this sort
-of depletion of both search and health budgets is of interest to understand the impact on patients of finding a willing prescriber.prescriber
+of depletion of both search and health budgets is of interest to understand the impact on patients of finding a willing prescriber.
 
 From these two avenues, I think there is a worthwhile question to answer. That is, what is the risk threshold physicians will take on in exchange for profit as well as understanding time and health costs applied
 to addicts once they find a willing prescriber.
 
 % Clearly articulate the specific problem or research question you're addressing. Be precise and focused.
 
-\subsection{Contributions}
-\label{subsec:contributions}
-
-% List your main contributions clearly and concisely:
-% - What novel methods, insights, or results do you provide?
-% - How do they advance the state of the art?
-% - What specific problems do they solve?
-
 \subsection{Paper Organization}
 \label{subsec:organization}
 
-% Briefly outline how the paper is structured. Guide readers through your narrative flow.
+The rest of the paper is organized as follows. Section \ref{sec:related_work} reviews relevant literature on prescription drug abuse and physician behavior. Section \ref{sec:methodology} presents the model of addict and physician interaction, detailing the assumptions and structure. Section \ref{sec:results} describes the data used for estimation and presents the simulation results, including baseline and counterfactual scenarios. Finally, Section \ref{sec:discussion} discusses the implications of the findings and suggests directions for future research.
 
 \section{Related Work}
 \label{sec:related_work}
@@ -137,14 +134,16 @@ to addicts once they find a willing prescriber.
 \subsection{Previous Approaches}
 \label{subsec:previous_approaches}
 
-% Survey existing methods and approaches relevant to your problem.
-% Group similar approaches and explain their key ideas, strengths, and weaknesses.
+Much of the work in the addiction literature focuses on the effects of addiction on the economy at large, as well as policy remedies to curb the epidemic. \cite{mccollister_relative_2003} present a survey of intervention studies, and attempt to dollarize the effects that each study finds. They find that the largest benefit to social welfare comes from criminal activity being reduced, followed by health care cost reductions. \cite{kenkel_economics_2001} adds a structural model of demand to the addiction literature, attempting to prompt future research. While they do not have findings, they do present a useful framework for estimating gateway effects of drugs. \cite{bernheim_neuroscience_2005} is slightly different, bringing a neuronomic perspective to addiction, attempting to use neuroscientific findings to inform economic policy. Their key finding is that subsidies for treatment programs are more effective than taxes on addictive goods, since addicts have a different discount rate than non-addicts. \cite{laux_addiction_2000} analyzes the market failures which lead to tobacco addicts' failure to internalize the costs of their addiction, finding that factors like youth smoking, peer effects, and myopia all contribute to the suboptimal consumption of tobacco products. They also suggest that policies like taxation and advertising bans can help to mitigate these market failures.
 
-\subsection{Limitations of Existing Work}
+There is also a literature concerned with drug use, which is not specific to addiction. \cite{leffler_persuasion_1981} looks into the effect of advertising on the prescription drug market, finding that rather than listening to advertising, consumer welfare is higher when physicians are the ones making prescription decisions. \cite{hansen_economic_2011} merges the two fields, looking at the economic loss of drug misuse in the US. They find that there is a \$53.4 billion loss annually due to drug misuse, with the largest components being productivity losses (\$80 billion). Finally, \cite{temin_regulation_1980} offers a survey of regulation in the pharmaceutical industry, finding that regulation has a significant effect on drug prices and use. \cite{cartwright_critical_2008} introduces a perspective of how to account for addiciton treatment in the US, offering various policy remedies to help curb the epidemic based upon existing literature. \cite{goodman_economic_2009} looks at the joint effects of use of multiple drugs, finding that the biggest effect on usage is monetary price, followed by legal consequences.
+
+
+
+\subsection{Contribution to the Literature}
 \label{subsec:limitations}
 
-% Identify specific gaps, limitations, or open problems in existing approaches.
-% This motivates why your work is needed and positions your contributions.
+This project adds to the existing literature by modeling the quasi-dynamic interaction between addicts and physicians, capturing the search behavior of addicts and the risk-reward tradeoff faced by physicians. Unlike previous studies that focus on either addict behavior or physician prescribing patterns in isolation, this model integrates both perspectives to provide a more comprehensive understanding of the prescription drug abuse phenomenon. By modeling proclivity to addiction, this framework also provides a basis to model how addiction can evolve with continued use via more complex methods of simulation. Additionally, by simulating counterfactual scenarios, this work offers insights into the potential impacts of regulatory policies on both addict outcomes and physician behavior, which has been less explored in prior research.
 
 \section{Model}
 \label{sec:methodology}
@@ -226,9 +225,25 @@ This was estimated via VFI. Estimation procedure is as follows:
   \item Simulate counterfactual scenarios to assess policy impacts.
 \end{enumerate}
 
-\section{Simulated Results}
+\section{Data and Results}
 \label{sec:results}
 % Present your experimental setup, datasets, and evaluation metrics.
+
+\subsection{Data}
+\label{sec:data}
+
+When thinking about data that would be fruitful for this project, there are a few avenues that should be explored. First, and most obviously, claims data would allow me to get an idea of the search process of addicts. This would allow me to parse
+out how many physicians an addict visits before finding a willing prescriber, along with frequency of visits, and prescription amounts. These insights would allow me to recover $\gamma$ and $s_i$ for addicts, as well as give me a better idea of the 
+distribution of addict types, instead of just high or low.
+
+Next, survey data from Monitoring the Future dataset could be useful to understand the behavior of addicts, especially over time. This data would let me see how addicts' $\gamma$ evolves over time as well, while also giving me a better sense of their budget constraints.
+Further, it may be helpful for understanding exit conditions of addicts, who have to leave due to cost or desire for more prescription consumption turning into illicit drug use.
+
+Finally, physician data from state medical boards or the AMA could be useful to understand prescribing behavior. This data could help me understand how physicians' risk tolerance evolves over time, as well as give me a better idea of the distribution of
+physician types. Further, this data could help me understand exit conditions for physicians, who may leave the prescribing market due to risk of losing their license or malpractice suits.
+
+These data sources together would provide a comprehensive view of the addict-physician interaction, allowing for more accurate parameter estimation and model validation. Additionally, I would be able to extend the model to include more sources of 
+uncertainty and heterogeneity, leading to richer policy implications.
 
 \subsection{Baseline Simulation}
 \label{subsec:baseline_simulation}
@@ -247,39 +262,74 @@ In the baseline simulation, we set the following parameters:
 The main counterfactual changed risk for doctors, making the risk cap lower, simulating increased regulation and oversight. This was done to see how physicians would react to increased risk of prescribing, and how that would affect addict behavior.
 \section{Discussion}
 \label{sec:discussion}
+
+A good starting point of dicussion is to examine the estimtated variables of interested for doctors and addicts. Key statistics we want are the addict search stock, addict's value, the doctors' profits, and the share of doctors that exit the market. 
+
+\begin{table}[htbp]
+  \centering
+  \caption{Baseline and Counterfactual Summary Statistics for Doctors}
+  \begin{tabular}{|l|c|}
+  \hline
+    Avg. Profit & 50.92 \\
+    Share Exited & 49\% \\
+    Counterfactual Avg. Profit & 48.47 \\
+    Counterfactual Share Exited & 75\% \\
+  \hline
+  \end{tabular}
+  \label{tab:baseline_counterfactual_stats}
+\end{table}
+
+From these stats, we can see that increased risk has a minimal effect on doctors' profits, but significantly increases the exit rate from the market. This suggests that doctors are more interested in avoiding a penalty than in maximizing profits, which has important policy implications for regulating prescription practices.
+
+
+\begin{table}[htbp]
+  \centering
+  \caption{Baseline and Counterfactual Summary Statistics for Addicts}
+  \begin{tabular}{|l|c|}
+  \hline
+    Avg. Value & 5.80 \\
+    Avg. Search Stock & 5.78 \\
+    Difference in Value - CF and Baseline & -3.99 \\
+    Difference in Search Stock - CF and Baseline & 3.98 \\
+  \hline
+  \end{tabular}
+  \label{tab:baseline_counterfactual_stats_addicts}
+\end{table}
+
+Addicts, on the other hand, lose significant value in the counterfactual, also seeing increased search stock, indicating search becomes more difficult. This is the result we would expect as doctors exit the market, making it harder for addicts to find willing prescribers. This could have murky implications, as it may push addicts towards illicit drug use, which is a more dangerous alternative. 
+
 In the baseline, it can be seen that doctors are willing to take on increasing risk for about 25 periods, after which we begin to see exit from the prescribing market.
 This is likely due to the accumulation of risk from prescribing to addicts, who have increasing tolerance and thus require more prescriptions over time. Addicts, however, seem to have a relatively stable search pattern, with high initial search 
 stock, which decreases after about 10 straight periods. Doctor profits take a bimodal distribution, with some doctors making very high profits, while others make very little. This is likely a side effect of only having two types of risk tolerance 
 for doctors.
 
-\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.png}
-\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.png}
-\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.png}
+\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_profit_distribution.pdf}
+\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/addict_search_stock_distribution.pdf}
+\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/doctor_exits_over_time.pdf}
 
 In the policy simulation, we see that doctors exit the prescribing market much earlier, and we see that addicts have significant lower value due to the increased difficulty in finding a willing prescriber.
 
-\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.png}
-\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.png}
+\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_exits.pdf}
+\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_search_stock.pdf}
+\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_addict_value.pdf}
 
 Interestingly, we do not see a significant decrease in the profits of doctors in the counterfacutal, likely due to the fact that those who remain prescribing are doing so at a higher rate, picking up the slack of those who have exited
 
-\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.png}
+\includegraphics[width = \textwidth]{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/figures/counterfactual_doctor_profit.pdf}
 
+\section{Future Work}
+\label{sec:future_work}
 
-\section{Messy Data}
-\label{sec:messy_data}
+Future work on this project is very clear. Firstly, adding more dynamics is necessary to capture the evolution of addiction and physician behavior over time. This could include modeling how addicts' tolerance and search costs evolve with continued use, as well as how physicians' risk tolerance changes with experience. Additionally, incorporating more heterogeneity in both addict and physician types would allow for a richer analysis of the market dynamics. This would involve moving beyond the binary high/low type framework to a continuous distribution of types, as well as allowing for a richer set of characteristics that influence behavior. Further, using actual data is a must, and would be the first step in any continuation of this project. This would involve gathering claims data, survey data, and physician data to estimate the model parameters and validate the model's predictions. Finally, exploring additional policy scenarios, such as varying levels of regulation or different types of interventions, would provide further insights into effective strategies for mitigating prescription drug abuse.
 
-When thinking about data that would be fruitful for this project, there are a few avenues that should be explored. First, and most obviously, claims data would allow me to get an idea of the search process of addicts. This would allow me to parse
-out how many physicians an addict visits before finding a willing prescriber, along with frequency of visits, and prescription amounts. These insights would allow me to recover $\gamma$ and $s_i$ for addicts, as well as give me a better idea of the 
-distribution of addict types, instead of just high or low.
+\section{Conclusion}
+\label{sec:conclusion}
 
-Next, survey data from Monitoring the Future dataset could be useful to understand the behavior of addicts, especially over time. This data would let me see how addicts' $\gamma$ evolves over time as well, while also giving me a better sense of their budget constraints.
-Further, it may be helpful for understanding exit conditions of addicts, who have to leave due to cost or desire for more prescription consumption turning into illicit drug use.
+Addiction is a complex issue which warrants careful analysis and consideration from both an economic and public health perspective. This paper has developed a model to analyze the interaction between prescription drug addicts and physicians, capturing the search behavior of addicts and the risk-reward tradeoff faced by physicians. The model was estimated using simulated data, and counterfactual scenarios were explored to assess the impact of regulatory policies on physician behavior and addict outcomes. The results indicate that increased regulatory scrutiny leads to a significant reduction in the number of physicians willing to prescribe, which in turn increases the search costs for addicts. This has important implications for public health policy, suggesting that while stricter regulations may reduce inappropriate prescribing, they may also inadvertently push addicts towards illicit drug use. The findings highlight the need for balanced policies that consider both prescriber incentives and addict welfare.
 
-Finally, physician data from state medical boards or the AMA could be useful to understand prescribing behavior. This data could help me understand how physicians' risk tolerance evolves over time, as well as give me a better idea of the distribution of
-physician types. Further, this data could help me understand exit conditions for physicians, who may leave the prescribing market due to risk of losing their license or malpractice suits.
+\newpage
 
-These data sources together would provide a comprehensive view of the addict-physician interaction, allowing for more accurate parameter estimation and model validation. Additionally, I would be able to extend the model to include more sources of 
-uncertainty and heterogeneity, leading to richer policy implications.
+\bibliography{~/SchoolWork/Y2S1/Health/ResearchProject/Paper3/final_bib.bib}
+
 
 \end{document}

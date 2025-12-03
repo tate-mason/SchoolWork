@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{Paper Overview \& Contribution}{3}{0}{1}
+\beamer@sectionintoc {2}{Story \& Key Findings}{6}{0}{2}
+\beamer@sectionintoc {3}{Ideal Data}{8}{0}{3}
+\beamer@sectionintoc {4}{Empirical Strategy}{10}{0}{4}
+\beamer@sectionintoc {5}{Results}{18}{0}{5}
+\beamer@sectionintoc {6}{Conclusion and Next Steps}{23}{0}{6}
