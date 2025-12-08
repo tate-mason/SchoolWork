@@ -153,12 +153,11 @@ This project adds to the existing literature by modeling the quasi-dynamic inter
 There is a continuum of addicts in this model such that $\mathcal{A} = \{a_1, a_2, ..., a_N\}$, each with an individual type $\gamma_i \in \{\gamma_l, \gamma_h\}$,
 corresponding to high or low predisposition to addiction. Each addict maximizes their utility over an infinite horizon, with discount factor $\beta$.
 Each addict also has a tolerance for risk of being cut off from search, $r_i$, which evolves according to their type and consumption behavior. Each
-period, they choose to search for a physician, and will successfully receive a prescription with probability $m(\theta)$, where $\theta$ is the 
-measure of physicians willing to prescribe. Searching comes at a cost $s_i$, which depletes their health budget, and increases their risk of being cut off.
+period, they choose to search for a physician, and will successfully receive a prescription with probability  $\theta$. Searching comes at a cost $s_i$, which depletes their health budget, and increases their risk of being cut off.
 Each period, their risk evolves according to $r_i' = r_i + \epsilon_{a}$, where $\epsilon_{a} \sim N(\mu_a, \sigma_a^2)$. Addicts optimize over the following:
 In the first period:
 \begin{equation}
-  V_a^0(\gamma_i, r_i) = \{u(c_i) + \beta\mathbb{E}_t(1-a(\theta))V_a(\gamma_i, r_i) + \beta\mathbb{E}_{t}a(\theta)V_a(\gamma_i, r_i')\} \\
+  V_a^0(\gamma_i, r_i) = \{u(c_i) + \beta\mathbb{E}_t(1-\theta)V_a(\gamma_i, r_i) + \beta\mathbb{E}_{t}\theta V_a(\gamma_i, r_i')\} \\
 \end{equation}
 \begin{gather*}
   \shortintertext{s.t.} \\
@@ -174,7 +173,7 @@ In proceeding periods:
 \begin{gather*}
   \shortintertext{s.t.} \\
   V_a^s(\gamma_i, r_i) = \{u(c_i) + \beta V_a^m(\gamma_i, r_i')\} \\
-  V_a^f(\gamma_i, r_i') = \{u(c_i) + \mathbb{E}_{t}[\beta(1-a(\theta))V_a(\gamma_i, r_i') + \beta \mathbb{E}_{t}[a(\theta)V_a(\gamma_i, r_i')]]\} \\
+  V_a^f(\gamma_i, r_i') = \{u(c_i) + \mathbb{E}_{t}[\beta(1-\theta)V_a(\gamma_i, r_i') + \beta \mathbb{E}_{t}[\theta V_a(\gamma_i, r_i')]]\} \\
   u(c) = \frac{c_i^{1-\sigma}}{1-\sigma} \\
   r_i' = r_i + \epsilon_a \\
   c_i =\gamma_ip_{it} - r_i^{1/\gamma_i} \times \sum s_{it}
@@ -190,7 +189,7 @@ to search again if their value from searching exceeds that of staying with their
 There is a continuum of doctors such that $\mathcal{M} = \{m_1, m_2, ..., m_K\}$ who value profit. They will exist in the model until they have overprescribed,
 taking on too much risk, $p_{jt} > r_{jt}$. Doctors can be matched with many addicts, with $p_{jt} = \sum\limits_{i = 1}^{I} c_{it}$, for all patients $I \subset \mathcal{A}$
 matched to them. They will drop patients when their consumption needs threaten their risk constraint, thus allowing them to bring in a new, lower risk, patient. Doctors
-will prescribe to addicts with probability $m(\theta)$, where $\theta$ is the measure of physicians willing to prescribe. Each period, their risk evolves according to
+will prescribe to addicts with probability $\theta$. Each period, their risk evolves according to
 $r_{jt}' = r_{jt} + \epsilon_{d}$, where $\epsilon_{d} \sim N(\mu_d, \sigma_d^2)$.
 
 The doctor's optimization is as follows
@@ -218,7 +217,7 @@ This was estimated via VFI. Estimation procedure is as follows:
   \begin{enumerate}
     \item Solve the addict's dynamic programming problem using value function iteration.
     \item Solve the doctor's optimization problem given the current distribution of addicts.
-    \item Update the measure of physicians willing to prescribe, $\theta$, based on the current matches.
+    \item Update the number of physicians willing to prescribe, $\mathcal{M}_P\subset\mathcal{M}$, based on the current matches.
     \item Check for convergence of value functions and policies.
   \end{enumerate}
   \item Once converged, simulate the model to generate synthetic data for analysis.
@@ -252,7 +251,7 @@ In the baseline simulation, we set the following parameters:
 \begin{itemize}
   \item Addict discount factor $\beta = 0.95$
   \item High addiction predisposition $\gamma_h = 1.5$ and low addiction predisposition $\gamma_l = 0.5$
-  \item Probability of successful prescription $m(\theta) = 0.3$
+  \item Probability of successful prescription $\theta = 0.3$
   \item Search cost $s_i = 1$
   \item Risk caps: $r_d = \{10, 30\}; \ r_a = \{5, 15\}$
   \item Number of addicts $N = 1000$ and number of doctors $K = 600$

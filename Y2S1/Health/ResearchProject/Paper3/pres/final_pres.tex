@@ -157,11 +157,11 @@ An Investigation into Addict Behavior and Policy Remedies}
     \begin{itemize}
       \item $\exists$ a continuum of addicts $\mathcal{A} = \{a_1, a_2, \ldots, a_N\}$
       \item Each addict $a_i$ has a tolerance endowment, $\gamma_i$, which takes one of two values: $\gamma_L$ or $\gamma_H$
-      \item Each period, addict $a_i$ will search for a physician to get drugs, which they will be prescribed with probability $a(\theta)$, where $\theta$ is the measure of physicians willing to prescribe
+      \item Each period of search, addicts have a probability $\theta$ of matching with a prescribing physician
       \item Key variables include:
       \begin{itemize}
         \item $s$: search cost
-        \item $r_i$: risk tolerance of addic $i$
+        \item $r_i$: risk tolerance of addict $i$
         \item $\beta$: discount factor
         \item $p_it$: amount prescribed to addict $i$ at time $t$
         \item $\varepsilon_a$: shock to addict's risk tolerance
@@ -172,7 +172,7 @@ An Investigation into Addict Behavior and Policy Remedies}
   \begin{frame}{Addict's Problem}
     In the first period:
     \begin{gather*}
-      V_a^0(\gamma_i, r_i) = u(c_i) + \beta(\mathbb{E}(1-a(\theta))V_a(\gamma_i, r_i) + \mathbb{E}a(\theta)V_a(\gamma, r')) \\
+      V_a^0(\gamma_i, r_i) = u(c_i) + \beta(\mathbb{E}(1-\theta)V_a(\gamma_i, r_i) + \mathbb{E}\theta V_a(\gamma, r')) \\
       \text{s.t. } \\
       u(c) = \frac{c^{1-\sigma}}{1-\sigma} \\
       r' = r_i + \varepsilon_a
@@ -184,7 +184,7 @@ An Investigation into Addict Behavior and Policy Remedies}
   V_a^m(\gamma_i, r_i) = \max\{V_a^s(\gamma_i, r_i), V_a^f(\gamma_i, r_i')\} \\
   \shortintertext{s.t.} \\
   V_a^s(\gamma_i, r_i) = \{u(c_i) + \beta V_a^m(\gamma_i, r_i')\} \\
-  V_a^f(\gamma_i, r_i') = \{u(c_i) + \mathbb{E}_{t}[\beta(1-a(\theta))V_a(\gamma_i, r_i') + \beta \mathbb{E}_{t}[a(\theta)V_a(\gamma_i, r_i')]]\} \\
+  V_a^f(\gamma_i, r_i') = \{u(c_i) + \mathbb{E}_{t}[\beta(1-\theta)V_a(\gamma_i, r_i') + \beta \mathbb{E}_{t}[\theta V_a(\gamma_i, r_i')]]\} \\
   u(c) = \frac{c_i^{1-\sigma}}{1-\sigma} \\
   r_i' = r_i + \epsilon_a \\
   c_i =\gamma_ip_{it} - r_i^{1/\gamma_i} \times \sum s_{it}
