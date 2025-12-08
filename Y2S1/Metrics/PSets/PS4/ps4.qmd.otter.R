@@ -1,16 +1,16 @@
----
-title: "Problem Set 4"
-author: "Tate Mason"
-format: pdf
----
 
-```{r setup, include=FALSE}
+
+
+
+
+
+
 knitr::opts_chunk$set(echo = TRUE)
-```
 
-## Question 1:
 
-```{r}
+
+
+
 # Load necessary libraries
 library(tidyverse)
 library(haven)
@@ -23,23 +23,23 @@ library(estimatr)
 library(AER)
 library(sandwich)
 library(lmtest)
-```
 
-```{r}
+
+
 # Load the dataset
 mc <- read_dta(here("Y2S1/Metrics/PSets/PS4/data", "medicarePS.dta"))
 
 describe(mc)
 summarise(mc)
-```
 
-### Part A
 
-The paper exhibits a good RDD design because at 65, all individuals are eligible for medicare, creating a clear cutoff for assingment. Age is also non-decreasing, therefore monotonicity is satisfied. Further, amount of insurance and age are correlated since, at the least, a 65 year old will transition from 0 to 1 plan. Finally, age is not manipulable, so the RDD is valid. Thus, the RDD design is appropriate for estimating the causal effect of Medicare eligibility on care utilization.
 
-### Part B
 
-```{r}
+
+
+
+
+
 #| label: 1.b - plotting
 # Plotting averages per quarter of age: outcome, first stage, validity
 
@@ -68,10 +68,10 @@ plot4 <- plot_sd_trend(mc_dat, mean_min, "Minority Status vs Age", "Mean Minorit
 
 library(gridExtra)
 grid.arrange(plot1, plot2, plot3, plot4, ncol = 2)
-```
 
-### Part C
-```{r}
+
+
+
 #| label: 1.c - RDD estimation
 
 mc_RDD <- mc %>%
@@ -98,12 +98,12 @@ rdd_1c <- iv_robust(
   se_type = "HC1" # Huber-White robust standard errors
 )
 summary(rdd_1c)
-```
 
-As one acquires more insurance plans, the likelihood of delaying care decreases. However, this effect is not statistically significant at conventional levels, as the p-value is approximately 0.52.
 
-### Part D
-```{r}
+
+
+
+
 
 mc_RDD_low <- mc_RDD %>%
   mutate(
@@ -129,12 +129,12 @@ model_1d_high <- iv_robust(
   se_type = "HC1"
 )
 summary(model_1d_high)
-```
 
-Here, we see that at a lower bandwidth, the effect of insurnace on delaying care is more negative, but still not statistically significant. At a higher bandwidth, the effect is similar, and still not exhibiting statistical significance. This makes sense as seen in the plots above, there is not a clear discontinuity at the cutoff for the outcome variable.
 
-### Part E
-```{r}
+
+
+
+
 #| label: 1.e - covariate balance
 covariate_RDD <- iv_robust(
   DelayCare ~ Ninsurance + Age + Agez + Minority + Education | z + Age + Agez + Minority + Education,
@@ -143,32 +143,32 @@ covariate_RDD <- iv_robust(
   se_type = "HC1"
 )
 summary(covariate_RDD)
-```
 
-Including the covariates of minority status and education does not significantly change the estimated effect of insurance on delaying care. The coefficient remains negative and statistically insignificant, suggesting that these covariates do not confound the relationship in this RDD design. The effect of education is negative and statistically significant, an interesting avenue to explore further.
 
-## Question 2:
 
-### Part A
-A linear model is likely unreasonable, as it assumes the effect of going from 1 plan to 2, etc. is the same as going from 0 to 1 plan. It is more likely that the largest effect is seen when going from no insurance to some insurance, and that additional plans have diminishing returns in terms of reducing delayed care. Therefore, a non-linear treatment effect model would be more appropriate.
 
-### Part B
-```{r}
+
+
+
+
+
+
+
 #| label: 2.b - non-linearity
 mc_RDD <- mc_RDD %>%
   mutate(
     Oneins = if_else(Ninsurance >= 1, 1, 0),
     Twoins = if_else(Ninsurance >= 2, 1, 0)
   )
-```
 
-### Part C
 
-Replacing ```Ninsurance``` with two indicator variables ```Oneins``` and ```Twoins``` to capture the non-linear treatment effect of insurance plans is not advisable in this framework, as it creates multicollinearity issues. Specifically, ```Twoins``` is a subset of ```Oneins```, leading to perfect collinearity when both are included in the model. 
 
-### Part D
 
-```{r}
+
+
+
+
+
 #| label: 2.d - RDD with non-linear treatment
 
 RDD_coll <- mc_RDD %>%
@@ -203,18 +203,18 @@ RDD_coll_minority <- RDD_coll %>%
   labs(title = "Effect of Increased Coverage (Minorities)", x = "Age (Quarters)", y = "Coverage") +
   theme_minimal()
 print(RDD_coll_minority)
-```
 
-From the plots, it seems that both white and minority individuals experience an increase in insurance coverage at age 65. However, the increase appears more pronounced for white individuals compared to minorities, suggesting potential disparities in insurance uptake or access.
 
-### Part E
 
-The plots look totally different, specifically around the discontinuities. For minorities, there is a much smaller jump in coverage for 1-2, but a larger jump for 0-1. This suggests that minorities may face more barriers to obtaining any insurance at all, but once they have some insurance, they are more likely to get additional plans compared to whites. Thus, linear independence holds just by looking at the plots, as the jumps are not proportional.
 
-It would appear that minorities delay care more than whites, as seen in the plots above. This could be due to a variety of factors including socioeconomic status, access to healthcare facilities, cultural attitudes towards healthcare, and potential systemic biases within the healthcare system. Further analysis would be needed to isolate the specific causes of this disparity.
 
-### Part F
-```{r}
+
+
+
+
+
+
+
 #| label: 2.f - scatter of delaycare by race
 RDD_delay <- mc_RDD %>%
   group_by(Age, Minority) %>%
@@ -241,17 +241,17 @@ RDD_delay_minority <- RDD_delay %>%
   theme_minimal()
 
 grid.arrange(RDD_delay_white, RDD_delay_minority, ncol = 2)
-```
 
-### Part G
 
-To identify the heterogeneous treatment, we need to assume that races do not differ systematically in their response to insurance coverage changes at the cutoff. This means that the potential outcomes for delaying care, conditional on age and insurance status, should be similar across racial groups in the absence of treatment. Additionally, we need to assume that the instrument (age cutoff) affects the treatment (insurance coverage) similarly across races. If these assumptions hold, we can interpret the differences in treatment effects across
-races as being due to true heterogeneity rather than confounding factors.
 
-### Part H
 
-### Part I
-```{r}
+
+
+
+
+
+
+
 #| label: 2.i - RDD with more interaction
 mc_RDD <- mc_RDD %>%
   mutate(
@@ -269,18 +269,18 @@ model_2i <- iv_robust(
 )
 summary(model_2i)
 # Add educ stuff
-```
 
-When you have two policies, you delay less. Going from 0 to 1, you delay care. However, neither effect is statistically significant at any level.
 
-Adding education effects, assumptions must be stronger since they need to hold for more groups. With that said, to idenify the effects, one would need to assume that health care attitudes and behaviors conditional on education and race are continuous at the cutoff. This is reasonable, but definitely a stronger assumption.
 
-By adding education, we can also identify the effect of education on delaying care by race and insurance status, granting us more insight into the mechanisms at play.
 
-## Question 3:
 
-### Part A
-```{r}
+
+
+
+
+
+
+
 #| label: 3.a - data prep
 q3 <- mc_RDD %>%
   mutate(
@@ -292,10 +292,10 @@ q3 <- mc_RDD %>%
     Min_Col  = as.numeric(Minority == 1 & Education == 3)
   )
 describe(q3)
-```
 
-### Part B
-```{r}
+
+
+
 #| label: 3.b - 
 # omit minority dropouts as base group
 loop <- c("Wht_Drop", "Wht_HS", "Min_HS", "Wht_Col", "Min_Col")
@@ -311,10 +311,10 @@ for(v in loop) {
   q3[[var_agez]] <- q3$Agez * q3[[v]]
 }
 head(mc)
-```
 
-### Part D
-```{r}
+
+
+
 endog <- "Oneins + Twoins"
 
 ins_iv <- "z + Wht_Drop + Wht_HS + Wht_Col + Min_HSz + Min_Colz"
@@ -337,8 +337,3 @@ iv_3d <- iv_robust(
   se_type = "HC1"
 )
 summary(iv_3d)
-```
-
-Here, the effect of going from 0 to 1 plan increases the likelihood of delaying care, while going from 1 to 2 plans decreases it. However, neither effect is statistically significant at conventional levels. Both are stronger effects than in the case without accounting for all confounders, suggesting that education and race do play a role in mediating the relationship between insurance coverage and delaying care. No variable is statistically significant at conventional levels.
-
-These results do make sense given the smoothness seen in the plots from 1b. There was a lack of clear discontinuity based on any of the covariates, suggesting that the treatment effect is likely small and not statistically significant. However, this does not preclude the possibility of meaningful effects in specific subpopulations or under different model specifications. Further investigation would be needed to explore these possibilities.
