@@ -153,3 +153,206 @@ summary(mnl3)
 ```
 
 In the first model, we see a clear misspecification, since price's coefficient is positive. However, upon instrumenting for price, we flip the sign and get a negative coefficient. But price is not not statistically significant, indicating a weak instrument. Finally, adding distance as an instrument, we see that both price and distance have negative signs, which is to be expected, but neither is statistically significant.
+
+If the true values are the values set for simulation as laid out in part 1, price is biased negatively, distance is slightly biased negatively, and characteristics are slightly biased positively. Thus, all parameters estimated through multinomial logit are overstating the effect of these variables when in the case of complete information. 
+
+# Question 3
+```{r}
+#| label: 3-1
+
+search_dat <- read_csv(here("Y2S1/IO/PS3/Data/search_set_data.csv"))
+
+search_dat_long <- search_dat %>%
+  pivot_longer(
+    cols = starts_with("prod"),
+    names_to = "product",
+    names_prefix = "prod",
+    values_to = "in_set"
+  ) %>%
+  mutate(
+    product = as.integer(product)
+  ) %>%
+  group_by(market) %>%
+  mutate(
+    set_id = rep(1:16, each = 4)
+  ) %>%
+  ungroup()
+
+merge_dat <- main_long %>%
+  left_join(search_dat_long, by = c("market", "product"))
+
+```
+
+```{r}
+#| label: 3-2_GMM
+
+# Compute pi_jt to determine entry into search set
+pi_fun <- function(mu, ave_dist) {
+  p <- plogis(10 + mu * ave_dist)
+
+  p <- pmin(pmax(p, 1e-6), 1 - 1e-6)
+  return(p)
+}
+
+# Predicting shares
+
+predict_share <- function(theta, main_long, search_dat_long, xi) {
+  beta0 <- theta[1]
+  beta1 <- theta[2]
+  alpha <- theta[3]
+  mu    <- theta[4]
+
+  main_long <- main_long %>%
+    arrange(
+      market,
+      product
+    )
+
+  prod_df <- main_long %>%
+    mutate(
+      xi = xi,
+      delta = beta0 + beta1 * x + alpha * p + xi,
+      pi = pi_fun(mu, ave_dist)
+    ) %>%
+    select(market, product, delta, pi)
+
+  q3_df <- search_dat_long %>%
+    arrange(market, set_id, product) %>%
+    left_join(prod_df, by = c("market", "product"))
+  q3_df <- q3_df %>%
+    group_by(market, set_id) %>%
+    mutate(
+      log_Ps = sum(
+        in_set * log(pi) + (1 - in_set) * log(1 - pi)
+      ),
+      P_s = exp(log_Ps),
+      denom_S = 1 + sum(if_else(in_set == 1, exp(delta), 0)),
+      P_js = if_else(
+        in_set == 1,
+        exp(delta) / denom_S,
+        0
+      )
+    ) %>%
+    ungroup()
+
+  pred_shares <- q3_df %>%
+    group_by(market, product) %>%
+    summarize(
+      s_hat = mean(P_s * P_js),
+      .groups = "drop"
+    ) %>%
+    arrange(market, product)
+
+  s_hat_vec = pred_shares$s_hat
+  return(s_hat_vec)
+}
+
+# Contraction mapping for xi
+
+xi_cont <- function(theta, main_long, search_dat_long,
+                        max_iter = 500, tol = 1e-6) {
+  main_long <- main_long %>%
+    arrange(market, product)
+
+  # observed shares; clamp zeros if any
+  s_obs <- main_long$s
+  s_obs <- pmax(s_obs, 1e-12)
+
+  # initial xi
+  xi <- rep(0, nrow(main_long))
+
+  for (iter in seq_len(max_iter)) {
+    s_hat <- predict_share(theta, main_long, search_dat_long, xi)
+
+    # if predict_shares exploded, bail with NA xi
+    if (any(!is.finite(s_hat))) {
+      return(rep(NA_real_, length(xi)))
+    }
+
+    s_hat <- pmax(s_hat, 1e-12)
+
+    xi_new <- xi + log(s_obs) - log(s_hat)
+
+    # if xi_new exploded, bail
+    if (any(!is.finite(xi_new))) {
+      return(rep(NA_real_, length(xi)))
+    }
+
+    # convergence check
+    diff <- max(abs(xi_new - xi))
+
+    if (!is.finite(diff)) {
+      # if diff is NA/Inf, bail
+      return(rep(NA_real_, length(xi)))
+    }
+
+    if (diff < tol) {
+      xi <- xi_new
+      break
+    }
+
+    xi <- xi_new
+  }
+
+  return(xi)
+}
+
+# GMM
+
+GMM_obj <- function(theta, main_long, search_dat_long) {
+  main_long <- main_long %>%
+    arrange(market, product)
+
+  xi <- xi_cont(theta, main_long, search_dat_long)
+
+  # if contraction failed, slam with big penalty
+  if (any(!is.finite(xi))) {
+    return(1e12)
+  }
+
+  Z <- model.matrix(~ x + mc + ave_dist, data = main_long)
+
+  # if instruments are weird / NA, also slam
+  if (any(!is.finite(Z))) {
+    return(1e12)
+  }
+
+  N <- nrow(Z)
+  if (N == 0) {
+    return(1e12)
+  }
+
+  m <- as.numeric(crossprod(Z, xi)) / N
+  if (any(!is.finite(m))) {
+    return(1e12)
+  }
+
+  Q <- sum(m^2)
+
+  if (!is.finite(Q)) {
+    Q <- 1e12
+  }
+
+  Q
+}
+
+theta_start <- c(
+  beta0 = 1,
+  beta1 = 0.2,
+  alpha = -0.25,
+  mu = -0.1
+)
+
+gmm_fit <- optim(
+  par = theta_start,
+  fn = GMM_obj,
+  main_long = main_long,
+  search_dat_long = search_dat_long,
+  method = "BFGS",
+  control = list(maxit = 500)
+)
+
+gmm_fit$par
+gmm_fit$value
+```
+

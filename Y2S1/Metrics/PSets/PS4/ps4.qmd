@@ -209,10 +209,7 @@ From the plots, it seems that both white and minority individuals experience an 
 
 ### Part E
 
-The plots look totally different, specifically around the discontinuities. For minorities, there is a much smaller jump in coverage for 1-2, but a larger jump for 0-1. This suggests that minorities may face more barriers to obtaining any insurance at all, but once they have some insurance, they are more likely to get additional plans compared to whites. Thus, linear independence holds just by looking at the plots, as the jumps are not proportional.
-
-It would appear that minorities delay care more than whites, as seen in the plots above. This could be due to a variety of factors including socioeconomic status, access to healthcare facilities, cultural attitudes towards healthcare, and potential systemic biases within the healthcare system. Further analysis would be needed to isolate the specific causes of this disparity.
-
+The discontinuities in coverage are different between races, with whites experiencing a larger jump for twoins, while minorities have a smaller jump (.22 for minorities vs .46 for whites). There is also differeces in the oneins jump, with minorities appearing to have a slightly larger jump (.15 for minorities vs .05 for whites), though it is less clear. These differences imply that the first stage effects differ by race, thus we can identify heterogeneous treatment effects.
 ### Part F
 ```{r}
 #| label: 2.f - scatter of delaycare by race
@@ -245,10 +242,11 @@ grid.arrange(RDD_delay_white, RDD_delay_minority, ncol = 2)
 
 ### Part G
 
-To identify the heterogeneous treatment, we need to assume that races do not differ systematically in their response to insurance coverage changes at the cutoff. This means that the potential outcomes for delaying care, conditional on age and insurance status, should be similar across racial groups in the absence of treatment. Additionally, we need to assume that the instrument (age cutoff) affects the treatment (insurance coverage) similarly across races. If these assumptions hold, we can interpret the differences in treatment effects across
-races as being due to true heterogeneity rather than confounding factors.
+From the graphs, we can see continuity within races at the cutoff for delaying care. There does not appear to be a significant jump in delayed care at age 65 for either whites or minorities. Because of this pattern, we can assert that within race groups, there is continuity at the cutoff.
 
 ### Part H
+
+From a casual look, there is a near 0 discontinuity at the cutoff for both. Thus, if we plug that into the system of equations, $\Delta Y \approx 0$ and thus $\delta_i \approx 0$ for both race groups. From all of the plots, we see a first stage discontinuity, no discontinuity in the outcome, and continuity in the covariates. Thus, all RDD assumptions are satisfied, and we can identify a zero effect of insurance on delaying care for both races.
 
 ### Part I
 ```{r}
@@ -268,10 +266,12 @@ model_2i <- iv_robust(
   se_type = "HC1"
 )
 summary(model_2i)
-# Add educ stuff
 ```
 
 When you have two policies, you delay less. Going from 0 to 1, you delay care. However, neither effect is statistically significant at any level.
+
+
+### Part J
 
 Adding education effects, assumptions must be stronger since they need to hold for more groups. With that said, to idenify the effects, one would need to assume that health care attitudes and behaviors conditional on education and race are continuous at the cutoff. This is reasonable, but definitely a stronger assumption.
 
