@@ -1,0 +1,5 @@
+1×25 DataFrame
+ Row │ x_mean   p_mean   s_mean    ave_dist_mean  mc_mean   x_std    p_std     s_std    ave_dist_std  mc_std    x_min      p_min    s_min    ave_dist_min  mc_min     x_max    p_max    s_max    ave_dist_max  mc_max   x_median  p_median  s_median  ave_dist_median  mc_median
+     │ Float64  Float64  Float64   Float64        Float64   Float64  Float64   Float64  Float64       Float64   Float64    Float64  Float64  Float64       Float64    Float64  Float64  Float64  Float64       Float64  Float64   Float64   Float64   Float64          Float64
+─────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   1 │ 2.56834  5.46035  0.174282       0.844916  0.516246  1.47792  0.905698  0.12024      0.898829  0.289402  0.0298235  4.16801    0.007     0.0137158  0.0041899  4.99315  9.55749    0.564       6.54303  0.99588   2.54838   5.22388    0.1475         0.546084   0.549307
