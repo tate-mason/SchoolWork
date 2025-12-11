@@ -500,3 +500,4 @@ kable(est_tab5, digits = 3, caption = "GMM Estimates with Endogenous Search vs. 
 
 
 
+

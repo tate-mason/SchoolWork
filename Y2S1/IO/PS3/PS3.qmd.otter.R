@@ -1,15 +1,15 @@
----
-title: "Problem Set 3"
-author: "Tate Mason"
-date: Sys.Date()
-format: pdf
----
 
-```{r setup, include=FALSE}
+
+
+
+
+
+
+
 knitr::opts_chunk$set(echo = TRUE)
-```
 
-```{r packages, include=FALSE}
+
+
 
 library(tidyverse)
 library(knitr)
@@ -23,11 +23,11 @@ library(here)
 library(gridExtra)
 library(fixest)
 library(AER)
-```
 
-# Question 1
 
-```{r question1.1}
+
+
+
 main_data <- read_csv(here("Y2S1/IO/PS3/Data/prod_level_data.csv"))
 
 if (all(c("x", "p", "ave_dist", "s", "mc") %in% names(main_data))) {
@@ -67,10 +67,10 @@ stat_tab <- main_long %>%
   )
 
 kable(stat_tab, digits = 3, caption = "Table of Summary Statistics")
-```
 
 
-```{r question1.2}
+
+
 main_graph_pxs <- main_long %>%
   ggplot(aes(x = x, y = s)) +
   geom_point() +
@@ -107,14 +107,14 @@ main_graph_sxad <- main_long %>%
 main_graph_pxs
 main_graph_xxs
 main_graph_sxad
-```
 
-Price is positively correlated with market share, with price increasing with share for all products. For Yelp rating, there is no discernable correlation. For distance, there is a slightly negative relationship, though it appears to be as good as flat. All make sense to me, as price is directly manipulable as market power increases, while distance may be harder to control due to real estate effects, and ratings are almost fully out of control.
 
-# Question 2
 
-## Part 1
-```{r}
+
+
+
+
+
 #| label: multinomial logit - no instrument
 
 logit_data <- main_long %>%
@@ -130,10 +130,10 @@ mnl1 <- feols(
   data = logit_data
 )
 summary(mnl1)
-```
 
-## Part 2
-```{r}
+
+
+
 #| label: 2-2
 
 logit_data <- logit_data %>%
@@ -148,10 +148,10 @@ mnl2 <- ivreg(
   data = logit_data
 )
 summary(mnl2)
-```
 
-## Part 3
-```{r}
+
+
+
 #| label: 2-3
 
 logit_data <- logit_data %>%
@@ -166,14 +166,14 @@ mnl3 <- ivreg(
   data = logit_data
 )
 summary(mnl3)
-```
 
-In the first model, we see a clear misspecification, since price's coefficient is positive. However, upon instrumenting for price, we flip the sign and get a negative coefficient. But price is not not statistically significant, indicating a weak instrument. Finally, adding distance as an instrument, we see that both price and distance have negative signs, which is to be expected, but neither is statistically significant.
 
-If the true values are the values set for simulation as laid out in part 1, price is biased negatively, distance is slightly biased negatively, and characteristics are slightly biased positively. Thus, all parameters estimated through multinomial logit are overstating the effect of these variables when in the case of complete information. 
 
-# Question 3
-```{r}
+
+
+
+
+
 #| label: 3-1
 
 search_dat <- read_csv(here("Y2S1/IO/PS3/Data/search_set_data.csv"))
@@ -193,9 +193,9 @@ q4_df <- q4_df %>%
   group_by(market) %>%
   filter(s > 0) %>%
   ungroup()
-```
 
-```{r, eval=FALSE}
+
+
 #| label: 3-2_GMM
 
 n <- nrow(q4_df)
@@ -345,11 +345,11 @@ est_tab <- tibble(
 )
 
 kable(est_tab, digits = 3, caption = "GMM Estimates vs. True Values")
-```
 
-# Question 4
 
-```{r}
+
+
+
 #| label: Location data
 loc_dat <- read_csv(here("Y2S1/IO/PS3/Data/distance.csv")) 
 
@@ -494,9 +494,3 @@ est_tab5 <- tibble(
   true = c(1, 0.2, -0.25, -0.1)
 )
 kable(est_tab5, digits = 3, caption = "GMM Estimates with Endogenous Search vs. True Values")
-```
-
-
-
-
-
