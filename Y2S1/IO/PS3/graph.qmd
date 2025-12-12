@@ -1,0 +1,120 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r packages, include=FALSE}
+
+library(tidyverse)
+library(knitr)
+library(lubridate)
+library(broom)
+library(stargazer)
+library(ggplot2)
+library(modelsummary)
+library(psych)
+library(here)
+library(gridExtra)
+library(fixest)
+library(AER)
+```
+
+# Question 1
+
+```{r}
+#| label: Data Init and Summary Stats
+main_data <- read_csv(here("Y2S1/IO/PS3/Data/prod_level_data.csv"))
+
+if (all(c("x", "p", "ave_dist", "s", "mc") %in% names(main_data))) {
+  main_long <- main_data
+} else {
+  main_long <- main_data %>%
+    pivot_longer(
+      cols = matches("^(x|p|ave_dist|s|mc)\\d+$"),
+      names_to = c(".value", "prod"),
+      names_pattern = "(.*?)(\\d+)$"
+    ) %>%
+    mutate(prod = as.integer(prod)) %>%
+    arrange(market, prod)
+}
+
+head(main_long)
+describe(main_long)
+
+stat_tab <- main_long %>%
+  select(x, p, ave_dist, s, mc) %>%
+  pivot_longer(
+    everything(),
+    names_to = "variable",
+    values_to = "value"
+  ) %>%
+  group_by(variable) %>%
+  summarize(
+    N = n(),
+    Mean = mean(value),
+    SD = sd(value),
+    Min = min(value),
+    P25 = quantile(value, 0.25),
+    Median = median(value),
+    P75 = quantile(value, 0.75),
+    Max = max(value),
+    .groups = "drop"
+  )
+
+kable(stat_tab,
+      digits = 3,
+      caption = "Table of Summary Statistics",)
+```
+
+
+```{r}
+#| label: Graphing Descriptives
+main_graph_pxs <- main_long %>%
+  ggplot(aes(x = p, y = s)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  labs(
+    title = "Price vs. Market Share by Product",
+    x = "Market Share (s)",
+    y = "Price (p)"
+  ) +
+  theme_minimal()
+ggsave(main_graph_pxs, 
+        filename = here("Y2S1/IO/PS3/Outputs/price_vs_share.pdf"),
+        width = 6, height = 4)
+
+main_graph_xxs <- main_long %>%
+  ggplot(aes(x = x, y = s)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  labs(
+    title = "Rating vs. Market Share by Product",
+    x = "Rating (x)",
+    y = "Market Share (s)"
+  ) +
+  theme_minimal()
+ggsave(main_graph_xxs, 
+        filename = here("Y2S1/IO/PS3/Outputs/rating_vs_share.pdf"),
+        width = 6, height = 4)
+
+main_graph_sxad <- main_long %>%
+  ggplot(aes(x = ave_dist, y = s)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  labs(
+    title = "Average Distance vs. Market Share by Product",
+    x = "Average Distance (ave_dist)",
+    y = "Market Share (s)"
+  ) +
+  theme_minimal()
+ggsave(main_graph_sxad, 
+        filename = here("Y2S1/IO/PS3/Outputs/distance_vs_share.pdf"),
+        width = 6, height = 4)
+
+main_graph_pxs
+main_graph_xxs
+main_graph_sxad
+
+grid.arrange(main_graph_pxs, main_graph_xxs, main_graph_sxad, ncol = 1)
+
+```

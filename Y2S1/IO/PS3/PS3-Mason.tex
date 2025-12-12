@@ -1,0 +1,231 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\begin{document}
+
+\title{Problem Set 3}
+\author{Tate Mason}
+\date{\today}
+\maketitle
+
+\section*{Problem 1: Data Overview and Analysis}
+
+\subsection*{Part A: Data Summary}
+
+This section will serve to introduce the data. We were provided a dataset consisting of 71 markets, each witth 4 restaurants.
+There are 1000 consumers in each market. The variables provided are as follows:
+
+\begin{itemize}
+  \item \textbf{ave\_dist}: Average distance to the restaurant from consumers (in miles)
+  \item \textbf{mc}: Marginal cost of the restaurant
+  \item \textbf{p}: Price of the restaurant
+  \item \textbf{s}: Market share of the restaurant
+  \item \textbf{x}: Yelp rating of the restaurant (out of 5)
+\end{itemize}
+
+I have compiled summary statistics for these variables in Table \ref{tab:summ_stats}.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Summary Statistics}
+    \label{tab:summ_stats}
+    \begin{tabular}{lcccccccc}
+    \hline\hline
+    Variable & N & Mean & SD & Min & P25 & Median & P75 & Max \\
+    \hline
+    ave\_dist & 284 & 0.845 & 0.899 & 0.014 & 0.343 & 0.546 & 1.159 & 6.543 \\
+    mc        & 284 & 0.516 & 0.289 & 0.004 & 0.273 & 0.549 & 0.765 & 0.996 \\
+    p         & 284 & 5.460 & 0.906 & 4.168 & 4.861 & 5.224 & 5.755 & 9.557 \\
+    s         & 284 & 0.174 & 0.120 & 0.007 & 0.086 & 0.148 & 0.224 & 0.564 \\
+    x         & 284 & 2.568 & 1.478 & 0.030 & 1.222 & 2.548 & 3.934 & 4.993 \\
+    \hline\hline
+    \end{tabular}
+\end{table}
+
+We can see that the average distance to restaurants is 0.845 miles, with a standard deviation of 0.899 miles. The average marginal cost is 0.516, and the average price is 5.460.
+The market share has a mean of 0.174, and the average yelp rating is 2.568 out of 5.
+
+\subsection*{Part B: Graphical Analysis}
+
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{outputs/price_vs_share.pdf}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{outputs/distance_vs_share.pdf}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{outputs/rating_vs_share.pdf}
+\end{center}
+
+From the graphs, we observe that as the price increases, the market share tends to decrease, indicating a negative relationship between price and market share.
+For the other two, the relationships become less clear, suggesting these are not strongly correlated factors in determining market share.
+
+\section*{Problem 2: Estimation Exercises}
+
+\begin{table}[htbp]
+\centering
+\caption{Estimation Results by Method}
+\label{tab:methods_combined}
+\begin{tabular}{lcccccc}
+\hline\hline
+\textbf{Method} & \textbf{Variable} & \textbf{Coef.} & \textbf{Std. Error} & \textbf{t} & \textbf{p-value} & \textbf{95\% CI} \\
+\hline
+\multicolumn{7}{l}{\textbf{OLS}} \\
+& (Intercept) & -2.23562 & 0.33886 & -6.60 & $<1e{-}09$ & [-2.90264,\ -1.56859] \\
+& x           & 0.024112 & 0.0386086 & 0.62 & 0.5328 & [-0.0518869,\ 0.100111] \\
+& p           & 0.487698 & 0.0630017 & 7.74 & $<1e{-}12$ & [0.363683,\ 0.611713] \\
+\hline
+\multicolumn{7}{l}{\textbf{IV (MC)}} \\
+& (Intercept) & 7.13029 & 1.78457 & 4.00 & $<1e{-}04$ & [3.61747,\ 10.6431] \\
+& x           & 0.295728 & 0.0654541 & 4.52 & $<1e{-}05$ & [0.166885,\ 0.42457] \\
+& p\_hat      & -1.35532 & 0.350383 & -3.87 & 0.0001 & [-2.04503,\ -0.66561] \\
+\hline
+\multicolumn{7}{l}{\textbf{IV (MC + Avg Distance)}} \\
+& (Intercept) & 7.05279 & 1.78454 & 3.95 & $<1e{-}04$ & [3.54002,\ 10.5656] \\
+& x           & 0.29348 & 0.0654674 & 4.48 & $<1e{-}04$ & [0.164611,\ 0.422349] \\
+& p\_hat2     & -1.34007 & 0.350377 & -3.82 & 0.0002 & [-2.02976,\ -0.650371] \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Comparison of Estimation Techniques}
+
+In this section, we examine the case of complete information on the part of the consumer. We estimate market share
+using three methods: OLS, IV (MC), and IV (MC + Avg Distance). From the results in Table \ref{tab:methods_combined},
+we compare the estimated coefficients for price ($\hat{\alpha}$) across the three methods. In OLS, we find a positive
+coefficient, a result we know to be biased. When using IV methodologies, we find negative coefficients, which is 
+at least a step in the right direction. However, the magnitudes of these estimates are large, which leads one
+to question the validity of the instruments used, especially since marginal cost and average distance may not be
+strongly correlated with price, a fact seen for distance in Problem 1.
+
+None of the methods got close to the true value of -0.25 for the price coefficient, but the IV methods did at least get the sign correct.
+Same goes for the rating coefficient, where OLS failed to find significance, while both IV methods found positive and significant estimates.
+Finally, the intercepts were way off in all three methods, suggesting that none of these linear models are particularly well-suited
+to capture the true underlying relationship.
+
+\subsection*{Part A: OLS}
+
+For this part, we estimate the market share equation using OLS:
+\begin{gather*}
+  s = \beta_0 + \beta_1 x + \beta_2 p + \varepsilon
+\end{gather*}
+
+This is the simplest case. To arrive at this equation, we formed a simple linear regression model
+which reflects how market share is affected by Yelp rating (x) and price (p).
+
+from the estimated coefficients in Table \ref{tab:methods_combined},
+we find that $\hat{\alpha} = 0.487$, and is significant. However, this 
+estimate is definitely biased due to price endogeneity, which can even
+be seen by looking at the scatter plot of price vs. market share in Problem 1.
+When price increases, market share decreases.
+
+
+\subsection*{Part B: IV Estimation with Marginal Cost}
+
+We now instrument for price using the marginal cost variable (mc).
+The estimated equation is:
+\begin{gather*}
+  s = \beta_0 + \beta_1 x + \beta_2 \hat{p} + \varepsilon \\
+  \shortintertext{where} \\
+  \hat{p} = \gamma_0 + \gamma_1 x + \gamma_2 mc + \nu
+\end{gather*}
+
+Here, we regress the first stage to get predicted prices ($\hat{p}$) using Yelp rating and marginal cost as instruments.
+Then, we use these predicted prices in the second stage regression to estimate market share.
+
+From the results in Table \ref{tab:methods_combined}, we find that $\hat{\alpha} = -1.355$, which is negative and significant.
+This is more in line with what we would expect, as an increase in price should lead to decreased market share.
+
+
+\subsection*{Part C: IV Estimation with Marginal Cost and Distance}
+
+We further refine our IV estimation by including average distance (ave\_dist) as an additional instrument.
+The estimated equations are:
+\begin{gather*}
+  s = \beta_0 + \beta_1 x + \beta_2 \hat{p} + \varepsilon \\
+  \shortintertext{where} \\
+  \hat{p} = \gamma_0 + \gamma_1 x + \gamma_2 mc + \gamma_3 ave\_dist + \nu
+\end{gather*}
+
+Similarly, we regress the first stage to get predicted prices ($\hat{p}$) using Yelp rating, marginal cost, and average distance as instruments.
+Then, we use these predicted prices in the second stage regression to estimate market share.
+
+From the results in Table \ref{tab:methods_combined}, we find that $\hat{\alpha} = -1.340$, which is again negative and significant.
+This further supports the conclusion that price negatively affects market share when accounting for endogeneity. Further,
+the magnitude is similar, but a bit smaller, suggesting including distance does help to tune the model some.
+
+\section*{Problem 3: Exogenous Choice Set Formation}
+
+\begin{table}[htbp]
+\centering
+\caption{GMM Estimates under Exogenous Search}
+\label{tab:q3_exogenous}
+\begin{tabular}{lccc}
+\hline\hline
+\textbf{Parameter} & \textbf{Estimate} & \textbf{True Value} \\
+\hline
+Intercept              & 1.591 & 1.00 \\
+Rating Coefficient     & 0.538 & 0.20 \\
+Price Coefficient      & 0.548 & -0.25 \\
+Mu                     & -1.738 & --- \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+In the exogenous choice set formation model, we assume that consumers consider all available restaurants when making their choices.
+Using GMM estimation, we can recover estimates of the parameters governing consumer preferences and choice behavior.
+
+From the results in Table \ref{tab:q3_exogenous}, we observe that the estimated coefficients for rating and price deviate from their true values.
+The rating coefficient is overestimated by nearly 50\%, while the price coeffecient is estimated to be positive. This could be due to a coding
+error, or an issue inherent to the specification outlined in the problem. Nonetheless, $\hat{\mu}$, which captures the scale of unobserved utility,
+is negative, a fact which makes sense given consumers have a distaste for distance.
+
+This model appears to perform poorly, and potentially worse than the IV methods from Problem 2. This suggests that the assumption of exogenous 
+search/choice set formation is not valid and that consumers likely do not consider all restaurants equally when making their choices.
+
+\section*{Problem 4: Endogenous Choice Set Formation}
+
+\begin{table}[htbp]
+\centering
+\caption{GMM Estimates with Endogenous Search}
+\label{tab:q4_endogenous}
+\begin{tabular}{lccc}
+\hline\hline
+\textbf{Parameter} & \textbf{Estimate} & \textbf{True Value} \\
+\hline
+Intercept              & 2.608 & 1.00 \\
+Rating Coefficient     & 0.250 & 0.20 \\
+Price Coefficient      & -0.587 & -0.25 \\
+Gamma                  & -0.238 & -0.10 \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+In the endogenous choice set formation model, we allow for the possibility that consumers do not consider all restaurants equally.
+Instead, choice sets are formed based on certain characteristics, such as distance or Yelp ratings. Using similar methods to those
+in Problem 3, we estimate the parameters of this model.
+
+From the results in Table \ref{tab:q4_endogenous}, we observe that the estimated coefficients for rating and price are much closer to their true values.
+The rating coefficient is estimated at 0.250, which is reasonably close to the true value of 0.20. The price coefficient is estimated at -0.587, which is negative
+and significant, aligning with expectations. The parameter $\hat{\gamma}$, which captures the disutility of search on choice set formation, is also negative,
+indicating that greater distance reduces the likelihood of a restaurant being a part of a consumer's choice set.
+
+This model appears to perform much better than the model in problem 3, which leads me to believe that endogenous choice set formation is a much more realistic
+assumption about consumer behavior in this context.
+
+\section*{Discussion and Conclusion}
+
+In this problem set, we went through several estimation exercises to better understand consumer choice behavior. We began with basic techniques, OLS and IV, to 
+see the issue of endogenity in price and why these linear models may not be sufficient in this context. Then, we moved to more complicated methods, GMM with
+exogenous and endogenous choice set formation. The results clearly indicated that accounting for endogenous choice sets provided more accurate estimates of 
+consumer preferences. The exogenous case, however, produced questionable results, implying that consumers likely will not take literally every option into account.
+Overall, this assignment highlighted the importance of model specification and the need to consider realistic consumer behavior when estimating demand.
+
+\end{document}

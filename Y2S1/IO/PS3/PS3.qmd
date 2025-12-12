@@ -69,14 +69,14 @@ stat_tab <- main_long %>%
 
 kable(stat_tab,
       digits = 3,
-      caption = "Table of Summary Statistics")
+      caption = "Table of Summary Statistics",)
 ```
 
 
 ```{r}
 #| label: Graphing Descriptives
 main_graph_pxs <- main_long %>%
-  ggplot(aes(x = x, y = s)) +
+  ggplot(aes(x = p, y = s)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, color = "blue") +
   labs(
@@ -85,9 +85,12 @@ main_graph_pxs <- main_long %>%
     y = "Price (p)"
   ) +
   theme_minimal()
+ggsave(main_graph_pxs, 
+        filename = here("Y2S1/IO/PS3/Outputs/price_vs_share.pdf"),
+        width = 6, height = 4)
 
 main_graph_xxs <- main_long %>%
-  ggplot(aes(x = p, y = s)) +
+  ggplot(aes(x = x, y = s)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, color = "blue") +
   labs(
@@ -96,6 +99,9 @@ main_graph_xxs <- main_long %>%
     y = "Market Share (s)"
   ) +
   theme_minimal()
+ggsave(main_graph_xxs, 
+        filename = here("Y2S1/IO/PS3/Outputs/rating_vs_share.pdf"),
+        width = 6, height = 4)
 
 main_graph_sxad <- main_long %>%
   ggplot(aes(x = ave_dist, y = s)) +
@@ -107,6 +113,9 @@ main_graph_sxad <- main_long %>%
     y = "Market Share (s)"
   ) +
   theme_minimal()
+ggsave(main_graph_sxad, 
+        filename = here("Y2S1/IO/PS3/Outputs/distance_vs_share.pdf"),
+        width = 6, height = 4)
 
 main_graph_pxs
 main_graph_xxs
