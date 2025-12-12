@@ -27,7 +27,8 @@ library(AER)
 
 # Question 1
 
-```{r question1.1}
+```{r}
+#| label: Data Init and Summary Stats
 main_data <- read_csv(here("Y2S1/IO/PS3/Data/prod_level_data.csv"))
 
 if (all(c("x", "p", "ave_dist", "s", "mc") %in% names(main_data))) {
@@ -66,11 +67,14 @@ stat_tab <- main_long %>%
     .groups = "drop"
   )
 
-kable(stat_tab, digits = 3, caption = "Table of Summary Statistics")
+kable(stat_tab,
+      digits = 3,
+      caption = "Table of Summary Statistics")
 ```
 
 
-```{r question1.2}
+```{r}
+#| label: Graphing Descriptives
 main_graph_pxs <- main_long %>%
   ggplot(aes(x = x, y = s)) +
   geom_point() +
@@ -107,7 +111,11 @@ main_graph_sxad <- main_long %>%
 main_graph_pxs
 main_graph_xxs
 main_graph_sxad
+
+grid.arrange(main_graph_pxs, main_graph_xxs, main_graph_sxad, ncol = 1)
+
 ```
+
 
 Price is positively correlated with market share, with price increasing with share for all products. For Yelp rating, there is no discernable correlation. For distance, there is a slightly negative relationship, though it appears to be as good as flat. All make sense to me, as price is directly manipulable as market power increases, while distance may be harder to control due to real estate effects, and ratings are almost fully out of control.
 
@@ -115,7 +123,7 @@ Price is positively correlated with market share, with price increasing with sha
 
 ## Part 1
 ```{r}
-#| label: multinomial logit - no instrument
+#| label: ols - no instrument
 
 logit_data <- main_long %>%
   group_by(market) %>%
@@ -134,7 +142,7 @@ summary(mnl1)
 
 ## Part 2
 ```{r}
-#| label: 2-2
+#| label: logit - instrument for price 
 
 logit_data <- logit_data %>%
   group_by(market) %>%
@@ -152,7 +160,7 @@ summary(mnl2)
 
 ## Part 3
 ```{r}
-#| label: 2-3
+#| label: logit - instrument for price and distance
 
 logit_data <- logit_data %>%
   group_by(prod, market) %>%
@@ -168,13 +176,27 @@ mnl3 <- ivreg(
 summary(mnl3)
 ```
 
+```{r}
+#| label: Formal Results Table
+stargazer(mnl1, mnl2, mnl3,
+          type = "text",
+          dep.var.labels = "Logit Market Share",
+          column.labels = c("No Instrument", "Instrument for Price",
+                            "Instrument for Price and Distance"),
+          covariate.labels = c("Rating (x)", "Price (p)",
+                               "Average Distance (ad)"),
+          stars = c(0.01, 0.05, 0.1),
+          digits = 3,
+          out = here("Y2S1/IO/PS3/Outputs/reg_results.txt"))
+```
+
 In the first model, we see a clear misspecification, since price's coefficient is positive. However, upon instrumenting for price, we flip the sign and get a negative coefficient. But price is not not statistically significant, indicating a weak instrument. Finally, adding distance as an instrument, we see that both price and distance have negative signs, which is to be expected, but neither is statistically significant.
 
 If the true values are the values set for simulation as laid out in part 1, price is biased negatively, distance is slightly biased negatively, and characteristics are slightly biased positively. Thus, all parameters estimated through multinomial logit are overstating the effect of these variables when in the case of complete information. 
 
 # Question 3
 ```{r}
-#| label: 3-1
+#| label: Load Data for GMM - Exogenous Search
 
 search_dat <- read_csv(here("Y2S1/IO/PS3/Data/search_set_data.csv"))
 
@@ -195,7 +217,7 @@ q4_df <- q4_df %>%
   ungroup()
 ```
 
-```{r, eval=FALSE}
+```{r}
 #| label: 3-2_GMM
 
 n <- nrow(q4_df)
@@ -292,10 +314,10 @@ gmm_exog <- function(theta) {
 if (exists("m3")) {
   b <- coef(m3)
   theta_start <- c(
-    beta0 = unname(b["(Intercept)"]),
-    beta1 = unname(b["x"]),
-    alpha = unname(b["p"]),
-    mu = -1.0)
+                   beta0 = unname(b["(Intercept)"]),
+                   beta1 = unname(b["x"]),
+                   alpha = unname(b["p"]),
+                   mu = -1.0)
 } else {
   theta_start <- c(
     beta0 = 1.0,
@@ -338,9 +360,9 @@ resolve <- con_map(
 est_tab <- tibble(
   term = c("Intercept", "Rating Coefficient", "Price Coefficient", "Mu"),
   estimate = c(theta_hat["beta0"],
-    theta_hat["beta1"],
-    theta_hat["alpha"],
-    theta_hat["mu"]),
+               theta_hat["beta1"],
+               theta_hat["alpha"],
+               theta_hat["mu"]),
   true = c(1, 0.2, -0.25, NA_real_)
 )
 
@@ -350,7 +372,7 @@ kable(est_tab, digits = 3, caption = "GMM Estimates vs. True Values")
 # Question 4
 
 ```{r}
-#| label: Location data
+#| label: Load and Prepare Data for GMM - Endogenous Search
 loc_dat <- read_csv(here("Y2S1/IO/PS3/Data/distance.csv")) 
 
 q5_df <- main_long %>%
@@ -365,8 +387,9 @@ S <- S_temp[rowSums(S_temp) > 0, , drop = FALSE]
 stopifnot(ncol(S) == 4)
 
 loc_list <- split(loc_dat, loc_dat$market)
-loc_list <- lapply(loc_list, function(ave_dist) 
-  as.matrix(ave_dist[, c("dist1", "dist2", "dist3", "dist4")]))
+loc_list <- lapply(loc_list, function(ave_dist) {
+  as.matrix(ave_dist[, c("dist1", "dist2", "dist3", "dist4")])
+})
 
 n <- nrow(q5_df)
 idx_vec <- split(seq_len(n), q5_df$market)
@@ -382,9 +405,12 @@ delta_0 <- q5_df %>%
   ) %>%
   ungroup() %>%
   pull(delta_0)
+```
+
+```{r}
+#| label: GMM - Endogenous Search Functions
 
 predict_share_endog <- function(delta, gamma, D, S) {
-  J <- length(delta)
   K <- nrow(S)
   N <- nrow(D)
 
@@ -460,6 +486,10 @@ if (exists("theta_hat4")) {
   theta_start_5[c("beta0", "beta1",
                   "alpha")] <- theta_hat4[c("beta0", "beta1", "alpha")]
 }
+```
+
+```{r}
+#| label: GMM - Endogenous Search Optimization
 
 set.seed(0219)
 gmm_opt_endog <- optim(
@@ -493,10 +523,6 @@ est_tab5 <- tibble(
                theta_hat5["gamma"]),
   true = c(1, 0.2, -0.25, -0.1)
 )
-kable(est_tab5, digits = 3, caption = "GMM Estimates with Endogenous Search vs. True Values")
+kable(est_tab5, digits = 3,
+      caption = "GMM Estimates with Endogenous Search vs. True Values")
 ```
-
-
-
-
-

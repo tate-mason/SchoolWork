@@ -28,6 +28,7 @@ library(AER)
 
 
 
+#| label: Data Init and Summary Stats
 main_data <- read_csv(here("Y2S1/IO/PS3/Data/prod_level_data.csv"))
 
 if (all(c("x", "p", "ave_dist", "s", "mc") %in% names(main_data))) {
@@ -66,11 +67,14 @@ stat_tab <- main_long %>%
     .groups = "drop"
   )
 
-kable(stat_tab, digits = 3, caption = "Table of Summary Statistics")
+kable(stat_tab,
+      digits = 3,
+      caption = "Table of Summary Statistics")
 
 
 
 
+#| label: Graphing Descriptives
 main_graph_pxs <- main_long %>%
   ggplot(aes(x = x, y = s)) +
   geom_point() +
@@ -108,6 +112,7 @@ main_graph_pxs
 main_graph_xxs
 main_graph_sxad
 
+grid.arrange(main_graph_pxs, main_graph_xxs, main_graph_sxad, ncol = 1)
 
 
 
@@ -115,7 +120,10 @@ main_graph_sxad
 
 
 
-#| label: multinomial logit - no instrument
+
+
+
+#| label: ols - no instrument
 
 logit_data <- main_long %>%
   group_by(market) %>%
@@ -134,7 +142,7 @@ summary(mnl1)
 
 
 
-#| label: 2-2
+#| label: logit - instrument for price 
 
 logit_data <- logit_data %>%
   group_by(market) %>%
@@ -152,7 +160,7 @@ summary(mnl2)
 
 
 
-#| label: 2-3
+#| label: logit - instrument for price and distance
 
 logit_data <- logit_data %>%
   group_by(prod, market) %>%
@@ -169,12 +177,26 @@ summary(mnl3)
 
 
 
+#| label: Formal Results Table
+stargazer(mnl1, mnl2, mnl3,
+          type = "text",
+          dep.var.labels = "Logit Market Share",
+          column.labels = c("No Instrument", "Instrument for Price",
+                            "Instrument for Price and Distance"),
+          covariate.labels = c("Rating (x)", "Price (p)",
+                               "Average Distance (ad)"),
+          stars = c(0.01, 0.05, 0.1),
+          digits = 3,
+          out = here("Y2S1/IO/PS3/Outputs/reg_results.txt"))
 
 
 
 
 
-#| label: 3-1
+
+
+
+#| label: Load Data for GMM - Exogenous Search
 
 search_dat <- read_csv(here("Y2S1/IO/PS3/Data/search_set_data.csv"))
 
@@ -292,10 +314,10 @@ gmm_exog <- function(theta) {
 if (exists("m3")) {
   b <- coef(m3)
   theta_start <- c(
-    beta0 = unname(b["(Intercept)"]),
-    beta1 = unname(b["x"]),
-    alpha = unname(b["p"]),
-    mu = -1.0)
+                   beta0 = unname(b["(Intercept)"]),
+                   beta1 = unname(b["x"]),
+                   alpha = unname(b["p"]),
+                   mu = -1.0)
 } else {
   theta_start <- c(
     beta0 = 1.0,
@@ -338,9 +360,9 @@ resolve <- con_map(
 est_tab <- tibble(
   term = c("Intercept", "Rating Coefficient", "Price Coefficient", "Mu"),
   estimate = c(theta_hat["beta0"],
-    theta_hat["beta1"],
-    theta_hat["alpha"],
-    theta_hat["mu"]),
+               theta_hat["beta1"],
+               theta_hat["alpha"],
+               theta_hat["mu"]),
   true = c(1, 0.2, -0.25, NA_real_)
 )
 
@@ -350,7 +372,7 @@ kable(est_tab, digits = 3, caption = "GMM Estimates vs. True Values")
 
 
 
-#| label: Location data
+#| label: Load and Prepare Data for GMM - Endogenous Search
 loc_dat <- read_csv(here("Y2S1/IO/PS3/Data/distance.csv")) 
 
 q5_df <- main_long %>%
@@ -365,8 +387,9 @@ S <- S_temp[rowSums(S_temp) > 0, , drop = FALSE]
 stopifnot(ncol(S) == 4)
 
 loc_list <- split(loc_dat, loc_dat$market)
-loc_list <- lapply(loc_list, function(ave_dist) 
-  as.matrix(ave_dist[, c("dist1", "dist2", "dist3", "dist4")]))
+loc_list <- lapply(loc_list, function(ave_dist) {
+  as.matrix(ave_dist[, c("dist1", "dist2", "dist3", "dist4")])
+})
 
 n <- nrow(q5_df)
 idx_vec <- split(seq_len(n), q5_df$market)
@@ -383,8 +406,11 @@ delta_0 <- q5_df %>%
   ungroup() %>%
   pull(delta_0)
 
+
+
+#| label: GMM - Endogenous Search Functions
+
 predict_share_endog <- function(delta, gamma, D, S) {
-  J <- length(delta)
   K <- nrow(S)
   N <- nrow(D)
 
@@ -461,6 +487,10 @@ if (exists("theta_hat4")) {
                   "alpha")] <- theta_hat4[c("beta0", "beta1", "alpha")]
 }
 
+
+
+#| label: GMM - Endogenous Search Optimization
+
 set.seed(0219)
 gmm_opt_endog <- optim(
   par = theta_start_5,
@@ -493,4 +523,5 @@ est_tab5 <- tibble(
                theta_hat5["gamma"]),
   true = c(1, 0.2, -0.25, -0.1)
 )
-kable(est_tab5, digits = 3, caption = "GMM Estimates with Endogenous Search vs. True Values")
+kable(est_tab5, digits = 3,
+      caption = "GMM Estimates with Endogenous Search vs. True Values")
