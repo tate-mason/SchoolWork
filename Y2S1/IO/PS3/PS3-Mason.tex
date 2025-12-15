@@ -171,10 +171,10 @@ the magnitude is similar, but a bit smaller, suggesting including distance does 
 \hline\hline
 \textbf{Parameter} & \textbf{Estimate} & \textbf{True Value} \\
 \hline
-Intercept              & 1.591 & 1.00 \\
-Rating Coefficient     & 0.538 & 0.20 \\
-Price Coefficient      & 0.548 & -0.25 \\
-Mu                     & -1.738 & --- \\
+Intercept              & 1.583 & 1.00 \\
+Rating Coefficient     & 0.243 & 0.20 \\
+Price Coefficient      & -0.543 & -0.25 \\
+Mu                     & -0.162 & --- \\
 \hline\hline
 \end{tabular}
 \end{table}
@@ -182,13 +182,13 @@ Mu                     & -1.738 & --- \\
 In the exogenous choice set formation model, we assume that consumers consider all available restaurants when making their choices.
 Using GMM estimation, we can recover estimates of the parameters governing consumer preferences and choice behavior.
 
-From the results in Table \ref{tab:q3_exogenous}, we observe that the estimated coefficients for rating and price deviate from their true values.
-The rating coefficient is overestimated by nearly 50\%, while the price coeffecient is estimated to be positive. This could be due to a coding
-error, or an issue inherent to the specification outlined in the problem. Nonetheless, $\hat{\mu}$, which captures the scale of unobserved utility,
-is negative, a fact which makes sense given consumers have a distaste for distance.
+From the results in Table \ref{tab:q3_exogenous}, we observe that the estimated coefficients for rating and price are somewhat close to their true values.
+The rating coefficient is estimated at 0.243, which is reasonably close to the true value of 0.20. The price coefficient is estimated at -0.543, which is negative
+and significant, aligning with expectations. However, the magnitude is more than double the true value of -0.25, indicating some bias in the estimate. Additionally,
+the intercept is estimated at 1.583, which is higher than the true value of 1.00.
 
-This model appears to perform poorly, and potentially worse than the IV methods from Problem 2. This suggests that the assumption of exogenous 
-search/choice set formation is not valid and that consumers likely do not consider all restaurants equally when making their choices.
+This model does not perform well in terms of accurately recovering the true parameters, suggesting that the assumption of exogenous choice set formation
+may not be appropriate in this context.
 
 \section*{Problem 4: Endogenous Choice Set Formation}
 

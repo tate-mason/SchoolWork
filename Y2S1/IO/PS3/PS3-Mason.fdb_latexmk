@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1765570130.13129 "PS3-Mason.tex" "PS3-Mason.pdf" "PS3-Mason" 1765570130.74628 2
+["pdflatex"] 1765666080.40951 "PS3-Mason.tex" "PS3-Mason.pdf" "PS3-Mason" 1765666081.00557 2
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -88,12 +88,12 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1754488232 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "PS3-Mason.aux" 1765570130.68892 1033 d6f138ea33116dadec528334f0949f64 "pdflatex"
-  "PS3-Mason.out" 1765570130.52111 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "PS3-Mason.tex" 1765570129.26074 11444 3d8d1f8a36b077277e295c972b056c80 ""
-  "outputs/distance_vs_share.pdf" 1765568457.31501 21385 0ba455b4e2c27ba2df1515e1d56a46f9 ""
-  "outputs/price_vs_share.pdf" 1765568457.2219 21730 b11a962feddd4d9e5caf9830f322b401 ""
-  "outputs/rating_vs_share.pdf" 1765568457.27398 21854 b00811803553e03c2c249919f21169c9 ""
+  "PS3-Mason.aux" 1765666080.95381 1033 d6f138ea33116dadec528334f0949f64 "pdflatex"
+  "PS3-Mason.out" 1765666080.76986 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "PS3-Mason.tex" 1765665962.84218 11404 6ecb94c831e0576540512d4ca387ff04 ""
+  "outputs/distance_vs_share.pdf" 1765666078.72007 21385 ef02bb075802485bd4c15b8bec398143 ""
+  "outputs/price_vs_share.pdf" 1765666078.62587 21730 60aef8975c8454bcdfeaafa1d24aad0c ""
+  "outputs/rating_vs_share.pdf" 1765666078.67876 21854 032bc8868be0bc444f008a5e5ed64578 ""
   (generated)
   "PS3-Mason.aux"
   "PS3-Mason.log"
