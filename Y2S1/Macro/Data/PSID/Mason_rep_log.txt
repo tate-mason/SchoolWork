@@ -1,0 +1,140 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/tate/SchoolWork/Y2S1/Macro/Data/PSID/Mason_rep_log.txt
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}29 Jan 2026, 11:58:42
+{txt}
+{com}. 
+. /************************************************************
+> * (2) Loading in Data and Looking Around                    *
+> ************************************************************/
+. 
+. use `dataPath'BRFSS_Final_Data.dta // call BRFSS data
+{txt}
+{com}. summ * // get summary stats for all variables
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 8}fips {c |}{res}    273,224    28.89864    15.38082          1         56
+{txt}{space 7}month {c |}{res}    273,224    6.571751    3.421852          1         12
+{txt}{space 9}day {c |}{res}    273,224    13.74123    7.101145          1         31
+{txt}{space 8}year {c |}{res}    273,224    1997.488    2.588362       1993       2001
+{txt}{space 6}adults {c |}{res}    273,224     1.84927    .7198086          1         18
+{txt}{hline 13}{c +}{hline 57}
+{space 4}srhealth {c |}{res}    273,224    2.139453    .9432625          1          5
+{txt}{space 3}phys_poor {c |}{res}    273,224    2.482593    5.972042          0         30
+{txt}{space 1}mental_poor {c |}{res}    273,224    4.105646    7.746671          0         30
+{txt}{space 4}phys_act {c |}{res}    140,294     2.35437    1.015887          1          4
+{txt}{space 9}age {c |}{res}    273,224    31.50638    5.594078         21         40
+{txt}{hline 13}{c +}{hline 57}
+{space 5}marital {c |}{res}    273,224    2.389563    1.817428          1          6
+{txt}{space 8}kids {c |}{res}    273,224    1.321967    1.099165          0          3
+{txt}{space 8}educ {c |}{res}    273,224    2.853234    .9432356          1          4
+{txt}{space 6}employ {c |}{res}    272,305    2.181873    1.910738          1          8
+{txt}{space 6}weight {c |}{res}    260,767    148.2779     34.3881         55        635
+{txt}{hline 13}{c +}{hline 57}
+{space 6}county {c |}{res}    203,154    62.58154    86.79145          1        900
+{txt}{space 9}sex {c |}{res}    273,224           2           0          2          2
+{txt}fruit_veggie {c |}{res}    148,808    2.815023    .8304581          1          4
+{txt}{space 3}alcoholic {c |}{res}    175,787    .0196146    .1386724          0          1
+{txt}{space 1}totaldrinks {c |}{res}    175,787    6.204133     15.5303          0        900
+{txt}{hline 13}{c +}{hline 57}
+{space 4}finalwgt {c |}{res}    273,224     43760.7    119780.1   7.594719    4137384
+{txt}{space 4}exercise {c |}{res}    161,144    .7495966    .4332467          0          1
+{txt}{space 6}income {c |}{res}    248,320    3.143553     1.50663          1          5
+{txt}{space 7}race4 {c |}{res}    273,224    1.426654    .8438906          1          4
+{txt}{space 3}now_smoke {c |}{res}    273,224    .2622207    .4398428          0          1
+{txt}{hline 13}{c +}{hline 57}
+{space 2}ever_smoke {c |}{res}    273,224    .4143743    .4926146          0          1
+{txt}{space 6}height {c |}{res}    271,375    64.78986    2.793478         29         91
+{txt}{space 9}bmi {c |}{res}    252,561    24.69097    4.860016   17.53976   42.95259
+{txt}{space 1}eitc_expand {c |}{res}    273,224    .7334239    .4421697          0          1
+{txt}twoplus_kids {c |}{res}    273,224    .4568889    .4981389          0          1
+{txt}{hline 13}{c +}{hline 57}
+dd_treatment {c |}{res}    273,224    .3371336    .4727318          0          1
+{txt}bad_menta~30 {c |}{res}    273,224    .4538913    .4978704          0          1
+{txt}{space 1}bad_phys_30 {c |}{res}    273,224    .3602831    .4800834          0          1
+{txt}{space 1}excel_vgood {c |}{res}    273,224    .6675438    .4710943          0          1
+{txt}{space 5}working {c |}{res}    272,305    .7306733    .4436108          0          1
+{txt}{hline 13}{c +}{hline 57}
+{space 8}inlf {c |}{res}    273,224    .7780759    .4155411          0          1
+{txt}{space 5}at_work {c |}{res}    273,224    .7282157    .4448801          0          1
+{txt}{space 5}married {c |}{res}    273,224    .5578939    .4966379          0          1
+{txt}{space 1}div_sep_wid {c |}{res}    273,224    .1673096    .3732527          0          1
+{txt}never_marr~d {c |}{res}    273,224    .2377061    .4256789          0          1
+{txt}{hline 13}{c +}{hline 57}
+{space 4}white_nh {c |}{res}    273,224    .7566539    .4291031          0          1
+{txt}{space 4}black_nh {c |}{res}    273,224    .1104954    .3135068          0          1
+{txt}{space 4}hispanic {c |}{res}    273,224    .0823939    .2749645          0          1
+{txt}{space 7}other {c |}{res}    273,224    .0504568    .2188859          0          1
+{txt}{space 6}single {c |}{res}    273,224    .4421061    .4966379          0          1
+{txt}{hline 13}{c +}{hline 57}
+{space 5}income1 {c |}{res}    273,224     .210633     .407759          0          1
+{txt}{space 5}income2 {c |}{res}    273,224    .1070843     .309221          0          1
+{txt}{space 5}income3 {c |}{res}    273,224    .1689749    .3747304          0          1
+{txt}{space 5}income4 {c |}{res}    273,224    .1854998    .3887032          0          1
+{txt}{space 5}income5 {c |}{res}    273,224    .2366593    .4250322          0          1
+{txt}{hline 13}{c +}{hline 57}
+{space 2}incomemiss {c |}{res}    273,224    .0911487    .2878209          0          1
+{txt}
+{com}. tabstat income* educ  working
+
+{txt}   Stats {...}
+{c |}{...}
+    income   income1   income2   income3   income4   income5  income~s      educ   working
+{hline 9}{c +}{hline 90}
+{ralign 8:Mean} {...}
+{c |}{...}
+ {res} 3.143553   .210633  .1070843  .1689749  .1854998  .2366593  .0911487  2.853234  .7306733
+{txt}{hline 9}{c BT}{hline 90}
+
+{com}. 
+. /************************************************************
+> * (3) Table 1 - Mother Summ Stats                           *
+> ************************************************************/
+. 
+{txt}end of do-file
+
+{com}. do "/var/folders/qq/k4yjjhv51px_t2bz_x2gfsfm0000gn/T//SD35242.000000"
+{txt}
+{com}. /************************************************************
+> * Author: Tate Mason - tate.mason@uga.edu                   *
+> * ------  University of Georgia - Health Economics II       *                                           
+> *                                                           *
+> *                                                           *
+> * Program: Mason_REP.do -                                   *
+> * -------                                                   *
+> *   .do file for replication of Evans, Garthwaite           *
+> *   "Giving Mom a Break"                                    *
+> *                                                           *
+> * Date: 01/29/2025                                          *
+> * ----                                                      *
+> ************************************************************/
+. 
+. /************************************************************
+> * (1) Environment Setup                                     *
+> ************************************************************/
+. 
+. #delimit cr // make carriage return the command delimiter
+{txt}delimiter now cr
+{com}. clear // clear data in memory
+{txt}
+{com}. clear all // clear variables in memory
+{res}{txt}
+{com}. set more off // turn the "more" option for screen output off
+{txt}
+{com}. 
+. local rootPath "~/Schoolwork/Y2S2/Health/RepProj/" // setting local file path
+{txt}
+{com}. 
+. local codePath "`rootPath'Code/" // setting local code will be saved
+{txt}
+{com}. local outPath "`rootPath'Output/" // setting where output will be saved
+{txt}
+{com}. local dataPath "`rootPath'Data/" // setting where data will be saved to / sourced from
+{txt}
+{com}. 
+. cap log close // close log capture at start to avoid errors
+{smcl}
+{com}{sf}{ul off}
