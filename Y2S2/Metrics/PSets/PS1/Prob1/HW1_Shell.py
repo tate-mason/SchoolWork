@@ -44,7 +44,7 @@ K = X.shape[1]
     Part B: Estimate with canned OLS functions
 """
 
-mdl = sm.OLS(Y, X[:, 1:4]) # Call ols from statsmodels
+mdl = sm.OLS(Y, X) # Call ols from statsmodels
 results = mdl.fit(cov_type = 'HC3') # specify heteroskedastic robust SE
 print(results.summary()) # get results
 
