@@ -6,7 +6,7 @@ import numpy as np
 """
 
 def olslike(b, Y, X):
-    K = X.shape(1) # equivalent to size
+    K = X.shape[1] # equivalent to size
     beta = b[:K]
     s = b[K]
 

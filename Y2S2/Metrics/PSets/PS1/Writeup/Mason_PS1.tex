@@ -1,0 +1,123 @@
+% =========================
+% Problem Set Template (LaTeX)
+% =========================
+\documentclass[11pt]{article}
+
+% ---------- Page + layout ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\setstretch{1.1}
+\usepackage{parskip} % space between paragraphs, no indent
+
+% ---------- Math ----------
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+
+% ---------- Lists + links ----------
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Header / footer ----------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{\course}}
+\chead{\textbf{\pset}}
+\rhead{\textbf{\name}}
+\cfoot{\thepage}
+
+% ---------- Optional: nicer tables ----------
+\usepackage{booktabs}
+
+% =========================
+% Metadata (edit these)
+% =========================
+\newcommand{\name}{Tate Mason}
+\newcommand{\course}{Econometrics II}
+\newcommand{\pset}{Problem Set 1}
+\newcommand{\duedate}{February 6, 2026}
+
+% =========================
+% Question / solution macros
+% =========================
+\newcounter{q}
+\renewcommand{\theq}{\arabic{q}}
+
+% Usage: \question{Title}
+\newcommand{\question}[1]{%
+  \refstepcounter{q}
+  \vspace{0.75em}
+  \noindent{\Large\textbf{Question \theq.} \normalsize\textbf{#1}}%
+  \vspace{0.25em}
+  \par
+}
+
+% Usage: \subquestion{Title}  -> (a), (b), ...
+\newcounter{subq}[q]
+\renewcommand{\thesubq}{\alph{subq}}
+\newcommand{\subquestion}[1]{%
+  \refstepcounter{subq}
+  \vspace{0.5em}
+  \noindent{\textbf{(\thesubq)} \textbf{#1}}%
+  \par
+}
+
+% Solution environment: comment out \begin{solution}...\end{solution} if not needed
+\newenvironment{solution}{%
+  \vspace{0.25em}
+  \noindent\textit{Solution. }\ignorespaces
+}{\vspace{0.5em}\par}
+
+% =========================
+% Easy math macros
+% =========================
+% Common sets
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+% Operators
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\plim}{plim}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+
+% Probability
+\newcommand{\P}{\mathbb{P}}
+
+% Vectors / matrices (bold)
+\newcommand{\vct}[1]{\mathbf{#1}}
+\newcommand{\mtx}[1]{\mathbf{#1}}
+
+% Derivatives
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\od}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\odd}[2]{\frac{\mathrm{d}^2 #1}{\mathrm{d} #2^2}}
+
+% Norms / inner products
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\ip}[2]{\left\langle #1, #2 \right\rangle}
+
+% Convenience
+\newcommand{\1}{\mathbf{1}} % indicator (use \1\{A\} with braces)
+\newcommand{\eps}{\varepsilon}
+
+% =========================
+% Document
+% =========================
+\begin{document}
+
+% ---------- Title block ----------
+{\Large\textbf{\course} \hfill \textbf{\pset}}\\
+\textbf{Name:} \name \hfill \textbf{Due:} \duedate\\
+\rule{\textwidth}{0.4pt}
+
+\question{Example Code and Walkthrough}
+  \subquestion{- (e): Example and Walkthrough}
+  \subquestion{Is it surprising that the heteroskedastic and homoskedastic starndart errors for the OLS are so similar?}
+
+  
+
+\end{document}

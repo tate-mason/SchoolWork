@@ -5,10 +5,10 @@ import numpy as np
     and takes inputs b, Y, and X.
 """
 
-def olsmomnets(b, Y, X):
+def olsmoments(b, Y, X):
     e = Y-X@b # prediction error
 
-    t = X.T@e / X.shape(0)
+    t = X.T@e / X.shape[0]
     mom = t.T@t
 
     return mom

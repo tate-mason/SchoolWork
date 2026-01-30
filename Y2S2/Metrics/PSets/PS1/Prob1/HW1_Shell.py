@@ -83,3 +83,64 @@ print(MatrixAlg_Results)
 """
     Part D: MLE
 """
+
+# Use scipy's optimize.minimize to be equivalent to fminunc
+
+b_start = np.r_[np.zeros(K), 1.0] # using row concatenation func np.r_ to make a row of zeros and then 1.0
+
+"""
+    optimize.minimize in exchange for fminunc. 
+
+    arguments:
+    - olslike function defined in its file 
+    - b_start defined above,
+    - taking Y, X from data,
+    - using BFGS algorithm to solve
+"""
+
+res = sp.optimize.minimize(
+    olslike,
+    b_start,
+    args = (Y, X),
+    method = "BFGS"
+)
+
+beta_hat = res.x # recovering parameter estimates
+vcov = res.hess_inv # recovering variance covariance matrix
+se = np.sqrt(np.diag(vcov)) # standard errors
+
+# Put results in easily viewable format
+LikResults = pd.DataFrame({
+    'β_hat': beta_hat,
+    'Std. Error': se
+})
+
+print(LikResults) # view
+
+"""
+    Part E: MoM 
+"""
+
+bstart = np.zeros(4)
+
+# Same as above, but with olsmoments function
+res_m = sp.optimize.minimize(
+    olsmoments,
+    bstart,
+    args = (Y, X),
+    method = "BFGS"
+)
+
+beta_mom = res_m.x
+vcov_m = res_m.hess_inv
+se_m = np.sqrt(np.diag(vcov_m))
+
+# Put into nicer format 
+MoMResults = pd.DataFrame({
+    'β_hat': beta_mom,
+    'Std. Error': se_m
+})
+
+print(MoMResults)
+
+
