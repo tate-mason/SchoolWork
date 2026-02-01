@@ -117,7 +117,43 @@
 \question{Example Code and Walkthrough}
   \subquestion{- (e): Example and Walkthrough}
   \subquestion{Is it surprising that the heteroskedastic and homoskedastic starndart errors for the OLS are so similar?}
+  \begin{solution}
+  \end{solution}
+  \subquestion{What is the additional parameter we are estimating in part (d) using the likelihood based approach?}
+  \begin{solution}
+  \end{solution}
+  \subquestion{Show analytically why the MLE and MoM approaches yield identical parameter estimates to OLS}
+  \begin{solution}
+  \end{solution}
+  \subquestion{What computational method is "fminunc" using to find the minimum of the function (assuming the analytical gradient is not supplied)?}
+  \begin{solution}
+  \end{solution}
 
-  
+\question{Solo Exercise}
+  \subquestion{Estimate $\beta$ and its s.e. using MLE with the available data}
+    \begin{solution}
 
+      \begin{centering}
+        \begin{tabular}{ll}
+          Parameter & Estimate \\
+          \hline
+
+          $\hat{\beta}_1$ & 0.519 \\
+                  & (0.016) \\
+          $\hat{\beta}_2$ & 0.258 \\
+                    & (0.013) \\
+          $\hat{\beta}_3$ & 0.485 \\
+                    & (0.008) \\
+          $\hat{\beta}_4$ & 0.343 \\
+                    & (0.005) \\
+        \end{tabular}
+      \end{centering}
+
+    \end{solution}
+  \subquestion{Estimate $\beta$ using NLS. Can the inverse of the numerical Hessian from "fminunc" be used to construct s.e.? (Hint: 417 of Wooldridge)}
+  \subquestion{Calculate s.e. for NLS using the analytical formulas in eq. 12.52 of Wooldridge (desc. below said equation).}
+  \subquestion{Calculate s.e. for NLS using eq. 12.48 of Wooldridge. Calculate the score analytically, but use the Hessian provided by "fminunc". Why can't the gradient from "fminunc" be used?}
+  \subquestion{Calculate s.e. for NLS using bootstrap (iter = 500). Note the command datasample() command can be helpful.}
+  \subquestion{Why are s.e. for MLE significantly smaller than NLS?}
+  \subquestion{If analytical score is too hard to construct, and bootstrap too time consuming, what can be done to construct s.e.?}
 \end{document}

@@ -30,7 +30,6 @@ df = pd.read_csv('dataHW1_Example.csv')
 Y = df['Y'].to_numpy()
 X = df[['X1', 'X2', 'X3', 'X4']].to_numpy()
 ## Getting rid of constant from X
-X = X[:, 1:4]
 
 # Defining Size of the Sample
 N = Y.shape[0] # akin to size, note 0 index as 1st position =0 in Python
@@ -65,9 +64,7 @@ se_H0_β_hat1 = np.sqrt(np.diag(var_β_hat1))
 # Calculate heteroskedastic standard errors (equation 4.11 in Wooldridge)
 mid = np.zeros((K, K))
 
-for i in range(N):
-    tt = e[i]**2*X[i, :].T@X[i,:]
-    mid = mid + tt
+mid = X.T @ np.diag(e**2) @ X
 
 var_β_hat1 = (N/(N-K))*np.linalg.inv(X.T@X)@mid@np.linalg.inv(X.T@X)
 seHET_βhat1 = np.sqrt(np.diag(var_β_hat1))
