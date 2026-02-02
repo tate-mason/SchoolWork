@@ -59,7 +59,7 @@ print(MLE_Results)
 
 # Part B: NLS Estimation
 
-from scipy.optimize import least_squares
+from scipy.optimize import least_squares # import NLS function from scipy's optimize library
 
 # Defining residuals function
 def residuals(beta, X, Y):
@@ -81,7 +81,7 @@ beta_hat_NLS = res_NLS.x # recovering parameter estimates
 print("NLS Estimates:")
 NLS_Results = pd.DataFrame({
     'β_hat_NLS': beta_hat_NLS
-})
+}) # creating DataFrame of parameter estimates
 print(NLS_Results)
 
 
