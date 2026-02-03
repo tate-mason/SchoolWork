@@ -59,24 +59,20 @@ print(MLE_Results)
 
 # Part B: NLS Estimation
 
-from scipy.optimize import least_squares # import NLS function from scipy's optimize library
-
-# Defining residuals function
-def residuals(beta, X, Y):
-    mu = np.exp(X@beta)
-    r = Y - mu
-    return r
+from NLS_est import *
 
 b_start_nls = np.zeros(K) # initial guess
 
-res_NLS = least_squares(
-    residuals,
+res_NLS = sp.optimize.minimize(
+    Res_NLS,
     b_start_nls,
     args = (X, Y),
-    method = "lm"
+    method = "BFGS"
 )
 
 beta_hat_NLS = res_NLS.x # recovering parameter estimates
+hess_NLS = res.hess_inv # recovering the Hessian for later
+
 
 print("NLS Estimates:")
 NLS_Results = pd.DataFrame({
@@ -84,4 +80,63 @@ NLS_Results = pd.DataFrame({
 }) # creating DataFrame of parameter estimates
 print(NLS_Results)
 
+<<<<<<< Updated upstream
+=======
+########################################################################################################################################################
+
+# Part C: Estimating Standard Errors via Wooldridge eq. 12.52
+
+from SE_est_2c import *
+
+# Call robust variance matrix function "rob_var_mat" from helper file:
+se_2c = rob_var_mat(beta_hat_NLS, X, Y)
+
+# Append result to NLS DataFrame from part (b)
+NLS_Results['s.e. NLS (2c)'] = se_2c
+print(NLS_Results)
+
+########################################################################################################################################################
+
+# Part D: Calculate Standard Errors via Wooldridge eq. 12.48
+from SE_est_2d import*
+
+# Call SE_est_2d.py function "calc_v_hat"
+
+avar = calc_v_hat(beta_hat_NLS, hess_NLS, X, Y)
+se_2d = np.sqrt(np.diag(avar)) # calculating standard errors
+
+NLS_Results['s.e. NLS (2d)'] = se_2d # appending result to DataFrame
+print(NLS_Results)
+
+########################################################################################################################################################
+
+# Part E: Calculate SE for NLS using 500 bootstrap iterations
+
+from scipy.stats import bootstrap # importing the bootstrap function from Scipy's stats library
+
+rng = np.random.default_rng(219) # set seed for reproducibility
+
+def stat(X_s, Y_s, axis = 1):
+    res = least_squares(
+        residuals,
+        b_start_nls,
+        args = (X, Y),
+        method = "lm"
+    )
+    return res.x
+
+boot = bootstrap(
+    data = (X, Y), # defining data to use
+    statistic = stat, # calling NLS beta_hat via function stat
+    n_resamples = 500, # 500 iterations
+    method = 'basic', # reverse percentile calculation of confidence interval
+    random_state = rng, # seed call
+    vectorized = False # for safety
+)
+
+se_2e = np.std(boot.bootstrap_distribution, axis = 0, ddof = 1)
+
+print(se_2e)
+
+>>>>>>> Stashed changes
 
