@@ -66,15 +66,24 @@ local ARC  = 0 // Additional Robustness Checks - Footnote 12 (col1), Footnote 21
 ************************************************************/
 
 if `Tab2' {
-  keep if year >= 1993 & year <= 1996
-  keep if age >= 21 & age <= 40
-  keep if eitc_expand == 0
-  
-  preserve
-    keep if educ <= 2
-    keep age income* inlf white_nh black_nh hispanic other married div_sep_wid never_married bad_* excel_vgood twoplus_kids
-    tabstat *
-  restore
+  drop if year < 1993 | year > 1996
+  drop if age < 21 | age > 40
+  drop if kids == 0
+  drop if educ == 3
+  drop if fips > 56
+  gen obsnum = _n //generating an observation number for each observation
+
+  recode educ (1/2 = 0) (4=1), gen(college_edu)
+
+  local races "white_nh black_nh hispanic other"  // COME BACK TO THIS IT IS BROKEN
+  foreach r of local races {
+      by obsnum, sort: egen perc_`r' = pc(`r')
+    }
+
+  sort college_edu
+  by college_edu: sum mean(age) perc_* working inlf excel_vgood mental_poor phys_poor if kids == 1
+  by college_edu: sum inlf excel_vgood mental_poor phys_poor if kids > 1
+
   }
 
 
