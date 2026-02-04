@@ -1,0 +1,265 @@
+% =========================
+% Recreated PS1 (from Mason_PS1.pdf)
+% =========================
+\documentclass[11pt]{article}
+
+% ---------- Page + layout ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\setstretch{1.1}
+\usepackage{parskip}
+
+% ---------- Math ----------
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+
+% ---------- Tables ----------
+\usepackage{booktabs}
+
+% ---------- Links ----------
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Header / footer ----------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{\course}}
+\chead{\textbf{\pset}}
+\rhead{\textbf{\name}}
+\cfoot{\thepage}
+
+% =========================
+% Metadata (edit if needed)
+% =========================
+\newcommand{\name}{Tate Mason}
+\newcommand{\course}{Econometrics II}
+\newcommand{\pset}{Problem Set 1}
+\newcommand{\duedate}{February 6, 2026}
+
+% =========================
+% Question / solution macros
+% =========================
+\newcounter{q}
+\renewcommand{\theq}{\arabic{q}}
+
+\newcommand{\question}[1]{%
+  \refstepcounter{q}
+  \vspace{0.75em}
+  \noindent{\Large\textbf{Question \theq.} \normalsize\textbf{#1}}%
+  \vspace{0.25em}
+  \par
+}
+
+\newcounter{subq}[q]
+\renewcommand{\thesubq}{\alph{subq}}
+
+\newcommand{\subquestion}[1]{%
+  \refstepcounter{subq}
+  \vspace{0.35em}
+  \noindent\textbf{(\thesubq)} \textbf{#1}\par
+}
+
+\newenvironment{solution}{%
+  \vspace{0.15em}
+  \noindent\textit{Solution. }\ignorespaces
+}{\vspace{0.5em}\par}
+
+% =========================
+% Easy math macros
+% =========================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\plim}{plim}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\newcommand{\P}{\mathbb{P}}
+
+\newcommand{\vct}[1]{\mathbf{#1}}
+\newcommand{\mtx}[1]{\mathbf{#1}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\1}{\mathbf{1}}
+
+% =========================
+% Document
+% =========================
+\begin{document}
+
+% ---------- Title block ----------
+{\Large\textbf{\course} \hfill \textbf{\pset}}\\
+\textbf{Name:} \name \hfill \textbf{Due:} \duedate\\
+\rule{\textwidth}{0.4pt}
+
+\question{Example Code and Walkthrough}
+
+\subquestion{-- (e): Example and Walkthrough}
+% The PDF shows this line as a header with no additional typed solution content.
+
+\subquestion{Is it surprising that the heteroskedastic and homoskedastic standard errors for the OLS are so similar?}
+\begin{solution}
+Yes, it is surprising given in OLS we assume homoskedasticity. However, given our sample size of $N = 5000$ is relatively large, it would make sense that homoskedastic s.e.\ would converge to the true value as $N \uparrow$.
+\end{solution}
+
+\subquestion{What is the additional parameter we are estimating in part (d) using the likelihood based approach?}
+\begin{solution}
+In the likelihood approach, we also estimate $\Sigma$, the variance matrix, to recover standard errors. To do this, we take the square root of the diagonal.
+\end{solution}
+
+\subquestion{Show analytically why the MLE and MoM approaches yield identical parameter estimates to OLS}
+\begin{solution}
+Let’s first derive $\hat{\beta}$ via MLE:
+\[
+f(Y_i \mid X_i; \beta, \sigma)
+= \frac{1}{\sqrt{2\pi\sigma^2}}\cdot
+\exp\!\left(
+-\frac{(Y_i - X_i'\beta)^2}{2\sigma^2}
+\right).
+\]
+The log-likelihood (up to the standard summation over $i$) can be written as:
+\[
+\ell(\beta,\sigma^2)
+= -\frac{n}{2}\ln(2\pi)
+-\frac{n}{2}\ln(\sigma^2)
+-\frac{1}{2\sigma^2}\sum_{i=1}^N (Y_i - X_i'\beta)^2.
+\]
+First-order condition with respect to $\beta$:
+\[
+\frac{\partial \ell}{\partial \beta}
+= -2\sum_{i=1}^N X_i'Y_i + 2\left(\sum_{i=1}^N X_i'X_i\right)\beta = 0.
+\]
+So:
+\[
+\left(\sum_{i=1}^N X_i'X_i\right)\hat{\beta}_{MLE}
+= \sum_{i=1}^N X_i'Y_i
+\quad\Rightarrow\quad
+\hat{\beta}_{MLE}
+= \left(\sum_{i=1}^N X_i'X_i\right)^{-1}\left(\sum_{i=1}^N X_i'Y_i\right)
+= \hat{\beta}_{OLS}.
+\]
+As can be seen, we end up at the same sample estimate for $\hat{\beta}$ which will converge in probability to the true $\beta$ as $N \to \infty$.
+
+For MoM:
+\[
+\frac{1}{N}\sum_{i=1}^N (X_i' e_i) = 0,
+\qquad e_i = Y_i - X_i\beta.
+\]
+Then:
+\[
+\frac{1}{N}\sum_{i=1}^N X_i'(Y_i - X_i\beta) = 0
+\Rightarrow
+\frac{1}{N}\sum_{i=1}^N X_i'Y_i - \frac{1}{N}\sum_{i=1}^N (X_i'X_i)\beta = 0,
+\]
+so:
+\[
+\hat{\beta}_{MoM}
+= \left(\sum_{i=1}^N X_i'X_i\right)^{-1}\left(\sum_{i=1}^N X_i'Y_i\right)
+= \hat{\beta}_{OLS}.
+\]
+Here, using assumptions on the residual, we can generate the same $\hat{\beta}$ in both MoM and OLS.
+\end{solution}
+
+\subquestion{What computational method is ``fminunc'' using to find the minimum of the function (assuming the analytical gradient is not supplied)?}
+\begin{solution}
+Broyden, Fletcher, Goldfarb, and Shanno (BFGS) is used when no analytical gradient is provided by approximating the Hessian at multiple points in a numerical gradient. It will calculate the gradient at each iteration, store it, and then use the difference in the two to approximate the Hessian before optimizing $\lambda$ and then repeating in the absence of convergence.
+\end{solution}
+
+\question{Solo Exercise}
+
+\subquestion{Estimate $\beta$ and its s.e.\ using MLE with the available data}
+\begin{solution}
+\begin{center}
+\begin{tabular}{l c}
+\toprule
+Parameter & Estimate \\
+\midrule
+$\hat{\beta}_1$ & $0.519$ \\
+ & $(0.016)$ \\
+$\hat{\beta}_2$ & $0.258$ \\
+ & $(0.013)$ \\
+$\hat{\beta}_3$ & $0.485$ \\
+ & $(0.008)$ \\
+$\hat{\beta}_4$ & $0.343$ \\
+ & $(0.005)$ \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.35em}
+Standard errors reported below in parentheses
+\end{center}
+\end{solution}
+
+\subquestion{Estimate $\beta$ using NLS. Can the inverse of the numerical Hessian from ``fminunc'' be used to construct s.e.? (Hint: 417 of Wooldridge)}
+\begin{solution}
+\begin{center}
+\begin{tabular}{l c}
+\toprule
+Parameter & Estimate \\
+\midrule
+$\hat{\beta}_1$ & $0.594$ \\
+$\hat{\beta}_2$ & $0.247$ \\
+$\hat{\beta}_3$ & $0.461$ \\
+$\hat{\beta}_4$ & $0.325$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{solution}
+
+\subquestion{Calculate s.e.\ for NLS using the analytical formulas in eq.\ 12.52 of Wooldridge (desc.\ below said equation).}
+\begin{solution}
+\begin{center}
+\begin{tabular}{l c c}
+\toprule
+Parameter & Estimate & s.e.\ (2c) \\
+\midrule
+$\hat{\beta}_1$ & $0.594$ & $0.081$ \\
+$\hat{\beta}_2$ & $0.247$ & $0.050$ \\
+$\hat{\beta}_3$ & $0.461$ & $0.038$ \\
+$\hat{\beta}_4$ & $0.325$ & $0.026$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{solution}
+
+\subquestion{Calculate s.e.\ for NLS using eq.\ 12.48 of Wooldridge. Calculate the score analytically, but use the Hessian provided by ``fminunc''. Why can’t the gradient from ``fminunc'' be used?}
+\begin{solution}
+\begin{center}
+\begin{tabular}{l c c c}
+\toprule
+Parameter & Estimate & s.e.\ (2c) & s.e.\ (2d) \\
+\midrule
+$\hat{\beta}_1$ & $0.594$ & $0.015$ & $0.216$ \\
+$\hat{\beta}_2$ & $0.247$ & $0.008$ & $0.102$ \\
+$\hat{\beta}_3$ & $0.461$ & $0.006$ & $0.111$ \\
+$\hat{\beta}_4$ & $0.325$ & $0.004$ & $0.089$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The fminunc function will use the sum of the average gradient across the sample, which is not useful here. Instead, we want to average over individual gradients, which needs to be separately estimated.
+\end{solution}
+
+\subquestion{Calculate s.e.\ for NLS using bootstrap (iter = 500). Note the command datasample() command can be helpful.}
+\begin{solution}
+\begin{center}
+\begin{tabular}{l c c c c}
+\toprule
+  Parameter & Estimate & s.e.\ (2c) & s.e.\ (2d) & s.e.\ (2e) \\
+\midrule
+  $\hat{\beta}_1$ & $0.594$ & $0.015$ & $0.216$ & $0.027$ \\
+  $\hat{\beta}_2$ & $0.247$ & $0.008$ & $0.102$ & $0.017$ \\
+  $\hat{\beta}_3$ & $0.461$ & $0.006$ & $0.111$ & $0.011$ \\
+  $\hat{\beta}_4$ & $0.325$ & $0.004$ & $0.089$ & $0.008$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\subquestion{Why are s.e.\ for MLE significantly smaller than NLS?}
+  \begin{solution}
+    The maximum likelihood errors are smaller than non-linear least squares because we are dealing with the distribution directly rather than minimizing the residuals. 
+    In NLS, we are approximating the distribution by using the minimum of residuals while, as stated, in MLE we directly minimize the distributional error, leading to 
+    smaller standard errors.
+
+\subquestion{If analytical score is too hard to construct, and bootstrap too time consuming, what can be done to construct s.e.?}
+
+\end{document}

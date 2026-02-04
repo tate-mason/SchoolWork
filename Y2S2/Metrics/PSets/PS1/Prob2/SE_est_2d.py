@@ -10,10 +10,9 @@ import scipy as sp
 def calc_v_hat(b, hess, X, Y):
     N = X.shape[0] # dimension of N
     mu = np.exp(X@b) # def mu as given
-    g = 2*X*mu[:, None] # gradient of function
-    u = Y - mu
+    g = X*mu[:, None] # gradient of function
+    u = Y - mu # def u
     s = (g.T@((u**2)[:,None]*g))
-    bhat = (s.T@s) # def middle term sum of scores
-    A = hess
-    avar = (A@bhat@A) # def avar
+    A = hess # A = Hessian from NLS procedure
+    avar = (A@s@A) # def avar
     return avar # return value

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1770137779.72431 "Mason_PS1.tex" "Mason_PS1.pdf" "Mason_PS1" 1770137780.29995 2
+["pdflatex"] 1770210413.08536 "Mason_PS1.tex" "Mason_PS1.pdf" "Mason_PS1" 1770210413.73309 2
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -62,7 +62,6 @@
   "/usr/local/texlive/2025/texmf-dist/tex/latex/base/atveryend-ltx.sty" 1738182759 2378 14b657ee5031da98cf91648f19642694 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/base/size11.clo" 1738182759 8464 e73911cdcc738e82d6adccd28e654bb1 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty" 1579038678 6078 f1cb470c9199e7110a27851508ed7a5c ""
-  "/usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty" 1738874546 52272 63d293bc0d496619edb57585740861a2 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1739306980 46850 d87daedc2abdc653769a6f1067849fe0 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty" 1739048179 31715 19e60610b63819fe670dfa1cd84a4e94 ""
@@ -95,9 +94,9 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1754488232 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "Mason_PS1.aux" 1770137780.23907 162 fa61bf9ecf9314f94d51aa32222a725c "pdflatex"
-  "Mason_PS1.out" 1770137780.08352 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Mason_PS1.tex" 1770137779.09688 8438 be8e3737eb9078b7955d7b81bdc65f56 ""
+  "Mason_PS1.aux" 1770210413.68419 162 59504cb8f8bee0a3f0488d753cb23a1e "pdflatex"
+  "Mason_PS1.out" 1770210413.52562 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Mason_PS1.tex" 1770210412.89785 8451 e25a1e682915a600d56f3c3f30fb0d36 ""
   (generated)
   "Mason_PS1.aux"
   "Mason_PS1.log"

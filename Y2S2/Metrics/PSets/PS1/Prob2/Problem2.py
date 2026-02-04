@@ -80,8 +80,6 @@ NLS_Results = pd.DataFrame({
 }) # creating DataFrame of parameter estimates
 print(NLS_Results)
 
-<<<<<<< Updated upstream
-=======
 ########################################################################################################################################################
 
 # Part C: Estimating Standard Errors via Wooldridge eq. 12.52
@@ -112,31 +110,10 @@ print(NLS_Results)
 
 # Part E: Calculate SE for NLS using 500 bootstrap iterations
 
-from scipy.stats import bootstrap # importing the bootstrap function from Scipy's stats library
+from SE_est_2e import * # importing statistic function
 
-rng = np.random.default_rng(219) # set seed for reproducibility
+se_boot = boot_se_NLS(Res_NLS, X, Y, beta_hat_NLS, B=500, seed=219) # call function from helper file with specified options
 
-def stat(X_s, Y_s, axis = 1):
-    res = least_squares(
-        residuals,
-        b_start_nls,
-        args = (X, Y),
-        method = "lm"
-    )
-    return res.x
-
-boot = bootstrap(
-    data = (X, Y), # defining data to use
-    statistic = stat, # calling NLS beta_hat via function stat
-    n_resamples = 500, # 500 iterations
-    method = 'basic', # reverse percentile calculation of confidence interval
-    random_state = rng, # seed call
-    vectorized = False # for safety
-)
-
-se_2e = np.std(boot.bootstrap_distribution, axis = 0, ddof = 1)
-
-print(se_2e)
-
->>>>>>> Stashed changes
+NLS_Results['s.e. NLS (2e)'] = se_boot # store results in our DataFrame
+print(NLS_Results)
 
