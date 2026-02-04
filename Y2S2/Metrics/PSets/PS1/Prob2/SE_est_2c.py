@@ -5,12 +5,11 @@ import scipy as sp
     outlined in Wooldridge pg. 359.
 """
 def rob_var_mat(b, X, Y):
-    N = 5000
     mu = np.exp(X@b) # defining mu as given
     grad = X*mu[:,None] # defining gradient
     u = Y - mu
     a0 = (grad.T@grad) # definition of A_0
-    b0 = (grad.T@((u**2)[:,None]*grad)) # defining B_0
+    b0 = grad.T@((u**2)[:,None]*grad) # defining B_0
     a_inv = np.linalg.inv(a0) # inverse of A_0
     avar = (a_inv@b0@a_inv) # defining avar
     """
