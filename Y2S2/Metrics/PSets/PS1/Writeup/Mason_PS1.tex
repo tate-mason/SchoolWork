@@ -263,6 +263,8 @@ The fminunc function will use the sum of the average gradient across the sample,
 
 \subquestion{If analytical score is too hard to construct, and bootstrap too time consuming, what can be done to construct s.e.?}
   \begin{solution}
-    Methods like simulated annealing can be used. 
+    Methods like simulated annealing or Nelder-Mead can be used.  These methods do not require a gradient, and thus do not require a score. However, it is typical to use
+    results from these methods as starters before using gradient based methods for final estimation.
+  \end{simulation}
 
 \end{document}
