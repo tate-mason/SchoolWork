@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1770210413.08536 "Mason_PS1.tex" "Mason_PS1.pdf" "Mason_PS1" 1770210413.73309 2
+["pdflatex"] 1770217324.09178 "Mason_PS1.tex" "Mason_PS1.pdf" "Mason_PS1" 1770217324.64669 2
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -94,9 +94,9 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1754488232 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "Mason_PS1.aux" 1770210413.68419 162 59504cb8f8bee0a3f0488d753cb23a1e "pdflatex"
-  "Mason_PS1.out" 1770210413.52562 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Mason_PS1.tex" 1770210412.89785 8451 e25a1e682915a600d56f3c3f30fb0d36 ""
+  "Mason_PS1.aux" 1770217324.59219 162 59504cb8f8bee0a3f0488d753cb23a1e "pdflatex"
+  "Mason_PS1.out" 1770217324.42743 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Mason_PS1.tex" 1770217321.05821 8554 3b6ef65ee63e4097eeba2a6d99106115 ""
   (generated)
   "Mason_PS1.aux"
   "Mason_PS1.log"

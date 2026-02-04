@@ -99,7 +99,8 @@
 
 \subquestion{Is it surprising that the heteroskedastic and homoskedastic standard errors for the OLS are so similar?}
 \begin{solution}
-Yes, it is surprising given in OLS we assume homoskedasticity. However, given our sample size of $N = 5000$ is relatively large, it would make sense that homoskedastic s.e.\ would converge to the true value as $N \uparrow$.
+  DGP has homoskedastic errors by construction. Thus, because all $X_i$ are generated independent of $\epsilon$, so homoskedasticity
+  is to be expected. So, we can expect the errors to be similar given the data are inherently robust to heteroskedasticity.
 \end{solution}
 
 \subquestion{What is the additional parameter we are estimating in part (d) using the likelihood based approach?}
@@ -261,5 +262,7 @@ The fminunc function will use the sum of the average gradient across the sample,
     smaller standard errors.
 
 \subquestion{If analytical score is too hard to construct, and bootstrap too time consuming, what can be done to construct s.e.?}
+  \begin{solution}
+    Methods like simulated annealing can be used. 
 
 \end{document}
