@@ -1,0 +1,165 @@
+% !TeX program = pdflatex
+\documentclass[11pt]{article}
+
+% -----------------------
+% Packages (barebones)
+% -----------------------
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{bm}              % bold math symbols
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\onehalfspacing
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+% -----------------------
+% Metadata macros
+% -----------------------
+\newcommand{\Title}{Research Proposal Title}
+\newcommand{\Author}{Your Name}
+\newcommand{\Affil}{Department / University}
+\newcommand{\Date}{\today}
+
+% -----------------------
+% Section helpers
+% -----------------------
+% Use: \Section{Motivation} ... \Section{Methods}
+\newcommand{\Section}[1]{\section{#1}}
+\newcommand{\Subsection}[1]{\subsection{#1}}
+\newcommand{\Subsubsection}[1]{\subsubsection{#1}}
+
+% -----------------------
+% Equation helpers
+% -----------------------
+% Inline: \(\E[Y|X]\), display: \eqn{ ... }, numbered: \eqnlabel{key}{...}
+\newcommand{\eqn}[1]{\begin{equation*}#1\end{equation*}}
+\newcommand{\eqnlabel}[2]{\begin{equation}\label{eq:#1}#2\end{equation}}
+\newcommand{\Eqref}[1]{(\ref{eq:#1})}
+
+% Common operators
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% Probability / expectation / variance
+\newcommand{\P}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+
+% Sets, reals, indicators
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\1}[1]{\mathbb{I}\{#1\}}
+
+% Vectors / matrices
+\newcommand{\vct}[1]{\bm{#1}}     % bold vector
+\newcommand{\mtx}[1]{\bm{#1}}     % bold matrix
+\newcommand{\trans}{^\mathsf{T}}  % transpose
+\newcommand{\inv}{^{-1}}
+
+% Norms, inner products
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\ip}[2]{\left\langle #1, #2 \right\rangle}
+
+% Derivatives
+\newcommand{\dd}[2]{\frac{d #1}{d #2}}
+\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppn}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+
+% Convenience delimiters
+\newcommand{\paren}[1]{\left( #1 \right)}
+\newcommand{\brak}[1]{\left[ #1 \right]}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+
+% Theorem-like envs (optional)
+\theoremstyle{plain}
+\newtheorem{assumption}{Assumption}
+\newtheorem{proposition}{Proposition}
+
+% -----------------------
+% Title block
+% -----------------------
+\begin{document}
+
+\begin{center}
+  {\LARGE \textbf{\Title}}\\[0.5em]
+  {\large \Author}\\
+  {\Affil}\\[0.25em]
+  {\Date}
+\end{center}
+
+\vspace{0.5em}
+
+% -----------------------
+% Proposal structure
+% -----------------------
+\Section{Motivation and Research Question}
+  
+  How does having a child born with a risky health status impact migration decisions in new parents?
+
+  Changes in family makeup can drive migration decisions for new parents. They may be seeking proximity to relatives, better opportunities to provide, or a more
+  advantageous environment for their child to grow in. However, the goal of this idea is to examine how this decision is affected by having a child who is born
+  with some sort of health risk, like being low birth weight (front of mind). Understanding the cases in which this can act as a motivator versus when it is a cost 
+  can help to understand the general patterns of migration for an interesting group with multiple dynamics at play.
+
+\Section{Background and Related Literature}
+% 5--10 key papers; identify gap and contribution.
+
+\Section{Conceptual Framework}
+
+  Parents 
+
+\Section{Data}
+\Subsection{Data Sources}
+
+
+\Subsection{Key Variables and Measurement}
+
+
+\Subsection{Sample Construction}
+
+\Section{Empirical Strategy / Model}
+% Put main estimating equation(s) here.
+
+% Example numbered equation:
+% \eqnlabel{main}{
+%   Y_{it} = \alpha + \beta D_{it} + \gamma X_{it} + \delta_t + \mu_i + \varepsilon_{it}.
+% }
+% Refer back with \Eqref{main}.
+
+\Subsection{Identification and Assumptions}
+% Consider adding explicit assumptions:
+% \begin{assumption}[Parallel Trends]
+%  ...
+% \end{assumption}
+
+\Subsection{Estimation}
+\Subsection{Threats to Validity and Robustness}
+\Subsection{Heterogeneity and Mechanisms}
+
+\Section{Expected Contributions}
+% What will this add (substantively + methodologically)?
+
+\Section{Timeline and Feasibility}
+\begin{itemize}
+  \item Month 1--2: Data acquisition and cleaning
+  \item Month 3--4: Baseline estimates
+  \item Month 5: Robustness + extensions
+  \item Month 6: Write-up and revision
+\end{itemize}
+
+\Section{References}
+% Barebones: manually list, or swap to BibTeX later.
+\begin{itemize}
+  \item Author (Year). Title. Journal.
+\end{itemize}
+
+\end{document}
