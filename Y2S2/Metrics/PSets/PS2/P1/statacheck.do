@@ -1,7 +1,7 @@
 
  clear
  
- import delimited "HW2_P1.csv"
+ import delimited "~/Schoolwork/Y2S2/Metrics/PSets/PS2/P1/HW2_P1.csv"
  
  rename v1 attend4yr
  rename v3 parentBA

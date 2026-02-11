@@ -65,32 +65,105 @@ print(P1_res) # Display results
 # (b) Calculate Avg. Marginal Effects                      #
 #==========================================================#
 
-# Average Marginal Effect of Parent with a 4-yr College Degree (ξ_2)
+k_x = Xi.shape[1] # Number of covariates + constant
+k_z = Z.shape[1] # Number of choice attributes
 
-logit_model = sm.Logit(Y, W) # Using canned estiamtion procedure, results match
-logit_result  = logit_model.fit() # Reulsts
+x_names = ["const", "parent_college", "gpa"] + [f"x{i}" for j in range(3, k_x)] # name columns in data matrix
+z_names = ["dist_2yr", "dist_4yr"] + [f"z{i}" for j in range(2, k_z)] # name columns in data matrix
+colnames = x_names[:k_x] + z_names[:k_z] # Column names for results
 
-# Printing estimation results - match results from last part
-print("\nModel Summary:") 
-print(logit_result.summary())
+W_df = pd.DataFrame(W, columns=colnames) # DataFrame for estimation results
 
-# Printing marginal effect of whole sample
-margeff = logit_result.get_margeff() # getting marginal effects
-print("\nMarginal Effects Summary")
-print(margeff.summary())
+from AME_1b import * # call helper
 
-# Refining the Sample Space
+b0 = np.zeros(W.shape[1]) # vector of zeros for starting value
 
-mask = W[:,1] > 0
-W_f = W[mask,:]
-Y_f = Y[mask]
+beta_hat, se_hat, res = fit_logit_mle(W, Y, b0) # call minimization routine from helper file
 
-logit_1b = sm.Logit(Y_f, W_f)
-logit_1b_results = logit_1b.fit()
+# create results table
+res = pd.DataFrame({
+    "Converged": res.success,
+    "β_hat": beta_hat,
+    "Std. Error": se_hat
+})
+# Average Marginal Effect of Parent with a 4-yr College Degree (β_2)
 
-print("\nModel Summary (1b):")
-print(logit_1b_results.summary())
+k_parent = 1 #define column of variable of interest 
 
-margeff_b = logit_1b_results.get_margeff()
-print("\nMarginal Effects Summary")
-print(margeff_b.summary())
+ame_full = ame_dummy_discrete(beta_hat, W, k=k_parent, x1=1.0, x0=0.0) # call ame function from helper file
+res["AME Parent College: Full"] = float(ame_full) # save to results table
+
+# Subsample
+mask = W[:, k_parent] == 1 # subset to k_parent
+W_sub = W[mask,:]
+
+ame_sub = ame_dummy_discrete(beta_hat, W_sub, k=k_parent, x1=1.0, x0=0.0) # call ame from helper
+res["AME Parent College: Subsample"] = float(ame_sub) # add to results table
+
+print(res) # print results
+
+#==========================================================#
+# (c) Delta Method to Get S.E. of AME                      #
+#==========================================================#
+
+from Delta_1c import *
+
+beta_hat = res["β_hat"]
+
+se_delta = delta_se(beta_hat, W, Y)
+
+res["Std. Error (Delta)"] = se_delta
+print(res)
+
+#==========================================================#
+# (d) Delta Method Bootstrap S.E.                          #
+#==========================================================#
+
+from Boot_1d import *
+
+def fit_beta(W, Y):
+    b0 = np.zeros(W.shape[1])
+    beta_hat, _, res = fit_logit_mle(W, Y, b0)
+    return beta_hat
+
+k_parent = 1
+
+boot_se_delta, draws = boot_se_AME(W, Y, fit_beta, k_parent, 500, 219)
+res["Bootstrap S.E."] = boot_se_delta
+print(res)
+
+#==========================================================#
+# (e) Probit Estimation                                    #
+#==========================================================#
+
+from Probit_1e import *
+
+b0 = np.zeros(W.shape[1])
+
+res_prob = op.minimize(
+    probit_est,
+    b0,
+    args = (W,Y),
+    jac = grad_probit
+)
+beta_hat_p = res_prob.x
+hess = res_prob.hess_inv
+se_p = np.sqrt(np.diag(hess))
+
+res["β_hat Probit"] = beta_hat_p
+res["S.E. Probit"]  = se_p
+
+print(res)
+
+#==========================================================#
+# (f) Probit Estimation: AME                               #
+#==========================================================#
+
+from Probit_AME_1f import *
+
+k_parent = 1
+
+ame_probit = ame_probit(W, beta_hat_p, k_parent, 1.0, 0.0)
+
+res["AME (Probit Model)"] = ame_probit
+print(res)
