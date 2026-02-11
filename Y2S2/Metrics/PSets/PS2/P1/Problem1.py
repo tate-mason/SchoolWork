@@ -13,6 +13,11 @@ Master file for Problem 1 of Homework 2. In this problem, we will use work with 
         - Statsmodels.api: Used for estimation methods
     Helper Files:
         - Logit_1a.py: defines logistic and log-likelihood
+        - AME_1b.py: computes avg. marginal effects
+        - Delta_1c.py: performs delta method to get s.e. of ame
+        - Boot_1d.py: bootstrap
+        - Probit_1e.py: estimation of probit
+        - Probit_AME_1f.py: ame for probit estimates
     Functions:
 """
 
@@ -20,19 +25,20 @@ Master file for Problem 1 of Homework 2. In this problem, we will use work with 
 # (a) Logit Model of College Choice                        #
 #==========================================================#
 
-# Load in data from .mat
+# Load in data from .csv provided
 
-data = sp.io.loadmat('dataHW2_Problem1.mat')
-print(data.keys())
+data = pd.read_csv(
+    "HW2_P1.csv",
+    header=None,
+    names=["attend4yr", "v2", "parentBA", "GPA", "dist4yr_minus_dist2yr"]
+)
+data = data.drop(columns=["v2"], errors="ignore") # drop column 2
+print(data.columns) # check 
 
-# Make data better to work with
-
-Xi = data["Xi"].squeeze() 
-Y  = data["Y"].squeeze()
-Z  = data["Z"].squeeze()
-
-W = np.column_stack((Xi,Z)) # Harmonizng x and z into one matrix
-Y = np.asarray(Y).squeeze() # Making Y easier to work with
+Xcols = ["parentBA", "GPA", "dist4yr_minus_dist2yr"] # covariate vector
+W = data[Xcols].to_numpy()
+W = np.column_stack([np.ones(W.shape[0]), W]) # compile into covariate matrix
+Y = data["attend4yr"].to_numpy() # numpy outcome vector (usable for numeric operation)
 
 
 # Call Logit_1a functions
@@ -64,15 +70,6 @@ print(P1_res) # Display results
 #==========================================================#
 # (b) Calculate Avg. Marginal Effects                      #
 #==========================================================#
-
-k_x = Xi.shape[1] # Number of covariates + constant
-k_z = Z.shape[1] # Number of choice attributes
-
-x_names = ["const", "parent_college", "gpa"] + [f"x{i}" for j in range(3, k_x)] # name columns in data matrix
-z_names = ["dist_2yr", "dist_4yr"] + [f"z{i}" for j in range(2, k_z)] # name columns in data matrix
-colnames = x_names[:k_x] + z_names[:k_z] # Column names for results
-
-W_df = pd.DataFrame(W, columns=colnames) # DataFrame for estimation results
 
 from AME_1b import * # call helper
 
@@ -108,12 +105,12 @@ print(res) # print results
 
 from Delta_1c import *
 
-beta_hat = res["β_hat"]
+beta_hat = res["β_hat"] # def beta_hat
 
-se_delta = delta_se(beta_hat, W, Y)
+se_delta = delta_se(beta_hat, W, Y) # call delta method function
 
-res["Std. Error (Delta)"] = se_delta
-print(res)
+res["Std. Error (Delta)"] = se_delta # save results to table
+print(res) # print table
 
 #==========================================================#
 # (d) Delta Method Bootstrap S.E.                          #
@@ -121,16 +118,18 @@ print(res)
 
 from Boot_1d import *
 
+# optimize
 def fit_beta(W, Y):
     b0 = np.zeros(W.shape[1])
     beta_hat, _, res = fit_logit_mle(W, Y, b0)
     return beta_hat
 
-k_parent = 1
+# bootstrap procedure
+k_parent = 1 # variable of interest
 
-boot_se_delta, draws = boot_se_AME(W, Y, fit_beta, k_parent, 500, 219)
-res["Bootstrap S.E."] = boot_se_delta
-print(res)
+boot_se_delta, draws = boot_se_AME(W, Y, fit_beta, k_parent, 500, 219) # calling function
+res["Bootstrap S.E."] = boot_se_delta # saving result
+print(res) # print results
 
 #==========================================================#
 # (e) Probit Estimation                                    #
@@ -138,21 +137,26 @@ print(res)
 
 from Probit_1e import *
 
+# starting value
 b0 = np.zeros(W.shape[1])
 
+# minimize probit
 res_prob = op.minimize(
     probit_est,
     b0,
     args = (W,Y),
     jac = grad_probit
 )
+# recover estimates
 beta_hat_p = res_prob.x
 hess = res_prob.hess_inv
 se_p = np.sqrt(np.diag(hess))
 
+# save to results table
 res["β_hat Probit"] = beta_hat_p
 res["S.E. Probit"]  = se_p
 
+# view results
 print(res)
 
 #==========================================================#
@@ -161,9 +165,12 @@ print(res)
 
 from Probit_AME_1f import *
 
+# parameter of interest
 k_parent = 1
 
+# call ame function
 ame_probit = ame_probit(W, beta_hat_p, k_parent, 1.0, 0.0)
 
+# save and view results
 res["AME (Probit Model)"] = ame_probit
 print(res)
