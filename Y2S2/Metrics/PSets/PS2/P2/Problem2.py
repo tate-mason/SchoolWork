@@ -17,24 +17,18 @@ File for problem 2 of HW2 - Multinomial Logit
 df = sp.io.loadmat('dataHW2_Problem2.mat')
 print(df.keys())
 
-# Making data workable
-Xi = df["Xi"].squeeze()
-Y = df["Y"].squeeze()
-Zdist = df["Zdist"].squeeze()
-Zprice = df["Zprice"].squeeze()
-
-# Covariate matrix
-W = np.column_stack((Xi, Zdist, Zprice))
-W = np.column_stack([np.ones(W.shape[0]), W])
-
-# Drop constant from xi
-W = np.delete(W, 1, axis = 1)
+X = np.asarray(df["Xi"])
+Zdist = np.asarray(df["Zdist"])
+Zprice = np.asarray(df["Zprice"])
+Y = np.asarray(df["Y"]).astype(int)
 
 #============================================================#
 # (a) Multinomial Logit Regression                           #
 #============================================================#
 
-N, K = W.shape
-J = int(Y.max() + 1)
+from MultLog_2a import *
+
+b_hat, se, res, meta = mnl_mle(X, Zdist, Zprice, Y)
+print(meta)
 
 

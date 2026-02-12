@@ -1,0 +1,18 @@
+﻿market,market indicator variable
+x1,value of the  observable characteristic for walmart
+x2,value of the  observable characteristic for target
+share1,share for walmart
+share2,share for target
+p1,price of basket of goods at walmart 
+p2,price of basket of goods at target
+mc1,marginal cost of basket of goods at walmart 
+mc2,marginal cost of basket of goods at target
+zone,zone indicator variable
+inc_mu,mean of the income distribution in market
+inc_sig,stdev of the income distribution in market
+active1,indicator if walmart is active in market
+active2,indicator if target is active in market
+micro11,mean income of people who buy from walmart
+micro12,mean income of people who buy from target
+micro21,mean X of high income buyers from target
+micro22,mean X of high income buyers from Walmart
