@@ -1,0 +1,486 @@
+---
+title: "cars_reg"
+output: html_document
+date: "2025-09-10"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+## ------------------------------------------------------------
+## Setup
+## ------------------------------------------------------------
+setwd("~/Dropbox/teaching/UGA Grad IO/")
+rm(list = ls())
+
+## LOAD DATA  (assumes header row in CSV)
+car_panel <- as.matrix(read.csv("Data/cars2.csv", header = TRUE))
+# If the CSV has no header, use header = FALSE and keep column indices as below.
+
+## CREATE VARIABLES (by column position, matching your MATLAB)
+code        <- car_panel[, 1]
+orig        <- car_panel[, 2]
+firm_id     <- car_panel[, 3]
+year        <- car_panel[, 4]
+price       <- car_panel[, 5]
+quantity    <- car_panel[, 6]
+hp          <- car_panel[, 7]
+clength     <- car_panel[, 8]
+width       <- car_panel[, 9]
+csize       <- car_panel[,10]
+weight      <- car_panel[,11]
+fuel        <- car_panel[,12]
+mpg         <- car_panel[,13]
+fuel_price  <- car_panel[,14]
+segment     <- car_panel[,15]
+steel_price <- car_panel[,16]
+brand_id    <- car_panel[,17]
+model_id    <- car_panel[,18]
+
+## ------------------------------------------------------------
+## LOGIT
+## ------------------------------------------------------------
+
+## MARKET SIZE (AVE 10% OVER SAMPLE)
+totQ <- rep(sum(quantity), nrow(car_panel))
+M    <- totQ / (6 * 0.1)
+
+## MARKET SHARE
+sj <- quantity / M
+
+## OUTSIDE SHARE: within-year inside share, then s0 = 1 - inside_share
+create_index <- sort(unique(year))
+index_map    <- seq_along(create_index)
+loc          <- match(year, create_index)  # position of each obs' year in create_index
+
+## inside share by year
+inside_by_year <- aggregate(sj, by = list(year = create_index), FUN = sum)
+inside_share   <- inside_by_year$x[loc]
+
+s0 <- 1 - inside_share
+
+## IV
+iv <- csize * steel_price
+
+## DEP VAR
+DV <- log(sj) - log(s0)
+
+## Xs (CHARACTERISTICS)
+non_euro <- as.numeric(orig > 1)
+
+small  <- as.numeric(segment == 1)
+compact<- as.numeric(segment == 2)  # defined in MATLAB but not used in X there
+sedan  <- as.numeric(segment == 3)
+luxery <- as.numeric(segment == 4)
+mini   <- as.numeric(segment == 5)
+
+X <- cbind(1, hp, mpg, fuel, non_euro, small, sedan, luxery, mini)
+
+## OLS ESTIMATES (stack [X, price])
+Xp   <- cbind(X, price)
+XtXp <- crossprod(Xp)              # t([X,price]) %*% [X,price]
+XtY  <- crossprod(Xp, DV)          # t([X,price]) %*% DV
+beta1 <- solve(XtXp, XtY)
+
+## STANDARD ERRORS (homoskedastic)
+resid1 <- DV - Xp %*% beta1
+sig_sq <- var(drop(resid1))
+vcov1  <- sig_sq * solve(XtXp)
+std_err1 <- sqrt(diag(vcov1))
+
+## POSTESTIMATION
+alpha1 <- tail(beta1, 1)
+oelas1 <- as.numeric(alpha1) * price * (1 - sj)
+hist(oelas1, main = "Own-Price Elasticities (OLS)", xlab = "Elasticity")
+
+## IV (2SLS) ESTIMATES
+Z     <- cbind(X, iv)
+ZtZ   <- crossprod(Z)
+ZtXp  <- crossprod(Z, Xp)
+ZtY   <- crossprod(Z, DV)
+beta2 <- solve(ZtXp, ZtY)   # ([X,iv]'*[X,price])^{-1} * ([X,iv]'*DV)
+
+## STANDARD ERRORS (classic 2SLS/sandwich form consistent with your MATLAB line)
+resid2 <- DV - Xp %*% beta2
+sig_sq2 <- var(drop(resid2))
+# Your MATLAB formula uses: sig_sq * (Z'X)^-1 (Z'Z) (X'Z)^-1
+# Note: X'Z = t(Z'X), but since we use Z'X and X'Z only inside inverses, this matches.
+vcov2 <- sig_sq2 * solve(ZtXp) %*% ZtZ %*% solve(t(ZtXp))
+std_err2 <- sqrt(diag(vcov2))
+
+## POSTESTIMATION
+alpha2 <- tail(beta2, 1)
+oelas2 <- as.numeric(alpha2) * price * (1 - sj)
+hist(oelas2, main = "Own-Price Elasticities (IV)", xlab = "Elasticity")
+
+## ------------------------------------------------------------
+## NESTED LOGIT
+## ------------------------------------------------------------
+
+## Conditional share sj|g: need segment total quantity per (year, segment)
+ys <- cbind(year, segment)
+ys_df <- data.frame(year = year, segment = segment, quantity = quantity)
+
+agg_q <- aggregate(quantity ~ year + segment, data = ys_df, sum)
+# count of products with quantity>0 per (year,segment)
+agg_npos <- aggregate(I(quantity > 0) ~ year + segment, data = ys_df, sum)
+names(agg_npos)[3] <- "n_pos"
+
+# merge back
+key <- paste(year, segment)
+agg_key <- paste(agg_q$year, agg_q$segment)
+seg_quant <- agg_q$quantity[match(key, agg_key)]
+iv2       <- agg_npos$n_pos[match(key, paste(agg_npos$year, agg_npos$segment))]
+
+## conditional share and log
+sjg    <- quantity / seg_quant
+log_sjg <- log(sjg)
+
+## NEW X for nested logit
+X_nl <- cbind(1, hp, mpg, fuel, non_euro)
+
+## Nested logit IV estimates: instruments [X, iv, iv2] for [X, price, log_sjg]
+Xp_nl <- cbind(X_nl, price, log_sjg)
+Z_nl  <- cbind(X, iv, iv2)
+
+ZtXp_nl <- crossprod(Z_nl, Xp_nl)
+ZtZ_nl  <- crossprod(Z_nl)
+ZtY_nl  <- crossprod(Z_nl, DV)
+
+beta3 <- solve(ZtXp_nl, ZtY_nl)
+
+## STANDARD ERRORS (your MATLAB sandwich form)
+resid3 <- DV - Xp_nl %*% beta3
+sig_sq3 <- var(drop(resid3))
+vcov3 <- sig_sq3 * solve(ZtXp_nl) %*% ZtZ_nl %*% solve(t(ZtXp_nl))
+std_err3 <- sqrt(diag(vcov3))
+
+## POSTESTIMATION
+alpha3 <- beta3[nrow(matrix(beta3)) - 1]   # second-to-last (alpha on price)
+sig1   <- beta3[nrow(matrix(beta3))]       # last (nesting param on log_sjg)
+oelas3 <- as.numeric(alpha3) * (1 / (1 - sig1)) * price * (1 - sig1 * sjg - (1 - sig1) * sj)
+hist(oelas3, main = "Own-Price Elasticities (Nested Logit)", xlab = "Elasticity")
+
+## ------------------------------------------------------------
+## SUBSTITUTION and MARKET POWER (Nested Logit)
+## ------------------------------------------------------------
+
+## Create ranks of brand within segment by total quantity (year-agnostic per your original)
+bm_df <- data.frame(code = code, brand_id = brand_id, model_id = model_id,
+                    quantity = quantity, segment = segment)
+# Total quantity by (code,brand,model)
+bm_agg <- aggregate(cbind(quantity, segment) ~ code + brand_id + model_id, data = bm_df,
+                    FUN = function(v) c(sum = sum(v), mode = mean(v)))
+# unpack nested columns
+bm_agg$tot_quant <- sapply(bm_agg$quantity, function(x) x[1])
+bm_agg$seg_mean  <- sapply(bm_agg$segment,  function(x) x[2])
+bm_agg <- bm_agg[, c("code","brand_id","model_id","tot_quant","seg_mean")]
+
+## Rank within each segment by tot_quant (descending)
+seg_rank_tmp <- do.call(rbind, lapply(sort(unique(bm_agg$seg_mean)), function(s) {
+  tmp <- bm_agg[bm_agg$seg_mean == s, , drop = FALSE]
+  tmp <- tmp[order(-tmp$tot_quant), ]
+  tmp$rank <- seq_len(nrow(tmp))
+  tmp
+}))
+
+## Merge back to main observations
+key_bm     <- paste(code, brand_id, model_id)
+key_segagg <- paste(seg_rank_tmp$code, seg_rank_tmp$brand_id, seg_rank_tmp$model_id)
+seg_rank   <- seg_rank_tmp$rank[match(key_bm, key_segagg)]
+seg_quant  <- seg_rank_tmp$tot_quant[match(key_bm, key_segagg)]
+
+years <- sort(unique(year))
+
+for (y in years) {
+  shares <- cbind(year, seg_rank, sj, sjg, price, code, brand_id, model_id, segment, firm_id)
+  shares <- shares[shares[,1] == y, , drop = FALSE]
+  shares <- shares[order(shares[,6], shares[,7], shares[,8]), ]  # sort by code, brand_id, model_id
+
+  sj_y     <- shares[,3]
+  sjg_y    <- shares[,4]
+  price_y  <- shares[,5]
+  firm_y   <- shares[,10]
+  seg_y    <- shares[,9]
+
+  nJ <- length(sj_y)
+
+  subs_mat_y <- matrix(0, nJ, nJ)
+  elas_mat_y <- matrix(0, nJ, nJ)
+  own_mat_y1 <- diag(nJ)
+  own_mat_y2 <- diag(nJ) * 0
+  own_mat_y3 <- matrix(1, nJ, nJ)
+  div_mat_y  <- matrix(0, nJ, nJ)
+
+  for (i in seq_len(nJ)) {
+    for (j in seq_len(nJ)) {
+      if (i == j) {
+        subs_mat_y[j, i] <- as.numeric(alpha3) * sj_y[j] * (1 / (1 - sig1)) * (1 - sig1 * sjg_y[j] - (1 - sig1) * sj_y[j])
+        elas_mat_y[j, i] <- subs_mat_y[j, i] * price_y[j] / sj_y[j]
+        own_mat_y2[j, i] <- 1
+      } else if (seg_y[i] != seg_y[j]) {
+        subs_mat_y[j, i] <- -1 * as.numeric(alpha3) * sj_y[j] * sj_y[i]
+        elas_mat_y[j, i] <- subs_mat_y[j, i] * price_y[i] / sj_y[j]
+        own_mat_y2[j, i] <- as.numeric(firm_y[i] == firm_y[j])
+      } else if (seg_y[i] == seg_y[j]) {
+        subs_mat_y[j, i] <- -1 * as.numeric(alpha3) * (sj_y[i]) * (sj_y[j] + (sig1 / (1 - sig1)) * sjg_y[j])
+        elas_mat_y[j, i] <- subs_mat_y[j, i] * price_y[i] / sj_y[j]
+        own_mat_y2[j, i] <- as.numeric(firm_y[i] == firm_y[j])
+      }
+    }
+  }
+
+  ## diversion ratios
+  for (i in seq_len(nJ)) {
+    for (j in seq_len(nJ)) {
+      if (i == j) {
+        div_mat_y[j, i] <- 0
+      } else {
+        div_mat_y[j, i] <- subs_mat_y[j, i] / abs(subs_mat_y[i, i])
+      }
+    }
+  }
+
+  ## Store by year into objects named like MATLAB
+  if (y == 1995) {
+    subs_mat95 <- subs_mat_y; elas_mat95 <- elas_mat_y
+    own_mat951 <- own_mat_y1; own_mat952 <- own_mat_y2; own_mat953 <- own_mat_y3
+    div_rat95  <- div_mat_y; shares95 <- sj_y; price95 <- price_y
+  } else if (y == 1996) {
+    subs_mat96 <- subs_mat_y; elas_mat96 <- elas_mat_y
+    own_mat961 <- own_mat_y1; own_mat962 <- own_mat_y2; own_mat963 <- own_mat_y3
+    div_rat96  <- div_mat_y; shares96 <- sj_y; price96 <- price_y
+  } else if (y == 1997) {
+    subs_mat97 <- subs_mat_y; elas_mat97 <- elas_mat_y
+    own_mat971 <- own_mat_y1; own_mat972 <- own_mat_y2; own_mat973 <- own_mat_y3
+    div_rat97  <- div_mat_y; shares97 <- sj_y; price97 <- price_y
+  } else if (y == 1998) {
+    subs_mat98 <- subs_mat_y; elas_mat98 <- elas_mat_y
+    own_mat981 <- own_mat_y1; own_mat982 <- own_mat_y2; own_mat983 <- own_mat_y3
+    div_rat98  <- div_mat_y; shares98 <- sj_y; price98 <- price_y
+  } else if (y == 1999) {
+    subs_mat99 <- subs_mat_y; elas_mat99 <- elas_mat_y
+    own_mat991 <- own_mat_y1; own_mat992 <- own_mat_y2; own_mat993 <- own_mat_y3
+    div_rat99  <- div_mat_y; shares99 <- sj_y; price99 <- price_y
+  } else if (y == 2000) {
+    subs_mat00 <- subs_mat_y; elas_mat00 <- elas_mat_y
+    own_mat001 <- own_mat_y1; own_mat002 <- own_mat_y2; own_mat003 <- own_mat_y3
+    div_rat00  <- div_mat_y; shares00 <- sj_y; price00 <- price_y
+  }
+}
+
+## CREATE MARK UPS (nested logit section)
+mark_up95_1 <- -t(shares95 / price95) %*% solve(own_mat951 * subs_mat95)
+mark_up95_2 <- -t(shares95 / price95) %*% solve(own_mat952 * subs_mat95)
+mark_up95_3 <- -t(shares95 / price95) %*% solve(own_mat953 * subs_mat95)
+
+mark_up96_1 <- -t(shares96 / price96) %*% solve(own_mat961 * subs_mat96)
+mark_up96_2 <- -t(shares96 / price96) %*% solve(own_mat962 * subs_mat96)
+mark_up96_3 <- -t(shares96 / price96) %*% solve(own_mat963 * subs_mat96)
+
+mark_up97_1 <- -t(shares97 / price97) %*% solve(own_mat971 * subs_mat97)
+mark_up97_2 <- -t(shares97 / price97) %*% solve(own_mat972 * subs_mat97)
+mark_up97_3 <- -t(shares97 / price97) %*% solve(own_mat973 * subs_mat97)
+
+mark_up98_1 <- -t(shares98 / price98) %*% solve(own_mat981 * subs_mat98)
+mark_up98_2 <- -t(shares98 / price98) %*% solve(own_mat982 * subs_mat98)
+mark_up98_3 <- -t(shares98 / price98) %*% solve(own_mat983 * subs_mat98)
+
+mark_up99_1 <- -t(shares99 / price99) %*% solve(own_mat991 * subs_mat99)
+mark_up99_2 <- -t(shares99 / price99) %*% solve(own_mat992 * subs_mat99)
+mark_up99_3 <- -t(shares99 / price99) %*% solve(own_mat993 * subs_mat99)
+
+mark_up00_1 <- -t(shares00 / price00) %*% solve(own_mat001 * subs_mat00)
+mark_up00_2 <- -t(shares00 / price00) %*% solve(own_mat002 * subs_mat00)
+mark_up00_3 <- -t(shares00 / price00) %*% solve(own_mat003 * subs_mat00)
+
+mark_ups <- cbind(
+  c(mean(mark_up95_1), mean(mark_up96_1), mean(mark_up97_1), mean(mark_up98_1), mean(mark_up99_1), mean(mark_up00_1)),
+  c(mean(mark_up95_2), mean(mark_up96_2), mean(mark_up97_2), mean(mark_up98_2), mean(mark_up99_2), mean(mark_up00_2)),
+  c(mean(mark_up95_3), mean(mark_up96_3), mean(mark_up97_3), mean(mark_up98_3), mean(mark_up99_3), mean(mark_up00_3))
+)
+
+## ------------------------------------------------------------
+## BLP
+## ------------------------------------------------------------
+
+## Consumer draws of nu (repeat J_y times within each year)
+set.seed(123)  # for reproducibility if desired
+n <- 1000
+draws <- NULL
+for (y in years) {
+  hp_y <- hp[year == y]
+  # nu_i: 1 x n normal draws; repeat across J_y rows
+  nu <- rnorm(n, mean = 0, sd = 1)
+  draws_tmp <- matrix(rep(nu, each = length(hp_y)), nrow = length(hp_y), ncol = n)
+  draws <- rbind(draws, draws_tmp)
+}
+
+X_blp <- cbind(1, hp, mpg / 100, fuel, non_euro)
+
+## BLP instruments (sum of characteristics by year)
+sum_chars <- cbind(
+  hp          = aggregate(hp ~ year, data = data.frame(year, hp), sum)$hp[match(year, years)],
+  mpg_div100  = aggregate(I(mpg/100) ~ year, data = data.frame(year, mpg), sum)$`I(mpg/100)`[match(year, years)],
+  fuel        = aggregate(fuel ~ year, data = data.frame(year, fuel), sum)$fuel[match(year, years)],
+  n_products  = aggregate(I(rep(1, length(year))) ~ year, data = data.frame(year), sum)$`I(rep(1, length(year)))`[match(year, years)]
+)
+
+## rc_ivs: ((sum - own)/(n-1) - own)^2  (matching your commented version)
+den <- pmax(sum_chars[, "n_products"] - 1, 1)  # guard against division by zero
+rc_ivs <- ((sum_chars[, c("hp","mpg_div100","fuel")] -
+              cbind(hp, mpg/100, fuel)) / den - cbind(hp, mpg/100, fuel))^2
+
+## Consolidate for estimation
+d <- list(
+  X      = X_blp,
+  sj     = sj,
+  draws  = draws,
+  iv     = iv,
+  year   = year,
+  n      = n,
+  price  = price,
+  rc_ivs = rc_ivs
+)
+
+## Initialize for estimation
+x0 <- rep(0, ncol(rc_ivs))
+W  <- diag(length(x0))
+max_iter <- 1e12
+
+## NOTE: You call user-defined functions obj_fun, opt_weight, contract_map, choice_probs in MATLAB.
+## Below, we assume you will port/define these in R as well, with the same signatures.
+
+efunc <- function(x) obj_fun(x, W, d)
+
+## First-stage GMM
+opt1 <- optim(par = x0, fn = efunc, method = "BFGS",
+              control = list(maxit = max_iter, reltol = 1e-18, REPORT = 10))
+x <- opt1$par
+
+## Optimal weight matrix
+W <- opt_weight(x, d)
+
+## Second-stage GMM
+efunc2 <- function(theta) obj_fun(theta, W, d)
+opt2 <- optim(par = x, fn = efunc2, method = "BFGS",
+              control = list(maxit = max_iter, reltol = 1e-18, REPORT = 10))
+x <- opt2$par
+
+## Get beta/alpha
+cm <- contract_map(x, d)  # should return list(xi, market_share, beta4, delta)
+xi            <- cm$xi
+market_share  <- cm$market_share
+beta4         <- cm$beta4
+delta         <- cm$delta
+alpha4        <- tail(beta4, 1)
+
+## ------------------------------------------------------------
+## Substitution & Market Power for BLP model
+## ------------------------------------------------------------
+
+## Choice probabilities for each draw/product (function must be ported)
+choice_prob <- choice_probs(x, d, delta)
+
+for (y in years) {
+  price_y       <- price[year == y]
+  firm_y        <- firm_id[year == y]
+  choice_prob_y <- choice_prob[year == y, , drop = FALSE]
+  sj_y          <- sj[year == y]
+  nJ            <- length(sj_y)
+
+  subs_mat_y2   <- array(0, dim = c(nJ, nJ, n))
+  elas_mat_y2   <- array(0, dim = c(nJ, nJ, n))
+  div_mat_y2    <- matrix(0, nJ, nJ)
+  own_mat_y2_2  <- array(0, dim = c(nJ, nJ, n))
+
+  for (c in 1:n) {
+    for (i in 1:nJ) {
+      for (j in 1:nJ) {
+        if (i == j) {
+          subs_mat_y2[j, i, c] <- as.numeric(alpha4) * choice_prob_y[j, c] * (1 - choice_prob_y[j, c])
+          elas_mat_y2[j, i, c] <- subs_mat_y2[j, i, c] * price_y[j] / sj_y[j]
+          own_mat_y2_2[j, i, c] <- 1
+        } else if (firm_y[i] == firm_y[j]) {
+          subs_mat_y2[j, i, c] <- -as.numeric(alpha4) * choice_prob_y[j, c] * choice_prob_y[i, c]
+          elas_mat_y2[j, i, c] <- subs_mat_y2[j, i, c] * price_y[i] / sj_y[j]
+          own_mat_y2_2[j, i, c] <- 1
+        } else {
+          subs_mat_y2[j, i, c] <- -as.numeric(alpha4) * choice_prob_y[j, c] * choice_prob_y[i, c]
+          elas_mat_y2[j, i, c] <- subs_mat_y2[j, i, c] * price_y[i] / sj_y[j]
+          own_mat_y2_2[j, i, c] <- 0
+        }
+      }
+    }
+  }
+
+  subs_mat_y3  <- apply(subs_mat_y2, c(1, 2), mean)
+  elas_mat_y3  <- apply(elas_mat_y2, c(1, 2), mean)
+  own_mat_mean <- apply(own_mat_y2_2, c(1, 2), mean)
+
+  for (i in 1:nJ) {
+    for (j in 1:nJ) {
+      if (i == j) {
+        div_mat_y2[j, i] <- 0
+      } else {
+        div_mat_y2[j, i] <- subs_mat_y3[j, i] / abs(subs_mat_y3[i, i])
+      }
+    }
+  }
+
+  if (y == 1995) {
+    subs_mat95 <- subs_mat_y3; elas_mat95 <- elas_mat_y3; div_rat95 <- div_mat_y2
+    own_mat952 <- own_mat_mean; shares95 <- sj_y; price95 <- price_y
+  } else if (y == 1996) {
+    subs_mat96 <- subs_mat_y3; elas_mat96 <- elas_mat_y3; div_rat96 <- div_mat_y2
+    own_mat962_2 <- own_mat_mean; shares96 <- sj_y; price96 <- price_y
+  } else if (y == 1997) {
+    subs_mat97 <- subs_mat_y3; elas_mat97 <- elas_mat_y3; div_rat97 <- div_mat_y2
+    own_mat972 <- own_mat_mean; shares97 <- sj_y; price97 <- price_y
+  } else if (y == 1998) {
+    subs_mat98 <- subs_mat_y3; elas_mat98 <- elas_mat_y3; div_rat98 <- div_mat_y2
+    own_mat982 <- own_mat_mean; shares98 <- sj_y; price98 <- price_y
+  } else if (y == 1999) {
+    subs_mat99 <- subs_mat_y3; elas_mat99 <- elas_mat_y3; div_rat99 <- div_mat_y2
+    own_mat992 <- own_mat_mean; shares99 <- sj_y; price99 <- price_y
+  } else if (y == 2000) {
+    subs_mat00 <- subs_mat_y3; elas_mat00 <- elas_mat_y3; div_rat00 <- div_mat_y2
+    own_mat002 <- own_mat_mean; shares00 <- sj_y; price00 <- price_y
+  }
+}
+
+## CREATE MARK UPS (BLP section)
+mark_up95_1 <- -t(shares95 / price95) %*% solve(own_mat951 * subs_mat95)
+mark_up95_2 <- -t(shares95 / price95) %*% solve(own_mat952 * subs_mat95)
+mark_up95_3 <- -t(shares95 / price95) %*% solve(own_mat953 * subs_mat95)
+
+mark_up96_1 <- -t(shares96 / price96) %*% solve(own_mat961 * subs_mat96)
+mark_up96_2 <- -t(shares96 / price96) %*% solve(own_mat962 * subs_mat96)
+mark_up96_3 <- -t(shares96 / price96) %*% solve(own_mat963 * subs_mat96)
+
+mark_up97_1 <- -t(shares97 / price97) %*% solve(own_mat971 * subs_mat97)
+mark_up97_2 <- -t(shares97 / price97) %*% solve(own_mat972 * subs_mat97)
+mark_up97_3 <- -t(shares97 / price97) %*% solve(own_mat973 * subs_mat97)
+
+mark_up98_1 <- -t(shares98 / price98) %*% solve(own_mat981 * subs_mat98)
+mark_up98_2 <- -t(shares98 / price98) %*% solve(own_mat982 * subs_mat98)
+mark_up98_3 <- -t(shares98 / price98) %*% solve(own_mat983 * subs_mat98)
+
+mark_up99_1 <- -t(shares99 / price99) %*% solve(own_mat991 * subs_mat99)
+mark_up99_2 <- -t(shares99 / price99) %*% solve(own_mat992 * subs_mat99)
+mark_up99_3 <- -t(shares99 / price99) %*% solve(own_mat993 * subs_mat99)
+
+mark_up00_1 <- -t(shares00 / price00) %*% solve(own_mat001 * subs_mat00)
+mark_up00_2 <- -t(shares00 / price00) %*% solve(own_mat002 * subs_mat00)
+mark_up00_3 <- -t(shares00 / price00) %*% solve(own_mat003 * subs_mat00)
+
+mark_ups_blp <- cbind(
+  c(mean(mark_up95_1), mean(mark_up96_1), mean(mark_up97_1), mean(mark_up98_1), mean(mark_up99_1), mean(mark_up00_1)),
+  c(mean(mark_up95_2), mean(mark_up96_2), mean(mark_up97_2), mean(mark_up98_2), mean(mark_up99_2), mean(mark_up00_2)),
+  c(mean(mark_up95_3), mean(mark_up96_3), mean(mark_up97_3), mean(mark_up98_3), mean(mark_up99_3), mean(mark_up00_3))
+)
+
+```
+

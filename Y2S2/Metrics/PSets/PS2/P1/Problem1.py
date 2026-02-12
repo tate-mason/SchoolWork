@@ -107,7 +107,7 @@ from Delta_1c import *
 
 beta_hat = res["β_hat"] # def beta_hat
 
-se_delta = delta_se(beta_hat, W, Y) # call delta method function
+se_delta = delta(beta_hat, W, Y)
 
 res["Std. Error (Delta)"] = se_delta # save results to table
 print(res) # print table

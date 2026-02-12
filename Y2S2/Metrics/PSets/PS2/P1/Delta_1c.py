@@ -32,20 +32,29 @@ def hess_nll(beta, W, Y):
     H_inv = np.linalg.inv(H)
     return H, H_inv
 
-# Delta method call
-def delta_method(H_inv, g):
-    # variance
-    sandwich = g.T @ H_inv @ g
-    # std. error
-    se_delta = np.sqrt(sandwich)
-    # return value
-    return se_delta
+def predict_prob(W, beta):
+    return logistic(W @ beta)
 
-def delta_se(beta_hat, W, Y):
-    # Pack all into one function
-    # Hessian call
-    _, H_inv = hess_nll(beta_hat, W, Y)
-    # Gradient call
-    grad_g = grad_nll(beta_hat, W, Y)
-    # return se
-    return delta_method(H_inv, grad_g)
+def grad_ame_discrete(beta, W, k, x1=1.0, x0=0.0):
+    W1 = W.copy()
+    W0 = W.copy()
+
+    W1[:, k] = x1
+    W0[:, k] = x0
+
+    p1 = predict_prob(W1, beta)
+    p0 = predict_prob(W0, beta)
+
+    g1 = (p1*(1-p1))[:, None] * W1
+    g0 = (p0*(1-p0))[:, None] * W0
+    return (g1-g0).mean(axis=0)
+
+def delta(beta, W, Y):
+    H, H_inv = hess_nll(beta, W, Y)
+    grad_m = grad_ame_discrete(beta, W, k=1)
+
+    se_ame = np.sqrt(grad_m @ H_inv @ grad_m)
+    return se_ame
+
+
+
