@@ -1,11 +1,7 @@
 import numpy as np
 import scipy as sp
 
-"""
-Helper function for multinomial logit
-"""
-
-def mnl_mle(b, X, Zdist, Zprice, Y, J):
+def mnl_mle_b(b, X, Zdist, Zprice, Y, J):
 
     N, Kx = X.shape
     Jm1 = J-1
@@ -28,13 +24,13 @@ def mnl_mle(b, X, Zdist, Zprice, Y, J):
 
     return -np.sum(Vchosen - denom)
 
-def mnl_fit(X, Zdist, Zprice, Y, J=4):
+def mnl_fit_b(X, Zdist, Zprice, Y, J=4):
     Jm1 = J-1
     N, Kx = X.shape
-    x0 = np.zeros(Kx*(Jm1) + 2)
+    x0 = np.ones(Kx*(Jm1) + 2) # new starting values - from zeros to ones
 
     res = sp.optimize.minimize(
-        mnl_mle,
+        mnl_mle_b,
         x0,
         args = (X, Zdist, Zprice, Y, J),
         method = "BFGS"

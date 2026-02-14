@@ -47,7 +47,7 @@ def fit_logit_mle(W, Y, b0):
 def predict_prob(W, beta):
     return logistic(W @ beta)
 
-def ame_dummy_discrete(beta, W, k, x1=1.0, x0=0.0):
+def ame_discrete(beta, W, k, x1=1.0, x0=0.0):
     W1 = W.copy()
     W0 = W.copy()
 

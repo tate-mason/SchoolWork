@@ -87,7 +87,7 @@ res = pd.DataFrame({
 
 k_parent = 1 #define column of variable of interest 
 
-ame_full = ame_dummy_discrete(beta_hat, W, k=k_parent, x1=1.0, x0=0.0) # call ame function from helper file
+ame_full = ame_discrete(beta_hat, W, k=k_parent, x1=1.0, x0=0.0) # call ame function from helper file
 res["AME Parent College: Full"] = float(ame_full) # save to results table
 
 # Subsample
