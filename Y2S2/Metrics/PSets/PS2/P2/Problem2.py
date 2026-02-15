@@ -11,6 +11,22 @@ File for problem 2 of HW2 - Multinomial Logit
         - Numpy: numerical operations
         - Scipy: optimization routines
         - Statsmodels.api: regression package
+    Helper files:
+        - MultLog_2a: functions for part (a) multinomial logit regression
+        - MultLog_2b: functions for part (b) multinomial logit regression with different starting values
+        - MultLog_2d: functions for part (d) calculating average marginal effects
+        - MultLog_2e: functions for part (e) calculating average predicted probabilities
+        - MultLog_2f: functions for part (f) calculating new predicted probabilities when removing the 4 year private option
+        - MultLog_2g: functions for part (g) calculating consumer surplus change when removing the 4 year private option
+    File structure:
+        - Load in data and make it easier to work with in Python
+        - Part (a) Multinomial Logit Regression
+        - Part (b) Multinomial Logit Regression with different starting values
+        - Part (c) Compare results with different Opts (no effect)
+        - Part (d) Calculate Average Marginal Effect of parentBA on attending any 4 year college
+        - Part (e) Calculate Average Predicted Probability of each choice and compare to observable shares
+        - Part (f) Calculate new predicted probabilities when removing the 4 year private
+        - Part (g) Calculate change in consumer surplus when removing the 4 year private option, overall and by parentBA
 """
 
 # Loading in data
@@ -79,10 +95,12 @@ from MultLog_2e import * # call helper file for app function
 
 app = avg_predict_prob(b_hat, X, Zdist, Zprice, Y, 4) # call app function from helper 
 
+print("Average predicted probability of each choice: ")
 print(app) # print results won't fit with dataframe dimensions :( 
 
 # observable share
 obs_share = np.bincount(Y, minlength=4) / len(Y) # counts percentage of Y that group is
+print("Observable share of each choice: ")
 print(obs_share) # print
 
 # They match!
@@ -91,10 +109,23 @@ print(obs_share) # print
 # (f) No more 4 yr private                                   #
 #============================================================#
 
-from MultLog_2f import *
+from MultLog_2f import * # call helper file for new_predict_prob function
 
-pct_change, avg_pct_change = new_predict_prob(b_hat, X, Zdist, Zprice, Y, 4)
+pct_change, avg_pct_change = new_predict_prob(b_hat, X, Zdist, Zprice, Y, 4) # call helper function
 
+# print results
+print("Percent change in predicted probabilities when removing 4 year private option: ")
 print(pct_change) 
+print("Average percent change in predicted probabilities when removing 4 year private option: ")
 print(avg_pct_change)
 
+#============================================================#
+# (g) Consumer Surplus Change                                #
+#============================================================#
+
+from MultLog_2g import * # call helper file for surplus function
+dCS, dcs_BA, dcs_noBA = surplus_func(b_hat, X, Zdist, Zprice, Y, 4) # calling function from helper
+
+print("Average change in consumer surplus (1000's $) when removing 4 year private option: \n", dCS) # print results
+print("Average change in consumer surplus (1000's $) by parentBA when removing 4 year private option: \n", dcs_BA) # print results by parentBA
+print("Average change in consumer surplus (1000's $) by no parentBA when removing 4 year private option: \n", dcs_noBA) # print results by no parentBA
