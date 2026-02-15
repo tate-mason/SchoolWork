@@ -18,7 +18,14 @@ Master file for Problem 1 of Homework 2. In this problem, we will use work with 
         - Boot_1d.py: bootstrap
         - Probit_1e.py: estimation of probit
         - Probit_AME_1f.py: ame for probit estimates
-    Functions:
+    File Structure:
+        - Data Loading and Cleaning
+        - (a) Logit Model of College Choice
+        - (b) Calculate Avg. Marginal Effects
+        - (c) Delta Method to Get S.E. of AME
+        - (d) Delta Method Bootstrap S.E.
+        - (e) Probit Estimation
+        - (f) Probit Estimation: AME
 """
 
 #==========================================================#
