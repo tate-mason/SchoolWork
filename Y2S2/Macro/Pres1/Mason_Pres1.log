@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  7 FEB 2026 16:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  15 FEB 2026 14:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -538,29 +538,7 @@ Package: amsthm 2020/05/29 v2.20.6
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerbasethemes.sty)) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerthemedefault.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerfontthemedefault.sty) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamercolorthemedefault.sty) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
 \beamer@dima=\dimen293
 \beamer@dimb=\dimen294
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerinnerthemecircles.sty) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerouterthememiniframes.sty) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerfontthemeprofessionalfonts.sty)
-./Mason_Pres1.tex:19: Undefined control sequence.
-l.19 \newtcolorbox
-                  {redbox}{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./Mason_Pres1.tex:19: LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.19 \newtcolorbox{r
-                    edbox}{
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mathtools.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerinnerthemecircles.sty) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerouterthememiniframes.sty) (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerfontthemeprofessionalfonts.sty) (/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
  (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
@@ -650,7 +628,8 @@ File: tc-pdftex.def 2025/02/26 v2.3 Clipping driver for pdftex
 \adjbox@pheight=\dimen329
 \adjbox@pdepth=\dimen330
 \adjbox@ptotalheight=\dimen331
- (/usr/local/texlive/2025/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
 \c@checkoddpage=\count354
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/varwidth/varwidth.sty
@@ -708,8 +687,7 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@matrix@numberofcolumns=\count363
 )
 \tikz@expandcount=\count364
-
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -747,32 +725,35 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/eurosym/eurosym.sty
 Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
 \@eurobox=\box96
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box97
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 95.
+Package hyperref Info: Option `colorlinks' set `true' on input line 97.
 
 
-./Mason_Pres1.tex:98: LaTeX Error: Command \hl already defined.
+./Mason_Pres1.tex:100: LaTeX Error: Command \hl already defined.
                Or name \end... illegal, see p.192 of the manual.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.98 ...mmand{\hl}[1]{\textbf{\color{UGARed}{#1}}}
+l.100 ...mand{\hl}[1]{\textbf{\color{UGARed}{#1}}}
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./Mason_Pres1.tex:101: LaTeX Error: Command \figph already defined.
+./Mason_Pres1.tex:103: LaTeX Error: Command \figph already defined.
                Or name \end... illegal, see p.192 of the manual.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.101 ...\textit{#1} \vspace{0.6em}}}\end{center}}
+l.103 ...\textit{#1} \vspace{0.6em}}}\end{center}}
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -781,28 +762,28 @@ or  <return>  to continue without it.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count368
-\l__pdf_internal_box=\box97
+\l__pdf_internal_box=\box98
 ) (./Mason_Pres1.aux)
 \openout1 = `Mason_Pres1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -842,7 +823,7 @@ LaTeX Font Info:    ... okay on input line 104.
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count369
 \scratchdimen=\dimen352
-\scratchbox=\box98
+\scratchbox=\box99
 \nofMPsegments=\count370
 \nofMParguments=\count371
 \everyMPshowfont=\toks53
@@ -857,7 +838,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 104.
+Package hyperref Info: Link coloring ON on input line 106.
  (./Mason_Pres1.out) (./Mason_Pres1.out)
 \@outlinefile=\write5
 \openout5 = `Mason_Pres1.out'.
@@ -875,109 +856,306 @@ Dictionary: translator-numbers-dictionary, Language: English
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 ) (./Mason_Pres1.nav)
-Overfull \vbox (27.72917pt too high) has occurred while \output is active []
+Overfull \hbox (42.1203pt too wide) detected at line 106
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 
-
-[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-]
-
-[2
-
-] (./Mason_Pres1.toc)
-
-[3
-
-]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 143.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 143.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-[4
-
-]
-
-[5
-
-]
-
-[6
-
-] (./Mason_Pres1.toc)
-
-[7
-
-]
-
-[8
-
-]
-
-[9
-
-]
-
-[10
-
-]
-Overfull \vbox (2.34079pt too high) detected at line 229
+Overfull \hbox (42.1203pt too wide) detected at line 115
+ [] [] [] [] [] [] [] [] [] [] 
  []
 
 
 
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 117
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+(./Mason_Pres1.toc)
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[2
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 126
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 126.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 126.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[3
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 134
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[4
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 141
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[5
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 144
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+(./Mason_Pres1.toc)
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[6
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 154
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[7
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 176
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[8
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 190
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[9
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 212
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[10
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 220
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
 [11
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 223
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+(./Mason_Pres1.toc)
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [12
 
-] (./Mason_Pres1.toc)
+]
+Overfull \hbox (42.1203pt too wide) detected at line 235
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [13
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 248
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [14
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 257
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [15
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 260
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+(./Mason_Pres1.toc)
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [16
 
-] (./Mason_Pres1.toc)
+]
+Overfull \hbox (42.1203pt too wide) detected at line 274
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [17
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 287
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [18
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 302
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [19
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 305
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+(./Mason_Pres1.toc)
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [20
 
-] (./Mason_Pres1.toc)
-
-[21
-
 ]
-./Mason_Pres1.tex:332: Undefined control sequence.
+Overfull \hbox (42.1203pt too wide) detected at line 315
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+./Mason_Pres1.tex:315: Undefined control sequence.
 <recently read> \exist 
                        
-l.332 \end{frame}
+l.315 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -987,59 +1165,541 @@ and I'll forget about whatever was undefined.
 
 
 
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[21
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 329
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
 [22
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 339
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [23
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 351
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [24
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 366
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [25
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 378
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [26
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 389
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [27
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 399
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [28
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 411
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [29
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 421
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [30
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 434
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [31
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 444
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [32
 
 ]
+Overfull \hbox (42.1203pt too wide) detected at line 447
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+(./Mason_Pres1.toc)
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [33
 
-] (./Mason_Pres1.toc)
+]
+Overfull \hbox (42.1203pt too wide) detected at line 455
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+<bosman_1a.png, id=750, 839.135pt x 334.24875pt>
+File: bosman_1a.png Graphic file (type png)
+<use bosman_1a.png>
+Package pdftex.def Info: bosman_1a.png  used on input line 455.
+(pdftex.def)             Requested size: 398.3386pt x 158.66779pt.
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [34
 
-]
+ <./bosman_1a.png>]
+Overfull \hbox (42.1203pt too wide) detected at line 462
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+<bosman_1b.png, id=772, 839.135pt x 334.24875pt>
+File: bosman_1b.png Graphic file (type png)
+<use bosman_1b.png>
+Package pdftex.def Info: bosman_1b.png  used on input line 462.
+(pdftex.def)             Requested size: 398.3386pt x 158.66779pt.
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
 [35
+
+ <./bosman_1b.png>]
+Overfull \hbox (42.1203pt too wide) detected at line 469
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+<bosman_1c.png, id=793, 839.135pt x 334.24875pt>
+File: bosman_1c.png Graphic file (type png)
+<use bosman_1c.png>
+Package pdftex.def Info: bosman_1c.png  used on input line 469.
+(pdftex.def)             Requested size: 398.3386pt x 158.66779pt.
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[36
+
+ <./bosman_1c.png>]
+Overfull \hbox (42.1203pt too wide) detected at line 514
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[37
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 529
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[38
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 541
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+<beckham_1.png, id=855, 858.20625pt x 315.1775pt>
+File: beckham_1.png Graphic file (type png)
+<use beckham_1.png>
+Package pdftex.def Info: beckham_1.png  used on input line 541.
+(pdftex.def)             Requested size: 398.3386pt x 146.2915pt.
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[39
+
+ <./beckham_1.png>]
+Overfull \hbox (42.1203pt too wide) detected at line 552
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+<beckham_2.png, id=876, 858.20625pt x 315.1775pt>
+File: beckham_2.png Graphic file (type png)
+<use beckham_2.png>
+Package pdftex.def Info: beckham_2.png  used on input line 552.
+(pdftex.def)             Requested size: 398.3386pt x 146.2915pt.
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[40
+
+ <./beckham_2.png>]
+Overfull \hbox (42.1203pt too wide) detected at line 564
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+<denmark_1.png, id=898, 734.745pt x 487.8225pt>
+File: denmark_1.png Graphic file (type png)
+<use denmark_1.png>
+Package pdftex.def Info: denmark_1.png  used on input line 564.
+(pdftex.def)             Requested size: 318.67209pt x 211.58325pt.
+
+Overfull \vbox (46.31107pt too high) detected at line 564
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[41
+
+ <./denmark_1.png>]
+Overfull \hbox (42.1203pt too wide) detected at line 576
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+<denmark_2.png, id=919, 734.745pt x 487.8225pt>
+File: denmark_2.png Graphic file (type png)
+<use denmark_2.png>
+Package pdftex.def Info: denmark_2.png  used on input line 576.
+(pdftex.def)             Requested size: 318.67209pt x 211.58325pt.
+
+Overfull \vbox (46.31107pt too high) detected at line 576
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[42
+
+ <./denmark_2.png>]
+Overfull \hbox (42.1203pt too wide) detected at line 579
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+(./Mason_Pres1.toc)
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[43
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 597
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[44
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 611
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[45
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 621
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[46
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 631
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[47
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 643
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[48
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 673
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[49
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 721
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (124.04533pt too wide) in paragraph at lines 721--721
+ [][] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[50
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 750
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[51
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 785
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (0.93835pt too wide) in paragraph at lines 785--785
+ [][] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[52
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 788
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+(./Mason_Pres1.toc)
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[53
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 799
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[54
+
+]
+Overfull \hbox (42.1203pt too wide) detected at line 807
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+
+
+Overfull \hbox (42.1203pt too wide) has occurred while \output is active
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[55
 
 ]
 \tf@nav=\write6
@@ -1063,22 +1723,22 @@ Package rerunfilecheck Warning: File `Mason_Pres1.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `Mason_Pres1.out':
-(rerunfilecheck)             Before: 59117D597EC769A0CDF0825636660022;840
-(rerunfilecheck)             After:  DCE3A271B1FED74C5A71D87B4A348DB9;989.
+(rerunfilecheck)             Before: 82EF189839635BB29785B3BAF75AC25C;1135
+(rerunfilecheck)             After:  6AB2D4DEBE57EA2AD37ED213B7769FC2;1317.
  ) 
 Here is how much of TeX's memory you used:
- 29173 strings out of 473190
- 590733 string characters out of 5715801
- 985190 words of memory out of 5000000
- 51780 multiletter control sequences out of 15000+600000
- 567412 words of font info for 70 fonts, out of 8000000 for 9000
+ 29389 strings out of 473190
+ 593693 string characters out of 5715801
+ 963363 words of memory out of 5000000
+ 51939 multiletter control sequences out of 15000+600000
+ 570519 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,19n,123p,386b,811s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
-Output written on Mason_Pres1.pdf (35 pages, 249882 bytes).
+ 128i,16n,123p,386b,783s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
+Output written on Mason_Pres1.pdf (55 pages, 608823 bytes).
 PDF statistics:
- 2913 PDF objects out of 2984 (max. 8388607)
- 1528 compressed objects within 16 object streams
- 77 named destinations out of 1000 (max. 500000)
- 83 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1314 PDF objects out of 1440 (max. 8388607)
+ 797 compressed objects within 8 object streams
+ 119 named destinations out of 1000 (max. 500000)
+ 134 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,6 +1,8 @@
-\beamer@sectionintoc {1}{Motivation \& Background}{3}{0}{1}
-\beamer@sectionintoc {2}{Mirrleesian Framwork}{7}{0}{2}
-\beamer@sectionintoc {3}{Institutional Framework}{13}{0}{3}
-\beamer@sectionintoc {4}{Kleven, Landais, Saez - Introduction}{17}{0}{4}
-\beamer@sectionintoc {5}{Theoretical Model}{21}{0}{5}
-\beamer@sectionintoc {6}{Reduced Form Results}{34}{0}{6}
+\beamer@sectionintoc {1}{Motivation \& Background}{2}{0}{1}
+\beamer@sectionintoc {2}{Mirrleesian Framwork}{6}{0}{2}
+\beamer@sectionintoc {3}{Institutional Framework}{12}{0}{3}
+\beamer@sectionintoc {4}{Kleven, Landais, Saez - Introduction}{16}{0}{4}
+\beamer@sectionintoc {5}{Theoretical Model}{20}{0}{5}
+\beamer@sectionintoc {6}{Reduced Form Results}{33}{0}{6}
+\beamer@sectionintoc {7}{Empirical Estimation}{43}{0}{7}
+\beamer@sectionintoc {8}{Conclusions and Next Steps}{53}{0}{8}
