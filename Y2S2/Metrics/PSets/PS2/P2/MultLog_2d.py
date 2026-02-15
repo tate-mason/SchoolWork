@@ -34,17 +34,16 @@ def predict_prob(b, X, Zdist, Zprice, J):
 
 def ame_mnl(b, X, Zdist, Zprice, Y, J, k, x1=1.0, x0=0.0):
     # calculate AME of changing parentBA from x0 to x1. Create two copies of X, calculate predicted probs for each copy, and take differences in predicted probabilities for the chosen alternative. Then average across individuals.
-    for j in range(2,J):
-        # create copies of X for x1 and x0
-        X1 = X.copy()
-        X0 = X.copy()
+    # create copies of X for x1 and x0
+    X1 = X.copy()
+    X0 = X.copy()
 
-        # change the k-th column of X1 to x1, and the k-th column of X0 to x0
-        X1[:, k] = x1
-        X0[:, k] = x0
+    # change the k-th column of X1 to x1, and the k-th column of X0 to x0
+    X1[:, k] = x1
+    X0[:, k] = x0
 
-        # calculate predicted probabilities for each copy of X, and take differences in predicted probabilities for the chosen alternative (Y). Then average across individuals.
-        P1 = predict_prob(b, X1, Zdist, Zprice, J)
-        P0 = predict_prob(b, X0, Zdist, Zprice, J)
+    # calculate predicted probabilities for each copy of X, and take differences in predicted probabilities for the chosen alternative (Y_2 + Y_3). Then average across individuals.
+    P1 = predict_prob(b, X1, Zdist, Zprice, J)
+    P0 = predict_prob(b, X0, Zdist, Zprice, J)
+    return ((P1[:,2] + P1[:, 3]) - (P0[:,2] + P0[:,3])).mean()
 
-        return (P1[np.arange(Y.size), Y] - P0[np.arange(Y.size), Y]).mean()

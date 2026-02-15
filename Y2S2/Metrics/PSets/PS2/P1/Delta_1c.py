@@ -32,9 +32,11 @@ def hess_nll(beta, W, Y):
     H_inv = np.linalg.inv(H)
     return H, H_inv
 
+# logistic distribution
 def predict_prob(W, beta):
     return logistic(W @ beta)
 
+# recover gradient of ame
 def grad_ame_discrete(beta, W, k, x1=1.0, x0=0.0):
     W1 = W.copy()
     W0 = W.copy()
@@ -45,14 +47,18 @@ def grad_ame_discrete(beta, W, k, x1=1.0, x0=0.0):
     p1 = predict_prob(W1, beta)
     p0 = predict_prob(W0, beta)
 
+    # gradients for those with and without parentBA
     g1 = (p1*(1-p1))[:, None] * W1
     g0 = (p0*(1-p0))[:, None] * W0
     return (g1-g0).mean(axis=0)
 
+# delta method
 def delta(beta, W, Y):
+    #call hessian and gradient functions
     H, H_inv = hess_nll(beta, W, Y)
     grad_m = grad_ame_discrete(beta, W, k=1)
 
+    # compute se.
     se_ame = np.sqrt(grad_m @ H_inv @ grad_m)
     return se_ame
 

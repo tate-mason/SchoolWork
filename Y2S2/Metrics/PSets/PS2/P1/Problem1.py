@@ -101,7 +101,7 @@ res["AME Parent College: Full"] = float(ame_full) # save to results table
 mask = W[:, k_parent] == 1 # subset to k_parent
 W_sub = W[mask,:]
 
-ame_sub = ame_dummy_discrete(beta_hat, W_sub, k=k_parent, x1=1.0, x0=0.0) # call ame from helper
+ame_sub = ame_discrete(beta_hat, W_sub, k=k_parent, x1=1.0, x0=0.0) # call ame from helper
 res["AME Parent College: Subsample"] = float(ame_sub) # add to results table
 
 print(res) # print results

@@ -31,7 +31,7 @@ def surplus_func(b, X, Zdist, Zprice, Y, J):
     inc_val_old = sp.special.logsumexp(V, axis=1) # calculate inclusive value with all 4 choices
     inc_val_new = sp.special.logsumexp(V[:,:3], axis=1) # recalculate inclusive value with only 3 choices, removing the 4th choice (which is the outside option)
 
-    dCS_i = (inc_val_new - inc_val_old) / (-b[-2]) # divide by negative of distance coefficient to get change in consumer surplus
+    dCS_i = 1000*(inc_val_new - inc_val_old) / (-b[-1]) # divide by negative of distance coefficient to get change in consumer surplus
 
     # dCS by parentBA
     dCS_BA = dCS_i[X[:, 1] ==1].mean()# calculate average change in consumer surplus by parentBA

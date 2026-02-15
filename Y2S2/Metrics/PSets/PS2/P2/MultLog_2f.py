@@ -37,4 +37,4 @@ def new_predict_prob(b, X, Zdist, Zprice, Y, J):
 
     avg_pct_change = pct_change.mean(axis=0)
 
-    return pct_change, avg_pct_change
+    return P_new, pct_change, avg_pct_change

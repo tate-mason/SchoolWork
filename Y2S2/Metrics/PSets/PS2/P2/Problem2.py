@@ -111,13 +111,13 @@ print(obs_share) # print
 
 from MultLog_2f import * # call helper file for new_predict_prob function
 
-pct_change, avg_pct_change = new_predict_prob(b_hat, X, Zdist, Zprice, Y, 4) # call helper function
+P, pct_change, avg_pct_change = new_predict_prob(b_hat, X, Zdist, Zprice, Y, 4) # call helper function
 
 # print results
+print("Avg. Predicted Probability After Removing 4 Year Private Option: ")
+print(P.mean(axis=0)) 
 print("Percent change in predicted probabilities when removing 4 year private option: ")
-print(pct_change) 
-print("Average percent change in predicted probabilities when removing 4 year private option: ")
-print(avg_pct_change)
+print(avg_pct_change) 
 
 #============================================================#
 # (g) Consumer Surplus Change                                #
