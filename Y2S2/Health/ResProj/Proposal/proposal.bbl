@@ -1,0 +1,139 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{logan_youth_2020}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=e36014a8260824eb511fd7cce89c13ac}{%
+           family={Logan},
+           familyi={L\bibinitperiod},
+           given={Kelsey},
+           giveni={K\bibinitperiod}}}%
+        {{hash=37d3615c075a26724294c8593e67a702}{%
+           family={Lloyd},
+           familyi={L\bibinitperiod},
+           given={Rhodri\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=b32661357961c6db283d8967d34d3237}{%
+           family={Schafer-Kalkhoff},
+           familyi={S\bibinithyphendelim K\bibinitperiod},
+           given={Tara},
+           giveni={T\bibinitperiod}}}%
+        {{hash=cce6b106949926450a4b6dc8c7c00aa2}{%
+           family={Khoury},
+           familyi={K\bibinitperiod},
+           given={Jane\bibnamedelima C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=17b2ca00dc66b44f7aa8a6f17ee4ef5e}{%
+           family={Ehrlich},
+           familyi={E\bibinitperiod},
+           given={Shelley},
+           giveni={S\bibinitperiod}}}%
+        {{hash=7b9f2df2398a600777ca891570c81a6d}{%
+           family={Dolan},
+           familyi={D\bibinitperiod},
+           given={Lawrence\bibnamedelima M.},
+           giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=e2034a7ae64ac06c2e22f4f2f9f974a0}{%
+           family={Shah},
+           familyi={S\bibinitperiod},
+           given={Amy\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=e6e4bae500f3c13d7ea326376715b297}{%
+           family={Myer},
+           familyi={M\bibinitperiod},
+           given={Gregory\bibnamedelima D.},
+           giveni={G\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{f75131c648ef2b3ae1880f9ba05368e8}
+      \strng{fullhash}{9ace05c7e863d4bc572e8ab240b068f2}
+      \strng{fullhashraw}{9ace05c7e863d4bc572e8ab240b068f2}
+      \strng{bibnamehash}{f75131c648ef2b3ae1880f9ba05368e8}
+      \strng{authorbibnamehash}{f75131c648ef2b3ae1880f9ba05368e8}
+      \strng{authornamehash}{f75131c648ef2b3ae1880f9ba05368e8}
+      \strng{authorfullhash}{9ace05c7e863d4bc572e8ab240b068f2}
+      \strng{authorfullhashraw}{9ace05c7e863d4bc572e8ab240b068f2}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Examining association between serial participation in youth organized sports (OS) and concurrent cardiometabolic risk factors, with long-term health status, will aid understanding the role of OS participation. Combining data from a prospective study and a follow-up survey, we aimed to determine association between youth OS participation and cardiometabolic risk factors with health and physical activity (PA) in young adulthood. Cardiometabolic risk factors were monitored yearly, and OS involvement through middle school, high school, and college, together with current status was recorded 12 years after the initial study began; 462 participants completed follow-up. Cardiometabolic risk factors included: body mass index (BMI), waist circumference, blood pressure, total cholesterol, high-density lipoprotein (HDL), low-density lipoprotein (LDL) cholesterol and triglycerides, fasting glucose and insulin. Participants continuing OS participation from middle to high school and/ or college had signiﬁcantly lower BMI/BMI z-scores [24.7 vs 27.4 (p {<} 0.05) and 0.51 vs 0.82 (p {<} 0.05), respectively] and signiﬁcantly higher HDL [48.7 vs 45.4 (p ≤ 0.05)] than those without OS participation after middle school. Waist circumference of females was signiﬁcantly smaller in those who participated in OS from middle to high school and/or college (84.9 cm) compared to those who had no OS (92.1 cm), (p {<} 0.05). Participants continuing OS from middle to high school and/or college reported signiﬁcantly higher follow-up PA levels than those who had no OS after middle school (p {<} 0.001). This study provides novel data showing serial participation in OS from middle to high school and/or college was associated with a superior cardiometabolic health proﬁle in school and increased PA levels at 12-year follow-up.}
+      \field{issn}{22113355}
+      \field{journaltitle}{Preventive Medicine Reports}
+      \field{month}{9}
+      \field{shorttitle}{Youth sports participation and health status in early adulthood}
+      \field{title}{Youth sports participation and health status in early adulthood: {A} 12-year follow-up}
+      \field{urlday}{17}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{volume}{19}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \field{pages}{101107}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.pmedr.2020.101107
+      \endverb
+      \verb{file}
+      \verb PDF:files/41/Logan et al. - 2020 - Youth sports participation and health status in early adulthood A 12-year follow-up.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S221133552030067X
+      \endverb
+      \verb{url}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S221133552030067X
+      \endverb
+    \endentry
+    \entry{stevenson_beyond_nodate}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=4492593ec3b36af16a215b9dc5ca4100}{%
+           family={Stevenson},
+           familyi={S\bibinitperiod},
+           given={Betsey},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{4492593ec3b36af16a215b9dc5ca4100}
+      \strng{fullhash}{4492593ec3b36af16a215b9dc5ca4100}
+      \strng{fullhashraw}{4492593ec3b36af16a215b9dc5ca4100}
+      \strng{bibnamehash}{4492593ec3b36af16a215b9dc5ca4100}
+      \strng{authorbibnamehash}{4492593ec3b36af16a215b9dc5ca4100}
+      \strng{authornamehash}{4492593ec3b36af16a215b9dc5ca4100}
+      \strng{authorfullhash}{4492593ec3b36af16a215b9dc5ca4100}
+      \strng{authorfullhashraw}{4492593ec3b36af16a215b9dc5ca4100}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Between 1972 and 1978 U.S. high schools rapidly increased their female athletic participation rates—to approximately the same level as their male athletic participation rates—in order to comply with Title IX, a policy change that provides a unique quasi-experiment in female athletic participation. This paper examines the causal implications of this expansion in female sports participation by using variation in the level of boys’ athletic participation across states before Title IX to instrument for the change in girls’ athletic participation. Analysis of differences in outcomes across states in changes between pre- and post-cohorts reveals that a 10-percentage point rise in state-level female sports participation generates a 1 percentage point increase in female college attendance and a 1 to 2 percentage point rise in female labor force participation. Furthermore, greater opportunities to play sports leads to greater female participation in previously male-dominated occupations, particularly in high-skill occupations.}
+      \field{title}{Beyond the {Classroom}: {Using} {Title} {Ix} to {Measure} the {Return} to {High} {School} {Sports}}
+      \verb{file}
+      \verb PDF:files/40/Stevenson - NBER WORKING PAPER SERIES.pdf:application/pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

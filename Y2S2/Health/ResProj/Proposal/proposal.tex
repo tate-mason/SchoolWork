@@ -12,6 +12,8 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{hyperref}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{Proposal_bib.bib}
 
 \onehalfspacing
 \hypersetup{
@@ -24,9 +26,8 @@
 % -----------------------
 % Metadata macros
 % -----------------------
-\newcommand{\Title}{Research Proposal Title}
-\newcommand{\Author}{Your Name}
-\newcommand{\Affil}{Department / University}
+\newcommand{\Title}{Returns to Representation: Girls' Youth Sports Participation Following the Onset of the USWNT and WNBA}
+\newcommand{\Author}{Tate Mason}
 \newcommand{\Date}{\today}
 
 % -----------------------
@@ -50,7 +51,7 @@
 \DeclareMathOperator*{\argmin}{arg\,min}
 
 % Probability / expectation / variance
-\newcommand{\P}{\mathbb{P}}
+\newcommand{\Prob}{\mathbb{P}}
 \newcommand{\E}{\mathbb{E}}
 \newcommand{\Var}{\mathrm{Var}}
 \newcommand{\Cov}{\mathrm{Cov}}
@@ -90,7 +91,7 @@
 \begin{document}
 
 \begin{center}
-  {\LARGE \textbf{\Title}}\\[0.5em]
+  {\large \textbf{\Title}}\\[0.5em]
   {\large \Author}\\
   {\Affil}\\[0.25em]
   {\Date}
@@ -102,64 +103,61 @@
 % Proposal structure
 % -----------------------
 \Section{Motivation and Research Question}
-  
-  How does having a child born with a risky health status impact migration decisions in new parents?
+  In the late 1990's, young female athletes would be exposed to two new sources of professional athletics:
+  the Women's National Basketball Association (WNBA) and the United States Women's National Team (USWNT).
+  These entities provided young basketball and soccer players, respectively, the opportunity to envision
+  a future in professional athletics. Having a pathway in mind, would these girls be spurred to increase
+  participation in sports?
 
-  Changes in family makeup can drive migration decisions for new parents. They may be seeking proximity to relatives, better opportunities to provide, or a more
-  advantageous environment for their child to grow in. However, the goal of this idea is to examine how this decision is affected by having a child who is born
-  with some sort of health risk, like being low birth weight (front of mind). Understanding the cases in which this can act as a motivator versus when it is a cost 
-  can help to understand the general patterns of migration for an interesting group with multiple dynamics at play.
+  My idea is to understand how the advent of WNBA and the popularization of the USWNT in the 1990's impacted 
+  youth sports participation for girls. Beyond the preliminary question of the effect on youth sports, I am also
+  interested in seeing the effect on college attendance, labor market outcomes, and health outcomes. College 
+  attendance is of interest due to athletic scholarships being a potential byproduct of youth sports participation
+  and labor market outcomes are of interest given those who attend college have better outcomes than those who do not.
+  Finally, health outcomes are of interest since, even if a majority of these girls will not reach a professional level,
+  there is evidence of long term health benefits associated with playing organized sports as a child \parencite{logan_youth_2020}.
 
-\Section{Background and Related Literature}
-% 5--10 key papers; identify gap and contribution.
+\Section{Contribution}
+  There is very little litereature on youth sports participation for girls. \textcite{stevenson_beyond_nodate}, covers a similar
+  topic, but focuses instead on the implementation of Title IX on girls' participation. Her study finds a 10 percentage-point increase
+  in sports participation, as well as a one percentage-point increase in female collge attendance and a one-to-two percentage-point increase
+  in labor force participation.
 
-\Section{Conceptual Framework}
+  I would add to a study like this by focusing on a more contemporary event through professional sports' impact. Further, Stevenson does not
+  spend time on health impacts. This would be an interesting avenue to add to a fresher look at educational attainment and labor market outcomes.
 
-  Parents 
+\Section{Methodological Strategy}
+  The primary dimensions of variation for this topic are time and space. For time, there is staggered treatment, with the WNBA expanding from 8 teams
+  in 1997 to 16 in 2000. For the USWNT, there are two sources of timing to exploit. First, in 1991, the USWNT won gold at the Women's World Cup in China,
+  a hugely publicized accomplishment in the US. Secondly, the United States would host the 1999 Women's World Cup. This is insteresting, as both the effect
+  of proximity and of representation can be tested.
+
+  Geographically, the WNBA has set cities which host teams. This would, again, allow for testing of intensity of treatment by location. Similarly, for the WWC,
+  having the US hosting presents the opportunity to examine the intensity of treatment in the eight host cities. Four of these cities happen to overlap. Those being
+  Los Angeles, New York City, Portland, and an agglomerated area of DC-Baltimore. This further presents interesting opportunity for variation.
+
+  I think doing a differences in differences in differences design in which I difference first having either of the sources of representation and having none. Then,
+  differencing that from the instance of having both sources. A difficulty with this approach is the staggered treatment. For the WNBA, 2-4 teams were added yearly in
+  the time horizon of interest. For the USWNT, there is the issue of two major sources of publicity across 8 years. Further, while I think endogeneity is not a huge
+  threat here, as individuals did not have the choice of whether or not to live in a city which would be chosen to host the World Cup or a WNBA team, I worry about the
+  proclivity to place a team in the largest cities or the cities whose demographics would best support a team/game. These are problems which will warrant more thought,
+  and can hopefully be overcome.
 
 \Section{Data}
-\Subsection{Data Sources}
+  For data, I plan to follow the approach of \cite{stevenson_beyond_nodate}. The National Federation of State High School Associations (NFSH) keeps data on high school sports 
+  participation by state and gender. This is not as granular as I'd hope, but is at least a starting point. IPUMS USA data can provide information on labor, location, and educational outcomes,
+  as well as act as a panel with seeing individuals repeatedly. There is a gap here, however, in which I would have to calculate sports participation for a larger state, apply it to all
+  women from IPUMS, and extrapolate. While this is my best option as of now, I am continuously looking for better options like the NSLY97 cohort, or some other data source to be found.
 
+  Access for all data listed is public or already obtained. I have a lot of experience with IPUMS, and thus do not worry much about being able to use it effectively for labor and education
+  outcomes. NFHS data I have not worked with, but it appears all I would need to do is scrape PDF participation surveys posted on their website. This should also be no problem, with the 
+  biggest cost coming in the form of learning to scrape PDF's. 
 
-\Subsection{Key Variables and Measurement}
+  As stated above, I am still actively looking for fallbacks. I think data-wise, this project is mostly standard. The main problem is the disharmony between the datasets, but hopefully this
+  can be remedied as I continue to look through data related to this field.
+  
 
-
-\Subsection{Sample Construction}
-
-\Section{Empirical Strategy / Model}
-% Put main estimating equation(s) here.
-
-% Example numbered equation:
-% \eqnlabel{main}{
-%   Y_{it} = \alpha + \beta D_{it} + \gamma X_{it} + \delta_t + \mu_i + \varepsilon_{it}.
-% }
-% Refer back with \Eqref{main}.
-
-\Subsection{Identification and Assumptions}
-% Consider adding explicit assumptions:
-% \begin{assumption}[Parallel Trends]
-%  ...
-% \end{assumption}
-
-\Subsection{Estimation}
-\Subsection{Threats to Validity and Robustness}
-\Subsection{Heterogeneity and Mechanisms}
-
-\Section{Expected Contributions}
-% What will this add (substantively + methodologically)?
-
-\Section{Timeline and Feasibility}
-\begin{itemize}
-  \item Month 1--2: Data acquisition and cleaning
-  \item Month 3--4: Baseline estimates
-  \item Month 5: Robustness + extensions
-  \item Month 6: Write-up and revision
-\end{itemize}
-
-\Section{References}
-% Barebones: manually list, or swap to BibTeX later.
-\begin{itemize}
-  \item Author (Year). Title. Journal.
-\end{itemize}
+\printbibliography
+  
 
 \end{document}
