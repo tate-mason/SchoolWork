@@ -53,3 +53,36 @@ print(res_frame)
 
 from Problem1b import * # importing the helper function
 
+b_hat_nl, se_nl, res_nl = nl_fit(X_filter, Zdist, Zprice, Y, 4)
+
+res_frame_nl = pd.DataFrame({
+    "β, γ, λ Estimates:": b_hat_nl,
+    "Std. Errors:": se_nl
+})
+
+print(res_frame_nl)
+
+# ============================================= #
+# (c) Multinomial Logit w/ X_3                  #
+# ============================================= #
+
+b_hat_c, se_c, res = fit_mnl(X, Zdist, Zprice, Y, 4)
+res_frame_c = pd.DataFrame({
+    "β and γ Estimates:": b_hat_c,
+    "Std. Errors": se_c
+})
+
+print(res_frame_c)
+
+# ============================================= #
+# (d) Nested Logit w/ X_3                       #
+# ============================================= #
+
+b_hat_d, se_d, res_d = nl_fit(X, Zdist, Zprice, Y, 4)
+res_frame_d = pd.DataFrame({
+    "β, γ, λ Estimates:": b_hat_d,
+    "Std. Errors": se_d
+})
+
+print(res_frame_d)
+
