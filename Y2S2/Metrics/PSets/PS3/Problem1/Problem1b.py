@@ -46,6 +46,7 @@ def nl_prob(V, lam_nest, nest_id=None):
 
     lam = np.ones(G)
     lam[2] = lam_nest
+    lam_nest = np.clip(lam_nest, 0.0, 1.0)
 
     IV = np.zeros((N,G)) # inclusive value
     for g in range(G):
