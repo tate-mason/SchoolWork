@@ -62,6 +62,22 @@ res_frame_nl = pd.DataFrame({
 
 print(res_frame_nl)
 
+
+# ============================================= #
+# (c) Delta Method for λ                        #
+# ============================================= #
+
+from Problem1c import *
+
+cov = np.asarray(res_nl.hess_inv)
+
+lam_hat, se_lam = delta_lambda(
+    b_hat_nl,
+    cov
+)
+
+print(lam_hat, se_lam)
+
 # ============================================= #
 # (c) Multinomial Logit w/ X_3                  #
 # ============================================= #
