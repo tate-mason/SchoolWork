@@ -17,6 +17,8 @@ from Problem2a import *
 
 beta_hat, se, rho_hat, res = mnp_opt(X, Z, Y, 3, 300, 0.1, 219)
 
+rho_hat= 1/ (1+np.exp(-rho_hat))
+
 param_full = np.append(beta_hat, rho_hat)
 se_full = np.append(se, np.nan)
 
