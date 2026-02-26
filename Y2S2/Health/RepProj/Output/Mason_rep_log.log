@@ -1,270 +1,206 @@
-------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  /Users/tate/Schoolwork/Y2S2/Health/
-> RepProj/Output/Mason_rep_log.log
+       log:  /Users/tate/Schoolwork/Y2S2/Health/RepProj/Output/Mason_rep_log.log
   log type:  text
- opened on:   4 Feb 2026, 13:13:06
+ opened on:  26 Feb 2026, 07:59:32
 
 . 
-. /*********************************************
-> ***************
-> * (2) Loading in Data and Looking Around      
->               *
-> **********************************************
-> **************/
+. /************************************************************
+> * (2) Loading in Data and Looking Around                    *
+> ************************************************************/
 . 
-. use `dataPath'BRFSS_Final_Data.dta // call BRF
-> SS data
+. use `dataPath'BRFSS_Final_Data.dta // call BRFSS data
 
 . summ * // get summary stats for all variables
 
-    Variable |        Obs        Mean    Std. de
-> v.       Min        Max
--------------+----------------------------------
-> -----------------------
-        fips |    273,224    28.89864    15.3808
-> 2          1         56
-       month |    273,224    6.571751    3.42185
-> 2          1         12
-         day |    273,224    13.74123    7.10114
-> 5          1         31
-        year |    273,224    1997.488    2.58836
-> 2       1993       2001
-      adults |    273,224     1.84927    .719808
-> 6          1         18
--------------+----------------------------------
-> -----------------------
-    srhealth |    273,224    2.139453    .943262
-> 5          1          5
-   phys_poor |    273,224    2.482593    5.97204
-> 2          0         30
- mental_poor |    273,224    4.105646    7.74667
-> 1          0         30
-    phys_act |    140,294     2.35437    1.01588
-> 7          1          4
-         age |    273,224    31.50638    5.59407
-> 8         21         40
--------------+----------------------------------
-> -----------------------
-     marital |    273,224    2.389563    1.81742
-> 8          1          6
-        kids |    273,224    1.321967    1.09916
-> 5          0          3
-        educ |    273,224    2.853234    .943235
-> 6          1          4
-      employ |    272,305    2.181873    1.91073
-> 8          1          8
-      weight |    260,767    148.2779     34.388
-> 1         55        635
--------------+----------------------------------
-> -----------------------
-      county |    203,154    62.58154    86.7914
-> 5          1        900
-         sex |    273,224           2           
-> 0          2          2
-fruit_veggie |    148,808    2.815023    .830458
-> 1          1          4
-   alcoholic |    175,787    .0196146    .138672
-> 4          0          1
- totaldrinks |    175,787    6.204133     15.530
-> 3          0        900
--------------+----------------------------------
-> -----------------------
-    finalwgt |    273,224     43760.7    119780.
-> 1   7.594719    4137384
-    exercise |    161,144    .7495966    .433246
-> 7          0          1
-      income |    248,320    3.143553     1.5066
-> 3          1          5
-       race4 |    273,224    1.426654    .843890
-> 6          1          4
-   now_smoke |    273,224    .2622207    .439842
-> 8          0          1
--------------+----------------------------------
-> -----------------------
-  ever_smoke |    273,224    .4143743    .492614
-> 6          0          1
-      height |    271,375    64.78986    2.79347
-> 8         29         91
-         bmi |    252,561    24.69097    4.86001
-> 6   17.53976   42.95259
- eitc_expand |    273,224    .7334239    .442169
-> 7          0          1
-twoplus_kids |    273,224    .4568889    .498138
-> 9          0          1
--------------+----------------------------------
-> -----------------------
-dd_treatment |    273,224    .3371336    .472731
-> 8          0          1
-bad_menta~30 |    273,224    .4538913    .497870
-> 4          0          1
- bad_phys_30 |    273,224    .3602831    .480083
-> 4          0          1
- excel_vgood |    273,224    .6675438    .471094
-> 3          0          1
-     working |    272,305    .7306733    .443610
-> 8          0          1
--------------+----------------------------------
-> -----------------------
-        inlf |    273,224    .7780759    .415541
-> 1          0          1
-     at_work |    273,224    .7282157    .444880
-> 1          0          1
-     married |    273,224    .5578939    .496637
-> 9          0          1
- div_sep_wid |    273,224    .1673096    .373252
-> 7          0          1
-never_marr~d |    273,224    .2377061    .425678
-> 9          0          1
--------------+----------------------------------
-> -----------------------
-    white_nh |    273,224    .7566539    .429103
-> 1          0          1
-    black_nh |    273,224    .1104954    .313506
-> 8          0          1
-    hispanic |    273,224    .0823939    .274964
-> 5          0          1
-       other |    273,224    .0504568    .218885
-> 9          0          1
-      single |    273,224    .4421061    .496637
-> 9          0          1
--------------+----------------------------------
-> -----------------------
-     income1 |    273,224     .210633     .40775
-> 9          0          1
-     income2 |    273,224    .1070843     .30922
-> 1          0          1
-     income3 |    273,224    .1689749    .374730
-> 4          0          1
-     income4 |    273,224    .1854998    .388703
-> 2          0          1
-     income5 |    273,224    .2366593    .425032
-> 2          0          1
--------------+----------------------------------
-> -----------------------
-  incomemiss |    273,224    .0911487    .287820
-> 9          0          1
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+        fips |    273,224    28.89864    15.38082          1         56
+       month |    273,224    6.571751    3.421852          1         12
+         day |    273,224    13.74123    7.101145          1         31
+        year |    273,224    1997.488    2.588362       1993       2001
+      adults |    273,224     1.84927    .7198086          1         18
+-------------+---------------------------------------------------------
+    srhealth |    273,224    2.139453    .9432625          1          5
+   phys_poor |    273,224    2.482593    5.972042          0         30
+ mental_poor |    273,224    4.105646    7.746671          0         30
+    phys_act |    140,294     2.35437    1.015887          1          4
+         age |    273,224    31.50638    5.594078         21         40
+-------------+---------------------------------------------------------
+     marital |    273,224    2.389563    1.817428          1          6
+        kids |    273,224    1.321967    1.099165          0          3
+        educ |    273,224    2.853234    .9432356          1          4
+      employ |    272,305    2.181873    1.910738          1          8
+      weight |    260,767    148.2779     34.3881         55        635
+-------------+---------------------------------------------------------
+      county |    203,154    62.58154    86.79145          1        900
+         sex |    273,224           2           0          2          2
+fruit_veggie |    148,808    2.815023    .8304581          1          4
+   alcoholic |    175,787    .0196146    .1386724          0          1
+ totaldrinks |    175,787    6.204133     15.5303          0        900
+-------------+---------------------------------------------------------
+    finalwgt |    273,224     43760.7    119780.1   7.594719    4137384
+    exercise |    161,144    .7495966    .4332467          0          1
+      income |    248,320    3.143553     1.50663          1          5
+       race4 |    273,224    1.426654    .8438906          1          4
+   now_smoke |    273,224    .2622207    .4398428          0          1
+-------------+---------------------------------------------------------
+  ever_smoke |    273,224    .4143743    .4926146          0          1
+      height |    271,375    64.78986    2.793478         29         91
+         bmi |    252,561    24.69097    4.860016   17.53976   42.95259
+ eitc_expand |    273,224    .7334239    .4421697          0          1
+twoplus_kids |    273,224    .4568889    .4981389          0          1
+-------------+---------------------------------------------------------
+dd_treatment |    273,224    .3371336    .4727318          0          1
+bad_menta~30 |    273,224    .4538913    .4978704          0          1
+ bad_phys_30 |    273,224    .3602831    .4800834          0          1
+ excel_vgood |    273,224    .6675438    .4710943          0          1
+     working |    272,305    .7306733    .4436108          0          1
+-------------+---------------------------------------------------------
+        inlf |    273,224    .7780759    .4155411          0          1
+     at_work |    273,224    .7282157    .4448801          0          1
+     married |    273,224    .5578939    .4966379          0          1
+ div_sep_wid |    273,224    .1673096    .3732527          0          1
+never_marr~d |    273,224    .2377061    .4256789          0          1
+-------------+---------------------------------------------------------
+    white_nh |    273,224    .7566539    .4291031          0          1
+    black_nh |    273,224    .1104954    .3135068          0          1
+    hispanic |    273,224    .0823939    .2749645          0          1
+       other |    273,224    .0504568    .2188859          0          1
+      single |    273,224    .4421061    .4966379          0          1
+-------------+---------------------------------------------------------
+     income1 |    273,224     .210633     .407759          0          1
+     income2 |    273,224    .1070843     .309221          0          1
+     income3 |    273,224    .1689749    .3747304          0          1
+     income4 |    273,224    .1854998    .3887032          0          1
+     income5 |    273,224    .2366593    .4250322          0          1
+-------------+---------------------------------------------------------
+  incomemiss |    273,224    .0911487    .2878209          0          1
 
 . tabstat income* educ  working
 
-   Stats |    income   income1   income2
----------+------------------------------
-    Mean |  3.143553   .210633  .1070843
-----------------------------------------
-
-   Stats |   income3   income4   income5
----------+------------------------------
-    Mean |  .1689749  .1854998  .2366593
-----------------------------------------
-
-   Stats |  income~s      educ   working
----------+------------------------------
-    Mean |  .0911487  2.853234  .7306733
-----------------------------------------
+   Stats |    income   income1   income2   income3   income4   income5  income~s      educ   working
+---------+------------------------------------------------------------------------------------------
+    Mean |  3.143553   .210633  .1070843  .1689749  .1854998  .2366593  .0911487  2.853234  .7306733
+----------------------------------------------------------------------------------------------------
 
 . 
-. /*********************************************
-> ***************
-> * (3) Creating Local Variables for Functions (
-> Switches)     *
-> **********************************************
-> **************/
+. /************************************************************
+> * (3) Creating Local Variables for Functions (Switches)     *
+> ************************************************************/
 . 
-. // Below I define a local switch for each part
->  of the assignment. When set to 1, it will run
-> , at 0, it is dormant
+. // Below I define a local switch for each part of the assignment. When set to 1, it will run, at 0, it is dormant
 . 
-. local Tab2 = 1
+. local Tab2 = 0
 
-. local Tab3 = 0
+. local Tab3 = 1
 
 . local Tab4 = 0
 
-. local Tab5 = 0 // only observations, sample me
-> an, and % with risky levels
+. local Tab5 = 0 // only observations, sample mean, and % with risky levels
 
 . local Tab6 = 0
 
 . local Tab7 = 0 
 
-. local Fig4 = 0 // insert vline at t = 1996, in
-> clude additional subfigure for "at work" rathe
-> r than "in labor force" -- figure 4 has 5 subf
-> igures
+. local Fig4 = 0 // insert vline at t = 1996, include additional subfigure for "at work" rather than "in labor forc
+> e" -- figure 4 has 5 subfigures
 
-. local ARC  = 0 // Additional Robustness Checks
->  - Footnote 12 (col1), Footnote 21 - diff year
-> s excluded (col2), Footnote 21 - years specifi
-> ed (col3)
+. local ARC  = 0 // Additional Robustness Checks - Footnote 12 (col1), Footnote 21 - diff years excluded (col2), Fo
+> otnote 21 - years specified (col3)
 
 . 
-. /*********************************************
-> ***************
-> * (4) Table 2 - Sample Characteristics        
->               *
-> **********************************************
-> **************/
+. /************************************************************
+> * (4) Table 2 - Sample Characteristics                      *
+> ************************************************************/
 . 
-. /*********************************************
-> ***************
-> * First, call the local which is switched "on"
-> . Then, I will*
-> * generate the sample statistics after subsett
-> ing the data  *
-> * to mothers aged 21-40 in the years 1993-1996
->  using the    *
-> * BRFSS dataset.                              
->               *
-> **********************************************
-> **************/
+. /************************************************************
+> * First, call the local ensuring it is switched "on", equal *
+> * to 1. Then, I will generate the sample statistics after   *
+> * subsetting the data to mothers aged 21-40 in the years    *
+> * 1993-1996 using the BRFSS dataset.                        *
+> ************************************************************/
 . 
 . if `Tab2' {
-.   drop if year < 1993 | year > 1996
-(173,199 observations deleted)
+.   drop if year < 1993 | year > 1995
 .   drop if age < 21 | age > 40
-(0 observations deleted)
-.   drop if kids == 0
-(32,171 observations deleted)
+.   drop if kids == 0 | kids == .
 .   drop if educ == 3
-(21,705 observations deleted)
 .   drop if fips > 56
-(0 observations deleted)
-.   gen obsnum = _n //generating an observation 
-> number for each observation
+.   
+.   gen obsnum = _n //generating an observation number for each observation
 . 
-.   recode educ (1/2 = 0) (4=1), gen(college_edu
-> )
-(46,149 differences between educ and college_edu
-> )
+.   recode educ (1/2 = 0) (4=1), gen(college_edu) //reclassifying education such that college_edu = 1 if the woman 
+> has a degree and 0 if high school attainment was their highest level of education
+.  
+.   local tab2_vars "age working excel_vgood *_poor bad_* white_nh hispanic black_nh other income* incomemiss marri
+> ed div_sep_wid never_married" //creating a local variable to contain all relevant table variables
 . 
-.   local races "white_nh black_nh hispanic othe
-> r" 
-.   foreach r of local races {
-  2.       by obsnum, sort: egen perc_`r' = pc(`
-> r')
-  3.     }
-(11,301 missing values generated)
-(40,576 missing values generated)
-(42,454 missing values generated)
-(44,116 missing values generated)
-. 
-.   sort college_edu
-.   by college_edu: sum mean(age) perc_* working
->  inlf excel_vgood mental_poor phys_poor if kid
-> s == 1
-
-------------------------------------------------
--> college_edu = 0
-variable mean not found
-r(111);
-.   by college_edu: sum inlf excel_vgood mental_
-> poor phys_poor if kids > 1
+.   sort college_edu //sort by college status so that i can then summarize by that classification
+.   by college_edu: sum `tab2_vars' if kids == 1 //summarize for women with only one child
+.   by college_edu: sum `tab2_vars' if kids > 1 //summarize for women with two or more children
 . 
 .   }
-r(111);
 
+. 
+. /************************************************************
+> * (4) Table 3 - DiD OLS & Negative Binomial Estimates       *
+> ************************************************************/
+. 
+. /************************************************************
+> * As above, call the local "Tab3", ensuring it is switched  *
+> * on (equal to 1). Then, I will estimate the OLS DiD model  *
+> * shown on page 268. Following that, I will estimate the    *
+> * negative binomial.                                        *
+> ************************************************************/
+. 
+. drop if kids==0 | kids == .
+(86,045 observations deleted)
+
+. drop if educ == 3
+(59,970 observations deleted)
+
+. drop if age < 21 | age > 40
+(0 observations deleted)
+
+. drop if fips > 56
+(0 observations deleted)
+
+. 
+. 
+. recode educ (1/2 = 0) (4=1), gen(college_edu) //reclassifying education such that college_edu = 1 if the woman ha
+> s a degree and 0 if high school attainment was their highest level of education
+(127,209 differences between educ and college_edu)
+
+. 
+. gen interact_treat = twoplus_kids*eitc_expand
+
+. 
+. // Simple OLS DiD - inLF & Excellent/Very Good Health:
+. 
+. reg inlf twoplus_kids eitc_expand dd_treatment fips year if educ <= 2, cluster(fips)
+
+Linear regression                               Number of obs     =     82,907
+                                                F(5, 50)          =      57.69
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.0086
+                                                Root MSE          =     .44906
+
+                                  (Std. err. adjusted for 51 clusters in fips)
+------------------------------------------------------------------------------
+             |               Robust
+        inlf | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+twoplus_kids |  -.1017515   .0081949   -12.42   0.000    -.1182115   -.0852915
+ eitc_expand |   .0016194   .0126514     0.13   0.899    -.0237916    .0270305
+dd_treatment |   .0231619   .0079061     2.93   0.005     .0072821    .0390417
+        fips |  -.0004193   .0006751    -0.62   0.537    -.0017752    .0009366
+        year |   .0022121   .0026176     0.85   0.402    -.0030455    .0074696
+       _cons |  -3.632812    5.21883    -0.70   0.490    -14.11514    6.849516
+------------------------------------------------------------------------------
+
+. 
+. 
 end of do-file
-
-r(111);
 
 . exit, clear

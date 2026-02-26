@@ -138,20 +138,66 @@ print(iv.summary())
 # ================================= #
 # (A) Estimation                    #
 # ================================= #
-df_l = df_l.replace([np.inf, -np.inf], np.nan).dropna(subset=["x","p","mc","micro1"])
 
-df_l["inc_p"] = df_l["p"] * df_l["inc_mu"]
-df_l["inc_x"] = df_l["x"] * df_l["inc_mu"]
-df_l["inc_mc"] = df_l["inc_mu"] * df_l["mc"]
+import pyblp
 
-Z_col_het = ["x", "mc", "inc_x", "inc_mc"]
+# base formulation definition
+X1 = pyblp.Formulation('1 + x + prices')
+X2 = pyblp.Formulation('0 + x + prices')
 
-X_col_het = ["x", "p", "inc_x", "inc_p"]
+agent_form = pyblp.Formulation('0 + income')
 
-Z_het = sm.add_constant(df_l[Z_col_het])
-X_het = sm.add_constant(df_l[X_col_het])
+# product data definition
+prod_data = df_l.rename(columns={"market": "market_ids", "share": "shares", "p": "prices"}).copy()
+prod_data = prod_data[["market_ids", "shares", "prices", "x", "mc"]]
 
-het_est = IV2SLS(Y, X_het, Z_het).fit()
-print(het_est.summary())
+# instrumenting for price + price*income
 
+mkt_demo = (
+    df_l.groupby("market")[["inc_mu", "inc_sig"]]
+    .mean()
+    .reset_index()
+)
 
+prod_data = prod_data.merge(mkt_demo, left_on="market_ids", right_on="market", how = "left")
+prod_data["demand_instruments0"] = prod_data["mc"]
+prod_data["demandinstruments1"] = prod_data["mc"] * prod_data["inc_mu"]
+prod_data["demandinstruments2"] = prod_data["mc"] * prod_data["inc_sig"]
+
+# agent data
+rng = np.random.default_rng(219)
+
+R = 500
+
+m = np.maximum(mkt_demo["inc_mu"].to_numpy(dtype=float), 1e-12)
+s = np.maximum(mkt_demo["inc_sig"].to_numpy(dtype=float), 0.0)
+
+sig2 = np.log1p((s**2) / (m**2))
+mu_ln = np.log(m) - 0.5 * sig2
+sig_ln = np.sqrt(sig2)
+
+markets = mkt_demo["market"].to_numpy()
+M = len(markets)
+
+income_draws = rng.lognormal(mean = mu_ln[:, None], sigma = sig_ln[:, None], size = (M,R))
+
+agent_data = pd.DataFrame({
+    "market_ids": np.repeat(markets, R),
+    "weights": np.full(M*R, 1.0/R),
+    "income": income_draws.ravel()
+})
+
+integration = pyblp.Integration("halton", R)
+
+problem = pyblp.Problem(
+    product_formulations = (X1, X2),
+    product_data = prod_data,
+    agent_formulation = agent_form,
+    agent_data = agent_data,
+    integration = integration
+)
+
+sigma0 = np.zeros((2,2))
+pi0 = np.array([[0.0], [0.0]])
+
+results = problem.solve(sigma=sigma0, pi = pi0)
