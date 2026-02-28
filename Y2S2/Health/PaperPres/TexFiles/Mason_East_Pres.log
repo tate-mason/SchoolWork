@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  28 FEB 2026 11:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  28 FEB 2026 17:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -979,19 +979,26 @@ Overfull \vbox (6.43996pt too high) detected at line 242
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `Mason_East_Pres.out' has not changed.
-(rerunfilecheck)             Checksum: 91E7BFCC7A58E1DB0D28131D8BD656FB;898.
+
+
+Package rerunfilecheck Warning: File `Mason_East_Pres.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Mason_East_Pres.out':
+(rerunfilecheck)             Before: 91E7BFCC7A58E1DB0D28131D8BD656FB;898
+(rerunfilecheck)             After:  15C54441BD955466FE180B0C37CCE628;898.
  ) 
 Here is how much of TeX's memory you used:
- 25028 strings out of 473190
- 498861 string characters out of 5715801
- 857334 words of memory out of 5000000
- 47730 multiletter control sequences out of 15000+600000
+ 25026 strings out of 473190
+ 498839 string characters out of 5715801
+ 857256 words of memory out of 5000000
+ 47728 multiletter control sequences out of 15000+600000
  571807 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,16n,123p,390b,601s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Mason_East_Pres.pdf (24 pages, 2795078 bytes).
+Output written on Mason_East_Pres.pdf (24 pages, 2795817 bytes).
 PDF statistics:
  330 PDF objects out of 1000 (max. 8388607)
  225 compressed objects within 3 object streams
