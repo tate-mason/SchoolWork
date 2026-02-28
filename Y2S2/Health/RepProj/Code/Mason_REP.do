@@ -46,8 +46,8 @@ tabstat income* educ  working
 // Below I define a local switch for each part of the assignment. When set to 1, it will run, at 0, it is dormant
 
 local Tab2 = 0
-local Tab3 = 1
-local Tab4 = 0
+local Tab3 = 0
+local Tab4 = 1
 local Tab5 = 0 // only observations, sample mean, and % with risky levels
 local Tab6 = 0
 local Tab7 = 0 
@@ -95,17 +95,128 @@ if `Tab2' {
 * negative binomial.                                        *
 ************************************************************/
 
-drop if kids==0 | kids == .
-drop if educ == 3
-drop if age < 21 | age > 40
-drop if fips > 56
+if `Tab3' {
+  drop if kids==0 | kids == .
+  drop if educ == 3
+  drop if age < 21 | age > 40
+  drop if fips > 56
 
 
-recode educ (1/2 = 0) (4=1), gen(college_edu) //reclassifying education such that college_edu = 1 if the woman has a degree and 0 if high school attainment was their highest level of education
+  recode educ (1/2 = 0) (4=1), gen(college_edu) //reclassifying education such that college_edu = 1 if the woman has a degree and 0 if high school attainment was their highest level of education
 
-gen interact_treat = twoplus_kids*eitc_expand
+  // Pre-Treatment Means
 
-// Simple OLS DiD - inLF & Excellent/Very Good Health:
+  sum inlf excel_vgood mental_poor phys_poor if year<1996 & twoplus_kids==1
 
-reg inlf twoplus_kids eitc_expand dd_treatment if educ <= 2, cluster(fips)
 
+  // Simple OLS DiD - inLF & Excellent/Very Good Health:
+
+  reg inlf twoplus_kids eitc_expand dd_treatment if educ <= 2, cluster(fips) // Effect on LFPR
+  
+  reg excel_vgood twoplus_kids eitc_expand dd_treatment if educ <= 2, cluster(fips) // Effect on Good Health
+
+  nbreg mental_poor twoplus_kids eitc_expand dd_treatment if educ <= 2, cluster(fips) // Effect on Mental Health
+
+  nbreg phys_poor twoplus_kids eitc_expand dd_treatment if educ <= 2, cluster(fips) // Effect on Physical health
+
+  // Regression Adjusted DiD - Adding Controls
+
+  local X "i.race4 i.educ i.age i.month i.marital i.kids i.fips i.year" // Control vector of dummies
+
+  reg inlf dd_treatment `X' if educ <= 2, cluster(fips) // Effect on LFPR
+  
+  reg excel_vgood dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Good Health
+
+  nbreg mental_poord d_treatment `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+
+  nbreg phys_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Physical health
+}
+
+/************************************************************
+* (5) Table 4 - Robustness Tests                            *
+************************************************************/
+
+/************************************************************
+* Call the `Tab4' local, allowing this section to run. Then,*
+* I will run the robustness checks via sample differences   *
+* and estimation techniques differing. Each portion will be *
+* labeled to inform what operation is occurring             *
+************************************************************/
+
+if `Tab4' {
+  // Column 1 - DiD Results Full Sample With Dummy Controls
+
+  local X "i.race4 i.educ i.age i.month i.marital i.kids i.fips i.year" // Control vector of dummies
+
+  reg inlf dd_treatment `X' if educ <= 2, cluster(fips) // Effect on LFPR
+  
+  reg excel_vgood dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Good Health
+
+  nbreg mental_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+
+  nbreg phys_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Physical health
+
+  // Column 2 - State x Year FE added
+
+  local X "i.race4 i.educ i.age i.month i.marital i.kids" // Control vector of dummies
+
+  reg inlf dd_treatment fips#i.year `X' if educ <= 2, cluster(fips) // Effect on LFPR
+  
+  reg excel_vgood dd_treatment fips#i.year `X' if educ <= 2, cluster(fips) // Effect on Good Health
+
+  nbreg mental_poor dd_treatment fips#i.year `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+
+  nbreg phys_poor dd_treatment fips#i.year `X' if educ <= 2, cluster(fips) // Effect on Physical health
+
+  // Column 3 - Differencing by Amount of Children (2 vs 0)
+
+  preserve
+  drop if kids == 1
+
+  local X "i.race4 i.educ i.age i.month i.marital i.kids i.fips i.year" // Control vector of dummies
+
+  reg inlf dd_treatment `X' if educ <= 2, cluster(fips) // Effect on LFPR
+  
+  reg excel_vgood dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Good Health
+
+  nbreg mental_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+
+  nbreg phys_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Physical health
+  restore
+
+  // Column 4 - Differentiating by Married
+  preserve
+
+  keep if marital == 1
+  drop if kids == 0
+
+  local X "i.race4 i.educ i.age i.month i.marital i.kids i.fips i.year" // Control vector of dummies
+
+  reg inlf dd_treatment `X' if educ <= 2, cluster(fips) // Effect on LFPR
+  
+  reg excel_vgood dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Good Health
+
+  nbreg mental_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+
+  nbreg phys_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Physical health
+  restore
+
+  // Column 5 - Differentiating by Single
+
+  preserve
+
+  keep if marital > 1
+  drop if kids == 0
+
+  local X "i.race4 i.educ i.age i.month i.marital i.kids i.fips i.year" // Control vector of dummies
+
+  reg inlf dd_treatment `X' if educ <= 2, cluster(fips) // Effect on LFPR
+  
+  reg excel_vgood dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Good Health
+
+  nbreg mental_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+
+  nbreg phys_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Physical health
+
+  restore
+}

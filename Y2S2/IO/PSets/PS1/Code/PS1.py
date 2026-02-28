@@ -161,8 +161,6 @@ mkt_demo = (
 
 prod_data = prod_data.merge(mkt_demo, left_on="market_ids", right_on="market", how = "left")
 prod_data["demand_instruments0"] = prod_data["mc"]
-prod_data["demandinstruments1"] = prod_data["mc"] * prod_data["inc_mu"]
-prod_data["demandinstruments2"] = prod_data["mc"] * prod_data["inc_sig"]
 
 # agent data
 rng = np.random.default_rng(219)
