@@ -1,7 +1,7 @@
 # Problem Set 3 - Econometrics 2
 
 ## Purpose
-The purpose of this folder is to provide answers to both problems asked in the third problem set. These problems concern a multinomial logit/nested logit and then a multinomial probit.
+The purpose of this folder is to provide answers to both problems asked in the third problem set. These problems concern a multinomial logit/nested logit and then a multinomial probit. 
 
 ## Folder Structure
 Each subfolder has a unique purpose:

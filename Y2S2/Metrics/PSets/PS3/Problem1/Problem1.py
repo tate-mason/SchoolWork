@@ -6,10 +6,21 @@ import scipy as sp
 Main file for Problem 1 of PS3. Estimating multinomial and nested logit + related std. errors.
 
 Helper files:
+    - Problem1a.py: Multinomial logit estimation without X_3
+    - Problem1b.py: Nested logit estimation without X_3
+    - Problem1c.py: Delta method function for lambda
+    - Problem1d.py: Multinomial logit estimation with X_3
+    - Problem1e.py: Nested logit estimation with X_3 and delta method for lambda
 
 Libraries used:
+    - pandas: for data manipulation and results tables
+    - numpy: for array manipulation and calculations
+    - scipy: for loading .mat files and optimization in the helper
 
 Functions:
+    - fit_mnl: function to estimate multinomial logit model (in Problem1a.py and Problem1d.py)
+    - nl_fit: function to estimate nested logit model (in Problem1b.py and Problem1e.py)
+    - delta_lambda: function to calculate lambda and its standard error using the delta method (in Problem1c.py)
 """
 
 # ============================================= #
@@ -53,52 +64,67 @@ print(res_frame)
 
 from Problem1b import * # importing the helper function
 
-b_hat_nl, se_nl, res_nl = nl_fit(X_filter, Zdist, Zprice, Y, 4)
+b_hat_nl, se_nl, res_nl = nl_fit(X_filter, Zdist, Zprice, Y, 4) # calling the minimization function
 
+# creating results table
 res_frame_nl = pd.DataFrame({
     "β, γ, λ Estimates:": b_hat_nl,
     "Std. Errors:": se_nl
 })
 
-print(res_frame_nl)
+print(res_frame_nl) # outputting table (note: 6-7 are gamma_1, gamma_2, 8 is lambda)
 
 
 # ============================================= #
 # (c) Delta Method for λ                        #
 # ============================================= #
 
-from Problem1c import *
+from Problem1c import * # importing the delta method function
 
-cov = np.asarray(res_nl.hess_inv)
+cov = np.asarray(res_nl.hess_inv) # covariance of the estimates from the nested logit model
 
-lam_hat, se_lam = delta_lambda(
+# calculating lambda and its standard error using the delta method
+lam_hat, se_lam = delta_lambda( 
     b_hat_nl,
     cov
 )
 
-print(lam_hat, se_lam)
+print(lam_hat, se_lam) # outputting lambda and its standard error
 
 # ============================================= #
-# (c) Multinomial Logit w/ X_3                  #
+# (d) Multinomial Logit w/ X_3                  #
 # ============================================= #
 
-b_hat_c, se_c, res = fit_mnl(X, Zdist, Zprice, Y, 4)
-res_frame_c = pd.DataFrame({
-    "β and γ Estimates:": b_hat_c,
-    "Std. Errors": se_c
-})
+b_hat_d, se_d, res = fit_mnl(X, Zdist, Zprice, Y, 4) # calling the minimization function with X_3 included
 
-print(res_frame_c)
-
-# ============================================= #
-# (d) Nested Logit w/ X_3                       #
-# ============================================= #
-
-b_hat_d, se_d, res_d = nl_fit(X, Zdist, Zprice, Y, 4)
-res_frame_d = pd.DataFrame({
-    "β, γ, λ Estimates:": b_hat_d,
+# creating results table
+res_frame_d = pd.DataFrame({ 
+    "β and γ Estimates:": b_hat_d,
     "Std. Errors": se_d
 })
 
-print(res_frame_d)
+print(res_frame_d) # outputting table (note: 6-7 are gamma_1, gamma_2)
+
+# ============================================= #
+# (e) Nested Logit w/ X_3                       #
+# ============================================= #
+
+b_hat_e, se_e, res_e = nl_fit(X, Zdist, Zprice, Y, 4) # calling the minimization function with X_3 included
+
+# creating results table
+res_frame_e = pd.DataFrame({
+    "β, γ, λ Estimates:": b_hat_e,
+    "Std. Errors": se_e
+})
+
+print(res_frame_e) # outputting table (note: 6-7 are gamma_1, gamma_2, 8 is lambda)
+
+# Delta method for lambda with X_3 included
+cov_e = np.asarray(res_e.hess_inv)
+lam_hat_e, se_lam_e = delta_lambda(
+    b_hat_e,
+    cov_e
+)
+
+print(lam_hat_e, se_lam_e) # outputting lambda and its standard error with X_3 included
 

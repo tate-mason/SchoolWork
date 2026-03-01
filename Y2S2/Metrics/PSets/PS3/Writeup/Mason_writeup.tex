@@ -1,0 +1,259 @@
+% ============================
+% LaTeX Template - Problem Set
+% ============================
+\documentclass[11pt]{article}
+
+% ---------- Page + layout ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\setstretch{1.1}
+\usepackage{parskip}
+
+% ---------- Math ----------
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+
+% ---------- Tables ----------
+\usepackage{booktabs}
+
+% ---------- Links ----------
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Header / footer ----------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{\course}}
+\chead{\textbf{\pset}}
+\rhead{\textbf{\name}}
+\cfoot{\thepage}
+
+% =========================
+% Metadata (edit if needed)
+% =========================
+\newcommand{\name}{Tate Mason}
+\newcommand{\course}{Econometrics II}
+\newcommand{\pset}{Problem Set 3}
+\newcommand{\duedate}{February 23, 2026}
+
+% =========================
+% Question / solution macros
+% =========================
+\newcounter{q}
+\renewcommand{\theq}{\arabic{q}}
+
+\newcommand{\question}[1]{%
+  \refstepcounter{q}
+  \vspace{0.75em}
+  \noindent{\Large\textbf{Question \theq.} \normalsize\textbf{#1}}%
+  \vspace{0.25em}
+  \par
+}
+
+\newcounter{subq}[q]
+\renewcommand{\thesubq}{\alph{subq}}
+
+\newcommand{\subquestion}[1]{%
+  \refstepcounter{subq}
+  \vspace{0.35em}
+  \noindent\textbf{(\thesubq)} \textbf{#1}\par
+}
+
+\newenvironment{solution}{%
+  \vspace{0.15em}
+  \noindent\textit{Solution. }\ignorespaces
+}{\vspace{0.5em}\par}
+
+% =========================
+% Easy math macros
+% =========================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\plim}{plim}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\newcommand{\P}{\mathbb{P}}
+
+\newcommand{\vct}[1]{\mathbf{#1}}
+\newcommand{\mtx}[1]{\mathbf{#1}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\1}{\mathbf{1}}
+
+% =========================
+% Document
+% =========================
+\begin{document}
+
+% ---------- Title block ----------
+{\Large\textbf{\course} \hfill \textbf{\pset}}\\
+\textbf{Name:} \name \hfill \textbf{Due:} \duedate\\
+\rule{\textwidth}{0.4pt}
+\question{Use “dataHW3 Problem1.mat” to complete this exercise. In this problem you will work with a
+multinomial choice model very similar to the one from the previous problem set. Upon graduating
+high school, individuals have four options: work (Y=0), attend a 2-year college (Y=1), attend
+a 4-year public college (Y=2), or attend a 4-year private college (Y=3). The available student
+demographic characteristics (Xi) are a constant, an indicator for whether either parent graduated
+from a 4-year college, and the student’s high school GPA respectively. There are two choice specific
+variables, distance (Zdist) and price (Zprice) measured in thousands of dollars. Each column of
+these matrices reflects the choice specific attribute for the corresponding choice. In other words, the
+first column are the attributes for the work choice, the second column for the 2-year choice, and so
+on. Note that I assume that distance and price for the work option are zero.}
+
+\subquestion{Estimate both a multinomial logit model assuming data on GPA is not available. In other
+words, the only regressors should be the constant, parent education indicator, distance, and
+price. Normalize the utility of work to zero. Report parameter estimates and SEs}
+
+\begin{solution}
+  \begin{table}[htbp]
+  \centering
+    \caption{Multinomial Logit vs Nested Logit (No GPA Data)}
+    \begin{tabular}{lcc}
+      \hline
+      & MNL & Nested Logit \\
+      \hline
+      \multicolumn{3}{l}{\textit{2-Yr}} \\
+   $\beta_{0,1}$    & -1.104056 (0.039440) & -1.162857 (0.048878) \\
+      $\beta_{BA,1}$   &  0.638671 (0.023979) &  0.645445 (0.070431) \\
+
+      \multicolumn{3}{l}{\textit{4-Yr (Public)}} \\
+      $\beta_{0,2}$    &  0.120747 (0.042254) &  0.120840 (0.057482) \\
+      $\beta_{BA,2}$   &  0.682999 (0.103449) &  0.688735 (0.071100) \\
+
+      \multicolumn{3}{l}{\textit{4-Yr (Private)}} \\
+      $\beta_{0,3}$    &  1.279757 (0.059662) &  1.180108 (0.075636) \\
+      $\beta_{BA,3}$   &  0.867216 (0.038619) &  0.842360 (0.075541) \\
+
+      \hline
+      $\gamma_1$       & -0.062363 (0.004862) & -0.056085 (0.002683) \\
+      $\gamma_2$       & -0.026073 (0.000814) & -0.024012 (0.001123) \\
+      $\lambda$        & ---                  &  1.773584 (0.094975) \\
+      \hline
+    \end{tabular}
+  \end{table}
+\end{solution}
+
+\subquestion{Use the delta method to calculate the standard error for λ. Does the multinomial logit model
+seem appropriate given the estimate of λ?}
+
+\begin{solution}
+  \centering
+  \caption{Delta Method Standard Error for λ}
+
+  \begin{tabular}{lcc}
+  \hline
+  Parameter & Estimate & Standard Error \\
+  \hline
+    $\lambda$ & 1.773584 & 0.094975 \\
+  \hline
+  \end{tabular}
+
+  Given this estimate of $\lambda$, the multinomial seems inappropriate as IIA is likely violated since $\lambda$ is significantly different from 1, indicating correlation 
+  in unobservables across choices.
+\end{solution}
+
+\subquestion{Estimate both a multinomial and nested logit model including the GPA data. The regressors will now include
+a constant, parent education indicator, GPA, distance, and price. Normalize the utility of work
+to zero. Report parameter estimates and SEs}
+
+\begin{solution}
+  \begin{table}[htbp]
+    \centering
+    \caption{Multinomial Logit vs Nested Logit (GPA Included)}
+
+    \begin{tabular}{lcc}
+      \hline
+      & MNL & Nested Logit \\
+      \hline
+      \multicolumn{3}{l}{\textit{2-Yr}} \\
+      $\beta_{0,1}$    & -0.992575 (0.160703) & -0.992635 (0.088410) \\
+      $\beta_{BA,1}$   & -2.306368 (0.067527) & -2.306396 (0.094894) \\
+      $\beta_{GPA,1}$  & -2.812952 (0.128907) & -2.813104 (0.203489) \\
+
+      \multicolumn{3}{l}{\textit{4-Yr (Public)}} \\
+      $\beta_{0,2}$    &  0.116621 (0.044151) &  0.116592 (0.060528) \\
+      $\beta_{BA,2}$   &  0.782426 (0.029926) &  0.782419 (0.034691) \\
+      $\beta_{GPA,2}$  &  1.010670 (0.051841) &  1.010682 (0.052637) \\
+
+      \multicolumn{3}{l}{\textit{4-Yr (Private)}} \\
+      $\beta_{0,3}$    & -0.023081 (0.046894) & -0.023070 (0.035875) \\
+      $\beta_{BA,3}$   &  1.333528 (0.031366) &  1.333516 (0.024183) \\
+      $\beta_{GPA,3}$  &  1.314792 (0.050696) &  1.314816 (0.041983) \\
+
+      \hline
+      $\gamma_1$       & -0.066830 (0.003452) & -0.066823 (0.004832) \\
+      $\gamma_2$       & -0.028261 (0.000759) & -0.028261 (0.001414) \\
+      $\lambda$        & ---                  &  9.335796 (0.052731) \\
+      \hline
+    \end{tabular}
+  \end{table}
+\end{solution}
+
+\subquestion{Given the results above, what was driving the correlation in unobserved preferences across choices?}
+
+\begin{solution}
+  The inclusion of GPA is the main driver in corelation. This is understandable, since GPA is often used as a judge for both academic aptitude and motivation, thus it is likely
+  that GPA is a strong signal of unobserved preferences for college attendance. This is further supported by the estimate of $\lambda$ with GPA included being approximately 1 with
+  a tiny standard error. This would suggest that multinomial logit is now feasible since IIA is now likely satisfied after the inclusion of GPA.
+
+  \centering
+  \caption{Delta Method Standard Error for λ (GPA Included)}
+
+  \begin{tabular}{lcc}
+  \hline
+  Parameter & Estimate & Standard Error \\
+  \hline
+    $\lambda$ & 0.9999 & 0.000004 \\
+  \hline
+  \end{tabular}
+
+\end{solution}
+
+\question{Use “dataHW3 Problem2.mat” to complete this exercise. In this problem you will work with a
+simplified multinomial choice model relative to the one from the previous question. Upon graduating
+high school, individuals have three options: work (Y=0), attend a 2-year college (Y=1), attend a
+4-year college (Y=2). The available student demographic characteristics (Xi) are a constant, an
+indicator for whether either parent graduated from a 4-year college, and the student’s high school
+GPA respectively. There is one choice specific variable, distance (Zdist). Each column of Zdist
+reflects the distance for the corresponding choice. In other words, the first column is the distance
+for the work choice, the second column for the 2-year choice, and so on. Note that I assume that
+distance for the work option is zero.}
+
+\subquestion{Estimate a multinomial probit model. Normalize the observed and unobserved components of
+the work choice to zero, and assume that the variance matrix of the unobserved preferences for
+the 2-yr and 4-yr option is given by: Σ = [1 ρ ; ρ 1]. Note that this is really the variance
+matrix of the error differences relative to the work choice. When estimating the model, set
+R=300 and λ = 0.1 (smoothness parameter in the AR Simulator).}
+
+\begin{solution}
+  \begin{table}[htbp]
+    \centering
+    \caption{Multinomial Probit Estimates}
+    
+    \begin{tabular}{lcc}
+      \hline
+      & Estimate & Std. Error \\
+      \hline
+      \multicolumn{3}{l}{\textit{2-Yr College}} \\
+      $\beta_{0,1}$    & -0.866520 & 0.038185 \\
+      $\beta_{GPA,1}$  &  0.293064 & 0.044819 \\
+      $\beta_{BA,1}$   &  0.499284 & 0.018473 \\
+
+      \multicolumn{3}{l}{\textit{4-Yr College}} \\
+      $\beta_{0,2}$    & -1.930810 & 0.114841 \\
+      $\beta_{GPA,2}$  &  0.767100 & 0.037743 \\
+      $\beta_{BA,2}$   &  1.222253 & 0.038304 \\
+
+      \hline
+      $\gamma$       & -0.049137 & 0.001306 \\
+      $\rho$           &  0.359008 & --- \\
+      \hline
+    \end{tabular}
+  \end{table}
+
+  While my answers do not exactly match the provided true values, they are close for the most part. Where there are discrepancies, they are at least of the same sign and of similar magnitude.
+\end{solution}
+
+\end{document}

@@ -34,10 +34,11 @@ def mnl_mle(b, X, Zdist, Zprice, Y, J):
     return ll # return calculated log likelihood
  
 def fit_mnl(X, Zdist, Zprice, Y, J):
-    Jm1 = J-1
-    N, Kx = X.shape
+    Jm1 = J-1 # use only 3 choices
+    N, Kx = X.shape # dimensions definition
     x0 = np.zeros(Kx*(Jm1) + 2) # new starting values - from zeros to ones
 
+    # minimize the log likelihood function defined above, using BFGS method
     res = minimize(
         mnl_mle,
         x0,
@@ -45,9 +46,10 @@ def fit_mnl(X, Zdist, Zprice, Y, J):
         method = "BFGS"
     )
 
-    b_hat = res.x
-    se = np.sqrt(np.diag(res.hess_inv))
+    b_hat = res.x # parameter estimates
+    se = np.sqrt(np.diag(res.hess_inv)) # standard errors from the inverse of the hessian
 
+    # print optimization results
     return b_hat, se, res
 
 
