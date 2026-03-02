@@ -1,5 +1,6 @@
 import numpy as np
 import scipy as sp
+import pandas as pd
 
 """
 Problem 1: Multinomial Choice Model with Y = {0, 1, 2} , X_i = (cons, BA, GPA), Z = price
@@ -34,7 +35,7 @@ Z = np.asarray(df["Zprice"]) # NxJ
 
 from Prob1a import *
 
-b_hat, se, res = fit_mix(X, Z, Y, 4, 500) # calling the minimization function
+b_hat, se, res = mix_opt(X, Z, Y, 3, 50) # calling the minimization function
 
 # creating results table
 res_frame = pd.DataFrame({
