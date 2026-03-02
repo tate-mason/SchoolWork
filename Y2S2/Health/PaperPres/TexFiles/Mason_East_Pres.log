@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  28 FEB 2026 17:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  2 MAR 2026 12:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -795,60 +795,66 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mat
 [7
 
 ]
+<../Figures/fig_elig_birth.png, id=120, 835.12pt x 393.47pt>
+File: ../Figures/fig_elig_birth.png Graphic file (type png)
+<use ../Figures/fig_elig_birth.png>
+Package pdftex.def Info: ../Figures/fig_elig_birth.png  used on input line 118.
+(pdftex.def)             Requested size: 342.29947pt x 199.74243pt.
+
 
 [8
 
-]
-<../Figures/fig_map_states.png, id=127, 831.105pt x 517.935pt>
-File: ../Figures/fig_map_states.png Graphic file (type png)
-<use ../Figures/fig_map_states.png>
-Package pdftex.def Info: ../Figures/fig_map_states.png  used on input line 131.
-(pdftex.def)             Requested size: 312.5006pt x 194.7501pt.
-
-Overfull \vbox (12.80867pt too high) detected at line 131
- []
-
-
+ <../Figures/fig_elig_birth.png>]
 
 [9
 
- <../Figures/fig_map_states.png>]
-<../Figures/fig_eligibility_trend.png, id=137, 831.105pt x 542.025pt>
-File: ../Figures/fig_eligibility_trend.png Graphic file (type png)
-<use ../Figures/fig_eligibility_trend.png>
-Package pdftex.def Info: ../Figures/fig_eligibility_trend.png  used on input line 139.
-(pdftex.def)             Requested size: 298.61421pt x 194.7501pt.
+]
+<../Figures/fig_map_states.png, id=137, 831.105pt x 517.935pt>
+File: ../Figures/fig_map_states.png Graphic file (type png)
+<use ../Figures/fig_map_states.png>
+Package pdftex.def Info: ../Figures/fig_map_states.png  used on input line 136.
+(pdftex.def)             Requested size: 312.5006pt x 194.7501pt.
 
-Overfull \vbox (7.34267pt too high) detected at line 139
+Overfull \vbox (12.80867pt too high) detected at line 136
  []
 
 
 
 [10
 
- <../Figures/fig_eligibility_trend.png>]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 157.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 157.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 157.
+ <../Figures/fig_map_states.png>]
+<../Figures/fig_eligibility_trend.png, id=146, 831.105pt x 542.025pt>
+File: ../Figures/fig_eligibility_trend.png Graphic file (type png)
+<use ../Figures/fig_eligibility_trend.png>
+Package pdftex.def Info: ../Figures/fig_eligibility_trend.png  used on input line 144.
+(pdftex.def)             Requested size: 298.61421pt x 194.7501pt.
+
+Overfull \vbox (7.34267pt too high) detected at line 144
+ []
+
 
 
 [11
 
-]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 169.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 169.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 169.
+ <../Figures/fig_eligibility_trend.png>]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 162.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 162.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 162.
 
 
 [12
 
 ]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 174.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 174.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 174.
+
 
 [13
 
@@ -861,108 +867,102 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
 [15
 
 ]
-<../Figures/fig_elig_birth.png, id=190, 835.12pt x 393.47pt>
-File: ../Figures/fig_elig_birth.png Graphic file (type png)
-<use ../Figures/fig_elig_birth.png>
-Package pdftex.def Info: ../Figures/fig_elig_birth.png  used on input line 210.
-(pdftex.def)             Requested size: 342.29947pt x 194.74722pt.
-
-Overfull \vbox (24.40579pt too high) detected at line 210
- []
-
-
 
 [16
 
- <../Figures/fig_elig_birth.png>]
-<../Figures/fig_first_elig.png, id=198, 835.12pt x 393.47pt>
-File: ../Figures/fig_first_elig.png Graphic file (type png)
-<use ../Figures/fig_first_elig.png>
-Package pdftex.def Info: ../Figures/fig_first_elig.png  used on input line 215.
-(pdftex.def)             Requested size: 342.29947pt x 194.74722pt.
-
+]
 
 [17
 
+]
+<../Figures/fig_first_elig.png, id=207, 835.12pt x 393.47pt>
+File: ../Figures/fig_first_elig.png Graphic file (type png)
+<use ../Figures/fig_first_elig.png>
+Package pdftex.def Info: ../Figures/fig_first_elig.png  used on input line 231.
+(pdftex.def)             Requested size: 342.29947pt x 194.74722pt.
+
+
+[18
+
  <../Figures/fig_first_elig.png>]
 
-./Mason_East_Pres.tex:226: Package keyval Error: heigh undefined.
+./Mason_East_Pres.tex:242: Package keyval Error: heigh undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.226 \end{frame}
+l.242 \end{frame}
                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-<../Figures/fig_first_lbw.png, id=207, 850.17625pt x 641.39626pt>
+<../Figures/fig_first_lbw.png, id=215, 850.17625pt x 641.39626pt>
 File: ../Figures/fig_first_lbw.png Graphic file (type png)
 <use ../Figures/fig_first_lbw.png>
-Package pdftex.def Info: ../Figures/fig_first_lbw.png  used on input line 226.
+Package pdftex.def Info: ../Figures/fig_first_lbw.png  used on input line 242.
 (pdftex.def)             Requested size: 342.2953pt x 258.2373pt.
 
-Overfull \vbox (57.5667pt too high) detected at line 226
- []
-
-
-
-[18
-
- <../Figures/fig_first_lbw.png>]
-<../Figures/fig_second_lbw.png, id=215, 837.1275pt x 687.56876pt>
-File: ../Figures/fig_second_lbw.png Graphic file (type png)
-<use ../Figures/fig_second_lbw.png>
-Package pdftex.def Info: ../Figures/fig_second_lbw.png  used on input line 232.
-(pdftex.def)             Requested size: 342.29202pt x 247.17834pt.
-
-Overfull \vbox (46.50774pt too high) detected at line 232
+Overfull \vbox (57.5667pt too high) detected at line 242
  []
 
 
 
 [19
 
- <../Figures/fig_second_lbw.png>]
-<../Figures/fig_second_gest.png, id=225, 877.2775pt x 680.5425pt>
-File: ../Figures/fig_second_gest.png Graphic file (type png)
-<use ../Figures/fig_second_gest.png>
-Package pdftex.def Info: ../Figures/fig_second_gest.png  used on input line 237.
-(pdftex.def)             Requested size: 342.29749pt x 247.18617pt.
+ <../Figures/fig_first_lbw.png>]
+<../Figures/fig_second_lbw.png, id=225, 837.1275pt x 687.56876pt>
+File: ../Figures/fig_second_lbw.png Graphic file (type png)
+<use ../Figures/fig_second_lbw.png>
+Package pdftex.def Info: ../Figures/fig_second_lbw.png  used on input line 248.
+(pdftex.def)             Requested size: 342.29202pt x 247.17834pt.
 
-Overfull \vbox (28.91556pt too high) detected at line 237
+Overfull \vbox (46.50774pt too high) detected at line 248
  []
 
 
 
 [20
 
- <../Figures/fig_second_gest.png>]
-<../Figures/fig_robustness.png, id=234, 860.21375pt x 787.94376pt>
-File: ../Figures/fig_robustness.png Graphic file (type png)
-<use ../Figures/fig_robustness.png>
-Package pdftex.def Info: ../Figures/fig_robustness.png  used on input line 242.
-(pdftex.def)             Requested size: 342.2943pt x 224.71057pt.
+ <../Figures/fig_second_lbw.png>]
+<../Figures/fig_second_gest.png, id=234, 877.2775pt x 680.5425pt>
+File: ../Figures/fig_second_gest.png Graphic file (type png)
+<use ../Figures/fig_second_gest.png>
+Package pdftex.def Info: ../Figures/fig_second_gest.png  used on input line 253.
+(pdftex.def)             Requested size: 342.29749pt x 247.18617pt.
 
-Overfull \vbox (6.43996pt too high) detected at line 242
+Overfull \vbox (28.91556pt too high) detected at line 253
  []
 
 
 
 [21
 
- <../Figures/fig_robustness.png>]
+ <../Figures/fig_second_gest.png>]
+<../Figures/fig_robustness.png, id=243, 860.21375pt x 787.94376pt>
+File: ../Figures/fig_robustness.png Graphic file (type png)
+<use ../Figures/fig_robustness.png>
+Package pdftex.def Info: ../Figures/fig_robustness.png  used on input line 258.
+(pdftex.def)             Requested size: 342.2943pt x 224.71057pt.
+
+Overfull \vbox (6.43996pt too high) detected at line 258
+ []
+
+
 
 [22
 
-]
+ <../Figures/fig_robustness.png>]
 
 [23
 
 ]
 
 [24
+
+]
+
+[25
 
 ]
 \tf@nav=\write6
@@ -979,29 +979,22 @@ Overfull \vbox (6.43996pt too high) detected at line 242
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-Package rerunfilecheck Warning: File `Mason_East_Pres.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Mason_East_Pres.out':
-(rerunfilecheck)             Before: 91E7BFCC7A58E1DB0D28131D8BD656FB;898
-(rerunfilecheck)             After:  15C54441BD955466FE180B0C37CCE628;898.
+Package rerunfilecheck Info: File `Mason_East_Pres.out' has not changed.
+(rerunfilecheck)             Checksum: 15C54441BD955466FE180B0C37CCE628;898.
  ) 
 Here is how much of TeX's memory you used:
- 25026 strings out of 473190
- 498839 string characters out of 5715801
+ 25055 strings out of 473190
+ 499561 string characters out of 5715801
  857256 words of memory out of 5000000
- 47728 multiletter control sequences out of 15000+600000
+ 47755 multiletter control sequences out of 15000+600000
  571807 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,16n,123p,390b,601s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,16n,123p,390b,767s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Mason_East_Pres.pdf (24 pages, 2795817 bytes).
+Output written on Mason_East_Pres.pdf (25 pages, 2797788 bytes).
 PDF statistics:
- 330 PDF objects out of 1000 (max. 8388607)
- 225 compressed objects within 3 object streams
- 56 named destinations out of 1000 (max. 500000)
- 181 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 340 PDF objects out of 1000 (max. 8388607)
+ 232 compressed objects within 3 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 187 words of extra memory for PDF output out of 10000 (max. 10000000)
 

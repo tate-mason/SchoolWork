@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1772317700.61625 "Mason_East_Pres.tex" "Mason_East_Pres.pdf" "Mason_East_Pres" 1772317703.45958 2
+["pdflatex"] 1772474335.11631 "Mason_East_Pres.tex" "Mason_East_Pres.pdf" "Mason_East_Pres" 1772474337.93579 2
   "../Figures/fig_elig_birth.png" 1772295847.6561 268549 4e1a233a9ae1d5193fe3971629585ea0 ""
   "../Figures/fig_eligibility_trend.png" 1772295210.47929 532912 2ecdad525f3a6a462d681423a58634c3 ""
   "../Figures/fig_first_elig.png" 1772295430.07328 294451 f83fa36585db7dd13b5949d20bf745d3 ""
@@ -223,11 +223,11 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1754488232 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "Mason_East_Pres.aux" 1772317703.36531 5568 5fcb3186675a7d6c7fddd4cced2b7fac "pdflatex"
-  "Mason_East_Pres.nav" 1772317703.36944 3575 a0af9ff01fc6c9e1f6e4ecaed7155cdf "pdflatex"
-  "Mason_East_Pres.out" 1772317703.36729 898 15c54441bd955466fe180b0c37cce628 "pdflatex"
-  "Mason_East_Pres.tex" 1772317694.25761 10281 72e342ea319a8de0def518771cfe54c4 ""
-  "Mason_East_Pres.toc" 1772317703.36947 372 13538461cce461a2e651dc7c4f4fb3e0 "pdflatex"
+  "Mason_East_Pres.aux" 1772474337.85625 5696 040962f7eacb0dfd434c1f1194069c4f "pdflatex"
+  "Mason_East_Pres.nav" 1772474337.85935 3667 eaa08c9b0edac068867f31ad90bd7786 "pdflatex"
+  "Mason_East_Pres.out" 1772474337.85896 898 15c54441bd955466fe180b0c37cce628 "pdflatex"
+  "Mason_East_Pres.tex" 1772474333.2294 10806 ae1f6f2e9873d24143f66c54695035be ""
+  "Mason_East_Pres.toc" 1772474337.85939 372 1d1cf490c563c0844b15404999267501 "pdflatex"
   (generated)
   "Mason_East_Pres.aux"
   "Mason_East_Pres.log"

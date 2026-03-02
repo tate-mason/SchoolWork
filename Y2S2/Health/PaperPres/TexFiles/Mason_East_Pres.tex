@@ -79,8 +79,8 @@
 
 \begin{frame}{Preview of Findings}
   \begin{itemize}
-    \item Those directly exposed the expansion saw higher probability of enrollment at birth
-    \item First generation cohort reductions in likelihood of being born low birth weight
+    \item Those directly exposed to the expansion saw higher probability of enrollment at birth
+    \item First generation cohort experienced reductions in likelihood of being born low birth weight
     \item Second generation cohort saw higher birth weights leading to fewer cases of very low birth weight and small for gestational age 
     \item Suggestive evidence of less incidence of low birth weight and very preterm births for second generation
   \end{itemize}
@@ -111,6 +111,11 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Medicaid Coverage at Delivery Rises After Expansions}
+\centering
+  \includegraphics[height=0.8\textheight, width=\textwidth]{../Figures/fig_elig_birth.png}
+\vspace{4pt}
+\end{frame}
 
 \begin{frame}{Targeted Prenatal Medicaid Expansions (1980–1985)}
 \begin{itemize}
@@ -173,7 +178,26 @@ y_{nb} = \alpha + \sum_{t\in[-5,4] \setminus \{-1\}} \beta_t \, \mathbf{1}\{b - 
   \item \textbf{Vital Statistics natality data (1975–2017)}: universe of US births.
   \item \textbf{CPS ASEC + eligibility rules}: simulated prenatal eligibility.
   \item \textbf{NHDS hospital discharge data}: Medicaid coverage at delivery (first-stage validation).
+  \begin{itemize}
+    \item Accessed restricted variables via FRDC, like state of birth
+  \end{itemize}
+  \item \textbf{International Classification of Diseases}: labor and delivery hospitalization records (1979-1988) 
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Sample}
+  \begin{itemize}
+    \item First-Generation:
+    \begin{enumerate}
+      \item Born 1975-1988 (observe full cohort fertility through age 28)
+    \end{enumerate}
+    \item Second-Generation
+    \begin{enumerate}
+      \item First born to mother in a treated cohort
+      \item Mother born in US (except Arizona)
+      \item Born between 1990-2017
+    \end{enumerate}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Methods: Mechanisms and Assumptions}
@@ -200,14 +224,6 @@ y_{nb} = \alpha + \sum_{t\in[-5,4] \setminus \{-1\}} \beta_t \, \mathbf{1}\{b - 
 \section{First Stage and Validation}
 % -------------------------
 
-\begin{frame}{Medicaid Coverage at Delivery Rises After Expansions}
-\centering
-  \includegraphics[height=0.78\textheight, width=\textwidth]{../Figures/fig_elig_birth.png}
-\vspace{4pt}
-\begin{itemize}
-  \item As expansions settle nationally, eligibility nearly doubles and takeup increases by 5\%
-\end{itemize}
-\end{frame}
 
 \begin{frame}{Actual vs. Simulated Eligibility}
   \centering

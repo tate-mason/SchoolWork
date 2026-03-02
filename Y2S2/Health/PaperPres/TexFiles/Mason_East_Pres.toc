@@ -1,7 +1,7 @@
 \beamer@sectionintoc {1}{Motivation}{3}{0}{1}
 \beamer@sectionintoc {2}{Policy Setting \& Variation}{6}{0}{2}
-\beamer@sectionintoc {3}{Empirical design}{11}{0}{3}
-\beamer@sectionintoc {4}{First Stage and Validation}{16}{0}{4}
-\beamer@sectionintoc {5}{Main Results}{18}{0}{5}
-\beamer@sectionintoc {6}{Interpretation}{22}{0}{6}
-\beamer@sectionintoc {7}{Conclusion}{24}{0}{7}
+\beamer@sectionintoc {3}{Empirical design}{12}{0}{3}
+\beamer@sectionintoc {4}{First Stage and Validation}{18}{0}{4}
+\beamer@sectionintoc {5}{Main Results}{19}{0}{5}
+\beamer@sectionintoc {6}{Interpretation}{23}{0}{6}
+\beamer@sectionintoc {7}{Conclusion}{25}{0}{7}

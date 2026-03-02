@@ -403,6 +403,11 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
+INPUT ../Figures/fig_elig_birth.png
+INPUT ../Figures/fig_elig_birth.png
+INPUT ../Figures/fig_elig_birth.png
+INPUT ../Figures/fig_elig_birth.png
+INPUT ../Figures/fig_elig_birth.png
 INPUT ../Figures/fig_map_states.png
 INPUT ../Figures/fig_map_states.png
 INPUT ../Figures/fig_map_states.png
@@ -420,11 +425,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
-INPUT ../Figures/fig_elig_birth.png
-INPUT ../Figures/fig_elig_birth.png
-INPUT ../Figures/fig_elig_birth.png
-INPUT ../Figures/fig_elig_birth.png
-INPUT ../Figures/fig_elig_birth.png
 INPUT ../Figures/fig_first_elig.png
 INPUT ../Figures/fig_first_elig.png
 INPUT ../Figures/fig_first_elig.png
