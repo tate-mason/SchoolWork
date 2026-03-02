@@ -6,6 +6,7 @@ from numpy import std
 import statsmodels.api as sm
 from statsmodels.sandbox.regression.gmm import IV2SLS
 from scipy.optimize import root
+import seaborn as sns
 
 """
 Main file for Problem Set 1 - IO2
@@ -50,33 +51,15 @@ trends_df = pd.DataFrame({
     "Target: Average Income of High Earning Shoppers"
 ])
 
-#print(trends_df)
-#
-#price = df_l["p"]
-#price = np.arange(len(df_l))
-#
-#for f, sub in df_l.groupby("firm"):
-#    plt.figure()
-#
-#    plt.bar(sub["zone"], std(sub["p"]))
-#    plt.title(f"Firm {f}")
-#    plt.xlabel("Zone")
-#    plt.ylabel("Variance of Price")
-#    plt.show()
-#
-#for f, sub in df_l.groupby("firm"):
-#    plt.figure()
-#
-#    plt.bar(sub["zone"], std(sub["x"]))
-#    plt.title(f"Firm {f}")
-#    plt.xlabel("Zone")
-#    plt.ylabel("Variancce of Chars.")
-#    plt.show()
-#
-#for f, sub in df_l.groupby("firm"):
-#    plt.figure()
-#
-#    plt.scatter
+# Variance of MC across markets (single value per firm)
+WM_var = df[df["active1"] == 1]["mc1"].var()
+TT_var = df[df["active2"] == 1]["mc2"].var()
+
+fig, ax = plt.subplots()
+sns.barplot(x=["Walmart", "Target"], y=[WM_var, TT_var], ax=ax)
+ax.set_title("Variance of MC across markets")
+ax.set_ylabel("Variance")
+plt.show()
 
 
 # =================================== #
@@ -260,29 +243,26 @@ def compute_profit(df, prices):
 # Build price vectors                #
 # ---------------------------------- #
 
-def uniform_prices(df, firm, p_val):
-    p = df["prices"].values.copy()
+def uniform_prices(p, df, firm, p_val):
+    p = p.copy()
     p[df["firm"].values == firm] = p_val
     return p
 
 
-def zone_prices(df, firm, p_vec):
+def zone_prices(p, df, firm, p_vec):
     """p_vec: array of length = number of zones, one price per zone"""
-    p = df["prices"].values.copy()
-    zones = np.sort(df["zone"].unique())
-
-    for i, z in enumerate(zones):
+    p = p.copy()
+    for i, z in enumerate(np.sort(df["zone"].unique())):
         mask = (df["firm"].values == firm) & (df["zone"].values == z)
         p[mask] = p_vec[i]
 
     return p  
 
-def market_prices(df, firm, p_vec):
+def market_prices(p, df, firm, p_vec):
     """p_vec: array of length = number of markets, one price per market"""
-    p = df["prices"].values.copy()
-    markets = np.sort(df["market_ids"].unique())
+    p = p.copy()
 
-    for i, m in enumerate(markets):
+    for i, m in enumerate(np.sort(df["market_ids"].unique())):
         mask = (df["firm"].values == firm) & (df["market_ids"].values == m)
         p[mask] = p_vec[i]
 
@@ -295,7 +275,8 @@ def market_prices(df, firm, p_vec):
 
 def uniform_foc(p_val, df, firm):
     p_val = p_val[0]
-    p = uniform_prices(df, firm, p_val)
+    p_base = df["prices"].values.copy()
+    p = uniform_prices(p_base, df, firm, p_val)
     s = compute_shares(df, p)
 
     own = df["firm"].values == firm
@@ -309,7 +290,8 @@ def uniform_foc(p_val, df, firm):
 
 def zone_foc(p_vec, df, firm):
     p_vec = np.asarray(p_vec)
-    p = zone_prices(df, firm, p_vec)
+    p_base = df["prices"].values.copy()
+    p = zone_prices(p_base, df, firm, p_vec)
     s = compute_shares(df, p)
 
     zones = np.sort(df["zone"].unique())
@@ -327,12 +309,13 @@ def zone_foc(p_vec, df, firm):
 
 def market_foc(p_vec, df, firm):
     p_vec   = np.asarray(p_vec)
-    p       = market_prices(df, firm, p_vec)
-    s       = compute_shares(df, p)
+    p_base  = df["prices"].values.copy()
+    p   = market_prices(p_base, df, firm, p_vec)
+    s   = compute_shares(df, p)
 
     markets = np.sort(df["market_ids"].unique())
-    focs    = np.zeros(len(markets))
-    mc      = df["mc"].values
+    focs = np.zeros(len(markets))
+    mc  = df["mc"].values
 
     for i, m in enumerate(markets):
         mask = (df["firm"].values == firm) & (df["market_ids"].values == m)
@@ -370,15 +353,15 @@ def get_price_vector(df, regime_f1, regime_f2):
     p = df["prices"].values.copy()
 
     for firm, regime, sol_z, sol_m, uni_p in [
-        (1, regime_f1, z_sol_f1, m_sol_f1, uni_p_f1),
-        (2, regime_f2, z_sol_f2, m_sol_f2, uni_p_f2),
+        (1, regime_f1, z_sol_f1, m_sol_f1, uni_sol_f1),
+        (2, regime_f2, z_sol_f2, m_sol_f2, uni_sol_f2),
     ]:
         if regime == "uniform":
-            p = uniform_prices(df, firm, uni_p)
+            p = uniform_prices(p, df, firm, uni_p.x[0])
         elif regime == "zone":
-            p = zone_prices(df, firm, sol_z.x)
+            p = zone_prices(p, df, firm, sol_z.x)
         elif regime == "market":
-            p = market_prices(df, firm, sol_m.x)
+            p = market_prices(p, df, firm, sol_m.x)
 
     return p
 
