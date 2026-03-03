@@ -1,6 +1,7 @@
 import numpy as np
 import scipy as sp
 import pandas as pd
+import datetime as dt
 
 """
 Problem 1: Multinomial Choice Model with Y = {0, 1, 2} , X_i = (cons, BA, GPA), Z = price
@@ -15,6 +16,7 @@ Problem 1: Multinomial Choice Model with Y = {0, 1, 2} , X_i = (cons, BA, GPA), 
     Libraries Used:
         - numpy: for numerical operations and array handling
         - scipy: for optimization and statistical functions
+        - pandas: for data manipulation and presentation
 """
 
 # ============================ #
@@ -37,10 +39,46 @@ from Prob1a import *
 
 b_hat, se, res = mix_opt(X, Z, Y, 3, 50) # calling the minimization function
 
+b_hat[7] = np.exp(b_hat[7])
+
 # creating results table
 res_frame = pd.DataFrame({
     "β and γ Estimates": b_hat,
     "Std. Errors": se
 })
 print(res_frame) # outputting table (note: 6-7 are gamma_1, gamma_2)
+
+# ============================ #
+# (B) AME Calculation          #
+# ============================ #
+
+from Prob1b import *
+
+AME = ame_mix(b_hat, X, Z, Y, 100, 3)
+print(AME)
+
+# ============================ #
+# (C) S.E. of AME              #
+# ============================ #
+
+from Prob1c import *
+
+cov_hat = res.hess_inv # covariance matrix from optimization results
+se_boot, AME_boot = boot_ame(b_hat, cov_hat, X, Z, Y, R=100, J=3, seed=219) # calling bootstrap function
+print(se_boot) # outputting standard error of AME from bootstrap
+
+# ============================ #
+# (D) Gauss-Hermite Quadrature #
+# ============================ #
+
+from Prob1d import *
+
+b_hat_gh, se_gh, res_gh = GH_mix(X, Z, Y, 3, 5) # calling the GH protocol
+
+# creating results table
+res_frame_gh = pd.DataFrame({
+    "β and γ Estimates (GH)": b_hat_gh,
+    "Std. Errors (GH)": se_gh
+})
+print(res_frame_gh) # outputting table
 

@@ -55,11 +55,11 @@ trends_df = pd.DataFrame({
 WM_var = df[df["active1"] == 1]["mc1"].var()
 TT_var = df[df["active2"] == 1]["mc2"].var()
 
-fig, ax = plt.subplots()
-sns.barplot(x=["Walmart", "Target"], y=[WM_var, TT_var], ax=ax)
-ax.set_title("Variance of MC across markets")
-ax.set_ylabel("Variance")
-plt.show()
+#fig, ax = plt.subplots()
+#sns.barplot(x=["Walmart", "Target"], y=[WM_var, TT_var], ax=ax)
+#ax.set_title("Variance of MC across markets")
+#ax.set_ylabel("Variance")
+#plt.show()
 
 
 # =================================== #
@@ -156,7 +156,7 @@ prod_data["demand_instruments0"] = prod_data["mc"]
 rng = np.random.default_rng(219)
 
 # n
-R = 500
+R = 5000
 
 # mean and variance of income
 m = np.maximum(mkt_demo["inc_mu"].to_numpy(dtype=float), 1e-12)
@@ -194,12 +194,15 @@ problem = pyblp.Problem(
 )
 
 # sigma matrix 2x2 of 0's
-sigma0 = np.zeros((2,2))
+sigma0 = np.diag([2,2])
 # pi matrix 2x1 of 0's
-pi0 = np.array([[0.0], [0.0]])
+pi0 = np.array([[0.001], [0.001]])
 
+b0 = np.array([1,1,1])
 # calling solution to problem
-results = problem.solve(sigma=sigma0, pi = pi0)
+results = problem.solve(beta=b0,sigma=sigma0, pi = pi0, method="1s")
+print(results.pi)
+print(results.sigma)
 
 # ============================ #
 # Counterfactual Analysis      #
