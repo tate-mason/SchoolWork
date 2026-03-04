@@ -7,7 +7,7 @@ from scipy.special import logsumexp
 Estimate mixed logit with five-point Gauss-Hermite quadrature to approx the integral over choice probabilities
 """
 
-def GH_mle(b, X, Zprice, Y, J, nodes, weights):
+def GH_mle(b, X, Zprice, Y, J, nodes, weights, nu):
     N, xK = X.shape # dimensions of individuals and characteristics
     Jm1 = J-1
 
@@ -20,29 +20,32 @@ def GH_mle(b, X, Zprice, Y, J, nodes, weights):
     mu_gamma = b[xK*Jm1]
     sigma_gamma = np.exp(b[xK*Jm1+1])
 
-    gamma_nodes = mu_gamma + sigma_gamma * nodes * np.sqrt(2)
-
+    gamma_nodes = mu_gamma + sigma_gamma * nu.flatten()
+    gamma = np.tile(gamma_nodes, (N,1))
 
     V = np.zeros((N,J,Q))
 
-    for j in range(J):
-        V_random = gamma_nodes[None,:]*Zprice[:,j:j+1]
-        if j == 0:
-            V[:,j,:] = V_random
-        else:
-            V_obs = X@B[:,j-1]
-            V[:,j,:] = V_obs[:,None] + V_random
-    denom = logsumexp(V, axis=1, keepdims=True)
+    for j in range(1,J):
+        V_random = gamma*Zprice[:,j:j+1]
+        V_obs = X@B[:,j-1]
+        V[:,j,:] = V_obs[:,None] + V_random
 
-    prob = V - denom
 
-    chosen = np.exp(prob[np.arange(N), Y])
-    integrated = chosen @ norm_weights
-    loglik = np.log(integrated).sum()
+    Vmax = V.max(axis=2, keepdims=True)
+    expV = np.exp(V - Vmax)
+    denom = expV.sum(axis=2, keepdims=True)
+    prob = expV / denom
+    prob = prob * weights[None, None, :]
+
+    P_chosen = prob.sum(axis=2)
+    P_chosen = P_chosen[np.arange(N), Y]
+    P_y = np.maximum(P_chosen, 1e-12)
+
+    loglik = np.sum(np.log(P_y))
 
     return -loglik
 
-def GH_mix(X, Z, Y, J, Q=5):
+def GH_mix(X, Z, Y, J):
     N, xK = X.shape # dimensions of individuals and characteristics
     Jm1 = J-1
 
@@ -61,7 +64,10 @@ def GH_mix(X, Z, Y, J, Q=5):
         0.393619323
         0.019953242
     """
-    nodes, weights = np.polynomial.hermite.hermgauss(Q) # use quadrature function to get points and weights for 5pGH
+    nodes = np.array([-2.020182870456085, -0.958572464613819, 0, 0.958572464613819, 2.020182870456085])
+    weights = np.array([0.019953242, 0.393619323, 0.945308720, 0.393619323, 0.019953242])
+
+    nu = np.sqrt(2) * nodes
     norm_weights = weights / np.sqrt(np.pi)
 
     b0 = np.zeros(xK*Jm1 + 2)
@@ -69,7 +75,7 @@ def GH_mix(X, Z, Y, J, Q=5):
     res = minimize(
         GH_mle,
         b0,
-        (X, Z, Y, J, nodes, norm_weights),
+        (X, Z, Y, J, nodes, norm_weights, nu),
         "BFGS",
         options={'gtol':1e-10, 'disp': True}
     )

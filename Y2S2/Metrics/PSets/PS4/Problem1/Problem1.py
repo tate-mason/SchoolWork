@@ -73,7 +73,7 @@ print(se_boot) # outputting standard error of AME from bootstrap
 
 from Prob1d import *
 
-b_hat_gh, se_gh, res_gh = GH_mix(X, Z, Y, 3, 5) # calling the GH protocol
+b_hat_gh, se_gh, res_gh = GH_mix(X, Z, Y, 3) # calling the GH protocol
 
 # creating results table
 res_frame_gh = pd.DataFrame({
