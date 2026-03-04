@@ -8,60 +8,128 @@ from statsmodels.sandbox.regression.gmm import IV2SLS
 from scipy.optimize import root
 import seaborn as sns
 
+sns.set_theme(style="whitegrid", font_scale=1.05)
+WM_COLOR = "#0071CE" # Walmart blue
+TT_COLOR = "#CC0000" # Target red
+
+palette = {"Walmart": WM_COLOR, "Target": TT_COLOR}
+
 """
 Main file for Problem Set 1 - IO2
 """
 
-df = pd.read_csv('../Data/full_data_zone.csv') # import the long version of the data
-print(df.head())
-
 df_l = pd.read_csv('../Data/full_data_zone_long.csv')
 
-WM_active_markets = df["active1"].sum()
-TT_active_markets = df["active2"].sum()
+df_l["profit"] = 1000*df_l["share"]*(df_l["p"] - df_l["mc"])
+df_l["markup"] = df_l["p"] - df_l["mc"]
 
-WM_avg_cost = df["mc1"].mean()
-TT_avg_cost = df["mc2"].mean()
+df_l = df_l[df_l["active"]==1] # subsetting to active markets
 
-WM_inc_avg = df["micro11"].mean()
-TT_inc_avg = df["micro12"].mean()
+df_l["firm_name"] = df_l["firm"].map({1:"Walmart", 2:"Target"}) # label for graphs
 
-WM_hi_inc_avg = df["micro21"].mean()
-TT_hi_inc_avg = df["micro22"].mean()
+# --- MC dist Across Mkt --- #
 
-trends_df = pd.DataFrame({
-    "Value": [
-        WM_active_markets,
-        WM_avg_cost,
-        WM_inc_avg,
-        WM_hi_inc_avg,
-        TT_active_markets,
-        TT_avg_cost,
-        TT_inc_avg,
-        TT_hi_inc_avg
-    ]
-}, index=[
-    "Walmart: Active Markets",
-    "Walmart: Average MC",
-    "Walmart: Average Income of Shopper",
-    "Walmart: Average Income of High Earning Shoppers",
-    "Target: Active Markets",
-    "Target: Average MC",
-    "Target: Average Income of Shopper",
-    "Target: Average Income of High Earning Shoppers"
-])
+fig, ax = plt.subplots(figsize=(7,4))
 
-# Variance of MC across markets (single value per firm)
-WM_var = df[df["active1"] == 1]["mc1"].var()
-TT_var = df[df["active2"] == 1]["mc2"].var()
+"""
+Learning seaborn pardon the nuisance:
 
-#fig, ax = plt.subplots()
-#sns.barplot(x=["Walmart", "Target"], y=[WM_var, TT_var], ax=ax)
-#ax.set_title("Variance of MC across markets")
-#ax.set_ylabel("Variance")
-#plt.show()
+data confirms dataset used
+x determines variable of interest
+hue splits data by group and then colors the same
+kde fits a smooth density curve
+alpha controls transparentcy allowing for bars to overlap
+"""
+
+sns.histplot(data=df_l, x="mc", hue="firm_name",
+             palette=palette, kde=True, alpha=0.5, ax=ax)
+ax.set_title("MC Distribution by Firm")
+ax.set_xlabel("Marginal Cost")
+ax.set_ylabel("Count")
+plt.tight_layout()
+plt.show()
 
 
+# --- Price vs. MC --- #
+fig,ax = plt.subplots(figsize=(7,4))
+
+"""
+data is dataset used
+x is variable 1
+y is variable 2
+hue determines grouping variable
+palette determines coloring
+alpha transparency
+s is bins
+"""
+
+sns.scatterplot(data=df_l, x="mc", y="p", hue="firm_name",
+               palette=palette, alpha=0.5, s=25, ax=ax)
+# add 45-deg line
+lo, hi = df_l["mc"].min(), df_l["mc"].max()
+ax.plot([lo,hi], [lo,hi], "k--", lw=1, label="p=mc")
+ax.legend()
+ax.set_title("Price vs. Marginal Cost")
+ax.set_xlabel("Marginal Cost")
+ax.set_ylabel("Price")
+plt.tight_layout()
+plt.show()
+
+# all positive markup
+
+# --- Income Sorting --- #
+fig, ax = plt.subplots(figsize=(7,4))
+
+sns.scatterplot(data=df_l, x="share", y="inc_mu", hue="firm_name",
+                palette=palette, alpha=0.5, s=25, ax=ax)
+lo, hi = df_l["share"].min(), df_l["share"].max()
+ax.plot([lo,hi], [lo,hi], "k--", lw=1, label="Market Avg")
+ax.legend()
+ax.set_title("Avg Shopper's Income vs. Share")
+ax.set_xlabel("Market Share")
+ax.set_ylabel("Mean Income")
+plt.tight_layout()
+plt.show()
+
+# --- Profit Distribution --- #
+fig, ax = plt.subplots(figsize=(7,4))
+
+sns.boxplot(data=df_l, x="firm_name", y="profit",
+            palette=palette, width=0.4, ax=ax)
+ax.set_title("Profit Distribution by Firm")
+ax.set_xlabel("")
+ax.set_ylabel("Profit")
+plt.tight_layout()
+plt.show()
+
+# --- Quality > Price --- #
+
+both = df[(df["active1"]==1) & (df["active2"]==1)].copy()
+both["share_diff"] = both["share1"].values - both["share2"].values
+both["price_diff"] = both["p1"].values - both["p2"].values
+
+# label each market: does the cheaper firm win?
+both["cheaper_wins"] = np.where(
+    (both["price_diff"] > 0) & (both["share_diff"] < 0), "TT cheaper, TT wins",   # normal
+    np.where(
+    (both["price_diff"] < 0) & (both["share_diff"] > 0), "WM cheaper, WM wins",   # normal
+    np.where(
+    (both["price_diff"] < 0) & (both["share_diff"] < 0), "WM cheaper, TT wins",   # upset!
+    "TT cheaper, WM wins")))                                                        # upset!
+
+upset_palette = {
+    "WM cheaper, WM wins":  WM_COLOR,
+    "TT cheaper, TT wins":  TT_COLOR,
+    "WM cheaper, TT wins":  "orange",   # anomaly — cheaper firm loses
+    "TT cheaper, WM wins":  "green",
+}
+
+fig, ax = plt.subplots(figsize=(7,5))
+
+sns.scatterplot(data=both, x="price_diff", y="share_diff",
+                hue="cheaper_wins", palette=upset_palette,
+                s=40, alpha=0.8, ax=ax)
+ax.axhline(0, color="grey", lw=0.8, ls="--":w)
 # =================================== #
 # (2.3) Profit in each market         #
 # =================================== #
@@ -156,7 +224,7 @@ prod_data["demand_instruments0"] = prod_data["mc"]
 rng = np.random.default_rng(219)
 
 # n
-R = 5000
+R = 500
 
 # mean and variance of income
 m = np.maximum(mkt_demo["inc_mu"].to_numpy(dtype=float), 1e-12)
