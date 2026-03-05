@@ -1,0 +1,214 @@
+% ============================
+% LaTeX Template - Problem Set
+% ============================
+\documentclass[11pt]{article}
+
+% ---------- Page + layout ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\setstretch{1.1}
+\usepackage{parskip}
+
+% ---------- Math ----------
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+
+% ---------- Tables ----------
+\usepackage{booktabs}
+
+% ---------- Links ----------
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Header / footer ----------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{\course}}
+\chead{\textbf{\pset}}
+\rhead{\textbf{\name}}
+\cfoot{\thepage}
+
+% =========================
+% Metadata (edit if needed)
+% =========================
+\newcommand{\name}{Tate Mason}
+\newcommand{\course}{Econometrics II}
+\newcommand{\pset}{Problem Set 4}
+\newcommand{\duedate}{March 6, 2026}
+
+% =========================
+% Question / solution macros
+% =========================
+\newcounter{q}
+\renewcommand{\theq}{\arabic{q}}
+
+\newcommand{\question}[1]{%
+  \refstepcounter{q}
+  \vspace{0.75em}
+  \noindent{\Large\textbf{Question \theq.} \normalsize\textbf{#1}}%
+  \vspace{0.25em}
+  \par
+}
+
+\newcounter{subq}[q]
+\renewcommand{\thesubq}{\alph{subq}}
+
+\newcommand{\subquestion}[1]{%
+  \refstepcounter{subq}
+  \vspace{0.35em}
+  \noindent\textbf{(\thesubq)} \textbf{#1}\par
+}
+
+\newenvironment{solution}{%
+  \vspace{0.15em}
+  \noindent\textit{Solution. }\ignorespaces
+}{\vspace{0.5em}\par}
+
+% =========================
+% Easy math macros
+% =========================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\plim}{plim}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\newcommand{\P}{\mathbb{P}}
+
+\newcommand{\vct}[1]{\mathbf{#1}}
+\newcommand{\mtx}[1]{\mathbf{#1}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\1}{\mathbf{1}}
+
+% =========================
+% Document
+% =========================
+\begin{document}
+
+% ---------- Title block ----------
+{\Large\textbf{\course} \hfill \textbf{\pset}}\\
+\textbf{Name:} \name \hfill \textbf{Due:} \duedate\\
+\rule{\textwidth}{0.4pt}
+\question{Use “dataHW4 Problem1.mat” to complete this exercise. In this problem you will work with a
+multinomial choice model very similar to the one from previous problem sets. Upon graduating
+high school, individuals have three options: work (Y=0), attend a 2-year college (Y=1), attend a
+4-year college (Y=2). The available student demographic characteristics (Xi) are a constant, an
+indicator for whether either parent graduated from a 4-year college, and the student’s high school
+GPA respectively. There is one choice specific variable, price measured in thousands of dollars
+(Zprice). Each column of Zprice reflects the price for the corresponding choice. In other words, the
+first column is the price for the work choice, the second column for the 2-year choice, and so on.
+Note that I assume that price for the work option is zero.}
+
+\subquestion{Estimate a mixed logit using simulation with R = 500 draws. The coefficient on price is nor-
+mally distributed with mean µγ and variance σ2γ. The unknown coefficients for the student
+demographic variables do not vary in the population. In other words, the only random coeffi-
+cient is on price. Normalize the utility of work to zero. Report parameter estimates and SEs
+for the βs, µγ, and σγ.}
+
+\begin{solution}
+  \begin{table}[htbp]
+  \centering
+    \caption{Mixed Logit Estimates}
+    \begin{tabular}{lcc}
+      \hline
+      & Parameter & S.E. \\
+      \hline
+      \multicolumn{3}{l}{\textit{2-Yr}} \\
+      $\beta_{0,1}$    & -0.930576 & (0.377443) \\
+      $\beta_{BA,1}$   &  0.210334 &  (0.113812) \\
+      $\beta_{GPA,1}$  &  0.416573 &  (0.122459) \\
+
+      \multicolumn{3}{l}{\textit{4-Yr}} \\
+      $\beta_{0,2}$    & -2.315272 &  (1.022829) \\
+      $\beta_{BA,2}$   & 0.701975 &  (0.239203) \\
+      $\beta_{GPA,2}$  & 1.176881 &  (0.295022) \\
+      \hline
+      $\mu_\gamma$     & -0.148575 &  (0.008202) \\
+      $\sigma_\gamma$  & 0.015835 &  (1.587908) \\
+      \hline
+    \end{tabular}
+  \end{table}
+\end{solution}
+
+\subquestion{Calculate the average marginal effect of having a parent with a BA on the likelihood of attending
+a 4-year college. To calculate the average marginal effect you will need to integrate out over
+the price coefficient, similar to what you did in estimation. Here you can use 100 draws per
+observation. Then bootstrap standard error.}
+
+\begin{solution}
+  \centering
+  \caption{Average Marginal Effect of Parent Education on 4-Year College Attendance}
+
+  \begin{tabular}{lcc}
+  \hline
+    AME & Standard Error \\
+  \hline
+    0.111298 & 0.028921 \\
+  \hline
+  \end{tabular}
+
+\end{solution}
+
+\subquestion{Re-estimate the mixed logit model from part (a) using 5-point Gaussian-Hermite quadrature
+to approximate the integral over the choice probabilities.}
+
+\begin{solution}
+  \begin{table}[htbp]
+    \centering
+    \caption{Mixed Logit Estimates (Gaussian-Hermite Quadrature)}
+    \begin{tabular}{lcc}
+      \hline
+      & Parameter & S.E. \\
+      \hline
+      \multicolumn{3}{l}{\textit{2-Yr}} \
+      $\beta_{0,1}$    & -0.919686 & (0.072787) \\
+      $\beta_{BA,1}$   &  0.217438 &  (0.039067) \\
+      $\beta_{GPA,1}$  &  0.428476 &  (0.021781) \\
+      $\beta_{0,2}$    & -2.348588 &  (0.111559) \\
+      $\beta_{BA,2}$   & 0.719959 &  (0.040966) \\
+      $\beta_{GPA,2}$  & 1.208237 &  (0.02856) \\
+      \hline
+      $\mu_\gamma$     & -0.155445 &  (0.006060) \\
+      $\sigma_\gamma$  & 0.038863 &  (0.093009) \\
+      \hline
+    \end{tabular}
+  \end{table}
+\end{solution}
+
+\question{Use “dataHW4 Problem2.mat” to complete this exercise. In this problem you will work with panel
+data to estimate a logit model that allows for discrete unobserved heterogeneity. During the pan-
+demic working from home became the norm, and many people continue to work from home. Over
+the course of six months, you collect data from women between the ages of 30 and 40 who are work-
+ing full-time. Each month you observe whether the woman was working at home full time (Y=1).
+The six columns of Y reflect her response for each month. For each respondent you also observe Xi
+containing the number of children at home and years of schooling (in addition to a constant). You
+also observe distance from the physical workplace in miles (Zdist). Note that Xi and distance are
+fixed for each women over the 6 months.}
+
+\subquestion{You suspect that in addition to children and schooling, women likely differ in their tastes for
+working at home. Assume that there are two unobserved types of women, one type prefers the
+office, the other prefers to work from home, all else equal. Type is assumed to be uncorrelated
+with Xi or distance. Estimate a mixed logit model for the decision to work from home that allows
+for these two types of women. Note that this means there will be two additional parameters
+to estimate beyond the coefficients associated with Xi and distance. You need to estimate the
+proportion of Type 2 women, and the additional preference these women have for working at
+home. Report coefficients and SEs.}
+
+\begin{solution}
+  \begin{table}[htbp]
+    \centering
+    \caption{Mixed Logit Estimates (Two Types of Women)}
+    \begin{tabular}{lcc}
+      \hline
+      & Parameter & S.E. \\
+      \hline
+      $\beta_{0}$    & -0.500000 & (0.
+
+  \end{table}
+
+  While my answers do not exactly match the provided true values, they are close for the most part. Where there are discrepancies, they are at least of the same sign and of similar magnitude.
+\end{solution}
+
+\end{document}

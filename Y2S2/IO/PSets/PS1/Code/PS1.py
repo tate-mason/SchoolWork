@@ -66,9 +66,7 @@ s is bins
 
 sns.scatterplot(data=active, x="mc", y="p", hue="firm_name",
                palette=palette, alpha=0.5, s=25, ax=ax)
-# add 45-deg line
-lo, hi = active["mc"].min(), active["mc"].max()
-ax.plot([lo,hi], [lo,hi], "k--", lw=1, label="p=mc")
+sns.regplot(data=active, x="mc", y="p", scatter=False, ax=ax, color="grey", line_kws={"lw":0.8, "ls":"--"})
 ax.legend()
 ax.set_title("Price vs. Marginal Cost")
 ax.set_xlabel("Marginal Cost")
@@ -83,8 +81,7 @@ fig, ax = plt.subplots(figsize=(7,4))
 
 sns.scatterplot(data=active, x="share", y="inc_mu", hue="firm_name",
                 palette=palette, alpha=0.5, s=25, ax=ax)
-lo, hi = active["share"].min(), active["share"].max()
-ax.plot([lo,hi], [lo,hi], "k--", lw=1, label="Market Avg")
+sns.regplot(data=active, x="share", y="inc_mu", scatter=False, ax=ax, color="grey", line_kws={"lw":0.8, "ls":"--"})
 ax.legend()
 ax.set_title("Avg Shopper's Income vs. Share")
 ax.set_xlabel("Market Share")
@@ -130,6 +127,7 @@ fig, ax = plt.subplots(figsize=(7,5))
 sns.scatterplot(data=both, x="price_diff", y="share_diff",
                 hue="cheaper_wins", palette=upset_palette,
                 s=40, alpha=0.8, ax=ax)
+sns.regplot(data=both, x="price_diff", y="share_diff", scatter=False, ax=ax, color="grey", line_kws={"lw":0.8, "ls":"--"})
 ax.axhline(0, color="grey", lw=0.8, ls="--")
 ax.axvline(0, color="grey", lw=0.8, ls="--")
 ax.annotate("Mkt 266: WalMart cheaper\nbut Target Holds Higher Share",
@@ -153,6 +151,7 @@ win_palette = {"WM wins": WM_COLOR, "TT wins": TT_COLOR}
 sns.scatterplot(data=both, x="x_diff", y="share_diff",
                 hue="winner", palette=win_palette,
                 s=40, alpha=0.8, ax=ax)
+sns.regplot(data=both, x="x_diff", y="share_diff", scatter=False, ax=ax, color="grey", line_kws={"lw":0.8, "ls":"--"})
 ax.axhline(0, color="grey", lw=0.8, ls="--")
 ax.axvline(0, color="grey", lw=0.8, ls="--")
 ax.set_title("Variety Difference vs. Share Difference")
@@ -275,6 +274,8 @@ mkt_demo = (
 prod_data = prod_data.merge(mkt_demo, left_on="market_ids", right_on="market", how = "left")
 # defining what our instrument is for price
 prod_data["demand_instruments0"] = prod_data["mc"]
+prod_data["demand_instruments1"] = prod_data["x"] * prod_data["inc_mu"]
+prod_data["demand_instruments2"] = prod_data["mc"] * prod_data["inc_mu"]
 
 # agent data
 
@@ -307,26 +308,24 @@ agent_data = pd.DataFrame({
     "income": income_draws.ravel() # flattens our income draws
 })
 
-# calling the integration protocol
-integration = pyblp.Integration("halton", R)
-
 # defining what PyBLP is solving
 problem = pyblp.Problem(
     product_formulations = (X1, X2),
     product_data = prod_data,
     agent_formulation = agent_form,
     agent_data = agent_data,
-    integration = integration
+    integration = pyblp.Integration("mlhs", size=R)
 )
 
 # sigma matrix 2x2 of 0's
-sigma0 = np.diag([2,2])
+sigma0 = np.diag([0,0])
 # pi matrix 2x1 of 0's
 pi0 = np.array([[0.001], [0.001]])
 
 b0 = np.array([1,1,1])
 # calling solution to problem
-results = problem.solve(beta=b0,sigma=sigma0, pi = pi0, method="1s")
+optimization = pyblp.Optimization("bfgs", {'gtol':1e-10, 'maxiter':1000})
+results = problem.solve(beta=b0,sigma=sigma0, pi = pi0, method="2s", optimization=optimization)
 print(results.pi)
 print(results.sigma)
 
