@@ -18,14 +18,15 @@ palette = {"Walmart": WM_COLOR, "Target": TT_COLOR}
 Main file for Problem Set 1 - IO2
 """
 
+df = pd.read_csv('../Data/full_data_zone.csv')
 df_l = pd.read_csv('../Data/full_data_zone_long.csv')
 
 df_l["profit"] = 1000*df_l["share"]*(df_l["p"] - df_l["mc"])
 df_l["markup"] = df_l["p"] - df_l["mc"]
 
-df_l = df_l[df_l["active"]==1] # subsetting to active markets
+active = df_l[df_l["active"]==1] # subsetting to active markets
 
-df_l["firm_name"] = df_l["firm"].map({1:"Walmart", 2:"Target"}) # label for graphs
+active["firm_name"] = active["firm"].map({1:"Walmart", 2:"Target"}) # label for graphs
 
 # --- MC dist Across Mkt --- #
 
@@ -41,13 +42,13 @@ kde fits a smooth density curve
 alpha controls transparentcy allowing for bars to overlap
 """
 
-sns.histplot(data=df_l, x="mc", hue="firm_name",
+sns.histplot(data=active, x="mc", hue="firm_name",
              palette=palette, kde=True, alpha=0.5, ax=ax)
 ax.set_title("MC Distribution by Firm")
 ax.set_xlabel("Marginal Cost")
 ax.set_ylabel("Count")
 plt.tight_layout()
-plt.show()
+plt.savefig("../Graphics/mc_dist.pdf")
 
 
 # --- Price vs. MC --- #
@@ -63,44 +64,44 @@ alpha transparency
 s is bins
 """
 
-sns.scatterplot(data=df_l, x="mc", y="p", hue="firm_name",
+sns.scatterplot(data=active, x="mc", y="p", hue="firm_name",
                palette=palette, alpha=0.5, s=25, ax=ax)
 # add 45-deg line
-lo, hi = df_l["mc"].min(), df_l["mc"].max()
+lo, hi = active["mc"].min(), active["mc"].max()
 ax.plot([lo,hi], [lo,hi], "k--", lw=1, label="p=mc")
 ax.legend()
 ax.set_title("Price vs. Marginal Cost")
 ax.set_xlabel("Marginal Cost")
 ax.set_ylabel("Price")
 plt.tight_layout()
-plt.show()
+plt.savefig("../Graphics/price_mc.pdf")
 
 # all positive markup
 
 # --- Income Sorting --- #
 fig, ax = plt.subplots(figsize=(7,4))
 
-sns.scatterplot(data=df_l, x="share", y="inc_mu", hue="firm_name",
+sns.scatterplot(data=active, x="share", y="inc_mu", hue="firm_name",
                 palette=palette, alpha=0.5, s=25, ax=ax)
-lo, hi = df_l["share"].min(), df_l["share"].max()
+lo, hi = active["share"].min(), active["share"].max()
 ax.plot([lo,hi], [lo,hi], "k--", lw=1, label="Market Avg")
 ax.legend()
 ax.set_title("Avg Shopper's Income vs. Share")
 ax.set_xlabel("Market Share")
 ax.set_ylabel("Mean Income")
 plt.tight_layout()
-plt.show()
+plt.savefig("../Graphics/income_sorting.pdf")
 
 # --- Profit Distribution --- #
 fig, ax = plt.subplots(figsize=(7,4))
 
-sns.boxplot(data=df_l, x="firm_name", y="profit",
+sns.boxplot(data=active, x="firm_name", y="profit",
             palette=palette, width=0.4, ax=ax)
 ax.set_title("Profit Distribution by Firm")
 ax.set_xlabel("")
 ax.set_ylabel("Profit")
 plt.tight_layout()
-plt.show()
+plt.savefig("../Graphics/profit_dist.pdf")
 
 # --- Quality > Price --- #
 
@@ -129,14 +130,71 @@ fig, ax = plt.subplots(figsize=(7,5))
 sns.scatterplot(data=both, x="price_diff", y="share_diff",
                 hue="cheaper_wins", palette=upset_palette,
                 s=40, alpha=0.8, ax=ax)
-ax.axhline(0, color="grey", lw=0.8, ls="--":w)
+ax.axhline(0, color="grey", lw=0.8, ls="--")
+ax.axvline(0, color="grey", lw=0.8, ls="--")
+ax.annotate("Mkt 266: WalMart cheaper\nbut Target Holds Higher Share",
+            xy=(-0.72,-0.59), xytext=(-0.3,-0.75),
+            arrowprops=dict(arrowstyle="->", color="black"),
+            fontsize=8)
+ax.set_title("Price Difference vs. Share Difference")
+ax.set_xlabel("Price Difference (WM - TT)")
+ax.set_ylabel("Share Difference (WM - TT)")
+plt.tight_layout()
+plt.savefig("../Graphics/price_share_diff.pdf")
+
+# --- Role of Variety --- #
+
+both["x_diff"] = both["x1"].values - both["x2"].values
+fig, ax = plt.subplots(figsize=(7,5))
+
+both["winner"] = np.where(both["share_diff"] > 0, "WM wins", "TT wins")
+win_palette = {"WM wins": WM_COLOR, "TT wins": TT_COLOR}
+
+sns.scatterplot(data=both, x="x_diff", y="share_diff",
+                hue="winner", palette=win_palette,
+                s=40, alpha=0.8, ax=ax)
+ax.axhline(0, color="grey", lw=0.8, ls="--")
+ax.axvline(0, color="grey", lw=0.8, ls="--")
+ax.set_title("Variety Difference vs. Share Difference")
+ax.set_xlabel("Variety Difference (WM - TT)")
+ax.set_ylabel("Share Difference (WM - TT)")
+plt.tight_layout()
+plt.savefig("../Graphics/variety_share_diff.pdf")
+
+# --- Monopoly vs. Duopoly --- #
+
+df["structure"] = np.where(
+    (df["active1"]==1) & (df["active2"]==1), "Both Active",
+    np.where(
+        df["active1"]==1, "WM Only", "TT Only"
+    ))
+
+active = active.copy()
+active["structure"] = active["market"].map(df.set_index("market")["structure"])
+
+fig, axes = plt.subplots(1,2, figsize=(11,4))
+
+for ax, firm, color in zip(axes, ["Walmart", "Target"], [WM_COLOR, TT_COLOR]):
+    sub = active[active["firm_name"]==firm]
+    order = ["WM Only", "Both Active"] if firm == "Walmart" else ["TT Only", "Both Active"]
+    sns.boxplot(data=sub, x="structure", y="profit",
+                order=order, palette=[color, "lightgrey"], width=0.5, ax=ax)
+    ax.set_title(f"{firm} Market Share by Structure")
+    ax.set_xlabel("")
+    ax.set_ylabel("Profit")
+
+plt.tight_layout()
+plt.savefig("../Graphics/monopoly_duopoly.pdf")
+
+
+
 # =================================== #
 # (2.3) Profit in each market         #
 # =================================== #
 
-df_l["profit"] = 1000 * df_l["share"] * (df_l["p"] - df_l["mc"])
+active["profit"] = 1000 * active["share"] * (active["p"] - active["mc"])
 
-profits_table = df_l.pivot_table(
+profits_table = active.pivot_table(
     index   = "market",
     columns = "firm",
     values  = "profit",
@@ -158,16 +216,16 @@ with pd.option_context(
 # (A) Estimation (Uninstrumented)   #
 # ================================= #
 
-df_l["outside_share"] = 1 - df_l.groupby("market")["share"].transform("sum")
+active["outside_share"] = 1 - active.groupby("market")["share"].transform("sum")
 
-df_l["DV"] = np.log(df_l["share"]) - np.log(df_l["outside_share"])
+active["DV"] = np.log(active["share"]) - np.log(active["outside_share"])
 
 X_col = ["x", "p"]
 
-df_l = df_l.replace([np.inf, -np.inf], np.nan).dropna(subset=["DV", "x", "p", "mc"])
+active = active.replace([np.inf, -np.inf], np.nan).dropna(subset=["DV", "x", "p", "mc"])
 
-X = sm.add_constant(df_l[X_col])
-Y = df_l["DV"]
+X = sm.add_constant(active[X_col])
+Y = active["DV"]
 
 res = sm.OLS(Y, X).fit()
 
@@ -178,7 +236,7 @@ print(res.summary())
 # ================================= #
 
 Z_col = ["x", "mc"]
-Z = sm.add_constant(df_l[Z_col])
+Z = sm.add_constant(active[Z_col])
 
 iv = IV2SLS(Y, X, Z).fit()
 print(iv.summary())
@@ -202,13 +260,13 @@ agent_form = pyblp.Formulation('0 + income')
 # product data definition
 
 # adhering to PyBLP naming
-prod_data = df_l.rename(columns={"market": "market_ids", "share": "shares", "p": "prices"}).copy()
+prod_data = active.rename(columns={"market": "market_ids", "share": "shares", "p": "prices"}).copy()
 # defining the product data
 prod_data = prod_data[["market_ids", "shares", "prices", "x", "mc", "firm", "zone"]]
 
 # market level inc_mu, inc_sigma
 mkt_demo = (
-    df_l.groupby("market")[["inc_mu", "inc_sig"]]
+    active.groupby("market")[["inc_mu", "inc_sig"]]
     .mean()
     .reset_index()
 )
