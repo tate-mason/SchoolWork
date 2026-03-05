@@ -75,6 +75,8 @@ from Prob1d import *
 
 b_hat_gh, se_gh, res_gh = GH_mix(X, Z, Y, 3) # calling the GH protocol
 
+b_hat_gh[7] = np.exp(b_hat_gh[7]) # exponentiating the sigma_gamma parameter
+
 # creating results table
 res_frame_gh = pd.DataFrame({
     "β and γ Estimates (GH)": b_hat_gh,
