@@ -55,17 +55,18 @@ print(res_frame) # outputting table
 
 from Prob2b import *
 
-b0 = estimates[:xK]
-g0 = estimates[xK]
-d0 = estimates[xK+1]
-pi20 = pi2
+b0 = estimates[:xK]  # initial values for beta parameters from MLE estimates
+g0 = estimates[xK] # initial value for gamma from MLE estimates
+d0 = estimates[xK+1]  # initial value for delta from MLE estimates
+pi20 = pi2  # initial value for pi2 from MLE estimates
 
+# running EM algorithm with initial values from MLE estimates
 beta_em, gamma_em, delta_em, pi2_em, ll_iter = em_algorithm(X, Z, Y, b0, g0, d0, pi20)
 
 # creating results table
 names_em = [f"beta_{i}" for i in range(xK)] + ["gamma","delta","pi2"]
-estimates_em = np.append(beta_em, [gamma_em, delta_em, pi2_em])
-res_frame_em = pd.DataFrame({
+estimates_em = np.append(beta_em, [gamma_em, delta_em, pi2_em]) # combine estimates into a single array for table creation
+res_frame_em = pd.DataFrame({ 
     "Parameter": names_em,
     "EM Estimate": estimates_em
 })

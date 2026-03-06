@@ -162,10 +162,11 @@ to approximate the integral over the choice probabilities.}
       \hline
       & Parameter & S.E. \\
       \hline
-      \multicolumn{3}{l}{\textit{2-Yr}} \
+      \multicolumn{3}{l}{\textit{2-Yr}}
       $\beta_{0,1}$    & -0.919686 & (0.072787) \\
       $\beta_{BA,1}$   &  0.217438 &  (0.039067) \\
       $\beta_{GPA,1}$  &  0.428476 &  (0.021781) \\
+      \multicolumn{3}{l}{\textit{4-Yr}} \\
       $\beta_{0,2}$    & -2.348588 &  (0.111559) \\
       $\beta_{BA,2}$   & 0.719959 &  (0.040966) \\
       $\beta_{GPA,2}$  & 1.208237 &  (0.02856) \\
@@ -199,16 +200,34 @@ home. Report coefficients and SEs.}
 \begin{solution}
   \begin{table}[htbp]
     \centering
-    \caption{Mixed Logit Estimates (Two Types of Women)}
+    \caption{Mixed Logit Estimates (Two Types of Women)/EM Algorithm}
     \begin{tabular}{lcc}
       \hline
       & Parameter & S.E. \\
       \hline
-      $\beta_{0}$    & -0.500000 & (0.
-
+      \multicolumn{3}{l}{\textit{Likelihood Estimates}} \\
+      $\beta_{0}$    & -0.468813 & (0.181709) \\
+      $\beta_{Children}$   &  0.511097 &  (0.011169) \\
+      $\beta_{Schooling}$  &  -0.204464 &  (0.007455) \\
+      $\gamma$ & 0.052225 & (0.000165) \\
+      $\delta$ & 1.98194 & (0.068723) \\
+      $\pi_2$ & 0.680251 & (0.020931) \\
+      \hline
+      \multicolumn{3}{l}{\textit{EM Algorithm Estimates}} \\
+      $\beta_{0}$    & -0.468813 & --- \\
+      $\beta_{Children}$   &  0.511097 &  --- \\
+      $\beta_{Schooling}$  &  -0.204464 &  --- \
+      $\gamma$ & 0.052225 & --- \\
+      $\delta$ & 1.98194 & --- \\
+      $\pi_2$ & 0.680251 & --- \\
+      \hline
+    \end{tabular}
   \end{table}
 
-  While my answers do not exactly match the provided true values, they are close for the most part. Where there are discrepancies, they are at least of the same sign and of similar magnitude.
+The standard errors from the EM algorithm could be obtained through the numerical Hessian, taking the inverse of the Hessian at the estimated values provides the covariance matrix. From there we can take the root of the diagonal elements.
+If this is too computationally taxing, bootstrapped standard errors can be obtained by running the EM on $B$ iterations of the data and calculating the standard deviation of the parameter estimates across the $B$ iterations.
 \end{solution}
+
+
 
 \end{document}

@@ -12,27 +12,27 @@ from scipy.special import logsumexp
 """
 
 def ame_mix(b, X, Zprice, Y, R, J):
-    N, xK = X.shape
-    Jm1 = J-1
+    N, xK = X.shape # dimensions
+    Jm1 = J-1 # choices
 
 
     B = b[:xK*Jm1].reshape((xK,Jm1), order="F") # beta on characteristics
 
-    mu_gamma = b[xK*Jm1]
-    sigma_gamma = np.log(np.exp(b[xK*Jm1+1]))
+    mu_gamma = b[xK*Jm1] # mean of gamma
+    sigma_gamma = np.log(np.exp(b[xK*Jm1+1])) # standard deviation of gamma
 
-    rng = np.random.default_rng(seed=219)
-    eta = rng.standard_normal((N,R))
+    rng = np.random.default_rng(seed=219) # set seed
+    eta = rng.standard_normal((N,R)) # randomness in gamma
 
-    gamma_p = mu_gamma + sigma_gamma*eta
+    gamma_p = mu_gamma + sigma_gamma*eta # draw gamma from distribution
 
     # starting values (20000x500x3)
-    V_BA = np.zeros((N,R,J))
-    V_no = np.zeros((N,R,J))
-    X_BA1 = X.copy()
-    X_BA1[:,1] = 1
-    X_BA0 = X.copy()
-    X_BA0[:,1] = 0
+    V_BA = np.zeros((N,R,J)) # value function with BA parent
+    V_no = np.zeros((N,R,J)) # value function without BA parent
+    X_BA1 = X.copy() # copy of X for BA parent
+    X_BA1[:,1] = 1 # set parent BA variable to 1
+    X_BA0 = X.copy() # copy of X for no BA parent
+    X_BA0[:,1] = 0 # set parent BA variable to 0
 
     for j in range(1, J):
         # split into observed and random components
@@ -42,12 +42,13 @@ def ame_mix(b, X, Zprice, Y, R, J):
         V_BA[:,:,j] = V_obs_BA[:,None] + V_random
         V_no[:,:,j] = V_obs_no[:,None] + V_random # value function
 
+    # compute probabilities for both scenarios
     denom_BA = logsumexp(V_BA, axis=2, keepdims=True)
     denom_no = logsumexp(V_no, axis=2, keepdims=True)
 
-    P_BA = np.exp(V_BA - denom_BA)
-    P_no = np.exp(V_no - denom_no)
+    P_BA = np.exp(V_BA - denom_BA) # probability of choosing each option with BA parent
+    P_no = np.exp(V_no - denom_no) # probability of choosing each option without BA parent
 
-    AME = (P_BA[:,:,2] - P_no[:,:,2]).mean()
+    AME = (P_BA[:,:,2] - P_no[:,:,2]).mean() # average marginal effect
 
     return AME
