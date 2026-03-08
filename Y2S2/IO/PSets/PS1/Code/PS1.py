@@ -8,19 +8,23 @@ from statsmodels.sandbox.regression.gmm import IV2SLS
 from scipy.optimize import root
 import seaborn as sns
 
+# setting seaborn settings and color scheme
 sns.set_theme(style="whitegrid", font_scale=1.05)
 WM_COLOR = "#0071CE" # Walmart blue
 TT_COLOR = "#CC0000" # Target red
 
+# defining the palette to call in seaborn
 palette = {"Walmart": WM_COLOR, "Target": TT_COLOR}
 
 """
 Main file for Problem Set 1 - IO2
 """
 
+# loading data
 df = pd.read_csv('../Data/full_data_zone.csv')
 df_l = pd.read_csv('../Data/full_data_zone_long.csv')
 
+# calculating profits and markups
 df_l["profit"] = 1000*df_l["share"]*(df_l["p"] - df_l["mc"])
 df_l["markup"] = df_l["p"] - df_l["mc"]
 
@@ -42,148 +46,106 @@ kde fits a smooth density curve
 alpha controls transparentcy allowing for bars to overlap
 """
 
+# creating histogram of MC dist by firm
 sns.histplot(data=active, x="mc", hue="firm_name",
              palette=palette, kde=True, alpha=0.5, ax=ax)
 ax.set_title("MC Distribution by Firm")
 ax.set_xlabel("Marginal Cost")
 ax.set_ylabel("Count")
 plt.tight_layout()
-plt.savefig("../Graphics/mc_dist.pdf")
+plt.savefig("../Graphics/mc_dist.pdf") # saving figure to graphics folder
 
 
-# --- Price vs. MC --- #
-fig,ax = plt.subplots(figsize=(7,4))
+# --- Variety vs Share --- #
+# split panel scatter + rolling median; strong 0.8 corr per firm
 
-"""
-data is dataset used
-x is variable 1
-y is variable 2
-hue determines grouping variable
-palette determines coloring
-alpha transparency
-s is bins
-"""
-
-sns.scatterplot(data=active, x="mc", y="p", hue="firm_name",
-               palette=palette, alpha=0.5, s=25, ax=ax)
-sns.regplot(data=active, x="mc", y="p", scatter=False, ax=ax, color="grey", line_kws={"lw":0.8, "ls":"--"})
-ax.legend()
-ax.set_title("Price vs. Marginal Cost")
-ax.set_xlabel("Marginal Cost")
-ax.set_ylabel("Price")
-plt.tight_layout()
-plt.savefig("../Graphics/price_mc.pdf")
-
-# all positive markup
-
-# --- Income Sorting --- #
-fig, ax = plt.subplots(figsize=(7,4))
-
-sns.scatterplot(data=active, x="share", y="inc_mu", hue="firm_name",
-                palette=palette, alpha=0.5, s=25, ax=ax)
-sns.regplot(data=active, x="share", y="inc_mu", scatter=False, ax=ax, color="grey", line_kws={"lw":0.8, "ls":"--"})
-ax.legend()
-ax.set_title("Avg Shopper's Income vs. Share")
-ax.set_xlabel("Market Share")
-ax.set_ylabel("Mean Income")
-plt.tight_layout()
-plt.savefig("../Graphics/income_sorting.pdf")
-
-# --- Profit Distribution --- #
-fig, ax = plt.subplots(figsize=(7,4))
-
-sns.boxplot(data=active, x="firm_name", y="profit",
-            palette=palette, width=0.4, ax=ax)
-ax.set_title("Profit Distribution by Firm")
-ax.set_xlabel("")
-ax.set_ylabel("Profit")
-plt.tight_layout()
-plt.savefig("../Graphics/profit_dist.pdf")
-
-# --- Quality > Price --- #
-
+# creating subset of data for duopoly markets
 both = df[(df["active1"]==1) & (df["active2"]==1)].copy()
-both["share_diff"] = both["share1"].values - both["share2"].values
-both["price_diff"] = both["p1"].values - both["p2"].values
-
-# label each market: does the cheaper firm win?
-both["cheaper_wins"] = np.where(
-    (both["price_diff"] > 0) & (both["share_diff"] < 0), "TT cheaper, TT wins",   # normal
-    np.where(
-    (both["price_diff"] < 0) & (both["share_diff"] > 0), "WM cheaper, WM wins",   # normal
-    np.where(
-    (both["price_diff"] < 0) & (both["share_diff"] < 0), "WM cheaper, TT wins",   # upset!
-    "TT cheaper, WM wins")))                                                        # upset!
-
-upset_palette = {
-    "WM cheaper, WM wins":  WM_COLOR,
-    "TT cheaper, TT wins":  TT_COLOR,
-    "WM cheaper, TT wins":  "orange",   # anomaly — cheaper firm loses
-    "TT cheaper, WM wins":  "green",
-}
-
-fig, ax = plt.subplots(figsize=(7,5))
-
-sns.scatterplot(data=both, x="price_diff", y="share_diff",
-                hue="cheaper_wins", palette=upset_palette,
-                s=40, alpha=0.8, ax=ax)
-sns.regplot(data=both, x="price_diff", y="share_diff", scatter=False, ax=ax, color="grey", line_kws={"lw":0.8, "ls":"--"})
-ax.axhline(0, color="grey", lw=0.8, ls="--")
-ax.axvline(0, color="grey", lw=0.8, ls="--")
-ax.annotate("Mkt 266: WalMart cheaper\nbut Target Holds Higher Share",
-            xy=(-0.72,-0.59), xytext=(-0.3,-0.75),
-            arrowprops=dict(arrowstyle="->", color="black"),
-            fontsize=8)
-ax.set_title("Price Difference vs. Share Difference")
-ax.set_xlabel("Price Difference (WM - TT)")
-ax.set_ylabel("Share Difference (WM - TT)")
-plt.tight_layout()
-plt.savefig("../Graphics/price_share_diff.pdf")
-
-# --- Role of Variety --- #
-
-both["x_diff"] = both["x1"].values - both["x2"].values
-fig, ax = plt.subplots(figsize=(7,5))
-
-both["winner"] = np.where(both["share_diff"] > 0, "WM wins", "TT wins")
-win_palette = {"WM wins": WM_COLOR, "TT wins": TT_COLOR}
-
-sns.scatterplot(data=both, x="x_diff", y="share_diff",
-                hue="winner", palette=win_palette,
-                s=40, alpha=0.8, ax=ax)
-sns.regplot(data=both, x="x_diff", y="share_diff", scatter=False, ax=ax, color="grey", line_kws={"lw":0.8, "ls":"--"})
-ax.axhline(0, color="grey", lw=0.8, ls="--")
-ax.axvline(0, color="grey", lw=0.8, ls="--")
-ax.set_title("Variety Difference vs. Share Difference")
-ax.set_xlabel("Variety Difference (WM - TT)")
-ax.set_ylabel("Share Difference (WM - TT)")
-plt.tight_layout()
-plt.savefig("../Graphics/variety_share_diff.pdf")
-
-# --- Monopoly vs. Duopoly --- #
-
-df["structure"] = np.where(
-    (df["active1"]==1) & (df["active2"]==1), "Both Active",
-    np.where(
-        df["active1"]==1, "WM Only", "TT Only"
-    ))
 
 active = active.copy()
-active["structure"] = active["market"].map(df.set_index("market")["structure"])
 
-fig, axes = plt.subplots(1,2, figsize=(11,4))
+fig, axes = plt.subplots(1, 2, figsize=(10, 4), sharey=False)
 
-for ax, firm, color in zip(axes, ["Walmart", "Target"], [WM_COLOR, TT_COLOR]):
-    sub = active[active["firm_name"]==firm]
-    order = ["WM Only", "Both Active"] if firm == "Walmart" else ["TT Only", "Both Active"]
-    sns.boxplot(data=sub, x="structure", y="profit",
-                order=order, palette=[color, "lightgrey"], width=0.5, ax=ax)
-    ax.set_title(f"{firm} Market Share by Structure")
-    ax.set_xlabel("")
-    ax.set_ylabel("Profit")
+# looping through firms and plotting scatter + rolling median for each
+for ax, (firm, color) in zip(axes, [("Walmart", WM_COLOR), ("Target", TT_COLOR)]):
+    sub = active[active["firm_name"] == firm].sort_values("x")
+    ax.scatter(sub["x"], sub["share"], color=color, alpha=0.4, s=20, zorder=2)
+    rolling_med = sub["share"].rolling(window=15, center=True, min_periods=5).median()
+    ax.plot(sub["x"], rolling_med, color=color, lw=2, zorder=3, label="Rolling median")
+    ax.axhline(sub["share"].median(), color="grey", lw=0.8, ls="--", zorder=1)
+    ax.set_title(firm)
+    ax.set_xlabel("Variety (x)")
+    ax.set_ylabel("Market Share")
+    ax.legend(fontsize=8)
 
+fig.suptitle("Variety and Market Share by Firm", y=1.01)
 plt.tight_layout()
-plt.savefig("../Graphics/monopoly_duopoly.pdf")
+plt.savefig("../Graphics/variety_share.pdf", bbox_inches="tight") # saving figure to graphics folder
+
+# --- Price Dispersion Across Markets --- #
+# WM vs TT price per duopoly market; 45-degree line = equal price
+
+fig, ax = plt.subplots(figsize=(6, 6))
+
+# creating scatter of WM vs TT price in duopoly markets
+ax.scatter(both["p1"], both["p2"], color=WM_COLOR, alpha=0.5, s=30, zorder=2)
+
+lim_lo = min(both["p1"].min(), both["p2"].min()) - 0.1
+lim_hi = max(both["p1"].max(), both["p2"].max()) + 0.1
+ax.plot([lim_lo, lim_hi], [lim_lo, lim_hi], color="grey", lw=1, ls="--", zorder=1, label="Equal price")
+ax.text(lim_hi - 0.1, lim_lo + 0.15, "WM pricier", ha="right", fontsize=8, color="dimgrey")
+ax.text(lim_lo + 0.05, lim_hi - 0.15, "TT pricier", ha="left",  fontsize=8, color="dimgrey")
+ax.set_xlim(lim_lo, lim_hi)
+ax.set_ylim(lim_lo, lim_hi)
+ax.set_aspect("equal")
+ax.set_xlabel("Walmart Price")
+ax.set_ylabel("Target Price")
+ax.set_title("Price Dispersion in Duopoly Markets\n(one dot = one market)")
+ax.legend(fontsize=8)
+plt.tight_layout()
+plt.savefig("../Graphics/price_dispersion.pdf")  # saving figure to graphics folder
+
+# --- Income Distribution by Market Structure --- #
+# inc_sig is constant; inc_mu is the meaningful variation
+# shows whether richer/poorer markets sort into different structures
+
+df["structure"] = np.where(
+    (df["active1"]==1) & (df["active2"]==1), "Duopoly",
+    np.where(df["active1"]==1, "WM Only", "TT Only")
+)
+
+mkt_inc = df[["market", "inc_mu", "structure"]].drop_duplicates()
+
+struct_palette = {"Duopoly": "steelblue", "WM Only": WM_COLOR, "TT Only": TT_COLOR}
+struct_order   = ["WM Only", "Duopoly", "TT Only"]
+
+fig, ax = plt.subplots(figsize=(7, 4))
+sns.histplot(data=mkt_inc, x="inc_mu", hue="structure",
+             hue_order=struct_order, palette=struct_palette,
+             kde=True, alpha=0.45, bins=20, ax=ax)
+ax.set_title("Market Income Distribution by Competitive Structure")
+ax.set_xlabel("Mean Income (inc_mu)")
+ax.set_ylabel("Markets")
+plt.tight_layout()
+plt.savefig("../Graphics/income_structure.pdf")
+
+# --- Markup Distribution --- #
+# violin + strip replaces plain boxplot — shows full shape
+
+active["markup"] = active["p"] - active["mc"]
+
+fig, ax = plt.subplots(figsize=(6, 4))
+sns.violinplot(data=active, x="firm_name", y="markup", hue="firm_name",
+               palette=palette, inner=None, alpha=0.35, legend=False,
+               order=["Walmart", "Target"], ax=ax)
+sns.stripplot(data=active, x="firm_name", y="markup", hue="firm_name",
+              palette=palette, alpha=0.4, size=3, jitter=True, legend=False,
+              order=["Walmart", "Target"], ax=ax)
+ax.set_title("Markup Distribution by Firm")
+ax.set_xlabel("")
+ax.set_ylabel("Markup  (p − mc)")
+plt.tight_layout()
+plt.savefig("../Graphics/markup_dist.pdf")
 
 
 
@@ -207,6 +169,12 @@ with pd.option_context(
 ):
     print(profits_table)
 
+profits_table.columns = ["Walmart", "Target"]
+profits_table = profits_table.round(2)
+profits_table.to_csv("../Data/profits_table.csv")
+
+summary = profits_table.agg(["mean", "median", "std", "min", "max"]).round(2)
+summary.to_csv("../Data/profits_summary.csv")
 # ================================= #
 # (3.1) MNL Estimation              #
 # ================================= #
