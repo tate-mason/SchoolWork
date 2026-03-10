@@ -47,8 +47,8 @@ tabstat income* educ  working
 
 local Tab2 = 0
 local Tab3 = 0
-local Tab4 = 1
-local Tab5 = 0 // only observations, sample mean, and % with risky levels
+local Tab4 = 0
+local Tab5 = 1 // only observations, sample mean, and % with risky levels
 local Tab6 = 0
 local Tab7 = 0 
 local Fig4 = 0 // insert vline at t = 1996, include additional subfigure for "at work" rather than "in labor force" -- figure 4 has 5 subfigures
@@ -127,7 +127,7 @@ if `Tab3' {
   
   reg excel_vgood dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Good Health
 
-  nbreg mental_poord d_treatment `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+  nbreg mental_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Mental Health
 
   nbreg phys_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Physical health
 }
@@ -219,4 +219,24 @@ if `Tab4' {
   nbreg phys_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Physical health
 
   restore
+}
+
+if `Tab5' {
+  // NHANES data load
+  use `dataPath'nhanes/nhanesallstacked.dta, clear
+  // Subset to mothers aged 21-40 with children under 18 and educ <= HS
+  drop if age < 21 | age > 40 
+  drop if highgrade > 2
+  drop if sex == 1
+  drop if live_births<1
+
+  // Create binary variables for risky levels of each biomarker
+  replace crp = . if crp == 88888
+  gen riskyCRP = (crp >= 3 & crp != .)
+  gen risky_inf_cond = (riskyAlbumin == 1 | riskyCRP == 1) if riskyAlbumin != . & riskyCRP != .
+
+  gen sum_risky = riskyAlbumin + riskyCholest + riskyhdl + riskyglycatedhemoglobin + riskypulse + riskysystolic + riskydiastolic
+
+  // Biomarker A: Measures of Inflammation
+  sum crp albumin sum_risky risky_inf_cond
 }
