@@ -75,6 +75,7 @@ for ax, (beta, gamma, label) in zip(axes, regimes):
 
 fig.suptitle("Expanding-window variance of consumer choices by regime and σ", fontsize=13, y=1.01)
 plt.tight_layout()
+plt.savefig("../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png")
 plt.show()
 
 # Consumer Choices
@@ -102,4 +103,5 @@ for ax, (beta, gamma, label) in zip(axes2, regimes):
 
 fig2.suptitle("Consumer choices and utility by regime (σ=1.0)", fontsize=13, y=1.01)
 plt.tight_layout()
+plt.savefig("../Output/consumer_choices_and_utility_by_regime.png")
 plt.show()
