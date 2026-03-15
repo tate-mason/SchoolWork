@@ -47,14 +47,14 @@ tabstat income* educ  working
 
 // Below I define a local switch for each part of the assignment. When set to 1, it will run, at 0, it is dormant
 
-local Tab2 = 0
-local Tab3 = 0
-local Tab4 = 0
-local Tab5 = 0 // only observations, sample mean, and % with risky levels
-local Tab6 = 0
-local Tab7 = 0 
+local Tab2 = 1
+local Tab3 = 1
+local Tab4 = 1
+local Tab5 = 1 // only observations, sample mean, and % with risky levels
+local Tab6 = 1
+local Tab7 = 1 
 local Fig4 = 1 // insert vline at t = 1996, include additional subfigure for "at work" rather than "in labor force" -- figure 4 has 5 subfigures
-local ARC  = 0 // Additional Robustness Checks - Footnote 12 (col1), Footnote 21 - diff years excluded (col2), Footnote 21 - years specified (col3)
+local ARC  = 1 // Additional Robustness Checks - Footnote 12 (col1), Footnote 21 - diff years excluded (col2), Footnote 21 - years specified (col3)
 
 /************************************************************
 * (4) Table 2 - Sample Characteristics                      *
@@ -102,9 +102,6 @@ if `Tab3' {
   drop if educ == 3
   drop if age < 21 | age > 40
   drop if fips > 56
-
-
-  recode educ (1/2 = 0) (4=1), gen(college_edu) //reclassifying education such that college_edu = 1 if the woman has a degree and 0 if high school attainment was their highest level of education
 
   // Pre-Treatment Means
 
@@ -495,7 +492,8 @@ if `Fig4' {
         yscale(range(`y1_min' `y1_max') axis(2)) ylabel(`y1_min'(0.02)`y1_max', axis(2)) ///
         xline(1996, lcolor(red) lpattern(dash)) ///
         ytitle("Moms with 2+ children") ytitle("Moms with 1 child", axis(2)) ///
-        xtitle("Year") title("Panel A: % in labor force")
+        xtitle("Year") title("Panel A: % in labor force") ///
+        name("Fig4_LaborForce", replace)
   restore
 
   preserve
@@ -517,7 +515,8 @@ if `Fig4' {
         yscale(range(`y1_min' `y1_max') axis(2)) ylabel(`y1_min'(0.02)`y1_max', axis(2)) ///
         xline(1996, lcolor(red) lpattern(dash)) ///
         ytitle("Moms with 2+ children") ytitle("Moms with 1 child", axis(2)) ///
-        xtitle("Year") title("Panel B: % in Excellent/Very Good Health")
+        xtitle("Year") title("Panel B: % in Excellent/Very Good Health") ///
+        name("Fig4_ExcellentHealth", replace)
   restore
 
   // Panel C - Mental Health
@@ -534,7 +533,8 @@ if `Fig4' {
         yscale(range(3.75,5.75) axis(2)) ylabel(3.75(0.25)5.75, axis(2)) ///
         xline(1996, lcolor(red) lpattern(dash)) ///
         ytitle("Moms with 2+ children") ytitle("Moms with 1 child", axis(2)) ///
-        xtitle("Year") title("Panel C: % in Poor Mental Health")
+        xtitle("Year") title("Panel C: % in Poor Mental Health") ///
+        name("Fig4_MentalHealth", replace)
   restore
 
   // Panel D - Physical Health
@@ -552,6 +552,54 @@ if `Fig4' {
         yscale(range(2.25,3.75) axis(2)) ylabel(2.25(0.25)3.75, axis(2)) ///
         xline(1996, lcolor(red) lpattern(dash)) ///
         ytitle("Moms with 2+ children") ytitle("Moms with 1 child", axis(2)) ///
-        xtitle("Year") title("Panel D: % in Poor Physical Health")
+        xtitle("Year") title("Panel D: % in Poor Physical Health") ///
+        name("Fig4_PhysicalHealth", replace)
+  restore
+
+  preserve
+  collapse (mean) working, by(year twoplus_kids)
+  tsset twoplus_kids year
+  local y0_min = 0.60 //matching 2+ yaxis
+  local y0_max = 0.70
+  local y1_min = 0.70 //matching 1 child yaxis
+  local y1_max = 0.80
+  twoway ///
+      (tsline working if twoplus_kids==1, lcolor(black) lwidth(medium)) ///
+      (tsline working if twoplus_kids==0, lcolor(gs8) lwidth(medium) yaxis(2)) ///
+      , legend(label(1 "Moms with 2+ children") label(2 "Moms with 1 child")) ///
+        xscale(range(1993 2001)) xlabel(1993(1)2001) ///
+        xline(1996, lcolor(red) lpattern(dash)) ///
+        ytitle("Moms with 2+ children") ytitle("Moms with 1 child", axis(2)) ///
+        xtitle("Year") title("Panel E: % at work") ///
+        name("Fig4_Working", replace)
+  restore
+}
+
+if `ARC' {
+  use `dataPath'BRFSS_Final_Data.dta, clear
+
+  drop if kids==0 | kids == .
+  drop if educ == 3
+  drop if age < 21 | age > 40
+  drop if fips > 56
+
+  // Additional Robustness Checks - Footnote 12 (col1), Footnote 21 - diff years excluded (col2), Footnote 21 - years specified (col3)
+
+  local X "i.race4 i.educ i.age i.month i.marital i.kids i.fips i.year" // Control vector of dummies
+
+  // Footnote 12 - Treatment in 1995 (rebates from 94 distributed)
+  gen dd_treat_95 = (year == 1995)*twoplus_kids
+  reg working dd_treat_95 twoplus_kids `X' if educ <= 2, cluster(fips) // Effect on LFPR
+  reg excel_vgood dd_treat_95 twoplus_kids `X' if educ <= 2, cluster(fips) // Effect on Good Health
+  nbreg mental_poor dd_treat_95 twoplus_kids `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+  nbreg phys_poor dd_treat_95 twoplus_kids `X' if educ <= 2, cluster(fips) // Effect on Physical health
+
+  // Footnote 21 - Child Tax Credit - Exclude yearrs where CTC was in existence (1998-2001)
+  preserve
+  drop if year >= 1998
+  reg working dd_treatment twoplus_kids eitc_expand `X' if educ <= 2, cluster(fips) // Effect on LFPR
+  reg excel_vgood dd_treatment twoplus_kids eitc_expand `X' if educ <= 2, cluster(fips) // Effect on Good Health
+  nbreg mental_poor dd_treatment twoplus_kids eitc_expand `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+  nbreg phys_poor dd_treatment twoplus_kids eitc_expand `X' if educ <= 2, cluster(fips) // Effect on Physical health
   restore
 }
