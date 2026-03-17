@@ -1,0 +1,157 @@
+% ============================================================
+%  Report Template
+% ============================================================
+
+\documentclass[11pt]{article}
+
+% ── Packages ────────────────────────────────────────────────
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{float}
+% code packages
+\usepackage{listings}
+\usepackage{inconsolata}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
+\usepackage{csvsimple}
+\usepackage{booktabs}
+
+
+% ── Hyperref setup ──────────────────────────────────────────
+\hypersetup{
+    colorlinks = true,
+    linkcolor  = black,
+    citecolor  = black,
+    urlcolor   = blue
+}
+
+% ── Theorem environments ────────────────────────────────────
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+% ── Spacing ─────────────────────────────────────────────────
+\onehalfspacing
+
+% ── Title block ─────────────────────────────────────────────
+\title{JMP - Yu Song}
+\author{Tate Mason}
+\date{\today}
+
+% ============================================================
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+% ── Abstract ────────────────────────────────────────────────
+
+\newpage
+\setcounter{page}{1}
+
+% ── 1. Introduction ─────────────────────────────────────────
+\section{Introduction}
+
+Song's "Optimizing Multi-Stage Personalization in the Customer Journey" investigates the firm's
+process of optimizing the personalization process for a consumer's shopping experience. As e-commerce
+and online consumption becomes the norm, gaining an understanding of how firms' personlization algorithms
+can be fine tuned should be at the forefront in IO. Song reseraches the multi-stage personalization design
+which leads to optimal firm outcomes.
+
+\section{Structural vs. Behavioral}
+
+A structural model is fitting here due to Song's use of a field experiment in conjunction with a massive e-commerce platform. This rich data allows for 
+more complex modeling, capturing consumer search and choice in a particularly complex setting. If Song instead used a differences-in-differences approach,
+or some such method, they would be wasting a good amount of data, leaving half of the sample untreated. This would also only get at effects like purchase rate,
+inspection rate, etc. whereas the structural approach is able to observe what products are purchased, the length of session, and other similar outcomes.
+
+\section{Model Structure and Relation to Framework}
+
+Song was able to work directly with e-commerce platform Mercari Inc. on a field experiment, allowing them to have very granular firm level data. Further,
+Their field experiment is comprised of a separate experiment for both the query and recommendation stages, which grants the economist a ton of data, and
+thus a richer model. Song employs a sequential search model, in which the first stage sees the consumer recommended a menu of products which have atttributes
+observed without cost. The consumer is then faced with three choices: 1) access an inspected item's product page, 2) conduct a search query, entering the 
+second stage, or 3) leave the platform, taking the outside option. If the consumer opts for option one, they are exposed to all hidden attributes for the 
+product as well as its match value for them. Once hidden attributes are uncovered, the item enters the consumer's consideration set. The item can then be
+purchased, the outside option can be pursued, or continue search via inspection or query.
+
+In the second stage, query, the recommendation stage is terminated, and the consumer is given a menu of relevant products to their query, viewed without cost.
+After viewing the search results, the consumer can either: 1) inspect an item from the search list, or 2) leave the platform, choosing the outside option. It is 
+assumed that only items in the consideration set can be purchased and consumers can navigate between recommendation and search pages without incurring a cost. The
+consumer is also assumed to possess perfect recall, allowing for revisting products to be costless.
+
+Search costs are incurred when search is personalized, reflecting a data fact that personalization increases loading times and reduces inspection decisions. There is
+also an inspection cost, reflecting the time taken to scan an entire webpage. The costs are used to compute reservation utility, which serves as the minimum utility
+level the consumer will accept.
+
+The consumer will rank all available options to them, those in choice set and observed at recommendation, and then sequentially inspect them. The consumer will stop
+searching once highest realized utility is greater than the reservation level of utility. The choice is the product which possesses the highest realized utility among
+inspected products and the outside option.
+
+\section{Estimation Approach}
+
+Song uses neural network estimation (NNE) to estimate the model. The NNE approach works by training a deep learning model to learn the mapping from the data to the 
+structural parameters. This is advantageous for Song's use-case as NNE does not need to evaluate high-level integrals over unobservables, a common compuational issue
+in SMM or MLE. The neural network, conversely, learns the mapping from data to parameters. The NNE is also robust to nuisance moments, instead prioritizing more informative
+features to identify parameters. Also, the NNE method is efficient. After the training phase, the estimator can provide point estimates and hypothesis testing statistics 
+with minimal computation. Finally, NNE is robust to choice of neural network architecture and hyperparameters.
+
+The estimation procedure consists of three training steps and a fourth estimation step. First, Song simulates consumer decisions across a grid of potential parameter values.
+These simulated decisions include whether to inspect, conduct a query, or purchase. Second, they summarize simulated outcomes into a set of data moments which are computed
+at the product, session, and individual levels. Third, train the neural network on the simulated data moments and corresponding parameter values as the training set. During
+this process, the network is able to find, given a set of observed data moments, what parameter values generated them. After training, Song feeds the observed Mercari data in,
+calculating data moments, as well as recovering estimated parameters and the covariance matrix.
+
+Song needs to recover nine parameters: position effects, price, preferences, costs, and standard deviation of post-inspection taste shock. To identify position effects, they use 
+historical search queries and item clicks. This allows them to predict position, assuming the residual variation is exogenous to individual preferences. For prices, they utilize
+Gandhi and Houde (2019) instruments, using competing products in the same market as instruments to control for the endogeity concern associated with prices. For preferences, Song
+implements a control function, using purchasing decisions among the inspected products to inform preferences. Costs are identified differently depending on type. For the baseline costs,
+Song uses the number of product inspections consumers perform in each stage. For the baseline cost of searching, the frequency of engaging in a query serves as identifying.
+Finally, for variable search cost, variation in experimental assignment in employed. Lastly, taste shock standard deviation is identified by the number of items inspected by the consumer.
+
+\section{Results Overview}
+
+Song finds that personalizing in the recommendation stage will boost initial engagement, before losing query stage engagement, leaving total revenue flat. If both stages are personalized,
+total revenue increases relative to the case mentioned above.
+
+\section{Counterfactuals}
+
+In the first set of counterfactual analyses, Song varies the stage in which personalization occurs, specifically to understand how total revenue is impacted and how these impacts
+hold under different levels of transition frictions. The second set investigates personalized personalization, or tailoring the experience to each individual consumer rather than 
+buckets of consumers. The first set, personalizing the experience at varying stages, would not be possible with a reduced form approach. This is because Song varies the level
+of personalization at each stage simultaneously, and sees how utility is impacted. For personalized personalization, I do not think it would be possible to do this in a reduced form
+manner either. The structural model that has been used thus far provides much more tuning and customizability for Song to perform these analyses, whereas the reduced form approach
+would not be able to change so many things at once.
+
+There are a few other counterfactuals that would have been interesting. Firstly, increasing latency by adding more listings to a page, seeing if the trade between personalized recommendation
+and latency has an impact. Second, seeing how the two counterfactuals affect things other than revenue. For instance, how is the outside option affected, or the search process?
+
+\section{Overall Conclusion}
+
+In closing, this paper is very interesting for a few reasons. The data that Song got access to is beyond impressive, allowing for a rich dataset of naturally random observations. Second, the
+use of NNE is very intriguing, providing a use case for efficient estimation that is burgeoning in economics. However, I think that Song overindexed on the novelty of NNE. There was a lack of 
+a relatively small results section, and the chosen outcomes were not as detailed as I would have liked. Further, the counterfactual analysis, as described above, is a letdown. Only performing 
+two analyses and only looking at revenue effects. 
+
+If I were to extend this paper, I would look into how variation in preferences affects consumer choice and the actual search process. For instance, how does perturbation of the preference standard
+deviation impacts initiation of search or how the baseline cost of search leads to selection of the outside option. Overall, this paper is very strong, and levarages strong data and interesting
+mechanics to investigate a question of growing importance in IO.
+
+
+\end{document}
+
+

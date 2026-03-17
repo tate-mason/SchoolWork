@@ -47,14 +47,15 @@ tabstat income* educ  working
 
 // Below I define a local switch for each part of the assignment. When set to 1, it will run, at 0, it is dormant
 
-local Tab2 = 0
-local Tab3 = 0
-local Tab4 = 0
-local Tab5 = 0 // only observations, sample mean, and % with risky levels
-local Tab6 = 0
-local Tab7 = 0 
-local Fig4 = 0 // insert vline at t = 1996, include additional subfigure for "at work" rather than "in labor force" -- figure 4 has 5 subfigures
+local Tab2 = 1
+local Tab3 = 1
+local Tab4 = 1
+local Tab5 = 1 // only observations, sample mean, and % with risky levels
+local Tab6 = 1
+local Tab7 = 1 
+local Fig4 = 1 // insert vline at t = 1996, include additional subfigure for "at work" rather than "in labor force" -- figure 4 has 5 subfigures
 local ARC  = 1 // Additional Robustness Checks - Footnote 12 (col1), Footnote 21 - diff years excluded (col2), Footnote 21 - years specified (col3)
+local Extension = 1
 
 /************************************************************
 * (4) Table 2 - Sample Characteristics                      *
@@ -98,6 +99,7 @@ if `Tab2' {
 ************************************************************/
 
 if `Tab3' {
+  use `dataPath'BRFSS_Final_Data.dta, clear
   drop if kids==0 | kids == .
   drop if educ == 3
   drop if age < 21 | age > 40
@@ -127,12 +129,150 @@ if `Tab3' {
   local X "i.race4 i.educ i.age i.month i.marital i.kids i.fips i.year" // Control vector of dummies
 
   reg at_work dd_treatment `X' if educ <= 2, cluster(fips) // Effect on LFPR
-  
+  estimates store working_adj
+
   reg excel_vgood dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Good Health
+  estimates store excel_adj
 
   nbreg mental_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+  estimates store mental_adj
 
   nbreg phys_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Physical health
+  estimates store phys_adj
+
+  // ---- Extract scalars for file write ----
+
+  // Pre-expansion means for treatment group (2+ kids, educ<=2, pre-1996)
+  foreach y in at_work excel_vgood mental_poor phys_poor {
+      quietly sum `y' if year < 1996 & twoplus_kids == 1 & educ <= 2
+      scalar premean_`y' = r(mean)
+  }
+
+  // Extract b, se, p for each outcome x spec
+  // OLS: use e(df_r) for t-based p-value
+  // nbreg: use normal approximation (z-stat)
+
+  estimates restore working_simple
+  scalar b_at_work_simple  = _b[dd_treatment]
+  scalar se_at_work_simple = _se[dd_treatment]
+  scalar p_at_work_simple  = 2*ttail(e(df_r), abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  estimates restore working_adj
+  scalar b_at_work_adj  = _b[dd_treatment]
+  scalar se_at_work_adj = _se[dd_treatment]
+  scalar p_at_work_adj  = 2*ttail(e(df_r), abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  estimates restore excel_simple
+  scalar b_excel_vgood_simple  = _b[dd_treatment]
+  scalar se_excel_vgood_simple = _se[dd_treatment]
+  scalar p_excel_vgood_simple  = 2*ttail(e(df_r), abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  estimates restore excel_adj
+  scalar b_excel_vgood_adj  = _b[dd_treatment]
+  scalar se_excel_vgood_adj = _se[dd_treatment]
+  scalar p_excel_vgood_adj  = 2*ttail(e(df_r), abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  estimates restore mental_simple
+  scalar b_mental_poor_simple  = _b[dd_treatment]
+  scalar se_mental_poor_simple = _se[dd_treatment]
+  scalar p_mental_poor_simple  = 2*normal(-abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  estimates restore mental_adj
+  scalar b_mental_poor_adj  = _b[dd_treatment]
+  scalar se_mental_poor_adj = _se[dd_treatment]
+  scalar p_mental_poor_adj  = 2*normal(-abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  estimates restore phys_simple
+  scalar b_phys_poor_simple  = _b[dd_treatment]
+  scalar se_phys_poor_simple = _se[dd_treatment]
+  scalar p_phys_poor_simple  = 2*normal(-abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  estimates restore phys_adj
+  scalar b_phys_poor_adj  = _b[dd_treatment]
+  scalar se_phys_poor_adj = _se[dd_treatment]
+  scalar p_phys_poor_adj  = 2*normal(-abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  // ---- Write Tab3 LaTeX ----
+
+  cap mkdir `outPath'Tables
+
+  file open tab3 using `outPath'Tables/Tab3.tex, write replace
+  file write tab3 "\begin{table}[htbp]" _n
+  file write tab3 "\centering" _n
+  file write tab3 "\caption{Difference-in-Differences OLS and Negative Binomial Estimates \\ Mothers Aged 21--40, 1993--2001 BRFSS}" _n
+  file write tab3 "\begin{tabular}{lcccc}" _n
+  file write tab3 "\toprule" _n
+  file write tab3 " & Preexpansion & Estimation & \multicolumn{2}{c}{DiD estimates} \\" _n
+  file write tab3 " & mean (treat.) & method & Simple & Reg. adjusted \\" _n
+  file write tab3 "\cmidrule(lr){4-5}" _n
+
+  // Row helper: writes b (se) [p] for two specs
+  // At work
+  file write tab3 "At work"
+  file write tab3 " & " %6.3f (scalar(premean_at_work))
+  file write tab3 " & OLS"
+  file write tab3 " & " %7.4f (scalar(b_at_work_simple))
+  file write tab3 " & " %7.4f (scalar(b_at_work_adj)) " \\" _n
+  file write tab3 " & & "
+  file write tab3 " & (" %6.4f (scalar(se_at_work_simple)) ")"
+  file write tab3 " & (" %6.4f (scalar(se_at_work_adj))    ") \\" _n
+  file write tab3 " & & "
+  file write tab3 " & [" %5.3f (scalar(p_at_work_simple)) "]"
+  file write tab3 " & [" %5.3f (scalar(p_at_work_adj))    "] \\" _n
+  file write tab3 "\addlinespace" _n
+
+  // Excellent/very good
+  file write tab3 "Excellent/very good health?"
+  file write tab3 " & " %6.3f (scalar(premean_excel_vgood))
+  file write tab3 " & OLS"
+  file write tab3 " & " %7.4f (scalar(b_excel_vgood_simple))
+  file write tab3 " & " %7.4f (scalar(b_excel_vgood_adj)) " \\" _n
+  file write tab3 " & & "
+  file write tab3 " & (" %6.4f (scalar(se_excel_vgood_simple)) ")"
+  file write tab3 " & (" %6.4f (scalar(se_excel_vgood_adj))    ") \\" _n
+  file write tab3 " & & "
+  file write tab3 " & [" %5.3f (scalar(p_excel_vgood_simple)) "]"
+  file write tab3 " & [" %5.3f (scalar(p_excel_vgood_adj))    "] \\" _n
+  file write tab3 "\addlinespace" _n
+
+  // Mental poor
+  file write tab3 "Number of bad mental health days in past month"
+  file write tab3 " & " %6.2f (scalar(premean_mental_poor))
+  file write tab3 " & Negative binomial"
+  file write tab3 " & " %7.4f (scalar(b_mental_poor_simple))
+  file write tab3 " & " %7.4f (scalar(b_mental_poor_adj)) " \\" _n
+  file write tab3 " & & "
+  file write tab3 " & (" %6.4f (scalar(se_mental_poor_simple)) ")"
+  file write tab3 " & (" %6.4f (scalar(se_mental_poor_adj))    ") \\" _n
+  file write tab3 " & & "
+  file write tab3 " & [" %5.3f (scalar(p_mental_poor_simple)) "]"
+  file write tab3 " & [" %5.3f (scalar(p_mental_poor_adj))    "] \\" _n
+  file write tab3 "\addlinespace" _n
+
+  // Physical poor
+  file write tab3 "Number of bad physical health days in past month"
+  file write tab3 " & " %6.2f (scalar(premean_phys_poor))
+  file write tab3 " & Negative binomial"
+  file write tab3 " & " %7.4f (scalar(b_phys_poor_simple))
+  file write tab3 " & " %7.4f (scalar(b_phys_poor_adj)) " \\" _n
+  file write tab3 " & & "
+  file write tab3 " & (" %6.4f (scalar(se_phys_poor_simple)) ")"
+  file write tab3 " & (" %6.4f (scalar(se_phys_poor_adj))    ") \\" _n
+  file write tab3 " & & "
+  file write tab3 " & [" %5.3f (scalar(p_phys_poor_simple)) "]"
+  file write tab3 " & [" %5.3f (scalar(p_phys_poor_adj))    "] \\" _n
+
+  file write tab3 "\bottomrule" _n
+  file write tab3 "\end{tabular}" _n
+  file write tab3 "\begin{minipage}{\linewidth}" _n
+  file write tab3 "\smallskip\footnotesize" _n
+  file write tab3 "\textit{Notes:} Standard errors in parentheses; \$p\$-values in square brackets." _n
+  file write tab3 " All standard errors allow for arbitrary correlations within state." _n
+  file write tab3 " Regression-adjusted estimates include dummies for age, race, marital status," _n
+  file write tab3 " number of children, month, year, and state of residence." _n
+  file write tab3 "\end{minipage}" _n
+  file write tab3 "\end{table}" _n
+  file close tab3
 }
 
 /************************************************************
@@ -147,6 +287,7 @@ if `Tab3' {
 ************************************************************/
 
 if `Tab4' {
+  use `dataPath'BRFSS_Final_Data.dta, clear
 
   // Column 1 - DiD Results Full Sample With Dummy Controls
   drop if kids == 0 | kids == .
@@ -154,23 +295,32 @@ if `Tab4' {
   local X "i.race4 i.educ i.age i.month i.marital i.kids i.year" // Control vector of dummies
 
   reg at_work dd_treatment `X' if educ <= 2, cluster(fips) // Effect on LFPR
-  
+  estimates store tab4c1_at_work
+
   reg excel_vgood dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Good Health
+  estimates store tab4c1_excel
 
   nbreg mental_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+  estimates store tab4c1_mental
 
   nbreg phys_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Physical health
+  estimates store tab4c1_phys
+
   // Column 2 - State x Year FE added
 
   local X "i.race4 i.educ i.age i.month i.marital i.kids" // Control vector of dummies
 
   reg at_work dd_treatment fips#i.year `X' if educ <= 2, cluster(fips) // Effect on LFPR
-  
+  estimates store tab4c2_at_work
+
   reg excel_vgood dd_treatment fips#i.year `X' if educ <= 2, cluster(fips) // Effect on Good Health
+  estimates store tab4c2_excel
 
   nbreg mental_poor dd_treatment fips#i.year `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+  estimates store tab4c2_mental
 
   nbreg phys_poor dd_treatment fips#i.year `X' if educ <= 2, cluster(fips) // Effect on Physical health
+  estimates store tab4c2_phys
 
   // Column 3 - Differencing by Amount of Children (2 vs 0)
 
@@ -180,12 +330,16 @@ if `Tab4' {
   local X "i.race4 i.educ i.age i.month i.marital i.kids i.fips i.year" // Control vector of dummies
 
   reg at_work dd_treatment `X' if educ <= 2, cluster(fips) // Effect on LFPR
-  
+  estimates store tab4c3_at_work
+
   reg excel_vgood dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Good Health
+  estimates store tab4c3_excel
 
   nbreg mental_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+  estimates store tab4c3_mental
 
   nbreg phys_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Physical health
+  estimates store tab4c3_phys
   restore
 
   // Column 4 - Differentiating by Married
@@ -197,12 +351,16 @@ if `Tab4' {
   local X "i.race4 i.educ i.age i.month i.marital i.kids i.fips i.year" // Control vector of dummies
 
   reg at_work dd_treatment `X' if educ <= 2, cluster(fips) // Effect on LFPR
-  
+  estimates store tab4c4_at_work
+
   reg excel_vgood dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Good Health
+  estimates store tab4c4_excel
 
   nbreg mental_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+  estimates store tab4c4_mental
 
   nbreg phys_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Physical health
+  estimates store tab4c4_phys
   restore
 
   // Column 5 - Differentiating by Single
@@ -215,12 +373,16 @@ if `Tab4' {
   local X "i.race4 i.educ i.age i.month i.marital i.kids i.fips i.year" // Control vector of dummies
 
   reg at_work dd_treatment `X' if educ <= 2, cluster(fips) // Effect on LFPR
-  
+  estimates store tab4c5_at_work
+
   reg excel_vgood dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Good Health
+  estimates store tab4c5_excel
 
   nbreg mental_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Mental Health
+  estimates store tab4c5_mental
 
   nbreg phys_poor dd_treatment `X' if educ <= 2, cluster(fips) // Effect on Physical health
+  estimates store tab4c5_phys
 
   restore
 
@@ -240,11 +402,140 @@ if `Tab4' {
   gen treatment = dd_treatment*hs_only 
 
   reg at_work treatment hs_expand twokids_expand hs_twokids `X', cluster(fips) // Effect on LFPR
+  estimates store tab4c6_at_work
+
   reg excel_vgood treatment hs_expand twokids_expand hs_twokids `X', cluster(fips) // Effect on Good Health
+  estimates store tab4c6_excel
+
   nbreg mental_poor treatment hs_expand twokids_expand hs_twokids `X', cluster(fips) // Effect on Mental Health
+  estimates store tab4c6_mental
+
   nbreg phys_poor treatment hs_expand twokids_expand hs_twokids `X', cluster(fips) // Effect on Physical health
+  estimates store tab4c6_phys
 
   restore
+
+  // ---- Extract Tab4 scalars ----
+  // Cols 1-5: dd_treatment; Col 6: treatment (triple diff)
+  // OLS outcomes: at_work, excel  -> ttail p-value
+  // nbreg outcomes: mental, phys  -> normal p-value
+
+  foreach col in c1 c2 c3 c4 c5 {
+      local tvar "dd_treatment"
+      foreach y in at_work excel {
+          estimates restore tab4`col'_`y'
+          scalar b4_`col'_`y'  = _b[`tvar']
+          scalar se4_`col'_`y' = _se[`tvar']
+          scalar p4_`col'_`y'  = 2*ttail(e(df_r), abs(_b[`tvar']/_se[`tvar']))
+      }
+      foreach y in mental phys {
+          estimates restore tab4`col'_`y'
+          scalar b4_`col'_`y'  = _b[`tvar']
+          scalar se4_`col'_`y' = _se[`tvar']
+          scalar p4_`col'_`y'  = 2*normal(-abs(_b[`tvar']/_se[`tvar']))
+      }
+  }
+  // Col 6 uses treatment variable
+  foreach y in at_work excel {
+      estimates restore tab4c6_`y'
+      scalar b4_c6_`y'  = _b[treatment]
+      scalar se4_c6_`y' = _se[treatment]
+      scalar p4_c6_`y'  = 2*ttail(e(df_r), abs(_b[treatment]/_se[treatment]))
+  }
+  foreach y in mental phys {
+      estimates restore tab4c6_`y'
+      scalar b4_c6_`y'  = _b[treatment]
+      scalar se4_c6_`y' = _se[treatment]
+      scalar p4_c6_`y'  = 2*normal(-abs(_b[treatment]/_se[treatment]))
+  }
+
+  // ---- Write Tab4 LaTeX ----
+
+  file open tab4 using `outPath'Tables/Tab4.tex, write replace
+  file write tab4 "\begin{table}[htbp]" _n
+  file write tab4 "\centering" _n
+  file write tab4 "\caption{Robustness Tests, Women Aged 21--40, 1993--2001 BRFSS}" _n
+  file write tab4 "\resizebox{\textwidth}{!}{%" _n
+  file write tab4 "\begin{tabular}{lcccccc}" _n
+  file write tab4 "\toprule" _n
+  file write tab4 " & DD & DD state$\times$year & 2 vs 0 kids & DD married & DD single & DDD \\" _n
+  file write tab4 "Outcome & Method & FE & & & & \\" _n
+  file write tab4 "\midrule" _n
+
+  // Helper macro: write one row of 6 cols
+  // Usage: call for each outcome with its stored scalars
+  // at_work
+  file write tab4 "At work (OLS)"
+  foreach col in c1 c2 c3 c4 c5 c6 {
+      file write tab4 " & " %7.4f (scalar(b4_`col'_at_work))
+  }
+  file write tab4 " \\" _n
+  foreach col in c1 c2 c3 c4 c5 c6 {
+      file write tab4 " & (" %6.4f (scalar(se4_`col'_at_work)) ")"
+  }
+  file write tab4 " \\" _n
+  foreach col in c1 c2 c3 c4 c5 c6 {
+      file write tab4 " & [" %5.3f (scalar(p4_`col'_at_work)) "]"
+  }
+  file write tab4 " \\" _n
+  file write tab4 "\addlinespace" _n
+
+  // excel_vgood
+  file write tab4 "Exc./very good health (OLS)"
+  foreach col in c1 c2 c3 c4 c5 c6 {
+      file write tab4 " & " %7.4f (scalar(b4_`col'_excel))
+  }
+  file write tab4 " \\" _n
+  foreach col in c1 c2 c3 c4 c5 c6 {
+      file write tab4 " & (" %6.4f (scalar(se4_`col'_excel)) ")"
+  }
+  file write tab4 " \\" _n
+  foreach col in c1 c2 c3 c4 c5 c6 {
+      file write tab4 " & [" %5.3f (scalar(p4_`col'_excel)) "]"
+  }
+  file write tab4 " \\" _n
+  file write tab4 "\addlinespace" _n
+
+  // mental
+  file write tab4 "Bad mental health days (NegBin)"
+  foreach col in c1 c2 c3 c4 c5 c6 {
+      file write tab4 " & " %7.4f (scalar(b4_`col'_mental))
+  }
+  file write tab4 " \\" _n
+  foreach col in c1 c2 c3 c4 c5 c6 {
+      file write tab4 " & (" %6.4f (scalar(se4_`col'_mental)) ")"
+  }
+  file write tab4 " \\" _n
+  foreach col in c1 c2 c3 c4 c5 c6 {
+      file write tab4 " & [" %5.3f (scalar(p4_`col'_mental)) "]"
+  }
+  file write tab4 " \\" _n
+  file write tab4 "\addlinespace" _n
+
+  // phys
+  file write tab4 "Bad physical health days (NegBin)"
+  foreach col in c1 c2 c3 c4 c5 c6 {
+      file write tab4 " & " %7.4f (scalar(b4_`col'_phys))
+  }
+  file write tab4 " \\" _n
+  foreach col in c1 c2 c3 c4 c5 c6 {
+      file write tab4 " & (" %6.4f (scalar(se4_`col'_phys)) ")"
+  }
+  file write tab4 " \\" _n
+  foreach col in c1 c2 c3 c4 c5 c6 {
+      file write tab4 " & [" %5.3f (scalar(p4_`col'_phys)) "]"
+  }
+  file write tab4 " \\" _n
+
+  file write tab4 "\bottomrule" _n
+  file write tab4 "\end{tabular}}" _n
+  file write tab4 "\begin{minipage}{\linewidth}" _n
+  file write tab4 "\smallskip\footnotesize" _n
+  file write tab4 "\textit{Notes:} Standard errors in parentheses; \$p\$-values in square brackets." _n
+  file write tab4 " All standard errors allow for arbitrary correlations within state." _n
+  file write tab4 "\end{minipage}" _n
+  file write tab4 "\end{table}" _n
+  file close tab4
 }
 
 if `Tab5' {
@@ -369,18 +660,111 @@ if `Tab6' {
 
   // Column 1
   reg total1 dd_treat twoplus_kids `X_dd' if highgrade<=2, robust // Effect on 1+ Risk Factors
+  estimates store tab6c1_total1
+
   reg total2 dd_treat twoplus_kids `X_dd' if highgrade<=2, robust // Effect on 2+ Risk Factors
+  estimates store tab6c1_total2
+
   reg total3 dd_treat twoplus_kids `X_dd' if highgrade<=2, robust // Effect on 3+ Risk Factors
+  estimates store tab6c1_total3
 
   poisson totalsum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust // Poisson regression for count of risk factors
+  estimates store tab6c1_totalsum
 
   // Column 2 - Triple Diff
   local X_ddd "i.year i.age i.race i.marital i.highgrade##i.year i.year##i.twoplus_kids i.highgrade##i.twoplus_kids" // control vector of dummies
   reg total1 ddd_treat `X_ddd', robust // Effect on 1+ Risk Factors
+  estimates store tab6c2_total1
+
   reg total2 ddd_treat `X_ddd', robust // Effect on 2+ Risk Factors
+  estimates store tab6c2_total2
+
   reg total3 ddd_treat `X_ddd', robust // Effect on 3+ Risk Factors
+  estimates store tab6c2_total3
 
   poisson totalsum ddd_treat `X_ddd', robust // Poisson regression for count of risk factors
+  estimates store tab6c2_totalsum
+
+  // ---- Extract Tab6 scalars ----
+  // All OLS -> ttail; Poisson -> normal z
+
+  foreach param in total1 total2 total3 {
+      estimates restore tab6c1_`param'
+      scalar b6dd_`param'  = _b[dd_treat]
+      scalar se6dd_`param' = _se[dd_treat]
+      scalar p6dd_`param'  = 2*ttail(e(df_r), abs(_b[dd_treat]/_se[dd_treat]))
+
+      estimates restore tab6c2_`param'
+      scalar b6ddd_`param'  = _b[ddd_treat]
+      scalar se6ddd_`param' = _se[ddd_treat]
+      scalar p6ddd_`param'  = 2*ttail(e(df_r), abs(_b[ddd_treat]/_se[ddd_treat]))
+  }
+  // Poisson totalsum
+  estimates restore tab6c1_totalsum
+  scalar b6dd_totalsum  = _b[dd_treat]
+  scalar se6dd_totalsum = _se[dd_treat]
+  scalar p6dd_totalsum  = 2*normal(-abs(_b[dd_treat]/_se[dd_treat]))
+
+  estimates restore tab6c2_totalsum
+  scalar b6ddd_totalsum  = _b[ddd_treat]
+  scalar se6ddd_totalsum = _se[ddd_treat]
+  scalar p6ddd_totalsum  = 2*normal(-abs(_b[ddd_treat]/_se[ddd_treat]))
+
+  // Pre-expansion means for treatment group
+  foreach param in total1 total2 total3 totalsum {
+      quietly sum `param' if year == 0 & twoplus_kids == 1 & highgrade <= 2
+      scalar premean6_`param' = r(mean)
+  }
+
+  // ---- Write Tab6 LaTeX ----
+
+  file open tab6 using `outPath'Tables/Tab6.tex, write replace
+  file write tab6 "\begin{table}[htbp]" _n
+  file write tab6 "\centering" _n
+  file write tab6 "\caption{Regression-Adjusted DD and DDD Estimates for Effect of EITC Expansion on Allostatic Load, Women Aged 21--40}" _n
+  file write tab6 "\begin{tabular}{lccc}" _n
+  file write tab6 "\toprule" _n
+  file write tab6 " & Preexpansion mean & & \\" _n
+  file write tab6 "Outcome & (treatment group) & DD & DDD \\" _n
+  file write tab6 "\midrule" _n
+
+  foreach param in total1 total2 total3 {
+      if "`param'" == "total1" local outlabel "One or more risky conditions"
+      if "`param'" == "total2" local outlabel "Two or more risky conditions"
+      if "`param'" == "total3" local outlabel "Three or more risky conditions"
+      file write tab6 "`outlabel'"
+      file write tab6 " & " %5.3f (scalar(premean6_`param'))
+      file write tab6 " & " %7.4f (scalar(b6dd_`param'))
+      file write tab6 " & " %7.4f (scalar(b6ddd_`param')) " \\" _n
+      file write tab6 " & "
+      file write tab6 " & (" %6.4f (scalar(se6dd_`param')) ")"
+      file write tab6 " & (" %6.4f (scalar(se6ddd_`param')) ") \\" _n
+      file write tab6 " & "
+      file write tab6 " & [" %5.3f (scalar(p6dd_`param')) "]"
+      file write tab6 " & [" %5.3f (scalar(p6ddd_`param')) "] \\" _n
+      file write tab6 "\addlinespace" _n
+  }
+
+  file write tab6 "Poisson: total risky conditions"
+  file write tab6 " & " %5.3f (scalar(premean6_totalsum))
+  file write tab6 " & " %7.4f (scalar(b6dd_totalsum))
+  file write tab6 " & " %7.4f (scalar(b6ddd_totalsum)) " \\" _n
+  file write tab6 " & "
+  file write tab6 " & (" %6.4f (scalar(se6dd_totalsum)) ")"
+  file write tab6 " & (" %6.4f (scalar(se6ddd_totalsum)) ") \\" _n
+  file write tab6 " & "
+  file write tab6 " & [" %5.3f (scalar(p6dd_totalsum)) "]"
+  file write tab6 " & [" %5.3f (scalar(p6ddd_totalsum)) "] \\" _n
+
+  file write tab6 "\bottomrule" _n
+  file write tab6 "\end{tabular}" _n
+  file write tab6 "\begin{minipage}{\linewidth}" _n
+  file write tab6 "\smallskip\footnotesize" _n
+  file write tab6 "\textit{Notes:} Standard errors in parentheses; \$p\$-values in square brackets." _n
+  file write tab6 " All standard errors allow for arbitrary heteroskedasticity." _n
+  file write tab6 "\end{minipage}" _n
+  file write tab6 "\end{table}" _n
+  file close tab6
 
   /*
   // Column 3 - 2 kids vs 0 kids
@@ -420,49 +804,310 @@ if `Tab7' {
   local metab_markers "riskyglycatedhemoglobin riskyCholest riskyhdl anymetab" // list of dependent variables
 
   // Loop through markers and run DiD
-  foreach m in `metab_markers' {
-      reg `m' dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
-  }
-  poisson metabsum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust // Poisson regression for count of metabolic risk factors
-  nbreg metabsum dd_treat `X_dd' if highgrade<=2, robust d(c) // Negative binomial for count of metabolic risk factors
+  reg riskyglycatedhemoglobin dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7dd_hba1c
+  reg riskyCholest dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7dd_cholest
+  reg riskyhdl dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7dd_hdl
+  reg anymetab dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7dd_anymetab
+  poisson metabsum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7dd_metabsum_pois
+  nbreg metabsum dd_treat `X_dd' if highgrade<=2, robust d(c)
+  estimates store tab7dd_metabsum_nb
 
   local cardio_markers "riskydiastolic riskysystolic riskypulse anycardio"
 
-  foreach c in `cardio_markers' {
-      reg `c' dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
-  }
-  poisson cardiosum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust // Poisson regression for count of cardiovascular risk factors
-  nbreg cardiosum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust d(c) // Negative binomial for count of cardiovascular risk factors
+  reg riskydiastolic dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7dd_diastolic
+  reg riskysystolic dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7dd_systolic
+  reg riskypulse dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7dd_pulse
+  reg anycardio dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7dd_anycardio
+  poisson cardiosum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7dd_cardiosum_pois
+  nbreg cardiosum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust d(c)
+  estimates store tab7dd_cardiosum_nb
 
   local infl_markers "riskyAlbumin riskycrp anyinflamation"
 
-  foreach i in `infl_markers' {
-      reg `i' dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
-  }
-  poisson inflsum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust // Poisson regression for count of inflammation risk factors
-  nbreg inflsum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust d(c) // Negative binomial for count of inflammation risk factors
+  reg riskyAlbumin dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7dd_albumin
+  reg riskycrp dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7dd_crp
+  reg anyinflamation dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7dd_anyinfl
+  poisson inflsum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7dd_inflsum_pois
+  nbreg inflsum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust d(c)
+  estimates store tab7dd_inflsum_nb
 
-  // Col. 2 - Triple Diff
   preserve
   keep if kids > 0
-  foreach m in `metab_markers' {
-      reg `m' ddd_treat `X_ddd', robust
-  }
-  poisson metabsum ddd_treat `X_ddd', robust // Poisson regression for count of metabolic risk factors
-  nbreg metabsum ddd_treat `X_ddd', robust d(c) // Negative binomial for count of metabolic risk factors
+  reg riskyglycatedhemoglobin ddd_treat `X_ddd', robust
+  estimates store tab7ddd_hba1c
+  reg riskyCholest ddd_treat `X_ddd', robust
+  estimates store tab7ddd_cholest
+  reg riskyhdl ddd_treat `X_ddd', robust
+  estimates store tab7ddd_hdl
+  reg anymetab ddd_treat `X_ddd', robust
+  estimates store tab7ddd_anymetab
+  poisson metabsum ddd_treat `X_ddd', robust
+  estimates store tab7ddd_metabsum_pois
+  nbreg metabsum ddd_treat `X_ddd', robust d(c)
+  estimates store tab7ddd_metabsum_nb
 
-  foreach c in `cardio_markers' {
-      reg `c' ddd_treat `X_ddd', robust
-  }
-  poisson cardiosum ddd_treat `X_ddd', robust // Poisson regression for count of cardiovascular risk factors
-  nbreg cardiosum ddd_treat `X_ddd', robust d(c) // Negative binomial for count of cardiovascular risk factors 
+  reg riskydiastolic ddd_treat `X_ddd', robust
+  estimates store tab7ddd_diastolic
+  reg riskysystolic ddd_treat `X_ddd', robust
+  estimates store tab7ddd_systolic
+  reg riskypulse ddd_treat `X_ddd', robust
+  estimates store tab7ddd_pulse
+  reg anycardio ddd_treat `X_ddd', robust
+  estimates store tab7ddd_anycardio
+  poisson cardiosum ddd_treat `X_ddd', robust
+  estimates store tab7ddd_cardiosum_pois
+  nbreg cardiosum ddd_treat `X_ddd', robust d(c)
+  estimates store tab7ddd_cardiosum_nb
 
-  foreach i in `infl_markers' {
-      reg `i' ddd_treat `X_ddd', robust
-  }
-  poisson inflsum ddd_treat `X_ddd', robust // Poisson regression for count of inflammation risk factors
-  nbreg inflsum ddd_treat `X_ddd', robust d(c) // Negative binomial for count of inflammation risk factors
+  reg riskyAlbumin ddd_treat `X_ddd', robust
+  estimates store tab7ddd_albumin
+  reg riskycrp ddd_treat `X_ddd', robust
+  estimates store tab7ddd_crp
+  reg anyinflamation ddd_treat `X_ddd', robust
+  estimates store tab7ddd_anyinfl
+  poisson inflsum ddd_treat `X_ddd', robust
+  estimates store tab7ddd_inflsum_pois
+  nbreg inflsum ddd_treat `X_ddd', robust d(c)
+  estimates store tab7ddd_inflsum_nb
   restore
+
+  // ---- Extract Tab7 scalars ----
+  // OLS rows: ttail p-value; Poisson/NB rows: normal z p-value
+
+  // Panel A: Metabolic
+  foreach m in hba1c cholest hdl anymetab {
+      estimates restore tab7dd_`m'
+      scalar b7dd_`m'  = _b[dd_treat]
+      scalar se7dd_`m' = _se[dd_treat]
+      scalar p7dd_`m'  = 2*ttail(e(df_r), abs(_b[dd_treat]/_se[dd_treat]))
+      estimates restore tab7ddd_`m'
+      scalar b7ddd_`m'  = _b[ddd_treat]
+      scalar se7ddd_`m' = _se[ddd_treat]
+      scalar p7ddd_`m'  = 2*ttail(e(df_r), abs(_b[ddd_treat]/_se[ddd_treat]))
+  }
+  foreach suf in metabsum_pois metabsum_nb {
+      estimates restore tab7dd_`suf'
+      scalar b7dd_`suf'  = _b[dd_treat]
+      scalar se7dd_`suf' = _se[dd_treat]
+      scalar p7dd_`suf'  = 2*normal(-abs(_b[dd_treat]/_se[dd_treat]))
+      estimates restore tab7ddd_`suf'
+      scalar b7ddd_`suf'  = _b[ddd_treat]
+      scalar se7ddd_`suf' = _se[ddd_treat]
+      scalar p7ddd_`suf'  = 2*normal(-abs(_b[ddd_treat]/_se[ddd_treat]))
+  }
+
+  // Panel B: Cardiovascular
+  foreach c in diastolic systolic pulse anycardio {
+      estimates restore tab7dd_`c'
+      scalar b7dd_`c'  = _b[dd_treat]
+      scalar se7dd_`c' = _se[dd_treat]
+      scalar p7dd_`c'  = 2*ttail(e(df_r), abs(_b[dd_treat]/_se[dd_treat]))
+      estimates restore tab7ddd_`c'
+      scalar b7ddd_`c'  = _b[ddd_treat]
+      scalar se7ddd_`c' = _se[ddd_treat]
+      scalar p7ddd_`c'  = 2*ttail(e(df_r), abs(_b[ddd_treat]/_se[ddd_treat]))
+  }
+  foreach suf in cardiosum_pois cardiosum_nb {
+      estimates restore tab7dd_`suf'
+      scalar b7dd_`suf'  = _b[dd_treat]
+      scalar se7dd_`suf' = _se[dd_treat]
+      scalar p7dd_`suf'  = 2*normal(-abs(_b[dd_treat]/_se[dd_treat]))
+      estimates restore tab7ddd_`suf'
+      scalar b7ddd_`suf'  = _b[ddd_treat]
+      scalar se7ddd_`suf' = _se[ddd_treat]
+      scalar p7ddd_`suf'  = 2*normal(-abs(_b[ddd_treat]/_se[ddd_treat]))
+  }
+
+  // Panel C: Inflammation
+  foreach i in albumin crp anyinfl {
+      estimates restore tab7dd_`i'
+      scalar b7dd_`i'  = _b[dd_treat]
+      scalar se7dd_`i' = _se[dd_treat]
+      scalar p7dd_`i'  = 2*ttail(e(df_r), abs(_b[dd_treat]/_se[dd_treat]))
+      estimates restore tab7ddd_`i'
+      scalar b7ddd_`i'  = _b[ddd_treat]
+      scalar se7ddd_`i' = _se[ddd_treat]
+      scalar p7ddd_`i'  = 2*ttail(e(df_r), abs(_b[ddd_treat]/_se[ddd_treat]))
+  }
+  foreach suf in inflsum_pois inflsum_nb {
+      estimates restore tab7dd_`suf'
+      scalar b7dd_`suf'  = _b[dd_treat]
+      scalar se7dd_`suf' = _se[dd_treat]
+      scalar p7dd_`suf'  = 2*normal(-abs(_b[dd_treat]/_se[dd_treat]))
+      estimates restore tab7ddd_`suf'
+      scalar b7ddd_`suf'  = _b[ddd_treat]
+      scalar se7ddd_`suf' = _se[ddd_treat]
+      scalar p7ddd_`suf'  = 2*normal(-abs(_b[ddd_treat]/_se[ddd_treat]))
+  }
+
+  // Pre-expansion means
+  foreach v in riskyglycatedhemoglobin riskyCholest riskyhdl anymetab ///
+               riskydiastolic riskysystolic riskypulse anycardio ///
+               riskyAlbumin riskycrp anyinflamation {
+      quietly sum `v' if year == 0 & twoplus_kids == 1 & highgrade <= 2
+      scalar pm7_`v' = r(mean)
+  }
+
+  // ---- Write Tab7 LaTeX ----
+  // Helper: writes b / (se) / [p] for dd and ddd
+
+  file open tab7 using `outPath'Tables/Tab7.tex, write replace
+  file write tab7 "\begin{table}[htbp]" _n
+  file write tab7 "\centering" _n
+  file write tab7 "\caption{Regression-Adjusted DD and DDD Estimates for Individual Biomarkers, Women Aged 21--40}" _n
+  file write tab7 "\begin{tabular}{lccc}" _n
+  file write tab7 "\toprule" _n
+  file write tab7 " & Preexpansion mean & & \\" _n
+  file write tab7 "Outcome & (treatment group) & DD & DDD \\" _n
+  file write tab7 "\midrule" _n
+
+  // Panel A
+  file write tab7 "\multicolumn{4}{l}{\textit{Panel A. Metabolic biomarkers}} \\" _n
+  file write tab7 "\addlinespace" _n
+
+  // row macro: name premeanscalar ddscalar dddscalar
+  // HbA1c
+  file write tab7 "Risky glycated hemoglobin"
+  file write tab7 " & " %5.3f (scalar(pm7_riskyglycatedhemoglobin))
+  file write tab7 " & " %7.4f (scalar(b7dd_hba1c))
+  file write tab7 " & " %7.4f (scalar(b7ddd_hba1c)) " \\" _n
+  file write tab7 " & & (" %7.4f (scalar(se7dd_hba1c)) ") & (" %7.4f (scalar(se7ddd_hba1c)) ") \\" _n
+  file write tab7 " & & [" %5.3f (scalar(p7dd_hba1c)) "] & [" %5.3f (scalar(p7ddd_hba1c)) "] \\" _n
+  file write tab7 "\addlinespace" _n
+
+  file write tab7 "Risky total cholesterol"
+  file write tab7 " & " %5.3f (scalar(pm7_riskyCholest))
+  file write tab7 " & " %7.4f (scalar(b7dd_cholest))
+  file write tab7 " & " %7.4f (scalar(b7ddd_cholest)) " \\" _n
+  file write tab7 " & & (" %7.4f (scalar(se7dd_cholest)) ") & (" %7.4f (scalar(se7ddd_cholest)) ") \\" _n
+  file write tab7 " & & [" %5.3f (scalar(p7dd_cholest)) "] & [" %5.3f (scalar(p7ddd_cholest)) "] \\" _n
+  file write tab7 "\addlinespace" _n
+
+  file write tab7 "Risky HDL"
+  file write tab7 " & " %5.3f (scalar(pm7_riskyhdl))
+  file write tab7 " & " %7.4f (scalar(b7dd_hdl))
+  file write tab7 " & " %7.4f (scalar(b7ddd_hdl)) " \\" _n
+  file write tab7 " & & (" %7.4f (scalar(se7dd_hdl)) ") & (" %7.4f (scalar(se7ddd_hdl)) ") \\" _n
+  file write tab7 " & & [" %5.3f (scalar(p7dd_hdl)) "] & [" %5.3f (scalar(p7ddd_hdl)) "] \\" _n
+  file write tab7 "\addlinespace" _n
+
+  file write tab7 "Any risky metabolic condition"
+  file write tab7 " & " %5.3f (scalar(pm7_anymetab))
+  file write tab7 " & " %7.4f (scalar(b7dd_anymetab))
+  file write tab7 " & " %7.4f (scalar(b7ddd_anymetab)) " \\" _n
+  file write tab7 " & & (" %7.4f (scalar(se7dd_anymetab)) ") & (" %7.4f (scalar(se7ddd_anymetab)) ") \\" _n
+  file write tab7 " & & [" %5.3f (scalar(p7dd_anymetab)) "] & [" %5.3f (scalar(p7ddd_anymetab)) "] \\" _n
+  file write tab7 "\addlinespace" _n
+
+  file write tab7 "Poisson: number of risky metabolic conditions"
+  file write tab7 " & & " %7.4f (scalar(b7dd_metabsum_pois))
+  file write tab7 " & " %7.4f (scalar(b7ddd_metabsum_pois)) " \\" _n
+  file write tab7 " & & (" %7.4f (scalar(se7dd_metabsum_pois)) ") & (" %7.4f (scalar(se7ddd_metabsum_pois)) ") \\" _n
+  file write tab7 " & & [" %5.3f (scalar(p7dd_metabsum_pois)) "] & [" %5.3f (scalar(p7ddd_metabsum_pois)) "] \\" _n
+
+  // Panel B
+  file write tab7 "\midrule" _n
+  file write tab7 "\multicolumn{4}{l}{\textit{Panel B. Cardiovascular biomarkers}} \\" _n
+  file write tab7 "\addlinespace" _n
+
+  file write tab7 "Risky diastolic blood pressure"
+  file write tab7 " & " %5.3f (scalar(pm7_riskydiastolic))
+  file write tab7 " & " %7.4f (scalar(b7dd_diastolic))
+  file write tab7 " & " %7.4f (scalar(b7ddd_diastolic)) " \\" _n
+  file write tab7 " & & (" %7.4f (scalar(se7dd_diastolic)) ") & (" %7.4f (scalar(se7ddd_diastolic)) ") \\" _n
+  file write tab7 " & & [" %5.3f (scalar(p7dd_diastolic)) "] & [" %5.3f (scalar(p7ddd_diastolic)) "] \\" _n
+  file write tab7 "\addlinespace" _n
+
+  file write tab7 "Risky systolic blood pressure"
+  file write tab7 " & " %5.3f (scalar(pm7_riskysystolic))
+  file write tab7 " & " %7.4f (scalar(b7dd_systolic))
+  file write tab7 " & " %7.4f (scalar(b7ddd_systolic)) " \\" _n
+  file write tab7 " & & (" %7.4f (scalar(se7dd_systolic)) ") & (" %7.4f (scalar(se7ddd_systolic)) ") \\" _n
+  file write tab7 " & & [" %5.3f (scalar(p7dd_systolic)) "] & [" %5.3f (scalar(p7ddd_systolic)) "] \\" _n
+  file write tab7 "\addlinespace" _n
+
+  file write tab7 "Risky pulse"
+  file write tab7 " & " %5.3f (scalar(pm7_riskypulse))
+  file write tab7 " & " %7.4f (scalar(b7dd_pulse))
+  file write tab7 " & " %7.4f (scalar(b7ddd_pulse)) " \\" _n
+  file write tab7 " & & (" %7.4f (scalar(se7dd_pulse)) ") & (" %7.4f (scalar(se7ddd_pulse)) ") \\" _n
+  file write tab7 " & & [" %5.3f (scalar(p7dd_pulse)) "] & [" %5.3f (scalar(p7ddd_pulse)) "] \\" _n
+  file write tab7 "\addlinespace" _n
+
+  file write tab7 "Any risky cardiovascular condition"
+  file write tab7 " & " %5.3f (scalar(pm7_anycardio))
+  file write tab7 " & " %7.4f (scalar(b7dd_anycardio))
+  file write tab7 " & " %7.4f (scalar(b7ddd_anycardio)) " \\" _n
+  file write tab7 " & & (" %7.4f (scalar(se7dd_anycardio)) ") & (" %7.4f (scalar(se7ddd_anycardio)) ") \\" _n
+  file write tab7 " & & [" %5.3f (scalar(p7dd_anycardio)) "] & [" %5.3f (scalar(p7ddd_anycardio)) "] \\" _n
+  file write tab7 "\addlinespace" _n
+
+  file write tab7 "Poisson: number of risky cardiovascular conditions"
+  file write tab7 " & & " %7.4f (scalar(b7dd_cardiosum_pois))
+  file write tab7 " & " %7.4f (scalar(b7ddd_cardiosum_pois)) " \\" _n
+  file write tab7 " & & (" %7.4f (scalar(se7dd_cardiosum_pois)) ") & (" %7.4f (scalar(se7ddd_cardiosum_pois)) ") \\" _n
+  file write tab7 " & & [" %5.3f (scalar(p7dd_cardiosum_pois)) "] & [" %5.3f (scalar(p7ddd_cardiosum_pois)) "] \\" _n
+
+  // Panel C
+  file write tab7 "\midrule" _n
+  file write tab7 "\multicolumn{4}{l}{\textit{Panel C. Inflammation biomarkers}} \\" _n
+  file write tab7 "\addlinespace" _n
+
+  file write tab7 "Risky albumin"
+  file write tab7 " & " %5.3f (scalar(pm7_riskyAlbumin))
+  file write tab7 " & " %7.4f (scalar(b7dd_albumin))
+  file write tab7 " & " %7.4f (scalar(b7ddd_albumin)) " \\" _n
+  file write tab7 " & & (" %7.4f (scalar(se7dd_albumin)) ") & (" %7.4f (scalar(se7ddd_albumin)) ") \\" _n
+  file write tab7 " & & [" %5.3f (scalar(p7dd_albumin)) "] & [" %5.3f (scalar(p7ddd_albumin)) "] \\" _n
+  file write tab7 "\addlinespace" _n
+
+  file write tab7 "Risky C-reactive protein"
+  file write tab7 " & " %5.3f (scalar(pm7_riskycrp))
+  file write tab7 " & " %7.4f (scalar(b7dd_crp))
+  file write tab7 " & " %7.4f (scalar(b7ddd_crp)) " \\" _n
+  file write tab7 " & & (" %7.4f (scalar(se7dd_crp)) ") & (" %7.4f (scalar(se7ddd_crp)) ") \\" _n
+  file write tab7 " & & [" %5.3f (scalar(p7dd_crp)) "] & [" %5.3f (scalar(p7ddd_crp)) "] \\" _n
+  file write tab7 "\addlinespace" _n
+
+  file write tab7 "Any risky inflammatory condition"
+  file write tab7 " & " %5.3f (scalar(pm7_anyinflamation))
+  file write tab7 " & " %7.4f (scalar(b7dd_anyinfl))
+  file write tab7 " & " %7.4f (scalar(b7ddd_anyinfl)) " \\" _n
+  file write tab7 " & & (" %7.4f (scalar(se7dd_anyinfl)) ") & (" %7.4f (scalar(se7ddd_anyinfl)) ") \\" _n
+  file write tab7 " & & [" %5.3f (scalar(p7dd_anyinfl)) "] & [" %5.3f (scalar(p7ddd_anyinfl)) "] \\" _n
+  file write tab7 "\addlinespace" _n
+
+  file write tab7 "Poisson: number of risky inflammatory conditions"
+  file write tab7 " & & " %7.4f (scalar(b7dd_inflsum_pois))
+  file write tab7 " & " %7.4f (scalar(b7ddd_inflsum_pois)) " \\" _n
+  file write tab7 " & & (" %7.4f (scalar(se7dd_inflsum_pois)) ") & (" %7.4f (scalar(se7ddd_inflsum_pois)) ") \\" _n
+  file write tab7 " & & [" %5.3f (scalar(p7dd_inflsum_pois)) "] & [" %5.3f (scalar(p7ddd_inflsum_pois)) "] \\" _n
+
+  file write tab7 "\bottomrule" _n
+  file write tab7 "\end{tabular}" _n
+  file write tab7 "\begin{minipage}{\linewidth}" _n
+  file write tab7 "\smallskip\footnotesize" _n
+  file write tab7 "\textit{Notes:} Standard errors in parentheses; \$p\$-values in square brackets." _n
+  file write tab7 " All standard errors allow for arbitrary heteroskedasticity." _n
+  file write tab7 " DD covariates: dummies for age, race, marital status, and survey year." _n
+  file write tab7 " DDD covariates add interactions between education$\times$year, kids$\times$year, and education$\times$kids." _n
+  file write tab7 "\end{minipage}" _n
+  file write tab7 "\end{table}" _n
+  file close tab7
 }
 
 if `Fig4' {
@@ -498,7 +1143,7 @@ if `Fig4' {
         ytitle("Moms with 2+ children") ytitle("Moms with 1 child", axis(2)) ///
         xtitle("Year") title("Panel A: % in labor force") ///
         name("Fig4_LaborForce", replace)
-        graph export `output'Fig_LaborForce.pdf, replace
+  graph export `output'Fig_LaborForce.pdf, replace
   restore
 
   preserve
@@ -522,7 +1167,7 @@ if `Fig4' {
         ytitle("Moms with 2+ children") ytitle("Moms with 1 child", axis(2)) ///
         xtitle("Year") title("Panel B: % in Excellent/Very Good Health") ///
         name("Fig4_ExcellentHealth", replace)
-        graph export `output'Fig_ExcellentHealth.pdf, replace
+  graph export `output'Fig_ExcellentHealth.pdf, replace
   restore
 
   // Panel C - Mental Health
@@ -541,7 +1186,7 @@ if `Fig4' {
         ytitle("Moms with 2+ children") ytitle("Moms with 1 child", axis(2)) ///
         xtitle("Year") title("Panel C: % in Poor Mental Health") ///
         name("Fig4_MentalHealth", replace)
-        graph export `output'Fig_MentalHealth.pdf, replace
+  graph export `output'Fig_MentalHealth.pdf, replace
   restore
 
   // Panel D - Physical Health
@@ -561,7 +1206,7 @@ if `Fig4' {
         ytitle("Moms with 2+ children") ytitle("Moms with 1 child", axis(2)) ///
         xtitle("Year") title("Panel D: % in Poor Physical Health") ///
         name("Fig4_PhysicalHealth", replace)
-        graph export `output'Fig_PhysHealth.pdf, replace
+  graph export `output'Fig_PhysHealth.pdf, replace
   restore
 
   preserve
@@ -580,7 +1225,7 @@ if `Fig4' {
         ytitle("Moms with 2+ children") ytitle("Moms with 1 child", axis(2)) ///
         xtitle("Year") title("Panel E: % at work") ///
         name("Fig4_Working", replace)
-        graph export `output'Fig_LF.pdf, replace
+  graph export `output'Fig_LF.pdf, replace
   restore
 
 }
@@ -637,13 +1282,186 @@ if `ARC' {
   }
   restore
 
+  // ---- Extract ARC scalars ----
+  // Col 1: footnote12 uses dd_treat_95 (OLS: at_work/excel, nbreg: mental/phys)
+  // Col 2: footnote21_2000, Col 3: footnote21_1999 — all use dd_treatment
+
+  estimates restore footnote12_at_work
+  scalar arc_b1_at   = _b[dd_treat_95]
+  scalar arc_se1_at  = _se[dd_treat_95]
+  scalar arc_p1_at   = 2*ttail(e(df_r), abs(_b[dd_treat_95]/_se[dd_treat_95]))
+
+  estimates restore footnote21_2000_at_work
+  scalar arc_b2_at   = _b[dd_treatment]
+  scalar arc_se2_at  = _se[dd_treatment]
+  scalar arc_p2_at   = 2*ttail(e(df_r), abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  estimates restore footnote21_1999_at_work
+  scalar arc_b3_at   = _b[dd_treatment]
+  scalar arc_se3_at  = _se[dd_treatment]
+  scalar arc_p3_at   = 2*ttail(e(df_r), abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  estimates restore footnote12_excel_vgood
+  scalar arc_b1_ex   = _b[dd_treat_95]
+  scalar arc_se1_ex  = _se[dd_treat_95]
+  scalar arc_p1_ex   = 2*ttail(e(df_r), abs(_b[dd_treat_95]/_se[dd_treat_95]))
+
+  estimates restore footnote21_2000_excel_vgood
+  scalar arc_b2_ex   = _b[dd_treatment]
+  scalar arc_se2_ex  = _se[dd_treatment]
+  scalar arc_p2_ex   = 2*ttail(e(df_r), abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  estimates restore footnote21_1999_excel_vgood
+  scalar arc_b3_ex   = _b[dd_treatment]
+  scalar arc_se3_ex  = _se[dd_treatment]
+  scalar arc_p3_ex   = 2*ttail(e(df_r), abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  estimates restore footnote12_mental_poor
+  scalar arc_b1_me   = _b[dd_treat_95]
+  scalar arc_se1_me  = _se[dd_treat_95]
+  scalar arc_p1_me   = 2*normal(-abs(_b[dd_treat_95]/_se[dd_treat_95]))
+
+  estimates restore footnote21_2000_mental_poor
+  scalar arc_b2_me   = _b[dd_treatment]
+  scalar arc_se2_me  = _se[dd_treatment]
+  scalar arc_p2_me   = 2*normal(-abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  estimates restore footnote21_1999_mental_poor
+  scalar arc_b3_me   = _b[dd_treatment]
+  scalar arc_se3_me  = _se[dd_treatment]
+  scalar arc_p3_me   = 2*normal(-abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  estimates restore footnote12_phys_poor
+  scalar arc_b1_ph   = _b[dd_treat_95]
+  scalar arc_se1_ph  = _se[dd_treat_95]
+  scalar arc_p1_ph   = 2*normal(-abs(_b[dd_treat_95]/_se[dd_treat_95]))
+
+  estimates restore footnote21_2000_phys_poor
+  scalar arc_b2_ph   = _b[dd_treatment]
+  scalar arc_se2_ph  = _se[dd_treatment]
+  scalar arc_p2_ph   = 2*normal(-abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  estimates restore footnote21_1999_phys_poor
+  scalar arc_b3_ph   = _b[dd_treatment]
+  scalar arc_se3_ph  = _se[dd_treatment]
+  scalar arc_p3_ph   = 2*normal(-abs(_b[dd_treatment]/_se[dd_treatment]))
+
+  // ---- Write ARC LaTeX ----
+
+  file open tabarc using `outPath'Tables/ARC.tex, write replace
+  file write tabarc "\begin{table}[htbp]" _n
+  file write tabarc "\centering" _n
+  file write tabarc "\caption{Additional Robustness Checks, Women Aged 21--40, 1993--2001 BRFSS}" _n
+  file write tabarc "\begin{tabular}{lccc}" _n
+  file write tabarc "\toprule" _n
+  file write tabarc " & 1995 treatment & Excl.\ 2000+ & Excl.\ 1999+ \\" _n
+  file write tabarc "Outcome & (Footnote 12) & (Footnote 21) & (Footnote 21) \\" _n
+  file write tabarc "\midrule" _n
+
+  // At work
+  file write tabarc "At work (OLS)"
+  file write tabarc " & " %7.4f (scalar(arc_b1_at))
+  file write tabarc " & " %7.4f (scalar(arc_b2_at))
+  file write tabarc " & " %7.4f (scalar(arc_b3_at)) " \\" _n
+  file write tabarc " & (" %6.4f (scalar(arc_se1_at)) ")"
+  file write tabarc " & (" %6.4f (scalar(arc_se2_at)) ")"
+  file write tabarc " & (" %6.4f (scalar(arc_se3_at)) ") \\" _n
+  file write tabarc " & [" %5.3f (scalar(arc_p1_at)) "]"
+  file write tabarc " & [" %5.3f (scalar(arc_p2_at)) "]"
+  file write tabarc " & [" %5.3f (scalar(arc_p3_at)) "] \\" _n
+  file write tabarc "\addlinespace" _n
+
+  // Excellent/very good
+  file write tabarc "Exc./very good health (OLS)"
+  file write tabarc " & " %7.4f (scalar(arc_b1_ex))
+  file write tabarc " & " %7.4f (scalar(arc_b2_ex))
+  file write tabarc " & " %7.4f (scalar(arc_b3_ex)) " \\" _n
+  file write tabarc " & (" %6.4f (scalar(arc_se1_ex)) ")"
+  file write tabarc " & (" %6.4f (scalar(arc_se2_ex)) ")"
+  file write tabarc " & (" %6.4f (scalar(arc_se3_ex)) ") \\" _n
+  file write tabarc " & [" %5.3f (scalar(arc_p1_ex)) "]"
+  file write tabarc " & [" %5.3f (scalar(arc_p2_ex)) "]"
+  file write tabarc " & [" %5.3f (scalar(arc_p3_ex)) "] \\" _n
+  file write tabarc "\addlinespace" _n
+
+  // Mental
+  file write tabarc "Bad mental health days (NegBin)"
+  file write tabarc " & " %7.4f (scalar(arc_b1_me))
+  file write tabarc " & " %7.4f (scalar(arc_b2_me))
+  file write tabarc " & " %7.4f (scalar(arc_b3_me)) " \\" _n
+  file write tabarc " & (" %6.4f (scalar(arc_se1_me)) ")"
+  file write tabarc " & (" %6.4f (scalar(arc_se2_me)) ")"
+  file write tabarc " & (" %6.4f (scalar(arc_se3_me)) ") \\" _n
+  file write tabarc " & [" %5.3f (scalar(arc_p1_me)) "]"
+  file write tabarc " & [" %5.3f (scalar(arc_p2_me)) "]"
+  file write tabarc " & [" %5.3f (scalar(arc_p3_me)) "] \\" _n
+  file write tabarc "\addlinespace" _n
+
+  // Physical
+  file write tabarc "Bad physical health days (NegBin)"
+  file write tabarc " & " %7.4f (scalar(arc_b1_ph))
+  file write tabarc " & " %7.4f (scalar(arc_b2_ph))
+  file write tabarc " & " %7.4f (scalar(arc_b3_ph)) " \\" _n
+  file write tabarc " & (" %6.4f (scalar(arc_se1_ph)) ")"
+  file write tabarc " & (" %6.4f (scalar(arc_se2_ph)) ")"
+  file write tabarc " & (" %6.4f (scalar(arc_se3_ph)) ") \\" _n
+  file write tabarc " & [" %5.3f (scalar(arc_p1_ph)) "]"
+  file write tabarc " & [" %5.3f (scalar(arc_p2_ph)) "]"
+  file write tabarc " & [" %5.3f (scalar(arc_p3_ph)) "] \\" _n
+
+  file write tabarc "\bottomrule" _n
+  file write tabarc "\end{tabular}" _n
+  file write tabarc "\begin{minipage}{\linewidth}" _n
+  file write tabarc "\smallskip\footnotesize" _n
+  file write tabarc "\textit{Notes:} Standard errors in parentheses; \$p\$-values in square brackets." _n
+  file write tabarc " All standard errors allow for arbitrary correlations within state." _n
+  file write tabarc " Column 1 tests whether treatment in 1995 (rebates from tax year 1994) drives results." _n
+  file write tabarc " Columns 2--3 exclude years where the Child Tax Credit was in existence." _n
+  file write tabarc "\end{minipage}" _n
+  file write tabarc "\end{table}" _n
+  file close tabarc
+}
+// Event Study following reg-adj DiD (Eq. 1)
+// - This section will implement the extension
+// task. The code chunk will plot and save the
+// delta coefficients and 95% C.I. for 4 main
+// outcomes (working, excel/vgood, poor mental
+// health, poor physical health).
+
+if `Extension' {
+  use `dataPath'BRFSS_Final_Data.dta, clear
+
+  drop if kids == 0 | kids == .
+
+
+  forvalues yr = 1993/2001 {
+    gen delta_`yr' = (year==`yr')*twoplus_kids
+  }
+  drop delta_1995
+  
+
+  local X "i.race4 i.educ i.age i.month i.marital i.kids i.fips i.year" // Control vector of dummies
+  local delta "delta_*"
+
   foreach y in at_work excel_vgood mental_poor phys_poor {
-      esttab footnote12_`y' footnote21_2000_`y' footnote21_1999_`y' ///
-            using `outPath'Tables/ARC_`y'.tex, replace ///
-            se label star(* 0.10 ** 0.05 *** 0.01) ///
-            keep(dd_treat_95 dd_treatment) ///
-            order(dd_treat_95 dd_treatment) ///
-            mtitles("1995 Treatment" "Excl. 2000+" "Excl. 1999+") ///
-            alignment(D{.}{.}{-1}) b(3) se(3)
+      reg `y' `delta' `X' if educ <= 2, cluster(fips)
+      estimates store ext_`y'
+  }
+
+  local title_at_work "At Work"
+  local title_excel_vgood "Excellent/Very Good Health"
+  local title_mental_poor "Poor Mental Health"
+  local title_phys_poor "Poor Physical Health"
+
+  foreach y in at_work excel_vgood mental_poor phys_poor {
+      coefplot ext_`y', ///
+          keep(`delta') ///
+          coeflabels(delta_1993="1993" delta_1994="1994" delta_1996="1996" ///
+                    delta_1997="1997" delta_1998="1998" delta_1999="1999" ///
+                    delta_2000="2000" delta_2001="2001") ///
+          vertical yline(0) xline(3.5, lcolor(red) lpattern(dash)) ///
+          title("`title_`y''") ///
+          xtitle("Year") ytitle("Coefficient (relative to 1995)")
+      graph export `outPath'Graphs/EventStudy_`y'.pdf, replace
   }
 }

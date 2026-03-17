@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{booktabs}  % required for \toprule \midrule \bottomrule
+\usepackage{graphicx}  % required for \resizebox in Tab4
+\usepackage{subcaption}
+\usepackage{caption}
+
+\begin{document}
+
+\input{../Output/Tables/Tab3.tex}
+
+\input{../Output/Tables/Tab4.tex}
+
+\input{../Output/Tables/Tab6.tex}
+
+\input{../Output/Tables/Tab7.tex}
+
+\input{../Output/Tables/ARC.tex}
+
+\begin{figure}[hbtp]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../Output/Graphs/Fig_LaborForce.pdf}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=0.99\textwidth]{../Output/Graphs/Fig_ExcellentHealth.pdf}
+  \end{subfigure}
+
+  \vspace{0.5em}
+
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../Output/Graphs/Fig_MentalHealth.pdf}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../Output/Graphs/Fig_PhysHealth.pdf}
+  \end{subfigure}
+
+  \vspace{0.5em}
+
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../Output/Graphs/Fig_LF.pdf}
+  \end{subfigure}
+  \label{fig:TS_fig}
+\end{figure}
+
+\begin{figure}[hbtp]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../Output/Graphs/EventStudy_at_work.pdf}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../Output/Graphs/EventStudy_excel_vgood.pdf}
+  \end{subfigure}
+
+  \vspace{0.5em}
+
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../Output/Graphs/EventStudy_mental_poor.pdf}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../Output/Graphs/EventStudy_phys_poor.pdf}
+  \end{subfigure}
+  \label{fig:ES_fig}
+\end{figure}
+
+
+
+\end{document}

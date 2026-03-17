@@ -1,0 +1,289 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  17 MAR 2026 12:36
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**Mason_Rep_Writeup.tex
+(./Mason_Rep_Writeup.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count196
+\c@section=\count197
+\c@subsection=\count198
+\c@subsubsection=\count199
+\c@paragraph=\count266
+\c@subparagraph=\count267
+\c@figure=\count268
+\c@table=\count269
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen142
+\lightrulewidth=\dimen143
+\cmidrulewidth=\dimen144
+\belowrulesep=\dimen145
+\belowbottomsep=\dimen146
+\aboverulesep=\dimen147
+\abovetopsep=\dimen148
+\cmidrulesep=\dimen149
+\cmidrulekern=\dimen150
+\defaultaddspace=\dimen151
+\@cmidla=\count270
+\@cmidlb=\count271
+\@aboverulesep=\dimen152
+\@belowrulesep=\dimen153
+\@thisruleclass=\count272
+\@lastruleclass=\count273
+\@thisrulewidth=\dimen154
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen155
+\Gin@req@width=\dimen156
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen157
+\captionmargin=\dimen158
+\caption@leftmargin=\dimen159
+\caption@rightmargin=\dimen160
+\caption@width=\dimen161
+\caption@indent=\dimen162
+\caption@parindent=\dimen163
+\caption@hangindent=\dimen164
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count274
+\c@continuedfloat=\count275
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count276
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count277
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count278
+\l__pdf_internal_box=\box52
+) (./Mason_Rep_Writeup.aux)
+\openout1 = `Mason_Rep_Writeup.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+ (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count279
+\scratchdimen=\dimen165
+\scratchbox=\box53
+\nofMPsegments=\count280
+\nofMParguments=\count281
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count282
+\MPscratchDim=\dimen166
+\MPnumerator=\count283
+\makeMPintoPDFobject=\count284
+\everyMPtoPDFconversion=\toks19
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+ (../Output/Tables/Tab3.tex) (../Output/Tables/Tab4.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 26.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 26.
+
+../Output/Tables/Tab4.tex:26: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.26 \end{tabular}}
+                   
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../Output/Tables/Tab4.tex:26: Missing $ inserted.
+<inserted text> 
+                $
+l.26 \end{tabular}}
+                   
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+../Output/Tables/Tab4.tex:26: Missing } inserted.
+<inserted text> 
+                }
+l.26 \end{tabular}}
+                   
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 29.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 29.
+) (../Output/Tables/Tab6.tex) (../Output/Tables/Tab7.tex
+../Output/Tables/Tab7.tex:77: Missing $ inserted.
+<inserted text> 
+                $
+l.77 ...ions between education$\times, kids$\times
+                                                  , and education$\times.
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+../Output/Tables/Tab7.tex:77: Missing $ inserted.
+<inserted text> 
+                $
+l.77 ...$\times, kids$\times, and education$\times
+                                                  .
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+../Output/Tables/Tab7.tex:78: Missing $ inserted.
+<inserted text> 
+                $
+l.78 \end{minipage}
+                   
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (87.63979pt too wide) in paragraph at lines 4--79
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 169.29425pt on input line 79.
+
+) (../Output/Tables/ARC.tex
+Overfull \hbox (42.02863pt too wide) in paragraph at lines 4--33
+ [][] 
+ []
+
+)
+<../Output/Graphs/Fig_LaborForce.pdf, id=1, 397.485pt x 289.08pt>
+File: ../Output/Graphs/Fig_LaborForce.pdf Graphic file (type pdf)
+<use ../Output/Graphs/Fig_LaborForce.pdf>
+Package pdftex.def Info: ../Output/Graphs/Fig_LaborForce.pdf  used on input line 22.
+(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
+<../Output/Graphs/Fig_ExcellentHealth.pdf, id=2, 397.485pt x 289.08pt>
+File: ../Output/Graphs/Fig_ExcellentHealth.pdf Graphic file (type pdf)
+<use ../Output/Graphs/Fig_ExcellentHealth.pdf>
+Package pdftex.def Info: ../Output/Graphs/Fig_ExcellentHealth.pdf  used on input line 26.
+(pdftex.def)             Requested size: 153.6973pt x 111.78355pt.
+<../Output/Graphs/Fig_MentalHealth.pdf, id=3, 397.485pt x 289.08pt>
+File: ../Output/Graphs/Fig_MentalHealth.pdf Graphic file (type pdf)
+<use ../Output/Graphs/Fig_MentalHealth.pdf>
+Package pdftex.def Info: ../Output/Graphs/Fig_MentalHealth.pdf  used on input line 32.
+(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
+<../Output/Graphs/Fig_PhysHealth.pdf, id=4, 397.485pt x 289.08pt>
+File: ../Output/Graphs/Fig_PhysHealth.pdf Graphic file (type pdf)
+<use ../Output/Graphs/Fig_PhysHealth.pdf>
+Package pdftex.def Info: ../Output/Graphs/Fig_PhysHealth.pdf  used on input line 36.
+(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
+<../Output/Graphs/Fig_LF.pdf, id=5, 397.485pt x 289.08pt>
+File: ../Output/Graphs/Fig_LF.pdf Graphic file (type pdf)
+<use ../Output/Graphs/Fig_LF.pdf>
+Package pdftex.def Info: ../Output/Graphs/Fig_LF.pdf  used on input line 42.
+(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
+<../Output/Graphs/EventStudy_at_work.pdf, id=6, 397.485pt x 289.08pt>
+File: ../Output/Graphs/EventStudy_at_work.pdf Graphic file (type pdf)
+<use ../Output/Graphs/EventStudy_at_work.pdf>
+Package pdftex.def Info: ../Output/Graphs/EventStudy_at_work.pdf  used on input line 50.
+(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
+<../Output/Graphs/EventStudy_excel_vgood.pdf, id=7, 397.485pt x 289.08pt>
+File: ../Output/Graphs/EventStudy_excel_vgood.pdf Graphic file (type pdf)
+<use ../Output/Graphs/EventStudy_excel_vgood.pdf>
+Package pdftex.def Info: ../Output/Graphs/EventStudy_excel_vgood.pdf  used on input line 54.
+(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
+<../Output/Graphs/EventStudy_mental_poor.pdf, id=8, 397.485pt x 289.08pt>
+File: ../Output/Graphs/EventStudy_mental_poor.pdf Graphic file (type pdf)
+<use ../Output/Graphs/EventStudy_mental_poor.pdf>
+Package pdftex.def Info: ../Output/Graphs/EventStudy_mental_poor.pdf  used on input line 60.
+(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
+<../Output/Graphs/EventStudy_phys_poor.pdf, id=9, 397.485pt x 289.08pt>
+File: ../Output/Graphs/EventStudy_phys_poor.pdf Graphic file (type pdf)
+<use ../Output/Graphs/EventStudy_phys_poor.pdf>
+Package pdftex.def Info: ../Output/Graphs/EventStudy_phys_poor.pdf  used on input line 64.
+(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
+
+
+[1
+
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+[2 <../Output/Graphs/Fig_LaborForce.pdf> <../Output/Graphs/Fig_ExcellentHealth.pdf> <../Output/Graphs/Fig_MentalHealth.pdf> <../Output/Graphs/Fig_PhysHealth.pdf> <../Output/Graphs/Fig_LF.pdf>]
+
+[3 <../Output/Graphs/EventStudy_at_work.pdf> <../Output/Graphs/EventStudy_excel_vgood.pdf> <../Output/Graphs/EventStudy_mental_poor.pdf> <../Output/Graphs/EventStudy_phys_poor.pdf>]
+
+[4]
+
+[5] (./Mason_Rep_Writeup.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 2931 strings out of 473190
+ 54569 string characters out of 5715801
+ 464046 words of memory out of 5000000
+ 26195 multiletter control sequences out of 15000+600000
+ 561358 words of font info for 44 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 67i,10n,77p,313b,408s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb>
+Output written on Mason_Rep_Writeup.pdf (5 pages, 230136 bytes).
+PDF statistics:
+ 136 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+
