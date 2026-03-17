@@ -1,21 +1,151 @@
-\documentclass{article}
-\usepackage{booktabs}  % required for \toprule \midrule \bottomrule
-\usepackage{graphicx}  % required for \resizebox in Tab4
+% !TeX program = pdflatex
+\documentclass[11pt]{article}
+
+% -----------------------
+% Packages (barebones)
+% -----------------------
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{bm}              % bold math symbols
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[backend=biber]{biblatex}
 \usepackage{subcaption}
 \usepackage{caption}
-\usepackage{longtable}
+\usepackage{float}
+\floatplacement{table}{H}
+\addbibresource{Proposal_bib.bib}
+\captionsetup[table]{labelformat=empty}
 
+\onehalfspacing
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+% -----------------------
+% Metadata macros
+% -----------------------
+\newcommand{\Title}{Replication of "Giving Mom a Break: The Impact of Higher EITC Payments on Maternal Health" by Evans and Garthwaite}
+\newcommand{\Author}{Tate Mason}
+\newcommand{\Date}{\today}
+
+% -----------------------
+% Section helpers
+% -----------------------
+% Use: \Section{Motivation} ... \Section{Methods}
+\newcommand{\Section}[1]{\section{#1}}
+\newcommand{\Subsection}[1]{\subsection{#1}}
+\newcommand{\Subsubsection}[1]{\subsubsection{#1}}
+
+% -----------------------
+% Equation helpers
+% -----------------------
+% Inline: \(\E[Y|X]\), display: \eqn{ ... }, numbered: \eqnlabel{key}{...}
+\newcommand{\eqn}[1]{\begin{equation*}#1\end{equation*}}
+\newcommand{\eqnlabel}[2]{\begin{equation}\label{eq:#1}#2\end{equation}}
+\newcommand{\Eqref}[1]{(\ref{eq:#1})}
+
+% Common operators
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% Probability / expectation / variance
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+
+% Sets, reals, indicators
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\1}[1]{\mathbb{I}\{#1\}}
+
+% Vectors / matrices
+\newcommand{\vct}[1]{\bm{#1}}     % bold vector
+\newcommand{\mtx}[1]{\bm{#1}}     % bold matrix
+\newcommand{\trans}{^\mathsf{T}}  % transpose
+\newcommand{\inv}{^{-1}}
+
+% Norms, inner products
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\ip}[2]{\left\langle #1, #2 \right\rangle}
+
+% Derivatives
+\newcommand{\dd}[2]{\frac{d #1}{d #2}}
+\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppn}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+
+% Convenience delimiters
+\newcommand{\paren}[1]{\left( #1 \right)}
+\newcommand{\brak}[1]{\left[ #1 \right]}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+
+% Theorem-like envs (optional)
+\theoremstyle{plain}
+\newtheorem{assumption}{Assumption}
+\newtheorem{proposition}{Proposition}
+
+% -----------------------
+% Title block
+% -----------------------
 \begin{document}
 
+\begin{center}
+  {\large \textbf{\Title}}\\[0.5em]
+  {\large \Author}\\
+  University of Georgia\\[0.25em]
+  {\Date}
+\end{center}
+
+\newpage
+
+\vspace{0.5em}
+\textbf{Table 2 - Sample Characteristics, Mothers Aged 21-40 (1993-1996)}
+\input{../Output/Tables/Tab2.tex}
+\clearpage
+
+
+\textbf{Table 3 - Differences-in-Differences OLS and Negative Binomial Estimates}
+
 \input{../Output/Tables/Tab3.tex}
+\clearpage
+
+
+\textbf{Table 4 - Robustness Tests}
 
 \input{../Output/Tables/Tab4.tex}
+\clearpage
+
+\textbf{Table 5 - Biomarkers for Mothers Aged 21-40 with a High School Education or Less}
+\input{../Output/Tables/Tab5.tex}
+\clearpage
+
+\textbf{Table 6 - Regression Adjusted DD and DDD Estimates for Effect of EITC Expansion on Allostatic Load, Women Aged 21-40}
 
 \input{../Output/Tables/Tab6.tex}
+\clearpage
 
+\textbf{Table 7 - Regression Adjusted DD and DDD Estimates for Individual Biomarkers, Women Aged 21-40}
+
+\begingroup
+\renewcommand{\arraystretch}{0.5}
+\footnotesize
 \input{../Output/Tables/Tab7.tex}
+\endgroup
+\clearpage
+
+\textbf{Additional Robustness Checks - Footnotes 12 and 21}
 
 \input{../Output/Tables/ARC.tex}
+\clearpage
+
+\textbf{Figure 4 - Time Series of Outcomes}
+
 
 \begin{figure}[hbtp]
   \centering
@@ -44,6 +174,11 @@
   \end{subfigure}
   \label{fig:TS_fig}
 \end{figure}
+\clearpage
+
+
+\textbf{Extension - Event Study of Outcomes (1995 Normalized to Zero)}
+
 
 \begin{figure}[hbtp]
   \centering
@@ -67,6 +202,11 @@
   \label{fig:ES_fig}
 \end{figure}
 
+The event study supports parallel trends for three of the outcomes. However, for the excellent/very good health reporting, it would appear that leading up to the
+expansion, self-reporting of good-to-excellent health was already increasing. There is a downward trend for presenting poor mental health as well, but the confidence interval
+encompasses zero, so it is a less compelling result. For working and poor physical health, there is evidence in favor of parallel trends. Both of these variables, relative to 1995,
+have little pre-event variation, validating the assumption of parallel trends.
+\clearpage
 
 
 \end{document}

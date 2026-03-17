@@ -47,15 +47,15 @@ tabstat income* educ  working
 
 // Below I define a local switch for each part of the assignment. When set to 1, it will run, at 0, it is dormant
 
-local Tab2 = 1
-local Tab3 = 1
-local Tab4 = 1
-local Tab5 = 1 // only observations, sample mean, and % with risky levels
+local Tab2 = 0
+local Tab3 = 0
+local Tab4 = 0
+local Tab5 = 0 // only observations, sample mean, and % with risky levels
 local Tab6 = 1
-local Tab7 = 1 
-local Fig4 = 1 // insert vline at t = 1996, include additional subfigure for "at work" rather than "in labor force" -- figure 4 has 5 subfigures
-local ARC  = 1 // Additional Robustness Checks - Footnote 12 (col1), Footnote 21 - diff years excluded (col2), Footnote 21 - years specified (col3)
-local Extension = 1
+local Tab7 = 0 
+local Fig4 = 0 // insert vline at t = 1996, include additional subfigure for "at work" rather than "in labor force" -- figure 4 has 5 subfigures
+local ARC  = 0 // Additional Robustness Checks - Footnote 12 (col1), Footnote 21 - diff years excluded (col2), Footnote 21 - years specified (col3)
+local Extension = 0
 
 /************************************************************
 * (4) Table 2 - Sample Characteristics                      *
@@ -74,19 +74,157 @@ if `Tab2' {
   drop if kids == 0 | kids == .
   drop if educ == 3
   drop if fips > 56
+
+  recode educ (1/2=0) (4=1), gen(college_edu)
+  gen income_1t = income1 // income <20k
+  gen income_2t = income2 + income3 // income b/w 20k and 50k
+  gen income_3t = income4 + income5 // income greater than 50k
   
-  gen obsnum = _n //generating an observation number for each observation
+  // Variables and display labels
+  local tab2_vars "age working white_nh hispanic black_nh other married div_sep_wid never_married income_1t income_2t income_3t incomemiss excel_vgood bad_mental_30 bad_phys_30 mental_poor phys_poor "
+  local lab_age            "Average age"
+  local lab_working        "\% currently employed"
+  local lab_white_nh       "\% white, non-Hispanic"
+  local lab_black_nh       "\% black, non-Hispanic"
+  local lab_hispanic       "\% Hispanic"
+  local lab_other          "\% other race"
+  local lab_married        "\% married"
+  local lab_div_sep_wid    "\% separated/divorced/widowed"
+  local lab_never_married  "\% never married"
+  local lab_income_1t        "\% \$<\$\$20K"
+  local lab_income_2t      "\% \$\geq$ \$20k, $<$ \$50k"
+  local lab_income_3t      "\% \$\geq$ \$50k"
+  local lab_incomemiss     "\% income missing"
+  local lab_excel_vgood    "\% excellent/very good health"
+  local lab_bad_mental_30 "\% with any bad mental health days"
+  local lab_bad_phys_30    "\% with any bad physical health days"
+  local lab_mental_poor    "Number of bad mental health days"
+  local lab_phys_poor      "Number of bad physical health days"
 
-  recode educ (1/2 = 0) (4=1), gen(college_edu) //reclassifying education such that college_edu = 1 if the woman has a degree and 0 if high school attainment was their highest level of education
- 
-  local tab2_vars "age working excel_vgood *_poor bad_* white_nh hispanic black_nh other income* incomemiss married div_sep_wid never_married" //creating a local variable to contain all relevant table variables
+  file open tab2 using `outPath'Tables/Tab2.tex, write replace
+  file write tab2 "\begin{table}[htbp]" _n
+  file write tab2 "\centering" _n
+  file write tab2 "\caption{Sample Characteristics, Mothers Aged 21--40, 1993--1996 BRFSS}" _n
+  file write tab2 "\resizebox{\textwidth}{!}{%" _n
+  file write tab2 "\begin{tabular}{lcccccc}" _n
+  file write tab2 "\toprule" _n
+  file write tab2 " & \multicolumn{3}{c}{\$\leq\$ High school education} & \multicolumn{3}{c}{College graduates} \\" _n
+  file write tab2 "\cmidrule(lr){2-4}\cmidrule(lr){5-7}" _n
+  file write tab2 "Variable & 1 child & 2+ kids & \$p\$-value & 1 child & 2+ kids & \$p\$-value \\" _n
+  file write tab2 "\midrule" _n
 
-  sort college_edu //sort by college status so that i can then summarize by that classification
-  by college_edu: sum `tab2_vars' if kids == 1 //summarize for women with only one child
-  by college_edu: sum `tab2_vars' if kids > 1 //summarize for women with two or more children
-
+  // Demographics
+  foreach v in age working {
+      sum `v' if college_edu == 0 & kids == 1
+      local m_hs1 = strtrim(string(r(mean), "%9.3f"))
+      sum `v' if college_edu == 0 & kids > 1
+      local m_hs2 = strtrim(string(r(mean), "%9.3f"))
+      ttest `v' if college_edu == 0, by(twoplus_kids)
+      local p_hs  = strtrim(string(r(p), "%9.3f"))
+      sum `v' if college_edu == 1 & kids == 1
+      local m_col1 = strtrim(string(r(mean), "%9.3f"))
+      sum `v' if college_edu == 1 & kids > 1
+      local m_col2 = strtrim(string(r(mean), "%9.3f"))
+      ttest `v' if college_edu == 1, by(twoplus_kids)
+      local p_col  = strtrim(string(r(p), "%9.3f"))
+      file write tab2 "`lab_`v'' & `m_hs1' & `m_hs2' & `p_hs' & `m_col1' & `m_col2' & `p_col' \\" _n
   }
 
+  // Race
+  file write tab2 "\addlinespace" _n
+  file write tab2 "\multicolumn{7}{l}{\textit{Race}} \\" _n
+  foreach v in white_nh black_nh hispanic other {
+      sum `v' if college_edu == 0 & kids == 1
+      local m_hs1 = strtrim(string(r(mean), "%9.3f"))
+      sum `v' if college_edu == 0 & kids > 1
+      local m_hs2 = strtrim(string(r(mean), "%9.3f"))
+      ttest `v' if college_edu == 0, by(twoplus_kids)
+      local p_hs  = strtrim(string(r(p), "%9.3f"))
+      sum `v' if college_edu == 1 & kids == 1
+      local m_col1 = strtrim(string(r(mean), "%9.3f"))
+      sum `v' if college_edu == 1 & kids > 1
+      local m_col2 = strtrim(string(r(mean), "%9.3f"))
+      ttest `v' if college_edu == 1, by(twoplus_kids)
+      local p_col  = strtrim(string(r(p), "%9.3f"))
+      file write tab2 "`lab_`v'' & `m_hs1' & `m_hs2' & `p_hs' & `m_col1' & `m_col2' & `p_col' \\" _n
+  }
+
+  // Marital status
+  file write tab2 "\addlinespace" _n
+  file write tab2 "\multicolumn{7}{l}{\textit{Marital status}} \\" _n
+  foreach v in married div_sep_wid never_married {
+      sum `v' if college_edu == 0 & kids == 1
+      local m_hs1 = strtrim(string(r(mean), "%9.3f"))
+      sum `v' if college_edu == 0 & kids > 1
+      local m_hs2 = strtrim(string(r(mean), "%9.3f"))
+      ttest `v' if college_edu == 0, by(twoplus_kids)
+      local p_hs  = strtrim(string(r(p), "%9.3f"))
+      sum `v' if college_edu == 1 & kids == 1
+      local m_col1 = strtrim(string(r(mean), "%9.3f"))
+      sum `v' if college_edu == 1 & kids > 1
+      local m_col2 = strtrim(string(r(mean), "%9.3f"))
+      ttest `v' if college_edu == 1, by(twoplus_kids)
+      local p_col  = strtrim(string(r(p), "%9.3f"))
+      file write tab2 "`lab_`v'' & `m_hs1' & `m_hs2' & `p_hs' & `m_col1' & `m_col2' & `p_col' \\" _n
+  }
+
+  // Family income
+  file write tab2 "\addlinespace" _n
+  file write tab2 "\multicolumn{7}{l}{\textit{Family income}} \\" _n
+  foreach v in income_1t income_2t income_3t incomemiss {
+      sum `v' if college_edu == 0 & kids == 1
+      local m_hs1 = strtrim(string(r(mean), "%9.3f"))
+      sum `v' if college_edu == 0 & kids > 1
+      local m_hs2 = strtrim(string(r(mean), "%9.3f"))
+      ttest `v' if college_edu == 0, by(twoplus_kids)
+      local p_hs  = strtrim(string(r(p), "%9.3f"))
+      sum `v' if college_edu == 1 & kids == 1
+      local m_col1 = strtrim(string(r(mean), "%9.3f"))
+      sum `v' if college_edu == 1 & kids > 1
+      local m_col2 = strtrim(string(r(mean), "%9.3f"))
+      ttest `v' if college_edu == 1, by(twoplus_kids)
+      local p_col  = strtrim(string(r(p), "%9.3f"))
+      file write tab2 "`lab_`v'' & `m_hs1' & `m_hs2' & `p_hs' & `m_col1' & `m_col2' & `p_col' \\" _n
+  }
+
+  // Health outcomes
+  file write tab2 "\addlinespace" _n
+  file write tab2 "\multicolumn{7}{l}{\textit{Health outcome}} \\" _n
+  foreach v in excel_vgood bad_mental_30 bad_phys_30 mental_poor phys_poor {
+      sum `v' if college_edu == 0 & kids == 1
+      local m_hs1 = strtrim(string(r(mean), "%9.3f"))
+      sum `v' if college_edu == 0 & kids > 1
+      local m_hs2 = strtrim(string(r(mean), "%9.3f"))
+      ttest `v' if college_edu == 0, by(twoplus_kids)
+      local p_hs  = strtrim(string(r(p), "%9.3f"))
+      sum `v' if college_edu == 1 & kids == 1
+      local m_col1 = strtrim(string(r(mean), "%9.3f"))
+      sum `v' if college_edu == 1 & kids > 1
+      local m_col2 = strtrim(string(r(mean), "%9.3f"))
+      ttest `v' if college_edu == 1, by(twoplus_kids)
+      local p_col  = strtrim(string(r(p), "%9.3f"))
+      file write tab2 "`lab_`v'' & `m_hs1' & `m_hs2' & `p_hs' & `m_col1' & `m_col2' & `p_col' \\" _n
+  }
+  // Observation counts
+  sum age if college_edu == 0 & kids == 1
+  local n_hs1  = strtrim(string(r(N), "%9.0fc"))
+  sum age if college_edu == 0 & kids > 1
+  local n_hs2  = strtrim(string(r(N), "%9.0fc"))
+  sum age if college_edu == 1 & kids == 1
+  local n_col1 = strtrim(string(r(N), "%9.0fc"))
+  sum age if college_edu == 1 & kids > 1
+  local n_col2 = strtrim(string(r(N), "%9.0fc"))
+  file write tab2 "\midrule" _n
+  file write tab2 "Observations & `n_hs1' & `n_hs2' & & `n_col1' & `n_col2' & \\" _n
+  file write tab2 "\bottomrule" _n
+  file write tab2 "\end{tabular}}" _n
+  file write tab2 "\begin{minipage}{\linewidth}" _n
+  file write tab2 "\smallskip\footnotesize" _n
+  file write tab2 "\textit{Notes:} The \$p\$-value tests equality of means across 1-child and 2+ child groups." _n
+  file write tab2 "\end{minipage}" _n
+  file write tab2 "\end{table}" _n
+  file close tab2
+}
 /************************************************************
 * (4) Table 3 - DiD OLS & Negative Binomial Estimates       *
 ************************************************************/
@@ -670,6 +808,144 @@ if `Tab5' {
   sum totalsum total1 total2 total3 if highgrade <= 2
 
   save `dataPath'nhanes/nhanescleaned.dta, replace
+
+  file open tab5 using `outPath'Tables/Tab5.tex, write replace
+  file write tab5 "\begin{table}[htbp]" _n
+  file write tab5 "\centering" _n
+  file write tab5 "\caption{Biomarkers for Mothers Aged 21--40 with a High School Education or Less, NHANES}" _n
+  file write tab5 "\begin{tabular}{lcccc}" _n
+  file write tab5 "\toprule" _n
+  file write tab5 "Biomarker & Obs & Mean & Risky level & \% Risky \\" _n
+  file write tab5 "\midrule" _n
+  file write tab5 "\multicolumn{5}{l}{\textit{Measures of inflammation}} \\" _n
+  file write tab5 "\addlinespace" _n
+
+  // Inflammation panel
+  // crp
+  sum crp if highgrade <= 2
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local mn  = strtrim(string(r(mean), "%9.3f"))
+  sum riskycrp if highgrade <= 2
+  local pct = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "C-reactive protein (mg/Dl) & `obs' & `mn' & \$\geq\$ 0.3 mg/Dl & `pct' \\" _n
+
+  sum albumin if highgrade <= 2
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local mn  = strtrim(string(r(mean), "%9.3f"))
+  sum riskyAlbumin if highgrade <= 2
+  local pct = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "Albumin (g/Dl) & `obs' & `mn' & \$<\$ 3.8 g/Dl & `pct' \\" _n
+
+  sum inflsum if highgrade <= 2
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local mn  = strtrim(string(r(mean), "%9.3f"))
+  sum anyinflamation if highgrade <= 2
+  local pct = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "Number of risky inflammation conditions & `obs' & `mn' & & \\" _n
+  file write tab5 "Any risky inflammation condition & `obs' & & & `pct' \\" _n
+
+  file write tab5 "\midrule" _n
+  file write tab5 "\multicolumn{5}{l}{\textit{Measures of cardiovascular conditions}} \\" _n
+  file write tab5 "\addlinespace" _n
+
+  // Cardiovascular panel
+  sum diastolic if highgrade <= 2
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local mn  = strtrim(string(r(mean), "%9.3f"))
+  sum riskydiastolic if highgrade <= 2
+  local pct = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "Diastolic blood pressure (mmHg) & `obs' & `mn' & \$\geq\$ 140 mmHg & `pct' \\" _n
+
+  sum systolic if highgrade <= 2
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local mn  = strtrim(string(r(mean), "%9.3f"))
+  sum riskysystolic if highgrade <= 2
+  local pct = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "Systolic blood pressure (mmHg) & `obs' & `mn' & \$\geq\$ 90 mmHg & `pct' \\" _n
+
+  sum pulse if highgrade <= 2
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local mn  = strtrim(string(r(mean), "%9.3f"))
+  sum riskypulse if highgrade <= 2
+  local pct = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "Resting pulse (beats/min) & `obs' & `mn' & \$\geq\$ 90 BPM & `pct' \\" _n
+
+  sum cardiosum if highgrade <= 2
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local mn  = strtrim(string(r(mean), "%9.3f"))
+  sum anycardio if highgrade <= 2
+  local pct = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "Number of risky cardiovascular conditions & `obs' & `mn' & & \\" _n
+  file write tab5 "Any risky cardiovascular condition & `obs' & & & `pct' \\" _n
+
+  file write tab5 "\midrule" _n
+  file write tab5 "\multicolumn{5}{l}{\textit{Measures of metabolic conditions}} \\" _n
+  file write tab5 "\addlinespace" _n
+
+  // Metabolic panel
+  sum cholesterol if highgrade <= 2
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local mn  = strtrim(string(r(mean), "%9.3f"))
+  sum riskyCholest if highgrade <= 2
+  local pct = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "Total cholesterol (mg/Dl) & `obs' & `mn' & \$\geq\$ 240 mg/Dl & `pct' \\" _n
+
+  sum hdl if highgrade <= 2
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local mn  = strtrim(string(r(mean), "%9.3f"))
+  sum riskyhdl if highgrade <= 2
+  local pct = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "HDL (mg/Dl) & `obs' & `mn' & \$<\$ 40 mg/Dl & `pct' \\" _n
+
+  sum glycatedhemoglobin if highgrade <= 2 // HbA1c - sum separately to avoid name length issues
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local mn  = strtrim(string(r(mean), "%9.3f"))
+  sum riskyglycatedhemoglobin if highgrade <= 2
+  local pct = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "Glycated hemoglobin (\%) & `obs' & `mn' & \$\geq\$ 6.4\% & `pct' \\" _n
+
+  sum metabsum if highgrade <= 2
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local mn  = strtrim(string(r(mean), "%9.3f"))
+  sum anymetab if highgrade <= 2
+  local pct = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "Number of risky metabolic conditions & `obs' & `mn' & & \\" _n
+  file write tab5 "Any risky metabolic condition & `obs' & & & `pct' \\" _n
+
+  file write tab5 "\midrule" _n
+  file write tab5 "\multicolumn{5}{l}{\textit{Aggregate risks}} \\" _n
+  file write tab5 "\addlinespace" _n
+
+  // Aggregate panel
+  sum totalsum if highgrade <= 2
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local mn  = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "Number of risky conditions & `obs' & `mn' & & \\" _n
+
+  sum total1 if highgrade <= 2
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local pct = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "One or more risky conditions & `obs' & & & `pct' \\" _n
+
+  sum total2 if highgrade <= 2
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local pct = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "Two or more risky conditions & `obs' & & & `pct' \\" _n
+
+  sum total3 if highgrade <= 2
+  local obs = strtrim(string(r(N),    "%9.0fc"))
+  local pct = strtrim(string(r(mean), "%9.3f"))
+  file write tab5 "Three or more risky conditions & `obs' & & & `pct' \\" _n
+
+  file write tab5 "\bottomrule" _n
+  file write tab5 "\end{tabular}" _n
+  file write tab5 "\begin{minipage}{\linewidth}" _n
+  file write tab5 "\smallskip\footnotesize" _n
+  file write tab5 "\textit{Notes:} Sample restricted to mothers aged 21--40 with a high school degree or less." _n
+  file write tab5 " NHANES III, 1999/2000, 2001/2002, 2003/2004." _n
+  file write tab5 "\end{minipage}" _n
+  file write tab5 "\end{table}" _n
+  file close tab5  
   restore
 }
 
@@ -726,7 +1002,20 @@ if `Tab6' {
   poisson totalsum ddd_treat `X_ddd', robust // Poisson regression for count of risk factors
   estimates store tab6c2_totalsum
 
-  // ---- Extract Tab6 scalars ----
+  // Two vs. No Kids
+
+  preserve
+  drop if kids == 1
+
+  reg total1 dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab6c3_total1
+  reg total2 dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab6c3_total2
+  reg total3 dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab6c3_total3
+  poisson totalsum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab6c3_totalsum
+
   // All OLS -> ttail; Poisson -> normal z
 
   foreach param in total1 total2 total3 {
@@ -739,6 +1028,11 @@ if `Tab6' {
       scalar b6ddd_`param'  = _b[ddd_treat]
       scalar se6ddd_`param' = _se[ddd_treat]
       scalar p6ddd_`param'  = 2*ttail(e(df_r), abs(_b[ddd_treat]/_se[ddd_treat]))
+
+      estimates restore tab6c3_`param'
+      scalar b6kids_`param'  = _b[dd_treat]
+      scalar se6kids_`param' = _se[dd_treat]
+      scalar p6kids_`param'  = 2*ttail(e(df_r), abs(_b[dd_treat]/_se[dd_treat]))
   }
   // Poisson totalsum
   estimates restore tab6c1_totalsum
@@ -751,6 +1045,11 @@ if `Tab6' {
   scalar se6ddd_totalsum = _se[ddd_treat]
   scalar p6ddd_totalsum  = 2*normal(-abs(_b[ddd_treat]/_se[ddd_treat]))
 
+  estimates restore tab6c3_totalsum
+  scalar b6kids_totalsum  = _b[dd_treat]
+  scalar se6kids_totalsum = _se[dd_treat]
+  scalar p6kids_totalsum  = 2*normal(-abs(_b[dd_treat]/_se[dd_treat]))
+
   // Pre-expansion means for treatment group
   foreach param in total1 total2 total3 totalsum {
       quietly sum `param' if year == 0 & twoplus_kids == 1 & highgrade <= 2
@@ -761,19 +1060,22 @@ if `Tab6' {
 
   local b6dd_totalsum_s = strtrim(string(scalar(b6dd_totalsum), "%9.4f"))
   local b6ddd_totalsum_s = strtrim(string(scalar(b6ddd_totalsum), "%9.4f"))
+  local b6kids_totalsum_s = strtrim(string(scalar(b6kids_totalsum), "%9.4f"))
   local p6dd_totalsum_s = strtrim(string(scalar(p6dd_totalsum), "%9.4f"))
   local p6ddd_totalsum_s = strtrim(string(scalar(p6ddd_totalsum), "%9.4f"))
+  local p6kids_totalsum_s = strtrim(string(scalar(p6kids_totalsum), "%9.4f"))
   local premean6_totalsum_s = strtrim(string(scalar(premean6_totalsum), "%9.4f"))
   local se6dd_totalsum_s = strtrim(string(scalar(se6dd_totalsum), "%9.4f"))
   local se6ddd_totalsum_s = strtrim(string(scalar(se6ddd_totalsum), "%9.4f"))
+  local se6kids_totalsum_s = strtrim(string(scalar(se6kids_totalsum), "%9.4f"))
   file open tab6 using `outPath'Tables/Tab6.tex, write replace
   file write tab6 "\begin{table}[htbp]" _n
   file write tab6 "\centering" _n
   file write tab6 "\caption{Regression-Adjusted DD and DDD Estimates for Effect of EITC Expansion on Allostatic Load, Women Aged 21--40}" _n
-  file write tab6 "\begin{tabular}{lccc}" _n
+  file write tab6 "\begin{tabular}{lcccc}" _n
   file write tab6 "\toprule" _n
-  file write tab6 " & Preexpansion mean & & \\" _n
-  file write tab6 "Outcome & (treatment group) & DD & DDD \\" _n
+  file write tab6 " & Preexpansion mean & & & \\" _n
+  file write tab6 "Outcome & (treatment group) & DD & DDD & Two Children vs. No Children \\" _n
   file write tab6 "\midrule" _n
 
   foreach param in total1 total2 total3 {
@@ -783,33 +1085,42 @@ if `Tab6' {
       local pm   = strtrim(string(scalar(premean6_`param'), "%9.3f"))
       local bdd  = strtrim(string(scalar(b6dd_`param'),    "%9.4f"))
       local bddd = strtrim(string(scalar(b6ddd_`param'),   "%9.4f"))
+      local bkid = strtrim(string(scalar(b6kids_`param'),  "%9.4f"))
       local sedd = strtrim(string(scalar(se6dd_`param'),   "%9.4f"))
       local seddd= strtrim(string(scalar(se6ddd_`param'),  "%9.4f"))
+      local sekid= strtrim(string(scalar(se6kids_`param'),  "%9.4f"))
       local pdd  = strtrim(string(scalar(p6dd_`param'),    "%9.3f"))
       local pddd = strtrim(string(scalar(p6ddd_`param'),   "%9.3f"))
+      local pkid = strtrim(string(scalar(p6kids_`param'),   "%9.3f"))
       file write tab6 "`outlabel'"
       file write tab6 " & `pm'"
       file write tab6 " & `bdd'"
-      file write tab6 " & `bddd' \\" _n
+      file write tab6 " & `bddd' "
+      file write tab6 " & `bkid' \\" _n
       file write tab6 " & "
       file write tab6 " & (`sedd')"
-      file write tab6 " & (`seddd') \\" _n
+      file write tab6 " & (`seddd')"
+      file write tab6 " & (`sekid') \\" _n
       file write tab6 " & "
       file write tab6 " & [`pdd']"
-      file write tab6 " & [`pddd'] \\" _n
+      file write tab6 " & [`pddd']"
+      file write tab6 " & [`pkid'] \\" _n
       file write tab6 "\addlinespace" _n
   }
 
   file write tab6 "Poisson: total risky conditions"
   file write tab6 " & `premean6_totalsum_s\'"
   file write tab6 " & `b6dd_totalsum_s\'"
-  file write tab6 " & `b6ddd_totalsum_s\' \\" _n
+  file write tab6 " & `b6ddd_totalsum_s\'"
+  file write tab6 " & `b6kids_totalsum_s\' \\" _n
   file write tab6 " & "
   file write tab6 " & (`se6dd_totalsum_s\')"
-  file write tab6 " & (`se6ddd_totalsum_s\') \\" _n
+  file write tab6 " & (`se6ddd_totalsum_s\')"
+  file write tab6 " & (`se6kids_totalsum_s\') \\" _n
   file write tab6 " & "
   file write tab6 " & [`p6dd_totalsum_s\']"
-  file write tab6 " & [`p6ddd_totalsum_s\'] \\" _n
+  file write tab6 " & [`p6ddd_totalsum_s\']"
+  file write tab6 " & [`p6kids_totalsum_s\'] \\" _n
 
   file write tab6 "\bottomrule" _n
   file write tab6 "\end{tabular}" _n
@@ -820,33 +1131,6 @@ if `Tab6' {
   file write tab6 "\end{minipage}" _n
   file write tab6 "\end{table}" _n
   file close tab6
-
-  /*
-  // Column 3 - 2 kids vs 0 kids
-  // First, drop 1 kid observations
-  drop if kids == 1
-  foreach param in total1 total2 total3 {
-      reg `param' dd_treat `X_dd' if highgrade<=2 & twoplus_kids==1, robust
-      estimates store `param'_kids
-      reg `param' dd_treat `X_dd' if highgrade<=2 & kids==0, robust
-      estimates store `param'_nokids
-  }
-
-  * Poisson
-  poisson totalsum dd_treat `X_dd' if highgrade<=2 & twoplus_kids==1, robust
-  estimates store totalsum_kids
-  poisson totalsum dd_treat `X_dd' if highgrade<=2 & kids==0, robust
-  estimates store totalsum_nokids
-
-  * Compute and display differences
-  foreach param in total1 total2 total3 totalsum {
-      estimates restore `param'_kids
-      scalar b_kids = _b[dd_treat]
-      estimates restore `param'_nokids
-      scalar b_nokids = _b[dd_treat]
-      display "`param' DiD difference (kids - nokids): " b_kids - b_nokids
-  }
-  */
 }
 
 if `Tab7' {
@@ -1623,7 +1907,7 @@ if `Extension' {
   forvalues yr = 1993/2001 {
     gen delta_`yr' = (year==`yr')*twoplus_kids
   }
-  drop delta_1995
+  replace delta_1995 = 0 // normalize pre-expansion year to 0
   
 
   local X "i.race4 i.educ i.age i.month i.marital i.kids i.fips i.year" // Control vector of dummies
@@ -1642,10 +1926,10 @@ if `Extension' {
   foreach y in at_work excel_vgood mental_poor phys_poor {
       coefplot ext_`y', ///
           keep(`delta') ///
-          coeflabels(delta_1993="1993" delta_1994="1994" delta_1996="1996" ///
+          coeflabels(delta_1993="1993" delta_1994="1994" delta_1995="1995" delta_1996="1996" ///
                     delta_1997="1997" delta_1998="1998" delta_1999="1999" ///
                     delta_2000="2000" delta_2001="2001") ///
-          vertical yline(0) xline(3.5, lcolor(red) lpattern(dash)) ///
+          vertical yline(0) xline(3, lcolor(red) lpattern(dash)) ///
           title("`title_`y''") ///
           xtitle("Year") ytitle("Coefficient (relative to 1995)")
       graph export `outPath'Graphs/EventStudy_`y'.pdf, replace
