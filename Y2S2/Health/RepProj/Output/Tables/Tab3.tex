@@ -1,0 +1,34 @@
+\begin{table}[htbp]
+\centering
+\caption{Difference-in-Differences OLS and Negative Binomial Estimates \\ Mothers Aged 21--40, 1993--2001 BRFSS}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+ & Preexpansion & Estimation & \multicolumn{2}{c}{DiD estimates} \\
+ & mean (treat.) & method & Simple & Reg. adjusted \\
+\cmidrule(lr){4-5}
+At work & 0.5797 & OLS & 0.0170 & 0.0204 \\
+ & &  & (0.0073) & (0.0074) \\
+ & &  & [0.0232] & [0.0082] \\
+\addlinespace
+Excellent/very good health? & 0.5770 & OLS & 0.0095 & 0.0135 \\
+ & &  & (0.0079) & (0.0075) \\
+ & &  & [0.2330] & [0.0777] \\
+\addlinespace
+Number of bad mental health days in past month & 4.5228 & Negative binomial & -0.0474 & -0.0754 \\
+ & &  & (0.0306) & (0.0328) \\
+ & &  & [0.1212] & [0.0214] \\
+\addlinespace
+Number of bad physical health days in past month & 2.6472 & Negative binomial & 0.0140 & 0.0105 \\
+ & &  & (0.0390) & (0.0390) \\
+ & &  & [0.7192] & [0.7878] \\
+\bottomrule
+\end{tabular}}
+\begin{minipage}{\linewidth}
+\smallskip\footnotesize
+\textit{Notes:} Standard errors in parentheses; $p$-values in square brackets.
+ All standard errors allow for arbitrary correlations within state.
+ Regression-adjusted estimates include dummies for age, race, marital status,
+ number of children, month, year, and state of residence.
+\end{minipage}
+\end{table}

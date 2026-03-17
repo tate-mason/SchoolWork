@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  17 MAR 2026 12:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  17 MAR 2026 12:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -83,40 +83,58 @@ Package caption Info: New subtype `subfigure' on input line 238.
 \c@subfigure=\count276
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count277
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
+\LTleft=\skip51
+\LTright=\skip52
+\LTpre=\skip53
+\LTpost=\skip54
+\LTchunksize=\count278
+\LTcapwidth=\dimen165
+\LT@head=\box52
+\LT@firsthead=\box53
+\LT@foot=\box54
+\LT@lastfoot=\box55
+\LT@gbox=\box56
+\LT@cols=\count279
+\LT@rows=\count280
+\c@LT@tables=\count281
+\c@LT@chunks=\count282
+\LT@p@ftn=\toks18
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count278
-\l__pdf_internal_box=\box52
+\l__color_backend_stack_int=\count283
+\l__pdf_internal_box=\box57
 ) (./Mason_Rep_Writeup.aux)
 \openout1 = `Mason_Rep_Writeup.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
  (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count279
-\scratchdimen=\dimen165
-\scratchbox=\box53
-\nofMPsegments=\count280
-\nofMParguments=\count281
-\everyMPshowfont=\toks18
-\MPscratchCnt=\count282
-\MPscratchDim=\dimen166
-\MPnumerator=\count283
-\makeMPintoPDFobject=\count284
-\everyMPtoPDFconversion=\toks19
+\scratchcounter=\count284
+\scratchdimen=\dimen166
+\scratchbox=\box58
+\nofMPsegments=\count285
+\nofMParguments=\count286
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen167
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
+\everyMPtoPDFconversion=\toks20
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -124,13 +142,21 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: longtable package is loaded.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
 Package caption Info: End \AtBeginDocument code.
- (../Output/Tables/Tab3.tex) (../Output/Tables/Tab4.tex
+ (../Output/Tables/Tab3.tex
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 26.
-
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 29.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 29.
+) (../Output/Tables/Tab4.tex
 ../Output/Tables/Tab4.tex:26: Extra }, or forgotten $.
 <template> \unskip \hfil }
                           \hskip \tabcolsep \endtemplate 
@@ -161,129 +187,127 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 29.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 29.
 ) (../Output/Tables/Tab6.tex) (../Output/Tables/Tab7.tex
-../Output/Tables/Tab7.tex:77: Missing $ inserted.
+../Output/Tables/Tab7.tex:3: Misplaced \noalign.
+\caption ->\noalign 
+                    \bgroup \@ifnextchar [{\egroup \LT@c@ption \@firstofone ...
+l.3 \caption
+            {Regression-Adjusted DD and DDD Estimates for Individual Biomark...
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+../Output/Tables/Tab7.tex:3: Misplaced \noalign.
+\caption@LT@make #1->\noalign 
+                              {\caption@LT@config }\expandafter \LT@mcol \ex...
+l.3 ...r Individual Biomarkers, Women Aged 21--40}
+                                                  
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+../Output/Tables/Tab7.tex:3: Misplaced \omit.
+\multispan ->\omit 
+                   \@multispan 
+l.3 ...r Individual Biomarkers, Women Aged 21--40}
+                                                  
+I expect to see \omit only after tab marks or the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+../Output/Tables/Tab7.tex:4: Misplaced \noalign.
+\toprule ->\noalign 
+                    {\ifnum 0=`}\fi \@aboverulesep =\abovetopsep \global \@b...
+l.4 \toprule
+            
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+../Output/Tables/Tab7.tex:5: Missing } inserted.
 <inserted text> 
-                $
-l.77 ...ions between education$\times, kids$\times
-                                                  , and education$\times.
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+                }
+l.5  &
+       Preexpansion mean & & \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-../Output/Tables/Tab7.tex:77: Missing $ inserted.
+../Output/Tables/Tab7.tex:5: Missing } inserted.
 <inserted text> 
-                $
-l.77 ...$\times, kids$\times, and education$\times
-                                                  .
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+                }
+l.5  &
+       Preexpansion mean & & \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-../Output/Tables/Tab7.tex:78: Missing $ inserted.
+../Output/Tables/Tab7.tex:5: Missing \cr inserted.
 <inserted text> 
-                $
-l.78 \end{minipage}
-                   
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+                \cr 
+l.5  &
+       Preexpansion mean & & \\
+I'm guessing that you meant to end an alignment here.
 
+../Output/Tables/Tab7.tex:5: Undefined control sequence.
+\@BTrule ...\doublerulesep \fi \fi \fi \@BTswitch 
+                                                  
+l.5  &
+       Preexpansion mean & & \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-Overfull \hbox (87.63979pt too wide) in paragraph at lines 4--79
- [][] 
- []
+../Output/Tables/Tab7.tex:5: Misplaced alignment tab character &.
+<recently read> &
+                 
+l.5  &
+       Preexpansion mean & & \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
+../Output/Tables/Tab7.tex:5: Misplaced alignment tab character &.
+l.5  & Preexpansion mean &
+                           & \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-LaTeX Warning: Float too large for page by 169.29425pt on input line 79.
+../Output/Tables/Tab7.tex:5: Misplaced alignment tab character &.
+l.5  & Preexpansion mean & &
+                             \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-) (../Output/Tables/ARC.tex
-Overfull \hbox (42.02863pt too wide) in paragraph at lines 4--33
- [][] 
- []
+../Output/Tables/Tab7.tex:6: Misplaced \cr.
+\reserved@c ->\ifnum 0=`{\fi }\cr 
+                                  
+l.6 O
+     utcome & (treatment group) & DD & DDD \\
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-)
-<../Output/Graphs/Fig_LaborForce.pdf, id=1, 397.485pt x 289.08pt>
-File: ../Output/Graphs/Fig_LaborForce.pdf Graphic file (type pdf)
-<use ../Output/Graphs/Fig_LaborForce.pdf>
-Package pdftex.def Info: ../Output/Graphs/Fig_LaborForce.pdf  used on input line 22.
-(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
-<../Output/Graphs/Fig_ExcellentHealth.pdf, id=2, 397.485pt x 289.08pt>
-File: ../Output/Graphs/Fig_ExcellentHealth.pdf Graphic file (type pdf)
-<use ../Output/Graphs/Fig_ExcellentHealth.pdf>
-Package pdftex.def Info: ../Output/Graphs/Fig_ExcellentHealth.pdf  used on input line 26.
-(pdftex.def)             Requested size: 153.6973pt x 111.78355pt.
-<../Output/Graphs/Fig_MentalHealth.pdf, id=3, 397.485pt x 289.08pt>
-File: ../Output/Graphs/Fig_MentalHealth.pdf Graphic file (type pdf)
-<use ../Output/Graphs/Fig_MentalHealth.pdf>
-Package pdftex.def Info: ../Output/Graphs/Fig_MentalHealth.pdf  used on input line 32.
-(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
-<../Output/Graphs/Fig_PhysHealth.pdf, id=4, 397.485pt x 289.08pt>
-File: ../Output/Graphs/Fig_PhysHealth.pdf Graphic file (type pdf)
-<use ../Output/Graphs/Fig_PhysHealth.pdf>
-Package pdftex.def Info: ../Output/Graphs/Fig_PhysHealth.pdf  used on input line 36.
-(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
-<../Output/Graphs/Fig_LF.pdf, id=5, 397.485pt x 289.08pt>
-File: ../Output/Graphs/Fig_LF.pdf Graphic file (type pdf)
-<use ../Output/Graphs/Fig_LF.pdf>
-Package pdftex.def Info: ../Output/Graphs/Fig_LF.pdf  used on input line 42.
-(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
-<../Output/Graphs/EventStudy_at_work.pdf, id=6, 397.485pt x 289.08pt>
-File: ../Output/Graphs/EventStudy_at_work.pdf Graphic file (type pdf)
-<use ../Output/Graphs/EventStudy_at_work.pdf>
-Package pdftex.def Info: ../Output/Graphs/EventStudy_at_work.pdf  used on input line 50.
-(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
-<../Output/Graphs/EventStudy_excel_vgood.pdf, id=7, 397.485pt x 289.08pt>
-File: ../Output/Graphs/EventStudy_excel_vgood.pdf Graphic file (type pdf)
-<use ../Output/Graphs/EventStudy_excel_vgood.pdf>
-Package pdftex.def Info: ../Output/Graphs/EventStudy_excel_vgood.pdf  used on input line 54.
-(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
-<../Output/Graphs/EventStudy_mental_poor.pdf, id=8, 397.485pt x 289.08pt>
-File: ../Output/Graphs/EventStudy_mental_poor.pdf Graphic file (type pdf)
-<use ../Output/Graphs/EventStudy_mental_poor.pdf>
-Package pdftex.def Info: ../Output/Graphs/EventStudy_mental_poor.pdf  used on input line 60.
-(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
-<../Output/Graphs/EventStudy_phys_poor.pdf, id=9, 397.485pt x 289.08pt>
-File: ../Output/Graphs/EventStudy_phys_poor.pdf Graphic file (type pdf)
-<use ../Output/Graphs/EventStudy_phys_poor.pdf>
-Package pdftex.def Info: ../Output/Graphs/EventStudy_phys_poor.pdf  used on input line 64.
-(pdftex.def)             Requested size: 155.24895pt x 112.90836pt.
-
-
-[1
-
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-[2 <../Output/Graphs/Fig_LaborForce.pdf> <../Output/Graphs/Fig_ExcellentHealth.pdf> <../Output/Graphs/Fig_MentalHealth.pdf> <../Output/Graphs/Fig_PhysHealth.pdf> <../Output/Graphs/Fig_LF.pdf>]
-
-[3 <../Output/Graphs/EventStudy_at_work.pdf> <../Output/Graphs/EventStudy_excel_vgood.pdf> <../Output/Graphs/EventStudy_mental_poor.pdf> <../Output/Graphs/EventStudy_phys_poor.pdf>]
-
-[4]
-
-[5] (./Mason_Rep_Writeup.aux)
- ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
- ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
-Here is how much of TeX's memory you used:
- 2931 strings out of 473190
- 54569 string characters out of 5715801
- 464046 words of memory out of 5000000
- 26195 multiletter control sequences out of 15000+600000
- 561358 words of font info for 44 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 67i,10n,77p,313b,408s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on Mason_Rep_Writeup.pdf (5 pages, 230136 bytes).
-PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+../Output/Tables/Tab7.tex:6: Misplaced alignment tab character &.
+l.6 Outcome &
+              (treatment group) & DD & DDD \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probab

@@ -196,10 +196,39 @@ if `Tab3' {
 
   cap mkdir `outPath'Tables
 
+  local b_at_work_adj_s = strtrim(string(scalar(b_at_work_adj), "%9.4f"))
+  local b_at_work_simple_s = strtrim(string(scalar(b_at_work_simple), "%9.4f"))
+  local b_excel_vgood_adj_s = strtrim(string(scalar(b_excel_vgood_adj), "%9.4f"))
+  local b_excel_vgood_simple_s = strtrim(string(scalar(b_excel_vgood_simple), "%9.4f"))
+  local b_mental_poor_adj_s = strtrim(string(scalar(b_mental_poor_adj), "%9.4f"))
+  local b_mental_poor_simple_s = strtrim(string(scalar(b_mental_poor_simple), "%9.4f"))
+  local b_phys_poor_adj_s = strtrim(string(scalar(b_phys_poor_adj), "%9.4f"))
+  local b_phys_poor_simple_s = strtrim(string(scalar(b_phys_poor_simple), "%9.4f"))
+  local p_at_work_adj_s = strtrim(string(scalar(p_at_work_adj), "%9.4f"))
+  local p_at_work_simple_s = strtrim(string(scalar(p_at_work_simple), "%9.4f"))
+  local p_excel_vgood_adj_s = strtrim(string(scalar(p_excel_vgood_adj), "%9.4f"))
+  local p_excel_vgood_simple_s = strtrim(string(scalar(p_excel_vgood_simple), "%9.4f"))
+  local p_mental_poor_adj_s = strtrim(string(scalar(p_mental_poor_adj), "%9.4f"))
+  local p_mental_poor_simple_s = strtrim(string(scalar(p_mental_poor_simple), "%9.4f"))
+  local p_phys_poor_adj_s = strtrim(string(scalar(p_phys_poor_adj), "%9.4f"))
+  local p_phys_poor_simple_s = strtrim(string(scalar(p_phys_poor_simple), "%9.4f"))
+  local premean_at_work_s = strtrim(string(scalar(premean_at_work), "%9.4f"))
+  local premean_excel_vgood_s = strtrim(string(scalar(premean_excel_vgood), "%9.4f"))
+  local premean_mental_poor_s = strtrim(string(scalar(premean_mental_poor), "%9.4f"))
+  local premean_phys_poor_s = strtrim(string(scalar(premean_phys_poor), "%9.4f"))
+  local se_at_work_adj_s = strtrim(string(scalar(se_at_work_adj), "%9.4f"))
+  local se_at_work_simple_s = strtrim(string(scalar(se_at_work_simple), "%9.4f"))
+  local se_excel_vgood_adj_s = strtrim(string(scalar(se_excel_vgood_adj), "%9.4f"))
+  local se_excel_vgood_simple_s = strtrim(string(scalar(se_excel_vgood_simple), "%9.4f"))
+  local se_mental_poor_adj_s = strtrim(string(scalar(se_mental_poor_adj), "%9.4f"))
+  local se_mental_poor_simple_s = strtrim(string(scalar(se_mental_poor_simple), "%9.4f"))
+  local se_phys_poor_adj_s = strtrim(string(scalar(se_phys_poor_adj), "%9.4f"))
+  local se_phys_poor_simple_s = strtrim(string(scalar(se_phys_poor_simple), "%9.4f"))
   file open tab3 using `outPath'Tables/Tab3.tex, write replace
   file write tab3 "\begin{table}[htbp]" _n
   file write tab3 "\centering" _n
   file write tab3 "\caption{Difference-in-Differences OLS and Negative Binomial Estimates \\ Mothers Aged 21--40, 1993--2001 BRFSS}" _n
+  file write tab3 "\resizebox{\textwidth}{!}{%" _n
   file write tab3 "\begin{tabular}{lcccc}" _n
   file write tab3 "\toprule" _n
   file write tab3 " & Preexpansion & Estimation & \multicolumn{2}{c}{DiD estimates} \\" _n
@@ -209,61 +238,61 @@ if `Tab3' {
   // Row helper: writes b (se) [p] for two specs
   // At work
   file write tab3 "At work"
-  file write tab3 " & " %6.3f (scalar(premean_at_work))
+  file write tab3 " & `premean_at_work_s\'"
   file write tab3 " & OLS"
-  file write tab3 " & " %7.4f (scalar(b_at_work_simple))
-  file write tab3 " & " %7.4f (scalar(b_at_work_adj)) " \\" _n
+  file write tab3 " & `b_at_work_simple_s\'"
+  file write tab3 " & `b_at_work_adj_s\' \\" _n
   file write tab3 " & & "
-  file write tab3 " & (" %6.4f (scalar(se_at_work_simple)) ")"
-  file write tab3 " & (" %6.4f (scalar(se_at_work_adj))    ") \\" _n
+  file write tab3 " & (`se_at_work_simple_s\')"
+  file write tab3 " & (`se_at_work_adj_s\') \\" _n
   file write tab3 " & & "
-  file write tab3 " & [" %5.3f (scalar(p_at_work_simple)) "]"
-  file write tab3 " & [" %5.3f (scalar(p_at_work_adj))    "] \\" _n
+  file write tab3 " & [`p_at_work_simple_s\']"
+  file write tab3 " & [`p_at_work_adj_s\'] \\" _n
   file write tab3 "\addlinespace" _n
 
   // Excellent/very good
   file write tab3 "Excellent/very good health?"
-  file write tab3 " & " %6.3f (scalar(premean_excel_vgood))
+  file write tab3 " & `premean_excel_vgood_s\'"
   file write tab3 " & OLS"
-  file write tab3 " & " %7.4f (scalar(b_excel_vgood_simple))
-  file write tab3 " & " %7.4f (scalar(b_excel_vgood_adj)) " \\" _n
+  file write tab3 " & `b_excel_vgood_simple_s\'"
+  file write tab3 " & `b_excel_vgood_adj_s\' \\" _n
   file write tab3 " & & "
-  file write tab3 " & (" %6.4f (scalar(se_excel_vgood_simple)) ")"
-  file write tab3 " & (" %6.4f (scalar(se_excel_vgood_adj))    ") \\" _n
+  file write tab3 " & (`se_excel_vgood_simple_s\')"
+  file write tab3 " & (`se_excel_vgood_adj_s\') \\" _n
   file write tab3 " & & "
-  file write tab3 " & [" %5.3f (scalar(p_excel_vgood_simple)) "]"
-  file write tab3 " & [" %5.3f (scalar(p_excel_vgood_adj))    "] \\" _n
+  file write tab3 " & [`p_excel_vgood_simple_s\']"
+  file write tab3 " & [`p_excel_vgood_adj_s\'] \\" _n
   file write tab3 "\addlinespace" _n
 
   // Mental poor
   file write tab3 "Number of bad mental health days in past month"
-  file write tab3 " & " %6.2f (scalar(premean_mental_poor))
+  file write tab3 " & `premean_mental_poor_s\'"
   file write tab3 " & Negative binomial"
-  file write tab3 " & " %7.4f (scalar(b_mental_poor_simple))
-  file write tab3 " & " %7.4f (scalar(b_mental_poor_adj)) " \\" _n
+  file write tab3 " & `b_mental_poor_simple_s\'"
+  file write tab3 " & `b_mental_poor_adj_s\' \\" _n
   file write tab3 " & & "
-  file write tab3 " & (" %6.4f (scalar(se_mental_poor_simple)) ")"
-  file write tab3 " & (" %6.4f (scalar(se_mental_poor_adj))    ") \\" _n
+  file write tab3 " & (`se_mental_poor_simple_s\')"
+  file write tab3 " & (`se_mental_poor_adj_s\') \\" _n
   file write tab3 " & & "
-  file write tab3 " & [" %5.3f (scalar(p_mental_poor_simple)) "]"
-  file write tab3 " & [" %5.3f (scalar(p_mental_poor_adj))    "] \\" _n
+  file write tab3 " & [`p_mental_poor_simple_s\']"
+  file write tab3 " & [`p_mental_poor_adj_s\'] \\" _n
   file write tab3 "\addlinespace" _n
 
   // Physical poor
   file write tab3 "Number of bad physical health days in past month"
-  file write tab3 " & " %6.2f (scalar(premean_phys_poor))
+  file write tab3 " & `premean_phys_poor_s\'"
   file write tab3 " & Negative binomial"
-  file write tab3 " & " %7.4f (scalar(b_phys_poor_simple))
-  file write tab3 " & " %7.4f (scalar(b_phys_poor_adj)) " \\" _n
+  file write tab3 " & `b_phys_poor_simple_s\'"
+  file write tab3 " & `b_phys_poor_adj_s\' \\" _n
   file write tab3 " & & "
-  file write tab3 " & (" %6.4f (scalar(se_phys_poor_simple)) ")"
-  file write tab3 " & (" %6.4f (scalar(se_phys_poor_adj))    ") \\" _n
+  file write tab3 " & (`se_phys_poor_simple_s\')"
+  file write tab3 " & (`se_phys_poor_adj_s\') \\" _n
   file write tab3 " & & "
-  file write tab3 " & [" %5.3f (scalar(p_phys_poor_simple)) "]"
-  file write tab3 " & [" %5.3f (scalar(p_phys_poor_adj))    "] \\" _n
+  file write tab3 " & [`p_phys_poor_simple_s\']"
+  file write tab3 " & [`p_phys_poor_adj_s\'] \\" _n
 
   file write tab3 "\bottomrule" _n
-  file write tab3 "\end{tabular}" _n
+  file write tab3 "\end{tabular}}" _n
   file write tab3 "\begin{minipage}{\linewidth}" _n
   file write tab3 "\smallskip\footnotesize" _n
   file write tab3 "\textit{Notes:} Standard errors in parentheses; \$p\$-values in square brackets." _n
@@ -467,15 +496,18 @@ if `Tab4' {
   // at_work
   file write tab4 "At work (OLS)"
   foreach col in c1 c2 c3 c4 c5 c6 {
-      file write tab4 " & " %7.4f (scalar(b4_`col'_at_work))
+      local val = strtrim(string(scalar(b4_`col'_at_work), "%9.4f"))
+      file write tab4 " & `val'"
   }
   file write tab4 " \\" _n
   foreach col in c1 c2 c3 c4 c5 c6 {
-      file write tab4 " & (" %6.4f (scalar(se4_`col'_at_work)) ")"
+      local val = strtrim(string(scalar(se4_`col'_at_work), "%9.4f"))
+      file write tab4 " & (`val')"
   }
   file write tab4 " \\" _n
   foreach col in c1 c2 c3 c4 c5 c6 {
-      file write tab4 " & [" %5.3f (scalar(p4_`col'_at_work)) "]"
+      local val = strtrim(string(scalar(p4_`col'_at_work), "%9.3f"))
+      file write tab4 " & [`val']"
   }
   file write tab4 " \\" _n
   file write tab4 "\addlinespace" _n
@@ -483,15 +515,18 @@ if `Tab4' {
   // excel_vgood
   file write tab4 "Exc./very good health (OLS)"
   foreach col in c1 c2 c3 c4 c5 c6 {
-      file write tab4 " & " %7.4f (scalar(b4_`col'_excel))
+      local val = strtrim(string(scalar(b4_`col'_excel), "%9.4f"))
+      file write tab4 " & `val'"
   }
   file write tab4 " \\" _n
   foreach col in c1 c2 c3 c4 c5 c6 {
-      file write tab4 " & (" %6.4f (scalar(se4_`col'_excel)) ")"
+      local val = strtrim(string(scalar(se4_`col'_excel), "%9.4f"))
+      file write tab4 " & (`val')"
   }
   file write tab4 " \\" _n
   foreach col in c1 c2 c3 c4 c5 c6 {
-      file write tab4 " & [" %5.3f (scalar(p4_`col'_excel)) "]"
+      local val = strtrim(string(scalar(p4_`col'_excel), "%9.3f"))
+      file write tab4 " & [`val']"
   }
   file write tab4 " \\" _n
   file write tab4 "\addlinespace" _n
@@ -499,15 +534,18 @@ if `Tab4' {
   // mental
   file write tab4 "Bad mental health days (NegBin)"
   foreach col in c1 c2 c3 c4 c5 c6 {
-      file write tab4 " & " %7.4f (scalar(b4_`col'_mental))
+      local val = strtrim(string(scalar(b4_`col'_mental), "%9.4f"))
+      file write tab4 " & `val'"
   }
   file write tab4 " \\" _n
   foreach col in c1 c2 c3 c4 c5 c6 {
-      file write tab4 " & (" %6.4f (scalar(se4_`col'_mental)) ")"
+      local val = strtrim(string(scalar(se4_`col'_mental), "%9.4f"))
+      file write tab4 " & (`val')"
   }
   file write tab4 " \\" _n
   foreach col in c1 c2 c3 c4 c5 c6 {
-      file write tab4 " & [" %5.3f (scalar(p4_`col'_mental)) "]"
+      local val = strtrim(string(scalar(p4_`col'_mental), "%9.3f"))
+      file write tab4 " & [`val']"
   }
   file write tab4 " \\" _n
   file write tab4 "\addlinespace" _n
@@ -515,15 +553,18 @@ if `Tab4' {
   // phys
   file write tab4 "Bad physical health days (NegBin)"
   foreach col in c1 c2 c3 c4 c5 c6 {
-      file write tab4 " & " %7.4f (scalar(b4_`col'_phys))
+      local val = strtrim(string(scalar(b4_`col'_phys), "%9.4f"))
+      file write tab4 " & `val'"
   }
   file write tab4 " \\" _n
   foreach col in c1 c2 c3 c4 c5 c6 {
-      file write tab4 " & (" %6.4f (scalar(se4_`col'_phys)) ")"
+      local val = strtrim(string(scalar(se4_`col'_phys), "%9.4f"))
+      file write tab4 " & (`val')"
   }
   file write tab4 " \\" _n
   foreach col in c1 c2 c3 c4 c5 c6 {
-      file write tab4 " & [" %5.3f (scalar(p4_`col'_phys)) "]"
+      local val = strtrim(string(scalar(p4_`col'_phys), "%9.3f"))
+      file write tab4 " & [`val']"
   }
   file write tab4 " \\" _n
 
@@ -718,6 +759,13 @@ if `Tab6' {
 
   // ---- Write Tab6 LaTeX ----
 
+  local b6dd_totalsum_s = strtrim(string(scalar(b6dd_totalsum), "%9.4f"))
+  local b6ddd_totalsum_s = strtrim(string(scalar(b6ddd_totalsum), "%9.4f"))
+  local p6dd_totalsum_s = strtrim(string(scalar(p6dd_totalsum), "%9.4f"))
+  local p6ddd_totalsum_s = strtrim(string(scalar(p6ddd_totalsum), "%9.4f"))
+  local premean6_totalsum_s = strtrim(string(scalar(premean6_totalsum), "%9.4f"))
+  local se6dd_totalsum_s = strtrim(string(scalar(se6dd_totalsum), "%9.4f"))
+  local se6ddd_totalsum_s = strtrim(string(scalar(se6ddd_totalsum), "%9.4f"))
   file open tab6 using `outPath'Tables/Tab6.tex, write replace
   file write tab6 "\begin{table}[htbp]" _n
   file write tab6 "\centering" _n
@@ -732,29 +780,36 @@ if `Tab6' {
       if "`param'" == "total1" local outlabel "One or more risky conditions"
       if "`param'" == "total2" local outlabel "Two or more risky conditions"
       if "`param'" == "total3" local outlabel "Three or more risky conditions"
+      local pm   = strtrim(string(scalar(premean6_`param'), "%9.3f"))
+      local bdd  = strtrim(string(scalar(b6dd_`param'),    "%9.4f"))
+      local bddd = strtrim(string(scalar(b6ddd_`param'),   "%9.4f"))
+      local sedd = strtrim(string(scalar(se6dd_`param'),   "%9.4f"))
+      local seddd= strtrim(string(scalar(se6ddd_`param'),  "%9.4f"))
+      local pdd  = strtrim(string(scalar(p6dd_`param'),    "%9.3f"))
+      local pddd = strtrim(string(scalar(p6ddd_`param'),   "%9.3f"))
       file write tab6 "`outlabel'"
-      file write tab6 " & " %5.3f (scalar(premean6_`param'))
-      file write tab6 " & " %7.4f (scalar(b6dd_`param'))
-      file write tab6 " & " %7.4f (scalar(b6ddd_`param')) " \\" _n
+      file write tab6 " & `pm'"
+      file write tab6 " & `bdd'"
+      file write tab6 " & `bddd' \\" _n
       file write tab6 " & "
-      file write tab6 " & (" %6.4f (scalar(se6dd_`param')) ")"
-      file write tab6 " & (" %6.4f (scalar(se6ddd_`param')) ") \\" _n
+      file write tab6 " & (`sedd')"
+      file write tab6 " & (`seddd') \\" _n
       file write tab6 " & "
-      file write tab6 " & [" %5.3f (scalar(p6dd_`param')) "]"
-      file write tab6 " & [" %5.3f (scalar(p6ddd_`param')) "] \\" _n
+      file write tab6 " & [`pdd']"
+      file write tab6 " & [`pddd'] \\" _n
       file write tab6 "\addlinespace" _n
   }
 
   file write tab6 "Poisson: total risky conditions"
-  file write tab6 " & " %5.3f (scalar(premean6_totalsum))
-  file write tab6 " & " %7.4f (scalar(b6dd_totalsum))
-  file write tab6 " & " %7.4f (scalar(b6ddd_totalsum)) " \\" _n
+  file write tab6 " & `premean6_totalsum_s\'"
+  file write tab6 " & `b6dd_totalsum_s\'"
+  file write tab6 " & `b6ddd_totalsum_s\' \\" _n
   file write tab6 " & "
-  file write tab6 " & (" %6.4f (scalar(se6dd_totalsum)) ")"
-  file write tab6 " & (" %6.4f (scalar(se6ddd_totalsum)) ") \\" _n
+  file write tab6 " & (`se6dd_totalsum_s\')"
+  file write tab6 " & (`se6ddd_totalsum_s\') \\" _n
   file write tab6 " & "
-  file write tab6 " & [" %5.3f (scalar(p6dd_totalsum)) "]"
-  file write tab6 " & [" %5.3f (scalar(p6ddd_totalsum)) "] \\" _n
+  file write tab6 " & [`p6dd_totalsum_s\']"
+  file write tab6 " & [`p6ddd_totalsum_s\'] \\" _n
 
   file write tab6 "\bottomrule" _n
   file write tab6 "\end{tabular}" _n
@@ -965,6 +1020,101 @@ if `Tab7' {
   // ---- Write Tab7 LaTeX ----
   // Helper: writes b / (se) / [p] for dd and ddd
 
+  local b7dd_albumin_s = strtrim(string(scalar(b7dd_albumin), "%9.4f"))
+  local b7dd_anycardio_s = strtrim(string(scalar(b7dd_anycardio), "%9.4f"))
+  local b7dd_anyinfl_s = strtrim(string(scalar(b7dd_anyinfl), "%9.4f"))
+  local b7dd_anymetab_s = strtrim(string(scalar(b7dd_anymetab), "%9.4f"))
+  local b7dd_cardiosum_pois_s = strtrim(string(scalar(b7dd_cardiosum_pois), "%9.4f"))
+  local b7dd_cholest_s = strtrim(string(scalar(b7dd_cholest), "%9.4f"))
+  local b7dd_crp_s = strtrim(string(scalar(b7dd_crp), "%9.4f"))
+  local b7dd_diastolic_s = strtrim(string(scalar(b7dd_diastolic), "%9.4f"))
+  local b7dd_hba1c_s = strtrim(string(scalar(b7dd_hba1c), "%9.4f"))
+  local b7dd_hdl_s = strtrim(string(scalar(b7dd_hdl), "%9.4f"))
+  local b7dd_inflsum_pois_s = strtrim(string(scalar(b7dd_inflsum_pois), "%9.4f"))
+  local b7dd_metabsum_pois_s = strtrim(string(scalar(b7dd_metabsum_pois), "%9.4f"))
+  local b7dd_pulse_s = strtrim(string(scalar(b7dd_pulse), "%9.4f"))
+  local b7dd_systolic_s = strtrim(string(scalar(b7dd_systolic), "%9.4f"))
+  local b7ddd_albumin_s = strtrim(string(scalar(b7ddd_albumin), "%9.4f"))
+  local b7ddd_anycardio_s = strtrim(string(scalar(b7ddd_anycardio), "%9.4f"))
+  local b7ddd_anyinfl_s = strtrim(string(scalar(b7ddd_anyinfl), "%9.4f"))
+  local b7ddd_anymetab_s = strtrim(string(scalar(b7ddd_anymetab), "%9.4f"))
+  local b7ddd_cardiosum_pois_s = strtrim(string(scalar(b7ddd_cardiosum_pois), "%9.4f"))
+  local b7ddd_cholest_s = strtrim(string(scalar(b7ddd_cholest), "%9.4f"))
+  local b7ddd_crp_s = strtrim(string(scalar(b7ddd_crp), "%9.4f"))
+  local b7ddd_diastolic_s = strtrim(string(scalar(b7ddd_diastolic), "%9.4f"))
+  local b7ddd_hba1c_s = strtrim(string(scalar(b7ddd_hba1c), "%9.4f"))
+  local b7ddd_hdl_s = strtrim(string(scalar(b7ddd_hdl), "%9.4f"))
+  local b7ddd_inflsum_pois_s = strtrim(string(scalar(b7ddd_inflsum_pois), "%9.4f"))
+  local b7ddd_metabsum_pois_s = strtrim(string(scalar(b7ddd_metabsum_pois), "%9.4f"))
+  local b7ddd_pulse_s = strtrim(string(scalar(b7ddd_pulse), "%9.4f"))
+  local b7ddd_systolic_s = strtrim(string(scalar(b7ddd_systolic), "%9.4f"))
+  local p7dd_albumin_s = strtrim(string(scalar(p7dd_albumin), "%9.4f"))
+  local p7dd_anycardio_s = strtrim(string(scalar(p7dd_anycardio), "%9.4f"))
+  local p7dd_anyinfl_s = strtrim(string(scalar(p7dd_anyinfl), "%9.4f"))
+  local p7dd_anymetab_s = strtrim(string(scalar(p7dd_anymetab), "%9.4f"))
+  local p7dd_cardiosum_pois_s = strtrim(string(scalar(p7dd_cardiosum_pois), "%9.4f"))
+  local p7dd_cholest_s = strtrim(string(scalar(p7dd_cholest), "%9.4f"))
+  local p7dd_crp_s = strtrim(string(scalar(p7dd_crp), "%9.4f"))
+  local p7dd_diastolic_s = strtrim(string(scalar(p7dd_diastolic), "%9.4f"))
+  local p7dd_hba1c_s = strtrim(string(scalar(p7dd_hba1c), "%9.4f"))
+  local p7dd_hdl_s = strtrim(string(scalar(p7dd_hdl), "%9.4f"))
+  local p7dd_inflsum_pois_s = strtrim(string(scalar(p7dd_inflsum_pois), "%9.4f"))
+  local p7dd_metabsum_pois_s = strtrim(string(scalar(p7dd_metabsum_pois), "%9.4f"))
+  local p7dd_pulse_s = strtrim(string(scalar(p7dd_pulse), "%9.4f"))
+  local p7dd_systolic_s = strtrim(string(scalar(p7dd_systolic), "%9.4f"))
+  local p7ddd_albumin_s = strtrim(string(scalar(p7ddd_albumin), "%9.4f"))
+  local p7ddd_anycardio_s = strtrim(string(scalar(p7ddd_anycardio), "%9.4f"))
+  local p7ddd_anyinfl_s = strtrim(string(scalar(p7ddd_anyinfl), "%9.4f"))
+  local p7ddd_anymetab_s = strtrim(string(scalar(p7ddd_anymetab), "%9.4f"))
+  local p7ddd_cardiosum_pois_s = strtrim(string(scalar(p7ddd_cardiosum_pois), "%9.4f"))
+  local p7ddd_cholest_s = strtrim(string(scalar(p7ddd_cholest), "%9.4f"))
+  local p7ddd_crp_s = strtrim(string(scalar(p7ddd_crp), "%9.4f"))
+  local p7ddd_diastolic_s = strtrim(string(scalar(p7ddd_diastolic), "%9.4f"))
+  local p7ddd_hba1c_s = strtrim(string(scalar(p7ddd_hba1c), "%9.4f"))
+  local p7ddd_hdl_s = strtrim(string(scalar(p7ddd_hdl), "%9.4f"))
+  local p7ddd_inflsum_pois_s = strtrim(string(scalar(p7ddd_inflsum_pois), "%9.4f"))
+  local p7ddd_metabsum_pois_s = strtrim(string(scalar(p7ddd_metabsum_pois), "%9.4f"))
+  local p7ddd_pulse_s = strtrim(string(scalar(p7ddd_pulse), "%9.4f"))
+  local p7ddd_systolic_s = strtrim(string(scalar(p7ddd_systolic), "%9.4f"))
+  local pm7_anycardio_s = strtrim(string(scalar(pm7_anycardio), "%9.4f"))
+  local pm7_anyinflamation_s = strtrim(string(scalar(pm7_anyinflamation), "%9.4f"))
+  local pm7_anymetab_s = strtrim(string(scalar(pm7_anymetab), "%9.4f"))
+  local pm7_riskyAlbumin_s = strtrim(string(scalar(pm7_riskyAlbumin), "%9.4f"))
+  local pm7_riskyCholest_s = strtrim(string(scalar(pm7_riskyCholest), "%9.4f"))
+  local pm7_riskycrp_s = strtrim(string(scalar(pm7_riskycrp), "%9.4f"))
+  local pm7_riskydiastolic_s = strtrim(string(scalar(pm7_riskydiastolic), "%9.4f"))
+  local pm7_riskyglycatedhemoglobin_s = strtrim(string(scalar(pm7_riskyglycatedhemoglobin), "%9.4f"))
+  local pm7_riskyhdl_s = strtrim(string(scalar(pm7_riskyhdl), "%9.4f"))
+  local pm7_riskypulse_s = strtrim(string(scalar(pm7_riskypulse), "%9.4f"))
+  local pm7_riskysystolic_s = strtrim(string(scalar(pm7_riskysystolic), "%9.4f"))
+  local se7dd_albumin_s = strtrim(string(scalar(se7dd_albumin), "%9.4f"))
+  local se7dd_anycardio_s = strtrim(string(scalar(se7dd_anycardio), "%9.4f"))
+  local se7dd_anyinfl_s = strtrim(string(scalar(se7dd_anyinfl), "%9.4f"))
+  local se7dd_anymetab_s = strtrim(string(scalar(se7dd_anymetab), "%9.4f"))
+  local se7dd_cardiosum_pois_s = strtrim(string(scalar(se7dd_cardiosum_pois), "%9.4f"))
+  local se7dd_cholest_s = strtrim(string(scalar(se7dd_cholest), "%9.4f"))
+  local se7dd_crp_s = strtrim(string(scalar(se7dd_crp), "%9.4f"))
+  local se7dd_diastolic_s = strtrim(string(scalar(se7dd_diastolic), "%9.4f"))
+  local se7dd_hba1c_s = strtrim(string(scalar(se7dd_hba1c), "%9.4f"))
+  local se7dd_hdl_s = strtrim(string(scalar(se7dd_hdl), "%9.4f"))
+  local se7dd_inflsum_pois_s = strtrim(string(scalar(se7dd_inflsum_pois), "%9.4f"))
+  local se7dd_metabsum_pois_s = strtrim(string(scalar(se7dd_metabsum_pois), "%9.4f"))
+  local se7dd_pulse_s = strtrim(string(scalar(se7dd_pulse), "%9.4f"))
+  local se7dd_systolic_s = strtrim(string(scalar(se7dd_systolic), "%9.4f"))
+  local se7ddd_albumin_s = strtrim(string(scalar(se7ddd_albumin), "%9.4f"))
+  local se7ddd_anycardio_s = strtrim(string(scalar(se7ddd_anycardio), "%9.4f"))
+  local se7ddd_anyinfl_s = strtrim(string(scalar(se7ddd_anyinfl), "%9.4f"))
+  local se7ddd_anymetab_s = strtrim(string(scalar(se7ddd_anymetab), "%9.4f"))
+  local se7ddd_cardiosum_pois_s = strtrim(string(scalar(se7ddd_cardiosum_pois), "%9.4f"))
+  local se7ddd_cholest_s = strtrim(string(scalar(se7ddd_cholest), "%9.4f"))
+  local se7ddd_crp_s = strtrim(string(scalar(se7ddd_crp), "%9.4f"))
+  local se7ddd_diastolic_s = strtrim(string(scalar(se7ddd_diastolic), "%9.4f"))
+  local se7ddd_hba1c_s = strtrim(string(scalar(se7ddd_hba1c), "%9.4f"))
+  local se7ddd_hdl_s = strtrim(string(scalar(se7ddd_hdl), "%9.4f"))
+  local se7ddd_inflsum_pois_s = strtrim(string(scalar(se7ddd_inflsum_pois), "%9.4f"))
+  local se7ddd_metabsum_pois_s = strtrim(string(scalar(se7ddd_metabsum_pois), "%9.4f"))
+  local se7ddd_pulse_s = strtrim(string(scalar(se7ddd_pulse), "%9.4f"))
+  local se7ddd_systolic_s = strtrim(string(scalar(se7ddd_systolic), "%9.4f"))
   file open tab7 using `outPath'Tables/Tab7.tex, write replace
   file write tab7 "\begin{table}[htbp]" _n
   file write tab7 "\centering" _n
@@ -982,42 +1132,42 @@ if `Tab7' {
   // row macro: name premeanscalar ddscalar dddscalar
   // HbA1c
   file write tab7 "Risky glycated hemoglobin"
-  file write tab7 " & " %5.3f (scalar(pm7_riskyglycatedhemoglobin))
-  file write tab7 " & " %7.4f (scalar(b7dd_hba1c))
-  file write tab7 " & " %7.4f (scalar(b7ddd_hba1c)) " \\" _n
-  file write tab7 " & & (" %7.4f (scalar(se7dd_hba1c)) ") & (" %7.4f (scalar(se7ddd_hba1c)) ") \\" _n
-  file write tab7 " & & [" %5.3f (scalar(p7dd_hba1c)) "] & [" %5.3f (scalar(p7ddd_hba1c)) "] \\" _n
+  file write tab7 " & `pm7_riskyglycatedhemoglobin_s\'"
+  file write tab7 " & `b7dd_hba1c_s\'"
+  file write tab7 " & `b7ddd_hba1c_s\' \\" _n
+  file write tab7 " & & (`se7dd_hba1c_s\') & (`se7ddd_hba1c_s\') \\" _n
+  file write tab7 " & & [`p7dd_hba1c_s\'] & [`p7ddd_hba1c_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
   file write tab7 "Risky total cholesterol"
-  file write tab7 " & " %5.3f (scalar(pm7_riskyCholest))
-  file write tab7 " & " %7.4f (scalar(b7dd_cholest))
-  file write tab7 " & " %7.4f (scalar(b7ddd_cholest)) " \\" _n
-  file write tab7 " & & (" %7.4f (scalar(se7dd_cholest)) ") & (" %7.4f (scalar(se7ddd_cholest)) ") \\" _n
-  file write tab7 " & & [" %5.3f (scalar(p7dd_cholest)) "] & [" %5.3f (scalar(p7ddd_cholest)) "] \\" _n
+  file write tab7 " & `pm7_riskyCholest_s\'"
+  file write tab7 " & `b7dd_cholest_s\'"
+  file write tab7 " & `b7ddd_cholest_s\' \\" _n
+  file write tab7 " & & (`se7dd_cholest_s\') & (`se7ddd_cholest_s\') \\" _n
+  file write tab7 " & & [`p7dd_cholest_s\'] & [`p7ddd_cholest_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
   file write tab7 "Risky HDL"
-  file write tab7 " & " %5.3f (scalar(pm7_riskyhdl))
-  file write tab7 " & " %7.4f (scalar(b7dd_hdl))
-  file write tab7 " & " %7.4f (scalar(b7ddd_hdl)) " \\" _n
-  file write tab7 " & & (" %7.4f (scalar(se7dd_hdl)) ") & (" %7.4f (scalar(se7ddd_hdl)) ") \\" _n
-  file write tab7 " & & [" %5.3f (scalar(p7dd_hdl)) "] & [" %5.3f (scalar(p7ddd_hdl)) "] \\" _n
+  file write tab7 " & `pm7_riskyhdl_s\'"
+  file write tab7 " & `b7dd_hdl_s\'"
+  file write tab7 " & `b7ddd_hdl_s\' \\" _n
+  file write tab7 " & & (`se7dd_hdl_s\') & (`se7ddd_hdl_s\') \\" _n
+  file write tab7 " & & [`p7dd_hdl_s\'] & [`p7ddd_hdl_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
   file write tab7 "Any risky metabolic condition"
-  file write tab7 " & " %5.3f (scalar(pm7_anymetab))
-  file write tab7 " & " %7.4f (scalar(b7dd_anymetab))
-  file write tab7 " & " %7.4f (scalar(b7ddd_anymetab)) " \\" _n
-  file write tab7 " & & (" %7.4f (scalar(se7dd_anymetab)) ") & (" %7.4f (scalar(se7ddd_anymetab)) ") \\" _n
-  file write tab7 " & & [" %5.3f (scalar(p7dd_anymetab)) "] & [" %5.3f (scalar(p7ddd_anymetab)) "] \\" _n
+  file write tab7 " & `pm7_anymetab_s\'"
+  file write tab7 " & `b7dd_anymetab_s\'"
+  file write tab7 " & `b7ddd_anymetab_s\' \\" _n
+  file write tab7 " & & (`se7dd_anymetab_s\') & (`se7ddd_anymetab_s\') \\" _n
+  file write tab7 " & & [`p7dd_anymetab_s\'] & [`p7ddd_anymetab_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
   file write tab7 "Poisson: number of risky metabolic conditions"
-  file write tab7 " & & " %7.4f (scalar(b7dd_metabsum_pois))
-  file write tab7 " & " %7.4f (scalar(b7ddd_metabsum_pois)) " \\" _n
-  file write tab7 " & & (" %7.4f (scalar(se7dd_metabsum_pois)) ") & (" %7.4f (scalar(se7ddd_metabsum_pois)) ") \\" _n
-  file write tab7 " & & [" %5.3f (scalar(p7dd_metabsum_pois)) "] & [" %5.3f (scalar(p7ddd_metabsum_pois)) "] \\" _n
+  file write tab7 " & & `b7dd_metabsum_pois_s\'"
+  file write tab7 " & `b7ddd_metabsum_pois_s\' \\" _n
+  file write tab7 " & & (`se7dd_metabsum_pois_s\') & (`se7ddd_metabsum_pois_s\') \\" _n
+  file write tab7 " & & [`p7dd_metabsum_pois_s\'] & [`p7ddd_metabsum_pois_s\'] \\" _n
 
   // Panel B
   file write tab7 "\midrule" _n
@@ -1025,42 +1175,42 @@ if `Tab7' {
   file write tab7 "\addlinespace" _n
 
   file write tab7 "Risky diastolic blood pressure"
-  file write tab7 " & " %5.3f (scalar(pm7_riskydiastolic))
-  file write tab7 " & " %7.4f (scalar(b7dd_diastolic))
-  file write tab7 " & " %7.4f (scalar(b7ddd_diastolic)) " \\" _n
-  file write tab7 " & & (" %7.4f (scalar(se7dd_diastolic)) ") & (" %7.4f (scalar(se7ddd_diastolic)) ") \\" _n
-  file write tab7 " & & [" %5.3f (scalar(p7dd_diastolic)) "] & [" %5.3f (scalar(p7ddd_diastolic)) "] \\" _n
+  file write tab7 " & `pm7_riskydiastolic_s\'"
+  file write tab7 " & `b7dd_diastolic_s\'"
+  file write tab7 " & `b7ddd_diastolic_s\' \\" _n
+  file write tab7 " & & (`se7dd_diastolic_s\') & (`se7ddd_diastolic_s\') \\" _n
+  file write tab7 " & & [`p7dd_diastolic_s\'] & [`p7ddd_diastolic_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
   file write tab7 "Risky systolic blood pressure"
-  file write tab7 " & " %5.3f (scalar(pm7_riskysystolic))
-  file write tab7 " & " %7.4f (scalar(b7dd_systolic))
-  file write tab7 " & " %7.4f (scalar(b7ddd_systolic)) " \\" _n
-  file write tab7 " & & (" %7.4f (scalar(se7dd_systolic)) ") & (" %7.4f (scalar(se7ddd_systolic)) ") \\" _n
-  file write tab7 " & & [" %5.3f (scalar(p7dd_systolic)) "] & [" %5.3f (scalar(p7ddd_systolic)) "] \\" _n
+  file write tab7 " & `pm7_riskysystolic_s\'"
+  file write tab7 " & `b7dd_systolic_s\'"
+  file write tab7 " & `b7ddd_systolic_s\' \\" _n
+  file write tab7 " & & (`se7dd_systolic_s\') & (`se7ddd_systolic_s\') \\" _n
+  file write tab7 " & & [`p7dd_systolic_s\'] & [`p7ddd_systolic_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
   file write tab7 "Risky pulse"
-  file write tab7 " & " %5.3f (scalar(pm7_riskypulse))
-  file write tab7 " & " %7.4f (scalar(b7dd_pulse))
-  file write tab7 " & " %7.4f (scalar(b7ddd_pulse)) " \\" _n
-  file write tab7 " & & (" %7.4f (scalar(se7dd_pulse)) ") & (" %7.4f (scalar(se7ddd_pulse)) ") \\" _n
-  file write tab7 " & & [" %5.3f (scalar(p7dd_pulse)) "] & [" %5.3f (scalar(p7ddd_pulse)) "] \\" _n
+  file write tab7 " & `pm7_riskypulse_s\'"
+  file write tab7 " & `b7dd_pulse_s\'"
+  file write tab7 " & `b7ddd_pulse_s\' \\" _n
+  file write tab7 " & & (`se7dd_pulse_s\') & (`se7ddd_pulse_s\') \\" _n
+  file write tab7 " & & [`p7dd_pulse_s\'] & [`p7ddd_pulse_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
   file write tab7 "Any risky cardiovascular condition"
-  file write tab7 " & " %5.3f (scalar(pm7_anycardio))
-  file write tab7 " & " %7.4f (scalar(b7dd_anycardio))
-  file write tab7 " & " %7.4f (scalar(b7ddd_anycardio)) " \\" _n
-  file write tab7 " & & (" %7.4f (scalar(se7dd_anycardio)) ") & (" %7.4f (scalar(se7ddd_anycardio)) ") \\" _n
-  file write tab7 " & & [" %5.3f (scalar(p7dd_anycardio)) "] & [" %5.3f (scalar(p7ddd_anycardio)) "] \\" _n
+  file write tab7 " & `pm7_anycardio_s\'"
+  file write tab7 " & `b7dd_anycardio_s\'"
+  file write tab7 " & `b7ddd_anycardio_s\' \\" _n
+  file write tab7 " & & (`se7dd_anycardio_s\') & (`se7ddd_anycardio_s\') \\" _n
+  file write tab7 " & & [`p7dd_anycardio_s\'] & [`p7ddd_anycardio_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
   file write tab7 "Poisson: number of risky cardiovascular conditions"
-  file write tab7 " & & " %7.4f (scalar(b7dd_cardiosum_pois))
-  file write tab7 " & " %7.4f (scalar(b7ddd_cardiosum_pois)) " \\" _n
-  file write tab7 " & & (" %7.4f (scalar(se7dd_cardiosum_pois)) ") & (" %7.4f (scalar(se7ddd_cardiosum_pois)) ") \\" _n
-  file write tab7 " & & [" %5.3f (scalar(p7dd_cardiosum_pois)) "] & [" %5.3f (scalar(p7ddd_cardiosum_pois)) "] \\" _n
+  file write tab7 " & & `b7dd_cardiosum_pois_s\'"
+  file write tab7 " & `b7ddd_cardiosum_pois_s\' \\" _n
+  file write tab7 " & & (`se7dd_cardiosum_pois_s\') & (`se7ddd_cardiosum_pois_s\') \\" _n
+  file write tab7 " & & [`p7dd_cardiosum_pois_s\'] & [`p7ddd_cardiosum_pois_s\'] \\" _n
 
   // Panel C
   file write tab7 "\midrule" _n
@@ -1068,34 +1218,34 @@ if `Tab7' {
   file write tab7 "\addlinespace" _n
 
   file write tab7 "Risky albumin"
-  file write tab7 " & " %5.3f (scalar(pm7_riskyAlbumin))
-  file write tab7 " & " %7.4f (scalar(b7dd_albumin))
-  file write tab7 " & " %7.4f (scalar(b7ddd_albumin)) " \\" _n
-  file write tab7 " & & (" %7.4f (scalar(se7dd_albumin)) ") & (" %7.4f (scalar(se7ddd_albumin)) ") \\" _n
-  file write tab7 " & & [" %5.3f (scalar(p7dd_albumin)) "] & [" %5.3f (scalar(p7ddd_albumin)) "] \\" _n
+  file write tab7 " & `pm7_riskyAlbumin_s\'"
+  file write tab7 " & `b7dd_albumin_s\'"
+  file write tab7 " & `b7ddd_albumin_s\' \\" _n
+  file write tab7 " & & (`se7dd_albumin_s\') & (`se7ddd_albumin_s\') \\" _n
+  file write tab7 " & & [`p7dd_albumin_s\'] & [`p7ddd_albumin_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
   file write tab7 "Risky C-reactive protein"
-  file write tab7 " & " %5.3f (scalar(pm7_riskycrp))
-  file write tab7 " & " %7.4f (scalar(b7dd_crp))
-  file write tab7 " & " %7.4f (scalar(b7ddd_crp)) " \\" _n
-  file write tab7 " & & (" %7.4f (scalar(se7dd_crp)) ") & (" %7.4f (scalar(se7ddd_crp)) ") \\" _n
-  file write tab7 " & & [" %5.3f (scalar(p7dd_crp)) "] & [" %5.3f (scalar(p7ddd_crp)) "] \\" _n
+  file write tab7 " & `pm7_riskycrp_s\'"
+  file write tab7 " & `b7dd_crp_s\'"
+  file write tab7 " & `b7ddd_crp_s\' \\" _n
+  file write tab7 " & & (`se7dd_crp_s\') & (`se7ddd_crp_s\') \\" _n
+  file write tab7 " & & [`p7dd_crp_s\'] & [`p7ddd_crp_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
   file write tab7 "Any risky inflammatory condition"
-  file write tab7 " & " %5.3f (scalar(pm7_anyinflamation))
-  file write tab7 " & " %7.4f (scalar(b7dd_anyinfl))
-  file write tab7 " & " %7.4f (scalar(b7ddd_anyinfl)) " \\" _n
-  file write tab7 " & & (" %7.4f (scalar(se7dd_anyinfl)) ") & (" %7.4f (scalar(se7ddd_anyinfl)) ") \\" _n
-  file write tab7 " & & [" %5.3f (scalar(p7dd_anyinfl)) "] & [" %5.3f (scalar(p7ddd_anyinfl)) "] \\" _n
+  file write tab7 " & `pm7_anyinflamation_s\'"
+  file write tab7 " & `b7dd_anyinfl_s\'"
+  file write tab7 " & `b7ddd_anyinfl_s\' \\" _n
+  file write tab7 " & & (`se7dd_anyinfl_s\') & (`se7ddd_anyinfl_s\') \\" _n
+  file write tab7 " & & [`p7dd_anyinfl_s\'] & [`p7ddd_anyinfl_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
   file write tab7 "Poisson: number of risky inflammatory conditions"
-  file write tab7 " & & " %7.4f (scalar(b7dd_inflsum_pois))
-  file write tab7 " & " %7.4f (scalar(b7ddd_inflsum_pois)) " \\" _n
-  file write tab7 " & & (" %7.4f (scalar(se7dd_inflsum_pois)) ") & (" %7.4f (scalar(se7ddd_inflsum_pois)) ") \\" _n
-  file write tab7 " & & [" %5.3f (scalar(p7dd_inflsum_pois)) "] & [" %5.3f (scalar(p7ddd_inflsum_pois)) "] \\" _n
+  file write tab7 " & & `b7dd_inflsum_pois_s\'"
+  file write tab7 " & `b7ddd_inflsum_pois_s\' \\" _n
+  file write tab7 " & & (`se7dd_inflsum_pois_s\') & (`se7ddd_inflsum_pois_s\') \\" _n
+  file write tab7 " & & [`p7dd_inflsum_pois_s\'] & [`p7ddd_inflsum_pois_s\'] \\" _n
 
   file write tab7 "\bottomrule" _n
   file write tab7 "\end{tabular}" _n
@@ -1348,6 +1498,42 @@ if `ARC' {
 
   // ---- Write ARC LaTeX ----
 
+  local arc_b1_at_s = strtrim(string(scalar(arc_b1_at), "%9.4f"))
+  local arc_b1_ex_s = strtrim(string(scalar(arc_b1_ex), "%9.4f"))
+  local arc_b1_me_s = strtrim(string(scalar(arc_b1_me), "%9.4f"))
+  local arc_b1_ph_s = strtrim(string(scalar(arc_b1_ph), "%9.4f"))
+  local arc_b2_at_s = strtrim(string(scalar(arc_b2_at), "%9.4f"))
+  local arc_b2_ex_s = strtrim(string(scalar(arc_b2_ex), "%9.4f"))
+  local arc_b2_me_s = strtrim(string(scalar(arc_b2_me), "%9.4f"))
+  local arc_b2_ph_s = strtrim(string(scalar(arc_b2_ph), "%9.4f"))
+  local arc_b3_at_s = strtrim(string(scalar(arc_b3_at), "%9.4f"))
+  local arc_b3_ex_s = strtrim(string(scalar(arc_b3_ex), "%9.4f"))
+  local arc_b3_me_s = strtrim(string(scalar(arc_b3_me), "%9.4f"))
+  local arc_b3_ph_s = strtrim(string(scalar(arc_b3_ph), "%9.4f"))
+  local arc_p1_at_s = strtrim(string(scalar(arc_p1_at), "%9.4f"))
+  local arc_p1_ex_s = strtrim(string(scalar(arc_p1_ex), "%9.4f"))
+  local arc_p1_me_s = strtrim(string(scalar(arc_p1_me), "%9.4f"))
+  local arc_p1_ph_s = strtrim(string(scalar(arc_p1_ph), "%9.4f"))
+  local arc_p2_at_s = strtrim(string(scalar(arc_p2_at), "%9.4f"))
+  local arc_p2_ex_s = strtrim(string(scalar(arc_p2_ex), "%9.4f"))
+  local arc_p2_me_s = strtrim(string(scalar(arc_p2_me), "%9.4f"))
+  local arc_p2_ph_s = strtrim(string(scalar(arc_p2_ph), "%9.4f"))
+  local arc_p3_at_s = strtrim(string(scalar(arc_p3_at), "%9.4f"))
+  local arc_p3_ex_s = strtrim(string(scalar(arc_p3_ex), "%9.4f"))
+  local arc_p3_me_s = strtrim(string(scalar(arc_p3_me), "%9.4f"))
+  local arc_p3_ph_s = strtrim(string(scalar(arc_p3_ph), "%9.4f"))
+  local arc_se1_at_s = strtrim(string(scalar(arc_se1_at), "%9.4f"))
+  local arc_se1_ex_s = strtrim(string(scalar(arc_se1_ex), "%9.4f"))
+  local arc_se1_me_s = strtrim(string(scalar(arc_se1_me), "%9.4f"))
+  local arc_se1_ph_s = strtrim(string(scalar(arc_se1_ph), "%9.4f"))
+  local arc_se2_at_s = strtrim(string(scalar(arc_se2_at), "%9.4f"))
+  local arc_se2_ex_s = strtrim(string(scalar(arc_se2_ex), "%9.4f"))
+  local arc_se2_me_s = strtrim(string(scalar(arc_se2_me), "%9.4f"))
+  local arc_se2_ph_s = strtrim(string(scalar(arc_se2_ph), "%9.4f"))
+  local arc_se3_at_s = strtrim(string(scalar(arc_se3_at), "%9.4f"))
+  local arc_se3_ex_s = strtrim(string(scalar(arc_se3_ex), "%9.4f"))
+  local arc_se3_me_s = strtrim(string(scalar(arc_se3_me), "%9.4f"))
+  local arc_se3_ph_s = strtrim(string(scalar(arc_se3_ph), "%9.4f"))
   file open tabarc using `outPath'Tables/ARC.tex, write replace
   file write tabarc "\begin{table}[htbp]" _n
   file write tabarc "\centering" _n
@@ -1360,54 +1546,54 @@ if `ARC' {
 
   // At work
   file write tabarc "At work (OLS)"
-  file write tabarc " & " %7.4f (scalar(arc_b1_at))
-  file write tabarc " & " %7.4f (scalar(arc_b2_at))
-  file write tabarc " & " %7.4f (scalar(arc_b3_at)) " \\" _n
-  file write tabarc " & (" %6.4f (scalar(arc_se1_at)) ")"
-  file write tabarc " & (" %6.4f (scalar(arc_se2_at)) ")"
-  file write tabarc " & (" %6.4f (scalar(arc_se3_at)) ") \\" _n
-  file write tabarc " & [" %5.3f (scalar(arc_p1_at)) "]"
-  file write tabarc " & [" %5.3f (scalar(arc_p2_at)) "]"
-  file write tabarc " & [" %5.3f (scalar(arc_p3_at)) "] \\" _n
+  file write tabarc " & `arc_b1_at_s\'"
+  file write tabarc " & `arc_b2_at_s\'"
+  file write tabarc " & `arc_b3_at_s\' \\" _n
+  file write tabarc " & (`arc_se1_at_s\')"
+  file write tabarc " & (`arc_se2_at_s\')"
+  file write tabarc " & (`arc_se3_at_s\') \\" _n
+  file write tabarc " & [`arc_p1_at_s\']"
+  file write tabarc " & [`arc_p2_at_s\']"
+  file write tabarc " & [`arc_p3_at_s\'] \\" _n
   file write tabarc "\addlinespace" _n
 
   // Excellent/very good
   file write tabarc "Exc./very good health (OLS)"
-  file write tabarc " & " %7.4f (scalar(arc_b1_ex))
-  file write tabarc " & " %7.4f (scalar(arc_b2_ex))
-  file write tabarc " & " %7.4f (scalar(arc_b3_ex)) " \\" _n
-  file write tabarc " & (" %6.4f (scalar(arc_se1_ex)) ")"
-  file write tabarc " & (" %6.4f (scalar(arc_se2_ex)) ")"
-  file write tabarc " & (" %6.4f (scalar(arc_se3_ex)) ") \\" _n
-  file write tabarc " & [" %5.3f (scalar(arc_p1_ex)) "]"
-  file write tabarc " & [" %5.3f (scalar(arc_p2_ex)) "]"
-  file write tabarc " & [" %5.3f (scalar(arc_p3_ex)) "] \\" _n
+  file write tabarc " & `arc_b1_ex_s\'"
+  file write tabarc " & `arc_b2_ex_s\'"
+  file write tabarc " & `arc_b3_ex_s\' \\" _n
+  file write tabarc " & (`arc_se1_ex_s\')"
+  file write tabarc " & (`arc_se2_ex_s\')"
+  file write tabarc " & (`arc_se3_ex_s\') \\" _n
+  file write tabarc " & [`arc_p1_ex_s\']"
+  file write tabarc " & [`arc_p2_ex_s\']"
+  file write tabarc " & [`arc_p3_ex_s\'] \\" _n
   file write tabarc "\addlinespace" _n
 
   // Mental
   file write tabarc "Bad mental health days (NegBin)"
-  file write tabarc " & " %7.4f (scalar(arc_b1_me))
-  file write tabarc " & " %7.4f (scalar(arc_b2_me))
-  file write tabarc " & " %7.4f (scalar(arc_b3_me)) " \\" _n
-  file write tabarc " & (" %6.4f (scalar(arc_se1_me)) ")"
-  file write tabarc " & (" %6.4f (scalar(arc_se2_me)) ")"
-  file write tabarc " & (" %6.4f (scalar(arc_se3_me)) ") \\" _n
-  file write tabarc " & [" %5.3f (scalar(arc_p1_me)) "]"
-  file write tabarc " & [" %5.3f (scalar(arc_p2_me)) "]"
-  file write tabarc " & [" %5.3f (scalar(arc_p3_me)) "] \\" _n
+  file write tabarc " & `arc_b1_me_s\'"
+  file write tabarc " & `arc_b2_me_s\'"
+  file write tabarc " & `arc_b3_me_s\' \\" _n
+  file write tabarc " & (`arc_se1_me_s\')"
+  file write tabarc " & (`arc_se2_me_s\')"
+  file write tabarc " & (`arc_se3_me_s\') \\" _n
+  file write tabarc " & [`arc_p1_me_s\']"
+  file write tabarc " & [`arc_p2_me_s\']"
+  file write tabarc " & [`arc_p3_me_s\'] \\" _n
   file write tabarc "\addlinespace" _n
 
   // Physical
   file write tabarc "Bad physical health days (NegBin)"
-  file write tabarc " & " %7.4f (scalar(arc_b1_ph))
-  file write tabarc " & " %7.4f (scalar(arc_b2_ph))
-  file write tabarc " & " %7.4f (scalar(arc_b3_ph)) " \\" _n
-  file write tabarc " & (" %6.4f (scalar(arc_se1_ph)) ")"
-  file write tabarc " & (" %6.4f (scalar(arc_se2_ph)) ")"
-  file write tabarc " & (" %6.4f (scalar(arc_se3_ph)) ") \\" _n
-  file write tabarc " & [" %5.3f (scalar(arc_p1_ph)) "]"
-  file write tabarc " & [" %5.3f (scalar(arc_p2_ph)) "]"
-  file write tabarc " & [" %5.3f (scalar(arc_p3_ph)) "] \\" _n
+  file write tabarc " & `arc_b1_ph_s\'"
+  file write tabarc " & `arc_b2_ph_s\'"
+  file write tabarc " & `arc_b3_ph_s\' \\" _n
+  file write tabarc " & (`arc_se1_ph_s\')"
+  file write tabarc " & (`arc_se2_ph_s\')"
+  file write tabarc " & (`arc_se3_ph_s\') \\" _n
+  file write tabarc " & [`arc_p1_ph_s\']"
+  file write tabarc " & [`arc_p2_ph_s\']"
+  file write tabarc " & [`arc_p3_ph_s\'] \\" _n
 
   file write tabarc "\bottomrule" _n
   file write tabarc "\end{tabular}" _n
