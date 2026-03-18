@@ -195,10 +195,10 @@ INPUT ./Mason_Rep_Writeup.out
 INPUT ./Mason_Rep_Writeup.out
 INPUT Mason_Rep_Writeup.out
 INPUT Mason_Rep_Writeup.out
-OUTPUT Mason_Rep_Writeup.pdf
 INPUT ./Mason_Rep_Writeup.out
 INPUT ./Mason_Rep_Writeup.out
 OUTPUT Mason_Rep_Writeup.out
+OUTPUT Mason_Rep_Writeup.pdf
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx

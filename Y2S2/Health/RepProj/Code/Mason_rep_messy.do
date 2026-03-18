@@ -47,14 +47,14 @@ tabstat income* educ  working
 
 // Below I define a local switch for each part of the assignment. When set to 1, it will run, at 0, it is dormant
 
-local Tab2 = 0
-local Tab3 = 0
-local Tab4 = 0
-local Tab5 = 0 // only observations, sample mean, and % with risky levels
+local Tab2 = 1
+local Tab3 = 1
+local Tab4 = 1
+local Tab5 = 1 // only observations, sample mean, and % with risky levels
 local Tab6 = 1
-local Tab7 = 0 
+local Tab7 = 1 
 local Fig4 = 0 // insert vline at t = 1996, include additional subfigure for "at work" rather than "in labor force" -- figure 4 has 5 subfigures
-local ARC  = 0 // Additional Robustness Checks - Footnote 12 (col1), Footnote 21 - diff years excluded (col2), Footnote 21 - years specified (col3)
+local ARC  = 1 // Additional Robustness Checks - Footnote 12 (col1), Footnote 21 - diff years excluded (col2), Footnote 21 - years specified (col3)
 local Extension = 0
 
 /************************************************************
@@ -104,7 +104,7 @@ if `Tab2' {
   file open tab2 using `outPath'Tables/Tab2.tex, write replace
   file write tab2 "\begin{table}[htbp]" _n
   file write tab2 "\centering" _n
-  file write tab2 "\caption{Sample Characteristics, Mothers Aged 21--40, 1993--1996 BRFSS}" _n
+  file write tab2 "\caption{Table 2: Sample Characteristics, Mothers Aged 21--40, 1993--1996 BRFSS}" _n
   file write tab2 "\resizebox{\textwidth}{!}{%" _n
   file write tab2 "\begin{tabular}{lcccccc}" _n
   file write tab2 "\toprule" _n
@@ -116,7 +116,7 @@ if `Tab2' {
   // Demographics
   foreach v in age working {
       sum `v' if college_edu == 0 & kids == 1
-      local m_hs1 = strtrim(string(r(mean), "%9.3f"))
+      local m_hs1 = strtrim(string(r(mean), "%9.1f"))
       sum `v' if college_edu == 0 & kids > 1
       local m_hs2 = strtrim(string(r(mean), "%9.3f"))
       ttest `v' if college_edu == 0, by(twoplus_kids)
@@ -334,38 +334,38 @@ if `Tab3' {
 
   cap mkdir `outPath'Tables
 
-  local b_at_work_adj_s = strtrim(string(scalar(b_at_work_adj), "%9.4f"))
-  local b_at_work_simple_s = strtrim(string(scalar(b_at_work_simple), "%9.4f"))
-  local b_excel_vgood_adj_s = strtrim(string(scalar(b_excel_vgood_adj), "%9.4f"))
-  local b_excel_vgood_simple_s = strtrim(string(scalar(b_excel_vgood_simple), "%9.4f"))
-  local b_mental_poor_adj_s = strtrim(string(scalar(b_mental_poor_adj), "%9.4f"))
-  local b_mental_poor_simple_s = strtrim(string(scalar(b_mental_poor_simple), "%9.4f"))
-  local b_phys_poor_adj_s = strtrim(string(scalar(b_phys_poor_adj), "%9.4f"))
-  local b_phys_poor_simple_s = strtrim(string(scalar(b_phys_poor_simple), "%9.4f"))
-  local p_at_work_adj_s = strtrim(string(scalar(p_at_work_adj), "%9.4f"))
-  local p_at_work_simple_s = strtrim(string(scalar(p_at_work_simple), "%9.4f"))
-  local p_excel_vgood_adj_s = strtrim(string(scalar(p_excel_vgood_adj), "%9.4f"))
-  local p_excel_vgood_simple_s = strtrim(string(scalar(p_excel_vgood_simple), "%9.4f"))
-  local p_mental_poor_adj_s = strtrim(string(scalar(p_mental_poor_adj), "%9.4f"))
-  local p_mental_poor_simple_s = strtrim(string(scalar(p_mental_poor_simple), "%9.4f"))
-  local p_phys_poor_adj_s = strtrim(string(scalar(p_phys_poor_adj), "%9.4f"))
-  local p_phys_poor_simple_s = strtrim(string(scalar(p_phys_poor_simple), "%9.4f"))
-  local premean_at_work_s = strtrim(string(scalar(premean_at_work), "%9.4f"))
-  local premean_excel_vgood_s = strtrim(string(scalar(premean_excel_vgood), "%9.4f"))
-  local premean_mental_poor_s = strtrim(string(scalar(premean_mental_poor), "%9.4f"))
-  local premean_phys_poor_s = strtrim(string(scalar(premean_phys_poor), "%9.4f"))
-  local se_at_work_adj_s = strtrim(string(scalar(se_at_work_adj), "%9.4f"))
-  local se_at_work_simple_s = strtrim(string(scalar(se_at_work_simple), "%9.4f"))
-  local se_excel_vgood_adj_s = strtrim(string(scalar(se_excel_vgood_adj), "%9.4f"))
-  local se_excel_vgood_simple_s = strtrim(string(scalar(se_excel_vgood_simple), "%9.4f"))
-  local se_mental_poor_adj_s = strtrim(string(scalar(se_mental_poor_adj), "%9.4f"))
-  local se_mental_poor_simple_s = strtrim(string(scalar(se_mental_poor_simple), "%9.4f"))
-  local se_phys_poor_adj_s = strtrim(string(scalar(se_phys_poor_adj), "%9.4f"))
-  local se_phys_poor_simple_s = strtrim(string(scalar(se_phys_poor_simple), "%9.4f"))
+  local b_at_work_adj_s = strtrim(string(scalar(b_at_work_adj), "%9.3f"))
+  local b_at_work_simple_s = strtrim(string(scalar(b_at_work_simple), "%9.3f"))
+  local b_excel_vgood_adj_s = strtrim(string(scalar(b_excel_vgood_adj), "%9.3f"))
+  local b_excel_vgood_simple_s = strtrim(string(scalar(b_excel_vgood_simple), "%9.3f"))
+  local b_mental_poor_adj_s = strtrim(string(scalar(b_mental_poor_adj), "%9.3f"))
+  local b_mental_poor_simple_s = strtrim(string(scalar(b_mental_poor_simple), "%9.3f"))
+  local b_phys_poor_adj_s = strtrim(string(scalar(b_phys_poor_adj), "%9.3f"))
+  local b_phys_poor_simple_s = strtrim(string(scalar(b_phys_poor_simple), "%9.3f"))
+  local p_at_work_adj_s = strtrim(string(scalar(p_at_work_adj), "%9.3f"))
+  local p_at_work_simple_s = strtrim(string(scalar(p_at_work_simple), "%9.3f"))
+  local p_excel_vgood_adj_s = strtrim(string(scalar(p_excel_vgood_adj), "%9.3f"))
+  local p_excel_vgood_simple_s = strtrim(string(scalar(p_excel_vgood_simple), "%9.3f"))
+  local p_mental_poor_adj_s = strtrim(string(scalar(p_mental_poor_adj), "%9.3f"))
+  local p_mental_poor_simple_s = strtrim(string(scalar(p_mental_poor_simple), "%9.3f"))
+  local p_phys_poor_adj_s = strtrim(string(scalar(p_phys_poor_adj), "%9.3f"))
+  local p_phys_poor_simple_s = strtrim(string(scalar(p_phys_poor_simple), "%9.3f"))
+  local premean_at_work_s = strtrim(string(scalar(premean_at_work), "%9.3f"))
+  local premean_excel_vgood_s = strtrim(string(scalar(premean_excel_vgood), "%9.3f"))
+  local premean_mental_poor_s = strtrim(string(scalar(premean_mental_poor), "%9.3f"))
+  local premean_phys_poor_s = strtrim(string(scalar(premean_phys_poor), "%9.3f"))
+  local se_at_work_adj_s = strtrim(string(scalar(se_at_work_adj), "%9.3f"))
+  local se_at_work_simple_s = strtrim(string(scalar(se_at_work_simple), "%9.3f"))
+  local se_excel_vgood_adj_s = strtrim(string(scalar(se_excel_vgood_adj), "%9.3f"))
+  local se_excel_vgood_simple_s = strtrim(string(scalar(se_excel_vgood_simple), "%9.3f"))
+  local se_mental_poor_adj_s = strtrim(string(scalar(se_mental_poor_adj), "%9.3f"))
+  local se_mental_poor_simple_s = strtrim(string(scalar(se_mental_poor_simple), "%9.3f"))
+  local se_phys_poor_adj_s = strtrim(string(scalar(se_phys_poor_adj), "%9.3f"))
+  local se_phys_poor_simple_s = strtrim(string(scalar(se_phys_poor_simple), "%9.3f"))
   file open tab3 using `outPath'Tables/Tab3.tex, write replace
   file write tab3 "\begin{table}[htbp]" _n
   file write tab3 "\centering" _n
-  file write tab3 "\caption{Difference-in-Differences OLS and Negative Binomial Estimates \\ Mothers Aged 21--40, 1993--2001 BRFSS}" _n
+  file write tab3 "\caption{Table 3: Difference-in-Differences OLS and Negative Binomial Estimates \\ Mothers Aged 21--40, 1993--2001 BRFSS}" _n
   file write tab3 "\resizebox{\textwidth}{!}{%" _n
   file write tab3 "\begin{tabular}{lcccc}" _n
   file write tab3 "\toprule" _n
@@ -491,6 +491,7 @@ if `Tab4' {
 
   // Column 3 - Differencing by Amount of Children (2 vs 0)
 
+  use `dataPath'BRFSS_Final_Data.dta, clear
   preserve
   drop if kids == 1
 
@@ -621,7 +622,7 @@ if `Tab4' {
   file open tab4 using `outPath'Tables/Tab4.tex, write replace
   file write tab4 "\begin{table}[htbp]" _n
   file write tab4 "\centering" _n
-  file write tab4 "\caption{Robustness Tests, Women Aged 21--40, 1993--2001 BRFSS}" _n
+  file write tab4 "\caption{Table 4: Robustness Tests, Women Aged 21--40, 1993--2001 BRFSS}" _n
   file write tab4 "\resizebox{\textwidth}{!}{%" _n
   file write tab4 "\begin{tabular}{lcccccc}" _n
   file write tab4 "\toprule" _n
@@ -644,7 +645,7 @@ if `Tab4' {
   }
   file write tab4 " \\" _n
   foreach col in c1 c2 c3 c4 c5 c6 {
-      local val = strtrim(string(scalar(p4_`col'_at_work), "%9.3f"))
+      local val = strtrim(string(scalar(p4_`col'_at_work), "%9.4f"))
       file write tab4 " & [`val']"
   }
   file write tab4 " \\" _n
@@ -663,7 +664,7 @@ if `Tab4' {
   }
   file write tab4 " \\" _n
   foreach col in c1 c2 c3 c4 c5 c6 {
-      local val = strtrim(string(scalar(p4_`col'_excel), "%9.3f"))
+      local val = strtrim(string(scalar(p4_`col'_excel), "%9.4f"))
       file write tab4 " & [`val']"
   }
   file write tab4 " \\" _n
@@ -682,7 +683,7 @@ if `Tab4' {
   }
   file write tab4 " \\" _n
   foreach col in c1 c2 c3 c4 c5 c6 {
-      local val = strtrim(string(scalar(p4_`col'_mental), "%9.3f"))
+      local val = strtrim(string(scalar(p4_`col'_mental), "%9.4f"))
       file write tab4 " & [`val']"
   }
   file write tab4 " \\" _n
@@ -701,7 +702,7 @@ if `Tab4' {
   }
   file write tab4 " \\" _n
   foreach col in c1 c2 c3 c4 c5 c6 {
-      local val = strtrim(string(scalar(p4_`col'_phys), "%9.3f"))
+      local val = strtrim(string(scalar(p4_`col'_phys), "%9.4f"))
       file write tab4 " & [`val']"
   }
   file write tab4 " \\" _n
@@ -812,7 +813,7 @@ if `Tab5' {
   file open tab5 using `outPath'Tables/Tab5.tex, write replace
   file write tab5 "\begin{table}[htbp]" _n
   file write tab5 "\centering" _n
-  file write tab5 "\caption{Biomarkers for Mothers Aged 21--40 with a High School Education or Less, NHANES}" _n
+  file write tab5 "\caption{Table 5: Biomarkers for Mothers Aged 21--40 with a High School Education or Less, NHANES}" _n
   file write tab5 "\begin{tabular}{lcccc}" _n
   file write tab5 "\toprule" _n
   file write tab5 "Biomarker & Obs & Mean & Risky level & \% Risky \\" _n
@@ -949,12 +950,23 @@ if `Tab5' {
   restore
 }
 
+/************************************************************
+* (8) Table 6 - NHANES DD/DDD: Allostatic Load Aggregates  *
+************************************************************/
+
 if `Tab6' {
+
+  /************************************************************
+  * Load the cleaned NHANES data and estimate DD and DDD      *
+  * models for the allostatic load aggregate outcomes. A      *
+  * third column uses the stacked NHANES dataset to compare   *
+  * women with 2+ children to women with 0 children,         *
+  * paralleling the analogous robustness column in Table 4.   *
+  ************************************************************/
   use `dataPath'nhanes/nhanescleaned.dta, clear
-  *******************************
-  * Pre- Treatment Means        *
-  *******************************
-  
+
+  // ---- Pre-expansion means (spot checks, not written to table) ----
+
   // Inflammation Panel
   sum crp albumin inflsum anyinflamation if highgrad <= 2 & year == 0 & twoplus_kids == 1
 
@@ -967,11 +979,10 @@ if `Tab6' {
   // Total Risk Factors
   sum totalsum total1 total2 total3 if highgrade <= 2 & year == 0 & twoplus_kids == 1
 
-  *******************************
-  * DiD Estimates               *
-  ********************************
+  // ---- DD and DDD Estimates ----
 
-  local X_dd "i.year i.age i.marital i.race" // control vector of dummies
+  local X_dd  "i.year i.age i.marital i.race"                                              // DD control vector
+  local X_ddd "i.year i.age i.race i.marital i.highgrade##i.year i.year##i.twoplus_kids i.highgrade##i.twoplus_kids" // DDD control vector
 
   tab year if highgrade <= 2
 
@@ -989,7 +1000,6 @@ if `Tab6' {
   estimates store tab6c1_totalsum
 
   // Column 2 - Triple Diff
-  local X_ddd "i.year i.age i.race i.marital i.highgrade##i.year i.year##i.twoplus_kids i.highgrade##i.twoplus_kids" // control vector of dummies
   reg total1 ddd_treat `X_ddd', robust // Effect on 1+ Risk Factors
   estimates store tab6c2_total1
 
@@ -1005,7 +1015,76 @@ if `Tab6' {
   // Two vs. No Kids
 
   preserve
-  drop if kids == 1
+  // NHANES data load
+  use `dataPath'nhanes/nhanesallstacked.dta, clear
+  // Subset to mothers aged 21-40 with children under 18 and educ <= HS
+  
+  drop if age < 21 | age > 40
+  drop if sex == 1
+
+  // Keep only black, white, hisp mothers
+  drop if race > 3 | race < 0
+
+  // Coding for kids - normalize as best approximation
+  gen kids = .
+  replace kids = family_size-1 if marital>1 & year == 0
+  replace kids = family_size-2 if marital == 1 & year == 0
+  replace kids = dmdhhsiz-1 if marital > 1 & year > 0
+  replace kids = dmdhhsiz-2 if marital == 1 & year > 0
+
+  // Coding for education
+  gen no_hs = highgrade <= 2
+
+  // Keeping only mothers
+  drop if kids == 1 | kids == .
+
+  
+  gen twoplus_kids = kids > 1 // dummy for 2+ kids
+  gen eitc_expand = year > 0  // dummy for post expansion years
+
+  gen dd_treat = eitc_expand*twoplus_kids // DiD treatment variable
+
+  gen eitc_nohs = eitc_expand*no_hs // time x no HS interaction
+  gen twoplus_nohs = twoplus_kids*no_hs // 2+ kids x no HS interaction
+  gen ddd_treat = dd_treat*no_hs // triple diff treatment variable
+
+  local X "i.year i.age i.marital i.race" // control vector of dummies
+
+  // Cleaning variables as done in replication package
+  replace crp = . if crp == 88888 // missing value code for CRP
+
+  gen riskycrp=crp>=0.3 // risky if CRP is above 0.3
+  replace riskycrp = . if crp == . // missing if CRP is missing
+  replace riskypulse = . if pulse == . // missing if pulse is missing
+  replace riskydiastolic = . if diastolic == . // missing if diastolic is missing
+  replace riskysystolic = . if systolic == . // missing if systolic is missing
+  replace riskyhdl = . if hdl == . // missing if hdl is missing
+  replace riskyCholest = . if cholesterol == . // missing if cholesterol is missing
+  replace riskyAlbumin = . if albumin == . // missing if albumin is missing
+  replace riskyglycatedhemoglobin = . if glycatedhemoglobin == . // missing if glycatedhemoglobin is missing
+  
+
+  gen metabsum = riskyglycatedhemoglobin + riskyCholest + riskyhdl // sum of metabolic risk factors
+  gen cardiosum = riskysystolic+riskydiastolic+riskypulse // sum of cardiovascular risk factors
+  gen inflsum = riskycrp + riskyAlbumin // sum of inflammation risk factors
+  gen totalsum = metabsum+cardiosum+inflsum // sum of all risk factors
+
+  gen anymetab = metabsum>0 // dummy for any metabolic risk factor
+  replace anymetab = . if riskyglycatedhemoglobin == . | riskyCholest == . | riskyhdl == . // missing if any metabolic risk factor is missing
+  gen anycardio = cardiosum > 0 // dummy for any cardiovascular risk factor
+  replace anycardio = . if riskypulse == . | riskydiastolic == . | riskysystolic == . // missing if any cardiovascular risk factor is missing
+  gen anyinflamation = inflsum > 0 // dummy for any inflammation risk factor
+  replace anyinflamation = . if riskyAlbumin == . | riskycrp == . // missing if any inflammation risk factor is missing
+
+  // Make data match across years
+  replace crp = 0.21 if crp < 0.21
+
+  gen total1 = totalsum>0 // dummy for 1+ risk factors
+  replace total1 = . if totalsum == . // missing if total sum is missing
+  gen total2 = totalsum > 1 // dummy for 2+ risk factors
+  replace total2 = . if totalsum == . // missing if total sum is missing
+  gen total3 = totalsum > 2 // dummy for 3+ risk factors
+  replace total3 = . if totalsum == . // missing if total sum is missing
 
   reg total1 dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
   estimates store tab6c3_total1
@@ -1058,20 +1137,20 @@ if `Tab6' {
 
   // ---- Write Tab6 LaTeX ----
 
-  local b6dd_totalsum_s = strtrim(string(scalar(b6dd_totalsum), "%9.4f"))
-  local b6ddd_totalsum_s = strtrim(string(scalar(b6ddd_totalsum), "%9.4f"))
-  local b6kids_totalsum_s = strtrim(string(scalar(b6kids_totalsum), "%9.4f"))
-  local p6dd_totalsum_s = strtrim(string(scalar(p6dd_totalsum), "%9.4f"))
-  local p6ddd_totalsum_s = strtrim(string(scalar(p6ddd_totalsum), "%9.4f"))
-  local p6kids_totalsum_s = strtrim(string(scalar(p6kids_totalsum), "%9.4f"))
-  local premean6_totalsum_s = strtrim(string(scalar(premean6_totalsum), "%9.4f"))
-  local se6dd_totalsum_s = strtrim(string(scalar(se6dd_totalsum), "%9.4f"))
-  local se6ddd_totalsum_s = strtrim(string(scalar(se6ddd_totalsum), "%9.4f"))
-  local se6kids_totalsum_s = strtrim(string(scalar(se6kids_totalsum), "%9.4f"))
+  local b6dd_totalsum_s = strtrim(string(scalar(b6dd_totalsum), "%9.3f"))
+  local b6ddd_totalsum_s = strtrim(string(scalar(b6ddd_totalsum), "%9.3f"))
+  local b6kids_totalsum_s = strtrim(string(scalar(b6kids_totalsum), "%9.3f"))
+  local p6dd_totalsum_s = strtrim(string(scalar(p6dd_totalsum), "%9.3f"))
+  local p6ddd_totalsum_s = strtrim(string(scalar(p6ddd_totalsum), "%9.3f"))
+  local p6kids_totalsum_s = strtrim(string(scalar(p6kids_totalsum), "%9.3f"))
+  local premean6_totalsum_s = strtrim(string(scalar(premean6_totalsum), "%9.3f"))
+  local se6dd_totalsum_s = strtrim(string(scalar(se6dd_totalsum), "%9.3f"))
+  local se6ddd_totalsum_s = strtrim(string(scalar(se6ddd_totalsum), "%9.3f"))
+  local se6kids_totalsum_s = strtrim(string(scalar(se6kids_totalsum), "%9.3f"))
   file open tab6 using `outPath'Tables/Tab6.tex, write replace
   file write tab6 "\begin{table}[htbp]" _n
   file write tab6 "\centering" _n
-  file write tab6 "\caption{Regression-Adjusted DD and DDD Estimates for Effect of EITC Expansion on Allostatic Load, Women Aged 21--40}" _n
+  file write tab6 "\caption{Table 6: Regression-Adjusted DD and DDD Estimates for Effect of EITC Expansion on Allostatic Load, Women Aged 21--40}" _n
   file write tab6 "\begin{tabular}{lcccc}" _n
   file write tab6 "\toprule" _n
   file write tab6 " & Preexpansion mean & & & \\" _n
@@ -1083,12 +1162,12 @@ if `Tab6' {
       if "`param'" == "total2" local outlabel "Two or more risky conditions"
       if "`param'" == "total3" local outlabel "Three or more risky conditions"
       local pm   = strtrim(string(scalar(premean6_`param'), "%9.3f"))
-      local bdd  = strtrim(string(scalar(b6dd_`param'),    "%9.4f"))
-      local bddd = strtrim(string(scalar(b6ddd_`param'),   "%9.4f"))
+      local bdd  = strtrim(string(scalar(b6dd_`param'),    "%9.3f"))
+      local bddd = strtrim(string(scalar(b6ddd_`param'),   "%9.3f"))
       local bkid = strtrim(string(scalar(b6kids_`param'),  "%9.4f"))
-      local sedd = strtrim(string(scalar(se6dd_`param'),   "%9.4f"))
-      local seddd= strtrim(string(scalar(se6ddd_`param'),  "%9.4f"))
-      local sekid= strtrim(string(scalar(se6kids_`param'),  "%9.4f"))
+      local sedd = strtrim(string(scalar(se6dd_`param'),   "%9.3f"))
+      local seddd= strtrim(string(scalar(se6ddd_`param'),  "%9.3f"))
+      local sekid= strtrim(string(scalar(se6kids_`param'),  "%9.3f"))
       local pdd  = strtrim(string(scalar(p6dd_`param'),    "%9.3f"))
       local pddd = strtrim(string(scalar(p6ddd_`param'),   "%9.3f"))
       local pkid = strtrim(string(scalar(p6kids_`param'),   "%9.3f"))
@@ -1133,16 +1212,30 @@ if `Tab6' {
   file close tab6
 }
 
+/************************************************************
+* (9) Table 7 - NHANES DD/DDD: Individual Biomarkers       *
+************************************************************/
+
 if `Tab7' {
+
+  /************************************************************
+  * Table 7 estimates individual biomarker effects of the     *
+  * EITC expansion. Three specifications are reported:        *
+  *   Col 1 (DD):  2+ vs 1 child in nhanescleaned.dta        *
+  *   Col 2 (DDD): triple-diff adding education interaction   *
+  *   Col 3:       2+ vs 0 children using stacked NHANES data *
+  * Col 3 mirrors the "Two Children vs. No Children" col in   *
+  * Table 6 and the analogous column in Table 4.              *
+  ************************************************************/
+
   use `dataPath'nhanes/nhanescleaned.dta, clear
 
-  local X_dd "i.year i.age i.marital i.race" // control vector of dummies
-  local X_ddd "i.year i.age i.race i.marital i.highgrade##i.year i.year##i.twoplus_kids i.highgrade##i.twoplus_kids" // control vector of dummies
+  local X_dd  "i.year i.age i.marital i.race"                                              // DD control vector
+  local X_ddd "i.year i.age i.race i.marital i.highgrade##i.year i.year##i.twoplus_kids i.highgrade##i.twoplus_kids" // DDD control vector
 
-  // panel A. Metabolic Biomarkers
-  local metab_markers "riskyglycatedhemoglobin riskyCholest riskyhdl anymetab" // list of dependent variables
+  // ---- Column 1: DD (2+ kids vs 1 kid, low-educ sample) ----
 
-  // Loop through markers and run DiD
+  // Panel A - Metabolic biomarkers
   reg riskyglycatedhemoglobin dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
   estimates store tab7dd_hba1c
   reg riskyCholest dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
@@ -1156,8 +1249,7 @@ if `Tab7' {
   nbreg metabsum dd_treat `X_dd' if highgrade<=2, robust d(c)
   estimates store tab7dd_metabsum_nb
 
-  local cardio_markers "riskydiastolic riskysystolic riskypulse anycardio"
-
+  // Panel B - Cardiovascular biomarkers
   reg riskydiastolic dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
   estimates store tab7dd_diastolic
   reg riskysystolic dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
@@ -1171,8 +1263,7 @@ if `Tab7' {
   nbreg cardiosum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust d(c)
   estimates store tab7dd_cardiosum_nb
 
-  local infl_markers "riskyAlbumin riskycrp anyinflamation"
-
+  // Panel C - Inflammation biomarkers
   reg riskyAlbumin dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
   estimates store tab7dd_albumin
   reg riskycrp dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
@@ -1184,8 +1275,12 @@ if `Tab7' {
   nbreg inflsum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust d(c)
   estimates store tab7dd_inflsum_nb
 
+  // ---- Column 2: DDD (triple-diff adding education interaction) ----
+
   preserve
   keep if kids > 0
+
+  // Panel A - Metabolic biomarkers
   reg riskyglycatedhemoglobin ddd_treat `X_ddd', robust
   estimates store tab7ddd_hba1c
   reg riskyCholest ddd_treat `X_ddd', robust
@@ -1199,6 +1294,7 @@ if `Tab7' {
   nbreg metabsum ddd_treat `X_ddd', robust d(c)
   estimates store tab7ddd_metabsum_nb
 
+  // Panel B - Cardiovascular biomarkers
   reg riskydiastolic ddd_treat `X_ddd', robust
   estimates store tab7ddd_diastolic
   reg riskysystolic ddd_treat `X_ddd', robust
@@ -1212,6 +1308,7 @@ if `Tab7' {
   nbreg cardiosum ddd_treat `X_ddd', robust d(c)
   estimates store tab7ddd_cardiosum_nb
 
+  // Panel C - Inflammation biomarkers
   reg riskyAlbumin ddd_treat `X_ddd', robust
   estimates store tab7ddd_albumin
   reg riskycrp ddd_treat `X_ddd', robust
@@ -1222,6 +1319,103 @@ if `Tab7' {
   estimates store tab7ddd_inflsum_pois
   nbreg inflsum ddd_treat `X_ddd', robust d(c)
   estimates store tab7ddd_inflsum_nb
+  restore
+
+  // ---- Column 3: DD on stacked data, 2+ kids vs 0 kids ----
+  // Load the stacked NHANES dataset (all waves), reconstruct the same
+  // biomarker variables used in the cleaned file, then drop kids == 1
+  // so the comparison is 2+ vs 0 children. Mirrors Tab6 Col3 / Tab4 Col3.
+
+  preserve
+  use `dataPath'nhanes/nhanesallstacked.dta, clear
+
+  // Sample restrictions: women aged 21-40, black/white/hispanic only
+  drop if age < 21 | age > 40
+  drop if sex == 1
+  drop if race > 3 | race < 0
+
+  // Approximate children in household (family size minus adults)
+  gen kids = .
+  replace kids = family_size-1 if marital > 1 & year == 0 // NHANES III: single-adult household
+  replace kids = family_size-2 if marital == 1 & year == 0 // NHANES III: two-adult household
+  replace kids = dmdhhsiz-1    if marital > 1 & year > 0   // later waves: single-adult
+  replace kids = dmdhhsiz-2    if marital == 1 & year > 0  // later waves: two-adult
+
+  // Education indicator (no high school or less)
+  gen no_hs = highgrade <= 2
+
+  // Drop 1-child mothers so the comparison is 2+ vs 0
+  drop if kids == 1 | kids == .
+
+  // Treatment variables
+  gen twoplus_kids = kids > 1       // treated group: 2+ children
+  gen eitc_expand  = year > 0       // post-expansion indicator
+
+  gen dd_treat     = eitc_expand * twoplus_kids // DiD: post x 2+ kids
+  gen eitc_nohs    = eitc_expand * no_hs        // time x low-educ interaction
+  gen twoplus_nohs = twoplus_kids * no_hs       // 2+ kids x low-educ interaction
+  gen ddd_treat    = dd_treat * no_hs           // triple-diff treatment
+
+  // Biomarker cleaning (identical to Tab5/Tab6 stacked-data block)
+  replace crp = . if crp == 88888 // missing value code in NHANES
+  gen riskycrp                   = crp >= 0.3
+  replace riskycrp               = . if crp == .
+  replace riskypulse             = . if pulse == .
+  replace riskydiastolic         = . if diastolic == .
+  replace riskysystolic          = . if systolic == .
+  replace riskyhdl               = . if hdl == .
+  replace riskyCholest           = . if cholesterol == .
+  replace riskyAlbumin           = . if albumin == .
+  replace riskyglycatedhemoglobin = . if glycatedhemoglobin == .
+
+  // Composite risk indices
+  gen metabsum  = riskyglycatedhemoglobin + riskyCholest + riskyhdl
+  gen cardiosum = riskysystolic + riskydiastolic + riskypulse
+  gen inflsum   = riskycrp + riskyAlbumin
+  gen totalsum  = metabsum + cardiosum + inflsum
+
+  gen anymetab     = metabsum > 0
+  replace anymetab = . if riskyglycatedhemoglobin == . | riskyCholest == . | riskyhdl == .
+  gen anycardio     = cardiosum > 0
+  replace anycardio = . if riskypulse == . | riskydiastolic == . | riskysystolic == .
+  gen anyinflamation     = inflsum > 0
+  replace anyinflamation = . if riskyAlbumin == . | riskycrp == .
+
+  replace crp = 0.21 if crp < 0.21 // bottom-code CRP to match cleaned file
+
+  // Panel A - Metabolic biomarkers
+  reg riskyglycatedhemoglobin dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7kids_hba1c
+  reg riskyCholest dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7kids_cholest
+  reg riskyhdl dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7kids_hdl
+  reg anymetab dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7kids_anymetab
+  poisson metabsum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7kids_metabsum_pois
+
+  // Panel B - Cardiovascular biomarkers
+  reg riskydiastolic dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7kids_diastolic
+  reg riskysystolic dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7kids_systolic
+  reg riskypulse dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7kids_pulse
+  reg anycardio dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7kids_anycardio
+  poisson cardiosum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7kids_cardiosum_pois
+
+  // Panel C - Inflammation biomarkers
+  reg riskyAlbumin dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7kids_albumin
+  reg riskycrp dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7kids_crp
+  reg anyinflamation dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7kids_anyinfl
+  poisson inflsum dd_treat twoplus_kids `X_dd' if highgrade<=2, robust
+  estimates store tab7kids_inflsum_pois
   restore
 
   // ---- Extract Tab7 scalars ----
@@ -1293,6 +1487,46 @@ if `Tab7' {
       scalar p7ddd_`suf'  = 2*normal(-abs(_b[ddd_treat]/_se[ddd_treat]))
   }
 
+  // ---- Extract scalars: Col 3 (2+ vs 0 kids) ----
+  // OLS outcomes use ttail; Poisson uses normal z
+
+  foreach m in hba1c cholest hdl anymetab {
+      estimates restore tab7kids_`m'
+      scalar b7kids_`m'  = _b[dd_treat]
+      scalar se7kids_`m' = _se[dd_treat]
+      scalar p7kids_`m'  = 2*ttail(e(df_r), abs(_b[dd_treat]/_se[dd_treat]))
+  }
+  foreach suf in metabsum_pois {
+      estimates restore tab7kids_`suf'
+      scalar b7kids_`suf'  = _b[dd_treat]
+      scalar se7kids_`suf' = _se[dd_treat]
+      scalar p7kids_`suf'  = 2*normal(-abs(_b[dd_treat]/_se[dd_treat]))
+  }
+  foreach c in diastolic systolic pulse anycardio {
+      estimates restore tab7kids_`c'
+      scalar b7kids_`c'  = _b[dd_treat]
+      scalar se7kids_`c' = _se[dd_treat]
+      scalar p7kids_`c'  = 2*ttail(e(df_r), abs(_b[dd_treat]/_se[dd_treat]))
+  }
+  foreach suf in cardiosum_pois {
+      estimates restore tab7kids_`suf'
+      scalar b7kids_`suf'  = _b[dd_treat]
+      scalar se7kids_`suf' = _se[dd_treat]
+      scalar p7kids_`suf'  = 2*normal(-abs(_b[dd_treat]/_se[dd_treat]))
+  }
+  foreach i in albumin crp anyinfl {
+      estimates restore tab7kids_`i'
+      scalar b7kids_`i'  = _b[dd_treat]
+      scalar se7kids_`i' = _se[dd_treat]
+      scalar p7kids_`i'  = 2*ttail(e(df_r), abs(_b[dd_treat]/_se[dd_treat]))
+  }
+  foreach suf in inflsum_pois {
+      estimates restore tab7kids_`suf'
+      scalar b7kids_`suf'  = _b[dd_treat]
+      scalar se7kids_`suf' = _se[dd_treat]
+      scalar p7kids_`suf'  = 2*normal(-abs(_b[dd_treat]/_se[dd_treat]))
+  }
+
   // Pre-expansion means
   foreach v in riskyglycatedhemoglobin riskyCholest riskyhdl anymetab ///
                riskydiastolic riskysystolic riskypulse anycardio ///
@@ -1302,234 +1536,327 @@ if `Tab7' {
   }
 
   // ---- Write Tab7 LaTeX ----
-  // Helper: writes b / (se) / [p] for dd and ddd
+  // Scalar-to-local conversion: dd, ddd, and kids (Col3) for all biomarkers
 
-  local b7dd_albumin_s = strtrim(string(scalar(b7dd_albumin), "%9.4f"))
-  local b7dd_anycardio_s = strtrim(string(scalar(b7dd_anycardio), "%9.4f"))
-  local b7dd_anyinfl_s = strtrim(string(scalar(b7dd_anyinfl), "%9.4f"))
-  local b7dd_anymetab_s = strtrim(string(scalar(b7dd_anymetab), "%9.4f"))
-  local b7dd_cardiosum_pois_s = strtrim(string(scalar(b7dd_cardiosum_pois), "%9.4f"))
-  local b7dd_cholest_s = strtrim(string(scalar(b7dd_cholest), "%9.4f"))
-  local b7dd_crp_s = strtrim(string(scalar(b7dd_crp), "%9.4f"))
-  local b7dd_diastolic_s = strtrim(string(scalar(b7dd_diastolic), "%9.4f"))
-  local b7dd_hba1c_s = strtrim(string(scalar(b7dd_hba1c), "%9.4f"))
-  local b7dd_hdl_s = strtrim(string(scalar(b7dd_hdl), "%9.4f"))
-  local b7dd_inflsum_pois_s = strtrim(string(scalar(b7dd_inflsum_pois), "%9.4f"))
-  local b7dd_metabsum_pois_s = strtrim(string(scalar(b7dd_metabsum_pois), "%9.4f"))
-  local b7dd_pulse_s = strtrim(string(scalar(b7dd_pulse), "%9.4f"))
-  local b7dd_systolic_s = strtrim(string(scalar(b7dd_systolic), "%9.4f"))
-  local b7ddd_albumin_s = strtrim(string(scalar(b7ddd_albumin), "%9.4f"))
-  local b7ddd_anycardio_s = strtrim(string(scalar(b7ddd_anycardio), "%9.4f"))
-  local b7ddd_anyinfl_s = strtrim(string(scalar(b7ddd_anyinfl), "%9.4f"))
-  local b7ddd_anymetab_s = strtrim(string(scalar(b7ddd_anymetab), "%9.4f"))
-  local b7ddd_cardiosum_pois_s = strtrim(string(scalar(b7ddd_cardiosum_pois), "%9.4f"))
-  local b7ddd_cholest_s = strtrim(string(scalar(b7ddd_cholest), "%9.4f"))
-  local b7ddd_crp_s = strtrim(string(scalar(b7ddd_crp), "%9.4f"))
-  local b7ddd_diastolic_s = strtrim(string(scalar(b7ddd_diastolic), "%9.4f"))
-  local b7ddd_hba1c_s = strtrim(string(scalar(b7ddd_hba1c), "%9.4f"))
-  local b7ddd_hdl_s = strtrim(string(scalar(b7ddd_hdl), "%9.4f"))
-  local b7ddd_inflsum_pois_s = strtrim(string(scalar(b7ddd_inflsum_pois), "%9.4f"))
-  local b7ddd_metabsum_pois_s = strtrim(string(scalar(b7ddd_metabsum_pois), "%9.4f"))
-  local b7ddd_pulse_s = strtrim(string(scalar(b7ddd_pulse), "%9.4f"))
-  local b7ddd_systolic_s = strtrim(string(scalar(b7ddd_systolic), "%9.4f"))
-  local p7dd_albumin_s = strtrim(string(scalar(p7dd_albumin), "%9.4f"))
-  local p7dd_anycardio_s = strtrim(string(scalar(p7dd_anycardio), "%9.4f"))
-  local p7dd_anyinfl_s = strtrim(string(scalar(p7dd_anyinfl), "%9.4f"))
-  local p7dd_anymetab_s = strtrim(string(scalar(p7dd_anymetab), "%9.4f"))
-  local p7dd_cardiosum_pois_s = strtrim(string(scalar(p7dd_cardiosum_pois), "%9.4f"))
-  local p7dd_cholest_s = strtrim(string(scalar(p7dd_cholest), "%9.4f"))
-  local p7dd_crp_s = strtrim(string(scalar(p7dd_crp), "%9.4f"))
-  local p7dd_diastolic_s = strtrim(string(scalar(p7dd_diastolic), "%9.4f"))
-  local p7dd_hba1c_s = strtrim(string(scalar(p7dd_hba1c), "%9.4f"))
-  local p7dd_hdl_s = strtrim(string(scalar(p7dd_hdl), "%9.4f"))
-  local p7dd_inflsum_pois_s = strtrim(string(scalar(p7dd_inflsum_pois), "%9.4f"))
-  local p7dd_metabsum_pois_s = strtrim(string(scalar(p7dd_metabsum_pois), "%9.4f"))
-  local p7dd_pulse_s = strtrim(string(scalar(p7dd_pulse), "%9.4f"))
-  local p7dd_systolic_s = strtrim(string(scalar(p7dd_systolic), "%9.4f"))
-  local p7ddd_albumin_s = strtrim(string(scalar(p7ddd_albumin), "%9.4f"))
-  local p7ddd_anycardio_s = strtrim(string(scalar(p7ddd_anycardio), "%9.4f"))
-  local p7ddd_anyinfl_s = strtrim(string(scalar(p7ddd_anyinfl), "%9.4f"))
-  local p7ddd_anymetab_s = strtrim(string(scalar(p7ddd_anymetab), "%9.4f"))
-  local p7ddd_cardiosum_pois_s = strtrim(string(scalar(p7ddd_cardiosum_pois), "%9.4f"))
-  local p7ddd_cholest_s = strtrim(string(scalar(p7ddd_cholest), "%9.4f"))
-  local p7ddd_crp_s = strtrim(string(scalar(p7ddd_crp), "%9.4f"))
-  local p7ddd_diastolic_s = strtrim(string(scalar(p7ddd_diastolic), "%9.4f"))
-  local p7ddd_hba1c_s = strtrim(string(scalar(p7ddd_hba1c), "%9.4f"))
-  local p7ddd_hdl_s = strtrim(string(scalar(p7ddd_hdl), "%9.4f"))
-  local p7ddd_inflsum_pois_s = strtrim(string(scalar(p7ddd_inflsum_pois), "%9.4f"))
-  local p7ddd_metabsum_pois_s = strtrim(string(scalar(p7ddd_metabsum_pois), "%9.4f"))
-  local p7ddd_pulse_s = strtrim(string(scalar(p7ddd_pulse), "%9.4f"))
-  local p7ddd_systolic_s = strtrim(string(scalar(p7ddd_systolic), "%9.4f"))
-  local pm7_anycardio_s = strtrim(string(scalar(pm7_anycardio), "%9.4f"))
-  local pm7_anyinflamation_s = strtrim(string(scalar(pm7_anyinflamation), "%9.4f"))
-  local pm7_anymetab_s = strtrim(string(scalar(pm7_anymetab), "%9.4f"))
-  local pm7_riskyAlbumin_s = strtrim(string(scalar(pm7_riskyAlbumin), "%9.4f"))
-  local pm7_riskyCholest_s = strtrim(string(scalar(pm7_riskyCholest), "%9.4f"))
-  local pm7_riskycrp_s = strtrim(string(scalar(pm7_riskycrp), "%9.4f"))
-  local pm7_riskydiastolic_s = strtrim(string(scalar(pm7_riskydiastolic), "%9.4f"))
-  local pm7_riskyglycatedhemoglobin_s = strtrim(string(scalar(pm7_riskyglycatedhemoglobin), "%9.4f"))
-  local pm7_riskyhdl_s = strtrim(string(scalar(pm7_riskyhdl), "%9.4f"))
-  local pm7_riskypulse_s = strtrim(string(scalar(pm7_riskypulse), "%9.4f"))
-  local pm7_riskysystolic_s = strtrim(string(scalar(pm7_riskysystolic), "%9.4f"))
-  local se7dd_albumin_s = strtrim(string(scalar(se7dd_albumin), "%9.4f"))
-  local se7dd_anycardio_s = strtrim(string(scalar(se7dd_anycardio), "%9.4f"))
-  local se7dd_anyinfl_s = strtrim(string(scalar(se7dd_anyinfl), "%9.4f"))
-  local se7dd_anymetab_s = strtrim(string(scalar(se7dd_anymetab), "%9.4f"))
-  local se7dd_cardiosum_pois_s = strtrim(string(scalar(se7dd_cardiosum_pois), "%9.4f"))
-  local se7dd_cholest_s = strtrim(string(scalar(se7dd_cholest), "%9.4f"))
-  local se7dd_crp_s = strtrim(string(scalar(se7dd_crp), "%9.4f"))
-  local se7dd_diastolic_s = strtrim(string(scalar(se7dd_diastolic), "%9.4f"))
-  local se7dd_hba1c_s = strtrim(string(scalar(se7dd_hba1c), "%9.4f"))
-  local se7dd_hdl_s = strtrim(string(scalar(se7dd_hdl), "%9.4f"))
-  local se7dd_inflsum_pois_s = strtrim(string(scalar(se7dd_inflsum_pois), "%9.4f"))
-  local se7dd_metabsum_pois_s = strtrim(string(scalar(se7dd_metabsum_pois), "%9.4f"))
-  local se7dd_pulse_s = strtrim(string(scalar(se7dd_pulse), "%9.4f"))
-  local se7dd_systolic_s = strtrim(string(scalar(se7dd_systolic), "%9.4f"))
-  local se7ddd_albumin_s = strtrim(string(scalar(se7ddd_albumin), "%9.4f"))
-  local se7ddd_anycardio_s = strtrim(string(scalar(se7ddd_anycardio), "%9.4f"))
-  local se7ddd_anyinfl_s = strtrim(string(scalar(se7ddd_anyinfl), "%9.4f"))
-  local se7ddd_anymetab_s = strtrim(string(scalar(se7ddd_anymetab), "%9.4f"))
-  local se7ddd_cardiosum_pois_s = strtrim(string(scalar(se7ddd_cardiosum_pois), "%9.4f"))
-  local se7ddd_cholest_s = strtrim(string(scalar(se7ddd_cholest), "%9.4f"))
-  local se7ddd_crp_s = strtrim(string(scalar(se7ddd_crp), "%9.4f"))
-  local se7ddd_diastolic_s = strtrim(string(scalar(se7ddd_diastolic), "%9.4f"))
-  local se7ddd_hba1c_s = strtrim(string(scalar(se7ddd_hba1c), "%9.4f"))
-  local se7ddd_hdl_s = strtrim(string(scalar(se7ddd_hdl), "%9.4f"))
-  local se7ddd_inflsum_pois_s = strtrim(string(scalar(se7ddd_inflsum_pois), "%9.4f"))
-  local se7ddd_metabsum_pois_s = strtrim(string(scalar(se7ddd_metabsum_pois), "%9.4f"))
-  local se7ddd_pulse_s = strtrim(string(scalar(se7ddd_pulse), "%9.4f"))
-  local se7ddd_systolic_s = strtrim(string(scalar(se7ddd_systolic), "%9.4f"))
+  // Col 1 (DD) coefficients
+  local b7dd_hba1c_s           = strtrim(string(scalar(b7dd_hba1c),           "%9.3f"))
+  local b7dd_cholest_s         = strtrim(string(scalar(b7dd_cholest),         "%9.3f"))
+  local b7dd_hdl_s             = strtrim(string(scalar(b7dd_hdl),             "%9.3f"))
+  local b7dd_anymetab_s        = strtrim(string(scalar(b7dd_anymetab),        "%9.3f"))
+  local b7dd_metabsum_pois_s   = strtrim(string(scalar(b7dd_metabsum_pois),   "%9.3f"))
+  local b7dd_diastolic_s       = strtrim(string(scalar(b7dd_diastolic),       "%9.3f"))
+  local b7dd_systolic_s        = strtrim(string(scalar(b7dd_systolic),        "%9.3f"))
+  local b7dd_pulse_s           = strtrim(string(scalar(b7dd_pulse),           "%9.3f"))
+  local b7dd_anycardio_s       = strtrim(string(scalar(b7dd_anycardio),       "%9.3f"))
+  local b7dd_cardiosum_pois_s  = strtrim(string(scalar(b7dd_cardiosum_pois),  "%9.3f"))
+  local b7dd_albumin_s         = strtrim(string(scalar(b7dd_albumin),         "%9.3f"))
+  local b7dd_crp_s             = strtrim(string(scalar(b7dd_crp),             "%9.3f"))
+  local b7dd_anyinfl_s         = strtrim(string(scalar(b7dd_anyinfl),         "%9.3f"))
+  local b7dd_inflsum_pois_s    = strtrim(string(scalar(b7dd_inflsum_pois),    "%9.3f"))
+
+  // Col 1 (DD) standard errors
+  local se7dd_hba1c_s          = strtrim(string(scalar(se7dd_hba1c),          "%9.3f"))
+  local se7dd_cholest_s        = strtrim(string(scalar(se7dd_cholest),        "%9.3f"))
+  local se7dd_hdl_s            = strtrim(string(scalar(se7dd_hdl),            "%9.3f"))
+  local se7dd_anymetab_s       = strtrim(string(scalar(se7dd_anymetab),       "%9.3f"))
+  local se7dd_metabsum_pois_s  = strtrim(string(scalar(se7dd_metabsum_pois),  "%9.3f"))
+  local se7dd_diastolic_s      = strtrim(string(scalar(se7dd_diastolic),      "%9.3f"))
+  local se7dd_systolic_s       = strtrim(string(scalar(se7dd_systolic),       "%9.3f"))
+  local se7dd_pulse_s          = strtrim(string(scalar(se7dd_pulse),          "%9.3f"))
+  local se7dd_anycardio_s      = strtrim(string(scalar(se7dd_anycardio),      "%9.3f"))
+  local se7dd_cardiosum_pois_s = strtrim(string(scalar(se7dd_cardiosum_pois), "%9.3f"))
+  local se7dd_albumin_s        = strtrim(string(scalar(se7dd_albumin),        "%9.3f"))
+  local se7dd_crp_s            = strtrim(string(scalar(se7dd_crp),            "%9.3f"))
+  local se7dd_anyinfl_s        = strtrim(string(scalar(se7dd_anyinfl),        "%9.3f"))
+  local se7dd_inflsum_pois_s   = strtrim(string(scalar(se7dd_inflsum_pois),   "%9.3f"))
+
+  // Col 1 (DD) p-values
+  local p7dd_hba1c_s           = strtrim(string(scalar(p7dd_hba1c),           "%9.3f"))
+  local p7dd_cholest_s         = strtrim(string(scalar(p7dd_cholest),         "%9.3f"))
+  local p7dd_hdl_s             = strtrim(string(scalar(p7dd_hdl),             "%9.3f"))
+  local p7dd_anymetab_s        = strtrim(string(scalar(p7dd_anymetab),        "%9.3f"))
+  local p7dd_metabsum_pois_s   = strtrim(string(scalar(p7dd_metabsum_pois),   "%9.3f"))
+  local p7dd_diastolic_s       = strtrim(string(scalar(p7dd_diastolic),       "%9.3f"))
+  local p7dd_systolic_s        = strtrim(string(scalar(p7dd_systolic),        "%9.3f"))
+  local p7dd_pulse_s           = strtrim(string(scalar(p7dd_pulse),           "%9.3f"))
+  local p7dd_anycardio_s       = strtrim(string(scalar(p7dd_anycardio),       "%9.3f"))
+  local p7dd_cardiosum_pois_s  = strtrim(string(scalar(p7dd_cardiosum_pois),  "%9.3f"))
+  local p7dd_albumin_s         = strtrim(string(scalar(p7dd_albumin),         "%9.3f"))
+  local p7dd_crp_s             = strtrim(string(scalar(p7dd_crp),             "%9.3f"))
+  local p7dd_anyinfl_s         = strtrim(string(scalar(p7dd_anyinfl),         "%9.3f"))
+  local p7dd_inflsum_pois_s    = strtrim(string(scalar(p7dd_inflsum_pois),    "%9.3f"))
+
+  // Col 2 (DDD) coefficients
+  local b7ddd_hba1c_s          = strtrim(string(scalar(b7ddd_hba1c),          "%9.3f"))
+  local b7ddd_cholest_s        = strtrim(string(scalar(b7ddd_cholest),        "%9.3f"))
+  local b7ddd_hdl_s            = strtrim(string(scalar(b7ddd_hdl),            "%9.3f"))
+  local b7ddd_anymetab_s       = strtrim(string(scalar(b7ddd_anymetab),       "%9.3f"))
+  local b7ddd_metabsum_pois_s  = strtrim(string(scalar(b7ddd_metabsum_pois),  "%9.3f"))
+  local b7ddd_diastolic_s      = strtrim(string(scalar(b7ddd_diastolic),      "%9.3f"))
+  local b7ddd_systolic_s       = strtrim(string(scalar(b7ddd_systolic),       "%9.3f"))
+  local b7ddd_pulse_s          = strtrim(string(scalar(b7ddd_pulse),          "%9.3f"))
+  local b7ddd_anycardio_s      = strtrim(string(scalar(b7ddd_anycardio),      "%9.3f"))
+  local b7ddd_cardiosum_pois_s = strtrim(string(scalar(b7ddd_cardiosum_pois), "%9.3f"))
+  local b7ddd_albumin_s        = strtrim(string(scalar(b7ddd_albumin),        "%9.3f"))
+  local b7ddd_crp_s            = strtrim(string(scalar(b7ddd_crp),            "%9.3f"))
+  local b7ddd_anyinfl_s        = strtrim(string(scalar(b7ddd_anyinfl),        "%9.3f"))
+  local b7ddd_inflsum_pois_s   = strtrim(string(scalar(b7ddd_inflsum_pois),   "%9.3f"))
+
+  // Col 2 (DDD) standard errors
+  local se7ddd_hba1c_s          = strtrim(string(scalar(se7ddd_hba1c),          "%9.3f"))
+  local se7ddd_cholest_s        = strtrim(string(scalar(se7ddd_cholest),        "%9.3f"))
+  local se7ddd_hdl_s            = strtrim(string(scalar(se7ddd_hdl),            "%9.3f"))
+  local se7ddd_anymetab_s       = strtrim(string(scalar(se7ddd_anymetab),       "%9.3f"))
+  local se7ddd_metabsum_pois_s  = strtrim(string(scalar(se7ddd_metabsum_pois),  "%9.3f"))
+  local se7ddd_diastolic_s      = strtrim(string(scalar(se7ddd_diastolic),      "%9.3f"))
+  local se7ddd_systolic_s       = strtrim(string(scalar(se7ddd_systolic),       "%9.3f"))
+  local se7ddd_pulse_s          = strtrim(string(scalar(se7ddd_pulse),          "%9.3f"))
+  local se7ddd_anycardio_s      = strtrim(string(scalar(se7ddd_anycardio),      "%9.3f"))
+  local se7ddd_cardiosum_pois_s = strtrim(string(scalar(se7ddd_cardiosum_pois), "%9.3f"))
+  local se7ddd_albumin_s        = strtrim(string(scalar(se7ddd_albumin),        "%9.3f"))
+  local se7ddd_crp_s            = strtrim(string(scalar(se7ddd_crp),            "%9.3f"))
+  local se7ddd_anyinfl_s        = strtrim(string(scalar(se7ddd_anyinfl),        "%9.3f"))
+  local se7ddd_inflsum_pois_s   = strtrim(string(scalar(se7ddd_inflsum_pois),   "%9.3f"))
+
+  // Col 2 (DDD) p-values
+  local p7ddd_hba1c_s          = strtrim(string(scalar(p7ddd_hba1c),          "%9.3f"))
+  local p7ddd_cholest_s        = strtrim(string(scalar(p7ddd_cholest),        "%9.3f"))
+  local p7ddd_hdl_s            = strtrim(string(scalar(p7ddd_hdl),            "%9.3f"))
+  local p7ddd_anymetab_s       = strtrim(string(scalar(p7ddd_anymetab),       "%9.3f"))
+  local p7ddd_metabsum_pois_s  = strtrim(string(scalar(p7ddd_metabsum_pois),  "%9.3f"))
+  local p7ddd_diastolic_s      = strtrim(string(scalar(p7ddd_diastolic),      "%9.3f"))
+  local p7ddd_systolic_s       = strtrim(string(scalar(p7ddd_systolic),       "%9.3f"))
+  local p7ddd_pulse_s          = strtrim(string(scalar(p7ddd_pulse),          "%9.3f"))
+  local p7ddd_anycardio_s      = strtrim(string(scalar(p7ddd_anycardio),      "%9.3f"))
+  local p7ddd_cardiosum_pois_s = strtrim(string(scalar(p7ddd_cardiosum_pois), "%9.3f"))
+  local p7ddd_albumin_s        = strtrim(string(scalar(p7ddd_albumin),        "%9.3f"))
+  local p7ddd_crp_s            = strtrim(string(scalar(p7ddd_crp),            "%9.3f"))
+  local p7ddd_anyinfl_s        = strtrim(string(scalar(p7ddd_anyinfl),        "%9.3f"))
+  local p7ddd_inflsum_pois_s   = strtrim(string(scalar(p7ddd_inflsum_pois),   "%9.3f"))
+
+  // Col 3 (2+ vs 0 kids) coefficients
+  local b7kids_hba1c_s           = strtrim(string(scalar(b7kids_hba1c),           "%9.3f"))
+  local b7kids_cholest_s         = strtrim(string(scalar(b7kids_cholest),         "%9.3f"))
+  local b7kids_hdl_s             = strtrim(string(scalar(b7kids_hdl),             "%9.3f"))
+  local b7kids_anymetab_s        = strtrim(string(scalar(b7kids_anymetab),        "%9.3f"))
+  local b7kids_metabsum_pois_s   = strtrim(string(scalar(b7kids_metabsum_pois),   "%9.3f"))
+  local b7kids_diastolic_s       = strtrim(string(scalar(b7kids_diastolic),       "%9.3f"))
+  local b7kids_systolic_s        = strtrim(string(scalar(b7kids_systolic),        "%9.3f"))
+  local b7kids_pulse_s           = strtrim(string(scalar(b7kids_pulse),           "%9.3f"))
+  local b7kids_anycardio_s       = strtrim(string(scalar(b7kids_anycardio),       "%9.3f"))
+  local b7kids_cardiosum_pois_s  = strtrim(string(scalar(b7kids_cardiosum_pois),  "%9.3f"))
+  local b7kids_albumin_s         = strtrim(string(scalar(b7kids_albumin),         "%9.3f"))
+  local b7kids_crp_s             = strtrim(string(scalar(b7kids_crp),             "%9.3f"))
+  local b7kids_anyinfl_s         = strtrim(string(scalar(b7kids_anyinfl),         "%9.3f"))
+  local b7kids_inflsum_pois_s    = strtrim(string(scalar(b7kids_inflsum_pois),    "%9.3f"))
+
+  // Col 3 (2+ vs 0 kids) standard errors
+  local se7kids_hba1c_s          = strtrim(string(scalar(se7kids_hba1c),          "%9.3f"))
+  local se7kids_cholest_s        = strtrim(string(scalar(se7kids_cholest),        "%9.3f"))
+  local se7kids_hdl_s            = strtrim(string(scalar(se7kids_hdl),            "%9.3f"))
+  local se7kids_anymetab_s       = strtrim(string(scalar(se7kids_anymetab),       "%9.3f"))
+  local se7kids_metabsum_pois_s  = strtrim(string(scalar(se7kids_metabsum_pois),  "%9.3f"))
+  local se7kids_diastolic_s      = strtrim(string(scalar(se7kids_diastolic),      "%9.3f"))
+  local se7kids_systolic_s       = strtrim(string(scalar(se7kids_systolic),       "%9.3f"))
+  local se7kids_pulse_s          = strtrim(string(scalar(se7kids_pulse),          "%9.3f"))
+  local se7kids_anycardio_s      = strtrim(string(scalar(se7kids_anycardio),      "%9.3f"))
+  local se7kids_cardiosum_pois_s = strtrim(string(scalar(se7kids_cardiosum_pois), "%9.3f"))
+  local se7kids_albumin_s        = strtrim(string(scalar(se7kids_albumin),        "%9.3f"))
+  local se7kids_crp_s            = strtrim(string(scalar(se7kids_crp),            "%9.3f"))
+  local se7kids_anyinfl_s        = strtrim(string(scalar(se7kids_anyinfl),        "%9.3f"))
+  local se7kids_inflsum_pois_s   = strtrim(string(scalar(se7kids_inflsum_pois),   "%9.3f"))
+
+  // Col 3 (2+ vs 0 kids) p-values
+  local p7kids_hba1c_s           = strtrim(string(scalar(p7kids_hba1c),           "%9.3f"))
+  local p7kids_cholest_s         = strtrim(string(scalar(p7kids_cholest),         "%9.3f"))
+  local p7kids_hdl_s             = strtrim(string(scalar(p7kids_hdl),             "%9.3f"))
+  local p7kids_anymetab_s        = strtrim(string(scalar(p7kids_anymetab),        "%9.3f"))
+  local p7kids_metabsum_pois_s   = strtrim(string(scalar(p7kids_metabsum_pois),   "%9.3f"))
+  local p7kids_diastolic_s       = strtrim(string(scalar(p7kids_diastolic),       "%9.3f"))
+  local p7kids_systolic_s        = strtrim(string(scalar(p7kids_systolic),        "%9.3f"))
+  local p7kids_pulse_s           = strtrim(string(scalar(p7kids_pulse),           "%9.3f"))
+  local p7kids_anycardio_s       = strtrim(string(scalar(p7kids_anycardio),       "%9.3f"))
+  local p7kids_cardiosum_pois_s  = strtrim(string(scalar(p7kids_cardiosum_pois),  "%9.3f"))
+  local p7kids_albumin_s         = strtrim(string(scalar(p7kids_albumin),         "%9.3f"))
+  local p7kids_crp_s             = strtrim(string(scalar(p7kids_crp),             "%9.3f"))
+  local p7kids_anyinfl_s         = strtrim(string(scalar(p7kids_anyinfl),         "%9.3f"))
+  local p7kids_inflsum_pois_s    = strtrim(string(scalar(p7kids_inflsum_pois),    "%9.3f"))
+
+  // Pre-expansion means (treatment group: 2+ kids, low educ, pre-expansion wave)
+  local pm7_riskyglycatedhemoglobin_s = strtrim(string(scalar(pm7_riskyglycatedhemoglobin), "%9.3f"))
+  local pm7_riskyCholest_s            = strtrim(string(scalar(pm7_riskyCholest),            "%9.3f"))
+  local pm7_riskyhdl_s                = strtrim(string(scalar(pm7_riskyhdl),                "%9.3f"))
+  local pm7_anymetab_s                = strtrim(string(scalar(pm7_anymetab),                "%9.3f"))
+  local pm7_riskydiastolic_s          = strtrim(string(scalar(pm7_riskydiastolic),          "%9.3f"))
+  local pm7_riskysystolic_s           = strtrim(string(scalar(pm7_riskysystolic),           "%9.3f"))
+  local pm7_riskypulse_s              = strtrim(string(scalar(pm7_riskypulse),              "%9.3f"))
+  local pm7_anycardio_s               = strtrim(string(scalar(pm7_anycardio),               "%9.3f"))
+  local pm7_riskyAlbumin_s            = strtrim(string(scalar(pm7_riskyAlbumin),            "%9.3f"))
+  local pm7_riskycrp_s                = strtrim(string(scalar(pm7_riskycrp),                "%9.3f"))
+  local pm7_anyinflamation_s          = strtrim(string(scalar(pm7_anyinflamation),          "%9.3f"))
+
+  // ---- Write Tab7 LaTeX ----
+
   file open tab7 using `outPath'Tables/Tab7.tex, write replace
   file write tab7 "\begin{table}[htbp]" _n
   file write tab7 "\centering" _n
-  file write tab7 "\caption{Regression-Adjusted DD and DDD Estimates for Individual Biomarkers, Women Aged 21--40}" _n
-  file write tab7 "\begin{tabular}{lccc}" _n
+  file write tab7 "\caption{Table 7: Regression-Adjusted DD and DDD Estimates for Individual Biomarkers, Women Aged 21--40}" _n
+  file write tab7 "\begin{tabular}{lcccc}" _n  // 4 columns: premean | DD | DDD | 2+ vs 0
   file write tab7 "\toprule" _n
-  file write tab7 " & Preexpansion mean & & \\" _n
-  file write tab7 "Outcome & (treatment group) & DD & DDD \\" _n
+  file write tab7 " & Preexpansion mean & & & \\" _n
+  file write tab7 "Outcome & (treatment group) & DD & DDD & Two Children vs.\ No Children \\" _n
   file write tab7 "\midrule" _n
 
-  // Panel A
-  file write tab7 "\multicolumn{4}{l}{\textit{Panel A. Metabolic biomarkers}} \\" _n
+  // ---- Panel A: Metabolic biomarkers ----
+  file write tab7 "\multicolumn{5}{l}{\textit{Panel A. Metabolic biomarkers}} \\" _n
   file write tab7 "\addlinespace" _n
 
-  // row macro: name premeanscalar ddscalar dddscalar
   // HbA1c
   file write tab7 "Risky glycated hemoglobin"
   file write tab7 " & `pm7_riskyglycatedhemoglobin_s\'"
   file write tab7 " & `b7dd_hba1c_s\'"
-  file write tab7 " & `b7ddd_hba1c_s\' \\" _n
-  file write tab7 " & & (`se7dd_hba1c_s\') & (`se7ddd_hba1c_s\') \\" _n
-  file write tab7 " & & [`p7dd_hba1c_s\'] & [`p7ddd_hba1c_s\'] \\" _n
+  file write tab7 " & `b7ddd_hba1c_s\'"
+  file write tab7 " & `b7kids_hba1c_s\' \\" _n
+  file write tab7 " & & (`se7dd_hba1c_s\') & (`se7ddd_hba1c_s\') & (`se7kids_hba1c_s\') \\" _n
+  file write tab7 " & & [`p7dd_hba1c_s\'] & [`p7ddd_hba1c_s\'] & [`p7kids_hba1c_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
+  // Total cholesterol
   file write tab7 "Risky total cholesterol"
   file write tab7 " & `pm7_riskyCholest_s\'"
   file write tab7 " & `b7dd_cholest_s\'"
-  file write tab7 " & `b7ddd_cholest_s\' \\" _n
-  file write tab7 " & & (`se7dd_cholest_s\') & (`se7ddd_cholest_s\') \\" _n
-  file write tab7 " & & [`p7dd_cholest_s\'] & [`p7ddd_cholest_s\'] \\" _n
+  file write tab7 " & `b7ddd_cholest_s\'"
+  file write tab7 " & `b7kids_cholest_s\' \\" _n
+  file write tab7 " & & (`se7dd_cholest_s\') & (`se7ddd_cholest_s\') & (`se7kids_cholest_s\') \\" _n
+  file write tab7 " & & [`p7dd_cholest_s\'] & [`p7ddd_cholest_s\'] & [`p7kids_cholest_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
+  // HDL
   file write tab7 "Risky HDL"
   file write tab7 " & `pm7_riskyhdl_s\'"
   file write tab7 " & `b7dd_hdl_s\'"
-  file write tab7 " & `b7ddd_hdl_s\' \\" _n
-  file write tab7 " & & (`se7dd_hdl_s\') & (`se7ddd_hdl_s\') \\" _n
-  file write tab7 " & & [`p7dd_hdl_s\'] & [`p7ddd_hdl_s\'] \\" _n
+  file write tab7 " & `b7ddd_hdl_s\'"
+  file write tab7 " & `b7kids_hdl_s\' \\" _n
+  file write tab7 " & & (`se7dd_hdl_s\') & (`se7ddd_hdl_s\') & (`se7kids_hdl_s\') \\" _n
+  file write tab7 " & & [`p7dd_hdl_s\'] & [`p7ddd_hdl_s\'] & [`p7kids_hdl_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
+  // Any metabolic
   file write tab7 "Any risky metabolic condition"
   file write tab7 " & `pm7_anymetab_s\'"
   file write tab7 " & `b7dd_anymetab_s\'"
-  file write tab7 " & `b7ddd_anymetab_s\' \\" _n
-  file write tab7 " & & (`se7dd_anymetab_s\') & (`se7ddd_anymetab_s\') \\" _n
-  file write tab7 " & & [`p7dd_anymetab_s\'] & [`p7ddd_anymetab_s\'] \\" _n
+  file write tab7 " & `b7ddd_anymetab_s\'"
+  file write tab7 " & `b7kids_anymetab_s\' \\" _n
+  file write tab7 " & & (`se7dd_anymetab_s\') & (`se7ddd_anymetab_s\') & (`se7kids_anymetab_s\') \\" _n
+  file write tab7 " & & [`p7dd_anymetab_s\'] & [`p7ddd_anymetab_s\'] & [`p7kids_anymetab_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
+  // Poisson count
   file write tab7 "Poisson: number of risky metabolic conditions"
-  file write tab7 " & & `b7dd_metabsum_pois_s\'"
-  file write tab7 " & `b7ddd_metabsum_pois_s\' \\" _n
-  file write tab7 " & & (`se7dd_metabsum_pois_s\') & (`se7ddd_metabsum_pois_s\') \\" _n
-  file write tab7 " & & [`p7dd_metabsum_pois_s\'] & [`p7ddd_metabsum_pois_s\'] \\" _n
+  file write tab7 " & "
+  file write tab7 " & `b7dd_metabsum_pois_s\'"
+  file write tab7 " & `b7ddd_metabsum_pois_s\'"
+  file write tab7 " & `b7kids_metabsum_pois_s\' \\" _n
+  file write tab7 " & & (`se7dd_metabsum_pois_s\') & (`se7ddd_metabsum_pois_s\') & (`se7kids_metabsum_pois_s\') \\" _n
+  file write tab7 " & & [`p7dd_metabsum_pois_s\'] & [`p7ddd_metabsum_pois_s\'] & [`p7kids_metabsum_pois_s\'] \\" _n
 
-  // Panel B
+  // ---- Panel B: Cardiovascular biomarkers ----
   file write tab7 "\midrule" _n
-  file write tab7 "\multicolumn{4}{l}{\textit{Panel B. Cardiovascular biomarkers}} \\" _n
+  file write tab7 "\multicolumn{5}{l}{\textit{Panel B. Cardiovascular biomarkers}} \\" _n
   file write tab7 "\addlinespace" _n
 
+  // Diastolic
   file write tab7 "Risky diastolic blood pressure"
   file write tab7 " & `pm7_riskydiastolic_s\'"
   file write tab7 " & `b7dd_diastolic_s\'"
-  file write tab7 " & `b7ddd_diastolic_s\' \\" _n
-  file write tab7 " & & (`se7dd_diastolic_s\') & (`se7ddd_diastolic_s\') \\" _n
-  file write tab7 " & & [`p7dd_diastolic_s\'] & [`p7ddd_diastolic_s\'] \\" _n
+  file write tab7 " & `b7ddd_diastolic_s\'"
+  file write tab7 " & `b7kids_diastolic_s\' \\" _n
+  file write tab7 " & & (`se7dd_diastolic_s\') & (`se7ddd_diastolic_s\') & (`se7kids_diastolic_s\') \\" _n
+  file write tab7 " & & [`p7dd_diastolic_s\'] & [`p7ddd_diastolic_s\'] & [`p7kids_diastolic_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
+  // Systolic
   file write tab7 "Risky systolic blood pressure"
   file write tab7 " & `pm7_riskysystolic_s\'"
   file write tab7 " & `b7dd_systolic_s\'"
-  file write tab7 " & `b7ddd_systolic_s\' \\" _n
-  file write tab7 " & & (`se7dd_systolic_s\') & (`se7ddd_systolic_s\') \\" _n
-  file write tab7 " & & [`p7dd_systolic_s\'] & [`p7ddd_systolic_s\'] \\" _n
+  file write tab7 " & `b7ddd_systolic_s\'"
+  file write tab7 " & `b7kids_systolic_s\' \\" _n
+  file write tab7 " & & (`se7dd_systolic_s\') & (`se7ddd_systolic_s\') & (`se7kids_systolic_s\') \\" _n
+  file write tab7 " & & [`p7dd_systolic_s\'] & [`p7ddd_systolic_s\'] & [`p7kids_systolic_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
+  // Pulse
   file write tab7 "Risky pulse"
   file write tab7 " & `pm7_riskypulse_s\'"
   file write tab7 " & `b7dd_pulse_s\'"
-  file write tab7 " & `b7ddd_pulse_s\' \\" _n
-  file write tab7 " & & (`se7dd_pulse_s\') & (`se7ddd_pulse_s\') \\" _n
-  file write tab7 " & & [`p7dd_pulse_s\'] & [`p7ddd_pulse_s\'] \\" _n
+  file write tab7 " & `b7ddd_pulse_s\'"
+  file write tab7 " & `b7kids_pulse_s\' \\" _n
+  file write tab7 " & & (`se7dd_pulse_s\') & (`se7ddd_pulse_s\') & (`se7kids_pulse_s\') \\" _n
+  file write tab7 " & & [`p7dd_pulse_s\'] & [`p7ddd_pulse_s\'] & [`p7kids_pulse_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
+  // Any cardiovascular
   file write tab7 "Any risky cardiovascular condition"
   file write tab7 " & `pm7_anycardio_s\'"
   file write tab7 " & `b7dd_anycardio_s\'"
-  file write tab7 " & `b7ddd_anycardio_s\' \\" _n
-  file write tab7 " & & (`se7dd_anycardio_s\') & (`se7ddd_anycardio_s\') \\" _n
-  file write tab7 " & & [`p7dd_anycardio_s\'] & [`p7ddd_anycardio_s\'] \\" _n
+  file write tab7 " & `b7ddd_anycardio_s\'"
+  file write tab7 " & `b7kids_anycardio_s\' \\" _n
+  file write tab7 " & & (`se7dd_anycardio_s\') & (`se7ddd_anycardio_s\') & (`se7kids_anycardio_s\') \\" _n
+  file write tab7 " & & [`p7dd_anycardio_s\'] & [`p7ddd_anycardio_s\'] & [`p7kids_anycardio_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
+  // Poisson count
   file write tab7 "Poisson: number of risky cardiovascular conditions"
-  file write tab7 " & & `b7dd_cardiosum_pois_s\'"
-  file write tab7 " & `b7ddd_cardiosum_pois_s\' \\" _n
-  file write tab7 " & & (`se7dd_cardiosum_pois_s\') & (`se7ddd_cardiosum_pois_s\') \\" _n
-  file write tab7 " & & [`p7dd_cardiosum_pois_s\'] & [`p7ddd_cardiosum_pois_s\'] \\" _n
+  file write tab7 " & "
+  file write tab7 " & `b7dd_cardiosum_pois_s\'"
+  file write tab7 " & `b7ddd_cardiosum_pois_s\'"
+  file write tab7 " & `b7kids_cardiosum_pois_s\' \\" _n
+  file write tab7 " & & (`se7dd_cardiosum_pois_s\') & (`se7ddd_cardiosum_pois_s\') & (`se7kids_cardiosum_pois_s\') \\" _n
+  file write tab7 " & & [`p7dd_cardiosum_pois_s\'] & [`p7ddd_cardiosum_pois_s\'] & [`p7kids_cardiosum_pois_s\'] \\" _n
 
-  // Panel C
+  // ---- Panel C: Inflammation biomarkers ----
   file write tab7 "\midrule" _n
-  file write tab7 "\multicolumn{4}{l}{\textit{Panel C. Inflammation biomarkers}} \\" _n
+  file write tab7 "\multicolumn{5}{l}{\textit{Panel C. Inflammation biomarkers}} \\" _n
   file write tab7 "\addlinespace" _n
 
+  // Albumin
   file write tab7 "Risky albumin"
   file write tab7 " & `pm7_riskyAlbumin_s\'"
   file write tab7 " & `b7dd_albumin_s\'"
-  file write tab7 " & `b7ddd_albumin_s\' \\" _n
-  file write tab7 " & & (`se7dd_albumin_s\') & (`se7ddd_albumin_s\') \\" _n
-  file write tab7 " & & [`p7dd_albumin_s\'] & [`p7ddd_albumin_s\'] \\" _n
+  file write tab7 " & `b7ddd_albumin_s\'"
+  file write tab7 " & `b7kids_albumin_s\' \\" _n
+  file write tab7 " & & (`se7dd_albumin_s\') & (`se7ddd_albumin_s\') & (`se7kids_albumin_s\') \\" _n
+  file write tab7 " & & [`p7dd_albumin_s\'] & [`p7ddd_albumin_s\'] & [`p7kids_albumin_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
+  // CRP
   file write tab7 "Risky C-reactive protein"
   file write tab7 " & `pm7_riskycrp_s\'"
   file write tab7 " & `b7dd_crp_s\'"
-  file write tab7 " & `b7ddd_crp_s\' \\" _n
-  file write tab7 " & & (`se7dd_crp_s\') & (`se7ddd_crp_s\') \\" _n
-  file write tab7 " & & [`p7dd_crp_s\'] & [`p7ddd_crp_s\'] \\" _n
+  file write tab7 " & `b7ddd_crp_s\'"
+  file write tab7 " & `b7kids_crp_s\' \\" _n
+  file write tab7 " & & (`se7dd_crp_s\') & (`se7ddd_crp_s\') & (`se7kids_crp_s\') \\" _n
+  file write tab7 " & & [`p7dd_crp_s\'] & [`p7ddd_crp_s\'] & [`p7kids_crp_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
+  // Any inflammatory
   file write tab7 "Any risky inflammatory condition"
   file write tab7 " & `pm7_anyinflamation_s\'"
   file write tab7 " & `b7dd_anyinfl_s\'"
-  file write tab7 " & `b7ddd_anyinfl_s\' \\" _n
-  file write tab7 " & & (`se7dd_anyinfl_s\') & (`se7ddd_anyinfl_s\') \\" _n
-  file write tab7 " & & [`p7dd_anyinfl_s\'] & [`p7ddd_anyinfl_s\'] \\" _n
+  file write tab7 " & `b7ddd_anyinfl_s\'"
+  file write tab7 " & `b7kids_anyinfl_s\' \\" _n
+  file write tab7 " & & (`se7dd_anyinfl_s\') & (`se7ddd_anyinfl_s\') & (`se7kids_anyinfl_s\') \\" _n
+  file write tab7 " & & [`p7dd_anyinfl_s\'] & [`p7ddd_anyinfl_s\'] & [`p7kids_anyinfl_s\'] \\" _n
   file write tab7 "\addlinespace" _n
 
+  // Poisson count
   file write tab7 "Poisson: number of risky inflammatory conditions"
-  file write tab7 " & & `b7dd_inflsum_pois_s\'"
-  file write tab7 " & `b7ddd_inflsum_pois_s\' \\" _n
-  file write tab7 " & & (`se7dd_inflsum_pois_s\') & (`se7ddd_inflsum_pois_s\') \\" _n
-  file write tab7 " & & [`p7dd_inflsum_pois_s\'] & [`p7ddd_inflsum_pois_s\'] \\" _n
+  file write tab7 " & "
+  file write tab7 " & `b7dd_inflsum_pois_s\'"
+  file write tab7 " & `b7ddd_inflsum_pois_s\'"
+  file write tab7 " & `b7kids_inflsum_pois_s\' \\" _n
+  file write tab7 " & & (`se7dd_inflsum_pois_s\') & (`se7ddd_inflsum_pois_s\') & (`se7kids_inflsum_pois_s\') \\" _n
+  file write tab7 " & & [`p7dd_inflsum_pois_s\'] & [`p7ddd_inflsum_pois_s\'] & [`p7kids_inflsum_pois_s\'] \\" _n
 
   file write tab7 "\bottomrule" _n
   file write tab7 "\end{tabular}" _n
@@ -1538,7 +1865,8 @@ if `Tab7' {
   file write tab7 "\textit{Notes:} Standard errors in parentheses; \$p\$-values in square brackets." _n
   file write tab7 " All standard errors allow for arbitrary heteroskedasticity." _n
   file write tab7 " DD covariates: dummies for age, race, marital status, and survey year." _n
-  file write tab7 " DDD covariates add interactions between education$\times$year, kids$\times$year, and education$\times$kids." _n
+  file write tab7 " DDD covariates add interactions between education\$\times\$year, kids\$\times\$year, and education\$\times\$kids." _n
+  file write tab7 " Column 4 uses stacked NHANES data and compares women with 2+ children to women with no children." _n
   file write tab7 "\end{minipage}" _n
   file write tab7 "\end{table}" _n
   file close tab7
@@ -1782,42 +2110,42 @@ if `ARC' {
 
   // ---- Write ARC LaTeX ----
 
-  local arc_b1_at_s = strtrim(string(scalar(arc_b1_at), "%9.4f"))
-  local arc_b1_ex_s = strtrim(string(scalar(arc_b1_ex), "%9.4f"))
-  local arc_b1_me_s = strtrim(string(scalar(arc_b1_me), "%9.4f"))
-  local arc_b1_ph_s = strtrim(string(scalar(arc_b1_ph), "%9.4f"))
-  local arc_b2_at_s = strtrim(string(scalar(arc_b2_at), "%9.4f"))
-  local arc_b2_ex_s = strtrim(string(scalar(arc_b2_ex), "%9.4f"))
-  local arc_b2_me_s = strtrim(string(scalar(arc_b2_me), "%9.4f"))
-  local arc_b2_ph_s = strtrim(string(scalar(arc_b2_ph), "%9.4f"))
-  local arc_b3_at_s = strtrim(string(scalar(arc_b3_at), "%9.4f"))
-  local arc_b3_ex_s = strtrim(string(scalar(arc_b3_ex), "%9.4f"))
-  local arc_b3_me_s = strtrim(string(scalar(arc_b3_me), "%9.4f"))
-  local arc_b3_ph_s = strtrim(string(scalar(arc_b3_ph), "%9.4f"))
-  local arc_p1_at_s = strtrim(string(scalar(arc_p1_at), "%9.4f"))
-  local arc_p1_ex_s = strtrim(string(scalar(arc_p1_ex), "%9.4f"))
-  local arc_p1_me_s = strtrim(string(scalar(arc_p1_me), "%9.4f"))
-  local arc_p1_ph_s = strtrim(string(scalar(arc_p1_ph), "%9.4f"))
-  local arc_p2_at_s = strtrim(string(scalar(arc_p2_at), "%9.4f"))
-  local arc_p2_ex_s = strtrim(string(scalar(arc_p2_ex), "%9.4f"))
-  local arc_p2_me_s = strtrim(string(scalar(arc_p2_me), "%9.4f"))
-  local arc_p2_ph_s = strtrim(string(scalar(arc_p2_ph), "%9.4f"))
-  local arc_p3_at_s = strtrim(string(scalar(arc_p3_at), "%9.4f"))
-  local arc_p3_ex_s = strtrim(string(scalar(arc_p3_ex), "%9.4f"))
-  local arc_p3_me_s = strtrim(string(scalar(arc_p3_me), "%9.4f"))
-  local arc_p3_ph_s = strtrim(string(scalar(arc_p3_ph), "%9.4f"))
-  local arc_se1_at_s = strtrim(string(scalar(arc_se1_at), "%9.4f"))
-  local arc_se1_ex_s = strtrim(string(scalar(arc_se1_ex), "%9.4f"))
-  local arc_se1_me_s = strtrim(string(scalar(arc_se1_me), "%9.4f"))
-  local arc_se1_ph_s = strtrim(string(scalar(arc_se1_ph), "%9.4f"))
-  local arc_se2_at_s = strtrim(string(scalar(arc_se2_at), "%9.4f"))
-  local arc_se2_ex_s = strtrim(string(scalar(arc_se2_ex), "%9.4f"))
-  local arc_se2_me_s = strtrim(string(scalar(arc_se2_me), "%9.4f"))
-  local arc_se2_ph_s = strtrim(string(scalar(arc_se2_ph), "%9.4f"))
-  local arc_se3_at_s = strtrim(string(scalar(arc_se3_at), "%9.4f"))
-  local arc_se3_ex_s = strtrim(string(scalar(arc_se3_ex), "%9.4f"))
-  local arc_se3_me_s = strtrim(string(scalar(arc_se3_me), "%9.4f"))
-  local arc_se3_ph_s = strtrim(string(scalar(arc_se3_ph), "%9.4f"))
+  local arc_b1_at_s = strtrim(string(scalar(arc_b1_at), "%9.3f"))
+  local arc_b1_ex_s = strtrim(string(scalar(arc_b1_ex), "%9.3f"))
+  local arc_b1_me_s = strtrim(string(scalar(arc_b1_me), "%9.3f"))
+  local arc_b1_ph_s = strtrim(string(scalar(arc_b1_ph), "%9.3f"))
+  local arc_b2_at_s = strtrim(string(scalar(arc_b2_at), "%9.3f"))
+  local arc_b2_ex_s = strtrim(string(scalar(arc_b2_ex), "%9.3f"))
+  local arc_b2_me_s = strtrim(string(scalar(arc_b2_me), "%9.3f"))
+  local arc_b2_ph_s = strtrim(string(scalar(arc_b2_ph), "%9.3f"))
+  local arc_b3_at_s = strtrim(string(scalar(arc_b3_at), "%9.3f"))
+  local arc_b3_ex_s = strtrim(string(scalar(arc_b3_ex), "%9.3f"))
+  local arc_b3_me_s = strtrim(string(scalar(arc_b3_me), "%9.3f"))
+  local arc_b3_ph_s = strtrim(string(scalar(arc_b3_ph), "%9.3f"))
+  local arc_p1_at_s = strtrim(string(scalar(arc_p1_at), "%9.3f"))
+  local arc_p1_ex_s = strtrim(string(scalar(arc_p1_ex), "%9.3f"))
+  local arc_p1_me_s = strtrim(string(scalar(arc_p1_me), "%9.3f"))
+  local arc_p1_ph_s = strtrim(string(scalar(arc_p1_ph), "%9.3f"))
+  local arc_p2_at_s = strtrim(string(scalar(arc_p2_at), "%9.3f"))
+  local arc_p2_ex_s = strtrim(string(scalar(arc_p2_ex), "%9.3f"))
+  local arc_p2_me_s = strtrim(string(scalar(arc_p2_me), "%9.3f"))
+  local arc_p2_ph_s = strtrim(string(scalar(arc_p2_ph), "%9.3f"))
+  local arc_p3_at_s = strtrim(string(scalar(arc_p3_at), "%9.3f"))
+  local arc_p3_ex_s = strtrim(string(scalar(arc_p3_ex), "%9.3f"))
+  local arc_p3_me_s = strtrim(string(scalar(arc_p3_me), "%9.3f"))
+  local arc_p3_ph_s = strtrim(string(scalar(arc_p3_ph), "%9.3f"))
+  local arc_se1_at_s = strtrim(string(scalar(arc_se1_at), "%9.3f"))
+  local arc_se1_ex_s = strtrim(string(scalar(arc_se1_ex), "%9.3f"))
+  local arc_se1_me_s = strtrim(string(scalar(arc_se1_me), "%9.3f"))
+  local arc_se1_ph_s = strtrim(string(scalar(arc_se1_ph), "%9.3f"))
+  local arc_se2_at_s = strtrim(string(scalar(arc_se2_at), "%9.3f"))
+  local arc_se2_ex_s = strtrim(string(scalar(arc_se2_ex), "%9.3f"))
+  local arc_se2_me_s = strtrim(string(scalar(arc_se2_me), "%9.3f"))
+  local arc_se2_ph_s = strtrim(string(scalar(arc_se2_ph), "%9.3f"))
+  local arc_se3_at_s = strtrim(string(scalar(arc_se3_at), "%9.3f"))
+  local arc_se3_ex_s = strtrim(string(scalar(arc_se3_ex), "%9.3f"))
+  local arc_se3_me_s = strtrim(string(scalar(arc_se3_me), "%9.3f"))
+  local arc_se3_ph_s = strtrim(string(scalar(arc_se3_ph), "%9.3f"))
   file open tabarc using `outPath'Tables/ARC.tex, write replace
   file write tabarc "\begin{table}[htbp]" _n
   file write tabarc "\centering" _n
@@ -1892,10 +2220,8 @@ if `ARC' {
   file close tabarc
 }
 // Event Study following reg-adj DiD (Eq. 1)
-// - This section will implement the extension
-// task. The code chunk will plot and save the
-// delta coefficients and 95% C.I. for 4 main
-// outcomes (working, excel/vgood, poor mental
+// - This section will implement the extension task. The code chunk will plot and save the
+// delta coefficients and 95% C.I. for 4 main outcomes (working, excel/vgood, poor mental
 // health, poor physical health).
 
 if `Extension' {

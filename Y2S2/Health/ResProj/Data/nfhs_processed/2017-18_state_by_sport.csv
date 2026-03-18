@@ -1,0 +1,1364 @@
+survey_year,gender,state,sport,schools,participants
+2017-18,Boys,Alabama,Baseball,396.0,15096
+2017-18,Boys,Alabama,Basketball,413.0,13698
+2017-18,Boys,Alabama,Bowling,97.0,734
+2017-18,Boys,Alaska,Baseball,32.0,713
+2017-18,Boys,Alaska,Basketball,146.0,2258
+2017-18,Boys,Alaska,Bowling,8.0,70
+2017-18,Boys,Alaska,Competitive Spirit Squads,1.0,14
+2017-18,Boys,Arizona,Baseball,241.0,7536
+2017-18,Boys,Arizona,Basketball,258.0,8551
+2017-18,Boys,Arizona,Bowling,,101
+2017-18,Boys,Arizona,Competitive Spirit Squads,101.0,261
+2017-18,Boys,Arkansas,Baseball,258.0,5571
+2017-18,Boys,Arkansas,Basketball,277.0,5446
+2017-18,Boys,Arkansas,Bowling,69.0,712
+2017-18,Boys,Arkansas,Competitive Spirit Squads,24.0,88
+2017-18,Boys,Colorado,Baseball,286.0,8121
+2017-18,Boys,Colorado,Basketball,336.0,9204
+2017-18,Boys,Colorado,Bowling,,69
+2017-18,Boys,Colorado,Competitive Spirit Squads,69.0,181
+2017-18,Boys,Connecticut,Baseball,177.0,5698
+2017-18,Boys,Connecticut,Basketball,183.0,5374
+2017-18,Boys,Connecticut,Bowling,,41
+2017-18,Boys,Connecticut,Competitive Spirit Squads,41.0,173
+2017-18,Boys,Delaware,Baseball,53.0,1469
+2017-18,Boys,Delaware,Basketball,59.0,1775
+2017-18,Boys,Delaware,Competitive Spirit Squads,,1
+2017-18,Boys,District of Columbia,Baseball,29.0,669
+2017-18,Boys,District of Columbia,Basketball,41.0,1045
+2017-18,Boys,Florida,Baseball,643.0,20417
+2017-18,Boys,Florida,Basketball,742.0,22262
+2017-18,Boys,Florida,Bowling,190.0,1559
+2017-18,Boys,Florida,Competitive Spirit Squads,,333
+2017-18,Boys,Georgia,Baseball,429.0,12493
+2017-18,Boys,Georgia,Basketball,444.0,13021
+2017-18,Boys,Georgia,Bowling,,32
+2017-18,Boys,Georgia,Competitive Spirit Squads,32.0,89
+2017-18,Boys,Hawaii,Baseball,60.0,1656
+2017-18,Boys,Hawaii,Basketball,66.0,1727
+2017-18,Boys,Hawaii,Bowling,50.0,492
+2017-18,Boys,Hawaii,Competitive Spirit Squads,17.0,34
+2017-18,Boys,Idaho,Baseball,105.0,2556
+2017-18,Boys,Idaho,Basketball,154.0,3824
+2017-18,Boys,Idaho,Bowling,,48
+2017-18,Boys,Idaho,Competitive Spirit Squads,48.0,128
+2017-18,Boys,Illinois,Baseball,646.0,22289
+2017-18,Boys,Illinois,Basketball,739.0,24244
+2017-18,Boys,Illinois,Bowling,203.0,2789
+2017-18,Boys,Iowa,Baseball,340.0,10463
+2017-18,Boys,Iowa,Basketball,355.0,11441
+2017-18,Boys,Iowa,Bowling,104.0,1848
+2017-18,Boys,Kansas,Baseball,251.0,6671
+2017-18,Boys,Kansas,Basketball,352.0,8829
+2017-18,Boys,Kansas,Bowling,76.0,964
+2017-18,Boys,Kentucky,Baseball,261.0,7230
+2017-18,Boys,Kentucky,Basketball,270.0,7061
+2017-18,Boys,Kentucky,Bowling,99.0,1086
+2017-18,Boys,Kentucky,Competitive Spirit Squads,,175
+2017-18,Boys,Louisiana,Baseball,353.0,8640
+2017-18,Boys,Louisiana,Basketball,381.0,7890
+2017-18,Boys,Louisiana,Bowling,98.0,630
+2017-18,Boys,Maine,Baseball,131.0,3086
+2017-18,Boys,Maine,Basketball,138.0,3536
+2017-18,Boys,Maine,Bowling,4.0,21
+2017-18,Boys,Maine,Competitive Spirit Squads,34.0,43
+2017-18,Boys,Maryland,Baseball,186.0,5200
+2017-18,Boys,Maryland,Basketball,195.0,5650
+2017-18,Boys,Maryland,Bowling,16.0,139
+2017-18,Boys,Michigan,Baseball,642.0,17668
+2017-18,Boys,Michigan,Basketball,730.0,21367
+2017-18,Boys,Michigan,Bowling,385.0,4098
+2017-18,Boys,Minnesota,Baseball,437.0,13736
+2017-18,Boys,Minnesota,Basketball,472.0,13847
+2017-18,Boys,Minnesota,Bowling,62.0,709
+2017-18,Boys,Minnesota,Competitive Spirit Squads,20.0,130
+2017-18,Boys,Missouri,Baseball,606.0,14914
+2017-18,Boys,Missouri,Basketball,560.0,14313
+2017-18,Boys,Missouri,Bowling,9.0,38
+2017-18,Boys,Montana,Baseball,,174
+2017-18,Boys,Montana,Basketball,174.0,3410
+2017-18,Boys,Nebraska,Baseball,81.0,2500
+2017-18,Boys,Nebraska,Basketball,299.0,7208
+2017-18,Boys,Nevada,Baseball,93.0,2482
+2017-18,Boys,Nevada,Basketball,107.0,3057
+2017-18,Boys,Nevada,Bowling,37.0,342
+2017-18,Boys,New Hampshire,Baseball,84.0,2352
+2017-18,Boys,New Hampshire,Basketball,87.0,2542
+2017-18,Boys,New Hampshire,Bowling,15.0,142
+2017-18,Boys,New Hampshire,Competitive Spirit Squads,89.0,29
+2017-18,Boys,New Jersey,Baseball,392.0,15103
+2017-18,Boys,New Jersey,Basketball,409.0,15365
+2017-18,Boys,New Jersey,Bowling,233.0,2875
+2017-18,Boys,New Jersey,Competitive Spirit Squads,76.0,122
+2017-18,Boys,New York,Baseball,692.0,19104
+2017-18,Boys,New York,Basketball,750.0,20078
+2017-18,Boys,New York,Bowling,381.0,4300
+2017-18,Boys,New York,Competitive Spirit Squads,,120
+2017-18,Boys,North Carolina,Baseball,401.0,10959
+2017-18,Boys,North Carolina,Basketball,412.0,11063
+2017-18,Boys,North Dakota,Baseball,119.0,1571
+2017-18,Boys,North Dakota,Basketball,163.0,2977
+2017-18,Boys,Ohio,Baseball,775.0,22580
+2017-18,Boys,Ohio,Basketball,791.0,23111
+2017-18,Boys,Ohio,Bowling,418.0,5216
+2017-18,Boys,Ohio,Competitive Spirit Squads,,595
+2017-18,Boys,Oklahoma,Baseball,450.0,8685
+2017-18,Boys,Oklahoma,Basketball,474.0,10093
+2017-18,Boys,Oklahoma,Bowling,,71
+2017-18,Boys,Oklahoma,Competitive Spirit Squads,71.0,117
+2017-18,Boys,Oregon,Baseball,226.0,5596
+2017-18,Boys,Oregon,Basketball,288.0,7620
+2017-18,Boys,Oregon,Competitive Spirit Squads,,168
+2017-18,Boys,Oregon,Bowling,150.0,1500
+2017-18,Boys,Rhode Island,Baseball,48.0,1476
+2017-18,Boys,Rhode Island,Basketball,48.0,1847
+2017-18,Boys,Rhode Island,Competitive Spirit Squads,,10
+2017-18,Boys,South Carolina,Baseball,206.0,6924
+2017-18,Boys,South Carolina,Basketball,214.0,6720
+2017-18,Boys,Tennessee,Baseball,375.0,8877
+2017-18,Boys,Tennessee,Basketball,396.0,9034
+2017-18,Boys,Tennessee,Bowling,151.0,1501
+2017-18,Boys,Texas,Baseball,1276.0,48706
+2017-18,Boys,Texas,Basketball,1523.0,65977
+2017-18,Boys,Utah,Baseball,129.0,3687
+2017-18,Boys,Utah,Basketball,139.0,3883
+2017-18,Boys,Vermont,Baseball,28.0,597
+2017-18,Boys,Vermont,Basketball,33.0,823
+2017-18,Boys,Vermont,Bowling,6.0,33
+2017-18,Boys,Vermont,Competitive Spirit Squads,2.0,13
+2017-18,Boys,Virginia,Baseball,309.0,9097
+2017-18,Boys,Virginia,Basketball,315.0,9387
+2017-18,Boys,Virginia,Bowling,,48
+2017-18,Boys,Virginia,Competitive Spirit Squads,48.0,72
+2017-18,Boys,Washington,Baseball,346.0,10164
+2017-18,Boys,Washington,Basketball,370.0,12023
+2017-18,Boys,Wisconsin,Baseball,439.0,12428
+2017-18,Boys,Wisconsin,Basketball,486.0,14343
+2017-18,Boys,Wyoming,Baseball,,71
+2017-18,Boys,Wyoming,Basketball,71.0,1793
+2017-18,Boys,Wyoming,Bowling,,34
+2017-18,Boys,Wyoming,Competitive Spirit Squads,34.0,44
+2017-18,Boys,Alabama,Cross Country,256.0,3667
+2017-18,Boys,Alabama,Football 11-player,386.0,30882
+2017-18,Boys,Alabama,Golf,286.0,1648
+2017-18,Boys,Arizona,Cross Country,228.0,3556
+2017-18,Boys,Arizona,Football 11-player,205.0,17510
+2017-18,Boys,Arizona,Golf,199.0,1658
+2017-18,Boys,California,Cross Country,1311.0,32951
+2017-18,Boys,California,Football 11-player,877.0,94286
+2017-18,Boys,California,Golf,986.0,10672
+2017-18,Boys,California,Gymnastics,1.0,1
+2017-18,Boys,Connecticut,Cross Country,174.0,4106
+2017-18,Boys,Connecticut,Football 11-player,144.0,9196
+2017-18,Boys,Connecticut,Golf,55.0,1568
+2017-18,Boys,Delaware,Cross Country,51.0,1139
+2017-18,Boys,Delaware,Football 11-player,45.0,2868
+2017-18,Boys,Delaware,Golf,45.0,398
+2017-18,Boys,District of Columbia,Cross Country,27.0,478
+2017-18,Boys,District of Columbia,Football 11-player,25.0,1346
+2017-18,Boys,District of Columbia,Golf,13.0,130
+2017-18,Boys,Florida,Cross Country,595.0,8706
+2017-18,Boys,Florida,Football 11-player,597.0,41852
+2017-18,Boys,Florida,Golf,513.0,4145
+2017-18,Boys,Georgia,Cross Country,417.0,8264
+2017-18,Boys,Georgia,Football 11-player,415.0,33027
+2017-18,Boys,Georgia,Golf,388.0,3241
+2017-18,Boys,Hawaii,Cross Country,70.0,1170
+2017-18,Boys,Hawaii,Football 11-player,54.0,4167
+2017-18,Boys,Hawaii,Golf,53.0,348
+2017-18,Boys,Idaho,Cross Country,118.0,2011
+2017-18,Boys,Idaho,Football 11-player,86.0,6730
+2017-18,Boys,Idaho,Golf,101.0,980
+2017-18,Boys,Illinois,Cross Country,533.0,11665
+2017-18,Boys,Illinois,Football 11-player,539.0,40111
+2017-18,Boys,Illinois,Golf,505.0,7275
+2017-18,Boys,Illinois,Gymnastics,53.0,1380
+2017-18,Boys,Indiana,Cross Country,395.0,5543
+2017-18,Boys,Indiana,Football 11-player,326.0,20849
+2017-18,Boys,Indiana,Golf,354.0,3613
+2017-18,Boys,Iowa,Cross Country,323.0,5689
+2017-18,Boys,Iowa,Football 11-player,272.0,16785
+2017-18,Boys,Iowa,Golf,330.0,4804
+2017-18,Boys,Kansas,Cross Country,295.0,3993
+2017-18,Boys,Kansas,Football 11-player,229.0,12792
+2017-18,Boys,Kansas,Golf,236.0,2621
+2017-18,Boys,Kentucky,Cross Country,242.0,3195
+2017-18,Boys,Kentucky,Football 11-player,221.0,13271
+2017-18,Boys,Kentucky,Golf,239.0,2035
+2017-18,Boys,Louisiana,Cross Country,319.0,2859
+2017-18,Boys,Louisiana,Football 11-player,299.0,19690
+2017-18,Boys,Louisiana,Golf,239.0,965
+2017-18,Boys,Louisiana,Gymnastics,39.0,41
+2017-18,Boys,Maine,Cross Country,109.0,1396
+2017-18,Boys,Maine,Football 11-player,86.0,3443
+2017-18,Boys,Maine,Golf,96.0,1018
+2017-18,Boys,Maryland,Cross Country,181.0,3824
+2017-18,Boys,Maryland,Football 11-player,179.0,12928
+2017-18,Boys,Maryland,Golf,157.0,1161
+2017-18,Boys,Massachusetts,Cross Country,312.0,7108
+2017-18,Boys,Massachusetts,Football 11-player,330.0,18926
+2017-18,Boys,Massachusetts,Golf,289.0,4364
+2017-18,Boys,Massachusetts,Gymnastics,8.0,162
+2017-18,Boys,Minnesota,Cross Country,407.0,7545
+2017-18,Boys,Minnesota,Football 11-player,346.0,23205
+2017-18,Boys,Minnesota,Golf,370.0,5491
+2017-18,Boys,Missouri,Cross Country,406.0,6055
+2017-18,Boys,Missouri,Football 11-player,331.0,20891
+2017-18,Boys,Missouri,Golf,325.0,3848
+2017-18,Boys,Nebraska,Cross Country,240.0,3375
+2017-18,Boys,Nebraska,Football 11-player,153.0,9046
+2017-18,Boys,Nebraska,Golf,245.0,2608
+2017-18,Boys,New Hampshire,Cross Country,73.0,1210
+2017-18,Boys,New Hampshire,Football 11-player,58.0,3339
+2017-18,Boys,New Hampshire,Golf,64.0,816
+2017-18,Boys,New Hampshire,Gymnastics,,26
+2017-18,Boys,New Mexico,Cross Country,116.0,1572
+2017-18,Boys,New Mexico,Football 11-player,121.0,6698
+2017-18,Boys,New Mexico,Golf,79.0,661
+2017-18,Boys,New York,Cross Country,585.0,10388
+2017-18,Boys,New York,Football 11-player,536.0,30210
+2017-18,Boys,New York,Golf,545.0,6698
+2017-18,Boys,New York,Gymnastics,,4
+2017-18,Boys,North Carolina,Cross Country,386.0,6632
+2017-18,Boys,North Carolina,Football 11-player,378.0,28600
+2017-18,Boys,North Carolina,Golf,361.0,3009
+2017-18,Boys,North Dakota,Cross Country,108.0,695
+2017-18,Boys,North Dakota,Football 11-player,86.0,2954
+2017-18,Boys,North Dakota,Golf,131.0,929
+2017-18,Boys,Ohio,Cross Country,729.0,12809
+2017-18,Boys,Ohio,Football 11-player,713.0,42637
+2017-18,Boys,Ohio,Golf,693.0,7491
+2017-18,Boys,Ohio,Gymnastics,,99
+2017-18,Boys,Oklahoma,Cross Country,282.0,3349
+2017-18,Boys,Oklahoma,Football 11-player,259.0,14075
+2017-18,Boys,Oklahoma,Golf,217.0,1625
+2017-18,Boys,Oregon,Cross Country,228.0,3928
+2017-18,Boys,Oregon,Football 11-player,196.0,11708
+2017-18,Boys,Oregon,Golf,162.0,1464
+2017-18,Boys,Pennsylvania,Cross Country,572.0,11440
+2017-18,Boys,Pennsylvania,Football 11-player,569.0,25605
+2017-18,Boys,Pennsylvania,Golf,515.0,5150
+2017-18,Boys,Rhode Island,Cross Country,46.0,966
+2017-18,Boys,Rhode Island,Football 11-player,42.0,2798
+2017-18,Boys,Rhode Island,Golf,37.0,430
+2017-18,Boys,South Carolina,Cross Country,174.0,3478
+2017-18,Boys,South Carolina,Football 11-player,205.0,18204
+2017-18,Boys,South Carolina,Golf,157.0,1637
+2017-18,Boys,South Dakota,Cross Country,159.0,1054
+2017-18,Boys,South Dakota,Football 11-player,68.0,3214
+2017-18,Boys,South Dakota,Golf,132.0,1007
+2017-18,Boys,Tennessee,Cross Country,326.0,4044
+2017-18,Boys,Tennessee,Football 11-player,369.0,21938
+2017-18,Boys,Tennessee,Golf,309.0,2331
+2017-18,Boys,Texas,Cross Country,1457.0,24301
+2017-18,Boys,Texas,Football 11-player,1217.0,164664
+2017-18,Boys,Texas,Golf,1316.0,14129
+2017-18,Boys,Utah,Cross Country,134.0,3215
+2017-18,Boys,Utah,Football 11-player,107.0,8944
+2017-18,Boys,Utah,Golf,124.0,1575
+2017-18,Boys,Vermont,Cross Country,27.0,292
+2017-18,Boys,Vermont,Football 11-player,19.0,676
+2017-18,Boys,Vermont,Golf,20.0,119
+2017-18,Boys,Vermont,Gymnastics,1.0,2
+2017-18,Boys,Virginia,Cross Country,305.0,6239
+2017-18,Boys,Virginia,Football 11-player,307.0,23108
+2017-18,Boys,Virginia,Golf,289.0,2505
+2017-18,Boys,West Virginia,Cross Country,98.0,1162
+2017-18,Boys,West Virginia,Football 11-player,116.0,5710
+2017-18,Boys,West Virginia,Golf,105.0,856
+2017-18,Boys,Wyoming,Cross Country,44.0,565
+2017-18,Boys,Wyoming,Football 11-player,51.0,2616
+2017-18,Boys,Wyoming,Golf,38.0,512
+2017-18,Boys,Alabama,Ice Hockey,30.0,534
+2017-18,Boys,Alabama,Lacrosse,,15
+2017-18,Boys,Alabama,Riflery,15.0,138
+2017-18,Boys,Arizona,Ice Hockey,,14
+2017-18,Boys,Arizona,Lacrosse,14.0,38
+2017-18,Boys,Arizona,Riflery,3.0,24
+2017-18,Boys,California,Ice Hockey,20.0,460
+2017-18,Boys,California,Lacrosse,256.0,9684
+2017-18,Boys,California,Riflery,7.0,99
+2017-18,Boys,California,Skiing Cross Country,22.0,232
+2017-18,Boys,Connecticut,Ice Hockey,56.0,1453
+2017-18,Boys,Connecticut,Lacrosse,99.0,4118
+2017-18,Boys,District of Columbia,Ice Hockey,4.0,147
+2017-18,Boys,District of Columbia,Lacrosse,13.0,376
+2017-18,Boys,District of Columbia,Riflery,1.0,8
+2017-18,Boys,Florida,Ice Hockey,,211
+2017-18,Boys,Florida,Lacrosse,211.0,7355
+2017-18,Boys,Georgia,Ice Hockey,,111
+2017-18,Boys,Georgia,Lacrosse,111.0,4142
+2017-18,Boys,Georgia,Riflery,123.0,746
+2017-18,Boys,Illinois,Ice Hockey,,77
+2017-18,Boys,Illinois,Lacrosse,77.0,3787
+2017-18,Boys,Kentucky,Ice Hockey,,20
+2017-18,Boys,Kentucky,Lacrosse,20.0,697
+2017-18,Boys,Maine,Ice Hockey,65.0,1109
+2017-18,Boys,Maine,Lacrosse,55.0,1834
+2017-18,Boys,Maine,Riflery,3.0,46
+2017-18,Boys,Maine,Skiing Cross Country,39.0,254
+2017-18,Boys,Maryland,Ice Hockey,,165
+2017-18,Boys,Maryland,Lacrosse,165.0,6378
+2017-18,Boys,Massachusetts,Ice Hockey,278.0,7377
+2017-18,Boys,Massachusetts,Lacrosse,250.0,8973
+2017-18,Boys,Massachusetts,Riflery,,87
+2017-18,Boys,Massachusetts,Skiing Cross Country,87.0,1131
+2017-18,Boys,Michigan,Ice Hockey,240.0,3353
+2017-18,Boys,Michigan,Lacrosse,154.0,5161
+2017-18,Boys,Michigan,Riflery,20.0,311
+2017-18,Boys,Michigan,Skiing Cross Country,96.0,830
+2017-18,Boys,Minnesota,Ice Hockey,282.0,5751
+2017-18,Boys,Minnesota,Lacrosse,126.0,3761
+2017-18,Boys,Minnesota,Riflery,,130
+2017-18,Boys,Minnesota,Skiing Cross Country,130.0,1039
+2017-18,Boys,Nebraska,Riflery,,19
+2017-18,Boys,Nebraska,Skiing Cross Country,19.0,247
+2017-18,Boys,New Hampshire,Ice Hockey,42.0,1000
+2017-18,Boys,New Hampshire,Lacrosse,49.0,1971
+2017-18,Boys,New Hampshire,Riflery,,55
+2017-18,Boys,New Hampshire,Skiing Cross Country,55.0,504
+2017-18,Boys,New Mexico,Ice Hockey,144.0,3088
+2017-18,Boys,New Mexico,Lacrosse,334.0,14542
+2017-18,Boys,New Mexico,Riflery,20.0,242
+2017-18,Boys,New Mexico,Skiing Cross Country,91.0,773
+2017-18,Boys,North Carolina,Ice Hockey,,104
+2017-18,Boys,North Carolina,Lacrosse,104.0,3961
+2017-18,Boys,North Dakota,Ice Hockey,40.0,580
+2017-18,Boys,Ohio,Ice Hockey,81.0,2141
+2017-18,Boys,Ohio,Lacrosse,143.0,6337
+2017-18,Boys,Ohio,Riflery,,12
+2017-18,Boys,Pennsylvania,Ice Hockey,,208
+2017-18,Boys,Pennsylvania,Lacrosse,208.0,6656
+2017-18,Boys,Pennsylvania,Riflery,52.0,520
+2017-18,Boys,Rhode Island,Ice Hockey,27.0,812
+2017-18,Boys,Rhode Island,Lacrosse,36.0,1254
+2017-18,Boys,South Carolina,Ice Hockey,,43
+2017-18,Boys,South Carolina,Lacrosse,43.0,1963
+2017-18,Boys,Vermont,Ice Hockey,16.0,214
+2017-18,Boys,Vermont,Lacrosse,15.0,391
+2017-18,Boys,Vermont,Riflery,1.0,3
+2017-18,Boys,Vermont,Skiing Cross Country,9.0,55
+2017-18,Boys,Virginia,Ice Hockey,,105
+2017-18,Boys,Virginia,Lacrosse,105.0,4607
+2017-18,Boys,West Virginia,Ice Hockey,86.0,2528
+2017-18,Boys,Wyoming,Riflery,,6
+2017-18,Boys,Wyoming,Skiing Cross Country,6.0,59
+2017-18,Boys,Wyoming,Lacrosse,,58
+2017-18,Boys,Alabama,Skiing Alpine,,181
+2017-18,Boys,Alabama,Soccer,181.0,6588
+2017-18,Boys,Alabama,Swimming and Diving,56.0,716
+2017-18,Boys,Alabama,Tennis,169.0,1559
+2017-18,Boys,Arizona,Skiing Alpine,,207
+2017-18,Boys,Arizona,Soccer,207.0,7730
+2017-18,Boys,Arizona,Swimming and Diving,151.0,2683
+2017-18,Boys,Arizona,Tennis,174.0,2006
+2017-18,Boys,California,Skiing Alpine,3.0,20
+2017-18,Boys,California,Soccer,1327.0,53262
+2017-18,Boys,California,Swimming and Diving,948.0,22872
+2017-18,Boys,California,Tennis,974.0,18737
+2017-18,Boys,Connecticut,Skiing Alpine,,177
+2017-18,Boys,Connecticut,Soccer,177.0,7271
+2017-18,Boys,Connecticut,Swimming and Diving,109.0,1877
+2017-18,Boys,Connecticut,Tennis,132.0,2262
+2017-18,Boys,District of Columbia,Skiing Alpine,,28
+2017-18,Boys,District of Columbia,Soccer,28.0,829
+2017-18,Boys,District of Columbia,Swimming and Diving,17.0,265
+2017-18,Boys,District of Columbia,Tennis,19.0,238
+2017-18,Boys,Florida,Skiing Alpine,,610
+2017-18,Boys,Florida,Soccer,610.0,19596
+2017-18,Boys,Florida,Swimming and Diving,453.0,7238
+2017-18,Boys,Florida,Tennis,501.0,5138
+2017-18,Boys,Georgia,Skiing Alpine,,392
+2017-18,Boys,Georgia,Soccer,392.0,11910
+2017-18,Boys,Georgia,Swimming and Diving,255.0,3911
+2017-18,Boys,Hawaii,Skiing Alpine,,63
+2017-18,Boys,Hawaii,Soccer,63.0,1812
+2017-18,Boys,Hawaii,Swimming and Diving,58.0,663
+2017-18,Boys,Hawaii,Tennis,58.0,616
+2017-18,Boys,Idaho,Skiing Alpine,,78
+2017-18,Boys,Idaho,Soccer,78.0,2102
+2017-18,Boys,Idaho,Swimming and Diving,48.0,506
+2017-18,Boys,Idaho,Tennis,57.0,1207
+2017-18,Boys,Illinois,Skiing Alpine,,456
+2017-18,Boys,Illinois,Soccer,456.0,20877
+2017-18,Boys,Illinois,Swimming and Diving,249.0,6587
+2017-18,Boys,Illinois,Tennis,286.0,6598
+2017-18,Boys,Indiana,Skiing Alpine,,306
+2017-18,Boys,Indiana,Soccer,306.0,9135
+2017-18,Boys,Indiana,Swimming and Diving,236.0,3549
+2017-18,Boys,Indiana,Tennis,301.0,4518
+2017-18,Boys,Iowa,Skiing Alpine,,157
+2017-18,Boys,Iowa,Soccer,157.0,6623
+2017-18,Boys,Iowa,Swimming and Diving,49.0,1478
+2017-18,Boys,Iowa,Tennis,107.0,2482
+2017-18,Boys,Kansas,Skiing Alpine,,105
+2017-18,Boys,Kansas,Soccer,105.0,4251
+2017-18,Boys,Kansas,Swimming and Diving,78.0,1587
+2017-18,Boys,Kansas,Tennis,125.0,2451
+2017-18,Boys,Kentucky,Skiing Alpine,,195
+2017-18,Boys,Kentucky,Soccer,195.0,6545
+2017-18,Boys,Kentucky,Swimming and Diving,136.0,1568
+2017-18,Boys,Kentucky,Tennis,211.0,2204
+2017-18,Boys,Louisiana,Skiing Alpine,,187
+2017-18,Boys,Louisiana,Soccer,187.0,5045
+2017-18,Boys,Louisiana,Swimming and Diving,169.0,1154
+2017-18,Boys,Louisiana,Tennis,173.0,1384
+2017-18,Boys,Maine,Skiing Alpine,43.0,359
+2017-18,Boys,Maine,Soccer,135.0,4255
+2017-18,Boys,Maine,Swimming and Diving,58.0,626
+2017-18,Boys,Maryland,Skiing Alpine,,179
+2017-18,Boys,Maryland,Soccer,179.0,6764
+2017-18,Boys,Maryland,Swimming and Diving,109.0,1865
+2017-18,Boys,Maryland,Tennis,174.0,2129
+2017-18,Boys,Massachusetts,Skiing Alpine,22.0,346
+2017-18,Boys,Massachusetts,Soccer,350.0,14523
+2017-18,Boys,Massachusetts,Swimming and Diving,219.0,2977
+2017-18,Boys,Massachusetts,Tennis,235.0,3654
+2017-18,Boys,Michigan,Skiing Alpine,4.0,49
+2017-18,Boys,Michigan,Soccer,484.0,14550
+2017-18,Boys,Michigan,Swimming and Diving,246.0,5020
+2017-18,Boys,Michigan,Tennis,295.0,6134
+2017-18,Boys,Minnesota,Skiing Alpine,121.0,1999
+2017-18,Boys,Minnesota,Soccer,272.0,9508
+2017-18,Boys,Minnesota,Swimming and Diving,156.0,3706
+2017-18,Boys,Minnesota,Tennis,186.0,5034
+2017-18,Boys,Missouri,Skiing Alpine,,235
+2017-18,Boys,Missouri,Soccer,235.0,8950
+2017-18,Boys,Missouri,Swimming and Diving,108.0,1859
+2017-18,Boys,Missouri,Tennis,177.0,3658
+2017-18,Boys,Nebraska,Skiing Alpine,,80
+2017-18,Boys,Nebraska,Soccer,80.0,2888
+2017-18,Boys,Nebraska,Swimming and Diving,59.0,913
+2017-18,Boys,Nebraska,Tennis,62.0,1035
+2017-18,Boys,New Hampshire,Skiing Alpine,32.0,241
+2017-18,Boys,New Hampshire,Soccer,86.0,3066
+2017-18,Boys,New Hampshire,Swimming and Diving,50.0,390
+2017-18,Boys,New Hampshire,Tennis,50.0,726
+2017-18,Boys,New Mexico,Skiing Alpine,,73
+2017-18,Boys,New Mexico,Soccer,73.0,2468
+2017-18,Boys,New Mexico,Swimming and Diving,43.0,606
+2017-18,Boys,New Mexico,Tennis,64.0,710
+2017-18,Boys,North Carolina,Skiing Alpine,,381
+2017-18,Boys,North Carolina,Soccer,381.0,12298
+2017-18,Boys,North Carolina,Swimming and Diving,298.0,3973
+2017-18,Boys,North Carolina,Tennis,319.0,3957
+2017-18,Boys,North Dakota,Skiing Alpine,,18
+2017-18,Boys,North Dakota,Soccer,18.0,685
+2017-18,Boys,North Dakota,Swimming and Diving,21.0,332
+2017-18,Boys,North Dakota,Tennis,19.0,295
+2017-18,Boys,Ohio,Skiing Alpine,,8
+2017-18,Boys,Ohio,Soccer,576.0,18458
+2017-18,Boys,Ohio,Swimming and Diving,421.0,5470
+2017-18,Boys,Ohio,Tennis,408.0,6374
+2017-18,Boys,Oklahoma,Skiing Alpine,,127
+2017-18,Boys,Oklahoma,Soccer,127.0,4070
+2017-18,Boys,Oklahoma,Swimming and Diving,60.0,599
+2017-18,Boys,Oklahoma,Tennis,110.0,1201
+2017-18,Boys,Oregon,Skiing Alpine,,185
+2017-18,Boys,Oregon,Soccer,185.0,6397
+2017-18,Boys,Oregon,Swimming and Diving,122.0,1933
+2017-18,Boys,Oregon,Tennis,119.0,2161
+2017-18,Boys,Pennsylvania,Skiing Alpine,,579
+2017-18,Boys,Pennsylvania,Soccer,579.0,20265
+2017-18,Boys,Pennsylvania,Swimming and Diving,324.0,9720
+2017-18,Boys,Pennsylvania,Tennis,381.0,4572
+2017-18,Boys,Rhode Island,Skiing Alpine,,48
+2017-18,Boys,Rhode Island,Soccer,48.0,1959
+2017-18,Boys,Rhode Island,Swimming and Diving,23.0,381
+2017-18,Boys,Rhode Island,Tennis,38.0,760
+2017-18,Boys,South Carolina,Skiing Alpine,,171
+2017-18,Boys,South Carolina,Soccer,171.0,6146
+2017-18,Boys,South Carolina,Swimming and Diving,93.0,1242
+2017-18,Boys,South Carolina,Tennis,122.0,1547
+2017-18,Boys,South Dakota,Skiing Alpine,,29
+2017-18,Boys,South Dakota,Soccer,29.0,748
+2017-18,Boys,South Dakota,Swimming and Diving,,25
+2017-18,Boys,South Dakota,Tennis,25.0,383
+2017-18,Boys,Tennessee,Skiing Alpine,,328
+2017-18,Boys,Tennessee,Soccer,328.0,8389
+2017-18,Boys,Tennessee,Swimming and Diving,,269
+2017-18,Boys,Tennessee,Tennis,269.0,2343
+2017-18,Boys,Texas,Skiing Alpine,,749
+2017-18,Boys,Texas,Soccer,749.0,42077
+2017-18,Boys,Texas,Swimming and Diving,569.0,10179
+2017-18,Boys,Texas,Tennis,1283.0,21197
+2017-18,Boys,Utah,Skiing Alpine,,109
+2017-18,Boys,Utah,Soccer,109.0,3931
+2017-18,Boys,Utah,Swimming and Diving,96.0,2058
+2017-18,Boys,Utah,Tennis,95.0,1959
+2017-18,Boys,Vermont,Skiing Alpine,10.0,135
+2017-18,Boys,Vermont,Soccer,31.0,865
+2017-18,Boys,Vermont,Swimming and Diving,1.0,15
+2017-18,Boys,Vermont,Tennis,10.0,124
+2017-18,Boys,Virginia,Skiing Alpine,,292
+2017-18,Boys,Virginia,Soccer,292.0,10400
+2017-18,Boys,Virginia,Swimming and Diving,217.0,3913
+2017-18,Boys,Virginia,Tennis,237.0,2874
+2017-18,Boys,Washington,Skiing Alpine,,285
+2017-18,Boys,Washington,Soccer,285.0,11025
+2017-18,Boys,Washington,Swimming and Diving,149.0,3989
+2017-18,Boys,Washington,Tennis,240.0,5829
+2017-18,Boys,West Virginia,Skiing Alpine,,81
+2017-18,Boys,West Virginia,Soccer,81.0,2044
+2017-18,Boys,West Virginia,Swimming and Diving,48.0,508
+2017-18,Boys,West Virginia,Tennis,76.0,642
+2017-18,Boys,Wyoming,Skiing Alpine,7.0,83
+2017-18,Boys,Wyoming,Soccer,27.0,931
+2017-18,Boys,Wyoming,Swimming and Diving,23.0,424
+2017-18,Boys,Wyoming,Tennis,17.0,269
+2017-18,Boys,Alabama,Track and Field Indoor,165.0,2670
+2017-18,Boys,Alabama,Track and Field Outdoor,354.0,8115
+2017-18,Boys,Alabama,Volleyball,,115
+2017-18,Boys,Alabama,Wrestling,115.0,2913
+2017-18,Boys,Arizona,Track and Field Indoor,,238
+2017-18,Boys,Arizona,Track and Field Outdoor,238.0,8707
+2017-18,Boys,Arizona,Volleyball,79.0,2087
+2017-18,Boys,Arizona,Wrestling,193.0,4910
+2017-18,Boys,California,Track and Field Indoor,,1228
+2017-18,Boys,California,Track and Field Outdoor,1228.0,56606
+2017-18,Boys,California,Volleyball,869.0,20790
+2017-18,Boys,California,Wrestling,886.0,22441
+2017-18,Boys,Connecticut,Track and Field Indoor,160.0,5272
+2017-18,Boys,Connecticut,Track and Field Outdoor,176.0,7706
+2017-18,Boys,Connecticut,Volleyball,39.0,895
+2017-18,Boys,Connecticut,Wrestling,124.0,2248
+2017-18,Boys,District of Columbia,Track and Field Indoor,22.0,371
+2017-18,Boys,District of Columbia,Track and Field Outdoor,37.0,672
+2017-18,Boys,District of Columbia,Volleyball,,9
+2017-18,Boys,District of Columbia,Wrestling,9.0,173
+2017-18,Boys,Florida,Track and Field Indoor,,641
+2017-18,Boys,Florida,Track and Field Outdoor,641.0,18926
+2017-18,Boys,Florida,Volleyball,184.0,2803
+2017-18,Boys,Florida,Wrestling,385.0,8041
+2017-18,Boys,Georgia,Track and Field Indoor,,427
+2017-18,Boys,Georgia,Track and Field Outdoor,427.0,14161
+2017-18,Boys,Georgia,Volleyball,,356
+2017-18,Boys,Georgia,Wrestling,356.0,7799
+2017-18,Boys,Hawaii,Track and Field Indoor,,64
+2017-18,Boys,Hawaii,Track and Field Outdoor,64.0,2125
+2017-18,Boys,Hawaii,Volleyball,65.0,1524
+2017-18,Boys,Hawaii,Wrestling,57.0,1078
+2017-18,Boys,Idaho,Track and Field Indoor,,148
+2017-18,Boys,Idaho,Track and Field Outdoor,148.0,3388
+2017-18,Boys,Idaho,Volleyball,,100
+2017-18,Boys,Idaho,Wrestling,100.0,2445
+2017-18,Boys,Illinois,Track and Field Indoor,,617
+2017-18,Boys,Illinois,Track and Field Outdoor,617.0,24973
+2017-18,Boys,Illinois,Volleyball,207.0,6976
+2017-18,Boys,Illinois,Wrestling,427.0,13721
+2017-18,Boys,Indiana,Track and Field Indoor,,397
+2017-18,Boys,Indiana,Track and Field Outdoor,397.0,13730
+2017-18,Boys,Indiana,Volleyball,,312
+2017-18,Boys,Indiana,Wrestling,312.0,6458
+2017-18,Boys,Iowa,Track and Field Indoor,,353
+2017-18,Boys,Iowa,Track and Field Outdoor,353.0,12228
+2017-18,Boys,Iowa,Volleyball,18.0,505
+2017-18,Boys,Iowa,Wrestling,282.0,6406
+2017-18,Boys,Kansas,Track and Field Indoor,,349
+2017-18,Boys,Kansas,Track and Field Outdoor,349.0,9968
+2017-18,Boys,Kansas,Volleyball,,216
+2017-18,Boys,Kansas,Wrestling,216.0,4710
+2017-18,Boys,Kentucky,Track and Field Indoor,,252
+2017-18,Boys,Kentucky,Track and Field Outdoor,252.0,6633
+2017-18,Boys,Kentucky,Volleyball,,100
+2017-18,Boys,Kentucky,Wrestling,100.0,1864
+2017-18,Boys,Louisiana,Track and Field Indoor,268.0,1268
+2017-18,Boys,Louisiana,Track and Field Outdoor,372.0,8977
+2017-18,Boys,Louisiana,Volleyball,,96
+2017-18,Boys,Louisiana,Wrestling,96.0,1778
+2017-18,Boys,Maine,Track and Field Indoor,65.0,1559
+2017-18,Boys,Maine,Track and Field Outdoor,109.0,2858
+2017-18,Boys,Maine,Volleyball,5.0,58
+2017-18,Boys,Maine,Wrestling,64.0,701
+2017-18,Boys,Maryland,Track and Field Indoor,177.0,5448
+2017-18,Boys,Maryland,Track and Field Outdoor,190.0,6924
+2017-18,Boys,Maryland,Volleyball,37.0,658
+2017-18,Boys,Maryland,Wrestling,180.0,4557
+2017-18,Boys,Massachusetts,Track and Field Indoor,264.0,10090
+2017-18,Boys,Massachusetts,Track and Field Outdoor,320.0,14082
+2017-18,Boys,Massachusetts,Volleyball,106.0,2544
+2017-18,Boys,Massachusetts,Wrestling,216.0,4074
+2017-18,Boys,Michigan,Track and Field Indoor,51.0,663
+2017-18,Boys,Michigan,Track and Field Outdoor,668.0,23566
+2017-18,Boys,Michigan,Volleyball,,467
+2017-18,Boys,Michigan,Wrestling,467.0,9147
+2017-18,Boys,Minnesota,Track and Field Indoor,,468
+2017-18,Boys,Minnesota,Track and Field Outdoor,468.0,17026
+2017-18,Boys,Minnesota,Volleyball,,345
+2017-18,Boys,Minnesota,Wrestling,345.0,8085
+2017-18,Boys,Missouri,Track and Field Indoor,,494
+2017-18,Boys,Missouri,Track and Field Outdoor,494.0,15577
+2017-18,Boys,Missouri,Volleyball,44.0,1198
+2017-18,Boys,Missouri,Wrestling,244.0,6819
+2017-18,Boys,Nebraska,Track and Field Indoor,,298
+2017-18,Boys,Nebraska,Track and Field Outdoor,298.0,8714
+2017-18,Boys,Nebraska,Volleyball,,252
+2017-18,Boys,Nebraska,Wrestling,252.0,4344
+2017-18,Boys,New Hampshire,Track and Field Indoor,59.0,1295
+2017-18,Boys,New Hampshire,Track and Field Outdoor,76.0,2418
+2017-18,Boys,New Hampshire,Volleyball,14.0,294
+2017-18,Boys,New Hampshire,Wrestling,42.0,679
+2017-18,Boys,New Mexico,Track and Field Indoor,,157
+2017-18,Boys,New Mexico,Track and Field Outdoor,157.0,4296
+2017-18,Boys,New Mexico,Volleyball,,2
+2017-18,Boys,New Mexico,Wrestling,63.0,1642
+2017-18,Boys,North Carolina,Track and Field Indoor,277.0,6482
+2017-18,Boys,North Carolina,Track and Field Outdoor,398.0,14663
+2017-18,Boys,North Carolina,Volleyball,,337
+2017-18,Boys,North Carolina,Wrestling,337.0,8111
+2017-18,Boys,North Dakota,Track and Field Indoor,,159
+2017-18,Boys,North Dakota,Track and Field Outdoor,159.0,2563
+2017-18,Boys,North Dakota,Volleyball,,98
+2017-18,Boys,North Dakota,Wrestling,98.0,882
+2017-18,Boys,Ohio,Track and Field Indoor,,3060
+2017-18,Boys,Ohio,Track and Field Outdoor,782.0,27426
+2017-18,Boys,Ohio,Volleyball,,3616
+2017-18,Boys,Ohio,Wrestling,612.0,11340
+2017-18,Boys,Oklahoma,Track and Field Indoor,,451
+2017-18,Boys,Oklahoma,Track and Field Outdoor,451.0,6870
+2017-18,Boys,Oklahoma,Volleyball,,151
+2017-18,Boys,Oklahoma,Wrestling,151.0,3326
+2017-18,Boys,Oregon,Track and Field Indoor,,271
+2017-18,Boys,Oregon,Track and Field Outdoor,271.0,9526
+2017-18,Boys,Oregon,Volleyball,,194
+2017-18,Boys,Oregon,Wrestling,194.0,4321
+2017-18,Boys,Pennsylvania,Track and Field Indoor,172.0,2580
+2017-18,Boys,Pennsylvania,Track and Field Outdoor,608.0,24320
+2017-18,Boys,Pennsylvania,Volleyball,212.0,3816
+2017-18,Boys,Pennsylvania,Wrestling,486.0,9720
+2017-18,Boys,Rhode Island,Track and Field Indoor,41.0,1431
+2017-18,Boys,Rhode Island,Track and Field Outdoor,48.0,1666
+2017-18,Boys,Rhode Island,Volleyball,29.0,703
+2017-18,Boys,Rhode Island,Wrestling,33.0,842
+2017-18,Boys,South Carolina,Track and Field Indoor,,203
+2017-18,Boys,South Carolina,Track and Field Outdoor,203.0,8006
+2017-18,Boys,South Carolina,Volleyball,,150
+2017-18,Boys,South Carolina,Wrestling,150.0,4546
+2017-18,Boys,South Dakota,Track and Field Indoor,,171
+2017-18,Boys,South Dakota,Track and Field Outdoor,171.0,3461
+2017-18,Boys,South Dakota,Volleyball,,107
+2017-18,Boys,South Dakota,Wrestling,107.0,1147
+2017-18,Boys,Tennessee,Track and Field Indoor,,311
+2017-18,Boys,Tennessee,Track and Field Outdoor,311.0,7347
+2017-18,Boys,Tennessee,Volleyball,,188
+2017-18,Boys,Tennessee,Wrestling,188.0,3775
+2017-18,Boys,Texas,Track and Field Indoor,,1515
+2017-18,Boys,Texas,Track and Field Outdoor,1515.0,73459
+2017-18,Boys,Texas,Volleyball,,344
+2017-18,Boys,Texas,Wrestling,344.0,10735
+2017-18,Boys,Utah,Track and Field Indoor,,136
+2017-18,Boys,Utah,Track and Field Outdoor,136.0,5933
+2017-18,Boys,Utah,Volleyball,,116
+2017-18,Boys,Utah,Wrestling,116.0,3460
+2017-18,Boys,Vermont,Track and Field Indoor,13.0,143
+2017-18,Boys,Vermont,Track and Field Outdoor,24.0,456
+2017-18,Boys,Vermont,Volleyball,2.0,15
+2017-18,Boys,Vermont,Wrestling,11.0,104
+2017-18,Boys,Virginia,Track and Field Indoor,239.0,7890
+2017-18,Boys,Virginia,Track and Field Outdoor,302.0,11217
+2017-18,Boys,Virginia,Volleyball,67.0,1231
+2017-18,Boys,Virginia,Wrestling,269.0,6095
+2017-18,Boys,Washington,Track and Field Indoor,,379
+2017-18,Boys,Washington,Track and Field Outdoor,379.0,14204
+2017-18,Boys,Washington,Volleyball,,299
+2017-18,Boys,Washington,Wrestling,299.0,9041
+2017-18,Boys,West Virginia,Track and Field Indoor,,118
+2017-18,Boys,West Virginia,Track and Field Outdoor,118.0,2967
+2017-18,Boys,West Virginia,Volleyball,,91
+2017-18,Boys,West Virginia,Wrestling,91.0,1665
+2017-18,Boys,Wyoming,Track and Field Indoor,22.0,602
+2017-18,Boys,Wyoming,Track and Field Outdoor,72.0,1685
+2017-18,Boys,Wyoming,Volleyball,,53
+2017-18,Boys,Wyoming,Wrestling,53.0,1155
+2017-18,Girls,Alaska,Basketball,155.0,1744
+2017-18,Girls,Alaska,Bowling,8.0,53
+2017-18,Girls,Alaska,Competitive Spirit Squads,16.0,173
+2017-18,Girls,Alaska,Cross Country,117.0,836
+2017-18,Girls,Arizona,Basketball,257.0,6448
+2017-18,Girls,Arizona,Bowling,,204
+2017-18,Girls,Arizona,Competitive Spirit Squads,204.0,5877
+2017-18,Girls,Arizona,Cross Country,228.0,2709
+2017-18,Girls,Arkansas,Basketball,269.0,4211
+2017-18,Girls,Arkansas,Bowling,69.0,617
+2017-18,Girls,Arkansas,Competitive Spirit Squads,85.0,1617
+2017-18,Girls,Arkansas,Cross Country,172.0,1530
+2017-18,Girls,Colorado,Basketball,333.0,7062
+2017-18,Girls,Colorado,Bowling,,186
+2017-18,Girls,Colorado,Competitive Spirit Squads,186.0,4825
+2017-18,Girls,Colorado,Cross Country,247.0,4020
+2017-18,Girls,Connecticut,Basketball,181.0,3765
+2017-18,Girls,Connecticut,Bowling,,152
+2017-18,Girls,Connecticut,Competitive Spirit Squads,152.0,2834
+2017-18,Girls,Connecticut,Cross Country,174.0,2840
+2017-18,Girls,District of Columbia,Basketball,37.0,526
+2017-18,Girls,District of Columbia,Bowling,13.0,85
+2017-18,Girls,District of Columbia,Competitive Spirit Squads,8.0,336
+2017-18,Girls,District of Columbia,Cross Country,27.0,399
+2017-18,Girls,Florida,Basketball,704.0,13648
+2017-18,Girls,Florida,Bowling,213.0,1751
+2017-18,Girls,Florida,Competitive Spirit Squads,232.0,5310
+2017-18,Girls,Florida,Cross Country,595.0,7704
+2017-18,Girls,Georgia,Basketball,438.0,8777
+2017-18,Girls,Georgia,Bowling,,238
+2017-18,Girls,Georgia,Competitive Spirit Squads,238.0,4672
+2017-18,Girls,Georgia,Cross Country,417.0,6478
+2017-18,Girls,Hawaii,Basketball,66.0,1267
+2017-18,Girls,Hawaii,Bowling,47.0,437
+2017-18,Girls,Hawaii,Competitive Spirit Squads,49.0,900
+2017-18,Girls,Hawaii,Cross Country,70.0,847
+2017-18,Girls,Idaho,Basketball,151.0,3349
+2017-18,Girls,Idaho,Bowling,,86
+2017-18,Girls,Idaho,Competitive Spirit Squads,86.0,1537
+2017-18,Girls,Idaho,Cross Country,118.0,1467
+2017-18,Girls,Illinois,Basketball,671.0,16399
+2017-18,Girls,Illinois,Bowling,230.0,3098
+2017-18,Girls,Illinois,Competitive Spirit Squads,279.0,6592
+2017-18,Girls,Illinois,Cross Country,533.0,10653
+2017-18,Girls,Iowa,Basketball,354.0,7414
+2017-18,Girls,Iowa,Bowling,101.0,1348
+2017-18,Girls,Iowa,Competitive Spirit Squads,,323
+2017-18,Girls,Iowa,Cross Country,323.0,4799
+2017-18,Girls,Kansas,Basketball,349.0,6625
+2017-18,Girls,Kansas,Bowling,77.0,884
+2017-18,Girls,Kansas,Competitive Spirit Squads,,295
+2017-18,Girls,Kansas,Cross Country,295.0,2898
+2017-18,Girls,Kentucky,Basketball,268.0,5313
+2017-18,Girls,Kentucky,Bowling,93.0,840
+2017-18,Girls,Kentucky,Competitive Spirit Squads,240.0,4891
+2017-18,Girls,Kentucky,Cross Country,242.0,2786
+2017-18,Girls,Louisiana,Basketball,386.0,5431
+2017-18,Girls,Louisiana,Bowling,94.0,423
+2017-18,Girls,Louisiana,Competitive Spirit Squads,,319
+2017-18,Girls,Louisiana,Cross Country,319.0,2346
+2017-18,Girls,Maine,Basketball,140.0,2662
+2017-18,Girls,Maine,Bowling,4.0,22
+2017-18,Girls,Maine,Competitive Spirit Squads,83.0,1286
+2017-18,Girls,Maine,Cross Country,109.0,1215
+2017-18,Girls,Maryland,Basketball,190.0,4368
+2017-18,Girls,Maryland,Bowling,16.0,80
+2017-18,Girls,Maryland,Competitive Spirit Squads,,181
+2017-18,Girls,Maryland,Cross Country,181.0,2681
+2017-18,Girls,Michigan,Basketball,691.0,15659
+2017-18,Girls,Michigan,Bowling,360.0,3096
+2017-18,Girls,Michigan,Competitive Spirit Squads,343.0,6715
+2017-18,Girls,Michigan,Cross Country,640.0,8702
+2017-18,Girls,Minnesota,Basketball,469.0,12206
+2017-18,Girls,Minnesota,Competitive Spirit Squads,,407
+2017-18,Girls,Minnesota,Cross Country,407.0,9219
+2017-18,Girls,Mississippi,Basketball,244.0,8420
+2017-18,Girls,Mississippi,Bowling,62.0,555
+2017-18,Girls,Mississippi,Competitive Spirit Squads,165.0,3950
+2017-18,Girls,Mississippi,Cross Country,166.0,1430
+2017-18,Girls,Missouri,Basketball,541.0,9971
+2017-18,Girls,Missouri,Bowling,9.0,38
+2017-18,Girls,Missouri,Competitive Spirit Squads,,406
+2017-18,Girls,Missouri,Cross Country,406.0,4374
+2017-18,Girls,Montana,Basketball,175.0,2837
+2017-18,Girls,Montana,Competitive Spirit Squads,,106
+2017-18,Girls,Montana,Cross Country,106.0,1017
+2017-18,Girls,Nebraska,Basketball,300.0,5882
+2017-18,Girls,Nebraska,Competitive Spirit Squads,,240
+2017-18,Girls,Nebraska,Cross Country,240.0,2404
+2017-18,Girls,Nebraska,Bowling,35.0,270
+2017-18,Girls,New Hampshire,Basketball,87.0,1890
+2017-18,Girls,New Hampshire,Bowling,15.0,73
+2017-18,Girls,New Hampshire,Competitive Spirit Squads,89.0,1452
+2017-18,Girls,New Hampshire,Cross Country,73.0,914
+2017-18,Girls,New Jersey,Basketball,411.0,10188
+2017-18,Girls,New Jersey,Bowling,207.0,2041
+2017-18,Girls,New Jersey,Competitive Spirit Squads,,373
+2017-18,Girls,New Jersey,Cross Country,373.0,6097
+2017-18,Girls,New York,Basketball,716.0,15805
+2017-18,Girls,New York,Bowling,318.0,3297
+2017-18,Girls,New York,Competitive Spirit Squads,719.0,16830
+2017-18,Girls,New York,Cross Country,585.0,7983
+2017-18,Girls,North Carolina,Basketball,411.0,7913
+2017-18,Girls,North Carolina,Bowling,,396
+2017-18,Girls,North Carolina,Competitive Spirit Squads,396.0,20250
+2017-18,Girls,North Carolina,Cross Country,386.0,5250
+2017-18,Girls,North Dakota,Basketball,162.0,2267
+2017-18,Girls,North Dakota,Competitive Spirit Squads,,108
+2017-18,Girls,North Dakota,Cross Country,108.0,591
+2017-18,Girls,Ohio,Basketball,788.0,15045
+2017-18,Girls,Ohio,Bowling,404.0,3862
+2017-18,Girls,Ohio,Competitive Spirit Squads,,5605
+2017-18,Girls,Ohio,Cross Country,729.0,10446
+2017-18,Girls,Oklahoma,Basketball,473.0,7535
+2017-18,Girls,Oklahoma,Bowling,,470
+2017-18,Girls,Oklahoma,Competitive Spirit Squads,470.0,5485
+2017-18,Girls,Oklahoma,Cross Country,282.0,3051
+2017-18,Girls,Oregon,Basketball,286.0,5824
+2017-18,Girls,Oregon,Bowling,,141
+2017-18,Girls,Oregon,Competitive Spirit Squads,141.0,2654
+2017-18,Girls,Oregon,Cross Country,228.0,2998
+2017-18,Girls,Rhode Island,Basketball,50.0,1203
+2017-18,Girls,Rhode Island,Bowling,,21
+2017-18,Girls,Rhode Island,Competitive Spirit Squads,21.0,229
+2017-18,Girls,Rhode Island,Cross Country,46.0,966
+2017-18,Girls,South Carolina,Basketball,215.0,4606
+2017-18,Girls,South Carolina,Bowling,,94
+2017-18,Girls,South Carolina,Competitive Spirit Squads,94.0,2959
+2017-18,Girls,South Carolina,Cross Country,174.0,2453
+2017-18,Girls,South Dakota,Basketball,174.0,2820
+2017-18,Girls,South Dakota,Bowling,,41
+2017-18,Girls,South Dakota,Competitive Spirit Squads,41.0,706
+2017-18,Girls,South Dakota,Cross Country,159.0,776
+2017-18,Girls,Tennessee,Basketball,394.0,6078
+2017-18,Girls,Tennessee,Bowling,141.0,1207
+2017-18,Girls,Tennessee,Competitive Spirit Squads,,326
+2017-18,Girls,Tennessee,Cross Country,326.0,2922
+2017-18,Girls,Texas,Basketball,1497.0,53900
+2017-18,Girls,Texas,Bowling,,1373
+2017-18,Girls,Texas,Competitive Spirit Squads,1373.0,28381
+2017-18,Girls,Texas,Cross Country,1457.0,23031
+2017-18,Girls,Utah,Basketball,140.0,3268
+2017-18,Girls,Utah,Competitive Spirit Squads,,134
+2017-18,Girls,Utah,Cross Country,134.0,2409
+2017-18,Girls,Utah,Bowling,4.0,11
+2017-18,Girls,Virginia,Basketball,314.0,7496
+2017-18,Girls,Virginia,Bowling,,202
+2017-18,Girls,Virginia,Competitive Spirit Squads,202.0,4297
+2017-18,Girls,Virginia,Cross Country,305.0,4788
+2017-18,Girls,Washington,Basketball,368.0,9675
+2017-18,Girls,Washington,Bowling,78.0,1311
+2017-18,Girls,Washington,Competitive Spirit Squads,,309
+2017-18,Girls,Washington,Cross Country,309.0,4838
+2017-18,Girls,West Virginia,Basketball,124.0,2098
+2017-18,Girls,West Virginia,Bowling,,106
+2017-18,Girls,West Virginia,Competitive Spirit Squads,106.0,1975
+2017-18,Girls,West Virginia,Cross Country,98.0,821
+2017-18,Girls,Wisconsin,Basketball,471.0,10309
+2017-18,Girls,Wisconsin,Competitive Spirit Squads,,390
+2017-18,Girls,Wisconsin,Cross Country,390.0,6211
+2017-18,Girls,Wyoming,Basketball,71.0,1614
+2017-18,Girls,Wyoming,Bowling,,34
+2017-18,Girls,Wyoming,Competitive Spirit Squads,34.0,580
+2017-18,Girls,Wyoming,Cross Country,44.0,445
+2017-18,Girls,Alabama,Football 11-player,,241
+2017-18,Girls,Alabama,Golf,241.0,750
+2017-18,Girls,Alabama,Field Hockey,,20
+2017-18,Girls,Alabama,Gymnastics,9.0,81
+2017-18,Girls,Arizona,Field Hockey,,48
+2017-18,Girls,Arizona,Football 11-player,48.0,86
+2017-18,Girls,Arizona,Golf,112.0,951
+2017-18,Girls,Arizona,Gymnastics,8.0,64
+2017-18,Girls,California,Field Hockey,99.0,3692
+2017-18,Girls,California,Football 11-player,262.0,469
+2017-18,Girls,California,Golf,907.0,8506
+2017-18,Girls,California,Gymnastics,42.0,760
+2017-18,Girls,Connecticut,Field Hockey,80.0,3226
+2017-18,Girls,Connecticut,Football 11-player,,45
+2017-18,Girls,Connecticut,Golf,54.0,739
+2017-18,Girls,Connecticut,Gymnastics,54.0,475
+2017-18,Girls,District of Columbia,Field Hockey,5.0,217
+2017-18,Girls,District of Columbia,Football 11-player,,7
+2017-18,Girls,District of Columbia,Golf,7.0,35
+2017-18,Girls,Florida,Football 11-player,,87
+2017-18,Girls,Florida,Golf,470.0,2543
+2017-18,Girls,Georgia,Field Hockey,,31
+2017-18,Girls,Georgia,Football 11-player,31.0,66
+2017-18,Girls,Georgia,Golf,343.0,1855
+2017-18,Girls,Georgia,Gymnastics,59.0,488
+2017-18,Girls,Hawaii,Field Hockey,,13
+2017-18,Girls,Hawaii,Football 11-player,13.0,22
+2017-18,Girls,Hawaii,Golf,56.0,262
+2017-18,Girls,Idaho,Field Hockey,,14
+2017-18,Girls,Idaho,Football 11-player,14.0,36
+2017-18,Girls,Idaho,Golf,91.0,604
+2017-18,Girls,Illinois,Football 11-player,,396
+2017-18,Girls,Illinois,Golf,396.0,4107
+2017-18,Girls,Illinois,Gymnastics,81.0,1920
+2017-18,Girls,Indiana,Field Hockey,,39
+2017-18,Girls,Indiana,Football 11-player,39.0,44
+2017-18,Girls,Indiana,Golf,312.0,2462
+2017-18,Girls,Indiana,Gymnastics,78.0,604
+2017-18,Girls,Iowa,Field Hockey,,20
+2017-18,Girls,Iowa,Football 11-player,20.0,93
+2017-18,Girls,Iowa,Golf,316.0,3325
+2017-18,Girls,Kansas,Football 11-player,,24
+2017-18,Girls,Kansas,Golf,124.0,1145
+2017-18,Girls,Kansas,Gymnastics,16.0,127
+2017-18,Girls,Kentucky,Field Hockey,19.0,655
+2017-18,Girls,Kentucky,Football 11-player,,33
+2017-18,Girls,Kentucky,Golf,220.0,1183
+2017-18,Girls,Louisiana,Football 11-player,,195
+2017-18,Girls,Louisiana,Golf,195.0,253
+2017-18,Girls,Louisiana,Gymnastics,64.0,186
+2017-18,Girls,Maine,Field Hockey,83.0,2250
+2017-18,Girls,Maine,Football 11-player,7.0,7
+2017-18,Girls,Maine,Golf,49.0,115
+2017-18,Girls,Maine,Gymnastics,1.0,1
+2017-18,Girls,Maryland,Field Hockey,110.0,3564
+2017-18,Girls,Maryland,Football 11-player,44.0,16
+2017-18,Girls,Maryland,Golf,128.0,333
+2017-18,Girls,Maryland,Gymnastics,8.0,119
+2017-18,Girls,Massachusetts,Field Hockey,211.0,7793
+2017-18,Girls,Massachusetts,Football 11-player,,85
+2017-18,Girls,Massachusetts,Golf,35.0,684
+2017-18,Girls,Massachusetts,Gymnastics,109.0,1258
+2017-18,Girls,Michigan,Field Hockey,34.0,981
+2017-18,Girls,Michigan,Football 11-player,,108
+2017-18,Girls,Michigan,Golf,340.0,3833
+2017-18,Girls,Michigan,Gymnastics,83.0,702
+2017-18,Girls,Minnesota,Football 11-player,,364
+2017-18,Girls,Minnesota,Golf,364.0,4244
+2017-18,Girls,Minnesota,Gymnastics,207.0,2595
+2017-18,Girls,Missouri,Field Hockey,31.0,1142
+2017-18,Girls,Missouri,Football 11-player,,196
+2017-18,Girls,Missouri,Golf,196.0,1898
+2017-18,Girls,Nebraska,Football 11-player,,19
+2017-18,Girls,Nebraska,Golf,139.0,1391
+2017-18,Girls,New Hampshire,Field Hockey,54.0,1684
+2017-18,Girls,New Hampshire,Football 11-player,,15
+2017-18,Girls,New Hampshire,Golf,32.0,57
+2017-18,Girls,New Hampshire,Gymnastics,27.0,182
+2017-18,Girls,New Mexico,Field Hockey,,121
+2017-18,Girls,New Mexico,Football 11-player,121.0,63
+2017-18,Girls,New Mexico,Golf,79.0,414
+2017-18,Girls,New Mexico,Gymnastics,105.0,1414
+2017-18,Girls,North Carolina,Football 11-player,,246
+2017-18,Girls,North Carolina,Golf,246.0,1358
+2017-18,Girls,North Dakota,Field Hockey,,5
+2017-18,Girls,North Dakota,Football 11-player,5.0,10
+2017-18,Girls,North Dakota,Golf,119.0,487
+2017-18,Girls,North Dakota,Gymnastics,16.0,103
+2017-18,Girls,Ohio,Field Hockey,37.0,1134
+2017-18,Girls,Ohio,Football 11-player,,45
+2017-18,Girls,Ohio,Golf,538.0,3669
+2017-18,Girls,Ohio,Gymnastics,169.0,1225
+2017-18,Girls,Oklahoma,Field Hockey,,8
+2017-18,Girls,Oklahoma,Football 11-player,8.0,9
+2017-18,Girls,Oklahoma,Golf,188.0,1080
+2017-18,Girls,Oregon,Football 11-player,,46
+2017-18,Girls,Oregon,Golf,140.0,970
+2017-18,Girls,Pennsylvania,Field Hockey,280.0,9800
+2017-18,Girls,Pennsylvania,Football 11-player,,269
+2017-18,Girls,Pennsylvania,Golf,269.0,2690
+2017-18,Girls,Pennsylvania,Gymnastics,21.0,210
+2017-18,Girls,Rhode Island,Field Hockey,21.0,709
+2017-18,Girls,Rhode Island,Football 11-player,,15
+2017-18,Girls,Rhode Island,Golf,1.0,80
+2017-18,Girls,Rhode Island,Gymnastics,12.0,162
+2017-18,Girls,South Carolina,Football 11-player,,100
+2017-18,Girls,South Carolina,Golf,100.0,817
+2017-18,Girls,South Dakota,Field Hockey,,4
+2017-18,Girls,South Dakota,Football 11-player,4.0,32
+2017-18,Girls,South Dakota,Golf,117.0,576
+2017-18,Girls,South Dakota,Gymnastics,35.0,271
+2017-18,Girls,Tennessee,Football 11-player,,268
+2017-18,Girls,Tennessee,Golf,268.0,928
+2017-18,Girls,Texas,Football 11-player,,210
+2017-18,Girls,Texas,Golf,1284.0,10060
+2017-18,Girls,Utah,Football 11-player,,16
+2017-18,Girls,Utah,Golf,115.0,1261
+2017-18,Girls,Vermont,Field Hockey,15.0,413
+2017-18,Girls,Vermont,Football 11-player,5.0,59
+2017-18,Girls,Vermont,Golf,13.0,35
+2017-18,Girls,Vermont,Gymnastics,2.0,17
+2017-18,Girls,Virginia,Field Hockey,156.0,4925
+2017-18,Girls,Virginia,Football 11-player,30.0,48
+2017-18,Girls,Virginia,Golf,189.0,490
+2017-18,Girls,Virginia,Gymnastics,82.0,892
+2017-18,Girls,Washington,Football 11-player,,267
+2017-18,Girls,Washington,Golf,267.0,2425
+2017-18,Girls,Washington,Gymnastics,86.0,2298
+2017-18,Girls,West Virginia,Football 11-player,,152
+2017-18,Girls,West Virginia,Golf,152.0,1892
+2017-18,Girls,West Virginia,Gymnastics,79.0,1165
+2017-18,Girls,Wyoming,Field Hockey,,3
+2017-18,Girls,Wyoming,Football 11-player,3.0,4
+2017-18,Girls,Wyoming,Golf,38.0,221
+2017-18,Girls,Alabama,Ice Hockey,30.0,137
+2017-18,Girls,Alabama,Lacrosse,,28
+2017-18,Girls,Alabama,Skiing Alpine,28.0,390
+2017-18,Girls,California,Ice Hockey,7.0,24
+2017-18,Girls,California,Lacrosse,257.0,8880
+2017-18,Girls,California,Skiing Alpine,3.0,19
+2017-18,Girls,California,Skiing Cross Country,19.0,163
+2017-18,Girls,Connecticut,Ice Hockey,,21
+2017-18,Girls,Connecticut,Lacrosse,94.0,3789
+2017-18,Girls,District of Columbia,Ice Hockey,2.0,26
+2017-18,Girls,District of Columbia,Lacrosse,12.0,259
+2017-18,Girls,District of Columbia,Skiing Alpine,1.0,5
+2017-18,Girls,Florida,Ice Hockey,,193
+2017-18,Girls,Florida,Lacrosse,193.0,5743
+2017-18,Girls,Georgia,Ice Hockey,,108
+2017-18,Girls,Georgia,Lacrosse,108.0,3420
+2017-18,Girls,Illinois,Ice Hockey,,61
+2017-18,Girls,Illinois,Lacrosse,61.0,3029
+2017-18,Girls,Kentucky,Ice Hockey,,20
+2017-18,Girls,Kentucky,Lacrosse,20.0,890
+2017-18,Girls,Maine,Ice Hockey,45.0,457
+2017-18,Girls,Maine,Lacrosse,56.0,1518
+2017-18,Girls,Maine,Skiing Alpine,42.0,268
+2017-18,Girls,Maine,Skiing Cross Country,39.0,273
+2017-18,Girls,Maryland,Ice Hockey,,161
+2017-18,Girls,Maryland,Lacrosse,161.0,5472
+2017-18,Girls,Massachusetts,Ice Hockey,168.0,2320
+2017-18,Girls,Massachusetts,Lacrosse,229.0,8164
+2017-18,Girls,Massachusetts,Skiing Alpine,20.0,379
+2017-18,Girls,Massachusetts,Skiing Cross Country,82.0,998
+2017-18,Girls,Michigan,Ice Hockey,22.0,304
+2017-18,Girls,Michigan,Lacrosse,109.0,2907
+2017-18,Girls,Michigan,Skiing Alpine,5.0,49
+2017-18,Girls,Michigan,Skiing Cross Country,95.0,768
+2017-18,Girls,Minnesota,Ice Hockey,240.0,3723
+2017-18,Girls,Minnesota,Lacrosse,115.0,3986
+2017-18,Girls,Minnesota,Skiing Alpine,121.0,2468
+2017-18,Girls,Minnesota,Skiing Cross Country,135.0,854
+2017-18,Girls,Missouri,Ice Hockey,,40
+2017-18,Girls,Missouri,Lacrosse,40.0,1657
+2017-18,Girls,Nebraska,Skiing Alpine,,19
+2017-18,Girls,Nebraska,Skiing Cross Country,19.0,198
+2017-18,Girls,New Hampshire,Ice Hockey,15.0,327
+2017-18,Girls,New Hampshire,Lacrosse,47.0,1678
+2017-18,Girls,New Hampshire,Skiing Alpine,31.0,302
+2017-18,Girls,New Hampshire,Skiing Cross Country,55.0,433
+2017-18,Girls,New Mexico,Ice Hockey,28.0,532
+2017-18,Girls,New Mexico,Lacrosse,313.0,12099
+2017-18,Girls,New Mexico,Skiing Alpine,29.0,353
+2017-18,Girls,New Mexico,Skiing Cross Country,83.0,617
+2017-18,Girls,North Carolina,Ice Hockey,,81
+2017-18,Girls,North Carolina,Lacrosse,81.0,2556
+2017-18,Girls,North Dakota,Ice Hockey,23.0,243
+2017-18,Girls,Ohio,Ice Hockey,,64
+2017-18,Girls,Ohio,Lacrosse,130.0,3966
+2017-18,Girls,Pennsylvania,Ice Hockey,,225
+2017-18,Girls,Pennsylvania,Lacrosse,225.0,7200
+2017-18,Girls,Rhode Island,Ice Hockey,8.0,157
+2017-18,Girls,Rhode Island,Lacrosse,34.0,1303
+2017-18,Girls,South Carolina,Ice Hockey,,42
+2017-18,Girls,South Carolina,Lacrosse,42.0,1436
+2017-18,Girls,Vermont,Ice Hockey,14.0,169
+2017-18,Girls,Vermont,Lacrosse,14.0,350
+2017-18,Girls,Vermont,Skiing Alpine,9.0,116
+2017-18,Girls,Vermont,Skiing Cross Country,10.0,61
+2017-18,Girls,Virginia,Ice Hockey,,105
+2017-18,Girls,Virginia,Lacrosse,105.0,3748
+2017-18,Girls,West Virginia,Ice Hockey,29.0,764
+2017-18,Girls,Wyoming,Lacrosse,,7
+2017-18,Girls,Wyoming,Skiing Alpine,7.0,83
+2017-18,Girls,Wyoming,Skiing Cross Country,6.0,65
+2017-18,Girls,Alabama,Soccer,170.0,5021
+2017-18,Girls,Alabama,Softball Slow Pitch,382.0,9698
+2017-18,Girls,Alabama,Softball Fast Pitch,,72
+2017-18,Girls,Alabama,Swimming and Diving,72.0,876
+2017-18,Girls,Arizona,Soccer,188.0,6217
+2017-18,Girls,Arizona,Softball Slow Pitch,241.0,6692
+2017-18,Girls,Arizona,Softball Fast Pitch,,151
+2017-18,Girls,Arizona,Swimming and Diving,151.0,3447
+2017-18,Girls,California,Soccer,1333.0,47186
+2017-18,Girls,California,Softball Slow Pitch,1248.0,33400
+2017-18,Girls,California,Softball Fast Pitch,2.0,20
+2017-18,Girls,California,Swimming and Diving,977.0,31161
+2017-18,Girls,Connecticut,Soccer,164.0,5772
+2017-18,Girls,Connecticut,Softball Slow Pitch,179.0,5772
+2017-18,Girls,Connecticut,Softball Fast Pitch,,95
+2017-18,Girls,Connecticut,Swimming and Diving,95.0,2597
+2017-18,Girls,District of Columbia,Soccer,26.0,574
+2017-18,Girls,District of Columbia,Softball Slow Pitch,30.0,296
+2017-18,Girls,District of Columbia,Softball Fast Pitch,,18
+2017-18,Girls,District of Columbia,Swimming and Diving,18.0,257
+2017-18,Girls,Florida,Soccer,583.0,17360
+2017-18,Girls,Florida,Softball Slow Pitch,593.0,12670
+2017-18,Girls,Florida,Softball Fast Pitch,,454
+2017-18,Girls,Florida,Swimming and Diving,454.0,8542
+2017-18,Girls,Georgia,Soccer,392.0,10355
+2017-18,Girls,Georgia,Softball Slow Pitch,403.0,7920
+2017-18,Girls,Georgia,Softball Fast Pitch,24.0,378
+2017-18,Girls,Georgia,Swimming and Diving,269.0,4986
+2017-18,Girls,Hawaii,Soccer,60.0,1673
+2017-18,Girls,Hawaii,Softball Slow Pitch,57.0,1299
+2017-18,Girls,Hawaii,Softball Fast Pitch,,62
+2017-18,Girls,Hawaii,Swimming and Diving,62.0,897
+2017-18,Girls,Idaho,Soccer,79.0,2172
+2017-18,Girls,Idaho,Softball Slow Pitch,100.0,2163
+2017-18,Girls,Idaho,Softball Fast Pitch,,54
+2017-18,Girls,Idaho,Swimming and Diving,54.0,650
+2017-18,Girls,Illinois,Soccer,413.0,16334
+2017-18,Girls,Illinois,Softball Slow Pitch,605.0,14269
+2017-18,Girls,Illinois,Softball Fast Pitch,,269
+2017-18,Girls,Illinois,Swimming and Diving,269.0,7105
+2017-18,Girls,Indiana,Soccer,298.0,7498
+2017-18,Girls,Indiana,Softball Slow Pitch,368.0,7923
+2017-18,Girls,Indiana,Softball Fast Pitch,,242
+2017-18,Girls,Indiana,Swimming and Diving,242.0,4435
+2017-18,Girls,Iowa,Soccer,149.0,5610
+2017-18,Girls,Iowa,Softball Slow Pitch,340.0,7465
+2017-18,Girls,Iowa,Softball Fast Pitch,,53
+2017-18,Girls,Iowa,Swimming and Diving,53.0,1668
+2017-18,Girls,Kansas,Soccer,98.0,3477
+2017-18,Girls,Kansas,Softball Slow Pitch,239.0,5035
+2017-18,Girls,Kansas,Softball Fast Pitch,,82
+2017-18,Girls,Kansas,Swimming and Diving,82.0,2076
+2017-18,Girls,Kentucky,Soccer,199.0,5906
+2017-18,Girls,Kentucky,Softball Slow Pitch,257.0,5659
+2017-18,Girls,Kentucky,Softball Fast Pitch,,140
+2017-18,Girls,Kentucky,Swimming and Diving,140.0,2196
+2017-18,Girls,Louisiana,Soccer,184.0,4034
+2017-18,Girls,Louisiana,Softball Slow Pitch,353.0,6162
+2017-18,Girls,Louisiana,Softball Fast Pitch,,194
+2017-18,Girls,Louisiana,Swimming and Diving,194.0,1374
+2017-18,Girls,Maine,Soccer,138.0,3665
+2017-18,Girls,Maine,Softball Slow Pitch,128.0,2631
+2017-18,Girls,Maine,Softball Fast Pitch,,60
+2017-18,Girls,Maine,Swimming and Diving,60.0,953
+2017-18,Girls,Maryland,Soccer,172.0,5839
+2017-18,Girls,Maryland,Softball Slow Pitch,173.0,4551
+2017-18,Girls,Maryland,Softball Fast Pitch,,110
+2017-18,Girls,Maryland,Swimming and Diving,110.0,2327
+2017-18,Girls,Massachusetts,Soccer,348.0,12892
+2017-18,Girls,Massachusetts,Softball Slow Pitch,344.0,9236
+2017-18,Girls,Massachusetts,Softball Fast Pitch,,226
+2017-18,Girls,Massachusetts,Swimming and Diving,226.0,4324
+2017-18,Girls,Michigan,Soccer,468.0,13285
+2017-18,Girls,Michigan,Softball Slow Pitch,624.0,13610
+2017-18,Girls,Michigan,Softball Fast Pitch,,261
+2017-18,Girls,Michigan,Swimming and Diving,261.0,5810
+2017-18,Girls,Minnesota,Soccer,250.0,8322
+2017-18,Girls,Minnesota,Softball Slow Pitch,417.0,13104
+2017-18,Girls,Minnesota,Softball Fast Pitch,,207
+2017-18,Girls,Minnesota,Swimming and Diving,207.0,5788
+2017-18,Girls,Missouri,Soccer,237.0,8384
+2017-18,Girls,Missouri,Softball Slow Pitch,503.0,9844
+2017-18,Girls,Missouri,Softball Fast Pitch,,136
+2017-18,Girls,Missouri,Swimming and Diving,136.0,3373
+2017-18,Girls,Nebraska,Soccer,77.0,2577
+2017-18,Girls,Nebraska,Softball Slow Pitch,144.0,2696
+2017-18,Girls,Nebraska,Softball Fast Pitch,,61
+2017-18,Girls,Nebraska,Swimming and Diving,61.0,1062
+2017-18,Girls,New Hampshire,Soccer,80.0,2563
+2017-18,Girls,New Hampshire,Softball Slow Pitch,85.0,1864
+2017-18,Girls,New Hampshire,Softball Fast Pitch,,52
+2017-18,Girls,New Hampshire,Swimming and Diving,52.0,665
+2017-18,Girls,New Mexico,Soccer,73.0,2135
+2017-18,Girls,New Mexico,Softball Slow Pitch,96.0,2550
+2017-18,Girls,New Mexico,Softball Fast Pitch,,43
+2017-18,Girls,New Mexico,Swimming and Diving,43.0,780
+2017-18,Girls,North Carolina,Soccer,373.0,10254
+2017-18,Girls,North Carolina,Softball Slow Pitch,397.0,7804
+2017-18,Girls,North Carolina,Softball Fast Pitch,,306
+2017-18,Girls,North Carolina,Swimming and Diving,306.0,5062
+2017-18,Girls,North Dakota,Soccer,19.0,631
+2017-18,Girls,North Dakota,Softball Slow Pitch,82.0,1027
+2017-18,Girls,North Dakota,Softball Fast Pitch,,23
+2017-18,Girls,North Dakota,Swimming and Diving,23.0,392
+2017-18,Girls,Ohio,Soccer,540.0,16071
+2017-18,Girls,Ohio,Softball Slow Pitch,757.0,17907
+2017-18,Girls,Ohio,Softball Fast Pitch,,367
+2017-18,Girls,Ohio,Swimming and Diving,435.0,6884
+2017-18,Girls,Oklahoma,Soccer,132.0,3636
+2017-18,Girls,Oklahoma,Softball Slow Pitch,411.0,6685
+2017-18,Girls,Oklahoma,Softball Fast Pitch,292.0,4265
+2017-18,Girls,Oklahoma,Swimming and Diving,62.0,643
+2017-18,Girls,Oregon,Soccer,164.0,5398
+2017-18,Girls,Oregon,Softball Slow Pitch,216.0,4568
+2017-18,Girls,Oregon,Softball Fast Pitch,,126
+2017-18,Girls,Oregon,Swimming and Diving,126.0,2685
+2017-18,Girls,Pennsylvania,Soccer,547.0,19145
+2017-18,Girls,Pennsylvania,Softball Slow Pitch,651.0,19530
+2017-18,Girls,Pennsylvania,Softball Fast Pitch,,337
+2017-18,Girls,Pennsylvania,Swimming and Diving,337.0,10110
+2017-18,Girls,Rhode Island,Soccer,48.0,1752
+2017-18,Girls,Rhode Island,Softball Slow Pitch,48.0,1107
+2017-18,Girls,Rhode Island,Softball Fast Pitch,,28
+2017-18,Girls,Rhode Island,Swimming and Diving,28.0,602
+2017-18,Girls,South Carolina,Soccer,158.0,4965
+2017-18,Girls,South Carolina,Softball Slow Pitch,205.0,4822
+2017-18,Girls,South Carolina,Softball Fast Pitch,,93
+2017-18,Girls,South Carolina,Swimming and Diving,93.0,1527
+2017-18,Girls,South Dakota,Soccer,29.0,656
+2017-18,Girls,Tennessee,Soccer,311.0,7038
+2017-18,Girls,Tennessee,Softball Slow Pitch,371.0,6224
+2017-18,Girls,Texas,Soccer,730.0,32589
+2017-18,Girls,Texas,Softball Slow Pitch,1217.0,35604
+2017-18,Girls,Texas,Softball Fast Pitch,,594
+2017-18,Girls,Texas,Swimming and Diving,594.0,10346
+2017-18,Girls,Utah,Soccer,105.0,3550
+2017-18,Girls,Utah,Softball Slow Pitch,109.0,2406
+2017-18,Girls,Utah,Softball Fast Pitch,,96
+2017-18,Girls,Utah,Swimming and Diving,96.0,2171
+2017-18,Girls,Vermont,Soccer,30.0,780
+2017-18,Girls,Vermont,Softball Slow Pitch,28.0,494
+2017-18,Girls,Vermont,Softball Fast Pitch,1.0,11
+2017-18,Girls,Vermont,Swimming and Diving,1.0,11
+2017-18,Girls,Virginia,Soccer,288.0,8913
+2017-18,Girls,Virginia,Softball Slow Pitch,299.0,7285
+2017-18,Girls,Virginia,Softball Fast Pitch,,222
+2017-18,Girls,Virginia,Swimming and Diving,222.0,4667
+2017-18,Girls,Washington,Soccer,290.0,10235
+2017-18,Girls,Washington,Softball Slow Pitch,327.0,8033
+2017-18,Girls,Washington,Softball Fast Pitch,,163
+2017-18,Girls,Washington,Swimming and Diving,163.0,4870
+2017-18,Girls,West Virginia,Soccer,77.0,1794
+2017-18,Girls,West Virginia,Softball Slow Pitch,117.0,2226
+2017-18,Girls,West Virginia,Softball Fast Pitch,,47
+2017-18,Girls,West Virginia,Swimming and Diving,47.0,710
+2017-18,Girls,Wyoming,Soccer,26.0,878
+2017-18,Girls,Wyoming,Softball Fast Pitch,,24
+2017-18,Girls,Wyoming,Swimming and Diving,24.0,542
+2017-18,Girls,Wyoming,Softball Slow Pitch,,66
+2017-18,Girls,Alabama,Tennis,173.0,1835
+2017-18,Girls,Alabama,Track and Field Indoor,165.0,1929
+2017-18,Girls,Alabama,Track and Field Outdoor,354.0,5669
+2017-18,Girls,Alabama,Volleyball,384.0,10095
+2017-18,Girls,Arizona,Tennis,181.0,2569
+2017-18,Girls,Arizona,Track and Field Indoor,,238
+2017-18,Girls,Arizona,Track and Field Outdoor,238.0,6579
+2017-18,Girls,Arizona,Volleyball,259.0,8158
+2017-18,Girls,California,Tennis,1034.0,23428
+2017-18,Girls,California,Track and Field Indoor,,1236
+2017-18,Girls,California,Track and Field Outdoor,1236.0,46327
+2017-18,Girls,California,Volleyball,1432.0,45139
+2017-18,Girls,Connecticut,Tennis,141.0,3317
+2017-18,Girls,Connecticut,Track and Field Indoor,160.0,4935
+2017-18,Girls,Connecticut,Track and Field Outdoor,175.0,6683
+2017-18,Girls,Connecticut,Volleyball,166.0,4986
+2017-18,Girls,District of Columbia,Tennis,18.0,211
+2017-18,Girls,District of Columbia,Track and Field Indoor,21.0,425
+2017-18,Girls,District of Columbia,Track and Field Outdoor,35.0,433
+2017-18,Girls,District of Columbia,Volleyball,36.0,469
+2017-18,Girls,Florida,Tennis,511.0,8758
+2017-18,Girls,Florida,Track and Field Indoor,,636
+2017-18,Girls,Florida,Track and Field Outdoor,636.0,16993
+2017-18,Girls,Florida,Volleyball,722.0,19319
+2017-18,Girls,Georgia,Track and Field Indoor,,422
+2017-18,Girls,Georgia,Track and Field Outdoor,422.0,11208
+2017-18,Girls,Georgia,Volleyball,347.0,8485
+2017-18,Girls,Hawaii,Tennis,60.0,852
+2017-18,Girls,Hawaii,Track and Field Indoor,,68
+2017-18,Girls,Hawaii,Track and Field Outdoor,68.0,1719
+2017-18,Girls,Hawaii,Volleyball,71.0,1902
+2017-18,Girls,Idaho,Tennis,61.0,1208
+2017-18,Girls,Idaho,Track and Field Indoor,,149
+2017-18,Girls,Idaho,Track and Field Outdoor,149.0,3567
+2017-18,Girls,Idaho,Volleyball,150.0,3771
+2017-18,Girls,Illinois,Tennis,308.0,8096
+2017-18,Girls,Illinois,Track and Field Indoor,,595
+2017-18,Girls,Illinois,Track and Field Outdoor,595.0,19670
+2017-18,Girls,Illinois,Volleyball,695.0,21961
+2017-18,Girls,Indiana,Tennis,313.0,6052
+2017-18,Girls,Indiana,Track and Field Indoor,,396
+2017-18,Girls,Indiana,Track and Field Outdoor,396.0,10784
+2017-18,Girls,Indiana,Volleyball,396.0,9438
+2017-18,Girls,Iowa,Tennis,112.0,3573
+2017-18,Girls,Iowa,Track and Field Indoor,,350
+2017-18,Girls,Iowa,Track and Field Outdoor,350.0,10013
+2017-18,Girls,Iowa,Volleyball,357.0,10806
+2017-18,Girls,Kansas,Tennis,139.0,2647
+2017-18,Girls,Kansas,Track and Field Indoor,,349
+2017-18,Girls,Kansas,Track and Field Outdoor,349.0,7171
+2017-18,Girls,Kansas,Volleyball,341.0,8372
+2017-18,Girls,Kentucky,Tennis,217.0,2658
+2017-18,Girls,Kentucky,Track and Field Indoor,,253
+2017-18,Girls,Kentucky,Track and Field Outdoor,253.0,5393
+2017-18,Girls,Kentucky,Volleyball,264.0,6221
+2017-18,Girls,Louisiana,Tennis,179.0,1836
+2017-18,Girls,Louisiana,Track and Field Indoor,272.0,1068
+2017-18,Girls,Louisiana,Track and Field Outdoor,382.0,6970
+2017-18,Girls,Louisiana,Volleyball,224.0,4809
+2017-18,Girls,Maine,Tennis,,70
+2017-18,Girls,Maine,Track and Field Indoor,70.0,1408
+2017-18,Girls,Maine,Track and Field Outdoor,111.0,2544
+2017-18,Girls,Maine,Volleyball,44.0,1043
+2017-18,Girls,Maryland,Tennis,174.0,2335
+2017-18,Girls,Maryland,Track and Field Indoor,169.0,4525
+2017-18,Girls,Maryland,Track and Field Outdoor,188.0,5717
+2017-18,Girls,Maryland,Volleyball,183.0,5229
+2017-18,Girls,Massachusetts,Tennis,244.0,4625
+2017-18,Girls,Massachusetts,Track and Field Indoor,263.0,9468
+2017-18,Girls,Massachusetts,Track and Field Outdoor,321.0,13322
+2017-18,Girls,Massachusetts,Volleyball,301.0,9803
+2017-18,Girls,Michigan,Tennis,332.0,9154
+2017-18,Girls,Michigan,Track and Field Indoor,48.0,553
+2017-18,Girls,Michigan,Track and Field Outdoor,659.0,17302
+2017-18,Girls,Michigan,Volleyball,715.0,19416
+2017-18,Girls,Minnesota,Tennis,225.0,6635
+2017-18,Girls,Minnesota,Track and Field Indoor,,463
+2017-18,Girls,Minnesota,Track and Field Outdoor,463.0,16458
+2017-18,Girls,Minnesota,Volleyball,465.0,16458
+2017-18,Girls,Missouri,Tennis,184.0,4029
+2017-18,Girls,Missouri,Track and Field Indoor,,495
+2017-18,Girls,Missouri,Track and Field Outdoor,495.0,12284
+2017-18,Girls,Missouri,Volleyball,431.0,10441
+2017-18,Girls,Nebraska,Tennis,67.0,1570
+2017-18,Girls,Nebraska,Track and Field Indoor,,299
+2017-18,Girls,Nebraska,Track and Field Outdoor,299.0,7419
+2017-18,Girls,Nebraska,Volleyball,301.0,6714
+2017-18,Girls,New Hampshire,Tennis,54.0,885
+2017-18,Girls,New Hampshire,Track and Field Indoor,60.0,1189
+2017-18,Girls,New Hampshire,Track and Field Outdoor,76.0,2067
+2017-18,Girls,New Hampshire,Volleyball,59.0,1667
+2017-18,Girls,New Mexico,Tennis,64.0,794
+2017-18,Girls,New Mexico,Track and Field Indoor,,157
+2017-18,Girls,New Mexico,Track and Field Outdoor,157.0,3647
+2017-18,Girls,New Mexico,Volleyball,153.0,3756
+2017-18,Girls,North Carolina,Tennis,344.0,4316
+2017-18,Girls,North Carolina,Track and Field Indoor,273.0,5040
+2017-18,Girls,North Carolina,Track and Field Outdoor,398.0,10398
+2017-18,Girls,North Carolina,Volleyball,409.0,9565
+2017-18,Girls,North Dakota,Tennis,21.0,461
+2017-18,Girls,North Dakota,Track and Field Indoor,,160
+2017-18,Girls,North Dakota,Track and Field Outdoor,160.0,2160
+2017-18,Girls,North Dakota,Volleyball,151.0,3126
+2017-18,Girls,Ohio,Tennis,408.0,7057
+2017-18,Girls,Ohio,Track and Field Indoor,,3883
+2017-18,Girls,Ohio,Track and Field Outdoor,784.0,23963
+2017-18,Girls,Ohio,Volleyball,785.0,17568
+2017-18,Girls,Oklahoma,Tennis,111.0,1322
+2017-18,Girls,Oklahoma,Track and Field Indoor,,450
+2017-18,Girls,Oklahoma,Track and Field Outdoor,450.0,5523
+2017-18,Girls,Oklahoma,Volleyball,124.0,3170
+2017-18,Girls,Oregon,Tennis,128.0,2905
+2017-18,Girls,Oregon,Track and Field Indoor,,267
+2017-18,Girls,Oregon,Track and Field Outdoor,267.0,7289
+2017-18,Girls,Oregon,Volleyball,282.0,7086
+2017-18,Girls,Pennsylvania,Tennis,395.0,4740
+2017-18,Girls,Pennsylvania,Track and Field Indoor,175.0,2625
+2017-18,Girls,Pennsylvania,Track and Field Outdoor,609.0,24360
+2017-18,Girls,Pennsylvania,Volleyball,592.0,10656
+2017-18,Girls,Rhode Island,Tennis,42.0,991
+2017-18,Girls,Rhode Island,Track and Field Indoor,40.0,1272
+2017-18,Girls,Rhode Island,Track and Field Outdoor,47.0,1621
+2017-18,Girls,Rhode Island,Volleyball,42.0,1356
+2017-18,Girls,South Carolina,Tennis,140.0,1919
+2017-18,Girls,South Carolina,Track and Field Indoor,,199
+2017-18,Girls,South Carolina,Track and Field Outdoor,199.0,6017
+2017-18,Girls,South Carolina,Volleyball,209.0,4926
+2017-18,Girls,South Dakota,Tennis,23.0,254
+2017-18,Girls,South Dakota,Track and Field Indoor,,166
+2017-18,Girls,South Dakota,Track and Field Outdoor,166.0,2977
+2017-18,Girls,South Dakota,Volleyball,168.0,3534
+2017-18,Girls,Tennessee,Tennis,273.0,3060
+2017-18,Girls,Tennessee,Track and Field Indoor,,314
+2017-18,Girls,Tennessee,Track and Field Outdoor,314.0,5916
+2017-18,Girls,Tennessee,Volleyball,345.0,6767
+2017-18,Girls,Texas,Tennis,1279.0,20599
+2017-18,Girls,Texas,Track and Field Indoor,,1518
+2017-18,Girls,Texas,Track and Field Outdoor,1518.0,53119
+2017-18,Girls,Texas,Volleyball,1326.0,47415
+2017-18,Girls,Utah,Tennis,97.0,2096
+2017-18,Girls,Utah,Track and Field Indoor,,138
+2017-18,Girls,Utah,Track and Field Outdoor,138.0,5247
+2017-18,Girls,Utah,Volleyball,138.0,3605
+2017-18,Girls,Vermont,Tennis,10.0,141
+2017-18,Girls,Vermont,Track and Field Indoor,13.0,85
+2017-18,Girls,Vermont,Track and Field Outdoor,22.0,326
+2017-18,Girls,Vermont,Volleyball,4.0,86
+2017-18,Girls,Virginia,Tennis,261.0,3573
+2017-18,Girls,Virginia,Track and Field Indoor,236.0,6444
+2017-18,Girls,Virginia,Track and Field Outdoor,307.0,9000
+2017-18,Girls,Virginia,Volleyball,308.0,8115
+2017-18,Girls,Washington,Tennis,257.0,7873
+2017-18,Girls,Washington,Track and Field Indoor,,378
+2017-18,Girls,Washington,Track and Field Outdoor,378.0,10837
+2017-18,Girls,Washington,Volleyball,379.0,11186
+2017-18,Girls,West Virginia,Tennis,81.0,831
+2017-18,Girls,West Virginia,Track and Field Indoor,,118
+2017-18,Girls,West Virginia,Track and Field Outdoor,118.0,2492
+2017-18,Girls,West Virginia,Volleyball,117.0,2471
+2017-18,Girls,Wyoming,Tennis,17.0,297
+2017-18,Girls,Wyoming,Track and Field Indoor,22.0,517
+2017-18,Girls,Wyoming,Track and Field Outdoor,72.0,1496
+2017-18,Girls,Wyoming,Volleyball,71.0,1867

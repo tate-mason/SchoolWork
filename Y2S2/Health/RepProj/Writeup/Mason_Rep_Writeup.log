@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  17 MAR 2026 16:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  18 MAR 2026 16:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -817,7 +817,7 @@ my insertion and my current dilemma will both disappear.
 [5
 
 ] (../Output/Tables/Tab6.tex
-Overfull \hbox (55.6206pt too wide) in paragraph at lines 4--31
+Overfull \hbox (44.6706pt too wide) in paragraph at lines 4--31
  [][] 
  []
 
@@ -826,29 +826,12 @@ Overfull \hbox (55.6206pt too wide) in paragraph at lines 4--31
 [6
 
 ] (../Output/Tables/Tab7.tex
-../Output/Tables/Tab7.tex:77: Missing $ inserted.
-<inserted text> 
-                $
-l.77 ...ions between education$\times, kids$\times
-                                                  , and education$\times.
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+Overfull \hbox (75.99976pt too wide) in paragraph at lines 4--80
+ [][] 
+ []
 
-../Output/Tables/Tab7.tex:77: Missing $ inserted.
-<inserted text> 
-                $
-l.77 ...$\times, kids$\times, and education$\times
-                                                  .
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
-../Output/Tables/Tab7.tex:78: Missing $ inserted.
-<inserted text> 
-                $
-l.78 \end{minipage}
-                   
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+LaTeX Warning: Float too large for page by 22.86183pt on input line 80.
 
 )
 
@@ -861,27 +844,27 @@ you left one out. Proceed, with fingers crossed.
 [9
 
 ]
-<../Output/Graphs/Fig_LaborForce.pdf, id=68, 397.485pt x 289.08pt>
+<../Output/Graphs/Fig_LaborForce.pdf, id=60, 397.485pt x 289.08pt>
 File: ../Output/Graphs/Fig_LaborForce.pdf Graphic file (type pdf)
 <use ../Output/Graphs/Fig_LaborForce.pdf>
 Package pdftex.def Info: ../Output/Graphs/Fig_LaborForce.pdf  used on input line 153.
 (pdftex.def)             Requested size: 211.38832pt x 153.74098pt.
-<../Output/Graphs/Fig_ExcellentHealth.pdf, id=69, 397.485pt x 289.08pt>
+<../Output/Graphs/Fig_ExcellentHealth.pdf, id=61, 397.485pt x 289.08pt>
 File: ../Output/Graphs/Fig_ExcellentHealth.pdf Graphic file (type pdf)
 <use ../Output/Graphs/Fig_ExcellentHealth.pdf>
 Package pdftex.def Info: ../Output/Graphs/Fig_ExcellentHealth.pdf  used on input line 157.
 (pdftex.def)             Requested size: 209.27559pt x 152.20595pt.
-<../Output/Graphs/Fig_MentalHealth.pdf, id=70, 397.485pt x 289.08pt>
+<../Output/Graphs/Fig_MentalHealth.pdf, id=62, 397.485pt x 289.08pt>
 File: ../Output/Graphs/Fig_MentalHealth.pdf Graphic file (type pdf)
 <use ../Output/Graphs/Fig_MentalHealth.pdf>
 Package pdftex.def Info: ../Output/Graphs/Fig_MentalHealth.pdf  used on input line 163.
 (pdftex.def)             Requested size: 211.38832pt x 153.74098pt.
-<../Output/Graphs/Fig_PhysHealth.pdf, id=71, 397.485pt x 289.08pt>
+<../Output/Graphs/Fig_PhysHealth.pdf, id=63, 397.485pt x 289.08pt>
 File: ../Output/Graphs/Fig_PhysHealth.pdf Graphic file (type pdf)
 <use ../Output/Graphs/Fig_PhysHealth.pdf>
 Package pdftex.def Info: ../Output/Graphs/Fig_PhysHealth.pdf  used on input line 167.
 (pdftex.def)             Requested size: 211.38832pt x 153.74098pt.
-<../Output/Graphs/Fig_LF.pdf, id=72, 397.485pt x 289.08pt>
+<../Output/Graphs/Fig_LF.pdf, id=64, 397.485pt x 289.08pt>
 File: ../Output/Graphs/Fig_LF.pdf Graphic file (type pdf)
 <use ../Output/Graphs/Fig_LF.pdf>
 Package pdftex.def Info: ../Output/Graphs/Fig_LF.pdf  used on input line 173.
@@ -891,22 +874,22 @@ Package pdftex.def Info: ../Output/Graphs/Fig_LF.pdf  used on input line 173.
 [10
 
  <../Output/Graphs/Fig_LaborForce.pdf> <../Output/Graphs/Fig_ExcellentHealth.pdf> <../Output/Graphs/Fig_MentalHealth.pdf> <../Output/Graphs/Fig_PhysHealth.pdf> <../Output/Graphs/Fig_LF.pdf>]
-<../Output/Graphs/EventStudy_at_work.pdf, id=118, 397.485pt x 289.08pt>
+<../Output/Graphs/EventStudy_at_work.pdf, id=110, 397.485pt x 289.08pt>
 File: ../Output/Graphs/EventStudy_at_work.pdf Graphic file (type pdf)
 <use ../Output/Graphs/EventStudy_at_work.pdf>
 Package pdftex.def Info: ../Output/Graphs/EventStudy_at_work.pdf  used on input line 186.
 (pdftex.def)             Requested size: 211.38832pt x 153.74098pt.
-<../Output/Graphs/EventStudy_excel_vgood.pdf, id=119, 397.485pt x 289.08pt>
+<../Output/Graphs/EventStudy_excel_vgood.pdf, id=111, 397.485pt x 289.08pt>
 File: ../Output/Graphs/EventStudy_excel_vgood.pdf Graphic file (type pdf)
 <use ../Output/Graphs/EventStudy_excel_vgood.pdf>
 Package pdftex.def Info: ../Output/Graphs/EventStudy_excel_vgood.pdf  used on input line 190.
 (pdftex.def)             Requested size: 211.38832pt x 153.74098pt.
-<../Output/Graphs/EventStudy_mental_poor.pdf, id=120, 397.485pt x 289.08pt>
+<../Output/Graphs/EventStudy_mental_poor.pdf, id=112, 397.485pt x 289.08pt>
 File: ../Output/Graphs/EventStudy_mental_poor.pdf Graphic file (type pdf)
 <use ../Output/Graphs/EventStudy_mental_poor.pdf>
 Package pdftex.def Info: ../Output/Graphs/EventStudy_mental_poor.pdf  used on input line 196.
 (pdftex.def)             Requested size: 211.38832pt x 153.74098pt.
-<../Output/Graphs/EventStudy_phys_poor.pdf, id=121, 397.485pt x 289.08pt>
+<../Output/Graphs/EventStudy_phys_poor.pdf, id=113, 397.485pt x 289.08pt>
 File: ../Output/Graphs/EventStudy_phys_poor.pdf Graphic file (type pdf)
 <use ../Output/Graphs/EventStudy_phys_poor.pdf>
 Package pdftex.def Info: ../Output/Graphs/EventStudy_phys_poor.pdf  used on input line 200.
@@ -920,41 +903,25 @@ Package pdftex.def Info: ../Output/Graphs/EventStudy_phys_poor.pdf  used on inpu
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `Mason_Rep_Writeup.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Mason_Rep_Writeup.out':
-(rerunfilecheck)             Before: 425B170F04A274242F514FD35AA07961;820
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `Mason_Rep_Writeup.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'Mason_Rep_Writeup.run.xml'.
 \openout1 = `Mason_Rep_Writeup.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21898 strings out of 473190
- 382539 string characters out of 5715801
- 1253282 words of memory out of 5000000
- 44795 multiletter control sequences out of 15000+600000
- 573616 words of font info for 115 fonts, out of 8000000 for 9000
+ 21895 strings out of 473190
+ 382511 string characters out of 5715801
+ 1257133 words of memory out of 5000000
+ 44792 multiletter control sequences out of 15000+600000
+ 573667 words of font info for 116 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,11n,81p,1014b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{section.2} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.1} has been referenced but does not exist, replaced by a fixed one
-
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on Mason_Rep_Writeup.pdf (11 pages, 298108 bytes).
+Output written on Mason_Rep_Writeup.pdf (11 pages, 295428 bytes).
 PDF statistics:
- 214 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 28734 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 205 PDF objects out of 1000 (max. 8388607)
+ 141 compressed objects within 2 object streams
+ 21 named destinations out of 1000 (max. 500000)
+ 28718 words of extra memory for PDF output out of 29859 (max. 10000000)
 

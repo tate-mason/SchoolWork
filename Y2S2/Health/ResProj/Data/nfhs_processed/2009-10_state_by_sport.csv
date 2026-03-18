@@ -1,0 +1,1578 @@
+survey_year,gender,state,sport,schools,participants
+2009-10,Boys,Alabama,Baseball,389.0,8966.0
+2009-10,Boys,Alabama,Basketball,413.0,11899.0
+2009-10,Boys,Alaska,Baseball,26.0,646.0
+2009-10,Boys,Alaska,Basketball,134.0,2188.0
+2009-10,Boys,Alaska,Bowling,8.0,96.0
+2009-10,Boys,Alaska,Competitive Spirit Squads,17.0,43.0
+2009-10,Boys,Arizona,Baseball,233.0,8252.0
+2009-10,Boys,Arizona,Basketball,246.0,8359.0
+2009-10,Boys,Arkansas,Baseball,239.0,4806.0
+2009-10,Boys,Arkansas,Basketball,277.0,5526.0
+2009-10,Boys,Arkansas,Bowling,60.0,728.0
+2009-10,Boys,Arkansas,Competitive Spirit Squads,36.0,180.0
+2009-10,Boys,California,Baseball,1221.0,42064.0
+2009-10,Boys,California,Basketball,1300.0,42521.0
+2009-10,Boys,California,Bowling,13.0,230.0
+2009-10,Boys,California,Competitive Spirit Squads,108.0,728.0
+2009-10,Boys,Colorado,Baseball,273.0,7538.0
+2009-10,Boys,Colorado,Basketball,328.0,8396.0
+2009-10,Boys,Colorado,Competitive Spirit Squads,,226.0
+2009-10,Boys,Connecticut,Baseball,172.0,6084.0
+2009-10,Boys,Connecticut,Basketball,178.0,5154.0
+2009-10,Boys,Connecticut,Competitive Spirit Squads,,272.0
+2009-10,Boys,Delaware,Baseball,48.0,1456.0
+2009-10,Boys,Delaware,Basketball,50.0,1456.0
+2009-10,Boys,Delaware,Competitive Spirit Squads,3.0,14.0
+2009-10,Boys,Florida,Baseball,582.0,14396.0
+2009-10,Boys,Florida,Basketball,582.0,14172.0
+2009-10,Boys,Florida,Bowling,125.0,948.0
+2009-10,Boys,Florida,Competitive Spirit Squads,,186.0
+2009-10,Boys,Georgia,Baseball,402.0,12115.0
+2009-10,Boys,Georgia,Basketball,415.0,11959.0
+2009-10,Boys,Georgia,Competitive Spirit Squads,25.0,82.0
+2009-10,Boys,Hawaii,Baseball,54.0,1727.0
+2009-10,Boys,Hawaii,Basketball,70.0,1832.0
+2009-10,Boys,Hawaii,Bowling,58.0,543.0
+2009-10,Boys,Hawaii,Competitive Spirit Squads,15.0,33.0
+2009-10,Boys,Idaho,Baseball,98.0,2571.0
+2009-10,Boys,Idaho,Basketball,148.0,3939.0
+2009-10,Boys,Idaho,Competitive Spirit Squads,30.0,77.0
+2009-10,Boys,Illinois,Baseball,674.0,23659.0
+2009-10,Boys,Illinois,Basketball,734.0,23855.0
+2009-10,Boys,Illinois,Bowling,194.0,2833.0
+2009-10,Boys,Indiana,Baseball,388.0,11350.0
+2009-10,Boys,Indiana,Basketball,403.0,12032.0
+2009-10,Boys,Iowa,Baseball,369.0,11268.0
+2009-10,Boys,Iowa,Basketball,381.0,11133.0
+2009-10,Boys,Iowa,Bowling,87.0,1353.0
+2009-10,Boys,Kansas,Baseball,230.0,5950.0
+2009-10,Boys,Kansas,Basketball,355.0,9111.0
+2009-10,Boys,Kansas,Bowling,69.0,955.0
+2009-10,Boys,Kentucky,Baseball,260.0,7404.0
+2009-10,Boys,Kentucky,Basketball,264.0,6836.0
+2009-10,Boys,Kentucky,Bowling,55.0,806.0
+2009-10,Boys,Kentucky,Competitive Spirit Squads,46.0,299.0
+2009-10,Boys,Louisiana,Baseball,331.0,8541.0
+2009-10,Boys,Louisiana,Basketball,372.0,6103.0
+2009-10,Boys,Louisiana,Bowling,55.0,392.0
+2009-10,Boys,Maine,Baseball,139.0,3555.0
+2009-10,Boys,Maine,Basketball,146.0,3945.0
+2009-10,Boys,Maine,Bowling,4.0,60.0
+2009-10,Boys,Maine,Competitive Spirit Squads,30.0,67.0
+2009-10,Boys,Maryland,Baseball,188.0,5731.0
+2009-10,Boys,Maryland,Basketball,190.0,5619.0
+2009-10,Boys,Maryland,Bowling,26.0,139.0
+2009-10,Boys,Massachusetts,Baseball,351.0,13267.0
+2009-10,Boys,Massachusetts,Basketball,362.0,12155.0
+2009-10,Boys,Michigan,Baseball,640.0,18397.0
+2009-10,Boys,Michigan,Basketball,743.0,22550.0
+2009-10,Boys,Michigan,Bowling,328.0,3716.0
+2009-10,Boys,Minnesota,Baseball,435.0,14152.0
+2009-10,Boys,Minnesota,Basketball,470.0,13491.0
+2009-10,Boys,Mississippi,Baseball,248.0,7214.0
+2009-10,Boys,Mississippi,Basketball,261.0,8525.0
+2009-10,Boys,Mississippi,Bowling,48.0,273.0
+2009-10,Boys,Mississippi,Competitive Spirit Squads,29.0,143.0
+2009-10,Boys,Missouri,Baseball,593.0,14437.0
+2009-10,Boys,Missouri,Basketball,574.0,14230.0
+2009-10,Boys,Montana,Baseball,,174.0
+2009-10,Boys,Montana,Basketball,174.0,3622.0
+2009-10,Boys,Nebraska,Baseball,60.0,2172.0
+2009-10,Boys,Nebraska,Basketball,308.0,7782.0
+2009-10,Boys,Nevada,Baseball,92.0,2455.0
+2009-10,Boys,Nevada,Basketball,104.0,3128.0
+2009-10,Boys,Nevada,Bowling,33.0,291.0
+2009-10,Boys,New Hampshire,Baseball,84.0,2696.0
+2009-10,Boys,New Hampshire,Basketball,88.0,2563.0
+2009-10,Boys,New Hampshire,Bowling,10.0,72.0
+2009-10,Boys,New Hampshire,Competitive Spirit Squads,,5.0
+2009-10,Boys,New Jersey,Baseball,382.0,14880.0
+2009-10,Boys,New Jersey,Basketball,395.0,12667.0
+2009-10,Boys,New Jersey,Bowling,229.0,2593.0
+2009-10,Boys,New Mexico,Baseball,130.0,3102.0
+2009-10,Boys,New Mexico,Basketball,154.0,4260.0
+2009-10,Boys,New Mexico,Bowling,25.0,223.0
+2009-10,Boys,New York,Baseball,723.0,22171.0
+2009-10,Boys,New York,Basketball,743.0,21957.0
+2009-10,Boys,New York,Bowling,388.0,4630.0
+2009-10,Boys,North Carolina,Baseball,377.0,10933.0
+2009-10,Boys,North Carolina,Basketball,386.0,10327.0
+2009-10,Boys,North Dakota,Baseball,91.0,1247.0
+2009-10,Boys,North Dakota,Basketball,168.0,2994.0
+2009-10,Boys,Ohio,Baseball,795.0,22791.0
+2009-10,Boys,Ohio,Basketball,808.0,24105.0
+2009-10,Boys,Ohio,Bowling,337.0,3776.0
+2009-10,Boys,Ohio,Competitive Spirit Squads,18.0,204.0
+2009-10,Boys,Oklahoma,Baseball,353.0,8000.0
+2009-10,Boys,Oklahoma,Basketball,416.0,7200.0
+2009-10,Boys,Oklahoma,Competitive Spirit Squads,25.0,14.0
+2009-10,Boys,Oregon,Baseball,238.0,6194.0
+2009-10,Boys,Oregon,Basketball,283.0,7703.0
+2009-10,Boys,Pennsylvania,Baseball,682.0,21824.0
+2009-10,Boys,Pennsylvania,Basketball,730.0,21900.0
+2009-10,Boys,Pennsylvania,Bowling,156.0,1560.0
+2009-10,Boys,Rhode Island,Baseball,49.0,1681.0
+2009-10,Boys,Rhode Island,Basketball,47.0,1465.0
+2009-10,Boys,Rhode Island,Competitive Spirit Squads,,10.0
+2009-10,Boys,South Carolina,Baseball,195.0,6095.0
+2009-10,Boys,South Carolina,Basketball,202.0,6711.0
+2009-10,Boys,South Carolina,Bowling,5.0,34.0
+2009-10,Boys,South Dakota,Baseball,,174.0
+2009-10,Boys,South Dakota,Basketball,174.0,3721.0
+2009-10,Boys,South Dakota,Competitive Spirit Squads,29.0,30.0
+2009-10,Boys,Tennessee,Baseball,353.0,8698.0
+2009-10,Boys,Tennessee,Basketball,367.0,8682.0
+2009-10,Boys,Tennessee,Bowling,137.0,1451.0
+2009-10,Boys,Texas,Baseball,1211.0,42103.0
+2009-10,Boys,Texas,Basketball,1478.0,74675.0
+2009-10,Boys,Utah,Baseball,115.0,3029.0
+2009-10,Boys,Utah,Basketball,127.0,3653.0
+2009-10,Boys,Vermont,Baseball,44.0,1048.0
+2009-10,Boys,Vermont,Basketball,44.0,1214.0
+2009-10,Boys,Vermont,Bowling,1.0,9.0
+2009-10,Boys,Vermont,Competitive Spirit Squads,7.0,16.0
+2009-10,Boys,Virginia,Baseball,306.0,9307.0
+2009-10,Boys,Virginia,Basketball,307.0,9535.0
+2009-10,Boys,Virginia,Competitive Spirit Squads,50.0,83.0
+2009-10,Boys,Washington,Baseball,342.0,9936.0
+2009-10,Boys,Washington,Basketball,373.0,11202.0
+2009-10,Boys,West Virginia,Baseball,125.0,2743.0
+2009-10,Boys,West Virginia,Basketball,131.0,3215.0
+2009-10,Boys,Wisconsin,Baseball,443.0,13766.0
+2009-10,Boys,Wisconsin,Basketball,479.0,16946.0
+2009-10,Boys,Wyoming,Basketball,72.0,1638.0
+2009-10,Boys,Wyoming,Competitive Spirit Squads,32.0,34.0
+2009-10,Boys,Alabama,Cross Country,177.0,1277.0
+2009-10,Boys,Alabama,Football 11-player,382.0,22052.0
+2009-10,Boys,Alabama,Golf,216.0,1007.0
+2009-10,Boys,Alaska,Cross Country,99.0,1058.0
+2009-10,Boys,Alaska,Football 11-player,29.0,2037.0
+2009-10,Boys,Arizona,Cross Country,192.0,3213.0
+2009-10,Boys,Arizona,Football 11-player,192.0,19103.0
+2009-10,Boys,Arizona,Golf,182.0,1933.0
+2009-10,Boys,Arkansas,Cross Country,111.0,1239.0
+2009-10,Boys,Arkansas,Football 11-player,208.0,11120.0
+2009-10,Boys,Arkansas,Golf,180.0,1216.0
+2009-10,Boys,Arkansas,Gymnastics,4.0,44.0
+2009-10,Boys,California,Cross Country,1034.0,26766.0
+2009-10,Boys,California,Football 11-player,1029.0,104224.0
+2009-10,Boys,California,Golf,901.0,11925.0
+2009-10,Boys,California,Gymnastics,6.0,79.0
+2009-10,Boys,Colorado,Cross Country,221.0,4809.0
+2009-10,Boys,Colorado,Football 11-player,218.0,14825.0
+2009-10,Boys,Colorado,Golf,195.0,2386.0
+2009-10,Boys,Connecticut,Cross Country,170.0,3806.0
+2009-10,Boys,Connecticut,Football 11-player,147.0,10792.0
+2009-10,Boys,Connecticut,Golf,168.0,1923.0
+2009-10,Boys,Delaware,Cross Country,45.0,838.0
+2009-10,Boys,Delaware,Football 11-player,47.0,3091.0
+2009-10,Boys,Delaware,Golf,45.0,462.0
+2009-10,Boys,Florida,Cross Country,520.0,6855.0
+2009-10,Boys,Florida,Football 11-player,529.0,38268.0
+2009-10,Boys,Florida,Golf,491.0,4040.0
+2009-10,Boys,Georgia,Cross Country,373.0,6683.0
+2009-10,Boys,Georgia,Football 11-player,395.0,32088.0
+2009-10,Boys,Georgia,Golf,375.0,3240.0
+2009-10,Boys,Hawaii,Cross Country,73.0,1198.0
+2009-10,Boys,Hawaii,Football 11-player,48.0,4926.0
+2009-10,Boys,Hawaii,Golf,61.0,452.0
+2009-10,Boys,Idaho,Cross Country,103.0,1578.0
+2009-10,Boys,Idaho,Football 11-player,107.0,7340.0
+2009-10,Boys,Idaho,Golf,95.0,1056.0
+2009-10,Boys,Illinois,Cross Country,534.0,10647.0
+2009-10,Boys,Illinois,Football 11-player,574.0,49543.0
+2009-10,Boys,Illinois,Golf,546.0,8384.0
+2009-10,Boys,Illinois,Gymnastics,51.0,1674.0
+2009-10,Boys,Indiana,Cross Country,379.0,4881.0
+2009-10,Boys,Indiana,Football 11-player,318.0,23023.0
+2009-10,Boys,Indiana,Golf,368.0,4267.0
+2009-10,Boys,Iowa,Cross Country,316.0,4837.0
+2009-10,Boys,Iowa,Football 11-player,300.0,19451.0
+2009-10,Boys,Iowa,Golf,352.0,6150.0
+2009-10,Boys,Kansas,Cross Country,237.0,3522.0
+2009-10,Boys,Kansas,Football 11-player,248.0,14302.0
+2009-10,Boys,Kansas,Golf,238.0,3200.0
+2009-10,Boys,Kentucky,Cross Country,222.0,2613.0
+2009-10,Boys,Kentucky,Football 11-player,219.0,13842.0
+2009-10,Boys,Kentucky,Golf,236.0,2360.0
+2009-10,Boys,Kentucky,Gymnastics,5.0,33.0
+2009-10,Boys,Louisiana,Cross Country,263.0,2898.0
+2009-10,Boys,Louisiana,Football 11-player,285.0,14839.0
+2009-10,Boys,Louisiana,Golf,221.0,1130.0
+2009-10,Boys,Louisiana,Gymnastics,14.0,79.0
+2009-10,Boys,Maine,Cross Country,99.0,1273.0
+2009-10,Boys,Maine,Football 11-player,82.0,4024.0
+2009-10,Boys,Maine,Golf,111.0,1269.0
+2009-10,Boys,Maine,Gymnastics,1.0,3.0
+2009-10,Boys,Maryland,Cross Country,183.0,3734.0
+2009-10,Boys,Maryland,Football 11-player,183.0,15396.0
+2009-10,Boys,Maryland,Golf,163.0,1384.0
+2009-10,Boys,Maryland,Gymnastics,4.0,11.0
+2009-10,Boys,Massachusetts,Cross Country,317.0,6436.0
+2009-10,Boys,Massachusetts,Football 11-player,328.0,20626.0
+2009-10,Boys,Massachusetts,Golf,285.0,4345.0
+2009-10,Boys,Massachusetts,Gymnastics,8.0,305.0
+2009-10,Boys,Michigan,Cross Country,605.0,8419.0
+2009-10,Boys,Michigan,Football 11-player,639.0,43678.0
+2009-10,Boys,Michigan,Golf,549.0,7641.0
+2009-10,Boys,Minnesota,Cross Country,326.0,6460.0
+2009-10,Boys,Minnesota,Football 11-player,348.0,25433.0
+2009-10,Boys,Minnesota,Golf,380.0,6021.0
+2009-10,Boys,Mississippi,Cross Country,155.0,2625.0
+2009-10,Boys,Mississippi,Football 11-player,242.0,22306.0
+2009-10,Boys,Mississippi,Golf,155.0,1892.0
+2009-10,Boys,Missouri,Cross Country,345.0,4864.0
+2009-10,Boys,Missouri,Football 11-player,348.0,23504.0
+2009-10,Boys,Missouri,Golf,349.0,4361.0
+2009-10,Boys,Montana,Cross Country,83.0,915.0
+2009-10,Boys,Montana,Football 11-player,90.0,4775.0
+2009-10,Boys,Montana,Golf,95.0,1049.0
+2009-10,Boys,Nebraska,Cross Country,198.0,2550.0
+2009-10,Boys,Nebraska,Football 11-player,166.0,10667.0
+2009-10,Boys,Nebraska,Golf,238.0,2873.0
+2009-10,Boys,Nevada,Cross Country,78.0,882.0
+2009-10,Boys,Nevada,Football 11-player,75.0,6594.0
+2009-10,Boys,Nevada,Golf,77.0,806.0
+2009-10,Boys,New Hampshire,Cross Country,73.0,1143.0
+2009-10,Boys,New Hampshire,Football 11-player,56.0,3679.0
+2009-10,Boys,New Hampshire,Golf,70.0,938.0
+2009-10,Boys,New Hampshire,Gymnastics,,13.0
+2009-10,Boys,New Jersey,Cross Country,365.0,7301.0
+2009-10,Boys,New Jersey,Football 11-player,346.0,25872.0
+2009-10,Boys,New Jersey,Golf,301.0,3749.0
+2009-10,Boys,New Jersey,Gymnastics,,23.0
+2009-10,Boys,New Mexico,Cross Country,110.0,1538.0
+2009-10,Boys,New Mexico,Football 11-player,98.0,7672.0
+2009-10,Boys,New Mexico,Golf,92.0,853.0
+2009-10,Boys,New York,Cross Country,554.0,9293.0
+2009-10,Boys,New York,Football 11-player,566.0,38354.0
+2009-10,Boys,New York,Golf,599.0,8151.0
+2009-10,Boys,New York,Gymnastics,12.0,95.0
+2009-10,Boys,North Carolina,Cross Country,353.0,7171.0
+2009-10,Boys,North Carolina,Football 11-player,369.0,35214.0
+2009-10,Boys,North Carolina,Golf,360.0,3147.0
+2009-10,Boys,North Dakota,Cross Country,68.0,537.0
+2009-10,Boys,North Dakota,Football 11-player,90.0,3018.0
+2009-10,Boys,North Dakota,Golf,125.0,1055.0
+2009-10,Boys,Ohio,Cross Country,729.0,9931.0
+2009-10,Boys,Ohio,Football 11-player,754.0,55027.0
+2009-10,Boys,Ohio,Golf,746.0,8330.0
+2009-10,Boys,Ohio,Gymnastics,11.0,114.0
+2009-10,Boys,Oklahoma,Cross Country,294.0,2212.0
+2009-10,Boys,Oklahoma,Football 11-player,269.0,12000.0
+2009-10,Boys,Oklahoma,Golf,247.0,1265.0
+2009-10,Boys,Oregon,Cross Country,208.0,3377.0
+2009-10,Boys,Oregon,Football 11-player,195.0,13357.0
+2009-10,Boys,Oregon,Golf,180.0,1888.0
+2009-10,Boys,Pennsylvania,Cross Country,568.0,11360.0
+2009-10,Boys,Pennsylvania,Football 11-player,594.0,26730.0
+2009-10,Boys,Pennsylvania,Golf,557.0,5570.0
+2009-10,Boys,Rhode Island,Cross Country,45.0,967.0
+2009-10,Boys,Rhode Island,Football 11-player,43.0,2901.0
+2009-10,Boys,Rhode Island,Golf,42.0,395.0
+2009-10,Boys,South Carolina,Cross Country,147.0,3031.0
+2009-10,Boys,South Carolina,Football 11-player,197.0,18962.0
+2009-10,Boys,South Carolina,Golf,151.0,1776.0
+2009-10,Boys,South Dakota,Cross Country,137.0,899.0
+2009-10,Boys,South Dakota,Football 11-player,68.0,3756.0
+2009-10,Boys,South Dakota,Golf,138.0,1214.0
+2009-10,Boys,Tennessee,Cross Country,278.0,3793.0
+2009-10,Boys,Tennessee,Football 11-player,338.0,22868.0
+2009-10,Boys,Tennessee,Golf,318.0,2872.0
+2009-10,Boys,Texas,Cross Country,1336.0,28165.0
+2009-10,Boys,Texas,Football 11-player,1128.0,161210.0
+2009-10,Boys,Texas,Golf,1273.0,13243.0
+2009-10,Boys,Utah,Cross Country,119.0,2081.0
+2009-10,Boys,Utah,Football 11-player,99.0,8104.0
+2009-10,Boys,Utah,Golf,115.0,1391.0
+2009-10,Boys,Vermont,Cross Country,37.0,452.0
+2009-10,Boys,Vermont,Football 11-player,24.0,1385.0
+2009-10,Boys,Vermont,Golf,32.0,315.0
+2009-10,Boys,Vermont,Gymnastics,2.0,4.0
+2009-10,Boys,Virginia,Cross Country,285.0,5548.0
+2009-10,Boys,Virginia,Football 11-player,301.0,25651.0
+2009-10,Boys,Virginia,Golf,290.0,2919.0
+2009-10,Boys,Washington,Cross Country,255.0,6295.0
+2009-10,Boys,Washington,Football 11-player,294.0,22422.0
+2009-10,Boys,Washington,Golf,257.0,3534.0
+2009-10,Boys,West Virginia,Cross Country,84.0,831.0
+2009-10,Boys,West Virginia,Football 11-player,123.0,6404.0
+2009-10,Boys,West Virginia,Golf,111.0,1117.0
+2009-10,Boys,Wisconsin,Cross Country,388.0,6287.0
+2009-10,Boys,Wisconsin,Football 11-player,430.0,29442.0
+2009-10,Boys,Wisconsin,Golf,373.0,6659.0
+2009-10,Boys,Wyoming,Cross Country,40.0,426.0
+2009-10,Boys,Wyoming,Football 11-player,56.0,2654.0
+2009-10,Boys,Wyoming,Golf,38.0,543.0
+2009-10,Boys,Alaska,Ice Hockey,25.0,683.0
+2009-10,Boys,Alaska,Lacrosse,,13.0
+2009-10,Boys,Alaska,Riflery,13.0,159.0
+2009-10,Boys,Alaska,Skiing Cross Country,27.0,470.0
+2009-10,Boys,Arkansas,Riflery,7.0,79.0
+2009-10,Boys,California,Ice Hockey,5.0,64.0
+2009-10,Boys,California,Lacrosse,179.0,7365.0
+2009-10,Boys,California,Skiing Cross Country,4.0,28.0
+2009-10,Boys,Colorado,Ice Hockey,31.0,730.0
+2009-10,Boys,Colorado,Lacrosse,71.0,3372.0
+2009-10,Boys,Colorado,Skiing Cross Country,15.0,95.0
+2009-10,Boys,Connecticut,Ice Hockey,70.0,1619.0
+2009-10,Boys,Connecticut,Lacrosse,81.0,4366.0
+2009-10,Boys,Delaware,Ice Hockey,12.0,211.0
+2009-10,Boys,Delaware,Lacrosse,42.0,1682.0
+2009-10,Boys,Florida,Lacrosse,94.0,3178.0
+2009-10,Boys,Georgia,Lacrosse,61.0,2557.0
+2009-10,Boys,Georgia,Riflery,112.0,944.0
+2009-10,Boys,Kentucky,Ice Hockey,10.0,280.0
+2009-10,Boys,Kentucky,Lacrosse,22.0,921.0
+2009-10,Boys,Kentucky,Riflery,18.0,432.0
+2009-10,Boys,Kentucky,Skiing Cross Country,3.0,3.0
+2009-10,Boys,Maine,Ice Hockey,58.0,1304.0
+2009-10,Boys,Maine,Lacrosse,46.0,1983.0
+2009-10,Boys,Maine,Riflery,4.0,34.0
+2009-10,Boys,Maine,Skiing Cross Country,39.0,365.0
+2009-10,Boys,Maryland,Ice Hockey,,147.0
+2009-10,Boys,Maryland,Lacrosse,147.0,6404.0
+2009-10,Boys,Massachusetts,Ice Hockey,297.0,7267.0
+2009-10,Boys,Massachusetts,Lacrosse,186.0,8673.0
+2009-10,Boys,Massachusetts,Skiing Cross Country,21.0,288.0
+2009-10,Boys,Michigan,Ice Hockey,240.0,4061.0
+2009-10,Boys,Michigan,Lacrosse,105.0,4311.0
+2009-10,Boys,Michigan,Riflery,3.0,27.0
+2009-10,Boys,Michigan,Skiing Cross Country,6.0,47.0
+2009-10,Boys,Minnesota,Ice Hockey,274.0,5678.0
+2009-10,Boys,Minnesota,Lacrosse,62.0,2338.0
+2009-10,Boys,Minnesota,Riflery,,109.0
+2009-10,Boys,Minnesota,Skiing Cross Country,109.0,1505.0
+2009-10,Boys,New Hampshire,Ice Hockey,41.0,1123.0
+2009-10,Boys,New Hampshire,Lacrosse,45.0,2185.0
+2009-10,Boys,New Hampshire,Skiing Cross Country,31.0,253.0
+2009-10,Boys,New Jersey,Ice Hockey,127.0,3187.0
+2009-10,Boys,New Jersey,Lacrosse,154.0,7941.0
+2009-10,Boys,New Jersey,Skiing Cross Country,15.0,152.0
+2009-10,Boys,New York,Ice Hockey,150.0,3320.0
+2009-10,Boys,New York,Lacrosse,321.0,16206.0
+2009-10,Boys,New York,Riflery,20.0,293.0
+2009-10,Boys,New York,Skiing Cross Country,112.0,689.0
+2009-10,Boys,North Carolina,Lacrosse,66.0,1808.0
+2009-10,Boys,North Dakota,Ice Hockey,30.0,581.0
+2009-10,Boys,Ohio,Ice Hockey,93.0,1959.0
+2009-10,Boys,Ohio,Lacrosse,85.0,3946.0
+2009-10,Boys,Ohio,Riflery,4.0,41.0
+2009-10,Boys,Pennsylvania,Ice Hockey,,166.0
+2009-10,Boys,Pennsylvania,Lacrosse,166.0,5312.0
+2009-10,Boys,Pennsylvania,Riflery,45.0,450.0
+2009-10,Boys,Rhode Island,Ice Hockey,35.0,943.0
+2009-10,Boys,Rhode Island,Lacrosse,23.0,840.0
+2009-10,Boys,South Carolina,Lacrosse,22.0,906.0
+2009-10,Boys,Vermont,Ice Hockey,20.0,383.0
+2009-10,Boys,Vermont,Lacrosse,22.0,908.0
+2009-10,Boys,Vermont,Riflery,1.0,10.0
+2009-10,Boys,Vermont,Skiing Cross Country,17.0,221.0
+2009-10,Boys,Virginia,Lacrosse,68.0,3468.0
+2009-10,Boys,Wisconsin,Ice Hockey,93.0,3082.0
+2009-10,Boys,Wyoming,Skiing Cross Country,7.0,87.0
+2009-10,Boys,Wyoming,Lacrosse,,56.0
+2009-10,Boys,Alabama,Skiing Alpine,,151.0
+2009-10,Boys,Alabama,Soccer,151.0,3776.0
+2009-10,Boys,Alabama,Swimming and Diving,71.0,258.0
+2009-10,Boys,Alabama,Tennis,167.0,1761.0
+2009-10,Boys,Alaska,Skiing Alpine,,36.0
+2009-10,Boys,Alaska,Soccer,36.0,1043.0
+2009-10,Boys,Alaska,Swimming and Diving,29.0,377.0
+2009-10,Boys,Alaska,Tennis,16.0,293.0
+2009-10,Boys,Arizona,Skiing Alpine,,189.0
+2009-10,Boys,Arizona,Soccer,189.0,6928.0
+2009-10,Boys,Arizona,Swimming and Diving,123.0,2739.0
+2009-10,Boys,Arizona,Tennis,155.0,2285.0
+2009-10,Boys,Arkansas,Skiing Alpine,,74.0
+2009-10,Boys,Arkansas,Soccer,74.0,1739.0
+2009-10,Boys,Arkansas,Swimming and Diving,29.0,297.0
+2009-10,Boys,Arkansas,Tennis,111.0,936.0
+2009-10,Boys,California,Skiing Alpine,22.0,241.0
+2009-10,Boys,California,Soccer,1183.0,44705.0
+2009-10,Boys,California,Swimming and Diving,779.0,21518.0
+2009-10,Boys,California,Tennis,895.0,19266.0
+2009-10,Boys,Colorado,Skiing Alpine,15.0,152.0
+2009-10,Boys,Colorado,Soccer,188.0,6809.0
+2009-10,Boys,Colorado,Swimming and Diving,95.0,2179.0
+2009-10,Boys,Colorado,Tennis,122.0,2942.0
+2009-10,Boys,Connecticut,Skiing Alpine,,175.0
+2009-10,Boys,Connecticut,Soccer,175.0,7087.0
+2009-10,Boys,Connecticut,Swimming and Diving,113.0,2079.0
+2009-10,Boys,Connecticut,Tennis,144.0,2655.0
+2009-10,Boys,Delaware,Skiing Alpine,,47.0
+2009-10,Boys,Delaware,Soccer,47.0,1515.0
+2009-10,Boys,Delaware,Swimming and Diving,34.0,612.0
+2009-10,Boys,Delaware,Tennis,34.0,525.0
+2009-10,Boys,Florida,Skiing Alpine,,521.0
+2009-10,Boys,Florida,Soccer,521.0,14034.0
+2009-10,Boys,Florida,Swimming and Diving,409.0,6317.0
+2009-10,Boys,Florida,Tennis,470.0,4472.0
+2009-10,Boys,Georgia,Skiing Alpine,,336.0
+2009-10,Boys,Georgia,Soccer,336.0,9774.0
+2009-10,Boys,Georgia,Swimming and Diving,216.0,3312.0
+2009-10,Boys,Hawaii,Skiing Alpine,,53.0
+2009-10,Boys,Hawaii,Soccer,53.0,1474.0
+2009-10,Boys,Hawaii,Swimming and Diving,60.0,479.0
+2009-10,Boys,Hawaii,Tennis,66.0,690.0
+2009-10,Boys,Idaho,Skiing Alpine,,72.0
+2009-10,Boys,Idaho,Soccer,72.0,1939.0
+2009-10,Boys,Idaho,Swimming and Diving,,56.0
+2009-10,Boys,Idaho,Tennis,56.0,1141.0
+2009-10,Boys,Illinois,Skiing Alpine,,424.0
+2009-10,Boys,Illinois,Soccer,424.0,18347.0
+2009-10,Boys,Illinois,Swimming and Diving,283.0,6844.0
+2009-10,Boys,Illinois,Tennis,319.0,8023.0
+2009-10,Boys,Indiana,Skiing Alpine,,287.0
+2009-10,Boys,Indiana,Soccer,287.0,8575.0
+2009-10,Boys,Indiana,Swimming and Diving,226.0,3893.0
+2009-10,Boys,Indiana,Tennis,303.0,4767.0
+2009-10,Boys,Iowa,Skiing Alpine,,164.0
+2009-10,Boys,Iowa,Soccer,164.0,5710.0
+2009-10,Boys,Iowa,Swimming and Diving,77.0,1510.0
+2009-10,Boys,Iowa,Tennis,119.0,2789.0
+2009-10,Boys,Kansas,Skiing Alpine,,103.0
+2009-10,Boys,Kansas,Soccer,103.0,3980.0
+2009-10,Boys,Kansas,Swimming and Diving,61.0,1407.0
+2009-10,Boys,Kansas,Tennis,121.0,2515.0
+2009-10,Boys,Kentucky,Skiing Alpine,,174.0
+2009-10,Boys,Kentucky,Soccer,174.0,5219.0
+2009-10,Boys,Kentucky,Swimming and Diving,115.0,1272.0
+2009-10,Boys,Kentucky,Tennis,202.0,2336.0
+2009-10,Boys,Louisiana,Skiing Alpine,,144.0
+2009-10,Boys,Louisiana,Soccer,144.0,3748.0
+2009-10,Boys,Louisiana,Swimming and Diving,118.0,1280.0
+2009-10,Boys,Louisiana,Tennis,167.0,1508.0
+2009-10,Boys,Maine,Skiing Alpine,52.0,392.0
+2009-10,Boys,Maine,Soccer,134.0,4278.0
+2009-10,Boys,Maine,Swimming and Diving,50.0,729.0
+2009-10,Boys,Maryland,Skiing Alpine,,181.0
+2009-10,Boys,Maryland,Soccer,181.0,6381.0
+2009-10,Boys,Maryland,Swimming and Diving,106.0,2109.0
+2009-10,Boys,Maryland,Tennis,180.0,2543.0
+2009-10,Boys,Massachusetts,Skiing Alpine,74.0,1009.0
+2009-10,Boys,Massachusetts,Soccer,353.0,13278.0
+2009-10,Boys,Massachusetts,Swimming and Diving,175.0,2804.0
+2009-10,Boys,Massachusetts,Tennis,261.0,3749.0
+2009-10,Boys,Michigan,Skiing Alpine,96.0,794.0
+2009-10,Boys,Michigan,Soccer,482.0,14621.0
+2009-10,Boys,Michigan,Swimming and Diving,259.0,5577.0
+2009-10,Boys,Michigan,Tennis,330.0,7430.0
+2009-10,Boys,Minnesota,Skiing Alpine,101.0,997.0
+2009-10,Boys,Minnesota,Soccer,222.0,8489.0
+2009-10,Boys,Minnesota,Swimming and Diving,143.0,3563.0
+2009-10,Boys,Minnesota,Tennis,190.0,4536.0
+2009-10,Boys,Mississippi,Skiing Alpine,,125.0
+2009-10,Boys,Mississippi,Soccer,125.0,3754.0
+2009-10,Boys,Mississippi,Swimming and Diving,48.0,1493.0
+2009-10,Boys,Mississippi,Tennis,164.0,2011.0
+2009-10,Boys,Missouri,Skiing Alpine,,228.0
+2009-10,Boys,Missouri,Soccer,228.0,8017.0
+2009-10,Boys,Missouri,Swimming and Diving,94.0,1856.0
+2009-10,Boys,Missouri,Tennis,189.0,3809.0
+2009-10,Boys,Montana,Skiing Alpine,,30.0
+2009-10,Boys,Montana,Soccer,30.0,850.0
+2009-10,Boys,Montana,Swimming and Diving,17.0,189.0
+2009-10,Boys,Montana,Tennis,37.0,857.0
+2009-10,Boys,Nebraska,Skiing Alpine,,71.0
+2009-10,Boys,Nebraska,Soccer,71.0,2611.0
+2009-10,Boys,Nebraska,Swimming and Diving,54.0,803.0
+2009-10,Boys,Nebraska,Tennis,59.0,1029.0
+2009-10,Boys,Nevada,Skiing Alpine,18.0,310.0
+2009-10,Boys,Nevada,Soccer,64.0,1860.0
+2009-10,Boys,Nevada,Swimming and Diving,56.0,822.0
+2009-10,Boys,Nevada,Tennis,59.0,636.0
+2009-10,Boys,New Hampshire,Skiing Alpine,55.0,553.0
+2009-10,Boys,New Hampshire,Soccer,87.0,3054.0
+2009-10,Boys,New Hampshire,Swimming and Diving,48.0,490.0
+2009-10,Boys,New Jersey,Skiing Alpine,,379.0
+2009-10,Boys,New Jersey,Soccer,379.0,16734.0
+2009-10,Boys,New Jersey,Swimming and Diving,240.0,4853.0
+2009-10,Boys,New Jersey,Tennis,332.0,6092.0
+2009-10,Boys,New Mexico,Skiing Alpine,,77.0
+2009-10,Boys,New Mexico,Soccer,77.0,2300.0
+2009-10,Boys,New Mexico,Swimming and Diving,46.0,599.0
+2009-10,Boys,New Mexico,Tennis,147.0,787.0
+2009-10,Boys,New York,Skiing Alpine,112.0,689.0
+2009-10,Boys,New York,Soccer,680.0,24651.0
+2009-10,Boys,New York,Swimming and Diving,293.0,5728.0
+2009-10,Boys,New York,Tennis,517.0,9980.0
+2009-10,Boys,North Carolina,Skiing Alpine,,340.0
+2009-10,Boys,North Carolina,Soccer,340.0,10493.0
+2009-10,Boys,North Carolina,Swimming and Diving,254.0,3647.0
+2009-10,Boys,North Carolina,Tennis,323.0,4342.0
+2009-10,Boys,North Dakota,Skiing Alpine,,16.0
+2009-10,Boys,North Dakota,Soccer,16.0,556.0
+2009-10,Boys,North Dakota,Swimming and Diving,15.0,281.0
+2009-10,Boys,North Dakota,Tennis,23.0,314.0
+2009-10,Boys,Ohio,Skiing Alpine,,599.0
+2009-10,Boys,Ohio,Soccer,599.0,15898.0
+2009-10,Boys,Ohio,Swimming and Diving,419.0,5362.0
+2009-10,Boys,Ohio,Tennis,441.0,6072.0
+2009-10,Boys,Oklahoma,Skiing Alpine,,118.0
+2009-10,Boys,Oklahoma,Soccer,118.0,2691.0
+2009-10,Boys,Oklahoma,Swimming and Diving,56.0,250.0
+2009-10,Boys,Oklahoma,Tennis,120.0,762.0
+2009-10,Boys,Oregon,Skiing Alpine,,181.0
+2009-10,Boys,Oregon,Soccer,181.0,5818.0
+2009-10,Boys,Oregon,Swimming and Diving,122.0,2305.0
+2009-10,Boys,Oregon,Tennis,122.0,2305.0
+2009-10,Boys,Pennsylvania,Skiing Alpine,,589.0
+2009-10,Boys,Pennsylvania,Soccer,589.0,20615.0
+2009-10,Boys,Pennsylvania,Swimming and Diving,325.0,9750.0
+2009-10,Boys,Pennsylvania,Tennis,412.0,4944.0
+2009-10,Boys,Rhode Island,Skiing Alpine,,45.0
+2009-10,Boys,Rhode Island,Soccer,45.0,1641.0
+2009-10,Boys,Rhode Island,Swimming and Diving,30.0,426.0
+2009-10,Boys,Rhode Island,Tennis,43.0,807.0
+2009-10,Boys,South Carolina,Skiing Alpine,,160.0
+2009-10,Boys,South Carolina,Soccer,160.0,5118.0
+2009-10,Boys,South Carolina,Swimming and Diving,78.0,1149.0
+2009-10,Boys,South Carolina,Tennis,120.0,1627.0
+2009-10,Boys,South Dakota,Swimming and Diving,,21.0
+2009-10,Boys,South Dakota,Tennis,21.0,409.0
+2009-10,Boys,Tennessee,Skiing Alpine,,265.0
+2009-10,Boys,Tennessee,Soccer,265.0,6911.0
+2009-10,Boys,Tennessee,Swimming and Diving,,260.0
+2009-10,Boys,Tennessee,Tennis,260.0,2510.0
+2009-10,Boys,Texas,Skiing Alpine,,602.0
+2009-10,Boys,Texas,Soccer,602.0,27502.0
+2009-10,Boys,Texas,Swimming and Diving,494.0,7134.0
+2009-10,Boys,Texas,Tennis,1245.0,19210.0
+2009-10,Boys,Utah,Skiing Alpine,,97.0
+2009-10,Boys,Utah,Soccer,97.0,3014.0
+2009-10,Boys,Utah,Swimming and Diving,76.0,1723.0
+2009-10,Boys,Utah,Tennis,86.0,1611.0
+2009-10,Boys,Vermont,Skiing Alpine,16.0,153.0
+2009-10,Boys,Vermont,Soccer,45.0,1600.0
+2009-10,Boys,Vermont,Swimming and Diving,1.0,8.0
+2009-10,Boys,Vermont,Tennis,19.0,225.0
+2009-10,Boys,Virginia,Skiing Alpine,,277.0
+2009-10,Boys,Virginia,Soccer,277.0,9615.0
+2009-10,Boys,Virginia,Swimming and Diving,175.0,3531.0
+2009-10,Boys,Virginia,Tennis,246.0,3143.0
+2009-10,Boys,Washington,Skiing Alpine,,245.0
+2009-10,Boys,Washington,Soccer,245.0,10283.0
+2009-10,Boys,Washington,Swimming and Diving,126.0,3808.0
+2009-10,Boys,Washington,Tennis,212.0,5506.0
+2009-10,Boys,West Virginia,Skiing Alpine,,72.0
+2009-10,Boys,West Virginia,Soccer,72.0,1815.0
+2009-10,Boys,West Virginia,Swimming and Diving,45.0,464.0
+2009-10,Boys,West Virginia,Tennis,79.0,794.0
+2009-10,Boys,Wisconsin,Skiing Alpine,,260.0
+2009-10,Boys,Wisconsin,Soccer,260.0,10001.0
+2009-10,Boys,Wisconsin,Swimming and Diving,111.0,3129.0
+2009-10,Boys,Wisconsin,Tennis,190.0,5507.0
+2009-10,Boys,Wyoming,Skiing Alpine,6.0,64.0
+2009-10,Boys,Wyoming,Soccer,23.0,845.0
+2009-10,Boys,Wyoming,Swimming and Diving,23.0,402.0
+2009-10,Boys,Wyoming,Tennis,15.0,271.0
+2009-10,Boys,Alabama,Track and Field Indoor,,311.0
+2009-10,Boys,Alabama,Track and Field Outdoor,311.0,6638.0
+2009-10,Boys,Alabama,Volleyball,,89.0
+2009-10,Boys,Alabama,Wrestling,89.0,2158.0
+2009-10,Boys,Alaska,Track and Field Indoor,,45.0
+2009-10,Boys,Alaska,Track and Field Outdoor,45.0,1186.0
+2009-10,Boys,Alaska,Volleyball,1.0,3.0
+2009-10,Boys,Alaska,Wrestling,86.0,1359.0
+2009-10,Boys,Arizona,Track and Field Indoor,,220.0
+2009-10,Boys,Arizona,Track and Field Outdoor,220.0,9073.0
+2009-10,Boys,Arizona,Volleyball,53.0,1519.0
+2009-10,Boys,Arizona,Wrestling,186.0,5979.0
+2009-10,Boys,Arkansas,Track and Field Indoor,39.0,709.0
+2009-10,Boys,Arkansas,Track and Field Outdoor,211.0,6141.0
+2009-10,Boys,Arkansas,Volleyball,,67.0
+2009-10,Boys,Arkansas,Wrestling,67.0,1791.0
+2009-10,Boys,California,Track and Field Indoor,,1045.0
+2009-10,Boys,California,Track and Field Outdoor,1045.0,625.0
+2009-10,Boys,California,Volleyball,625.0,15638.0
+2009-10,Boys,California,Wrestling,798.0,27469.0
+2009-10,Boys,Colorado,Track and Field Indoor,,294.0
+2009-10,Boys,Colorado,Track and Field Outdoor,294.0,8584.0
+2009-10,Boys,Colorado,Volleyball,,239.0
+2009-10,Boys,Colorado,Wrestling,239.0,5067.0
+2009-10,Boys,Connecticut,Track and Field Indoor,156.0,5245.0
+2009-10,Boys,Connecticut,Track and Field Outdoor,170.0,7395.0
+2009-10,Boys,Connecticut,Volleyball,46.0,842.0
+2009-10,Boys,Connecticut,Wrestling,138.0,3074.0
+2009-10,Boys,Delaware,Track and Field Indoor,31.0,748.0
+2009-10,Boys,Delaware,Track and Field Outdoor,43.0,1492.0
+2009-10,Boys,Delaware,Volleyball,6.0,120.0
+2009-10,Boys,Delaware,Wrestling,45.0,1199.0
+2009-10,Boys,Florida,Track and Field Indoor,,541.0
+2009-10,Boys,Florida,Track and Field Outdoor,541.0,124.0
+2009-10,Boys,Florida,Volleyball,124.0,2136.0
+2009-10,Boys,Florida,Wrestling,370.0,8485.0
+2009-10,Boys,Georgia,Track and Field Indoor,,398.0
+2009-10,Boys,Georgia,Track and Field Outdoor,398.0,2.0
+2009-10,Boys,Georgia,Volleyball,2.0,13.0
+2009-10,Boys,Georgia,Wrestling,319.0,8490.0
+2009-10,Boys,Hawaii,Track and Field Indoor,,62.0
+2009-10,Boys,Hawaii,Track and Field Outdoor,62.0,2077.0
+2009-10,Boys,Hawaii,Volleyball,65.0,1265.0
+2009-10,Boys,Hawaii,Wrestling,57.0,1243.0
+2009-10,Boys,Idaho,Track and Field Indoor,,143.0
+2009-10,Boys,Idaho,Track and Field Outdoor,143.0,4384.0
+2009-10,Boys,Idaho,Volleyball,,104.0
+2009-10,Boys,Idaho,Wrestling,104.0,2471.0
+2009-10,Boys,Illinois,Track and Field Indoor,,617.0
+2009-10,Boys,Illinois,Track and Field Outdoor,617.0,205.0
+2009-10,Boys,Illinois,Volleyball,205.0,7033.0
+2009-10,Boys,Illinois,Wrestling,435.0,17814.0
+2009-10,Boys,Indiana,Track and Field Indoor,,391.0
+2009-10,Boys,Indiana,Track and Field Outdoor,391.0,
+2009-10,Boys,Indiana,Volleyball,,309.0
+2009-10,Boys,Indiana,Wrestling,309.0,7854.0
+2009-10,Boys,Iowa,Track and Field Indoor,,370.0
+2009-10,Boys,Iowa,Track and Field Outdoor,370.0,
+2009-10,Boys,Iowa,Volleyball,,314.0
+2009-10,Boys,Iowa,Wrestling,314.0,6665.0
+2009-10,Boys,Kansas,Track and Field Indoor,,338.0
+2009-10,Boys,Kansas,Track and Field Outdoor,338.0,9726.0
+2009-10,Boys,Kansas,Volleyball,,199.0
+2009-10,Boys,Kansas,Wrestling,199.0,5319.0
+2009-10,Boys,Kentucky,Track and Field Indoor,,234.0
+2009-10,Boys,Kentucky,Track and Field Outdoor,234.0,5276.0
+2009-10,Boys,Kentucky,Volleyball,,74.0
+2009-10,Boys,Kentucky,Wrestling,74.0,1633.0
+2009-10,Boys,Louisiana,Track and Field Indoor,194.0,2101.0
+2009-10,Boys,Louisiana,Track and Field Outdoor,393.0,7155.0
+2009-10,Boys,Louisiana,Volleyball,,81.0
+2009-10,Boys,Louisiana,Wrestling,81.0,2189.0
+2009-10,Boys,Maine,Track and Field Indoor,63.0,1380.0
+2009-10,Boys,Maine,Track and Field Outdoor,110.0,2947.0
+2009-10,Boys,Maine,Volleyball,7.0,129.0
+2009-10,Boys,Maine,Wrestling,67.0,1021.0
+2009-10,Boys,Maryland,Track and Field Indoor,169.0,5205.0
+2009-10,Boys,Maryland,Track and Field Outdoor,186.0,6771.0
+2009-10,Boys,Maryland,Volleyball,34.0,670.0
+2009-10,Boys,Maryland,Wrestling,178.0,3909.0
+2009-10,Boys,Massachusetts,Track and Field Indoor,245.0,9216.0
+2009-10,Boys,Massachusetts,Track and Field Outdoor,313.0,100.0
+2009-10,Boys,Massachusetts,Volleyball,100.0,2235.0
+2009-10,Boys,Massachusetts,Wrestling,211.0,4516.0
+2009-10,Boys,Michigan,Track and Field Indoor,35.0,434.0
+2009-10,Boys,Michigan,Track and Field Outdoor,668.0,
+2009-10,Boys,Michigan,Volleyball,,457.0
+2009-10,Boys,Michigan,Wrestling,457.0,11502.0
+2009-10,Boys,Minnesota,Track and Field Indoor,,430.0
+2009-10,Boys,Minnesota,Track and Field Outdoor,430.0,
+2009-10,Boys,Minnesota,Volleyball,,346.0
+2009-10,Boys,Minnesota,Wrestling,346.0,8304.0
+2009-10,Boys,Mississippi,Track and Field Indoor,17.0,1148.0
+2009-10,Boys,Mississippi,Track and Field Outdoor,236.0,8028.0
+2009-10,Boys,Mississippi,Wrestling,1.0,22.0
+2009-10,Boys,Missouri,Track and Field Indoor,,477.0
+2009-10,Boys,Missouri,Track and Field Outdoor,477.0,38.0
+2009-10,Boys,Missouri,Volleyball,38.0,1061.0
+2009-10,Boys,Missouri,Wrestling,222.0,7134.0
+2009-10,Boys,Montana,Track and Field Indoor,,171.0
+2009-10,Boys,Montana,Track and Field Outdoor,171.0,3587.0
+2009-10,Boys,Montana,Volleyball,,86.0
+2009-10,Boys,Montana,Wrestling,86.0,1639.0
+2009-10,Boys,Nebraska,Track and Field Indoor,,306.0
+2009-10,Boys,Nebraska,Track and Field Outdoor,306.0,8709.0
+2009-10,Boys,Nebraska,Volleyball,,248.0
+2009-10,Boys,Nebraska,Wrestling,248.0,4536.0
+2009-10,Boys,Nevada,Track and Field Indoor,,97.0
+2009-10,Boys,Nevada,Track and Field Outdoor,97.0,3662.0
+2009-10,Boys,Nevada,Volleyball,31.0,920.0
+2009-10,Boys,Nevada,Wrestling,79.0,2786.0
+2009-10,Boys,New Hampshire,Track and Field Indoor,53.0,1282.0
+2009-10,Boys,New Hampshire,Track and Field Outdoor,76.0,2512.0
+2009-10,Boys,New Hampshire,Volleyball,9.0,174.0
+2009-10,Boys,New Hampshire,Wrestling,36.0,769.0
+2009-10,Boys,New Jersey,Track and Field Indoor,295.0,371.0
+2009-10,Boys,New Jersey,Track and Field Outdoor,371.0,100.0
+2009-10,Boys,New Jersey,Volleyball,100.0,2329.0
+2009-10,Boys,New Jersey,Wrestling,319.0,9788.0
+2009-10,Boys,New Mexico,Track and Field Indoor,,161.0
+2009-10,Boys,New Mexico,Track and Field Outdoor,161.0,4297.0
+2009-10,Boys,New Mexico,Volleyball,,62.0
+2009-10,Boys,New Mexico,Wrestling,62.0,1580.0
+2009-10,Boys,New York,Track and Field Indoor,390.0,633.0
+2009-10,Boys,New York,Track and Field Outdoor,633.0,180.0
+2009-10,Boys,New York,Volleyball,180.0,4349.0
+2009-10,Boys,New York,Wrestling,492.0,13932.0
+2009-10,Boys,North Carolina,Track and Field Indoor,215.0,4261.0
+2009-10,Boys,North Carolina,Track and Field Outdoor,360.0,
+2009-10,Boys,North Carolina,Volleyball,,316.0
+2009-10,Boys,North Carolina,Wrestling,316.0,10238.0
+2009-10,Boys,North Dakota,Track and Field Indoor,,149.0
+2009-10,Boys,North Dakota,Track and Field Outdoor,149.0,2180.0
+2009-10,Boys,North Dakota,Volleyball,,78.0
+2009-10,Boys,North Dakota,Wrestling,78.0,941.0
+2009-10,Boys,Ohio,Track and Field Indoor,170.0,2618.0
+2009-10,Boys,Ohio,Track and Field Outdoor,783.0,119.0
+2009-10,Boys,Ohio,Volleyball,119.0,2857.0
+2009-10,Boys,Ohio,Wrestling,617.0,12983.0
+2009-10,Boys,Oklahoma,Track and Field Indoor,,364.0
+2009-10,Boys,Oklahoma,Track and Field Outdoor,364.0,5000.0
+2009-10,Boys,Oklahoma,Volleyball,,140.0
+2009-10,Boys,Oklahoma,Wrestling,140.0,2960.0
+2009-10,Boys,Oregon,Track and Field Indoor,,264.0
+2009-10,Boys,Oregon,Track and Field Outdoor,264.0,8933.0
+2009-10,Boys,Oregon,Volleyball,,199.0
+2009-10,Boys,Oregon,Wrestling,199.0,5175.0
+2009-10,Boys,Pennsylvania,Track and Field Indoor,182.0,2730.0
+2009-10,Boys,Pennsylvania,Track and Field Outdoor,605.0,202.0
+2009-10,Boys,Pennsylvania,Volleyball,202.0,3636.0
+2009-10,Boys,Pennsylvania,Wrestling,496.0,9920.0
+2009-10,Boys,Rhode Island,Track and Field Indoor,42.0,1579.0
+2009-10,Boys,Rhode Island,Track and Field Outdoor,42.0,1579.0
+2009-10,Boys,Rhode Island,Volleyball,26.0,967.0
+2009-10,Boys,Rhode Island,Wrestling,36.0,936.0
+2009-10,Boys,South Carolina,Track and Field Indoor,,191.0
+2009-10,Boys,South Carolina,Track and Field Outdoor,191.0,7767.0
+2009-10,Boys,South Carolina,Volleyball,,131.0
+2009-10,Boys,South Carolina,Wrestling,131.0,4763.0
+2009-10,Boys,South Dakota,Track and Field Indoor,,170.0
+2009-10,Boys,South Dakota,Track and Field Outdoor,170.0,3635.0
+2009-10,Boys,South Dakota,Volleyball,,100.0
+2009-10,Boys,South Dakota,Wrestling,100.0,1388.0
+2009-10,Boys,Tennessee,Track and Field Indoor,,255.0
+2009-10,Boys,Tennessee,Track and Field Outdoor,255.0,6992.0
+2009-10,Boys,Tennessee,Volleyball,,165.0
+2009-10,Boys,Tennessee,Wrestling,165.0,4290.0
+2009-10,Boys,Texas,Track and Field Indoor,,1377.0
+2009-10,Boys,Texas,Track and Field Outdoor,1377.0,
+2009-10,Boys,Texas,Volleyball,,253.0
+2009-10,Boys,Texas,Wrestling,253.0,7825.0
+2009-10,Boys,Utah,Track and Field Indoor,,119.0
+2009-10,Boys,Utah,Track and Field Outdoor,119.0,4577.0
+2009-10,Boys,Utah,Volleyball,,103.0
+2009-10,Boys,Utah,Wrestling,103.0,3166.0
+2009-10,Boys,Vermont,Track and Field Indoor,18.0,246.0
+2009-10,Boys,Vermont,Track and Field Outdoor,32.0,703.0
+2009-10,Boys,Vermont,Volleyball,1.0,6.0
+2009-10,Boys,Vermont,Wrestling,20.0,258.0
+2009-10,Boys,Virginia,Track and Field Indoor,203.0,6928.0
+2009-10,Boys,Virginia,Track and Field Outdoor,301.0,64.0
+2009-10,Boys,Virginia,Volleyball,64.0,1167.0
+2009-10,Boys,Virginia,Wrestling,260.0,7459.0
+2009-10,Boys,Washington,Track and Field Indoor,,320.0
+2009-10,Boys,Washington,Track and Field Outdoor,320.0,
+2009-10,Boys,Washington,Volleyball,,257.0
+2009-10,Boys,Washington,Wrestling,257.0,8448.0
+2009-10,Boys,West Virginia,Track and Field Indoor,,108.0
+2009-10,Boys,West Virginia,Track and Field Outdoor,108.0,2938.0
+2009-10,Boys,West Virginia,Volleyball,,86.0
+2009-10,Boys,West Virginia,Wrestling,86.0,1686.0
+2009-10,Boys,Wisconsin,Track and Field Indoor,,428.0
+2009-10,Boys,Wisconsin,Track and Field Outdoor,428.0,51.0
+2009-10,Boys,Wisconsin,Volleyball,51.0,1398.0
+2009-10,Boys,Wisconsin,Wrestling,339.0,7684.0
+2009-10,Boys,Wyoming,Track and Field Indoor,17.0,423.0
+2009-10,Boys,Wyoming,Track and Field Outdoor,70.0,1509.0
+2009-10,Boys,Wyoming,Volleyball,,53.0
+2009-10,Boys,Wyoming,Wrestling,53.0,1073.0
+2009-10,Girls,Alabama,Basketball,408.0,5478.0
+2009-10,Girls,Alabama,Competitive Spirit Squads,,177.0
+2009-10,Girls,Alabama,Cross Country,177.0,1166.0
+2009-10,Girls,Alaska,Basketball,122.0,1667.0
+2009-10,Girls,Alaska,Bowling,8.0,90.0
+2009-10,Girls,Alaska,Competitive Spirit Squads,30.0,727.0
+2009-10,Girls,Alaska,Cross Country,99.0,834.0
+2009-10,Girls,Arizona,Basketball,242.0,6955.0
+2009-10,Girls,Arizona,Bowling,,180.0
+2009-10,Girls,Arizona,Competitive Spirit Squads,180.0,5843.0
+2009-10,Girls,Arizona,Cross Country,192.0,2710.0
+2009-10,Girls,Arkansas,Basketball,271.0,4633.0
+2009-10,Girls,Arkansas,Bowling,58.0,586.0
+2009-10,Girls,Arkansas,Competitive Spirit Squads,100.0,1902.0
+2009-10,Girls,Arkansas,Cross Country,111.0,974.0
+2009-10,Girls,California,Basketball,1245.0,32980.0
+2009-10,Girls,California,Bowling,9.0,78.0
+2009-10,Girls,California,Competitive Spirit Squads,997.0,1034.0
+2009-10,Girls,California,Cross Country,1034.0,21901.0
+2009-10,Girls,Colorado,Basketball,325.0,6934.0
+2009-10,Girls,Colorado,Bowling,,335.0
+2009-10,Girls,Colorado,Competitive Spirit Squads,335.0,3867.0
+2009-10,Girls,Colorado,Cross Country,221.0,3293.0
+2009-10,Girls,Connecticut,Basketball,176.0,4044.0
+2009-10,Girls,Connecticut,Bowling,,155.0
+2009-10,Girls,Connecticut,Competitive Spirit Squads,155.0,2247.0
+2009-10,Girls,Connecticut,Cross Country,170.0,2740.0
+2009-10,Girls,Delaware,Basketball,51.0,1061.0
+2009-10,Girls,Delaware,Bowling,,31.0
+2009-10,Girls,Delaware,Competitive Spirit Squads,31.0,538.0
+2009-10,Girls,Delaware,Cross Country,45.0,644.0
+2009-10,Girls,Florida,Basketball,598.0,10304.0
+2009-10,Girls,Florida,Bowling,146.0,1145.0
+2009-10,Girls,Florida,Competitive Spirit Squads,209.0,5226.0
+2009-10,Girls,Florida,Cross Country,520.0,6596.0
+2009-10,Girls,Georgia,Basketball,409.0,9154.0
+2009-10,Girls,Georgia,Bowling,,240.0
+2009-10,Girls,Georgia,Competitive Spirit Squads,240.0,5369.0
+2009-10,Girls,Georgia,Cross Country,373.0,5119.0
+2009-10,Girls,Hawaii,Basketball,65.0,1237.0
+2009-10,Girls,Hawaii,Bowling,57.0,532.0
+2009-10,Girls,Hawaii,Competitive Spirit Squads,41.0,758.0
+2009-10,Girls,Hawaii,Cross Country,73.0,1010.0
+2009-10,Girls,Idaho,Basketball,144.0,3378.0
+2009-10,Girls,Idaho,Bowling,,85.0
+2009-10,Girls,Idaho,Competitive Spirit Squads,85.0,1361.0
+2009-10,Girls,Idaho,Cross Country,103.0,1259.0
+2009-10,Girls,Illinois,Basketball,697.0,17584.0
+2009-10,Girls,Illinois,Bowling,240.0,3485.0
+2009-10,Girls,Illinois,Competitive Spirit Squads,315.0,7964.0
+2009-10,Girls,Illinois,Cross Country,534.0,9752.0
+2009-10,Girls,Indiana,Basketball,397.0,9017.0
+2009-10,Girls,Indiana,Competitive Spirit Squads,,379.0
+2009-10,Girls,Indiana,Cross Country,379.0,4281.0
+2009-10,Girls,Iowa,Basketball,380.0,8566.0
+2009-10,Girls,Iowa,Bowling,86.0,1130.0
+2009-10,Girls,Iowa,Competitive Spirit Squads,,316.0
+2009-10,Girls,Iowa,Cross Country,316.0,4338.0
+2009-10,Girls,Kansas,Basketball,349.0,7130.0
+2009-10,Girls,Kansas,Bowling,59.0,840.0
+2009-10,Girls,Kansas,Competitive Spirit Squads,,237.0
+2009-10,Girls,Kansas,Cross Country,237.0,2827.0
+2009-10,Girls,Kentucky,Basketball,264.0,5852.0
+2009-10,Girls,Kentucky,Bowling,53.0,791.0
+2009-10,Girls,Kentucky,Competitive Spirit Squads,248.0,4828.0
+2009-10,Girls,Kentucky,Cross Country,222.0,2175.0
+2009-10,Girls,Louisiana,Basketball,365.0,5541.0
+2009-10,Girls,Louisiana,Bowling,52.0,232.0
+2009-10,Girls,Louisiana,Competitive Spirit Squads,,263.0
+2009-10,Girls,Louisiana,Cross Country,263.0,2741.0
+2009-10,Girls,Maine,Basketball,143.0,3203.0
+2009-10,Girls,Maine,Bowling,3.0,5.0
+2009-10,Girls,Maine,Competitive Spirit Squads,96.0,1803.0
+2009-10,Girls,Maine,Cross Country,99.0,1040.0
+2009-10,Girls,Maryland,Basketball,191.0,4707.0
+2009-10,Girls,Maryland,Bowling,26.0,95.0
+2009-10,Girls,Maryland,Competitive Spirit Squads,,183.0
+2009-10,Girls,Maryland,Cross Country,183.0,2585.0
+2009-10,Girls,Massachusetts,Basketball,362.0,10047.0
+2009-10,Girls,Massachusetts,Competitive Spirit Squads,,317.0
+2009-10,Girls,Massachusetts,Cross Country,317.0,5111.0
+2009-10,Girls,Michigan,Basketball,702.0,17580.0
+2009-10,Girls,Michigan,Bowling,311.0,2887.0
+2009-10,Girls,Michigan,Competitive Spirit Squads,332.0,7528.0
+2009-10,Girls,Michigan,Cross Country,605.0,7925.0
+2009-10,Girls,Minnesota,Basketball,463.0,11643.0
+2009-10,Girls,Minnesota,Competitive Spirit Squads,,326.0
+2009-10,Girls,Minnesota,Cross Country,326.0,5052.0
+2009-10,Girls,Mississippi,Basketball,261.0,6926.0
+2009-10,Girls,Mississippi,Bowling,48.0,341.0
+2009-10,Girls,Mississippi,Competitive Spirit Squads,152.0,2740.0
+2009-10,Girls,Mississippi,Cross Country,155.0,1401.0
+2009-10,Girls,Missouri,Basketball,557.0,10695.0
+2009-10,Girls,Missouri,Competitive Spirit Squads,,345.0
+2009-10,Girls,Missouri,Cross Country,345.0,3703.0
+2009-10,Girls,Montana,Basketball,175.0,3193.0
+2009-10,Girls,Montana,Competitive Spirit Squads,,83.0
+2009-10,Girls,Montana,Cross Country,83.0,848.0
+2009-10,Girls,Nebraska,Basketball,309.0,6535.0
+2009-10,Girls,Nebraska,Competitive Spirit Squads,,198.0
+2009-10,Girls,Nebraska,Cross Country,198.0,2028.0
+2009-10,Girls,Nevada,Basketball,100.0,2556.0
+2009-10,Girls,Nevada,Bowling,33.0,266.0
+2009-10,Girls,Nevada,Competitive Spirit Squads,,78.0
+2009-10,Girls,Nevada,Cross Country,78.0,784.0
+2009-10,Girls,New Hampshire,Basketball,88.0,3194.0
+2009-10,Girls,New Hampshire,Bowling,10.0,43.0
+2009-10,Girls,New Hampshire,Competitive Spirit Squads,65.0,1727.0
+2009-10,Girls,New Hampshire,Cross Country,73.0,1056.0
+2009-10,Girls,New Jersey,Basketball,401.0,9448.0
+2009-10,Girls,New Jersey,Bowling,213.0,1808.0
+2009-10,Girls,New Jersey,Competitive Spirit Squads,,365.0
+2009-10,Girls,New Jersey,Cross Country,365.0,5095.0
+2009-10,Girls,New Mexico,Basketball,154.0,3773.0
+2009-10,Girls,New Mexico,Bowling,25.0,224.0
+2009-10,Girls,New Mexico,Competitive Spirit Squads,,110.0
+2009-10,Girls,New Mexico,Cross Country,110.0,1286.0
+2009-10,Girls,New York,Basketball,741.0,17750.0
+2009-10,Girls,New York,Bowling,322.0,3450.0
+2009-10,Girls,New York,Competitive Spirit Squads,,554.0
+2009-10,Girls,New York,Cross Country,554.0,7460.0
+2009-10,Girls,North Carolina,Basketball,386.0,8215.0
+2009-10,Girls,North Carolina,Bowling,,380.0
+2009-10,Girls,North Carolina,Competitive Spirit Squads,380.0,353.0
+2009-10,Girls,North Carolina,Cross Country,353.0,4445.0
+2009-10,Girls,North Dakota,Basketball,165.0,2433.0
+2009-10,Girls,North Dakota,Competitive Spirit Squads,,68.0
+2009-10,Girls,North Dakota,Cross Country,68.0,483.0
+2009-10,Girls,Ohio,Basketball,808.0,17342.0
+2009-10,Girls,Ohio,Bowling,328.0,3074.0
+2009-10,Girls,Ohio,Competitive Spirit Squads,136.0,2643.0
+2009-10,Girls,Ohio,Cross Country,729.0,8570.0
+2009-10,Girls,Oklahoma,Basketball,416.0,7200.0
+2009-10,Girls,Oklahoma,Bowling,,213.0
+2009-10,Girls,Oklahoma,Competitive Spirit Squads,213.0,4284.0
+2009-10,Girls,Oklahoma,Cross Country,294.0,2212.0
+2009-10,Girls,Oregon,Basketball,279.0,6238.0
+2009-10,Girls,Oregon,Competitive Spirit Squads,,208.0
+2009-10,Girls,Oregon,Cross Country,208.0,2670.0
+2009-10,Girls,Pennsylvania,Basketball,724.0,21720.0
+2009-10,Girls,Pennsylvania,Bowling,153.0,1530.0
+2009-10,Girls,Pennsylvania,Competitive Spirit Squads,,568.0
+2009-10,Girls,Pennsylvania,Cross Country,568.0,11400.0
+2009-10,Girls,Rhode Island,Basketball,49.0,1066.0
+2009-10,Girls,Rhode Island,Bowling,,25.0
+2009-10,Girls,Rhode Island,Competitive Spirit Squads,25.0,559.0
+2009-10,Girls,Rhode Island,Cross Country,45.0,757.0
+2009-10,Girls,South Carolina,Basketball,201.0,5102.0
+2009-10,Girls,South Carolina,Bowling,4.0,28.0
+2009-10,Girls,South Carolina,Competitive Spirit Squads,86.0,2847.0
+2009-10,Girls,South Carolina,Cross Country,147.0,2127.0
+2009-10,Girls,South Dakota,Basketball,173.0,2936.0
+2009-10,Girls,South Dakota,Bowling,,29.0
+2009-10,Girls,South Dakota,Competitive Spirit Squads,29.0,509.0
+2009-10,Girls,South Dakota,Cross Country,137.0,695.0
+2009-10,Girls,Tennessee,Basketball,370.0,6463.0
+2009-10,Girls,Tennessee,Bowling,134.0,1212.0
+2009-10,Girls,Tennessee,Competitive Spirit Squads,,278.0
+2009-10,Girls,Tennessee,Cross Country,278.0,2836.0
+2009-10,Girls,Texas,Basketball,1425.0,70442.0
+2009-10,Girls,Texas,Competitive Spirit Squads,,1336.0
+2009-10,Girls,Texas,Cross Country,1336.0,28102.0
+2009-10,Girls,Utah,Basketball,126.0,2937.0
+2009-10,Girls,Utah,Competitive Spirit Squads,,119.0
+2009-10,Girls,Utah,Cross Country,119.0,1613.0
+2009-10,Girls,Vermont,Basketball,43.0,1091.0
+2009-10,Girls,Vermont,Bowling,1.0,2.0
+2009-10,Girls,Vermont,Competitive Spirit Squads,13.0,210.0
+2009-10,Girls,Vermont,Cross Country,37.0,478.0
+2009-10,Girls,Virginia,Basketball,307.0,7876.0
+2009-10,Girls,Virginia,Bowling,,212.0
+2009-10,Girls,Virginia,Competitive Spirit Squads,212.0,4698.0
+2009-10,Girls,Virginia,Cross Country,285.0,4555.0
+2009-10,Girls,Washington,Basketball,380.0,9166.0
+2009-10,Girls,Washington,Bowling,56.0,1068.0
+2009-10,Girls,Washington,Competitive Spirit Squads,,255.0
+2009-10,Girls,Washington,Cross Country,255.0,4347.0
+2009-10,Girls,West Virginia,Basketball,131.0,2397.0
+2009-10,Girls,West Virginia,Bowling,,128.0
+2009-10,Girls,West Virginia,Competitive Spirit Squads,128.0,2166.0
+2009-10,Girls,West Virginia,Cross Country,84.0,727.0
+2009-10,Girls,Wisconsin,Basketball,487.0,12479.0
+2009-10,Girls,Wisconsin,Competitive Spirit Squads,,388.0
+2009-10,Girls,Wisconsin,Cross Country,388.0,5837.0
+2009-10,Girls,Wyoming,Basketball,71.0,1477.0
+2009-10,Girls,Wyoming,Bowling,,32.0
+2009-10,Girls,Wyoming,Competitive Spirit Squads,32.0,490.0
+2009-10,Girls,Wyoming,Cross Country,40.0,315.0
+2009-10,Girls,Alabama,Football 11-player,,106.0
+2009-10,Girls,Alabama,Golf,106.0,339.0
+2009-10,Girls,Alaska,Football 11-player,5.0,6.0
+2009-10,Girls,Alaska,Golf,,13.0
+2009-10,Girls,Alaska,Gymnastics,13.0,143.0
+2009-10,Girls,Arizona,Field Hockey,,24.0
+2009-10,Girls,Arizona,Football 11-player,24.0,61.0
+2009-10,Girls,Arizona,Golf,106.0,917.0
+2009-10,Girls,Arkansas,Football 11-player,2.0,8.0
+2009-10,Girls,Arkansas,Golf,148.0,667.0
+2009-10,Girls,Arkansas,Gymnastics,7.0,87.0
+2009-10,Girls,California,Field Hockey,98.0,3925.0
+2009-10,Girls,California,Football 11-player,35.0,141.0
+2009-10,Girls,California,Golf,632.0,7017.0
+2009-10,Girls,California,Gymnastics,54.0,1039.0
+2009-10,Girls,Colorado,Field Hockey,17.0,465.0
+2009-10,Girls,Colorado,Football 11-player,,38.0
+2009-10,Girls,Colorado,Golf,151.0,1409.0
+2009-10,Girls,Colorado,Gymnastics,49.0,582.0
+2009-10,Girls,Connecticut,Field Hockey,80.0,3258.0
+2009-10,Girls,Connecticut,Football 11-player,,23.0
+2009-10,Girls,Connecticut,Golf,65.0,516.0
+2009-10,Girls,Connecticut,Gymnastics,53.0,436.0
+2009-10,Girls,Delaware,Field Hockey,45.0,1459.0
+2009-10,Girls,Delaware,Football 11-player,,22.0
+2009-10,Girls,Delaware,Golf,22.0,53.0
+2009-10,Girls,Florida,Football 11-player,,13.0
+2009-10,Girls,Florida,Golf,470.0,2239.0
+2009-10,Girls,Georgia,Field Hockey,,14.0
+2009-10,Girls,Georgia,Football 11-player,14.0,56.0
+2009-10,Girls,Georgia,Golf,333.0,1670.0
+2009-10,Girls,Georgia,Gymnastics,41.0,370.0
+2009-10,Girls,Hawaii,Football 11-player,8.0,12.0
+2009-10,Girls,Hawaii,Golf,45.0,200.0
+2009-10,Girls,Idaho,Football 11-player,8.0,8.0
+2009-10,Girls,Idaho,Golf,80.0,498.0
+2009-10,Girls,Illinois,Football 11-player,,382.0
+2009-10,Girls,Illinois,Golf,382.0,3739.0
+2009-10,Girls,Illinois,Gymnastics,77.0,1710.0
+2009-10,Girls,Indiana,Football 11-player,,287.0
+2009-10,Girls,Indiana,Golf,287.0,2498.0
+2009-10,Girls,Indiana,Gymnastics,86.0,866.0
+2009-10,Girls,Iowa,Field Hockey,,19.0
+2009-10,Girls,Iowa,Football 11-player,19.0,84.0
+2009-10,Girls,Iowa,Golf,336.0,3563.0
+2009-10,Girls,Kansas,Football 11-player,8.0,43.0
+2009-10,Girls,Kansas,Golf,147.0,1239.0
+2009-10,Girls,Kansas,Gymnastics,12.0,140.0
+2009-10,Girls,Kentucky,Field Hockey,21.0,658.0
+2009-10,Girls,Kentucky,Football 11-player,6.0,10.0
+2009-10,Girls,Kentucky,Golf,196.0,1287.0
+2009-10,Girls,Kentucky,Gymnastics,6.0,84.0
+2009-10,Girls,Louisiana,Football 11-player,,181.0
+2009-10,Girls,Louisiana,Golf,181.0,702.0
+2009-10,Girls,Louisiana,Gymnastics,24.0,115.0
+2009-10,Girls,Maine,Field Hockey,85.0,2618.0
+2009-10,Girls,Maine,Football 11-player,4.0,5.0
+2009-10,Girls,Maine,Golf,46.0,108.0
+2009-10,Girls,Maine,Gymnastics,2.0,15.0
+2009-10,Girls,Maryland,Field Hockey,127.0,3891.0
+2009-10,Girls,Maryland,Football 11-player,,228.0
+2009-10,Girls,Maryland,Golf,115.0,228.0
+2009-10,Girls,Maryland,Gymnastics,13.0,204.0
+2009-10,Girls,Massachusetts,Field Hockey,214.0,8107.0
+2009-10,Girls,Massachusetts,Football 11-player,,18.0
+2009-10,Girls,Massachusetts,Golf,26.0,551.0
+2009-10,Girls,Massachusetts,Gymnastics,94.0,1287.0
+2009-10,Girls,Michigan,Field Hockey,24.0,812.0
+2009-10,Girls,Michigan,Football 11-player,,334.0
+2009-10,Girls,Michigan,Golf,334.0,3424.0
+2009-10,Girls,Michigan,Gymnastics,68.0,656.0
+2009-10,Girls,Minnesota,Football 11-player,,368.0
+2009-10,Girls,Minnesota,Golf,368.0,3678.0
+2009-10,Girls,Minnesota,Gymnastics,182.0,2437.0
+2009-10,Girls,Mississippi,Football 11-player,,80.0
+2009-10,Girls,Mississippi,Golf,80.0,421.0
+2009-10,Girls,Missouri,Field Hockey,28.0,1049.0
+2009-10,Girls,Missouri,Football 11-player,,173.0
+2009-10,Girls,Missouri,Golf,173.0,1578.0
+2009-10,Girls,Missouri,Gymnastics,4.0,8.0
+2009-10,Girls,Montana,Football 11-player,,3.0
+2009-10,Girls,Montana,Golf,88.0,524.0
+2009-10,Girls,Nebraska,Football 11-player,,14.0
+2009-10,Girls,Nebraska,Golf,134.0,1372.0
+2009-10,Girls,Nevada,Football 11-player,,71.0
+2009-10,Girls,Nevada,Golf,71.0,473.0
+2009-10,Girls,New Hampshire,Field Hockey,58.0,1927.0
+2009-10,Girls,New Hampshire,Football 11-player,,8.0
+2009-10,Girls,New Hampshire,Golf,35.0,44.0
+2009-10,Girls,New Hampshire,Gymnastics,33.0,195.0
+2009-10,Girls,New Jersey,Field Hockey,220.0,8743.0
+2009-10,Girls,New Jersey,Football 11-player,,97.0
+2009-10,Girls,New Jersey,Golf,197.0,1290.0
+2009-10,Girls,New Jersey,Gymnastics,99.0,1015.0
+2009-10,Girls,New Mexico,Football 11-player,,92.0
+2009-10,Girls,New Mexico,Golf,92.0,568.0
+2009-10,Girls,New York,Field Hockey,240.0,8348.0
+2009-10,Girls,New York,Football 11-player,,163.0
+2009-10,Girls,New York,Golf,163.0,1649.0
+2009-10,Girls,New York,Gymnastics,122.0,1670.0
+2009-10,Girls,North Carolina,Field Hockey,44.0,880.0
+2009-10,Girls,North Carolina,Football 11-player,,248.0
+2009-10,Girls,North Carolina,Golf,248.0,1180.0
+2009-10,Girls,North Carolina,Gymnastics,24.0,168.0
+2009-10,Girls,North Dakota,Football 11-player,5.0,17.0
+2009-10,Girls,North Dakota,Golf,108.0,551.0
+2009-10,Girls,North Dakota,Gymnastics,15.0,73.0
+2009-10,Girls,Ohio,Field Hockey,48.0,1071.0
+2009-10,Girls,Ohio,Football 11-player,10.0,13.0
+2009-10,Girls,Ohio,Golf,559.0,3143.0
+2009-10,Girls,Ohio,Gymnastics,148.0,996.0
+2009-10,Girls,Oklahoma,Football 11-player,3.0,3.0
+2009-10,Girls,Oklahoma,Golf,218.0,1265.0
+2009-10,Girls,Oregon,Football 11-player,,165.0
+2009-10,Girls,Oregon,Golf,165.0,1036.0
+2009-10,Girls,Pennsylvania,Field Hockey,301.0,
+2009-10,Girls,Pennsylvania,Football 11-player,,331.0
+2009-10,Girls,Pennsylvania,Golf,331.0,3310.0
+2009-10,Girls,Pennsylvania,Gymnastics,22.0,220.0
+2009-10,Girls,Rhode Island,Field Hockey,21.0,617.0
+2009-10,Girls,Rhode Island,Football 11-player,,5.0
+2009-10,Girls,Rhode Island,Golf,1.0,51.0
+2009-10,Girls,South Carolina,Football 11-player,,82.0
+2009-10,Girls,South Carolina,Golf,82.0,634.0
+2009-10,Girls,South Dakota,Football 11-player,2.0,6.0
+2009-10,Girls,South Dakota,Golf,128.0,753.0
+2009-10,Girls,South Dakota,Gymnastics,28.0,272.0
+2009-10,Girls,Tennessee,Football 11-player,,259.0
+2009-10,Girls,Tennessee,Golf,259.0,909.0
+2009-10,Girls,Texas,Football 11-player,,115.0
+2009-10,Girls,Texas,Golf,1265.0,8103.0
+2009-10,Girls,Utah,Football 11-player,,97.0
+2009-10,Girls,Utah,Golf,97.0,857.0
+2009-10,Girls,Vermont,Field Hockey,20.0,724.0
+2009-10,Girls,Vermont,Football 11-player,2.0,45.0
+2009-10,Girls,Vermont,Golf,19.0,94.0
+2009-10,Girls,Vermont,Gymnastics,11.0,124.0
+2009-10,Girls,Virginia,Field Hockey,136.0,4632.0
+2009-10,Girls,Virginia,Football 11-player,15.0,122.0
+2009-10,Girls,Virginia,Golf,143.0,351.0
+2009-10,Girls,Virginia,Gymnastics,73.0,801.0
+2009-10,Girls,Washington,Football 11-player,,47.0
+2009-10,Girls,Washington,Golf,230.0,2322.0
+2009-10,Girls,Washington,Gymnastics,73.0,1554.0
+2009-10,Girls,Wisconsin,Football 11-player,,147.0
+2009-10,Girls,Wisconsin,Golf,147.0,1627.0
+2009-10,Girls,Wisconsin,Gymnastics,82.0,1452.0
+2009-10,Girls,Wyoming,Football 11-player,,38.0
+2009-10,Girls,Wyoming,Golf,38.0,204.0
+2009-10,Girls,Wyoming,Gymnastics,3.0,30.0
+2009-10,Girls,Alaska,Ice Hockey,21.0,137.0
+2009-10,Girls,Alaska,Skiing Alpine,,24.0
+2009-10,Girls,Alaska,Skiing Cross Country,24.0,532.0
+2009-10,Girls,California,Ice Hockey,1.0,3.0
+2009-10,Girls,California,Lacrosse,157.0,4956.0
+2009-10,Girls,California,Skiing Alpine,22.0,212.0
+2009-10,Girls,California,Skiing Cross Country,5.0,38.0
+2009-10,Girls,Colorado,Ice Hockey,,10.0
+2009-10,Girls,Colorado,Lacrosse,51.0,1566.0
+2009-10,Girls,Colorado,Skiing Alpine,15.0,144.0
+2009-10,Girls,Colorado,Skiing Cross Country,15.0,54.0
+2009-10,Girls,Connecticut,Ice Hockey,,10.0
+2009-10,Girls,Connecticut,Lacrosse,79.0,3479.0
+2009-10,Girls,Delaware,Ice Hockey,,24.0
+2009-10,Girls,Delaware,Lacrosse,24.0,775.0
+2009-10,Girls,Delaware,Skiing Alpine,7.0,97.0
+2009-10,Girls,Florida,Ice Hockey,,83.0
+2009-10,Girls,Florida,Lacrosse,83.0,2503.0
+2009-10,Girls,Georgia,Ice Hockey,,58.0
+2009-10,Girls,Georgia,Lacrosse,58.0,1944.0
+2009-10,Girls,Kentucky,Ice Hockey,7.0,142.0
+2009-10,Girls,Kentucky,Lacrosse,12.0,518.0
+2009-10,Girls,Kentucky,Skiing Cross Country,2.0,5.0
+2009-10,Girls,Maine,Ice Hockey,46.0,413.0
+2009-10,Girls,Maine,Lacrosse,43.0,1512.0
+2009-10,Girls,Maine,Skiing Alpine,51.0,271.0
+2009-10,Girls,Maine,Skiing Cross Country,38.0,319.0
+2009-10,Girls,Maryland,Ice Hockey,,137.0
+2009-10,Girls,Maryland,Lacrosse,137.0,5151.0
+2009-10,Girls,Massachusetts,Ice Hockey,100.0,1795.0
+2009-10,Girls,Massachusetts,Lacrosse,155.0,6276.0
+2009-10,Girls,Massachusetts,Skiing Alpine,70.0,865.0
+2009-10,Girls,Massachusetts,Skiing Cross Country,20.0,289.0
+2009-10,Girls,Michigan,Ice Hockey,18.0,232.0
+2009-10,Girls,Michigan,Lacrosse,75.0,2234.0
+2009-10,Girls,Michigan,Skiing Alpine,97.0,653.0
+2009-10,Girls,Michigan,Skiing Cross Country,5.0,44.0
+2009-10,Girls,Minnesota,Ice Hockey,242.0,3351.0
+2009-10,Girls,Minnesota,Lacrosse,73.0,2369.0
+2009-10,Girls,Minnesota,Skiing Alpine,102.0,785.0
+2009-10,Girls,Minnesota,Skiing Cross Country,113.0,1905.0
+2009-10,Girls,Missouri,Ice Hockey,,26.0
+2009-10,Girls,Missouri,Lacrosse,26.0,1146.0
+2009-10,Girls,Nevada,Lacrosse,,18.0
+2009-10,Girls,Nevada,Skiing Alpine,18.0,230.0
+2009-10,Girls,New Hampshire,Ice Hockey,9.0,246.0
+2009-10,Girls,New Hampshire,Lacrosse,40.0,1567.0
+2009-10,Girls,New Hampshire,Skiing Alpine,55.0,467.0
+2009-10,Girls,New Hampshire,Skiing Cross Country,31.0,293.0
+2009-10,Girls,New Jersey,Ice Hockey,13.0,83.0
+2009-10,Girls,New Jersey,Lacrosse,169.0,7707.0
+2009-10,Girls,New Jersey,Skiing Alpine,,14.0
+2009-10,Girls,New Jersey,Skiing Cross Country,14.0,143.0
+2009-10,Girls,New York,Ice Hockey,10.0,250.0
+2009-10,Girls,New York,Lacrosse,278.0,11370.0
+2009-10,Girls,New York,Skiing Alpine,97.0,559.0
+2009-10,Girls,New York,Skiing Cross Country,97.0,559.0
+2009-10,Girls,North Carolina,Ice Hockey,,47.0
+2009-10,Girls,North Carolina,Lacrosse,47.0,1426.0
+2009-10,Girls,North Dakota,Ice Hockey,21.0,223.0
+2009-10,Girls,Ohio,Ice Hockey,13.0,39.0
+2009-10,Girls,Ohio,Lacrosse,79.0,2728.0
+2009-10,Girls,Pennsylvania,Ice Hockey,,164.0
+2009-10,Girls,Pennsylvania,Lacrosse,164.0,5248.0
+2009-10,Girls,Rhode Island,Ice Hockey,8.0,165.0
+2009-10,Girls,Rhode Island,Lacrosse,25.0,899.0
+2009-10,Girls,South Carolina,Ice Hockey,,23.0
+2009-10,Girls,South Carolina,Lacrosse,23.0,622.0
+2009-10,Girls,Vermont,Ice Hockey,19.0,290.0
+2009-10,Girls,Vermont,Lacrosse,19.0,581.0
+2009-10,Girls,Vermont,Skiing Alpine,18.0,130.0
+2009-10,Girls,Vermont,Skiing Cross Country,17.0,236.0
+2009-10,Girls,Virginia,Ice Hockey,,67.0
+2009-10,Girls,Virginia,Lacrosse,67.0,2174.0
+2009-10,Girls,Wisconsin,Ice Hockey,32.0,865.0
+2009-10,Girls,Wyoming,Lacrosse,,6.0
+2009-10,Girls,Wyoming,Skiing Alpine,6.0,69.0
+2009-10,Girls,Wyoming,Skiing Cross Country,7.0,85.0
+2009-10,Girls,Alabama,Soccer,133.0,3408.0
+2009-10,Girls,Alabama,Softball Slow Pitch,,389.0
+2009-10,Girls,Alabama,Softball Fast Pitch,389.0,6404.0
+2009-10,Girls,Alabama,Swimming and Diving,71.0,308.0
+2009-10,Girls,Alaska,Soccer,34.0,947.0
+2009-10,Girls,Alaska,Softball Slow Pitch,,25.0
+2009-10,Girls,Alaska,Softball Fast Pitch,25.0,654.0
+2009-10,Girls,Alaska,Swimming and Diving,30.0,496.0
+2009-10,Girls,Arizona,Soccer,160.0,6061.0
+2009-10,Girls,Arizona,Softball Slow Pitch,,227.0
+2009-10,Girls,Arizona,Softball Fast Pitch,227.0,7028.0
+2009-10,Girls,Arizona,Swimming and Diving,122.0,3067.0
+2009-10,Girls,Arkansas,Soccer,72.0,1535.0
+2009-10,Girls,Arkansas,Softball Slow Pitch,,221.0
+2009-10,Girls,Arkansas,Softball Fast Pitch,221.0,3852.0
+2009-10,Girls,Arkansas,Swimming and Diving,30.0,288.0
+2009-10,Girls,California,Soccer,1149.0,41727.0
+2009-10,Girls,California,Softball Slow Pitch,,1160.0
+2009-10,Girls,California,Softball Fast Pitch,1160.0,31801.0
+2009-10,Girls,California,Swimming and Diving,814.0,26965.0
+2009-10,Girls,Colorado,Soccer,203.0,6889.0
+2009-10,Girls,Colorado,Softball Slow Pitch,,168.0
+2009-10,Girls,Colorado,Softball Fast Pitch,168.0,3596.0
+2009-10,Girls,Colorado,Swimming and Diving,130.0,4050.0
+2009-10,Girls,Connecticut,Soccer,158.0,5861.0
+2009-10,Girls,Connecticut,Softball Slow Pitch,,176.0
+2009-10,Girls,Connecticut,Softball Fast Pitch,176.0,4461.0
+2009-10,Girls,Connecticut,Swimming and Diving,106.0,2732.0
+2009-10,Girls,Delaware,Soccer,49.0,1769.0
+2009-10,Girls,Delaware,Softball Slow Pitch,,44.0
+2009-10,Girls,Delaware,Softball Fast Pitch,44.0,1051.0
+2009-10,Girls,Delaware,Swimming and Diving,36.0,842.0
+2009-10,Girls,Florida,Soccer,507.0,13991.0
+2009-10,Girls,Florida,Softball Slow Pitch,,553.0
+2009-10,Girls,Florida,Softball Fast Pitch,553.0,16677.0
+2009-10,Girls,Florida,Swimming and Diving,410.0,7484.0
+2009-10,Girls,Georgia,Soccer,338.0,9122.0
+2009-10,Girls,Georgia,Softball Slow Pitch,9.0,195.0
+2009-10,Girls,Georgia,Softball Fast Pitch,380.0,7796.0
+2009-10,Girls,Georgia,Swimming and Diving,215.0,3716.0
+2009-10,Girls,Hawaii,Soccer,54.0,1703.0
+2009-10,Girls,Hawaii,Softball Slow Pitch,,55.0
+2009-10,Girls,Hawaii,Softball Fast Pitch,55.0,1352.0
+2009-10,Girls,Hawaii,Swimming and Diving,60.0,725.0
+2009-10,Girls,Idaho,Soccer,71.0,1898.0
+2009-10,Girls,Idaho,Softball Slow Pitch,,99.0
+2009-10,Girls,Idaho,Softball Fast Pitch,99.0,2232.0
+2009-10,Girls,Illinois,Soccer,399.0,16619.0
+2009-10,Girls,Illinois,Softball Slow Pitch,,664.0
+2009-10,Girls,Illinois,Softball Fast Pitch,664.0,17140.0
+2009-10,Girls,Illinois,Swimming and Diving,291.0,6949.0
+2009-10,Girls,Indiana,Soccer,249.0,6558.0
+2009-10,Girls,Indiana,Softball Slow Pitch,,377.0
+2009-10,Girls,Indiana,Softball Fast Pitch,377.0,8967.0
+2009-10,Girls,Indiana,Swimming and Diving,243.0,4642.0
+2009-10,Girls,Iowa,Soccer,165.0,5089.0
+2009-10,Girls,Iowa,Softball Slow Pitch,,365.0
+2009-10,Girls,Iowa,Softball Fast Pitch,365.0,8961.0
+2009-10,Girls,Iowa,Swimming and Diving,94.0,1620.0
+2009-10,Girls,Kansas,Soccer,98.0,3199.0
+2009-10,Girls,Kansas,Softball Slow Pitch,,226.0
+2009-10,Girls,Kansas,Softball Fast Pitch,226.0,5021.0
+2009-10,Girls,Kansas,Swimming and Diving,71.0,1700.0
+2009-10,Girls,Kentucky,Soccer,188.0,4997.0
+2009-10,Girls,Kentucky,Softball Slow Pitch,10.0,292.0
+2009-10,Girls,Kentucky,Softball Fast Pitch,250.0,6120.0
+2009-10,Girls,Kentucky,Swimming and Diving,131.0,1870.0
+2009-10,Girls,Louisiana,Soccer,141.0,3490.0
+2009-10,Girls,Louisiana,Softball Slow Pitch,,331.0
+2009-10,Girls,Louisiana,Softball Fast Pitch,331.0,8112.0
+2009-10,Girls,Louisiana,Swimming and Diving,122.0,1310.0
+2009-10,Girls,Maine,Soccer,134.0,3950.0
+2009-10,Girls,Maine,Softball Slow Pitch,,129.0
+2009-10,Girls,Maine,Softball Fast Pitch,129.0,2982.0
+2009-10,Girls,Maine,Swimming and Diving,53.0,1023.0
+2009-10,Girls,Maryland,Soccer,169.0,5598.0
+2009-10,Girls,Maryland,Softball Slow Pitch,,187.0
+2009-10,Girls,Maryland,Softball Fast Pitch,187.0,5172.0
+2009-10,Girls,Maryland,Swimming and Diving,119.0,2105.0
+2009-10,Girls,Massachusetts,Soccer,315.0,12922.0
+2009-10,Girls,Massachusetts,Softball Slow Pitch,,351.0
+2009-10,Girls,Massachusetts,Softball Fast Pitch,351.0,10608.0
+2009-10,Girls,Massachusetts,Swimming and Diving,176.0,4146.0
+2009-10,Girls,Michigan,Soccer,455.0,13535.0
+2009-10,Girls,Michigan,Softball Slow Pitch,,619.0
+2009-10,Girls,Michigan,Softball Fast Pitch,619.0,14916.0
+2009-10,Girls,Michigan,Swimming and Diving,269.0,6260.0
+2009-10,Girls,Minnesota,Soccer,215.0,8297.0
+2009-10,Girls,Minnesota,Softball Slow Pitch,,423.0
+2009-10,Girls,Minnesota,Softball Fast Pitch,423.0,11097.0
+2009-10,Girls,Minnesota,Swimming and Diving,193.0,5207.0
+2009-10,Girls,Mississippi,Soccer,125.0,2403.0
+2009-10,Girls,Mississippi,Softball Slow Pitch,200.0,6167.0
+2009-10,Girls,Mississippi,Softball Fast Pitch,201.0,4703.0
+2009-10,Girls,Mississippi,Swimming and Diving,48.0,1773.0
+2009-10,Girls,Missouri,Soccer,223.0,7955.0
+2009-10,Girls,Missouri,Softball Slow Pitch,,528.0
+2009-10,Girls,Missouri,Softball Fast Pitch,528.0,10091.0
+2009-10,Girls,Missouri,Swimming and Diving,117.0,3001.0
+2009-10,Girls,Montana,Soccer,29.0,825.0
+2009-10,Girls,Montana,Softball Slow Pitch,,64.0
+2009-10,Girls,Montana,Softball Fast Pitch,64.0,1189.0
+2009-10,Girls,Montana,Swimming and Diving,17.0,283.0
+2009-10,Girls,Nebraska,Soccer,73.0,2393.0
+2009-10,Girls,Nebraska,Softball Slow Pitch,,126.0
+2009-10,Girls,Nebraska,Softball Fast Pitch,126.0,2319.0
+2009-10,Girls,Nebraska,Swimming and Diving,56.0,1076.0
+2009-10,Girls,Nevada,Soccer,65.0,2041.0
+2009-10,Girls,Nevada,Softball Slow Pitch,,86.0
+2009-10,Girls,Nevada,Softball Fast Pitch,86.0,2100.0
+2009-10,Girls,Nevada,Swimming and Diving,56.0,1219.0
+2009-10,Girls,New Hampshire,Soccer,81.0,2653.0
+2009-10,Girls,New Hampshire,Softball Slow Pitch,,85.0
+2009-10,Girls,New Hampshire,Softball Fast Pitch,85.0,2216.0
+2009-10,Girls,New Hampshire,Swimming and Diving,48.0,737.0
+2009-10,Girls,New Jersey,Soccer,353.0,13483.0
+2009-10,Girls,New Jersey,Softball Slow Pitch,,404.0
+2009-10,Girls,New Jersey,Softball Fast Pitch,404.0,12040.0
+2009-10,Girls,New Jersey,Swimming and Diving,245.0,5835.0
+2009-10,Girls,New Mexico,Soccer,72.0,2185.0
+2009-10,Girls,New Mexico,Softball Slow Pitch,,96.0
+2009-10,Girls,New Mexico,Softball Fast Pitch,96.0,2258.0
+2009-10,Girls,New Mexico,Swimming and Diving,46.0,678.0
+2009-10,Girls,New York,Soccer,682.0,23753.0
+2009-10,Girls,New York,Softball Slow Pitch,,733.0
+2009-10,Girls,New York,Softball Fast Pitch,733.0,19103.0
+2009-10,Girls,New York,Swimming and Diving,333.0,7991.0
+2009-10,Girls,North Carolina,Soccer,326.0,9858.0
+2009-10,Girls,North Carolina,Softball Slow Pitch,,370.0
+2009-10,Girls,North Carolina,Softball Fast Pitch,370.0,8855.0
+2009-10,Girls,North Carolina,Swimming and Diving,252.0,4644.0
+2009-10,Girls,North Dakota,Soccer,18.0,580.0
+2009-10,Girls,North Dakota,Softball Slow Pitch,,32.0
+2009-10,Girls,North Dakota,Softball Fast Pitch,32.0,436.0
+2009-10,Girls,North Dakota,Swimming and Diving,20.0,291.0
+2009-10,Girls,Ohio,Soccer,535.0,14100.0
+2009-10,Girls,Ohio,Softball Slow Pitch,11.0,291.0
+2009-10,Girls,Ohio,Softball Fast Pitch,784.0,16427.0
+2009-10,Girls,Ohio,Swimming and Diving,423.0,6682.0
+2009-10,Girls,Oklahoma,Soccer,117.0,2457.0
+2009-10,Girls,Oklahoma,Softball Slow Pitch,297.0,6560.0
+2009-10,Girls,Oklahoma,Softball Fast Pitch,426.0,10450.0
+2009-10,Girls,Oklahoma,Swimming and Diving,62.0,300.0
+2009-10,Girls,Oregon,Soccer,161.0,5408.0
+2009-10,Girls,Oregon,Softball Slow Pitch,,220.0
+2009-10,Girls,Oregon,Softball Fast Pitch,220.0,4236.0
+2009-10,Girls,Oregon,Swimming and Diving,125.0,2494.0
+2009-10,Girls,Pennsylvania,Soccer,554.0,19390.0
+2009-10,Girls,Pennsylvania,Softball Slow Pitch,,666.0
+2009-10,Girls,Pennsylvania,Softball Fast Pitch,666.0,19980.0
+2009-10,Girls,Pennsylvania,Swimming and Diving,331.0,9930.0
+2009-10,Girls,Rhode Island,Soccer,47.0,1523.0
+2009-10,Girls,Rhode Island,Softball Slow Pitch,,47.0
+2009-10,Girls,Rhode Island,Softball Fast Pitch,47.0,1134.0
+2009-10,Girls,Rhode Island,Swimming and Diving,33.0,637.0
+2009-10,Girls,South Carolina,Soccer,142.0,4220.0
+2009-10,Girls,South Carolina,Softball Slow Pitch,,195.0
+2009-10,Girls,South Carolina,Softball Fast Pitch,195.0,4869.0
+2009-10,Girls,South Carolina,Swimming and Diving,78.0,1214.0
+2009-10,Girls,Tennessee,Soccer,258.0,5854.0
+2009-10,Girls,Tennessee,Softball Slow Pitch,,347.0
+2009-10,Girls,Tennessee,Softball Fast Pitch,347.0,6082.0
+2009-10,Girls,Texas,Soccer,594.0,22123.0
+2009-10,Girls,Texas,Softball Slow Pitch,,1159.0
+2009-10,Girls,Texas,Softball Fast Pitch,1159.0,31468.0
+2009-10,Girls,Texas,Swimming and Diving,492.0,7072.0
+2009-10,Girls,Utah,Soccer,93.0,2734.0
+2009-10,Girls,Utah,Softball Slow Pitch,,93.0
+2009-10,Girls,Utah,Softball Fast Pitch,93.0,2203.0
+2009-10,Girls,Utah,Swimming and Diving,78.0,1517.0
+2009-10,Girls,Vermont,Soccer,45.0,1502.0
+2009-10,Girls,Vermont,Softball Slow Pitch,3.0,60.0
+2009-10,Girls,Vermont,Softball Fast Pitch,41.0,962.0
+2009-10,Girls,Vermont,Swimming and Diving,1.0,19.0
+2009-10,Girls,Virginia,Soccer,268.0,8177.0
+2009-10,Girls,Virginia,Softball Slow Pitch,,299.0
+2009-10,Girls,Virginia,Softball Fast Pitch,299.0,7826.0
+2009-10,Girls,Virginia,Swimming and Diving,176.0,3931.0
+2009-10,Girls,Washington,Soccer,238.0,9238.0
+2009-10,Girls,Washington,Softball Slow Pitch,,303.0
+2009-10,Girls,Washington,Softball Fast Pitch,303.0,7433.0
+2009-10,Girls,Washington,Swimming and Diving,136.0,4614.0
+2009-10,Girls,West Virginia,Soccer,69.0,1677.0
+2009-10,Girls,West Virginia,Softball Slow Pitch,,124.0
+2009-10,Girls,West Virginia,Softball Fast Pitch,124.0,2333.0
+2009-10,Girls,West Virginia,Swimming and Diving,44.0,653.0
+2009-10,Girls,Wisconsin,Soccer,249.0,9487.0
+2009-10,Girls,Wisconsin,Softball Slow Pitch,,437.0
+2009-10,Girls,Wisconsin,Softball Fast Pitch,437.0,11340.0
+2009-10,Girls,Wisconsin,Swimming and Diving,140.0,3772.0
+2009-10,Girls,Wyoming,Soccer,23.0,812.0
+2009-10,Girls,Wyoming,Softball Fast Pitch,,25.0
+2009-10,Girls,Wyoming,Swimming and Diving,25.0,529.0
+2009-10,Girls,Wyoming,Softball Slow Pitch,,63.0
+2009-10,Girls,Alabama,Tennis,167.0,1701.0
+2009-10,Girls,Alabama,Track and Field Indoor,,304.0
+2009-10,Girls,Alabama,Track and Field Outdoor,304.0,4591.0
+2009-10,Girls,Alabama,Volleyball,352.0,5454.0
+2009-10,Girls,Alaska,Tennis,15.0,273.0
+2009-10,Girls,Alaska,Track and Field Indoor,,46.0
+2009-10,Girls,Alaska,Track and Field Outdoor,46.0,958.0
+2009-10,Girls,Alaska,Volleyball,69.0,1677.0
+2009-10,Girls,Arizona,Tennis,155.0,2857.0
+2009-10,Girls,Arizona,Track and Field Indoor,,208.0
+2009-10,Girls,Arizona,Track and Field Outdoor,208.0,6922.0
+2009-10,Girls,Arizona,Volleyball,238.0,8128.0
+2009-10,Girls,Arkansas,Tennis,112.0,906.0
+2009-10,Girls,Arkansas,Track and Field Indoor,34.0,575.0
+2009-10,Girls,Arkansas,Track and Field Outdoor,211.0,3148.0
+2009-10,Girls,Arkansas,Volleyball,122.0,2572.0
+2009-10,Girls,California,Tennis,935.0,22908.0
+2009-10,Girls,California,Track and Field Indoor,,1037.0
+2009-10,Girls,California,Track and Field Outdoor,1037.0,41736.0
+2009-10,Girls,California,Volleyball,1243.0,38920.0
+2009-10,Girls,Colorado,Tennis,146.0,4530.0
+2009-10,Girls,Colorado,Track and Field Indoor,,291.0
+2009-10,Girls,Colorado,Track and Field Outdoor,291.0,6708.0
+2009-10,Girls,Colorado,Volleyball,327.0,8543.0
+2009-10,Girls,Connecticut,Tennis,147.0,3227.0
+2009-10,Girls,Connecticut,Track and Field Indoor,152.0,4785.0
+2009-10,Girls,Connecticut,Track and Field Outdoor,169.0,6741.0
+2009-10,Girls,Connecticut,Volleyball,158.0,4465.0
+2009-10,Girls,Delaware,Tennis,33.0,609.0
+2009-10,Girls,Delaware,Track and Field Indoor,33.0,709.0
+2009-10,Girls,Delaware,Track and Field Outdoor,42.0,1130.0
+2009-10,Girls,Delaware,Volleyball,47.0,1322.0
+2009-10,Girls,Florida,Tennis,479.0,4957.0
+2009-10,Girls,Florida,Track and Field Indoor,,536.0
+2009-10,Girls,Florida,Track and Field Outdoor,536.0,13205.0
+2009-10,Girls,Florida,Volleyball,599.0,12536.0
+2009-10,Girls,Georgia,Track and Field Indoor,,396.0
+2009-10,Girls,Georgia,Track and Field Outdoor,396.0,9676.0
+2009-10,Girls,Georgia,Volleyball,280.0,6613.0
+2009-10,Girls,Hawaii,Tennis,63.0,853.0
+2009-10,Girls,Hawaii,Track and Field Indoor,,62.0
+2009-10,Girls,Hawaii,Track and Field Outdoor,62.0,1614.0
+2009-10,Girls,Hawaii,Volleyball,72.0,1901.0
+2009-10,Girls,Idaho,Tennis,56.0,1222.0
+2009-10,Girls,Idaho,Track and Field Indoor,,142.0
+2009-10,Girls,Idaho,Track and Field Outdoor,142.0,3247.0
+2009-10,Girls,Idaho,Volleyball,150.0,3878.0
+2009-10,Girls,Illinois,Tennis,336.0,7977.0
+2009-10,Girls,Illinois,Track and Field Indoor,,612.0
+2009-10,Girls,Illinois,Track and Field Outdoor,612.0,18545.0
+2009-10,Girls,Illinois,Volleyball,710.0,21843.0
+2009-10,Girls,Indiana,Tennis,311.0,5989.0
+2009-10,Girls,Indiana,Track and Field Indoor,,391.0
+2009-10,Girls,Indiana,Track and Field Outdoor,391.0,10231.0
+2009-10,Girls,Indiana,Volleyball,398.0,10596.0
+2009-10,Girls,Iowa,Tennis,121.0,3412.0
+2009-10,Girls,Iowa,Track and Field Indoor,,365.0
+2009-10,Girls,Iowa,Track and Field Outdoor,365.0,9435.0
+2009-10,Girls,Iowa,Volleyball,380.0,12434.0
+2009-10,Girls,Kansas,Tennis,139.0,2649.0
+2009-10,Girls,Kansas,Track and Field Indoor,,336.0
+2009-10,Girls,Kansas,Track and Field Outdoor,336.0,6823.0
+2009-10,Girls,Kansas,Volleyball,348.0,8710.0
+2009-10,Girls,Kentucky,Tennis,207.0,2763.0
+2009-10,Girls,Kentucky,Track and Field Indoor,,235.0
+2009-10,Girls,Kentucky,Track and Field Outdoor,235.0,4571.0
+2009-10,Girls,Kentucky,Volleyball,236.0,5452.0
+2009-10,Girls,Louisiana,Tennis,168.0,1680.0
+2009-10,Girls,Louisiana,Track and Field Indoor,195.0,2098.0
+2009-10,Girls,Louisiana,Track and Field Outdoor,353.0,5963.0
+2009-10,Girls,Louisiana,Volleyball,189.0,3406.0
+2009-10,Girls,Maine,Tennis,,64.0
+2009-10,Girls,Maine,Track and Field Indoor,64.0,1221.0
+2009-10,Girls,Maine,Track and Field Outdoor,109.0,2642.0
+2009-10,Girls,Maine,Volleyball,25.0,571.0
+2009-10,Girls,Maryland,Tennis,177.0,2543.0
+2009-10,Girls,Maryland,Track and Field Indoor,168.0,4285.0
+2009-10,Girls,Maryland,Track and Field Outdoor,184.0,5362.0
+2009-10,Girls,Maryland,Volleyball,180.0,3723.0
+2009-10,Girls,Massachusetts,Tennis,278.0,4281.0
+2009-10,Girls,Massachusetts,Track and Field Indoor,243.0,8498.0
+2009-10,Girls,Massachusetts,Track and Field Outdoor,313.0,12821.0
+2009-10,Girls,Massachusetts,Volleyball,271.0,7514.0
+2009-10,Girls,Michigan,Tennis,352.0,9984.0
+2009-10,Girls,Michigan,Track and Field Indoor,34.0,380.0
+2009-10,Girls,Michigan,Track and Field Outdoor,666.0,17448.0
+2009-10,Girls,Michigan,Volleyball,711.0,20190.0
+2009-10,Girls,Minnesota,Tennis,224.0,5727.0
+2009-10,Girls,Minnesota,Track and Field Indoor,,428.0
+2009-10,Girls,Minnesota,Track and Field Outdoor,428.0,15136.0
+2009-10,Girls,Minnesota,Volleyball,452.0,14271.0
+2009-10,Girls,Mississippi,Tennis,164.0,1696.0
+2009-10,Girls,Mississippi,Track and Field Indoor,17.0,493.0
+2009-10,Girls,Mississippi,Track and Field Outdoor,236.0,4628.0
+2009-10,Girls,Mississippi,Volleyball,82.0,2088.0
+2009-10,Girls,Missouri,Tennis,187.0,3726.0
+2009-10,Girls,Missouri,Track and Field Indoor,,478.0
+2009-10,Girls,Missouri,Track and Field Outdoor,478.0,11583.0
+2009-10,Girls,Missouri,Volleyball,432.0,10211.0
+2009-10,Girls,Montana,Tennis,49.0,1156.0
+2009-10,Girls,Montana,Track and Field Indoor,,172.0
+2009-10,Girls,Montana,Track and Field Outdoor,172.0,2484.0
+2009-10,Girls,Montana,Volleyball,171.0,3631.0
+2009-10,Girls,Nebraska,Tennis,63.0,1460.0
+2009-10,Girls,Nebraska,Track and Field Indoor,,307.0
+2009-10,Girls,Nebraska,Track and Field Outdoor,307.0,7259.0
+2009-10,Girls,Nebraska,Volleyball,309.0,7472.0
+2009-10,Girls,Nevada,Tennis,58.0,742.0
+2009-10,Girls,Nevada,Track and Field Indoor,,94.0
+2009-10,Girls,Nevada,Track and Field Outdoor,94.0,2816.0
+2009-10,Girls,Nevada,Volleyball,100.0,2620.0
+2009-10,Girls,New Hampshire,Tennis,,53.0
+2009-10,Girls,New Hampshire,Track and Field Indoor,53.0,1198.0
+2009-10,Girls,New Hampshire,Track and Field Outdoor,76.0,2349.0
+2009-10,Girls,New Hampshire,Volleyball,27.0,1595.0
+2009-10,Girls,New Jersey,Tennis,351.0,6817.0
+2009-10,Girls,New Jersey,Track and Field Indoor,291.0,8583.0
+2009-10,Girls,New Jersey,Track and Field Outdoor,377.0,16084.0
+2009-10,Girls,New Jersey,Volleyball,255.0,7064.0
+2009-10,Girls,New Mexico,Tennis,146.0,830.0
+2009-10,Girls,New Mexico,Track and Field Indoor,,161.0
+2009-10,Girls,New Mexico,Track and Field Outdoor,161.0,3512.0
+2009-10,Girls,New Mexico,Volleyball,149.0,3994.0
+2009-10,Girls,New York,Tennis,458.0,9704.0
+2009-10,Girls,New York,Track and Field Indoor,396.0,11463.0
+2009-10,Girls,New York,Track and Field Outdoor,635.0,21357.0
+2009-10,Girls,New York,Volleyball,629.0,15875.0
+2009-10,Girls,North Carolina,Tennis,331.0,4374.0
+2009-10,Girls,North Carolina,Track and Field Indoor,202.0,3311.0
+2009-10,Girls,North Carolina,Track and Field Outdoor,362.0,9462.0
+2009-10,Girls,North Carolina,Volleyball,377.0,8599.0
+2009-10,Girls,North Dakota,Tennis,22.0,442.0
+2009-10,Girls,North Dakota,Track and Field Indoor,,157.0
+2009-10,Girls,North Dakota,Track and Field Outdoor,157.0,1789.0
+2009-10,Girls,North Dakota,Volleyball,159.0,3193.0
+2009-10,Girls,Ohio,Tennis,427.0,6631.0
+2009-10,Girls,Ohio,Track and Field Indoor,161.0,2158.0
+2009-10,Girls,Ohio,Track and Field Outdoor,786.0,22619.0
+2009-10,Girls,Ohio,Volleyball,804.0,18204.0
+2009-10,Girls,Oklahoma,Tennis,125.0,762.0
+2009-10,Girls,Oklahoma,Track and Field Indoor,,364.0
+2009-10,Girls,Oklahoma,Track and Field Outdoor,364.0,4000.0
+2009-10,Girls,Oklahoma,Volleyball,121.0,2420.0
+2009-10,Girls,Oregon,Tennis,126.0,2960.0
+2009-10,Girls,Oregon,Track and Field Indoor,,265.0
+2009-10,Girls,Oregon,Track and Field Outdoor,265.0,6726.0
+2009-10,Girls,Oregon,Volleyball,281.0,7068.0
+2009-10,Girls,Pennsylvania,Tennis,417.0,5004.0
+2009-10,Girls,Pennsylvania,Track and Field Indoor,184.0,2760.0
+2009-10,Girls,Pennsylvania,Track and Field Outdoor,607.0,24280.0
+2009-10,Girls,Pennsylvania,Volleyball,586.0,10548.0
+2009-10,Girls,Rhode Island,Tennis,44.0,906.0
+2009-10,Girls,Rhode Island,Track and Field Indoor,40.0,1234.0
+2009-10,Girls,Rhode Island,Track and Field Outdoor,40.0,1556.0
+2009-10,Girls,Rhode Island,Volleyball,40.0,544.0
+2009-10,Girls,South Carolina,Tennis,135.0,2001.0
+2009-10,Girls,South Carolina,Track and Field Indoor,,190.0
+2009-10,Girls,South Carolina,Track and Field Outdoor,190.0,5503.0
+2009-10,Girls,South Carolina,Volleyball,192.0,4444.0
+2009-10,Girls,South Dakota,Tennis,22.0,263.0
+2009-10,Girls,South Dakota,Track and Field Indoor,,171.0
+2009-10,Girls,South Dakota,Track and Field Outdoor,171.0,2769.0
+2009-10,Girls,South Dakota,Volleyball,165.0,3795.0
+2009-10,Girls,Tennessee,Tennis,266.0,2936.0
+2009-10,Girls,Tennessee,Track and Field Indoor,,257.0
+2009-10,Girls,Tennessee,Track and Field Outdoor,257.0,5523.0
+2009-10,Girls,Tennessee,Volleyball,307.0,5821.0
+2009-10,Girls,Texas,Tennis,1243.0,18387.0
+2009-10,Girls,Texas,Track and Field Indoor,,1375.0
+2009-10,Girls,Texas,Track and Field Outdoor,1375.0,64726.0
+2009-10,Girls,Texas,Volleyball,1194.0,39428.0
+2009-10,Girls,Utah,Tennis,82.0,1532.0
+2009-10,Girls,Utah,Track and Field Indoor,,120.0
+2009-10,Girls,Utah,Track and Field Outdoor,120.0,4048.0
+2009-10,Girls,Utah,Volleyball,124.0,2769.0
+2009-10,Girls,Vermont,Tennis,18.0,294.0
+2009-10,Girls,Vermont,Track and Field Indoor,18.0,281.0
+2009-10,Girls,Vermont,Track and Field Outdoor,32.0,747.0
+2009-10,Girls,Vermont,Volleyball,2.0,25.0
+2009-10,Girls,Virginia,Tennis,264.0,3615.0
+2009-10,Girls,Virginia,Track and Field Indoor,199.0,5654.0
+2009-10,Girls,Virginia,Track and Field Outdoor,300.0,8954.0
+2009-10,Girls,Virginia,Volleyball,300.0,7675.0
+2009-10,Girls,Washington,Tennis,235.0,7737.0
+2009-10,Girls,Washington,Track and Field Indoor,,311.0
+2009-10,Girls,Washington,Track and Field Outdoor,311.0,9993.0
+2009-10,Girls,Washington,Volleyball,344.0,10207.0
+2009-10,Girls,West Virginia,Tennis,82.0,988.0
+2009-10,Girls,West Virginia,Track and Field Indoor,,108.0
+2009-10,Girls,West Virginia,Track and Field Outdoor,108.0,2633.0
+2009-10,Girls,West Virginia,Volleyball,121.0,2306.0
+2009-10,Girls,Wisconsin,Tennis,207.0,6054.0
+2009-10,Girls,Wisconsin,Track and Field Indoor,,426.0
+2009-10,Girls,Wisconsin,Track and Field Outdoor,426.0,11781.0
+2009-10,Girls,Wisconsin,Volleyball,471.0,15746.0
+2009-10,Girls,Wyoming,Tennis,16.0,279.0
+2009-10,Girls,Wyoming,Track and Field Indoor,16.0,370.0
+2009-10,Girls,Wyoming,Track and Field Outdoor,70.0,1240.0
+2009-10,Girls,Wyoming,Volleyball,71.0,1776.0
