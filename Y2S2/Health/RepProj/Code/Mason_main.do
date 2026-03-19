@@ -38,13 +38,13 @@ log using `outPath'Mason_rep_log.log, replace
 // Below I define a local switch for each section. If the 
 // switch is equal to 1 it will run; at 0 it is dormant.
 
-local Tab2     = 0
+local Tab2     = 1
 local Tab3     = 0
 local Tab4     = 0
 local Tab5     = 0 // descriptives only: obs, sample mean, % risky
 local Tab6     = 0
 local Tab7     = 0
-local Fig4     = 1 // parallel trends; vline at 1996; 5 subfigures
+local Fig4     = 0 // parallel trends; vline at 1996; 5 subfigures
 local ARC      = 0 // robustness: Footnote 12 (col1), Footnote 21 (col2-3)
 local Extension = 0 
 /************************************************************

@@ -29,8 +29,8 @@ drop if fips > 56
 
 recode educ (1/2=0) (4=1), gen(college_edu)
 gen income_1t = income1              // income <20k
-gen income_2t = income2 + income3   // income b/w 20k and 50k
-gen income_3t = income4 + income5   // income greater than 50k
+gen income_2t = income2 + income3 + income4   // income b/w 20k and 50k
+gen income_3t = income5   // income greater than 50k
 
 // Variables and display labels
 local tab2_vars "age working white_nh hispanic black_nh other married div_sep_wid never_married income_1t income_2t income_3t incomemiss excel_vgood bad_mental_30 bad_phys_30 mental_poor phys_poor"
@@ -43,9 +43,9 @@ local lab_other          "\% other race"
 local lab_married        "\% married"
 local lab_div_sep_wid    "\% separated/divorced/widowed"
 local lab_never_married  "\% never married"
-local lab_income_1t      "\% \$<\$\$20K"
-local lab_income_2t      "\% \$\geq$ \$20k, $<$ \$50k"
-local lab_income_3t      "\% \$\geq$ \$50k"
+local lab_income_1t      "\% $<$\$20K"
+local lab_income_2t      "\% $\geq$\$20k, \textless{}\$50K"
+local lab_income_3t      "\% $\geq$ \$50k"
 local lab_incomemiss     "\% income missing"
 local lab_excel_vgood    "\% excellent/very good health"
 local lab_bad_mental_30  "\% with any bad mental health days"

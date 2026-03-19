@@ -102,50 +102,46 @@
   {\Date}
 \end{center}
 
-\newpage
+Evans and Garthwaite's "Giving Mom a Break: The Impact of Higher EITC Payments on Maternal Health" is a paper which exploits variation
+in EITC expansions by family size. Their results find improvements in self-reported health for the women in their sample, as well as 
+reductions in the likelihood of having risky biomarkers for the same women.
 
-\vspace{0.5em}
-\textbf{Table 2 - Sample Characteristics, Mothers Aged 21-40 (1993-1996)}
-\input{../Output/Tables/Tab2.tex}
+This report is focused on replicating their findings via their replication package submitted with the paper to AEJ. In addition to
+recreating the various figures and tables assigned, there is also an extension section at the end. The replication package is a product
+of its time. The code is poorly labeled, there are inconsistencies in variables used for regressions, and there is much room for improvement 
+when considering best practices in organization of code.
+
+My replications match except where noted in the assignment. These inconsistencies are likely due to sloppy reporting, using different model 
+specifications than those listed, or simple rounding errors. I also attempt to better organize my files and code. The file tree has three primary branches:
+code, data, and output. The code folder contains each section's code and a main file to run each section. There are switches in the main file to allow the user
+to independently run sections by simply setting the switch to 0 if undesired or 1 if desired. There are also defined data and output paths in the main file, accessible
+across the section files. Turning to the data folder, there is a folder for all NHANES data and a single data file for the BRFSS data. Both are accessible by the
+aforementioned paths. Finally, output has subdirectories for graphs and tables to be saved into, as well as my log file in the core output directory. 
+
 \clearpage
+\vspace{0.5em}
+\Section{Replication}
+\input{../Output/Tables/Tab2.tex}
 
-
-\textbf{Table 3 - Differences-in-Differences OLS and Negative Binomial Estimates}
 
 \input{../Output/Tables/Tab3.tex}
 \clearpage
 
-
-\textbf{Table 4 - Robustness Tests}
-
 \input{../Output/Tables/Tab4.tex}
 \clearpage
 
-\textbf{Table 5 - Biomarkers for Mothers Aged 21-40 with a High School Education or Less}
 \input{../Output/Tables/Tab5.tex}
 \clearpage
-
-\textbf{Table 6 - Regression Adjusted DD and DDD Estimates for Effect of EITC Expansion on Allostatic Load, Women Aged 21-40}
 
 \input{../Output/Tables/Tab6.tex}
 \clearpage
 
-\textbf{Table 7 - Regression Adjusted DD and DDD Estimates for Individual Biomarkers, Women Aged 21-40}
-
 \begingroup
 \renewcommand{\arraystretch}{0.45}
-0.8\footnotesize
+\footnotesize
 \input{../Output/Tables/Tab7.tex}
 \endgroup
 \clearpage
-
-\textbf{Additional Robustness Checks - Footnotes 12 and 21}
-
-\input{../Output/Tables/ARC.tex}
-\clearpage
-
-\textbf{Figure 4 - Time Series of Outcomes}
-
 
 \begin{figure}[hbtp]
   \centering
@@ -176,9 +172,12 @@
 \end{figure}
 \clearpage
 
+\Section{Additional Robustness Checks - Footnotes 12 and 21}
 
-\textbf{Extension - Event Study of Outcomes (1995 Normalized to Zero)}
+\input{../Output/Tables/ARC.tex}
+\clearpage
 
+\Section{Extension - Event Study of Outcomes (1995 Normalized to Zero)}
 
 \begin{figure}[hbtp]
   \centering
@@ -202,11 +201,40 @@
   \label{fig:ES_fig}
 \end{figure}
 
-The event study supports parallel trends for three of the outcomes. However, for the excellent/very good health reporting, it would appear that leading up to the
+\clearpage
+
+\Subsection{Parallel Trends Check}
+
+\begin{figure}[hbtp]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../Output/Graphs/HonestDiD_working.pdf}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../Output/Graphs/HonestDiD_excel_vgood.pdf}
+  \end{subfigure}
+
+  \vspace{0.5em}
+
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../Output/Graphs/HonestDiD_mental_poor.pdf}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../Output/Graphs/HonestDiD_phys_poor.pdf}
+  \end{subfigure}
+\end{figure}
+\clearpage
+
+
+The event study rules out parallel trends for three of the outcomes. However, for the excellent/very good health reporting, it would appear that leading up to the
 expansion, self-reporting of good-to-excellent health was already increasing. There is a downward trend for presenting poor mental health as well, but the confidence interval
 encompasses zero, so it is a less compelling result. For working and poor physical health, there is evidence in favor of parallel trends. Both of these variables, relative to 1995,
 have little pre-event variation, validating the assumption of parallel trends.
-\clearpage
 
+When using the HonestDID package, we can see that there is indeed pre-trends in the excellent/very good health outcome. However, we can also rule out pre-trends for the other
+outcomes of interest, as they are all robust to pretrends to a threshold of $\bar{M}=2$. When discussing the excellent/very good health pre-trends, it could potentially be
+due to the 1993 EITC expansion leading to already improving health for women with two children relative to those with only one child.
 
 \end{document}
