@@ -22,7 +22,7 @@ drop if educ == 3
 drop if fips > 56
 gen low_educ = educ <= 2
 gen treat = twoplus_kids*low_educ
-keep if low_educ == 1          
+keep if low_educ == 1
 keep if year >= 1993 & year <= 2001   // move this outside the Panel A preserve too
 
 preserve

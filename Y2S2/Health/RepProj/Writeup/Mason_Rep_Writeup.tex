@@ -14,7 +14,7 @@
 \usepackage{hyperref}
 \usepackage[backend=biber]{biblatex}
 \usepackage{subcaption}
-\usepackage{caption}
+\usepackage[justification=centering]{caption}
 \usepackage{float}
 \floatplacement{table}{H}
 \addbibresource{Proposal_bib.bib}
@@ -106,7 +106,7 @@ Evans and Garthwaite's "Giving Mom a Break: The Impact of Higher EITC Payments o
 in EITC expansions by family size. Their results find improvements in self-reported health for the women in their sample, as well as 
 reductions in the likelihood of having risky biomarkers for the same women.
 
-This report is focused on replicating their findings via their replication package submitted with the paper to AEJ. In addition to
+This report is focused on replicating the paper's findings via the replication package submitted with the paper to AEJ by Garthwaite and Evans. In addition to
 recreating the various figures and tables assigned, there is also an extension section at the end. The replication package is a product
 of its time. The code is poorly labeled, there are inconsistencies in variables used for regressions, and there is much room for improvement 
 when considering best practices in organization of code.
@@ -143,6 +143,8 @@ aforementioned paths. Finally, output has subdirectories for graphs and tables t
 \endgroup
 \clearpage
 
+\setcounter{figure}{3}
+
 \begin{figure}[b]
   \centering
   \begin{subfigure}[b]{0.45\textwidth}
@@ -168,7 +170,7 @@ aforementioned paths. Finally, output has subdirectories for graphs and tables t
   \begin{subfigure}[b]{0.45\textwidth}
     \includegraphics[width=\textwidth]{../Output/Graphs/Fig_LF.pdf}
   \end{subfigure}
-  \caption{Figure 4: Difference-in-Differences Time Series Graphs BRFSS, 1993-2001}
+  \caption{Difference-in-Differences Time Series Graphs BRFSS, 1993-2001}
   \label{fig:TS_fig}
 \end{figure}
 \clearpage
@@ -179,6 +181,7 @@ aforementioned paths. Finally, output has subdirectories for graphs and tables t
 \clearpage
 
 \Section{Extension - Event Study of Outcomes (1995 Normalized to Zero)}
+
 
 \begin{figure}[hbtp]
   \centering
@@ -199,6 +202,7 @@ aforementioned paths. Finally, output has subdirectories for graphs and tables t
   \begin{subfigure}[b]{0.45\textwidth}
     \includegraphics[width=\textwidth]{../Output/Graphs/EventStudy_phys_poor.pdf}
   \end{subfigure}
+  \caption*{Event Study for LFP, Excellent/Very Good Health, Poor Mental Health, and Poor Physcial Health}
   \label{fig:ES_fig}
 \end{figure}
 
@@ -225,6 +229,7 @@ aforementioned paths. Finally, output has subdirectories for graphs and tables t
   \begin{subfigure}[b]{0.45\textwidth}
     \includegraphics[width=\textwidth]{../Output/Graphs/HonestDiD_phys_poor.pdf}
   \end{subfigure}
+  \caption*{Robustness Check for Parallel Trends in Outcomes}
 \end{figure}
 \clearpage
 

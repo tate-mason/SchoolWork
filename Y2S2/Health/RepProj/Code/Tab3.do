@@ -175,10 +175,10 @@ file write tab3 "\bottomrule" _n
 file write tab3 "\end{tabular}}" _n
 file write tab3 "\begin{minipage}{\linewidth}" _n
 file write tab3 "\smallskip\footnotesize" _n
-file write tab3 "\textit{Notes:} Standard errors are reported in parentheses and p-values on the test of the null that the coefficient is zero"
-file write tab3 "are reported in square brackets. All standard errors allow for arbitrary correlations between observations within the"
-file write tab3 "same state. Other covariates in the difference-in-differences model include: Complete set of dummies for age, race,"
-file write tab3 "marital status, and number of children for the respondent, plus a complete set of dummies for the month of survey,"
+file write tab3 "\textit{Notes:} Standard errors are reported in parentheses and p-values on the test of the null that the coefficient is zero "
+file write tab3 "are reported in square brackets. All standard errors allow for arbitrary correlations between observations within the "
+file write tab3 "same state. Other covariates in the difference-in-differences model include: Complete set of dummies for age, race, "
+file write tab3 "marital status, and number of children for the respondent, plus a complete set of dummies for the month of survey, "
 file write tab3 "year of survey, and state of residence." _n
 file write tab3 " All standard errors allow for arbitrary correlations within state." _n
 file write tab3 " Regression-adjusted estimates include dummies for age, race, marital status," _n

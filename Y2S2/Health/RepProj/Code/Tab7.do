@@ -494,7 +494,8 @@ file open tab7 using `outPath'Tables/Tab7.tex, write replace
 file write tab7 "\begin{table}[htbp]" _n
 file write tab7 "\centering" _n
 file write tab7 "\caption{Table 7: Regression-Adjusted DD and DDD Estimates for Individual Biomarkers, Women Aged 21--40}" _n
-file write tab7 "\begin{tabular}{lcccc}" _n  // 4 columns: premean | DD | DDD | 2+ vs 0
+file write tab7 "\small" _n
+file write tab7 "\begin{tabular}{p{5.5cm}cccc}" _n
 file write tab7 "\toprule" _n
 file write tab7 " & Preexpansion mean & & & Two Children vs. \\" _n
 file write tab7 "Outcome & (treatment group) & DD & DDD & No Children \\" _n
@@ -655,11 +656,12 @@ file write tab7 "\bottomrule" _n
 file write tab7 "\end{tabular}" _n
 file write tab7 "\begin{minipage}{\linewidth}" _n
 file write tab7 "\smallskip\footnotesize" _n
-file write tab7 "\textit{Notes:} Standard errors in parentheses; \$p\$-values in square brackets." _n
-file write tab7 " All standard errors allow for arbitrary heteroskedasticity." _n
-file write tab7 " DD covariates: dummies for age, race, marital status, and survey year." _n
-file write tab7 " DDD covariates add interactions between education\$\times\$year, kids\$\times\$year, and education\$\times\$kids." _n
-file write tab7 " Column 4 uses stacked NHANES data and compares women with 2+ children to women with no children." _n
+file write tab7 "\textit{Notes:} Standard errors are reported in parentheses and p-values on the test of the null that the coefficient is zero are "
+file write tab7 "reported in square brackets. All standard errors allow for arbitrary form of heteroskedasticity. Other covariates in "
+file write tab7 "the DD model include: complete set of dummies for age, race, marital status, and the year of survey. Other covari"
+file write tab7 "ates in the DDD model include: complete set of dummies for age, race, marital status, education, plus interactions "
+file write tab7 "between the education and the year effects, the number of children and the year effect, the education and number "
+file write tab7 "of children effects. \\" _n
 file write tab7 "\end{minipage}" _n
 file write tab7 "\end{table}" _n
 file close tab7

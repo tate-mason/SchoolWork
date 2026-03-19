@@ -228,8 +228,11 @@ file write tab5 "\bottomrule" _n
 file write tab5 "\end{tabular}" _n
 file write tab5 "\begin{minipage}{\linewidth}" _n
 file write tab5 "\smallskip\footnotesize" _n
-file write tab5 "\textit{Notes:} Sample restricted to mothers aged 21--40 with a high school degree or less." _n
-file write tab5 " NHANES III, 1999/2000, 2001/2002, 2003/2004." _n
+file write tab5 "$^\text{a}$ To make the datasets comparable over time, we censored the lower values of C-reactive protein at 0.21 in the "
+file write tab5 "final three NHANES samples. \\" _n
+file write tab5 "$^\text{b}$ g/Dl = Grams per deciliter \\" _n
+file write tab5 "$^\text{c}$ mmHg = Millimeters of mercury \\" _n
+file write tab5 "$^\text{d}$ mg/Dl = Milligrams per deciliter \\" _n
 file write tab5 "\end{minipage}" _n
 file write tab5 "\end{table}" _n
 file close tab5

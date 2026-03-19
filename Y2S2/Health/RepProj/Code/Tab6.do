@@ -261,8 +261,12 @@ file write tab6 "\bottomrule" _n
 file write tab6 "\end{tabular}" _n
 file write tab6 "\begin{minipage}{\linewidth}" _n
 file write tab6 "\smallskip\footnotesize" _n
-file write tab6 "\textit{Notes:} Standard errors in parentheses; \$p\$-values in square brackets." _n
-file write tab6 " All standard errors allow for arbitrary heteroskedasticity." _n
+file write tab6 "\textit{Notes:} Standard errors are reported in parentheses and p-values on the test of the null that the coefficient is zero are "
+file write tab6 "reported in square brackets. All standard errors allow for arbitrary form of heteroskedasticity. Other covariates in "
+file write tab6 "the DD model include: complete set of dummies for age, race, marital status, and the year of survey. Other covari"
+file write tab6 "ates in the DDD model include: complete set of dummies for age, race, marital status, education, plus interactions "
+file write tab6 "between the education and the year effects, the number of children and the year effect, the education and number "
+file write tab6 "of children effects. \\" _n
 file write tab6 "\end{minipage}" _n
 file write tab6 "\end{table}" _n
 file close tab6
