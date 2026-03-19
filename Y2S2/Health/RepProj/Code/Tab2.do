@@ -174,7 +174,8 @@ file write tab2 "\bottomrule" _n
 file write tab2 "\end{tabular}}" _n
 file write tab2 "\begin{minipage}{\linewidth}" _n
 file write tab2 "\smallskip\footnotesize" _n
-file write tab2 "\textit{Notes:} The \$p\$-value tests equality of means across 1-child and 2+ child groups." _n
+file write tab2 "\textit{Notes:} The p-value is for the test of the null hypothesis that the means across the samples are the same. The test is"
+file write tab2 "performed allowing for an arbitrary correlation for observations within a state." _n
 file write tab2 "\end{minipage}" _n
 file write tab2 "\end{table}" _n
 file close tab2

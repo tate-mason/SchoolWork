@@ -38,9 +38,9 @@ log using `outPath'Mason_rep_log.log, replace
 // Below I define a local switch for each section. If the 
 // switch is equal to 1 it will run; at 0 it is dormant.
 
-local Tab2     = 1
+local Tab2     = 0
 local Tab3     = 0
-local Tab4     = 0
+local Tab4     = 1
 local Tab5     = 0 // descriptives only: obs, sample mean, % risky
 local Tab6     = 0
 local Tab7     = 0

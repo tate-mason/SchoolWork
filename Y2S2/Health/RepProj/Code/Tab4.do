@@ -241,7 +241,14 @@ file write tab4 "\bottomrule" _n
 file write tab4 "\end{tabular}}" _n
 file write tab4 "\begin{minipage}{\linewidth}" _n
 file write tab4 "\smallskip\footnotesize" _n
-file write tab4 "\textit{Notes:} Standard errors in parentheses; \$p\$-values in square brackets." _n
+file write tab4 "\textit{Notes:} Standard errors are reported in parentheses and p-values on the test of the null that the coefficient is zero"
+file write tab4 "are reported in square brackets. All standard errors allow for arbitrary correlations between observations within the"
+file write tab4 "same state. Other covariates in the difference-in-differences model include: complete set of dummies for age, race,"
+file write tab4 "marital status, and number of children for the respondent, plus a complete set of dummies for the month of survey,"
+file write tab4 "year of survey, and state of residence. Other covariates in the difference-in-difference-in-differences model include:"
+file write tab4 "Complete set of dummies for age, race, marital status, education, and number of children for the respondent; a com-"
+file write tab4 "plete set of dummies for the month of survey, year of survey, state of residence, plus interactions between the edu-"
+file write tab4 "cation and the year effects, the number of children and the year effect, the education and number of children effects." _n
 file write tab4 " All standard errors allow for arbitrary correlations within state." _n
 file write tab4 "\end{minipage}" _n
 file write tab4 "\end{table}" _n

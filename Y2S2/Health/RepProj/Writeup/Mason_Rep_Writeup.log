@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  19 MAR 2026 11:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  19 MAR 2026 12:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -942,10 +942,6 @@ Package pdftex.def Info: ../Output/Graphs/HonestDiD_phys_poor.pdf  used on input
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `Mason_Rep_Writeup.out' has not changed.
 (rerunfilecheck)             Checksum: A66FFAE26D04C4DBF1DF0D2CDA8CBD33;961.
 Package logreq Info: Writing requests to 'Mason_Rep_Writeup.run.xml'.
@@ -953,15 +949,15 @@ Package logreq Info: Writing requests to 'Mason_Rep_Writeup.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21986 strings out of 473190
- 384712 string characters out of 5715801
+ 21998 strings out of 473190
+ 384794 string characters out of 5715801
  1257212 words of memory out of 5000000
  44848 multiletter control sequences out of 15000+600000
- 574938 words of font info for 131 fonts, out of 8000000 for 9000
+ 575358 words of font info for 137 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,11n,81p,1014b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on Mason_Rep_Writeup.pdf (12 pages, 335988 bytes).
+Output written on Mason_Rep_Writeup.pdf (12 pages, 337367 bytes).
 PDF statistics:
  259 PDF objects out of 1000 (max. 8388607)
  184 compressed objects within 2 object streams

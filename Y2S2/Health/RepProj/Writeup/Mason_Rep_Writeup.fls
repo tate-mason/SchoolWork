@@ -255,6 +255,12 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/omlcmr.fd
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/omlcmr.fd
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti9.tfm
+INPUT ../Output/Tables/Tab3.tex
+INPUT ../Output/Tables/Tab3.tex
+INPUT ../Output/Tables/Tab3.tex
+INPUT ../Output/Tables/Tab4.tex
+INPUT ../Output/Tables/Tab4.tex
+INPUT ../Output/Tables/Tab4.tex
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm
@@ -269,12 +275,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy9.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
-INPUT ../Output/Tables/Tab3.tex
-INPUT ../Output/Tables/Tab3.tex
-INPUT ../Output/Tables/Tab3.tex
-INPUT ../Output/Tables/Tab4.tex
-INPUT ../Output/Tables/Tab4.tex
-INPUT ../Output/Tables/Tab4.tex
 INPUT ../Output/Tables/Tab5.tex
 INPUT ../Output/Tables/Tab5.tex
 INPUT ../Output/Tables/Tab5.tex
