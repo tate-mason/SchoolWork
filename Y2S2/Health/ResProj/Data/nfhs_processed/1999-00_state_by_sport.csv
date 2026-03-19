@@ -1,0 +1,531 @@
+survey_year,gender,state,sport,schools,participants
+1999-00,Girls,Alabama,Basketball,392.0,5891.0
+1999-00,Girls,Alabama,Cross Country,46.0,335.0
+1999-00,Girls,Alaska,Basketball,123.0,1857.0
+1999-00,Girls,Alaska,Competitive Spirit Squads,28.0,348.0
+1999-00,Girls,Alaska,Cross Country,80.0,948.0
+1999-00,Girls,Arizona,Basketball,197.0,5846.0
+1999-00,Girls,Arizona,Cross Country,144.0,
+1999-00,Girls,Arkansas,Basketball,280.0,5245.0
+1999-00,Girls,Arkansas,Competitive Spirit Squads,61.0,1367.0
+1999-00,Girls,Arkansas,Cross Country,61.0,543.0
+1999-00,Girls,California,Basketball,1103.0,32218.0
+1999-00,Girls,California,Cross Country,847.0,14815.0
+1999-00,Girls,California,Field Hockey,,2195.0
+1999-00,Girls,Colorado,Basketball,290.0,7211.0
+1999-00,Girls,Colorado,Competitive Spirit Squads,139.0,2808.0
+1999-00,Girls,Colorado,Cross Country,193.0,2361.0
+1999-00,Girls,Colorado,Field Hockey,11.0,441.0
+1999-00,Girls,Connecticut,Basketball,170.0,4047.0
+1999-00,Girls,Connecticut,Competitive Spirit Squads,66.0,1320.0
+1999-00,Girls,Connecticut,Cross Country,149.0,
+1999-00,Girls,Connecticut,Field Hockey,71.0,2890.0
+1999-00,Girls,Delaware,Basketball,45.0,1018.0
+1999-00,Girls,Delaware,Competitive Spirit Squads,,212.0
+1999-00,Girls,Delaware,Cross Country,37.0,525.0
+1999-00,Girls,Delaware,Field Hockey,40.0,1555.0
+1999-00,Girls,District of Columbia,Basketball,12.0,210.0
+1999-00,Girls,District of Columbia,Competitive Spirit Squads,,85.0
+1999-00,Girls,District of Columbia,Cross Country,,80.0
+1999-00,Girls,Florida,Basketball,500.0,10987.0
+1999-00,Girls,Florida,Cross Country,306.0,2066.0
+1999-00,Girls,Georgia,Basketball,343.0,8855.0
+1999-00,Girls,Georgia,Competitive Spirit Squads,219.0,4051.0
+1999-00,Girls,Georgia,Cross Country,269.0,
+1999-00,Girls,Hawaii,Basketball,61.0,1531.0
+1999-00,Girls,Hawaii,Competitive Spirit Squads,46.0,771.0
+1999-00,Girls,Hawaii,Cross Country,51.0,691.0
+1999-00,Girls,Indiana,Basketball,381.0,11499.0
+1999-00,Girls,Indiana,Cross Country,360.0,3683.0
+1999-00,Girls,Indiana,Competitive Spirit Squads,57.0,1645.0
+1999-00,Girls,Kansas,Basketball,350.0,10120.0
+1999-00,Girls,Kansas,Cross Country,208.0,2324.0
+1999-00,Girls,Kentucky,Basketball,267.0,5674.0
+1999-00,Girls,Kentucky,Competitive Spirit Squads,202.0,3942.0
+1999-00,Girls,Kentucky,Cross Country,204.0,2021.0
+1999-00,Girls,Kentucky,Field Hockey,18.0,664.0
+1999-00,Girls,Louisiana,Basketball,376.0,9400.0
+1999-00,Girls,Louisiana,Cross Country,204.0,1224.0
+1999-00,Girls,Louisiana,Competitive Spirit Squads,89.0,1608.0
+1999-00,Girls,Louisiana,Field Hockey,83.0,2974.0
+1999-00,Girls,Maryland,Basketball,176.0,4904.0
+1999-00,Girls,Maryland,Cross Country,158.0,1821.0
+1999-00,Girls,Maryland,Field Hockey,114.0,4059.0
+1999-00,Girls,Massachusetts,Basketball,322.0,9269.0
+1999-00,Girls,Massachusetts,Cross Country,233.0,3926.0
+1999-00,Girls,Massachusetts,Field Hockey,193.0,8418.0
+1999-00,Girls,Michigan,Basketball,705.0,19760.0
+1999-00,Girls,Michigan,Competitive Spirit Squads,145.0,3019.0
+1999-00,Girls,Michigan,Cross Country,75.0,6761.0
+1999-00,Girls,Minnesota,Basketball,444.0,12280.0
+1999-00,Girls,Minnesota,Cross Country,324.0,3952.0
+1999-00,Girls,Mississippi,Basketball,256.0,5662.0
+1999-00,Girls,Mississippi,Competitive Spirit Squads,145.0,3000.0
+1999-00,Girls,Mississippi,Cross Country,58.0,1101.0
+1999-00,Girls,Missouri,Basketball,534.0,12646.0
+1999-00,Girls,Missouri,Competitive Spirit Squads,120.0,1400.0
+1999-00,Girls,Missouri,Cross Country,281.0,3795.0
+1999-00,Girls,Missouri,Field Hockey,21.0,839.0
+1999-00,Girls,Montana,Basketball,180.0,3984.0
+1999-00,Girls,Montana,Cross Country,68.0,767.0
+1999-00,Girls,Nebraska,Basketball,828.0,7223.0
+1999-00,Girls,Nebraska,Cross Country,176.0,1450.0
+1999-00,Girls,Nevada,Basketball,80.0,2253.0
+1999-00,Girls,Nevada,Cross Country,54.0,527.0
+1999-00,Girls,New Hampshire,Basketball,87.0,2343.0
+1999-00,Girls,New Hampshire,Competitive Spirit Squads,108.0,1663.0
+1999-00,Girls,New Hampshire,Cross Country,67.0,720.0
+1999-00,Girls,New Hampshire,Field Hockey,53.0,2106.0
+1999-00,Girls,New Jersey,Basketball,381.0,10016.0
+1999-00,Girls,New Jersey,Cross Country,353.0,4463.0
+1999-00,Girls,New Jersey,Field Hockey,206.0,9602.0
+1999-00,Girls,New Mexico,Basketball,130.0,
+1999-00,Girls,New Mexico,Competitive Spirit Squads,111.0,865.0
+1999-00,Girls,New Mexico,Cross Country,85.0,962.0
+1999-00,Girls,New York,Basketball,714.0,17334.0
+1999-00,Girls,New York,Cross Country,487.0,5841.0
+1999-00,Girls,New York,Field Hockey,228.0,8524.0
+1999-00,Girls,North Carolina,Basketball,329.0,7791.0
+1999-00,Girls,North Carolina,Competitive Spirit Squads,75.0,1933.0
+1999-00,Girls,North Carolina,Cross Country,270.0,4037.0
+1999-00,Girls,North Carolina,Field Hockey,,175.0
+1999-00,Girls,North Dakota,Basketball,157.0,3354.0
+1999-00,Girls,North Dakota,Cross Country,46.0,369.0
+1999-00,Girls,Oklahoma,Basketball,469.0,6580.0
+1999-00,Girls,Oklahoma,Competitive Spirit Squads,171.0,2565.0
+1999-00,Girls,Oklahoma,Cross Country,149.0,1161.0
+1999-00,Girls,Oregon,Basketball,267.0,6446.0
+1999-00,Girls,Oregon,Competitive Spirit Squads,66.0,710.0
+1999-00,Girls,Oregon,Cross Country,182.0,1987.0
+1999-00,Girls,Pennsylvania,Basketball,639.0,19170.0
+1999-00,Girls,Pennsylvania,Cross Country,460.0,4600.0
+1999-00,Girls,Pennsylvania,Field Hockey,254.0,8890.0
+1999-00,Girls,Rhode Island,Basketball,44.0,1093.0
+1999-00,Girls,Rhode Island,Cross Country,40.0,687.0
+1999-00,Girls,Rhode Island,Field Hockey,20.0,678.0
+1999-00,Girls,South Carolina,Basketball,193.0,5148.0
+1999-00,Girls,South Carolina,Competitive Spirit Squads,78.0,1828.0
+1999-00,Girls,South Carolina,Cross Country,124.0,1473.0
+1999-00,Girls,South Carolina,Field Hockey,,67.0
+1999-00,Girls,South Dakota,Basketball,168.0,3276.0
+1999-00,Girls,South Dakota,Competitive Spirit Squads,20.0,
+1999-00,Girls,South Dakota,Cross Country,74.0,615.0
+1999-00,Girls,Tennessee,Basketball,342.0,
+1999-00,Girls,Tennessee,Competitive Spirit Squads,75.0,975.0
+1999-00,Girls,Tennessee,Cross Country,232.0,2618.0
+1999-00,Girls,Vermont,Basketball,70.0,1833.0
+1999-00,Girls,Vermont,Competitive Spirit Squads,22.0,367.0
+1999-00,Girls,Vermont,Cross Country,44.0,452.0
+1999-00,Girls,Vermont,Field Hockey,32.0,1159.0
+1999-00,Girls,Virginia,Basketball,253.0,6178.0
+1999-00,Girls,Virginia,Cross Country,223.0,2879.0
+1999-00,Girls,Virginia,Field Hockey,96.0,3136.0
+1999-00,Girls,Washington,Basketball,372.0,10138.0
+1999-00,Girls,Washington,Cross Country,271.0,3455.0
+1999-00,Girls,West Virginia,Basketball,134.0,2467.0
+1999-00,Girls,West Virginia,Competitive Spirit Squads,130.0,
+1999-00,Girls,West Virginia,Cross Country,67.0,648.0
+1999-00,Girls,Wisconsin,Basketball,419.0,12108.0
+1999-00,Girls,Wisconsin,Cross Country,345.0,4160.0
+1999-00,Girls,Wyoming,Basketball,70.0,1658.0
+1999-00,Girls,Wyoming,Competitive Spirit Squads,34.0,364.0
+1999-00,Girls,Wyoming,Cross Country,30.0,360.0
+1999-00,Girls,Alabama,Golf,123.0,367.0
+1999-00,Girls,Alaska,Gymnastics,10.0,176.0
+1999-00,Girls,Alaska,Skiing Cross Country,27.0,455.0
+1999-00,Girls,Arizona,Golf,96.0,620.0
+1999-00,Girls,Arkansas,Golf,50.0,242.0
+1999-00,Girls,Arkansas,Gymnastics,10.0,114.0
+1999-00,Girls,California,Golf,372.0,1505.0
+1999-00,Girls,California,Gymnastics,72.0,1280.0
+1999-00,Girls,Colorado,Golf,104.0,1162.0
+1999-00,Girls,Colorado,Gymnastics,60.0,673.0
+1999-00,Girls,Colorado,Skiing Cross Country,14.0,104.0
+1999-00,Girls,Connecticut,Golf,42.0,120.0
+1999-00,Girls,Connecticut,Gymnastics,66.0,512.0
+1999-00,Girls,Delaware,Golf,12.0,18.0
+1999-00,Girls,Florida,Golf,306.0,2066.0
+1999-00,Girls,Georgia,Golf,188.0,692.0
+1999-00,Girls,Georgia,Gymnastics,29.0,300.0
+1999-00,Girls,Hawaii,Golf,45.0,178.0
+1999-00,Girls,Hawaii,Gymnastics,,35.0
+1999-00,Girls,Idaho,Golf,98.0,570.0
+1999-00,Girls,Idaho,Skiing Cross Country,,79.0
+1999-00,Girls,Idaho,Gymnastics,94.0,1833.0
+1999-00,Girls,Indiana,Golf,241.0,2411.0
+1999-00,Girls,Indiana,Gymnastics,92.0,1171.0
+1999-00,Girls,Kansas,Golf,80.0,890.0
+1999-00,Girls,Kansas,Gymnastics,27.0,222.0
+1999-00,Girls,Kentucky,Golf,170.0,1037.0
+1999-00,Girls,Louisiana,Golf,22.0,44.0
+1999-00,Girls,Louisiana,Gymnastics,18.0,216.0
+1999-00,Girls,Maine,Golf,47.0,91.0
+1999-00,Girls,Maine,Gymnastics,18.0,86.0
+1999-00,Girls,Maine,Skiing Cross Country,39.0,359.0
+1999-00,Girls,Maryland,Golf,69.0,88.0
+1999-00,Girls,Maryland,Gymnastics,,187.0
+1999-00,Girls,Massachusetts,Golf,36.0,301.0
+1999-00,Girls,Massachusetts,Gymnastics,87.0,1264.0
+1999-00,Girls,Massachusetts,Skiing Cross Country,18.0,228.0
+1999-00,Girls,Michigan,Golf,268.0,3564.0
+1999-00,Girls,Michigan,Gymnastics,71.0,1078.0
+1999-00,Girls,Minnesota,Golf,373.0,4138.0
+1999-00,Girls,Minnesota,Gymnastics,197.0,2821.0
+1999-00,Girls,Minnesota,Skiing Cross Country,114.0,2054.0
+1999-00,Girls,Mississippi,Golf,13.0,85.0
+1999-00,Girls,Missouri,Golf,122.0,1371.0
+1999-00,Girls,Missouri,Gymnastics,,35.0
+1999-00,Girls,Montana,Golf,86.0,859.0
+1999-00,Girls,Nebraska,Golf,121.0,1199.0
+1999-00,Girls,Nebraska,Gymnastics,18.0,181.0
+1999-00,Girls,Nevada,Golf,56.0,402.0
+1999-00,Girls,New Hampshire,Golf,34.0,73.0
+1999-00,Girls,New Hampshire,Gymnastics,20.0,175.0
+1999-00,Girls,New Hampshire,Skiing Cross Country,51.0,272.0
+1999-00,Girls,New Jersey,Golf,12.0,339.0
+1999-00,Girls,New Jersey,Gymnastics,73.0,918.0
+1999-00,Girls,New Mexico,Golf,63.0,346.0
+1999-00,Girls,New York,Golf,87.0,607.0
+1999-00,Girls,New York,Gymnastics,115.0,1642.0
+1999-00,Girls,New York,Skiing Cross Country,93.0,1145.0
+1999-00,Girls,North Dakota,Golf,93.0,680.0
+1999-00,Girls,North Dakota,Gymnastics,13.0,107.0
+1999-00,Girls,Ohio,Golf,383.0,1484.0
+1999-00,Girls,Ohio,Gymnastics,134.0,1165.0
+1999-00,Girls,Oklahoma,Golf,183.0,915.0
+1999-00,Girls,Oregon,Golf,144.0,4177.0
+1999-00,Girls,Pennsylvania,Golf,239.0,
+1999-00,Girls,Pennsylvania,Gymnastics,19.0,190.0
+1999-00,Girls,South Carolina,Golf,39.0,303.0
+1999-00,Girls,South Dakota,Golf,84.0,829.0
+1999-00,Girls,South Dakota,Gymnastics,30.0,384.0
+1999-00,Girls,Tennessee,Golf,288.0,1099.0
+1999-00,Girls,Tennessee,Gymnastics,73.0,837.0
+1999-00,Girls,Utah,Golf,18.0,35.0
+1999-00,Girls,Vermont,Golf,,122.0
+1999-00,Girls,Vermont,Gymnastics,12.0,153.0
+1999-00,Girls,Vermont,Skiing Cross Country,26.0,284.0
+1999-00,Girls,Virginia,Gymnastics,66.0,756.0
+1999-00,Girls,Washington,Golf,243.0,2134.0
+1999-00,Girls,Washington,Gymnastics,,1519.0
+1999-00,Girls,West Virginia,Golf,22.0,
+1999-00,Girls,Wisconsin,Golf,113.0,1369.0
+1999-00,Girls,Wisconsin,Gymnastics,93.0,1416.0
+1999-00,Girls,Wyoming,Golf,82.0,228.0
+1999-00,Girls,Wyoming,Gymnastics,,115.0
+1999-00,Girls,Wyoming,Skiing Cross Country,,97.0
+1999-00,Girls,Alabama,Soccer,90.0,2307.0
+1999-00,Girls,Alabama,Softball Fast Pitch,173.0,2768.0
+1999-00,Girls,Alabama,Softball Slow Pitch,198.0,3336.0
+1999-00,Girls,Alabama,Swimming and Diving,30.0,257.0
+1999-00,Girls,Alaska,Soccer,25.0,786.0
+1999-00,Girls,Alaska,Softball Fast Pitch,16.0,481.0
+1999-00,Girls,Alaska,Swimming and Diving,26.0,461.0
+1999-00,Girls,Arizona,Soccer,125.0,3352.0
+1999-00,Girls,Arizona,Softball Fast Pitch,179.0,6037.0
+1999-00,Girls,Arizona,Swimming and Diving,81.0,2415.0
+1999-00,Girls,Arkansas,Soccer,37.0,718.0
+1999-00,Girls,Arkansas,Swimming and Diving,28.0,316.0
+1999-00,Girls,California,Soccer,930.0,
+1999-00,Girls,California,Softball Fast Pitch,1024.0,30138.0
+1999-00,Girls,California,Swimming and Diving,698.0,26163.0
+1999-00,Girls,Colorado,Soccer,152.0,4783.0
+1999-00,Girls,Colorado,Softball Fast Pitch,139.0,4006.0
+1999-00,Girls,Colorado,Swimming and Diving,123.0,4174.0
+1999-00,Girls,Connecticut,Soccer,143.0,4562.0
+1999-00,Girls,Connecticut,Softball Fast Pitch,145.0,4530.0
+1999-00,Girls,Connecticut,Swimming and Diving,77.0,2160.0
+1999-00,Girls,Delaware,Soccer,35.0,1171.0
+1999-00,Girls,Delaware,Softball Fast Pitch,38.0,983.0
+1999-00,Girls,Delaware,Swimming and Diving,28.0,717.0
+1999-00,Girls,District of Columbia,Soccer,,43.0
+1999-00,Girls,District of Columbia,Softball Fast Pitch,14.0,156.0
+1999-00,Girls,District of Columbia,Swimming and Diving,,45.0
+1999-00,Girls,Florida,Soccer,366.0,11343.0
+1999-00,Girls,Florida,Softball Fast Pitch,479.0,10623.0
+1999-00,Girls,Florida,Softball Slow Pitch,37.0,740.0
+1999-00,Girls,Florida,Swimming and Diving,327.0,7230.0
+1999-00,Girls,Georgia,Soccer,234.0,6124.0
+1999-00,Girls,Georgia,Softball Fast Pitch,178.0,4425.0
+1999-00,Girls,Georgia,Softball Slow Pitch,173.0,3990.0
+1999-00,Girls,Georgia,Swimming and Diving,131.0,2509.0
+1999-00,Girls,Hawaii,Soccer,54.0,1390.0
+1999-00,Girls,Hawaii,Softball Fast Pitch,52.0,864.0
+1999-00,Girls,Hawaii,Swimming and Diving,47.0,604.0
+1999-00,Girls,Idaho,Soccer,25.0,762.0
+1999-00,Girls,Idaho,Softball Fast Pitch,79.0,2126.0
+1999-00,Girls,Idaho,Softball Slow Pitch,16.0,261.0
+1999-00,Girls,Idaho,Swimming and Diving,12.0,138.0
+1999-00,Girls,Illinois,Soccer,263.0,
+1999-00,Girls,Illinois,Softball Fast Pitch,571.0,16034.0
+1999-00,Girls,Illinois,Swimming and Diving,221.0,
+1999-00,Girls,Indiana,Soccer,181.0,
+1999-00,Girls,Indiana,Softball Fast Pitch,356.0,9567.0
+1999-00,Girls,Indiana,Swimming and Diving,218.0,4536.0
+1999-00,Girls,Kansas,Soccer,56.0,2392.0
+1999-00,Girls,Kansas,Softball Fast Pitch,185.0,4872.0
+1999-00,Girls,Kansas,Swimming and Diving,55.0,1326.0
+1999-00,Girls,Kentucky,Soccer,154.0,3853.0
+1999-00,Girls,Kentucky,Softball Fast Pitch,241.0,5280.0
+1999-00,Girls,Kentucky,Softball Slow Pitch,19.0,420.0
+1999-00,Girls,Kentucky,Swimming and Diving,101.0,1468.0
+1999-00,Girls,Louisiana,Soccer,38.0,570.0
+1999-00,Girls,Louisiana,Softball Fast Pitch,352.0,5280.0
+1999-00,Girls,Louisiana,Swimming and Diving,36.0,360.0
+1999-00,Girls,Maine,Soccer,130.0,4017.0
+1999-00,Girls,Maine,Softball Fast Pitch,129.0,3264.0
+1999-00,Girls,Maine,Swimming and Diving,51.0,1013.0
+1999-00,Girls,Maryland,Soccer,152.0,4793.0
+1999-00,Girls,Maryland,Softball Fast Pitch,174.0,4898.0
+1999-00,Girls,Maryland,Swimming and Diving,73.0,1866.0
+1999-00,Girls,Massachusetts,Soccer,286.0,
+1999-00,Girls,Massachusetts,Softball Fast Pitch,308.0,9586.0
+1999-00,Girls,Massachusetts,Swimming and Diving,142.0,3812.0
+1999-00,Girls,Michigan,Soccer,335.0,
+1999-00,Girls,Michigan,Softball Fast Pitch,634.0,16806.0
+1999-00,Girls,Michigan,Swimming and Diving,228.0,6652.0
+1999-00,Girls,Minnesota,Soccer,158.0,6042.0
+1999-00,Girls,Minnesota,Softball Fast Pitch,396.0,11447.0
+1999-00,Girls,Minnesota,Swimming and Diving,189.0,5710.0
+1999-00,Girls,Mississippi,Soccer,65.0,1625.0
+1999-00,Girls,Mississippi,Softball Fast Pitch,122.0,3165.0
+1999-00,Girls,Mississippi,Softball Slow Pitch,209.0,4225.0
+1999-00,Girls,Mississippi,Swimming and Diving,60.0,1020.0
+1999-00,Girls,Missouri,Soccer,160.0,5717.0
+1999-00,Girls,Missouri,Softball Fast Pitch,440.0,9549.0
+1999-00,Girls,Missouri,Swimming and Diving,96.0,
+1999-00,Girls,Montana,Soccer,22.0,636.0
+1999-00,Girls,Montana,Softball Fast Pitch,50.0,1072.0
+1999-00,Girls,Montana,Swimming and Diving,20.0,357.0
+1999-00,Girls,Nebraska,Soccer,59.0,1931.0
+1999-00,Girls,Nebraska,Softball Fast Pitch,73.0,1699.0
+1999-00,Girls,Nebraska,Swimming and Diving,43.0,1046.0
+1999-00,Girls,Nevada,Soccer,50.0,1551.0
+1999-00,Girls,Nevada,Softball Fast Pitch,68.0,1630.0
+1999-00,Girls,Nevada,Swimming and Diving,37.0,803.0
+1999-00,Girls,New Hampshire,Soccer,64.0,2482.0
+1999-00,Girls,New Hampshire,Softball Fast Pitch,86.0,2445.0
+1999-00,Girls,New Jersey,Soccer,317.0,12017.0
+1999-00,Girls,New Jersey,Softball Fast Pitch,381.0,12960.0
+1999-00,Girls,New Jersey,Swimming and Diving,191.0,4861.0
+1999-00,Girls,New Mexico,Soccer,52.0,1501.0
+1999-00,Girls,New Mexico,Softball Fast Pitch,72.0,1338.0
+1999-00,Girls,New Mexico,Swimming and Diving,33.0,590.0
+1999-00,Girls,New York,Soccer,686.0,22391.0
+1999-00,Girls,New York,Softball Fast Pitch,700.0,18532.0
+1999-00,Girls,New York,Swimming and Diving,276.0,7204.0
+1999-00,Girls,North Carolina,Soccer,234.0,6028.0
+1999-00,Girls,North Carolina,Softball Fast Pitch,321.0,7598.0
+1999-00,Girls,North Carolina,Swimming and Diving,168.0,3321.0
+1999-00,Girls,North Dakota,Soccer,15.0,682.0
+1999-00,Girls,North Dakota,Swimming and Diving,12.0,354.0
+1999-00,Girls,Ohio,Soccer,356.0,10630.0
+1999-00,Girls,Ohio,Softball Fast Pitch,765.0,19355.0
+1999-00,Girls,Ohio,Softball Slow Pitch,30.0,693.0
+1999-00,Girls,Ohio,Swimming and Diving,273.0,5888.0
+1999-00,Girls,Oklahoma,Soccer,84.0,1543.0
+1999-00,Girls,Oklahoma,Softball Fast Pitch,361.0,6498.0
+1999-00,Girls,Oklahoma,Softball Slow Pitch,363.0,6516.0
+1999-00,Girls,Oklahoma,Swimming and Diving,43.0,525.0
+1999-00,Girls,Oregon,Soccer,146.0,4494.0
+1999-00,Girls,Oregon,Softball Fast Pitch,197.0,5136.0
+1999-00,Girls,Oregon,Swimming and Diving,112.0,2356.0
+1999-00,Girls,Pennsylvania,Soccer,363.0,12705.0
+1999-00,Girls,Pennsylvania,Softball Fast Pitch,597.0,19104.0
+1999-00,Girls,Pennsylvania,Swimming and Diving,287.0,5166.0
+1999-00,Girls,Rhode Island,Soccer,46.0,1324.0
+1999-00,Girls,Rhode Island,Softball Fast Pitch,33.0,868.0
+1999-00,Girls,Rhode Island,Softball Slow Pitch,16.0,301.0
+1999-00,Girls,Rhode Island,Swimming and Diving,,494.0
+1999-00,Girls,South Carolina,Soccer,93.0,2538.0
+1999-00,Girls,South Carolina,Softball Fast Pitch,185.0,4813.0
+1999-00,Girls,South Carolina,Swimming and Diving,43.0,655.0
+1999-00,Girls,Tennessee,Soccer,174.0,4320.0
+1999-00,Girls,Tennessee,Softball Fast Pitch,330.0,6066.0
+1999-00,Girls,Tennessee,Swimming and Diving,352.0,6419.0
+1999-00,Girls,Utah,Soccer,74.0,2383.0
+1999-00,Girls,Utah,Softball Fast Pitch,90.0,2045.0
+1999-00,Girls,Utah,Swimming and Diving,70.0,1298.0
+1999-00,Girls,Vermont,Soccer,74.0,2353.0
+1999-00,Girls,Vermont,Softball Fast Pitch,65.0,1662.0
+1999-00,Girls,Virginia,Soccer,205.0,5408.0
+1999-00,Girls,Virginia,Softball Fast Pitch,248.0,6097.0
+1999-00,Girls,Virginia,Swimming and Diving,106.0,2592.0
+1999-00,Girls,Washington,Soccer,248.0,8092.0
+1999-00,Girls,Washington,Softball Fast Pitch,245.0,
+1999-00,Girls,Washington,Softball Slow Pitch,80.0,1525.0
+1999-00,Girls,Washington,Swimming and Diving,145.0,4332.0
+1999-00,Girls,West Virginia,Soccer,62.0,1358.0
+1999-00,Girls,West Virginia,Softball Fast Pitch,109.0,2364.0
+1999-00,Girls,West Virginia,Swimming and Diving,30.0,537.0
+1999-00,Girls,Wisconsin,Soccer,169.0,
+1999-00,Girls,Wisconsin,Softball Fast Pitch,384.0,11058.0
+1999-00,Girls,Wisconsin,Swimming and Diving,129.0,3885.0
+1999-00,Girls,Wyoming,Soccer,16.0,572.0
+1999-00,Girls,Wyoming,Swimming and Diving,25.0,647.0
+1999-00,Girls,Wyoming,Softball Fast Pitch,,66.0
+1999-00,Girls,Alabama,Tennis,161.0,1641.0
+1999-00,Girls,Alabama,Track and Field Indoor,39.0,398.0
+1999-00,Girls,Alabama,Track and Field Outdoor,285.0,4306.0
+1999-00,Girls,Alabama,Volleyball,290.0,4494.0
+1999-00,Girls,Alaska,Tennis,,160.0
+1999-00,Girls,Alaska,Track and Field Outdoor,42.0,861.0
+1999-00,Girls,Alaska,Volleyball,109.0,
+1999-00,Girls,Arizona,Tennis,124.0,2009.0
+1999-00,Girls,Arizona,Track and Field Outdoor,171.0,4735.0
+1999-00,Girls,Arizona,Volleyball,191.0,5518.0
+1999-00,Girls,Arkansas,Tennis,77.0,684.0
+1999-00,Girls,Arkansas,Track and Field Outdoor,178.0,2651.0
+1999-00,Girls,Arkansas,Volleyball,69.0,1588.0
+1999-00,Girls,California,Tennis,835.0,18078.0
+1999-00,Girls,California,Track and Field Outdoor,887.0,30870.0
+1999-00,Girls,California,Volleyball,1097.0,32114.0
+1999-00,Girls,Colorado,Tennis,127.0,3206.0
+1999-00,Girls,Colorado,Track and Field Outdoor,278.0,6018.0
+1999-00,Girls,Colorado,Volleyball,293.0,8752.0
+1999-00,Girls,Connecticut,Tennis,115.0,2145.0
+1999-00,Girls,Connecticut,Track and Field Indoor,100.0,1780.0
+1999-00,Girls,Connecticut,Track and Field Outdoor,151.0,5060.0
+1999-00,Girls,Connecticut,Volleyball,131.0,3200.0
+1999-00,Girls,Delaware,Tennis,30.0,
+1999-00,Girls,Delaware,Track and Field Indoor,27.0,539.0
+1999-00,Girls,Delaware,Track and Field Outdoor,35.0,801.0
+1999-00,Girls,Delaware,Volleyball,36.0,979.0
+1999-00,Girls,District of Columbia,Tennis,12.0,73.0
+1999-00,Girls,District of Columbia,Track and Field Indoor,,138.0
+1999-00,Girls,District of Columbia,Track and Field Outdoor,,180.0
+1999-00,Girls,District of Columbia,Volleyball,13.0,160.0
+1999-00,Girls,Florida,Tennis,381.0,4143.0
+1999-00,Girls,Florida,Track and Field Outdoor,417.0,10835.0
+1999-00,Girls,Florida,Volleyball,488.0,11820.0
+1999-00,Girls,Georgia,Tennis,326.0,3937.0
+1999-00,Girls,Georgia,Track and Field Outdoor,329.0,7799.0
+1999-00,Girls,Georgia,Volleyball,131.0,2775.0
+1999-00,Girls,Hawaii,Tennis,53.0,695.0
+1999-00,Girls,Hawaii,Track and Field Outdoor,57.0,1152.0
+1999-00,Girls,Hawaii,Volleyball,65.0,1611.0
+1999-00,Girls,Idaho,Tennis,61.0,978.0
+1999-00,Girls,Idaho,Track and Field Outdoor,166.0,2976.0
+1999-00,Girls,Idaho,Volleyball,175.0,4377.0
+1999-00,Girls,Illinois,Tennis,282.0,
+1999-00,Girls,Illinois,Track and Field Outdoor,525.0,14754.0
+1999-00,Girls,Illinois,Volleyball,627.0,20424.0
+1999-00,Girls,Indiana,Tennis,305.0,5454.0
+1999-00,Girls,Indiana,Track and Field Outdoor,372.0,8761.0
+1999-00,Girls,Indiana,Volleyball,385.0,10178.0
+1999-00,Girls,Indiana,Track and Field Indoor,,1639.0
+1999-00,Girls,Kansas,Tennis,123.0,2360.0
+1999-00,Girls,Kansas,Track and Field Outdoor,341.0,6839.0
+1999-00,Girls,Kansas,Volleyball,355.0,
+1999-00,Girls,Kentucky,Tennis,204.0,2345.0
+1999-00,Girls,Kentucky,Track and Field Outdoor,228.0,4243.0
+1999-00,Girls,Kentucky,Volleyball,138.0,2929.0
+1999-00,Girls,Louisiana,Tennis,149.0,1043.0
+1999-00,Girls,Louisiana,Track and Field Indoor,82.0,820.0
+1999-00,Girls,Louisiana,Track and Field Outdoor,367.0,4037.0
+1999-00,Girls,Louisiana,Volleyball,164.0,2296.0
+1999-00,Girls,Maine,Tennis,86.0,1413.0
+1999-00,Girls,Maine,Track and Field Indoor,52.0,968.0
+1999-00,Girls,Maine,Track and Field Outdoor,104.0,2559.0
+1999-00,Girls,Maine,Volleyball,17.0,293.0
+1999-00,Girls,Maryland,Tennis,173.0,2271.0
+1999-00,Girls,Maryland,Track and Field Indoor,157.0,3196.0
+1999-00,Girls,Maryland,Track and Field Outdoor,71.0,4041.0
+1999-00,Girls,Maryland,Volleyball,172.0,4364.0
+1999-00,Girls,Massachusetts,Tennis,217.0,3998.0
+1999-00,Girls,Massachusetts,Track and Field Indoor,183.0,5913.0
+1999-00,Girls,Massachusetts,Track and Field Outdoor,258.0,9950.0
+1999-00,Girls,Massachusetts,Volleyball,187.0,4764.0
+1999-00,Girls,Michigan,Tennis,349.0,8759.0
+1999-00,Girls,Michigan,Track and Field Outdoor,646.0,17971.0
+1999-00,Girls,Michigan,Volleyball,694.0,
+1999-00,Girls,Minnesota,Tennis,221.0,4937.0
+1999-00,Girls,Minnesota,Track and Field Outdoor,424.0,42123.0
+1999-00,Girls,Minnesota,Volleyball,431.0,15542.0
+1999-00,Girls,Mississippi,Tennis,141.0,1115.0
+1999-00,Girls,Mississippi,Track and Field Indoor,23.0,285.0
+1999-00,Girls,Mississippi,Track and Field Outdoor,236.0,4056.0
+1999-00,Girls,Mississippi,Volleyball,60.0,1150.0
+1999-00,Girls,Missouri,Tennis,166.0,3125.0
+1999-00,Girls,Missouri,Track and Field Outdoor,438.0,10821.0
+1999-00,Girls,Missouri,Volleyball,411.0,10542.0
+1999-00,Girls,Montana,Tennis,58.0,1066.0
+1999-00,Girls,Montana,Track and Field Outdoor,174.0,3036.0
+1999-00,Girls,Montana,Volleyball,165.0,4009.0
+1999-00,Girls,Nebraska,Tennis,56.0,1213.0
+1999-00,Girls,Nebraska,Track and Field Outdoor,327.0,6866.0
+1999-00,Girls,Nebraska,Volleyball,329.0,8708.0
+1999-00,Girls,Nevada,Tennis,36.0,500.0
+1999-00,Girls,Nevada,Track and Field Outdoor,78.0,1681.0
+1999-00,Girls,Nevada,Volleyball,78.0,2230.0
+1999-00,Girls,New Hampshire,Tennis,49.0,790.0
+1999-00,Girls,New Hampshire,Track and Field Indoor,38.0,789.0
+1999-00,Girls,New Hampshire,Track and Field Outdoor,67.0,1864.0
+1999-00,Girls,New Hampshire,Volleyball,48.0,1219.0
+1999-00,Girls,New Jersey,Tennis,325.0,6385.0
+1999-00,Girls,New Jersey,Track and Field Indoor,249.0,6250.0
+1999-00,Girls,New Jersey,Track and Field Outdoor,344.0,12014.0
+1999-00,Girls,New Jersey,Volleyball,148.0,4268.0
+1999-00,Girls,New Mexico,Tennis,60.0,527.0
+1999-00,Girls,New Mexico,Track and Field Outdoor,122.0,2105.0
+1999-00,Girls,New Mexico,Volleyball,125.0,3007.0
+1999-00,Girls,New York,Tennis,416.0,8003.0
+1999-00,Girls,New York,Track and Field Indoor,302.0,7812.0
+1999-00,Girls,New York,Track and Field Outdoor,590.0,16830.0
+1999-00,Girls,New York,Volleyball,608.0,14902.0
+1999-00,Girls,North Carolina,Tennis,275.0,3457.0
+1999-00,Girls,North Carolina,Track and Field Indoor,127.0,1742.0
+1999-00,Girls,North Carolina,Track and Field Outdoor,313.0,8636.0
+1999-00,Girls,North Carolina,Volleyball,325.0,7316.0
+1999-00,Girls,North Dakota,Tennis,17.0,384.0
+1999-00,Girls,North Dakota,Track and Field Outdoor,135.0,1998.0
+1999-00,Girls,North Dakota,Volleyball,124.0,3493.0
+1999-00,Girls,North Dakota,Track and Field Indoor,158.0,3280.0
+1999-00,Girls,Oklahoma,Tennis,109.0,4115.0
+1999-00,Girls,Oklahoma,Track and Field Indoor,27.0,
+1999-00,Girls,Oklahoma,Track and Field Outdoor,392.0,3751.0
+1999-00,Girls,Oklahoma,Volleyball,80.0,1205.0
+1999-00,Girls,Oregon,Tennis,123.0,2371.0
+1999-00,Girls,Oregon,Track and Field Outdoor,245.0,6167.0
+1999-00,Girls,Oregon,Volleyball,256.0,6887.0
+1999-00,Girls,Pennsylvania,Tennis,366.0,3660.0
+1999-00,Girls,Pennsylvania,Track and Field Indoor,135.0,
+1999-00,Girls,Pennsylvania,Track and Field Outdoor,505.0,16160.0
+1999-00,Girls,Pennsylvania,Volleyball,461.0,8298.0
+1999-00,Girls,Rhode Island,Tennis,43.0,992.0
+1999-00,Girls,Rhode Island,Track and Field Indoor,37.0,1121.0
+1999-00,Girls,Rhode Island,Track and Field Outdoor,37.0,1374.0
+1999-00,Girls,Rhode Island,Volleyball,40.0,961.0
+1999-00,Girls,South Carolina,Tennis,121.0,1599.0
+1999-00,Girls,South Carolina,Track and Field Outdoor,179.0,5032.0
+1999-00,Girls,South Carolina,Volleyball,174.0,
+1999-00,Girls,South Dakota,Tennis,21.0,355.0
+1999-00,Girls,South Dakota,Track and Field Outdoor,158.0,2681.0
+1999-00,Girls,South Dakota,Volleyball,144.0,3518.0
+1999-00,Girls,Tennessee,Tennis,242.0,1944.0
+1999-00,Girls,Tennessee,Track and Field Outdoor,235.0,4935.0
+1999-00,Girls,Tennessee,Volleyball,249.0,4482.0
+1999-00,Girls,Utah,Tennis,79.0,1200.0
+1999-00,Girls,Utah,Track and Field Outdoor,113.0,3320.0
+1999-00,Girls,Utah,Volleyball,116.0,2894.0
+1999-00,Girls,Vermont,Tennis,31.0,433.0
+1999-00,Girls,Vermont,Track and Field Indoor,14.0,201.0
+1999-00,Girls,Vermont,Track and Field Outdoor,39.0,1088.0
+1999-00,Girls,Vermont,Volleyball,,14.0
+1999-00,Girls,Virginia,Tennis,214.0,2788.0
+1999-00,Girls,Virginia,Track and Field Indoor,147.0,3534.0
+1999-00,Girls,Virginia,Track and Field Outdoor,255.0,
+1999-00,Girls,Virginia,Volleyball,223.0,5056.0
+1999-00,Girls,Washington,Tennis,243.0,6413.0
+1999-00,Girls,Washington,Track and Field Outdoor,338.0,9192.0
+1999-00,Girls,Washington,Volleyball,360.0,
+1999-00,Girls,West Virginia,Tennis,80.0,993.0
+1999-00,Girls,West Virginia,Track and Field Outdoor,101.0,2183.0
+1999-00,Girls,West Virginia,Volleyball,96.0,
+1999-00,Girls,Wisconsin,Tennis,170.0,4811.0
+1999-00,Girls,Wisconsin,Track and Field Outdoor,379.0,11287.0
+1999-00,Girls,Wisconsin,Volleyball,416.0,15369.0
+1999-00,Girls,Wyoming,Tennis,16.0,317.0
+1999-00,Girls,Wyoming,Track and Field Indoor,18.0,264.0
+1999-00,Girls,Wyoming,Track and Field Outdoor,67.0,1304.0
+1999-00,Girls,Wyoming,Volleyball,69.0,1801.0

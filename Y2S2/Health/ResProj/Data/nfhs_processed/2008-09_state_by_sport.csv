@@ -1,0 +1,580 @@
+survey_year,gender,state,sport,schools,participants
+2008-09,Girls,Alabama,Basketball,403.0,5411.0
+2008-09,Girls,Alabama,Cross Country,162.0,1086.0
+2008-09,Girls,Alaska,Basketball,144.0,1858.0
+2008-09,Girls,Alaska,Bowling,,68.0
+2008-09,Girls,Alaska,Competitive Spirit Squads,,341.0
+2008-09,Girls,Alaska,Cross Country,95.0,777.0
+2008-09,Girls,Arizona,Basketball,246.0,6758.0
+2008-09,Girls,Arizona,Competitive Spirit Squads,113.0,3626.0
+2008-09,Girls,Arizona,Cross Country,187.0,2269.0
+2008-09,Girls,Arkansas,Basketball,272.0,4759.0
+2008-09,Girls,Arkansas,Bowling,56.0,506.0
+2008-09,Girls,Arkansas,Competitive Spirit Squads,102.0,1956.0
+2008-09,Girls,Arkansas,Cross Country,120.0,1162.0
+2008-09,Girls,California,Basketball,1245.0,32980.0
+2008-09,Girls,California,Bowling,,78.0
+2008-09,Girls,California,Competitive Spirit Squads,997.0,
+2008-09,Girls,California,Cross Country,1034.0,21901.0
+2008-09,Girls,Colorado,Basketball,326.0,7211.0
+2008-09,Girls,Colorado,Competitive Spirit Squads,335.0,5341.0
+2008-09,Girls,Colorado,Cross Country,221.0,3535.0
+2008-09,Girls,Connecticut,Basketball,178.0,4065.0
+2008-09,Girls,Connecticut,Competitive Spirit Squads,155.0,
+2008-09,Girls,Connecticut,Cross Country,167.0,2691.0
+2008-09,Girls,Delaware,Basketball,52.0,1011.0
+2008-09,Girls,Delaware,Competitive Spirit Squads,12.0,207.0
+2008-09,Girls,Delaware,Cross Country,42.0,613.0
+2008-09,Girls,District of Columbia,Basketball,15.0,205.0
+2008-09,Girls,District of Columbia,Competitive Spirit Squads,14.0,133.0
+2008-09,Girls,District of Columbia,Cross Country,11.0,65.0
+2008-09,Girls,Florida,Basketball,597.0,10390.0
+2008-09,Girls,Florida,Bowling,147.0,1248.0
+2008-09,Girls,Florida,Competitive Spirit Squads,219.0,5522.0
+2008-09,Girls,Florida,Cross Country,507.0,6158.0
+2008-09,Girls,Georgia,Basketball,394.0,9177.0
+2008-09,Girls,Georgia,Competitive Spirit Squads,231.0,5195.0
+2008-09,Girls,Georgia,Cross Country,351.0,4615.0
+2008-09,Girls,Hawaii,Basketball,62.0,1286.0
+2008-09,Girls,Hawaii,Bowling,57.0,516.0
+2008-09,Girls,Hawaii,Competitive Spirit Squads,,787.0
+2008-09,Girls,Hawaii,Cross Country,69.0,981.0
+2008-09,Girls,Illinois,Basketball,690.0,18178.0
+2008-09,Girls,Illinois,Bowling,231.0,3290.0
+2008-09,Girls,Illinois,Competitive Spirit Squads,319.0,7943.0
+2008-09,Girls,Illinois,Cross Country,522.0,9121.0
+2008-09,Girls,Kansas,Basketball,353.0,7282.0
+2008-09,Girls,Kansas,Bowling,63.0,806.0
+2008-09,Girls,Kansas,Cross Country,287.0,2721.0
+2008-09,Girls,Kentucky,Basketball,264.0,5852.0
+2008-09,Girls,Kentucky,Bowling,53.0,791.0
+2008-09,Girls,Kentucky,Competitive Spirit Squads,248.0,4828.0
+2008-09,Girls,Kentucky,Cross Country,222.0,2175.0
+2008-09,Girls,Louisiana,Basketball,378.0,5536.0
+2008-09,Girls,Louisiana,Bowling,39.0,228.0
+2008-09,Girls,Louisiana,Cross Country,262.0,2691.0
+2008-09,Girls,Maine,Basketball,149.0,3378.0
+2008-09,Girls,Maine,Bowling,,63.0
+2008-09,Girls,Maine,Competitive Spirit Squads,96.0,1974.0
+2008-09,Girls,Maine,Cross Country,103.0,1038.0
+2008-09,Girls,Maryland,Basketball,187.0,4624.0
+2008-09,Girls,Maryland,Bowling,28.0,92.0
+2008-09,Girls,Maryland,Cross Country,181.0,2537.0
+2008-09,Girls,Massachusetts,Basketball,358.0,10125.0
+2008-09,Girls,Massachusetts,Cross Country,294.0,5118.0
+2008-09,Girls,Michigan,Basketball,714.0,18187.0
+2008-09,Girls,Michigan,Bowling,304.0,2709.0
+2008-09,Girls,Michigan,Competitive Spirit Squads,331.0,7320.0
+2008-09,Girls,Michigan,Cross Country,596.0,7633.0
+2008-09,Girls,Minnesota,Basketball,458.0,11276.0
+2008-09,Girls,Minnesota,Cross Country,332.0,4407.0
+2008-09,Girls,Mississippi,Basketball,267.0,6941.0
+2008-09,Girls,Mississippi,Bowling,48.0,359.0
+2008-09,Girls,Mississippi,Competitive Spirit Squads,150.0,2700.0
+2008-09,Girls,Mississippi,Cross Country,151.0,1375.0
+2008-09,Girls,Missouri,Basketball,548.0,13250.0
+2008-09,Girls,Missouri,Cross Country,337.0,
+2008-09,Girls,Montana,Basketball,179.0,3177.0
+2008-09,Girls,Montana,Cross Country,90.0,849.0
+2008-09,Girls,Nebraska,Basketball,310.0,6638.0
+2008-09,Girls,Nebraska,Cross Country,194.0,1869.0
+2008-09,Girls,Nevada,Basketball,100.0,2556.0
+2008-09,Girls,Nevada,Bowling,33.0,266.0
+2008-09,Girls,Nevada,Cross Country,78.0,784.0
+2008-09,Girls,New Hampshire,Basketball,88.0,2107.0
+2008-09,Girls,New Hampshire,Competitive Spirit Squads,66.0,1461.0
+2008-09,Girls,New Hampshire,Cross Country,74.0,1029.0
+2008-09,Girls,New Jersey,Basketball,403.0,9618.0
+2008-09,Girls,New Jersey,Bowling,219.0,1857.0
+2008-09,Girls,New Jersey,Cross Country,380.0,
+2008-09,Girls,New Mexico,Basketball,156.0,3981.0
+2008-09,Girls,New Mexico,Bowling,35.0,233.0
+2008-09,Girls,New Mexico,Cross Country,111.0,1483.0
+2008-09,Girls,New York,Basketball,741.0,17750.0
+2008-09,Girls,New York,Bowling,322.0,3450.0
+2008-09,Girls,New York,Cross Country,554.0,7460.0
+2008-09,Girls,North Carolina,Basketball,381.0,8119.0
+2008-09,Girls,North Carolina,Competitive Spirit Squads,375.0,19366.0
+2008-09,Girls,North Carolina,Cross Country,350.0,4439.0
+2008-09,Girls,North Dakota,Basketball,164.0,2547.0
+2008-09,Girls,North Dakota,Cross Country,62.0,485.0
+2008-09,Girls,North Dakota,Bowling,311.0,2788.0
+2008-09,Girls,North Dakota,Competitive Spirit Squads,155.0,2867.0
+2008-09,Girls,Oklahoma,Basketball,481.0,8125.0
+2008-09,Girls,Oklahoma,Competitive Spirit Squads,175.0,1863.0
+2008-09,Girls,Oklahoma,Cross Country,178.0,1291.0
+2008-09,Girls,Oregon,Basketball,287.0,6421.0
+2008-09,Girls,Oregon,Cross Country,210.0,2509.0
+2008-09,Girls,Pennsylvania,Basketball,725.0,21750.0
+2008-09,Girls,Pennsylvania,Bowling,133.0,1330.0
+2008-09,Girls,Pennsylvania,Cross Country,566.0,11320.0
+2008-09,Girls,Rhode Island,Basketball,49.0,1082.0
+2008-09,Girls,Rhode Island,Competitive Spirit Squads,26.0,508.0
+2008-09,Girls,Rhode Island,Cross Country,44.0,795.0
+2008-09,Girls,South Carolina,Basketball,200.0,4962.0
+2008-09,Girls,South Carolina,Bowling,,37.0
+2008-09,Girls,South Carolina,Competitive Spirit Squads,87.0,
+2008-09,Girls,South Carolina,Cross Country,148.0,2022.0
+2008-09,Girls,South Dakota,Basketball,170.0,2898.0
+2008-09,Girls,South Dakota,Competitive Spirit Squads,27.0,519.0
+2008-09,Girls,South Dakota,Cross Country,131.0,698.0
+2008-09,Girls,Tennessee,Basketball,364.0,6537.0
+2008-09,Girls,Tennessee,Bowling,130.0,1167.0
+2008-09,Girls,Tennessee,Cross Country,264.0,
+2008-09,Girls,Vermont,Basketball,48.0,1165.0
+2008-09,Girls,Vermont,Competitive Spirit Squads,15.0,219.0
+2008-09,Girls,Vermont,Cross Country,38.0,440.0
+2008-09,Girls,Virginia,Basketball,308.0,7951.0
+2008-09,Girls,Virginia,Competitive Spirit Squads,209.0,4734.0
+2008-09,Girls,Virginia,Cross Country,290.0,4436.0
+2008-09,Girls,Washington,Basketball,326.0,8001.0
+2008-09,Girls,Washington,Bowling,44.0,857.0
+2008-09,Girls,Washington,Cross Country,257.0,3404.0
+2008-09,Girls,West Virginia,Basketball,130.0,2417.0
+2008-09,Girls,West Virginia,Competitive Spirit Squads,127.0,2179.0
+2008-09,Girls,West Virginia,Cross Country,86.0,667.0
+2008-09,Girls,Wisconsin,Basketball,477.0,12482.0
+2008-09,Girls,Wisconsin,Cross Country,386.0,5813.0
+2008-09,Girls,Wyoming,Basketball,71.0,1664.0
+2008-09,Girls,Wyoming,Competitive Spirit Squads,33.0,675.0
+2008-09,Girls,Wyoming,Cross Country,38.0,322.0
+2008-09,Girls,Wyoming,Bowling,,56.0
+2008-09,Girls,Alabama,Golf,106.0,317.0
+2008-09,Girls,Alaska,Football 11-player,11.0,16.0
+2008-09,Girls,Alaska,Gymnastics,13.0,164.0
+2008-09,Girls,Arizona,Football 11-player,24.0,53.0
+2008-09,Girls,Arizona,Golf,137.0,806.0
+2008-09,Girls,Arkansas,Golf,147.0,637.0
+2008-09,Girls,Arkansas,Gymnastics,,71.0
+2008-09,Girls,California,Field Hockey,98.0,3925.0
+2008-09,Girls,California,Football 11-player,35.0,141.0
+2008-09,Girls,California,Golf,632.0,7017.0
+2008-09,Girls,California,Gymnastics,54.0,1039.0
+2008-09,Girls,Colorado,Field Hockey,15.0,45.0
+2008-09,Girls,Colorado,Golf,154.0,1466.0
+2008-09,Girls,Colorado,Gymnastics,45.0,652.0
+2008-09,Girls,Connecticut,Field Hockey,79.0,3286.0
+2008-09,Girls,Connecticut,Football 11-player,,15.0
+2008-09,Girls,Connecticut,Golf,42.0,532.0
+2008-09,Girls,Connecticut,Gymnastics,53.0,436.0
+2008-09,Girls,Delaware,Field Hockey,46.0,1522.0
+2008-09,Girls,Delaware,Golf,20.0,39.0
+2008-09,Girls,District of Columbia,Golf,,21.0
+2008-09,Girls,Florida,Golf,361.0,2255.0
+2008-09,Girls,Georgia,Golf,311.0,1554.0
+2008-09,Girls,Georgia,Gymnastics,,411.0
+2008-09,Girls,Hawaii,Golf,45.0,214.0
+2008-09,Girls,Illinois,Golf,389.0,3151.0
+2008-09,Girls,Illinois,Gymnastics,80.0,1657.0
+2008-09,Girls,Indiana,Golf,286.0,2472.0
+2008-09,Girls,Indiana,Gymnastics,85.0,830.0
+2008-09,Girls,Kansas,Golf,117.0,1012.0
+2008-09,Girls,Kansas,Gymnastics,14.0,168.0
+2008-09,Girls,Kentucky,Field Hockey,21.0,658.0
+2008-09,Girls,Kentucky,Golf,196.0,1287.0
+2008-09,Girls,Kentucky,Gymnastics,,84.0
+2008-09,Girls,Louisiana,Golf,145.0,809.0
+2008-09,Girls,Louisiana,Gymnastics,19.0,115.0
+2008-09,Girls,Maine,Field Hockey,86.0,2770.0
+2008-09,Girls,Maine,Golf,51.0,81.0
+2008-09,Girls,Maine,Gymnastics,,16.0
+2008-09,Girls,Maryland,Field Hockey,124.0,4070.0
+2008-09,Girls,Maryland,Golf,122.0,333.0
+2008-09,Girls,Maryland,Gymnastics,13.0,189.0
+2008-09,Girls,Massachusetts,Field Hockey,208.0,8071.0
+2008-09,Girls,Massachusetts,Golf,27.0,542.0
+2008-09,Girls,Massachusetts,Gymnastics,95.0,1245.0
+2008-09,Girls,Michigan,Field Hockey,15.0,592.0
+2008-09,Girls,Michigan,Golf,343.0,3609.0
+2008-09,Girls,Michigan,Gymnastics,72.0,765.0
+2008-09,Girls,Minnesota,Golf,373.0,3719.0
+2008-09,Girls,Minnesota,Gymnastics,180.0,2410.0
+2008-09,Girls,Mississippi,Golf,79.0,402.0
+2008-09,Girls,Missouri,Field Hockey,27.0,1217.0
+2008-09,Girls,Missouri,Golf,162.0,1802.0
+2008-09,Girls,Missouri,Gymnastics,,20.0
+2008-09,Girls,Montana,Golf,98.0,629.0
+2008-09,Girls,Nebraska,Golf,135.0,1371.0
+2008-09,Girls,Nevada,Golf,71.0,473.0
+2008-09,Girls,New Hampshire,Field Hockey,57.0,1993.0
+2008-09,Girls,New Hampshire,Golf,27.0,56.0
+2008-09,Girls,New Hampshire,Gymnastics,30.0,177.0
+2008-09,Girls,New Jersey,Field Hockey,223.0,9442.0
+2008-09,Girls,New Jersey,Golf,200.0,1292.0
+2008-09,Girls,New Jersey,Gymnastics,70.0,1002.0
+2008-09,Girls,New Mexico,Golf,85.0,628.0
+2008-09,Girls,New York,Field Hockey,240.0,8348.0
+2008-09,Girls,New York,Golf,143.0,1449.0
+2008-09,Girls,New York,Gymnastics,122.0,1670.0
+2008-09,Girls,North Carolina,Field Hockey,54.0,1099.0
+2008-09,Girls,North Carolina,Golf,231.0,1450.0
+2008-09,Girls,North Carolina,Gymnastics,20.0,138.0
+2008-09,Girls,North Dakota,Football 11-player,,13.0
+2008-09,Girls,North Dakota,Golf,105.0,559.0
+2008-09,Girls,North Dakota,Gymnastics,16.0,85.0
+2008-09,Girls,Ohio,Field Hockey,45.0,1048.0
+2008-09,Girls,Ohio,Football 11-player,,10.0
+2008-09,Girls,Ohio,Golf,525.0,2751.0
+2008-09,Girls,Ohio,Gymnastics,142.0,860.0
+2008-09,Girls,Oklahoma,Golf,218.0,915.0
+2008-09,Girls,Oregon,Golf,170.0,1160.0
+2008-09,Girls,Oregon,Field Hockey,298.0,
+2008-09,Girls,Oregon,Gymnastics,22.0,220.0
+2008-09,Girls,Rhode Island,Field Hockey,21.0,617.0
+2008-09,Girls,Rhode Island,Golf,,65.0
+2008-09,Girls,Rhode Island,Gymnastics,19.0,164.0
+2008-09,Girls,South Carolina,Golf,85.0,643.0
+2008-09,Girls,South Dakota,Golf,121.0,732.0
+2008-09,Girls,South Dakota,Gymnastics,27.0,277.0
+2008-09,Girls,Tennessee,Golf,266.0,966.0
+2008-09,Girls,Texas,Football 11-player,,176.0
+2008-09,Girls,Texas,Golf,1164.0,7643.0
+2008-09,Girls,Utah,Golf,87.0,852.0
+2008-09,Girls,Vermont,Field Hockey,25.0,848.0
+2008-09,Girls,Vermont,Golf,28.0,104.0
+2008-09,Girls,Vermont,Gymnastics,11.0,135.0
+2008-09,Girls,Virginia,Field Hockey,136.0,4582.0
+2008-09,Girls,Virginia,Football 11-player,14.0,24.0
+2008-09,Girls,Virginia,Golf,151.0,331.0
+2008-09,Girls,Virginia,Gymnastics,78.0,839.0
+2008-09,Girls,Washington,Football 11-player,13.0,15.0
+2008-09,Girls,Washington,Golf,229.0,1962.0
+2008-09,Girls,Washington,Gymnastics,73.0,1554.0
+2008-09,Girls,Wisconsin,Golf,151.0,1641.0
+2008-09,Girls,Wisconsin,Gymnastics,82.0,1421.0
+2008-09,Girls,Wyoming,Golf,38.0,157.0
+2008-09,Girls,Wyoming,Gymnastics,,28.0
+2008-09,Girls,Wyoming,Football 11-player,,57.0
+2008-09,Girls,Alaska,Ice Hockey,26.0,166.0
+2008-09,Girls,Alaska,Skiing Cross Country,22.0,502.0
+2008-09,Girls,California,Lacrosse,157.0,4956.0
+2008-09,Girls,California,Skiing Alpine,22.0,212.0
+2008-09,Girls,California,Skiing Cross Country,,38.0
+2008-09,Girls,Colorado,Lacrosse,46.0,1532.0
+2008-09,Girls,Colorado,Skiing Alpine,13.0,140.0
+2008-09,Girls,Colorado,Skiing Cross Country,13.0,78.0
+2008-09,Girls,Connecticut,Lacrosse,78.0,3455.0
+2008-09,Girls,Delaware,Lacrosse,25.0,789.0
+2008-09,Girls,District of Columbia,Lacrosse,,17.0
+2008-09,Girls,District of Columbia,Skiing Alpine,,97.0
+2008-09,Girls,Florida,Lacrosse,68.0,1918.0
+2008-09,Girls,Georgia,Lacrosse,49.0,1716.0
+2008-09,Girls,Kentucky,Ice Hockey,,142.0
+2008-09,Girls,Kentucky,Lacrosse,12.0,518.0
+2008-09,Girls,Maine,Ice Hockey,42.0,446.0
+2008-09,Girls,Maine,Lacrosse,43.0,1464.0
+2008-09,Girls,Maine,Skiing Alpine,48.0,272.0
+2008-09,Girls,Maine,Skiing Cross Country,38.0,268.0
+2008-09,Girls,Maryland,Lacrosse,133.0,4905.0
+2008-09,Girls,Massachusetts,Ice Hockey,98.0,1789.0
+2008-09,Girls,Massachusetts,Lacrosse,161.0,6072.0
+2008-09,Girls,Massachusetts,Skiing Alpine,69.0,829.0
+2008-09,Girls,Massachusetts,Skiing Cross Country,23.0,328.0
+2008-09,Girls,Michigan,Ice Hockey,19.0,221.0
+2008-09,Girls,Michigan,Lacrosse,72.0,2136.0
+2008-09,Girls,Michigan,Skiing Alpine,90.0,628.0
+2008-09,Girls,Michigan,Skiing Cross Country,,29.0
+2008-09,Girls,Minnesota,Ice Hockey,242.0,3376.0
+2008-09,Girls,Minnesota,Lacrosse,65.0,1862.0
+2008-09,Girls,Minnesota,Skiing Alpine,102.0,779.0
+2008-09,Girls,Minnesota,Skiing Cross Country,110.0,1693.0
+2008-09,Girls,Missouri,Lacrosse,25.0,1004.0
+2008-09,Girls,Nevada,Skiing Alpine,18.0,230.0
+2008-09,Girls,New Hampshire,Ice Hockey,10.0,179.0
+2008-09,Girls,New Hampshire,Lacrosse,40.0,1449.0
+2008-09,Girls,New Hampshire,Skiing Alpine,31.0,429.0
+2008-09,Girls,New Hampshire,Skiing Cross Country,53.0,282.0
+2008-09,Girls,New Jersey,Ice Hockey,13.0,88.0
+2008-09,Girls,New Jersey,Lacrosse,161.0,
+2008-09,Girls,New Jersey,Skiing Cross Country,15.0,133.0
+2008-09,Girls,New York,Ice Hockey,10.0,250.0
+2008-09,Girls,New York,Lacrosse,258.0,10871.0
+2008-09,Girls,New York,Skiing Alpine,97.0,559.0
+2008-09,Girls,New York,Skiing Cross Country,97.0,559.0
+2008-09,Girls,North Carolina,Lacrosse,36.0,934.0
+2008-09,Girls,North Dakota,Ice Hockey,18.0,219.0
+2008-09,Girls,Ohio,Ice Hockey,,28.0
+2008-09,Girls,Ohio,Lacrosse,67.0,2266.0
+2008-09,Girls,Pennsylvania,Lacrosse,158.0,5056.0
+2008-09,Girls,Rhode Island,Ice Hockey,11.0,184.0
+2008-09,Girls,Rhode Island,Lacrosse,25.0,967.0
+2008-09,Girls,South Carolina,Lacrosse,18.0,478.0
+2008-09,Girls,Vermont,Ice Hockey,24.0,356.0
+2008-09,Girls,Vermont,Lacrosse,19.0,634.0
+2008-09,Girls,Vermont,Skiing Alpine,20.0,165.0
+2008-09,Girls,Vermont,Skiing Cross Country,21.0,212.0
+2008-09,Girls,Virginia,Lacrosse,63.0,2153.0
+2008-09,Girls,Wisconsin,Ice Hockey,29.0,803.0
+2008-09,Girls,Wyoming,Skiing Alpine,,51.0
+2008-09,Girls,Wyoming,Skiing Cross Country,,106.0
+2008-09,Girls,Wyoming,Lacrosse,,58.0
+2008-09,Girls,Alabama,Soccer,126.0,3229.0
+2008-09,Girls,Alabama,Softball Fast Pitch,390.0,6240.0
+2008-09,Girls,Alabama,Swimming and Diving,45.0,335.0
+2008-09,Girls,Alaska,Soccer,32.0,920.0
+2008-09,Girls,Alaska,Softball Fast Pitch,24.0,600.0
+2008-09,Girls,Alaska,Swimming and Diving,34.0,561.0
+2008-09,Girls,Arizona,Soccer,178.0,5298.0
+2008-09,Girls,Arizona,Softball Fast Pitch,225.0,6740.0
+2008-09,Girls,Arizona,Swimming and Diving,114.0,2677.0
+2008-09,Girls,Arkansas,Soccer,79.0,1624.0
+2008-09,Girls,Arkansas,Softball Fast Pitch,238.0,3999.0
+2008-09,Girls,Arkansas,Swimming and Diving,40.0,361.0
+2008-09,Girls,Colorado,Soccer,200.0,7028.0
+2008-09,Girls,Colorado,Softball Fast Pitch,158.0,3830.0
+2008-09,Girls,Colorado,Swimming and Diving,128.0,4187.0
+2008-09,Girls,Connecticut,Soccer,156.0,5847.0
+2008-09,Girls,Connecticut,Softball Fast Pitch,172.0,4613.0
+2008-09,Girls,Connecticut,Swimming and Diving,94.0,2706.0
+2008-09,Girls,Delaware,Soccer,49.0,1540.0
+2008-09,Girls,Delaware,Softball Fast Pitch,42.0,1038.0
+2008-09,Girls,Delaware,Swimming and Diving,33.0,742.0
+2008-09,Girls,District of Columbia,Soccer,,120.0
+2008-09,Girls,District of Columbia,Softball Fast Pitch,13.0,158.0
+2008-09,Girls,District of Columbia,Swimming and Diving,,22.0
+2008-09,Girls,Florida,Soccer,498.0,13920.0
+2008-09,Girls,Florida,Softball Slow Pitch,33.0,708.0
+2008-09,Girls,Florida,Softball Fast Pitch,551.0,
+2008-09,Girls,Florida,Swimming and Diving,410.0,7862.0
+2008-09,Girls,Georgia,Soccer,310.0,8492.0
+2008-09,Girls,Georgia,Softball Slow Pitch,18.0,312.0
+2008-09,Girls,Georgia,Softball Fast Pitch,371.0,7738.0
+2008-09,Girls,Georgia,Swimming and Diving,192.0,3176.0
+2008-09,Girls,Hawaii,Soccer,51.0,1639.0
+2008-09,Girls,Hawaii,Softball Fast Pitch,55.0,1299.0
+2008-09,Girls,Hawaii,Swimming and Diving,60.0,631.0
+2008-09,Girls,Kansas,Soccer,83.0,
+2008-09,Girls,Kansas,Softball Fast Pitch,232.0,4932.0
+2008-09,Girls,Kansas,Swimming and Diving,70.0,1627.0
+2008-09,Girls,Kentucky,Soccer,188.0,4997.0
+2008-09,Girls,Kentucky,Softball Slow Pitch,10.0,292.0
+2008-09,Girls,Kentucky,Softball Fast Pitch,250.0,6120.0
+2008-09,Girls,Kentucky,Swimming and Diving,131.0,1870.0
+2008-09,Girls,Louisiana,Soccer,138.0,3486.0
+2008-09,Girls,Louisiana,Softball Fast Pitch,336.0,8084.0
+2008-09,Girls,Louisiana,Swimming and Diving,107.0,1304.0
+2008-09,Girls,Maryland,Soccer,169.0,5638.0
+2008-09,Girls,Maryland,Softball Fast Pitch,188.0,5112.0
+2008-09,Girls,Maryland,Swimming and Diving,106.0,2126.0
+2008-09,Girls,Massachusetts,Soccer,314.0,12518.0
+2008-09,Girls,Massachusetts,Softball Fast Pitch,347.0,
+2008-09,Girls,Massachusetts,Swimming and Diving,185.0,4138.0
+2008-09,Girls,Minnesota,Soccer,215.0,8273.0
+2008-09,Girls,Minnesota,Softball Fast Pitch,429.0,11254.0
+2008-09,Girls,Minnesota,Swimming and Diving,195.0,5146.0
+2008-09,Girls,Mississippi,Soccer,114.0,2301.0
+2008-09,Girls,Mississippi,Softball Slow Pitch,197.0,6148.0
+2008-09,Girls,Mississippi,Softball Fast Pitch,201.0,4701.0
+2008-09,Girls,Mississippi,Swimming and Diving,47.0,1761.0
+2008-09,Girls,Missouri,Soccer,218.0,
+2008-09,Girls,Missouri,Softball Fast Pitch,525.0,11120.0
+2008-09,Girls,Missouri,Swimming and Diving,114.0,2960.0
+2008-09,Girls,Montana,Soccer,29.0,786.0
+2008-09,Girls,Montana,Softball Fast Pitch,66.0,1152.0
+2008-09,Girls,Montana,Swimming and Diving,19.0,308.0
+2008-09,Girls,Nebraska,Soccer,73.0,2265.0
+2008-09,Girls,Nebraska,Softball Fast Pitch,125.0,2389.0
+2008-09,Girls,Nebraska,Swimming and Diving,55.0,1066.0
+2008-09,Girls,Nevada,Soccer,65.0,
+2008-09,Girls,Nevada,Softball Fast Pitch,86.0,2100.0
+2008-09,Girls,Nevada,Swimming and Diving,56.0,1219.0
+2008-09,Girls,New Hampshire,Soccer,80.0,2797.0
+2008-09,Girls,New Hampshire,Softball Fast Pitch,86.0,2305.0
+2008-09,Girls,New Hampshire,Swimming and Diving,42.0,646.0
+2008-09,Girls,New Mexico,Soccer,,2173.0
+2008-09,Girls,New Mexico,Softball Fast Pitch,92.0,2362.0
+2008-09,Girls,New Mexico,Swimming and Diving,47.0,693.0
+2008-09,Girls,North Carolina,Soccer,204.0,3584.0
+2008-09,Girls,North Carolina,Softball Fast Pitch,370.0,8855.0
+2008-09,Girls,North Carolina,Swimming and Diving,252.0,4644.0
+2008-09,Girls,North Dakota,Soccer,18.0,605.0
+2008-09,Girls,North Dakota,Softball Fast Pitch,24.0,344.0
+2008-09,Girls,North Dakota,Swimming and Diving,18.0,262.0
+2008-09,Girls,North Dakota,Softball Slow Pitch,,152.0
+2008-09,Girls,Oklahoma,Soccer,114.0,1723.0
+2008-09,Girls,Oklahoma,Softball Slow Pitch,320.0,4506.0
+2008-09,Girls,Oklahoma,Softball Fast Pitch,444.0,7123.0
+2008-09,Girls,Oklahoma,Swimming and Diving,,500.0
+2008-09,Girls,Oregon,Soccer,160.0,5462.0
+2008-09,Girls,Oregon,Softball Fast Pitch,223.0,4936.0
+2008-09,Girls,Oregon,Swimming and Diving,126.0,2202.0
+2008-09,Girls,Rhode Island,Soccer,48.0,1488.0
+2008-09,Girls,Rhode Island,Softball Fast Pitch,47.0,1127.0
+2008-09,Girls,Rhode Island,Swimming and Diving,32.0,602.0
+2008-09,Girls,South Carolina,Soccer,140.0,4035.0
+2008-09,Girls,South Carolina,Softball Fast Pitch,192.0,4854.0
+2008-09,Girls,South Carolina,Swimming and Diving,77.0,1301.0
+2008-09,Girls,Tennessee,Soccer,236.0,
+2008-09,Girls,Tennessee,Softball Fast Pitch,353.0,6335.0
+2008-09,Girls,Tennessee,Swimming and Diving,432.0,6679.0
+2008-09,Girls,Utah,Soccer,90.0,2741.0
+2008-09,Girls,Utah,Softball Fast Pitch,94.0,2225.0
+2008-09,Girls,Utah,Swimming and Diving,70.0,1465.0
+2008-09,Girls,Vermont,Soccer,49.0,1596.0
+2008-09,Girls,Vermont,Softball Slow Pitch,,23.0
+2008-09,Girls,Vermont,Softball Fast Pitch,40.0,913.0
+2008-09,Girls,Virginia,Soccer,272.0,
+2008-09,Girls,Virginia,Softball Fast Pitch,296.0,7712.0
+2008-09,Girls,Virginia,Swimming and Diving,173.0,4060.0
+2008-09,Girls,Washington,Soccer,235.0,7838.0
+2008-09,Girls,Washington,Softball Fast Pitch,271.0,6598.0
+2008-09,Girls,Washington,Swimming and Diving,136.0,3547.0
+2008-09,Girls,West Virginia,Soccer,69.0,1626.0
+2008-09,Girls,West Virginia,Softball Fast Pitch,124.0,2418.0
+2008-09,Girls,West Virginia,Swimming and Diving,44.0,664.0
+2008-09,Girls,Wisconsin,Soccer,249.0,9613.0
+2008-09,Girls,Wisconsin,Softball Fast Pitch,437.0,11038.0
+2008-09,Girls,Wisconsin,Swimming and Diving,139.0,3824.0
+2008-09,Girls,Wyoming,Soccer,21.0,772.0
+2008-09,Girls,Wyoming,Swimming and Diving,25.0,534.0
+2008-09,Girls,Wyoming,Softball Slow Pitch,,59.0
+2008-09,Girls,Alabama,Tennis,166.0,1691.0
+2008-09,Girls,Alabama,Track and Field Outdoor,301.0,
+2008-09,Girls,Alabama,Volleyball,356.0,5516.0
+2008-09,Girls,Alaska,Tennis,16.0,230.0
+2008-09,Girls,Alaska,Track and Field Outdoor,51.0,969.0
+2008-09,Girls,Alaska,Volleyball,59.0,1503.0
+2008-09,Girls,Arizona,Tennis,152.0,2550.0
+2008-09,Girls,Arizona,Track and Field Outdoor,206.0,
+2008-09,Girls,Arizona,Volleyball,239.0,2156.0
+2008-09,Girls,Arkansas,Tennis,117.0,1005.0
+2008-09,Girls,Arkansas,Track and Field Indoor,43.0,641.0
+2008-09,Girls,Arkansas,Track and Field Outdoor,210.0,
+2008-09,Girls,Arkansas,Volleyball,118.0,2536.0
+2008-09,Girls,California,Tennis,935.0,22908.0
+2008-09,Girls,California,Track and Field Outdoor,1037.0,
+2008-09,Girls,California,Volleyball,1243.0,38920.0
+2008-09,Girls,Colorado,Tennis,151.0,4901.0
+2008-09,Girls,Colorado,Track and Field Outdoor,326.0,
+2008-09,Girls,Colorado,Volleyball,320.0,9061.0
+2008-09,Girls,Connecticut,Tennis,139.0,3134.0
+2008-09,Girls,Connecticut,Track and Field Indoor,146.0,4602.0
+2008-09,Girls,Connecticut,Track and Field Outdoor,166.0,
+2008-09,Girls,Connecticut,Volleyball,153.0,4309.0
+2008-09,Girls,Delaware,Tennis,32.0,573.0
+2008-09,Girls,Delaware,Track and Field Indoor,34.0,802.0
+2008-09,Girls,Delaware,Track and Field Outdoor,40.0,821.0
+2008-09,Girls,Delaware,Volleyball,46.0,1323.0
+2008-09,Girls,District of Columbia,Tennis,,51.0
+2008-09,Girls,District of Columbia,Track and Field Indoor,11.0,73.0
+2008-09,Girls,District of Columbia,Track and Field Outdoor,10.0,103.0
+2008-09,Girls,District of Columbia,Volleyball,12.0,148.0
+2008-09,Girls,Georgia,Track and Field Outdoor,375.0,
+2008-09,Girls,Georgia,Volleyball,259.0,5875.0
+2008-09,Girls,Hawaii,Tennis,63.0,876.0
+2008-09,Girls,Hawaii,Track and Field Outdoor,62.0,1495.0
+2008-09,Girls,Hawaii,Volleyball,71.0,1859.0
+2008-09,Girls,Kansas,Tennis,141.0,2652.0
+2008-09,Girls,Kansas,Track and Field Outdoor,353.0,
+2008-09,Girls,Kansas,Volleyball,353.0,8849.0
+2008-09,Girls,Kentucky,Tennis,207.0,2763.0
+2008-09,Girls,Kentucky,Track and Field Outdoor,235.0,
+2008-09,Girls,Kentucky,Volleyball,236.0,5452.0
+2008-09,Girls,Louisiana,Tennis,165.0,1620.0
+2008-09,Girls,Louisiana,Track and Field Indoor,341.0,2116.0
+2008-09,Girls,Louisiana,Track and Field Outdoor,361.0,
+2008-09,Girls,Louisiana,Volleyball,186.0,3390.0
+2008-09,Girls,Maine,Track and Field Indoor,62.0,1207.0
+2008-09,Girls,Maine,Track and Field Outdoor,110.0,
+2008-09,Girls,Maine,Volleyball,27.0,550.0
+2008-09,Girls,Maryland,Tennis,178.0,2505.0
+2008-09,Girls,Maryland,Track and Field Indoor,167.0,3991.0
+2008-09,Girls,Maryland,Track and Field Outdoor,185.0,
+2008-09,Girls,Maryland,Volleyball,181.0,4676.0
+2008-09,Girls,Massachusetts,Track and Field Indoor,237.0,8152.0
+2008-09,Girls,Massachusetts,Track and Field Outdoor,308.0,
+2008-09,Girls,Massachusetts,Volleyball,267.0,7247.0
+2008-09,Girls,Michigan,Tennis,357.0,10052.0
+2008-09,Girls,Michigan,Track and Field Indoor,25.0,261.0
+2008-09,Girls,Michigan,Track and Field Outdoor,658.0,
+2008-09,Girls,Michigan,Volleyball,712.0,20789.0
+2008-09,Girls,Minnesota,Tennis,226.0,
+2008-09,Girls,Minnesota,Track and Field Outdoor,427.0,
+2008-09,Girls,Minnesota,Volleyball,446.0,15552.0
+2008-09,Girls,Mississippi,Tennis,161.0,1676.0
+2008-09,Girls,Mississippi,Track and Field Indoor,19.0,513.0
+2008-09,Girls,Mississippi,Track and Field Outdoor,236.0,
+2008-09,Girls,Mississippi,Volleyball,81.0,2063.0
+2008-09,Girls,Missouri,Tennis,176.0,3638.0
+2008-09,Girls,Missouri,Track and Field Outdoor,471.0,
+2008-09,Girls,Missouri,Volleyball,424.0,11651.0
+2008-09,Girls,Montana,Tennis,55.0,1057.0
+2008-09,Girls,Montana,Track and Field Outdoor,179.0,
+2008-09,Girls,Montana,Volleyball,175.0,3725.0
+2008-09,Girls,Nebraska,Tennis,63.0,1347.0
+2008-09,Girls,Nebraska,Track and Field Outdoor,308.0,
+2008-09,Girls,Nebraska,Volleyball,309.0,7555.0
+2008-09,Girls,Nevada,Tennis,58.0,742.0
+2008-09,Girls,Nevada,Track and Field Outdoor,94.0,
+2008-09,Girls,Nevada,Volleyball,100.0,2620.0
+2008-09,Girls,New Hampshire,Tennis,53.0,872.0
+2008-09,Girls,New Hampshire,Track and Field Indoor,51.0,1225.0
+2008-09,Girls,New Hampshire,Track and Field Outdoor,74.0,
+2008-09,Girls,New Hampshire,Volleyball,57.0,1533.0
+2008-09,Girls,New Jersey,Tennis,342.0,
+2008-09,Girls,New Jersey,Track and Field Indoor,296.0,8702.0
+2008-09,Girls,New Jersey,Track and Field Outdoor,371.0,
+2008-09,Girls,New Jersey,Volleyball,245.0,7196.0
+2008-09,Girls,New Mexico,Tennis,69.0,897.0
+2008-09,Girls,New Mexico,Track and Field Outdoor,158.0,
+2008-09,Girls,New Mexico,Volleyball,152.0,4023.0
+2008-09,Girls,New York,Tennis,458.0,9704.0
+2008-09,Girls,New York,Track and Field Indoor,396.0,11463.0
+2008-09,Girls,New York,Track and Field Outdoor,635.0,
+2008-09,Girls,New York,Volleyball,629.0,15875.0
+2008-09,Girls,North Carolina,Tennis,331.0,4384.0
+2008-09,Girls,North Carolina,Track and Field Indoor,202.0,3311.0
+2008-09,Girls,North Carolina,Track and Field Outdoor,362.0,
+2008-09,Girls,North Carolina,Volleyball,377.0,8599.0
+2008-09,Girls,North Dakota,Tennis,20.0,467.0
+2008-09,Girls,North Dakota,Track and Field Outdoor,150.0,1775.0
+2008-09,Girls,North Dakota,Volleyball,157.0,3289.0
+2008-09,Girls,North Dakota,Track and Field Indoor,164.0,2581.0
+2008-09,Girls,Oklahoma,Tennis,123.0,906.0
+2008-09,Girls,Oklahoma,Track and Field Indoor,25.0,325.0
+2008-09,Girls,Oklahoma,Track and Field Outdoor,400.0,
+2008-09,Girls,Oklahoma,Volleyball,80.0,1100.0
+2008-09,Girls,Oregon,Tennis,130.0,
+2008-09,Girls,Oregon,Track and Field Outdoor,270.0,
+2008-09,Girls,Oregon,Volleyball,286.0,7184.0
+2008-09,Girls,Pennsylvania,Tennis,427.0,5124.0
+2008-09,Girls,Pennsylvania,Track and Field Indoor,182.0,2730.0
+2008-09,Girls,Pennsylvania,Track and Field Outdoor,598.0,
+2008-09,Girls,Pennsylvania,Volleyball,580.0,10440.0
+2008-09,Girls,Rhode Island,Tennis,44.0,890.0
+2008-09,Girls,Rhode Island,Track and Field Indoor,37.0,1144.0
+2008-09,Girls,Rhode Island,Track and Field Outdoor,40.0,1586.0
+2008-09,Girls,Rhode Island,Volleyball,40.0,969.0
+2008-09,Girls,South Carolina,Tennis,135.0,1976.0
+2008-09,Girls,South Carolina,Track and Field Outdoor,194.0,
+2008-09,Girls,South Carolina,Volleyball,187.0,4279.0
+2008-09,Girls,South Dakota,Tennis,22.0,283.0
+2008-09,Girls,South Dakota,Track and Field Outdoor,167.0,
+2008-09,Girls,South Dakota,Volleyball,163.0,3891.0
+2008-09,Girls,Tennessee,Tennis,263.0,
+2008-09,Girls,Tennessee,Track and Field Outdoor,256.0,
+2008-09,Girls,Tennessee,Volleyball,301.0,5785.0
+2008-09,Girls,Utah,Tennis,82.0,1571.0
+2008-09,Girls,Utah,Track and Field Outdoor,120.0,
+2008-09,Girls,Utah,Volleyball,119.0,2864.0
+2008-09,Girls,Vermont,Tennis,19.0,312.0
+2008-09,Girls,Vermont,Track and Field Indoor,14.0,177.0
+2008-09,Girls,Vermont,Track and Field Outdoor,35.0,815.0
+2008-09,Girls,Vermont,Volleyball,,28.0
+2008-09,Girls,Virginia,Tennis,263.0,
+2008-09,Girls,Virginia,Track and Field Indoor,208.0,5523.0
+2008-09,Girls,Virginia,Track and Field Outdoor,303.0,
+2008-09,Girls,Virginia,Volleyball,297.0,7370.0
+2008-09,Girls,Washington,Tennis,212.0,6521.0
+2008-09,Girls,Washington,Track and Field Outdoor,312.0,
+2008-09,Girls,Washington,Volleyball,325.0,9255.0
+2008-09,Girls,West Virginia,Tennis,82.0,961.0
+2008-09,Girls,West Virginia,Track and Field Outdoor,109.0,
+2008-09,Girls,West Virginia,Volleyball,84.0,1621.0
+2008-09,Girls,Wisconsin,Tennis,207.0,5967.0
+2008-09,Girls,Wisconsin,Track and Field Outdoor,432.0,
+2008-09,Girls,Wisconsin,Volleyball,472.0,15899.0
+2008-09,Girls,Wyoming,Tennis,16.0,269.0
+2008-09,Girls,Wyoming,Track and Field Indoor,17.0,361.0
+2008-09,Girls,Wyoming,Track and Field Outdoor,70.0,1193.0
+2008-09,Girls,Wyoming,Volleyball,69.0,1781.0

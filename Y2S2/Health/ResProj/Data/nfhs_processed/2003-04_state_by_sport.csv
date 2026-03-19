@@ -1,0 +1,423 @@
+survey_year,gender,state,sport,schools,participants
+2003-04,Girls,Alabama,Basketball,399.0,5358.0
+2003-04,Girls,Alabama,Field Hockey,128.0,787.0
+2003-04,Girls,Alaska,Basketball,128.0,1840.0
+2003-04,Girls,Alaska,Competitive Spirit Squads,,59.0
+2003-04,Girls,Alaska,Cross Country,29.0,471.0
+2003-04,Girls,Alaska,Field Hockey,100.0,778.0
+2003-04,Girls,Arizona,Basketball,214.0,6160.0
+2003-04,Girls,Arizona,Cross Country,115.0,3539.0
+2003-04,Girls,Arizona,Field Hockey,161.0,
+2003-04,Girls,Arkansas,Basketball,231.0,4043.0
+2003-04,Girls,Arkansas,Cross Country,60.0,1318.0
+2003-04,Girls,Arkansas,Field Hockey,56.0,468.0
+2003-04,Girls,California,Basketball,1160.0,
+2003-04,Girls,California,Competitive Spirit Squads,,54.0
+2003-04,Girls,California,Cross Country,12924.0,12924.0
+2003-04,Girls,California,Field Hockey,971.0,16618.0
+2003-04,Girls,Colorado,Basketball,311.0,7579.0
+2003-04,Girls,Colorado,Cross Country,229.0,5521.0
+2003-04,Girls,Colorado,Field Hockey,200.0,
+2003-04,Girls,Connecticut,Basketball,174.0,4263.0
+2003-04,Girls,Connecticut,Cross Country,139.0,2068.0
+2003-04,Girls,Connecticut,Field Hockey,158.0,2294.0
+2003-04,Girls,Delaware,Basketball,42.0,968.0
+2003-04,Girls,Delaware,Cross Country,11.0,274.0
+2003-04,Girls,Delaware,Field Hockey,38.0,542.0
+2003-04,Girls,District of Columbia,Basketball,13.0,249.0
+2003-04,Girls,District of Columbia,Cross Country,12.0,269.0
+2003-04,Girls,District of Columbia,Field Hockey,12.0,130.0
+2003-04,Girls,Florida,Basketball,,10964.0
+2003-04,Girls,Florida,Competitive Spirit Squads,116.0,1442.0
+2003-04,Girls,Florida,Field Hockey,483.0,5576.0
+2003-04,Girls,Georgia,Basketball,374.0,9171.0
+2003-04,Girls,Georgia,Cross Country,232.0,4929.0
+2003-04,Girls,Georgia,Field Hockey,329.0,3869.0
+2003-04,Girls,Hawaii,Basketball,65.0,1651.0
+2003-04,Girls,Hawaii,Competitive Spirit Squads,53.0,472.0
+2003-04,Girls,Hawaii,Cross Country,48.0,744.0
+2003-04,Girls,Hawaii,Field Hockey,62.0,1089.0
+2003-04,Girls,Illinois,Basketball,671.0,18986.0
+2003-04,Girls,Illinois,Competitive Spirit Squads,194.0,3269.0
+2003-04,Girls,Illinois,Field Hockey,479.0,8125.0
+2003-04,Girls,Indiana,Basketball,392.0,10207.0
+2003-04,Girls,Indiana,Field Hockey,382.0,4295.0
+2003-04,Girls,Indiana,Competitive Spirit Squads,70.0,661.0
+2003-04,Girls,Indiana,Cross Country,57.0,2510.0
+2003-04,Girls,Kansas,Basketball,364.0,8145.0
+2003-04,Girls,Kentucky,Basketball,280.0,5950.0
+2003-04,Girls,Kentucky,Competitive Spirit Squads,,14.0
+2003-04,Girls,Kentucky,Cross Country,279.0,5444.0
+2003-04,Girls,Kentucky,Field Hockey,243.0,2427.0
+2003-04,Girls,Louisiana,Basketball,377.0,9401.0
+2003-04,Girls,Louisiana,Field Hockey,307.0,1225.0
+2003-04,Girls,Louisiana,Cross Country,85.0,
+2003-04,Girls,Maryland,Basketball,181.0,4528.0
+2003-04,Girls,Maryland,Field Hockey,167.0,2020.0
+2003-04,Girls,Massachusetts,Basketball,337.0,10418.0
+2003-04,Girls,Massachusetts,Field Hockey,269.0,4094.0
+2003-04,Girls,Michigan,Basketball,718.0,20661.0
+2003-04,Girls,Michigan,Competitive Spirit Squads,157.0,1477.0
+2003-04,Girls,Michigan,Cross Country,,4387.0
+2003-04,Girls,Michigan,Field Hockey,575.0,6710.0
+2003-04,Girls,Minnesota,Basketball,447.0,13017.0
+2003-04,Girls,Minnesota,Field Hockey,320.0,4501.0
+2003-04,Girls,Mississippi,Basketball,,6204.0
+2003-04,Girls,Mississippi,Field Hockey,122.0,1358.0
+2003-04,Girls,Missouri,Basketball,530.0,12460.0
+2003-04,Girls,Missouri,Cross Country,150.0,2200.0
+2003-04,Girls,Missouri,Field Hockey,299.0,4051.0
+2003-04,Girls,Montana,Basketball,170.0,3469.0
+2003-04,Girls,Montana,Cross Country,,72.0
+2003-04,Girls,Montana,Field Hockey,116.0,841.0
+2003-04,Girls,Nebraska,Basketball,320.0,7045.0
+2003-04,Girls,Nebraska,Field Hockey,189.0,1587.0
+2003-04,Girls,Nevada,Basketball,89.0,2475.0
+2003-04,Girls,Nevada,Competitive Spirit Squads,24.0,265.0
+2003-04,Girls,Nevada,Field Hockey,59.0,560.0
+2003-04,Girls,New Hampshire,Basketball,87.0,2262.0
+2003-04,Girls,New Hampshire,Cross Country,72.0,1844.0
+2003-04,Girls,New Hampshire,Field Hockey,68.0,853.0
+2003-04,Girls,New Jersey,Basketball,,10080.0
+2003-04,Girls,New Jersey,Competitive Spirit Squads,203.0,1660.0
+2003-04,Girls,New Jersey,Field Hockey,360.0,4225.0
+2003-04,Girls,New Mexico,Basketball,151.0,4560.0
+2003-04,Girls,New Mexico,Field Hockey,107.0,992.0
+2003-04,Girls,New York,Basketball,688.0,17245.0
+2003-04,Girls,New York,Competitive Spirit Squads,269.0,2851.0
+2003-04,Girls,New York,Field Hockey,539.0,6122.0
+2003-04,Girls,North Carolina,Basketball,343.0,8493.0
+2003-04,Girls,North Carolina,Cross Country,340.0,14440.0
+2003-04,Girls,North Carolina,Field Hockey,308.0,3756.0
+2003-04,Girls,North Dakota,Basketball,179.0,2855.0
+2003-04,Girls,North Dakota,Field Hockey,55.0,365.0
+2003-04,Girls,North Dakota,Competitive Spirit Squads,102.0,1098.0
+2003-04,Girls,Oklahoma,Basketball,471.0,7565.0
+2003-04,Girls,Oklahoma,Cross Country,181.0,1903.0
+2003-04,Girls,Oklahoma,Field Hockey,170.0,1250.0
+2003-04,Girls,Oregon,Basketball,281.0,6768.0
+2003-04,Girls,Oregon,Cross Country,135.0,
+2003-04,Girls,Oregon,Field Hockey,156.0,2246.0
+2003-04,Girls,Pennsylvania,Basketball,685.0,20550.0
+2003-04,Girls,Pennsylvania,Competitive Spirit Squads,87.0,870.0
+2003-04,Girls,Pennsylvania,Field Hockey,515.0,5200.0
+2003-04,Girls,Rhode Island,Basketball,47.0,1123.0
+2003-04,Girls,Rhode Island,Cross Country,24.0,619.0
+2003-04,Girls,Rhode Island,Field Hockey,42.0,663.0
+2003-04,Girls,South Carolina,Basketball,195.0,4985.0
+2003-04,Girls,South Carolina,Competitive Spirit Squads,,59.0
+2003-04,Girls,South Carolina,Cross Country,84.0,2456.0
+2003-04,Girls,South Carolina,Field Hockey,130.0,1649.0
+2003-04,Girls,South Dakota,Basketball,163.0,3011.0
+2003-04,Girls,South Dakota,Field Hockey,411.0,577.0
+2003-04,Girls,Tennessee,Basketball,357.0,6461.0
+2003-04,Girls,Tennessee,Competitive Spirit Squads,133.0,1142.0
+2003-04,Girls,Tennessee,Field Hockey,243.0,2404.0
+2003-04,Girls,Vermont,Basketball,67.0,1774.0
+2003-04,Girls,Vermont,Cross Country,30.0,406.0
+2003-04,Girls,Vermont,Field Hockey,46.0,460.0
+2003-04,Girls,Virginia,Basketball,286.0,7804.0
+2003-04,Girls,Virginia,Cross Country,290.0,
+2003-04,Girls,Virginia,Field Hockey,265.0,
+2003-04,Girls,Washington,Basketball,371.0,9696.0
+2003-04,Girls,Washington,Competitive Spirit Squads,,796.0
+2003-04,Girls,Washington,Field Hockey,275.0,3380.0
+2003-04,Girls,West Virginia,Basketball,117.0,2145.0
+2003-04,Girls,West Virginia,Cross Country,105.0,1859.0
+2003-04,Girls,West Virginia,Field Hockey,70.0,581.0
+2003-04,Girls,Wisconsin,Basketball,475.0,13013.0
+2003-04,Girls,Wisconsin,Field Hockey,383.0,5247.0
+2003-04,Girls,Wyoming,Basketball,68.0,1620.0
+2003-04,Girls,Wyoming,Field Hockey,40.0,309.0
+2003-04,Girls,Wyoming,Competitive Spirit Squads,,56.0
+2003-04,Girls,Alaska,Gymnastics,,13.0
+2003-04,Girls,Alaska,Skiing Alpine,,82.0
+2003-04,Girls,Arizona,Gymnastics,16.0,35.0
+2003-04,Girls,Arizona,Skiing Cross Country,113.0,752.0
+2003-04,Girls,Arkansas,Skiing Cross Country,76.0,366.0
+2003-04,Girls,Arkansas,Skiing Alpine,,139.0
+2003-04,Girls,California,Golf,63.0,2170.0
+2003-04,Girls,California,Gymnastics,94.0,236.0
+2003-04,Girls,California,Skiing Cross Country,669.0,5547.0
+2003-04,Girls,California,Skiing Alpine,46.0,859.0
+2003-04,Girls,Colorado,Golf,15.0,479.0
+2003-04,Girls,Colorado,Gymnastics,,16.0
+2003-04,Girls,Colorado,Skiing Cross Country,132.0,1280.0
+2003-04,Girls,Colorado,Skiing Alpine,50.0,578.0
+2003-04,Girls,Connecticut,Golf,76.0,3322.0
+2003-04,Girls,Connecticut,Skiing Cross Country,32.0,443.0
+2003-04,Girls,Connecticut,Skiing Alpine,60.0,430.0
+2003-04,Girls,Delaware,Golf,1391.0,1391.0
+2003-04,Girls,Delaware,Skiing Cross Country,16.0,51.0
+2003-04,Girls,District of Columbia,Skiing Cross Country,,25.0
+2003-04,Girls,Florida,Skiing Cross Country,341.0,2200.0
+2003-04,Girls,Georgia,Gymnastics,24.0,88.0
+2003-04,Girls,Georgia,Skiing Cross Country,272.0,1267.0
+2003-04,Girls,Georgia,Skiing Alpine,34.0,384.0
+2003-04,Girls,Hawaii,Gymnastics,11.0,28.0
+2003-04,Girls,Hawaii,Skiing Cross Country,47.0,162.0
+2003-04,Girls,Idaho,Skiing Cross Country,86.0,960.0
+2003-04,Girls,Idaho,Skiing Alpine,95.0,1800.0
+2003-04,Girls,Indiana,Skiing Cross Country,268.0,2550.0
+2003-04,Girls,Indiana,Skiing Alpine,87.0,1097.0
+2003-04,Girls,Iowa,Gymnastics,,60.0
+2003-04,Girls,Iowa,Skiing Cross Country,329.0,3857.0
+2003-04,Girls,Kansas,Gymnastics,,10.0
+2003-04,Girls,Kansas,Skiing Cross Country,,7038.0
+2003-04,Girls,Kansas,Skiing Alpine,16.0,173.0
+2003-04,Girls,Kentucky,Golf,,408.0
+2003-04,Girls,Kentucky,Gymnastics,,21.0
+2003-04,Girls,Kentucky,Skiing Cross Country,226.0,1379.0
+2003-04,Girls,Louisiana,Skiing Cross Country,101.0,320.0
+2003-04,Girls,Louisiana,Skiing Alpine,19.0,
+2003-04,Girls,Maine,Golf,79.0,2984.0
+2003-04,Girls,Maine,Skiing Cross Country,37.0,63.0
+2003-04,Girls,Maine,Skiing Alpine,14.0,78.0
+2003-04,Girls,Maryland,Golf,120.0,3903.0
+2003-04,Girls,Maryland,Skiing Cross Country,98.0,198.0
+2003-04,Girls,Maryland,Skiing Alpine,13.0,178.0
+2003-04,Girls,Massachusetts,Golf,198.0,8635.0
+2003-04,Girls,Massachusetts,Gymnastics,,28.0
+2003-04,Girls,Massachusetts,Skiing Cross Country,27.0,439.0
+2003-04,Girls,Massachusetts,Skiing Alpine,90.0,1219.0
+2003-04,Girls,Michigan,Golf,16.0,677.0
+2003-04,Girls,Michigan,Skiing Cross Country,306.0,3910.0
+2003-04,Girls,Michigan,Skiing Alpine,84.0,989.0
+2003-04,Girls,Minnesota,Skiing Cross Country,383.0,5054.0
+2003-04,Girls,Minnesota,Skiing Alpine,190.0,3119.0
+2003-04,Girls,Mississippi,Skiing Cross Country,15.0,121.0
+2003-04,Girls,Missouri,Golf,24.0,1178.0
+2003-04,Girls,Missouri,Gymnastics,,10.0
+2003-04,Girls,Missouri,Skiing Cross Country,142.0,1531.0
+2003-04,Girls,Missouri,Skiing Alpine,,20.0
+2003-04,Girls,Montana,Skiing Cross Country,112.0,930.0
+2003-04,Girls,Nebraska,Gymnastics,,10.0
+2003-04,Girls,Nebraska,Skiing Cross Country,130.0,1383.0
+2003-04,Girls,Nevada,Skiing Cross Country,57.0,515.0
+2003-04,Girls,New Hampshire,Golf,55.0,2159.0
+2003-04,Girls,New Hampshire,Skiing Cross Country,27.0,36.0
+2003-04,Girls,New Hampshire,Skiing Alpine,24.0,154.0
+2003-04,Girls,New Jersey,Golf,223.0,9605.0
+2003-04,Girls,New Jersey,Skiing Cross Country,189.0,673.0
+2003-04,Girls,New Jersey,Skiing Alpine,64.0,848.0
+2003-04,Girls,New Mexico,Gymnastics,,77.0
+2003-04,Girls,New Mexico,Skiing Cross Country,87.0,272.0
+2003-04,Girls,New York,Golf,232.0,8508.0
+2003-04,Girls,New York,Skiing Cross Country,102.0,948.0
+2003-04,Girls,New York,Skiing Alpine,116.0,1598.0
+2003-04,Girls,North Carolina,Golf,,264.0
+2003-04,Girls,North Carolina,Skiing Cross Country,128.0,730.0
+2003-04,Girls,North Carolina,Skiing Alpine,13.0,123.0
+2003-04,Girls,North Dakota,Skiing Cross Country,107.0,640.0
+2003-04,Girls,North Dakota,Skiing Alpine,13.0,79.0
+2003-04,Girls,Ohio,Golf,33.0,1199.0
+2003-04,Girls,Ohio,Gymnastics,,33.0
+2003-04,Girls,Ohio,Skiing Cross Country,224.0,2090.0
+2003-04,Girls,Ohio,Skiing Alpine,94.0,1120.0
+2003-04,Girls,Oklahoma,Skiing Cross Country,21.0,980.0
+2003-04,Girls,Oregon,Skiing Cross Country,157.0,1170.0
+2003-04,Girls,Pennsylvania,Golf,275.0,9625.0
+2003-04,Girls,Pennsylvania,Skiing Cross Country,187.0,1870.0
+2003-04,Girls,Pennsylvania,Skiing Alpine,25.0,250.0
+2003-04,Girls,Rhode Island,Golf,21.0,631.0
+2003-04,Girls,Rhode Island,Skiing Cross Country,,53.0
+2003-04,Girls,Rhode Island,Skiing Alpine,25.0,777.0
+2003-04,Girls,South Carolina,Skiing Cross Country,52.0,373.0
+2003-04,Girls,South Dakota,Skiing Cross Country,75.0,738.0
+2003-04,Girls,South Dakota,Skiing Alpine,27.0,275.0
+2003-04,Girls,Tennessee,Skiing Cross Country,242.0,815.0
+2003-04,Girls,Texas,Gymnastics,,268.0
+2003-04,Girls,Texas,Skiing Cross Country,1120.0,7866.0
+2003-04,Girls,Utah,Skiing Cross Country,34.0,69.0
+2003-04,Girls,Vermont,Golf,26.0,1013.0
+2003-04,Girls,Vermont,Skiing Cross Country,33.0,110.0
+2003-04,Girls,Vermont,Skiing Alpine,13.0,114.0
+2003-04,Girls,Virginia,Golf,411.0,3833.0
+2003-04,Girls,Virginia,Gymnastics,24.0,385.0
+2003-04,Girls,Virginia,Skiing Cross Country,104.0,196.0
+2003-04,Girls,Virginia,Skiing Alpine,70.0,809.0
+2003-04,Girls,Washington,Golf,25.0,80.0
+2003-04,Girls,Washington,Skiing Cross Country,262.0,2190.0
+2003-04,Girls,Washington,Skiing Alpine,81.0,1556.0
+2003-04,Girls,West Virginia,Skiing Cross Country,26.0,34.0
+2003-04,Girls,Wisconsin,Skiing Cross Country,139.0,1621.0
+2003-04,Girls,Wisconsin,Skiing Alpine,90.0,1395.0
+2003-04,Girls,Wyoming,Skiing Cross Country,33.0,194.0
+2003-04,Girls,Wyoming,Skiing Alpine,,79.0
+2003-04,Girls,Wyoming,Gymnastics,,57.0
+2003-04,Girls,California,Soccer,55.0,1834.0
+2003-04,Girls,California,Softball Fast Pitch,27.0,190.0
+2003-04,Girls,Colorado,Soccer,28.0,1327.0
+2003-04,Girls,Colorado,Softball Fast Pitch,17.0,150.0
+2003-04,Girls,Connecticut,Soccer,56.0,2585.0
+2003-04,Girls,Delaware,Soccer,20.0,593.0
+2003-04,Girls,District of Columbia,Soccer,,60.0
+2003-04,Girls,District of Columbia,Softball Fast Pitch,10.0,266.0
+2003-04,Girls,Florida,Soccer,26.0,984.0
+2003-04,Girls,Georgia,Soccer,25.0,
+2003-04,Girls,Maine,Soccer,33.0,1157.0
+2003-04,Girls,Maine,Softball Fast Pitch,40.0,298.0
+2003-04,Girls,Maryland,Soccer,116.0,3043.0
+2003-04,Girls,Massachusetts,Soccer,114.0,4449.0
+2003-04,Girls,Massachusetts,Softball Fast Pitch,69.0,911.0
+2003-04,Girls,Michigan,Soccer,31.0,1124.0
+2003-04,Girls,Michigan,Softball Fast Pitch,88.0,773.0
+2003-04,Girls,Minnesota,Softball Fast Pitch,78.0,757.0
+2003-04,Girls,Missouri,Soccer,10.0,150.0
+2003-04,Girls,Nevada,Softball Fast Pitch,,145.0
+2003-04,Girls,New Hampshire,Soccer,28.0,1302.0
+2003-04,Girls,New Hampshire,Softball Fast Pitch,56.0,424.0
+2003-04,Girls,New Jersey,Soccer,201.0,6526.0
+2003-04,Girls,New York,Soccer,200.0,8958.0
+2003-04,Girls,North Carolina,Soccer,15.0,492.0
+2003-04,Girls,Ohio,Soccer,36.0,1665.0
+2003-04,Girls,Ohio,Softball Fast Pitch,,14.0
+2003-04,Girls,Pennsylvania,Soccer,94.0,3008.0
+2003-04,Girls,Rhode Island,Soccer,,268.0
+2003-04,Girls,Vermont,Soccer,23.0,765.0
+2003-04,Girls,Vermont,Softball Fast Pitch,24.0,175.0
+2003-04,Girls,Virginia,Soccer,54.0,1804.0
+2003-04,Girls,Wyoming,Softball Fast Pitch,,44.0
+2003-04,Girls,Wyoming,Soccer,,58.0
+2003-04,Girls,Alabama,Tennis,113.0,2897.0
+2003-04,Girls,Alabama,Track and Field Indoor,376.0,
+2003-04,Girls,Alabama,Volleyball,35.0,300.0
+2003-04,Girls,Alaska,Tennis,26.0,863.0
+2003-04,Girls,Alaska,Track and Field Indoor,23.0,584.0
+2003-04,Girls,Alaska,Volleyball,27.0,484.0
+2003-04,Girls,Arizona,Tennis,151.0,4368.0
+2003-04,Girls,Arizona,Track and Field Indoor,201.0,
+2003-04,Girls,Arizona,Volleyball,97.0,
+2003-04,Girls,Arkansas,Tennis,36.0,769.0
+2003-04,Girls,Arkansas,Track and Field Indoor,84.0,
+2003-04,Girls,Arkansas,Track and Field Outdoor,,27.0
+2003-04,Girls,Arkansas,Volleyball,28.0,
+2003-04,Girls,California,Tennis,1028.0,35380.0
+2003-04,Girls,California,Track and Field Indoor,1002.0,
+2003-04,Girls,California,Track and Field Outdoor,34.0,939.0
+2003-04,Girls,California,Volleyball,728.0,
+2003-04,Girls,Colorado,Tennis,1745721.0,
+2003-04,Girls,Colorado,Track and Field Indoor,153.0,
+2003-04,Girls,Colorado,Volleyball,124.0,
+2003-04,Girls,Connecticut,Tennis,148.0,5255.0
+2003-04,Girls,Connecticut,Track and Field Indoor,171.0,
+2003-04,Girls,Connecticut,Volleyball,93.0,
+2003-04,Girls,Delaware,Tennis,44.0,1376.0
+2003-04,Girls,Delaware,Track and Field Indoor,37.0,987.0
+2003-04,Girls,Delaware,Volleyball,26.0,657.0
+2003-04,Girls,District of Columbia,Tennis,,80.0
+2003-04,Girls,District of Columbia,Track and Field Indoor,12.0,155.0
+2003-04,Girls,District of Columbia,Volleyball,,35.0
+2003-04,Girls,Florida,Tennis,443.0,
+2003-04,Girls,Florida,Track and Field Indoor,514.0,
+2003-04,Girls,Florida,Track and Field Outdoor,48.0,884.0
+2003-04,Girls,Florida,Volleyball,372.0,
+2003-04,Girls,Georgia,Track and Field Indoor,357.0,
+2003-04,Girls,Georgia,Track and Field Outdoor,23.0,516.0
+2003-04,Girls,Georgia,Volleyball,173.0,
+2003-04,Girls,Hawaii,Tennis,59.0,1727.0
+2003-04,Girls,Hawaii,Track and Field Indoor,54.0,
+2003-04,Girls,Hawaii,Volleyball,57.0,613.0
+2003-04,Girls,Idaho,Tennis,63.0,
+2003-04,Girls,Idaho,Track and Field Indoor,94.0,
+2003-04,Girls,Idaho,Volleyball,,73.0
+2003-04,Girls,Indiana,Tennis,228.0,6204.0
+2003-04,Girls,Indiana,Track and Field Indoor,370.0,
+2003-04,Girls,Indiana,Volleyball,222.0,
+2003-04,Girls,Kansas,Tennis,83.0,2481.0
+2003-04,Girls,Kansas,Track and Field Indoor,196.0,
+2003-04,Girls,Kansas,Volleyball,61.0,
+2003-04,Girls,Kentucky,Tennis,154.0,3930.0
+2003-04,Girls,Kentucky,Track and Field Indoor,259.0,
+2003-04,Girls,Kentucky,Track and Field Outdoor,19.0,420.0
+2003-04,Girls,Kentucky,Volleyball,126.0,
+2003-04,Girls,Louisiana,Tennis,110.0,1650.0
+2003-04,Girls,Louisiana,Track and Field Indoor,362.0,
+2003-04,Girls,Louisiana,Volleyball,46.0,460.0
+2003-04,Girls,Maryland,Tennis,155.0,5209.0
+2003-04,Girls,Maryland,Volleyball,81.0,
+2003-04,Girls,Massachusetts,Tennis,313.0,42193.0
+2003-04,Girls,Massachusetts,Track and Field Indoor,25.0,
+2003-04,Girls,Massachusetts,Volleyball,150.0,
+2003-04,Girls,Michigan,Tennis,399.0,13515.0
+2003-04,Girls,Michigan,Track and Field Indoor,605.0,
+2003-04,Girls,Michigan,Track and Field Outdoor,,36.0
+2003-04,Girls,Michigan,Volleyball,256.0,
+2003-04,Girls,Minnesota,Tennis,189.0,7827.0
+2003-04,Girls,Minnesota,Track and Field Indoor,411.0,
+2003-04,Girls,Minnesota,Volleyball,191.0,
+2003-04,Girls,Mississippi,Tennis,80.0,
+2003-04,Girls,Mississippi,Track and Field Indoor,170.0,
+2003-04,Girls,Mississippi,Track and Field Outdoor,207.0,4979.0
+2003-04,Girls,Mississippi,Volleyball,44.0,
+2003-04,Girls,Missouri,Tennis,183.0,6486.0
+2003-04,Girls,Missouri,Track and Field Indoor,463.0,
+2003-04,Girls,Missouri,Volleyball,101.0,
+2003-04,Girls,Montana,Tennis,25.0,945.0
+2003-04,Girls,Montana,Track and Field Indoor,34.0,
+2003-04,Girls,Montana,Volleyball,14.0,274.0
+2003-04,Girls,Nebraska,Tennis,70.0,2065.0
+2003-04,Girls,Nebraska,Track and Field Indoor,106.0,
+2003-04,Girls,Nebraska,Volleyball,55.0,944.0
+2003-04,Girls,Nevada,Tennis,56.0,1800.0
+2003-04,Girls,Nevada,Track and Field Indoor,76.0,
+2003-04,Girls,Nevada,Volleyball,38.0,950.0
+2003-04,Girls,New Hampshire,Tennis,75.0,
+2003-04,Girls,New Hampshire,Track and Field Indoor,862244.0,
+2003-04,Girls,New Hampshire,Volleyball,32.0,523.0
+2003-04,Girls,New Jersey,Tennis,356.0,12118.0
+2003-04,Girls,New Jersey,Track and Field Indoor,406.0,
+2003-04,Girls,New Jersey,Volleyball,228.0,
+2003-04,Girls,New Mexico,Tennis,68.0,1718.0
+2003-04,Girls,New Mexico,Track and Field Indoor,83.0,
+2003-04,Girls,New Mexico,Volleyball,40.0,589.0
+2003-04,Girls,New York,Tennis,637.0,
+2003-04,Girls,New York,Track and Field Indoor,679.0,
+2003-04,Girls,New York,Volleyball,317.0,7466.0
+2003-04,Girls,North Carolina,Tennis,267.0,7424.0
+2003-04,Girls,North Carolina,Track and Field Indoor,324.0,
+2003-04,Girls,North Carolina,Volleyball,199.0,3806.0
+2003-04,Girls,North Dakota,Tennis,16.0,687.0
+2003-04,Girls,North Dakota,Volleyball,16.0,288.0
+2003-04,Girls,North Dakota,Track and Field Indoor,766.0,
+2003-04,Girls,North Dakota,Track and Field Outdoor,,319.0
+2003-04,Girls,Oklahoma,Tennis,87.0,1740.0
+2003-04,Girls,Oklahoma,Track and Field Indoor,395.0,
+2003-04,Girls,Oklahoma,Track and Field Outdoor,340.0,5031.0
+2003-04,Girls,Oklahoma,Volleyball,41.0,546.0
+2003-04,Girls,Oregon,Tennis,141.0,4496.0
+2003-04,Girls,Oregon,Track and Field Indoor,210.0,
+2003-04,Girls,Oregon,Volleyball,122.0,2107.0
+2003-04,Girls,Pennsylvania,Tennis,473.0,16555.0
+2003-04,Girls,Pennsylvania,Track and Field Indoor,689.0,
+2003-04,Girls,Pennsylvania,Volleyball,305.0,5490.0
+2003-04,Girls,Rhode Island,Tennis,45.0,1403.0
+2003-04,Girls,Rhode Island,Track and Field Indoor,37.0,909.0
+2003-04,Girls,Rhode Island,Track and Field Outdoor,,198.0
+2003-04,Girls,Rhode Island,Volleyball,35.0,530.0
+2003-04,Girls,South Carolina,Tennis,113.0,3221.0
+2003-04,Girls,South Carolina,Track and Field Indoor,186.0,
+2003-04,Girls,South Carolina,Volleyball,58.0,1063.0
+2003-04,Girls,Tennessee,Tennis,215.0,4807.0
+2003-04,Girls,Tennessee,Track and Field Indoor,337.0,
+2003-04,Girls,Tennessee,Volleyball,383.0,6140.0
+2003-04,Girls,Utah,Tennis,75.0,2275.0
+2003-04,Girls,Utah,Track and Field Indoor,90.0,
+2003-04,Girls,Utah,Volleyball,,1243.0
+2003-04,Girls,Vermont,Tennis,67.0,
+2003-04,Girls,Vermont,Track and Field Indoor,58.0,1357.0
+2003-04,Girls,Vermont,Track and Field Outdoor,,82.0
+2003-04,Girls,Virginia,Tennis,246.0,7109.0
+2003-04,Girls,Virginia,Track and Field Indoor,280.0,
+2003-04,Girls,Virginia,Volleyball,149.0,
+2003-04,Girls,Washington,Tennis,261.0,8880.0
+2003-04,Girls,Washington,Track and Field Indoor,327.0,8790.0
+2003-04,Girls,Washington,Volleyball,158.0,4538.0
+2003-04,Girls,West Virginia,Tennis,56.0,1197.0
+2003-04,Girls,West Virginia,Track and Field Indoor,108.0,2218.0
+2003-04,Girls,West Virginia,Volleyball,34.0,508.0
+2003-04,Girls,Wisconsin,Tennis,226.0,8695.0
+2003-04,Girls,Wisconsin,Track and Field Indoor,488.0,
+2003-04,Girls,Wisconsin,Volleyball,136.0,4090.0
+2003-04,Girls,Wyoming,Tennis,,585.0
+2003-04,Girls,Wyoming,Volleyball,25.0,588.0
