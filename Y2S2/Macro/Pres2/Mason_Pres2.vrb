@@ -1,0 +1,39 @@
+\frametitle{AR(1): Training the NNE}
+\begin{columns}[T]
+    \begin{column}{0.44\textwidth}
+      \hl{Algorithm, Steps 3--4:}
+      \begin{enumerate}
+        \setcounter{enumi}{2}
+        \item Train NN $f_\phi : m \mapsto \theta$ on
+              $\{(m^{(s)}, \theta^{(s)})\}_{s=1}^S$
+        \item \textbf{Estimation:} given $\{y_t^{\text{obs}}\}$,
+              compute $m^{\text{obs}}$, then\\
+              $\hat\theta = f_\phi(m^{\text{obs}})$
+      \end{enumerate}
+      \vspace{0.4cm}
+      Steps 1--3 are \hl{offline} (one-time cost). \\
+      Step 4 is \hl{online}: milliseconds per dataset.
+    \end{column}
+    \begin{column}{0.53\textwidth}
+\begin{minted}[fontsize=\scriptsize]{python}
+from sklearn.neural_network import MLPRegressor
+
+rng, S = np.random.default_rng(42), 5_000
+
+rho_s   = rng.uniform(-0.95, 0.95, S)
+sigma_s = rng.uniform(0.1,   2.0,  S)
+thetas  = np.column_stack([rho_s, sigma_s])
+
+moments = np.array([
+    compute_moments(
+        simulate_ar1(r, s, rng=rng))
+    for r, s in thetas
+])
+
+nne = MLPRegressor(
+    hidden_layer_sizes=(64, 64),
+    max_iter=500, random_state=42)
+nne.fit(moments, thetas)
+\end{minted}
+    \end{column}
+  \end{columns}
