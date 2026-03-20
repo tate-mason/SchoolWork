@@ -1,0 +1,514 @@
+% ============================================================
+% UGA-Themed Beamer Presentation
+% Neural Network Estimation of Structural Economic Models
+%
+% Compile with:
+%   pdflatex -shell-escape Mason_Pres2.tex
+%
+% The -shell-escape flag is REQUIRED for the minted package.
+% ============================================================
+
+\documentclass[aspectratio=169,professionalfonts]{beamer}
+
+% ---------- COLORS ----------
+\usepackage{xcolor}
+\definecolor{UGARed}{HTML}{BA0C2F}
+\definecolor{UGABlack}{HTML}{000000}
+\definecolor{UGAGray}{HTML}{8A8D8F}
+
+% ---------- THEME ----------
+\usetheme{default}
+\useinnertheme{circles}
+\useoutertheme[subsection=false]{miniframes}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+
+% Head/foot colors
+\setbeamercolor{subsection in head/foot}{fg=white, bg=UGARed}
+\setbeamercolor{headline}{fg=white, bg=UGARed}
+\setbeamercolor{section in head/foot}{fg=white, bg=UGARed}
+\setbeamercolor{section in head/foot shaded}{fg=white, bg=white}
+\setbeamercolor{footline}{bg=UGABlack, fg=white}
+\setbeamercolor{frametitle}{fg=UGABlack}
+\setbeamercolor{title}{fg=UGABlack}
+\setbeamercolor{normal text}{fg=UGABlack}
+\setbeamercolor{structure}{fg=UGARed}
+
+% Headline
+\setbeamertemplate{headline}{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{headline}
+    \insertsectionnavigationhorizontal{\paperwidth}{}{}
+  \end{beamercolorbox}
+}
+
+% Footline
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex,leftskip=1em,rightskip=1em]{footline}%
+      \insertshortauthor{} \hfill \insertframenumber/\inserttotalframenumber
+    \end{beamercolorbox}}%
+}
+
+% ---------- PACKAGES ----------
+\usepackage{amsmath, amssymb, mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+\usepackage{tcolorbox}
+\usepackage{minted}
+\setminted{fontsize=\footnotesize, bgcolor=gray!8, breaklines=true}
+
+% ---------- METADATA ----------
+\title[NNE for Structural Models]{Estimating Parameters of Structural Models\\Using Neural Networks}
+\subtitle{Bhatt, Misra, and Qi (2023)}
+\author[Tate Mason]{Tate Mason}
+\institute[UGA]{John Munro Godfrey Sr.\ Dept.\ of Economics \\ University of Georgia}
+\date{\today}
+
+% ---------- AUTO-AGENDA ----------
+\AtBeginSection[]{
+  \begin{frame}{Roadmap}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% ---------- MACROS ----------
+\newcommand{\beq}[1]{\begin{equation}\label{#1}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\hl}[1]{\textbf{\textcolor{UGARed}{#1}}}
+\hypersetup{colorlinks=true, linkcolor=UGARed, urlcolor=UGARed}
+
+% ============================================================
+\begin{document}
+
+% ------------------------------------------------------------
+% Title
+% ------------------------------------------------------------
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ============================================================
+\section{Introduction}
+% ============================================================
+
+\begin{frame}{What Is a Neural Network?}
+  \begin{itemize}
+    \item A \hl{neural network} is a parameterized function
+          $f_\phi : \mathbb{R}^K \to \mathbb{R}^P$
+          built as a composition of affine transformations and nonlinearities
+    \item Organized into \textit{layers}: input $\to$ hidden $\to$ output
+    \item Each hidden layer $\ell$ computes
+          \[
+            h^{(\ell)} = \sigma\!\left(W^{(\ell)}\, h^{(\ell-1)} + b^{(\ell)}\right)
+          \]
+          where $\sigma$ is an \textit{activation function} applied element-wise
+    \item Networks are \hl{trained} by minimizing a loss over labeled examples
+          $\{(x_s, y_s)\}_{s=1}^S$ via stochastic gradient descent
+    \item \hl{Universal approximation}: a sufficiently wide (or deep) network
+          can approximate any continuous function on a compact domain
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Machine Learning in Economics}
+  \begin{itemize}
+    \item ML methods are increasingly used in empirical economics
+      \begin{itemize}
+        \item Prediction problems: Mullainathan \& Spiess (2017)
+        \item Causal inference: Athey \& Imbens (2019)
+      \end{itemize}
+    \item In \hl{structural} work, the core challenge is \textit{computational}:
+          many models lack closed-form likelihoods
+    \item Standard simulation-based approaches:
+      \begin{enumerate}
+        \item \textbf{Simulated MLE (SMLE)}: approximate likelihood via simulation
+        \item \textbf{Simulated Method of Moments (SMM)}: match simulated to data moments
+        \item \textbf{Approximate Bayesian Computation (ABC)}: accept/reject by moment distance
+      \end{enumerate}
+    \item All require \hl{many model simulations per evaluation} of the objective
+          $\Rightarrow$ estimation is expensive for complex models
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Neural Networks for Structural Estimation}
+  \begin{itemize}
+    \item \hl{Key insight}: if simulation is cheap, train a NN to \emph{invert}
+          the mapping from parameters to observable moments
+    \item The estimator is built in two phases:
+      \begin{enumerate}
+        \item \textbf{Offline (once):} simulate $S$ datasets across parameter space,
+              compute moments, train NN $\hat{f}: m \mapsto \theta$
+        \item \textbf{Online (fast):} given observed data, compute moments $m^{\text{obs}}$,
+              then $\hat\theta = \hat{f}(m^{\text{obs}})$ --- one forward pass
+      \end{enumerate}
+    \item Separates the \hl{expensive} simulation (offline) from \hl{fast} estimation (online)
+    \item Especially valuable when the model is estimated repeatedly or applied to many datasets
+    \item This paper: theoretical foundations + practical guidelines + applications
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+\section{Neural Network Primer}
+% ============================================================
+
+\begin{frame}{Network Architecture}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{itemize}
+        \item A feedforward NN has an \hl{input layer},
+              one or more \hl{hidden layers},
+              and an \hl{output layer}
+        \item \hl{Depth}: number of hidden layers
+        \item \hl{Width}: number of units per layer
+        \item Total parameters: \(\displaystyle\sum_\ell \bigl(d_{\ell-1} \cdot d_\ell + d_\ell\bigr)\)
+              where $d_\ell$ is the width of layer $\ell$
+        \item Complexity grows quickly with depth and width
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      \begin{tikzpicture}[
+        neuron/.style={circle, draw=UGARed!70, fill=UGARed!10,
+                       minimum size=0.62cm, inner sep=0pt, font=\tiny},
+        >=stealth, line width=0.35pt
+      ]
+        % Input layer
+        \foreach \i/\lbl in {1/$m_1$, 2/$m_2$, 3/$m_3$}{
+          \node[neuron] (I\i) at (0, {2.6 - (\i-1)*1.05}) {\lbl};
+        }
+        % Hidden layer
+        \foreach \i in {1,2,3,4}{
+          \node[neuron] (H\i) at (2.2, {3.1 - (\i-1)*0.95}) {};
+        }
+        % Output layer
+        \foreach \i/\lbl in {1/$\hat\theta_1$, 2/$\hat\theta_2$}{
+          \node[neuron] (O\i) at (4.4, {2.35 - (\i-1)*1.1}) {\lbl};
+        }
+        % Edges: input -> hidden
+        \foreach \i in {1,2,3}
+          \foreach \j in {1,2,3,4}
+            \draw[gray!55] (I\i) -- (H\j);
+        % Edges: hidden -> output
+        \foreach \i in {1,2,3,4}
+          \foreach \j in {1,2}
+            \draw[gray!55] (H\i) -- (O\j);
+        % Layer labels
+        \node[font=\tiny\bfseries, UGARed] at (0,   3.75) {Input};
+        \node[font=\tiny\bfseries, UGARed] at (2.2, 3.75) {Hidden};
+        \node[font=\tiny\bfseries, UGARed] at (4.4, 3.75) {Output};
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Neuron Types and Complexity}
+  \begin{itemize}
+    \item \hl{Input neurons}: receive raw features (e.g., data moments $m$)
+    \item \hl{Hidden neurons}: learn intermediate representations
+      \begin{itemize}
+        \item Each unit: $h_j = \sigma(w_j \cdot h_{\text{prev}} + b_j)$
+        \item Activation $\sigma$ introduces the nonlinearity needed to approximate complex mappings
+      \end{itemize}
+    \item \hl{Output neurons}: produce the final estimate $\hat\theta$ (no activation in regression)
+  \end{itemize}
+  \medskip
+  \hl{Model complexity} is governed by:
+  \begin{itemize}
+    \item Depth: deeper networks learn more abstract representations
+    \item Width: wider networks have more capacity per layer
+    \item Larger networks risk overfitting $\Rightarrow$ need regularization (L2, dropout, early stopping)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Functions: Training, Loss, and Others}
+  \hl{Loss function} (what we minimize):
+  \begin{itemize}
+    \item NNE regression: mean squared error
+          \[
+            \mathcal{L}(\phi) = \frac{1}{S} \sum_{s=1}^S
+                \bigl\| f_\phi(m^{(s)}) - \theta^{(s)} \bigr\|^2
+          \]
+    \item Classification: cross-entropy $\mathcal{L} = -\frac{1}{S}\sum_s \sum_k y_k^{(s)}\log\hat{p}_k^{(s)}$
+  \end{itemize}
+  \medskip
+  \hl{Other key functions}:
+  \begin{itemize}
+    \item \textbf{Activation functions}: ReLU $= \max(0,z)$,
+          sigmoid $= (1+e^{-z})^{-1}$, tanh
+    \item \textbf{Regularization}: L2 weight decay, dropout (randomly zero units during training)
+    \item \textbf{Batch normalization}: rescale layer inputs for stable training
+    \item \textbf{Learning rate schedule}: reduce step size over epochs
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Training Process}
+  \begin{enumerate}
+    \item \hl{Forward pass}: compute $\hat\theta = f_\phi(m)$ layer by layer
+    \item \hl{Compute loss}: $\mathcal{L}(\phi) = \|\hat\theta - \theta\|^2$
+    \item \hl{Backward pass} (backpropagation): apply chain rule to get $\nabla_\phi\mathcal{L}$
+          \[
+            \frac{\partial \mathcal{L}}{\partial W^{(\ell)}}
+            = \frac{\partial \mathcal{L}}{\partial h^{(\ell)}}
+              \cdot \sigma'\!\left(W^{(\ell)} h^{(\ell-1)}\right)
+              \cdot \bigl(h^{(\ell-1)}\bigr)^\top
+          \]
+    \item \hl{Parameter update}: stochastic gradient descent (or Adam)
+          \[
+            \phi \;\leftarrow\; \phi - \eta\,\nabla_\phi \mathcal{L}
+          \]
+    \item Repeat over \textit{mini-batches} and \textit{epochs} until convergence
+  \end{enumerate}
+  \smallskip
+  \begin{itemize}
+    \item Learning rate $\eta$ is the most important hyperparameter
+    \item Validation set used to monitor overfitting and trigger early stopping
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+\section{Worked Example: AR(1)}
+% ============================================================
+
+\begin{frame}{AR(1) Model Setup}
+  \hl{Data generating process:}
+  \[
+    y_t = \rho\, y_{t-1} + \varepsilon_t,
+    \quad \varepsilon_t \overset{\text{iid}}{\sim} \mathcal{N}(0, \sigma^2)
+  \]
+  \begin{itemize}
+    \item Parameters to estimate: $\theta = (\rho,\, \sigma)$, with $|\rho| < 1$
+    \item Observed: time series $\{y_t\}_{t=1}^T$
+    \item \hl{Moments} that summarize the data:
+          \[
+            m(y) \;=\; \bigl(\widehat{\mathrm{Var}}(y),\;\hat\rho_1,\;\hat\rho_2\bigr)
+          \]
+          where $\hat\rho_k$ is the sample autocorrelation at lag $k$
+    \item MLE is available for AR(1) — NNE is used here as a \textit{proof of concept}
+          to validate accuracy against a known benchmark
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{AR(1): Simulate Data and Compute Moments}
+  \begin{columns}[T]
+    \begin{column}{0.44\textwidth}
+      \hl{Algorithm, Steps 1--2:}
+      \begin{enumerate}
+        \item Specify prior $\Pi(\theta)$ over $(\rho, \sigma)$
+        \item For each simulation $s = 1, \ldots, S$:
+          \begin{itemize}
+            \item Draw $\theta^{(s)} \sim \Pi$
+            \item Simulate AR(1) time series of length $T$
+            \item Compute moments $m^{(s)} = m\!\left(\{y_t^{(s)}\}\right)$
+          \end{itemize}
+      \end{enumerate}
+      \vspace{0.4cm}
+      Moments carry the information about $(\rho, \sigma)$; the NN learns to invert this mapping.
+    \end{column}
+    \begin{column}{0.53\textwidth}
+\begin{minted}[fontsize=\scriptsize]{python}
+import numpy as np
+
+def simulate_ar1(rho, sigma, T=200, rng=None):
+    rng = rng or np.random.default_rng()
+    y = np.zeros(T)
+    for t in range(1, T):
+        y[t] = rho * y[t-1] \
+             + sigma * rng.standard_normal()
+    return y
+
+def compute_moments(y):
+    v  = np.var(y)
+    r1 = np.corrcoef(y[:-1], y[1:])[0, 1]
+    r2 = np.corrcoef(y[:-2], y[2:])[0, 1]
+    return np.array([v, r1, r2])
+\end{minted}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{AR(1): Training the NNE}
+  \begin{columns}[T]
+    \begin{column}{0.44\textwidth}
+      \hl{Algorithm, Steps 3--4:}
+      \begin{enumerate}
+        \setcounter{enumi}{2}
+        \item Train NN $f_\phi : m \mapsto \theta$ on
+              $\{(m^{(s)}, \theta^{(s)})\}_{s=1}^S$
+        \item \textbf{Estimation:} given $\{y_t^{\text{obs}}\}$,
+              compute $m^{\text{obs}}$, then\\
+              $\hat\theta = f_\phi(m^{\text{obs}})$
+      \end{enumerate}
+      \vspace{0.4cm}
+      Steps 1--3 are \hl{offline} (one-time cost). \\
+      Step 4 is \hl{online}: milliseconds per dataset.
+    \end{column}
+    \begin{column}{0.53\textwidth}
+\begin{minted}[fontsize=\scriptsize]{python}
+from sklearn.neural_network import MLPRegressor
+
+rng, S = np.random.default_rng(42), 5_000
+
+rho_s   = rng.uniform(-0.95, 0.95, S)
+sigma_s = rng.uniform(0.1,   2.0,  S)
+thetas  = np.column_stack([rho_s, sigma_s])
+
+moments = np.array([
+    compute_moments(
+        simulate_ar1(r, s, rng=rng))
+    for r, s in thetas
+])
+
+nne = MLPRegressor(
+    hidden_layer_sizes=(64, 64),
+    max_iter=500, random_state=42)
+nne.fit(moments, thetas)
+\end{minted}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Accuracy and Efficiency}
+  \hl{Accuracy:}
+  \begin{itemize}
+    \item NNE recovers $(\rho, \sigma)$ with low bias across the parameter space
+    \item For $T \geq 100$, performance is close to MLE; gap narrows as $S \to \infty$
+    \item Bhatt, Misra, Qi (2023): NNE RMSE within 5\% of MLE benchmark for AR(1)
+  \end{itemize}
+  \medskip
+  \hl{Efficiency:}
+  \begin{itemize}
+    \item \textbf{MLE}: iterative optimization, $\sim$seconds per dataset
+    \item \textbf{SMM}: many simulations per objective evaluation, $\sim$minutes
+    \item \textbf{NNE}: single forward pass after training, $\sim$milliseconds
+    \item Training cost is \textit{amortized} --- paid once, reused for all future estimations
+    \item Speed advantage grows with the number of datasets and model complexity
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+\section{The Paper}
+% ============================================================
+
+\begin{frame}{Bhatt, Misra, and Qi (2023)}
+  \begin{itemize}
+    \item Published in \textit{Marketing Science}: ``Estimating Parameters of Structural
+          Models Using Neural Networks''
+    \item \hl{Goal}: provide a general-purpose, computationally efficient estimator
+          for structural models with intractable likelihoods
+    \item \hl{Approach}: NNE --- simulate (parameter, moment) pairs, train a NN, apply to data
+    \item \hl{Contributions}:
+      \begin{enumerate}
+        \item Theoretical properties: consistency and asymptotic normality of NNE
+              as $S \to \infty$ and network width $H \to \infty$
+        \item Practical guidelines: architecture choice, training sample size, moment selection
+        \item Applications: AR(1) time series, consumer search model, demand estimation
+      \end{enumerate}
+    \item Paper is available in the \texttt{Readings/} folder
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Key Definition: Shallow Neural Network}
+  \begin{tcolorbox}[colback=red!5!white, colframe=red!75!black,
+                    title=\textbf{Definition: Shallow Neural Network}]
+    A \hl{shallow neural network} with $H$ hidden units is a function
+    $f : \mathbb{R}^K \to \mathbb{R}^P$:
+    \[
+      f(m) = A^{(2)}\,\sigma\!\left(A^{(1)} m + b^{(1)}\right) + b^{(2)}
+    \]
+    where $A^{(1)} \in \mathbb{R}^{H \times K}$,\ $b^{(1)} \in \mathbb{R}^H$,\
+          $A^{(2)} \in \mathbb{R}^{P \times H}$,\ $b^{(2)} \in \mathbb{R}^P$.
+  \end{tcolorbox}
+  \begin{itemize}
+    \item Exactly \textbf{one} hidden layer --- the simplest NN with universal approximation capacity
+    \item Bhatt et al.\ establish that the shallow NNE is consistent as
+          $S, H \to \infty$ under mild regularity conditions
+    \item In practice, deeper architectures often perform better;
+          shallow NN serves as a clean theoretical baseline
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Consumer Search Model}
+  \hl{Setup} (sequential search; Weitzman 1979):
+  \begin{itemize}
+    \item Consumer $i$ considers $J$ products; pays cost $c$ to inspect each one
+    \item Utility from product $j$: $u_{ij} = \mu_j - p_j + \varepsilon_{ij}$,
+          where $\varepsilon_{ij}$ is a match value revealed only upon search
+    \item \hl{Optimal strategy}: inspect products in decreasing order of
+          reservation utility $z_j$, where $z_j$ solves
+          \[
+            c = \int_{z_j}^{\infty} (u - z_j)\, dF_\varepsilon(u)
+          \]
+    \item Stop searching when expected gain from the next product falls below $c$
+  \end{itemize}
+  \medskip
+  \hl{Parameters}: $\theta = (\mu_1, \ldots, \mu_J,\; c,\; \sigma_\varepsilon)$
+  \begin{itemize}
+    \item Likelihood of observed consideration sets is \textbf{intractable} ---
+          NNE is especially valuable here
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{NNE Applied to Consumer Search}
+  \hl{Moments} used to train the NNE:
+  \begin{itemize}
+    \item Product purchase rates: $\Pr(\text{purchase product } j)$
+    \item Mean consideration set size: $\mathbb{E}[|\mathcal{C}_i|]$
+    \item Fraction of consumers who search at least $k$ products, for $k = 1, 2, \ldots$
+  \end{itemize}
+  \medskip
+  \hl{Results from Bhatt, Misra, Qi (2023)}:
+  \begin{itemize}
+    \item NNE recovers search cost $c$ and product qualities $\{\mu_j\}$
+          with accuracy comparable to full structural estimation
+    \item Speed advantage: $10\times$--$100\times$ faster than simulated MLE
+    \item Performance degrades gracefully as fewer moments are used ---
+          robust to moment selection in practice
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+\section{Conclusion}
+% ============================================================
+
+\begin{frame}{When Is NNE Useful and Preferable?}
+  \hl{NNE is the right tool when:}
+  \begin{itemize}
+    \item The structural model has an \textbf{intractable or expensive likelihood}
+    \item Simulation from the model is \textbf{fast} relative to inference
+    \item The estimator will be applied to \textbf{many datasets}
+          (training cost is amortized across all of them)
+    \item The parameter space is \textbf{high-dimensional}
+          (gradient-based optimization of the structural objective is fragile)
+  \end{itemize}
+  \medskip
+  \hl{Limitations to keep in mind:}
+  \begin{itemize}
+    \item Requires a well-chosen set of \textbf{informative moments}
+    \item Training quality depends on \textbf{coverage of the prior} $\Pi(\theta)$
+    \item Not ideal for very small samples (moments are too noisy)
+    \item Standard errors require additional work: bootstrap or delta method
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Application to My Research}
+  \begin{itemize}
+    \item
+    \item
+    \item
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Application to My Research (cont.)}
+  \begin{itemize}
+    \item
+    \item
+    \item
+  \end{itemize}
+\end{frame}
+
+\end{document}
