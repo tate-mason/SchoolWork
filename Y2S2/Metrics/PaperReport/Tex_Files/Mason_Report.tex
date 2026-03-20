@@ -49,7 +49,7 @@
 \onehalfspacing
 
 % ── Title block ─────────────────────────────────────────────
-\title{JMP - Yu Song}
+\title{Optimizing Multi-Stage Personalization in the Customer Journey - Yu Song}
 \author{Tate Mason}
 \date{\today}
 
@@ -66,7 +66,7 @@
 % ── 1. Introduction ─────────────────────────────────────────
 \section{Introduction}
 
-Song's "Optimizing Multi-Stage Personalization in the Customer Journey" investigates the firm's
+Song's "Optimizing Multi-Stage Personalization in the Customer Journey" \nocite{song_optimizing_nodate} investigates the firm's
 process of optimizing the personalization process for a consumer's shopping experience. As e-commerce
 and online consumption becomes the norm, gaining an understanding of how firms' personlization algorithms
 can be fine tuned should be at the forefront of IO research. Song focuses on the the multi-stage personalization design
@@ -77,7 +77,8 @@ which leads to optimal firm outcomes.
 A structural model is fitting here due to Song's use of a field experiment in conjunction with a massive e-commerce platform. This rich data allows for 
 more complex modeling, capturing consumer search and choice in a particularly complex setting. If Song instead used a differences-in-differences approach,
 or some such method, they would be wasting a good amount of data, leaving half of the sample untreated. This would also only get at effects like purchase rate,
-inspection rate, etc. whereas the structural approach is able to observe what products are purchased, the length of session, and other similar outcomes.
+inspection rate, etc. whereas the structural approach is able to get at deeper behavioral outcomes like what patterns lead to purchase, the fine tuned level of personalization leading to conversion,
+and other like measures.
 
 \section{Model Structure and Relation to Framework}
 
@@ -118,15 +119,20 @@ calculating data moments, as well as recovering estimated parameters and the cov
 
 Song needs to recover nine parameters: position effects, price, preferences, costs, and standard deviation of post-inspection taste shock. To identify position effects, they use 
 historical search queries and item clicks. This allows them to predict position, assuming the residual variation is exogenous to individual preferences. For prices, they utilize
-Gandhi and Houde (2019) instruments, using competing products in the same market as instruments to control for the endogeity concern associated with prices. For preferences, Song
+\cite{gandhi_measuring_2019} instruments, using competing products in the same market as instruments to control for the endogeity concern associated with prices. For preferences, Song
 implements a control function, using purchasing decisions among the inspected products to inform preferences. Costs are identified differently depending on type. For the baseline costs,
 Song uses the number of product inspections consumers perform in each stage. For the baseline cost of searching, the frequency of engaging in a query serves as identifying.
 Finally, for variable search cost, variation in experimental assignment in employed. Lastly, taste shock standard deviation is identified by the number of items inspected by the consumer.
 
 \section{Results Overview}
 
-Song finds that personalizing in the recommendation stage will boost initial engagement, before losing query stage engagement, leaving total revenue flat. If both stages are personalized,
-total revenue increases relative to the case mentioned above.
+Song's estimation result show that consumers derive utiltiy from newer items sold by more experienced sellers who provide more details about the product. Of course, they also prefer cheaper
+goods. Song does note, however, consumers are willing to pay more for a name brand good, like Pokemon, than an unbranded one. Consumers also favor being in a product category which aligns 
+with what they intended to purchase. 
+
+Costs, interestingly, show the importance of position and transition frictions. A personalized recommendation page would lead to a friction cost of transitioning to query of \$0.16. Position
+effects can be dollarized to \$0.72 on the recommendation page and \$0.48 of the query page. This is likely due to the query page being more targeted, with position playing less of a role, whereas
+in the recommendation stage, there is an aspect of the consumer deciding what they want.
 
 \section{Counterfactuals}
 
@@ -137,8 +143,17 @@ of personalization at each stage simultaneously, and sees how utility is impacte
 manner either. The structural model that has been used thus far provides much more tuning and customizability for Song to perform these analyses, whereas the reduced form approach
 would not be able to change so many things at once.
 
+Multi-stage personalization is undertaken by varying weights on a consumer ranking score, ranking their utility from individual-level preferences and aggregate preferences. Song then
+varies the weight at differing stages of the retail process, discovery or query. When personalizing at discovery, there is a modest increase in total revenue relative to no personlization
+at all. However, when customizing at query, there is a 2.9\% increase in total revenue relative to personalizing in both, which yields no increase. However, discovery personalization may help
+customers to better update their belief set in the search process. However, this is a weak match, and thus could lead to misbeliefs and by extension early exit.
+
 There are a few other counterfactuals that would have been interesting. Firstly, increasing latency by adding more listings to a page, seeing if the trade between personalized recommendation
-and latency has an impact. Second, seeing how the two counterfactuals affect things other than revenue. For instance, how is the outside option affected, or the search process?
+and latency has an impact. Second, seeing how the two counterfactuals affect things other than revenue. For instance, how is the outside option affected, or the search process? I also would have
+liked to see how the model would have been impacted by changing seller makeups in a simulated dataset, since it appears that a lot of the consumer's belief depend on seller inputs like experience,
+pictures provided, physical quality, etc. I similarly think the name brand channel is interesting and could have been better explored by showing some sort of brand loyalty. For instance, if you 
+remove Sony as a brand, do consumers switch or exit?
+
 
 \section{Overall Conclusion}
 
@@ -151,6 +166,14 @@ If I were to extend this paper, I would look into how variation in preferences a
 deviation impacts initiation of search or how the baseline cost of search leads to selection of the outside option. Overall, this paper is very strong, and levarages strong data and interesting
 mechanics to investigate a question of growing importance in IO.
 
+I chose this paper as I am interested in consumer search and choice, as well as digital markets. I also believe Song's paper does a particularly good job of navigating the reader through the estimation
+procedure, the model, as well as counterfactual analyses. I am more interested in software side effects: algorithmic choice sets, software lock in to a product set, etc. But, I think this paper also
+provides ideas which can be used in my (potential) future work.
+
+\section{Bibliography}
+
+\bibliography{report_bib.bib}
+\bibliographystyle{plainnat}
 
 \end{document}
 

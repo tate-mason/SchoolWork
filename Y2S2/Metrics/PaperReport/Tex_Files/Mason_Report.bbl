@@ -1,0 +1,18 @@
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Gandhi and Houde(2019)]{gandhi_measuring_2019}
+Amit Gandhi and Jean-François Houde.
+\newblock Measuring {Substitution} {Patterns} in {Diﬀerentiated}-{Products} {Industries}.
+\newblock Technical Report w26375, National Bureau of Economic Research, Cambridge, MA, October 2019.
+\newblock URL \url{http://www.nber.org/papers/w26375.pdf}.
+
+\bibitem[Song()]{song_optimizing_nodate}
+Yu~Song.
+\newblock Optimizing {Multi}-{Stage} {Personalization} in the {Customer} {Journey}.
+
+\end{thebibliography}
