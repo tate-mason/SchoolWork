@@ -1,0 +1,642 @@
+-------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/tate/Schoolwork/Y2S2/Health/RepProj/Output/Mason_rep_log.log
+  log type:  text
+ opened on:  20 Mar 2026, 10:05:22
+
+. 
+. /************************************************************
+> * (2) Switches for Running Individual Sections              *
+> ************************************************************/
+. 
+. // Below I define a local switch for each section. If the 
+. // switch is equal to 1 it will run; at 0 it is dormant.
+. 
+. local Tab2     = 0
+
+. local Tab3     = 0
+
+. local Tab4     = 0
+
+. local Tab5     = 1 // descriptives only: obs, sample mean, % risky
+
+. local Tab6     = 0
+
+. local Tab7     = 0
+
+. local Fig4     = 0 // parallel trends; vline at 1996; 5 subfigures
+
+. local ARC      = 0 // robustness: Footnote 12 (col1), Footnote 21 (col2-3)
+
+. local Extension = 0 
+
+. /************************************************************
+> * (3) Section Calls                                         *
+> ************************************************************/
+. 
+. if `Tab2'      do `codePath'Tab2.do      `dataPath' `outPath'
+
+. if `Tab3'      do `codePath'Tab3.do      `dataPath' `outPath'
+
+. if `Tab4'      do `codePath'Tab4.do      `dataPath' `outPath'
+
+. if `Tab5'      do `codePath'Tab5.do      `dataPath' `outPath'
+
+. /************************************************************
+> * Tab5.do                                                   *
+> * Table 5 - NHANES Biomarker Descriptives                  *
+> *                                                           *
+> * Args: 1 = dataPath, 2 = outPath                          *
+> *                                                           *
+> * Loads the stacked NHANES data, constructs all biomarker   *
+> * risk indicators, writes Tab5.tex with obs/mean/% risky,   *
+> * and saves nhanescleaned.dta for use by Tab6 and Tab7.     *
+> ************************************************************/
+. 
+. local dataPath "`1'"
+
+. local outPath  "`2'"
+
+. 
+. use `dataPath'nhanes/nhanesallstacked.dta, clear
+
+. 
+. // Sample restrictions: women aged 21-40, black/white/hispanic only
+. drop if age < 21 | age > 40
+(51,589 observations deleted)
+
+. drop if sex == 1
+(5,773 observations deleted)
+
+. drop if race > 3 | race < 0
+(277 observations deleted)
+
+. 
+. // Approximate children in household (family size minus adults)
+. gen kids = .
+(6,686 missing values generated)
+
+. replace kids = family_size-1 if marital > 1 & year == 0
+(1,984 real changes made)
+
+. replace kids = family_size-2 if marital == 1 & year == 0
+(1,996 real changes made)
+
+. replace kids = dmdhhsiz-1    if marital > 1 & year > 0
+(1,267 real changes made)
+
+. replace kids = dmdhhsiz-2    if marital == 1 & year > 0
+(1,439 real changes made)
+
+. 
+. // Education indicator (no high school or less)
+. gen no_hs = highgrade <= 2
+
+. 
+. // Keep only mothers
+. drop if kids <= 0
+(935 observations deleted)
+
+. 
+. // Treatment variables
+. gen twoplus_kids = kids > 1
+
+. gen eitc_expand  = year > 0
+
+. gen dd_treat     = eitc_expand * twoplus_kids
+
+. gen eitc_nohs    = eitc_expand * no_hs
+
+. gen twoplus_nohs = twoplus_kids * no_hs
+
+. gen ddd_treat    = dd_treat * no_hs
+
+. 
+. // Biomarker cleaning
+. replace crp = . if crp == 88888
+(199 real changes made, 199 to missing)
+
+. 
+. gen riskycrp                    = crp >= 0.3
+
+. replace riskycrp                = . if crp == .
+(614 real changes made, 614 to missing)
+
+. replace riskypulse              = . if pulse == .
+(366 real changes made, 366 to missing)
+
+. replace riskydiastolic          = . if diastolic == .
+(609 real changes made, 609 to missing)
+
+. replace riskysystolic           = . if systolic == .
+(602 real changes made, 602 to missing)
+
+. replace riskyhdl                = . if hdl == .
+(623 real changes made, 623 to missing)
+
+. replace riskyCholest            = . if cholesterol == .
+(609 real changes made, 609 to missing)
+
+. replace riskyAlbumin            = . if albumin == .
+(636 real changes made, 636 to missing)
+
+. replace riskyglycatedhemoglobin = . if glycatedhemoglobin == .
+(552 real changes made, 552 to missing)
+
+. 
+. // Composite risk indices
+. gen metabsum  = riskyglycatedhemoglobin + riskyCholest + riskyhdl
+(640 missing values generated)
+
+. gen cardiosum = riskysystolic + riskydiastolic + riskypulse
+(609 missing values generated)
+
+. gen inflsum   = riskycrp + riskyAlbumin
+(637 missing values generated)
+
+. gen totalsum  = metabsum + cardiosum + inflsum
+(1,081 missing values generated)
+
+. 
+. gen anymetab = metabsum > 0
+
+. replace anymetab = . if riskyglycatedhemoglobin == . | riskyCholest == . | riskyhdl == .
+(640 real changes made, 640 to missing)
+
+. gen anycardio = cardiosum > 0
+
+. replace anycardio = . if riskypulse == . | riskydiastolic == . | riskysystolic == .
+(609 real changes made, 609 to missing)
+
+. gen anyinflamation = inflsum > 0
+
+. replace anyinflamation = . if riskyAlbumin == . | riskycrp == .
+(637 real changes made, 637 to missing)
+
+. 
+. replace crp = 0.21 if crp < 0.21
+(844 real changes made)
+
+. 
+. gen total1 = totalsum > 0
+
+. replace total1 = . if totalsum == .
+(1,081 real changes made, 1,081 to missing)
+
+. gen total2 = totalsum > 1
+
+. replace total2 = . if totalsum == .
+(1,081 real changes made, 1,081 to missing)
+
+. gen total3 = totalsum > 2
+
+. replace total3 = . if totalsum == .
+(1,081 real changes made, 1,081 to missing)
+
+. 
+. // Drop missings before saving cleaned file and computing descriptives
+. drop if marital == . | race == . | age == . | no_hs == . | kids == .
+(431 observations deleted)
+
+. 
+. // Spot-check summaries
+. sum crp albumin inflsum anyinflamation if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+         crp |      2,950    .5730441    .8771832        .21       18.5
+     albumin |      2,935    4.065622    .4182205        2.2        5.4
+     inflsum |      2,934    .6993865    .7461365          0          2
+anyinflama~n |      2,934     .526244    .4993959          0          1
+
+. sum diastolic systolic pulse cardiosum anycardio if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+   diastolic |      2,947    69.30302    11.90475         12        140
+    systolic |      2,952    112.2046    13.08322         78        200
+       pulse |      3,090     74.9754    11.11009         40        130
+   cardiosum |      2,947    .1845945    .4637507          0          3
+   anycardio |      2,947     .155073    .3620356          0          1
+
+. sum cholesterol hdl glycatedhemoglobin metabsum anymetab if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+ cholesterol |      2,949    189.9488    40.71727         81        676
+         hdl |      2,942    53.62475    15.05917         17        172
+glycatedhe~n |      2,992    5.204311    .7575044        3.3       14.4
+    metabsum |      2,933    .2836686    .5064346          0          3
+    anymetab |      2,933    .2587794    .4380389          0          1
+
+. sum totalsum total1 total2 total3 if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+    totalsum |      2,683    1.156168    1.113868          0          6
+      total1 |      2,683    .6571003    .4747668          0          1
+      total2 |      2,683    .3328364    .4713164          0          1
+      total3 |      2,683    .1270965    .3331432          0          1
+
+. 
+. // Save cleaned file for Tab6 and Tab7
+. save `dataPath'nhanes/nhanescleaned.dta, replace
+file ~/Schoolwork/Y2S2/Health/RepProj/Data/nhanes/nhanescleaned.dta saved
+
+. 
+. // ---- Write Tab5 LaTeX ----
+. 
+. cap mkdir `outPath'Tables
+
+. file open tab5 using `outPath'Tables/Tab5.tex, write replace
+
+. file write tab5 "\begin{table}[htbp]" _n
+
+. file write tab5 "\centering" _n
+
+. file write tab5 "\caption{Table 5: Biomarkers for Mothers Aged 21--40 with a High School Education or
+>  Less, NHANES}" _n
+
+. file write tab5 "\begin{tabular}{lcccc}" _n
+
+. file write tab5 "\toprule" _n
+
+. file write tab5 "Biomarker & Obs & Mean & Risky level & \% Risky \\" _n
+
+. file write tab5 "\midrule" _n
+
+. file write tab5 "\multicolumn{5}{l}{\textit{Measures of inflammation}} \\" _n
+
+. file write tab5 "\addlinespace" _n
+
+. 
+. // CRP
+. sum crp if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+         crp |      2,950    .5730441    .8771832        .21       18.5
+
+. local obs = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn  = strtrim(string(r(mean), "%9.3f"))
+
+. sum riskycrp if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+    riskycrp |      2,950    .4372881    .4961357          0          1
+
+. local pct = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "C-reactive protein (mg/Dl) & `obs' & `mn' & \$\geq\$ 0.3 mg/Dl & `pct' \\" _n
+
+. 
+. // Albumin
+. sum albumin if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+     albumin |      2,935    4.065622    .4182205        2.2        5.4
+
+. local obs = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn  = strtrim(string(r(mean), "%9.2f"))
+
+. sum riskyAlbumin if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+riskyAlbumin |      2,935    .2620102    .4398031          0          1
+
+. local pct = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "Albumin (g/Dl) & `obs' & `mn' & \$<\$ 3.8 g/Dl & `pct' \\" _n
+
+. 
+. // Inflammation aggregate
+. sum inflsum if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+     inflsum |      2,934    .6993865    .7461365          0          2
+
+. local obs     = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn_sum  = strtrim(string(r(mean), "%9.3f"))
+
+. sum anyinflamation if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+anyinflama~n |      2,934     .526244    .4993959          0          1
+
+. local mn_any  = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "Number of risky inflammation conditions & `obs' & `mn_sum' & & \\" _n
+
+. file write tab5 "Any risky inflammation condition & `obs' & `mn_any' & & `mn_any' \\" _n
+
+. 
+. file write tab5 "\midrule" _n
+
+. file write tab5 "\multicolumn{5}{l}{\textit{Measures of cardiovascular conditions}} \\" _n
+
+. file write tab5 "\addlinespace" _n
+
+. 
+. // Diastolic
+. sum diastolic if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+   diastolic |      2,947    69.30302    11.90475         12        140
+
+. local obs = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn  = strtrim(string(r(mean), "%9.1f"))
+
+. sum riskydiastolic if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+riskydiast~c |      2,947    .0458093    .2091068          0          1
+
+. local pct = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "Diastolic blood pressure (mmHg) & `obs' & `mn' & \$\geq\$ 140 mmHg & `pct' \\" _n
+
+. 
+. // Systolic
+. sum systolic if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+    systolic |      2,952    112.2046    13.08322         78        200
+
+. local obs = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn  = strtrim(string(r(mean), "%9.1f"))
+
+. sum riskysystolic if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+riskysysto~c |      2,952    .0348916    .1835363          0          1
+
+. local pct = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "Systolic blood pressure (mmHg) & `obs' & `mn' & \$\geq\$ 90 mmHg & `pct' \\" _n
+
+. 
+. // Pulse
+. sum pulse if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+       pulse |      3,090     74.9754    11.11009         40        130
+
+. local obs = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn  = strtrim(string(r(mean), "%9.2f"))
+
+. sum riskypulse if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+  riskypulse |      3,090     .107767    .3101361          0          1
+
+. local pct = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "Resting pulse (beats/min) & `obs' & `mn' & \$\geq\$ 90 BPM & `pct' \\" _n
+
+. 
+. // Cardiovascular aggregate
+. sum cardiosum if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+   cardiosum |      2,947    .1845945    .4637507          0          3
+
+. local obs     = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn_sum  = strtrim(string(r(mean), "%9.3f"))
+
+. sum anycardio if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+   anycardio |      2,947     .155073    .3620356          0          1
+
+. local mn_any  = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "Number of risky cardiovascular conditions & `obs' & `mn_sum' & & \\" _n
+
+. file write tab5 "Any risky cardiovascular condition & `obs' & `mn_any' & & `mn_any' \\" _n
+
+. 
+. file write tab5 "\midrule" _n
+
+. file write tab5 "\multicolumn{5}{l}{\textit{Measures of metabolic conditions}} \\" _n
+
+. file write tab5 "\addlinespace" _n
+
+. 
+. // Cholesterol
+. sum cholesterol if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+ cholesterol |      2,949    189.9488    40.71727         81        676
+
+. local obs = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn  = strtrim(string(r(mean), "%9.2f"))
+
+. sum riskyCholest if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+riskyCholest |      2,949    .1024076     .303235          0          1
+
+. local pct = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "Total cholesterol (mg/Dl) & `obs' & `mn' & \$\geq\$ 240 mg/Dl & `pct' \\" _n
+
+. 
+. // HDL
+. sum hdl if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+         hdl |      2,942    53.62475    15.05917         17        172
+
+. local obs = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn  = strtrim(string(r(mean), "%9.2f"))
+
+. sum riskyhdl if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+    riskyhdl |      2,942    .1560163    .3629325          0          1
+
+. local pct = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "HDL (mg/Dl) & `obs' & `mn' & \$<\$ 40 mg/Dl & `pct' \\" _n
+
+. 
+. // HbA1c
+. sum glycatedhemoglobin if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+glycatedhe~n |      2,992    5.204311    .7575044        3.3       14.4
+
+. local obs = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn  = strtrim(string(r(mean), "%9.1f"))
+
+. sum riskyglycatedhemoglobin if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+riskyglyca~n |      2,992    .0257353     .158371          0          1
+
+. local pct = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "Glycated hemoglobin (\%) & `obs' & `mn' & \$\geq\$ 6.4\% & `pct' \\" _n
+
+. 
+. // Metabolic aggregate
+. sum metabsum if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+    metabsum |      2,933    .2836686    .5064346          0          3
+
+. local obs     = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn_sum  = strtrim(string(r(mean), "%9.3f"))
+
+. sum anymetab if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+    anymetab |      2,933    .2587794    .4380389          0          1
+
+. local mn_any  = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "Number of risky metabolic conditions & `obs' & `mn_sum' & & \\" _n
+
+. file write tab5 "Any risky metabolic condition & `obs' & `mn_any' & & `mn_any' \\" _n
+
+. 
+. file write tab5 "\midrule" _n
+
+. file write tab5 "\multicolumn{5}{l}{\textit{Aggregate risks}} \\" _n
+
+. file write tab5 "\addlinespace" _n
+
+. 
+. // Total risky count
+. sum totalsum if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+    totalsum |      2,683    1.156168    1.113868          0          6
+
+. local obs = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn  = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "Number of risky conditions & `obs' & `mn' & & \\" _n
+
+. 
+. // total1
+. sum total1 if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+      total1 |      2,683    .6571003    .4747668          0          1
+
+. local obs = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn  = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "One or more risky conditions & `obs' & `mn' & & `mn' \\" _n
+
+. 
+. // total2
+. sum total2 if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+      total2 |      2,683    .3328364    .4713164          0          1
+
+. local obs = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn  = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "Two or more risky conditions & `obs' & `mn' & & `mn' \\" _n
+
+. 
+. // total3
+. sum total3 if highgrade <= 2
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+      total3 |      2,683    .1270965    .3331432          0          1
+
+. local obs = strtrim(string(r(N),    "%9.0fc"))
+
+. local mn  = strtrim(string(r(mean), "%9.3f"))
+
+. file write tab5 "Three or more risky conditions & `obs' & `mn' & & `mn' \\" _n
+
+. 
+. file write tab5 "\bottomrule" _n
+
+. file write tab5 "\end{tabular}" _n
+
+. file write tab5 "\begin{minipage}{\linewidth}" _n
+
+. file write tab5 "\smallskip\footnotesize" _n
+
+. file write tab5 "$^\text{a}$ To make the datasets comparable over time, we censored the lower values 
+> of C-reactive protein at 0.21 in the "
+
+. file write tab5 "final three NHANES samples. \\" _n
+
+. file write tab5 "$^\text{b}$ g/Dl = Grams per deciliter \\" _n
+
+. file write tab5 "$^\text{c}$ mmHg = Millimeters of mercury \\" _n
+
+. file write tab5 "$^\text{d}$ mg/Dl = Milligrams per deciliter \\" _n
+
+. file write tab5 "\end{minipage}" _n
+
+. file write tab5 "\end{table}" _n
+
+. file close tab5
+
+. 
+end of do-file
+
+. if `Tab6'      do `codePath'Tab6.do      `dataPath' `outPath'
+
+. if `Tab7'      do `codePath'Tab7.do      `dataPath' `outPath'
+
+. if `Fig4'      do `codePath'Fig4.do      `dataPath' `outPath'
+
+. if `ARC'       do `codePath'ARC.do       `dataPath' `outPath'
+
+. if `Extension' do `codePath'Extension.do `dataPath' `outPath'
+
+. 
+. log close
+      name:  <unnamed>
+       log:  /Users/tate/Schoolwork/Y2S2/Health/RepProj/Output/Mason_rep_log.log
+  log type:  text
+ closed on:  20 Mar 2026, 10:05:22
+-------------------------------------------------------------------------------------------------------

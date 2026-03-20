@@ -21,10 +21,10 @@ drop if race > 3 | race < 0
 
 // Approximate children in household (family size minus adults)
 gen kids = .
-replace kids = family_size-1 if marital > 1 & year == 0 // NHANES III: single-adult household
-replace kids = family_size-2 if marital == 1 & year == 0 // NHANES III: two-adult household
-replace kids = dmdhhsiz-1    if marital > 1 & year > 0   // later waves: single-adult
-replace kids = dmdhhsiz-2    if marital == 1 & year > 0  // later waves: two-adult
+replace kids = family_size-1 if marital > 1 & year == 0
+replace kids = family_size-2 if marital == 1 & year == 0
+replace kids = dmdhhsiz-1    if marital > 1 & year > 0
+replace kids = dmdhhsiz-2    if marital == 1 & year > 0
 
 // Education indicator (no high school or less)
 gen no_hs = highgrade <= 2
@@ -33,15 +33,15 @@ gen no_hs = highgrade <= 2
 drop if kids <= 0
 
 // Treatment variables
-gen twoplus_kids = kids > 1     // dummy for 2+ kids
-gen eitc_expand  = year > 0     // post-expansion indicator
-gen dd_treat     = eitc_expand * twoplus_kids  // DiD treatment
-gen eitc_nohs    = eitc_expand * no_hs   // time x low-educ interaction
-gen twoplus_nohs = twoplus_kids * no_hs  // 2+ kids x low-educ interaction
-gen ddd_treat    = dd_treat * no_hs      // triple-diff treatment
+gen twoplus_kids = kids > 1
+gen eitc_expand  = year > 0
+gen dd_treat     = eitc_expand * twoplus_kids
+gen eitc_nohs    = eitc_expand * no_hs
+gen twoplus_nohs = twoplus_kids * no_hs
+gen ddd_treat    = dd_treat * no_hs
 
-// Biomarker cleaning (as done in replication package)
-replace crp = . if crp == 88888 // missing value code for CRP
+// Biomarker cleaning
+replace crp = . if crp == 88888
 
 gen riskycrp                    = crp >= 0.3
 replace riskycrp                = . if crp == .
@@ -66,7 +66,7 @@ replace anycardio = . if riskypulse == . | riskydiastolic == . | riskysystolic =
 gen anyinflamation = inflsum > 0
 replace anyinflamation = . if riskyAlbumin == . | riskycrp == .
 
-replace crp = 0.21 if crp < 0.21 // bottom-code CRP to match across waves
+replace crp = 0.21 if crp < 0.21
 
 gen total1 = totalsum > 0
 replace total1 = . if totalsum == .
@@ -79,7 +79,7 @@ replace total3 = . if totalsum == .
 drop if marital == . | race == . | age == . | no_hs == . | kids == .
 
 // Spot-check summaries
-sum crp albumin inflsum anyinflamation if highgrad <= 2
+sum crp albumin inflsum anyinflamation if highgrade <= 2
 sum diastolic systolic pulse cardiosum anycardio if highgrade <= 2
 sum cholesterol hdl glycatedhemoglobin metabsum anymetab if highgrade <= 2
 sum totalsum total1 total2 total3 if highgrade <= 2
@@ -112,19 +112,19 @@ file write tab5 "C-reactive protein (mg/Dl) & `obs' & `mn' & \$\geq\$ 0.3 mg/Dl 
 // Albumin
 sum albumin if highgrade <= 2
 local obs = strtrim(string(r(N),    "%9.0fc"))
-local mn  = strtrim(string(r(mean), "%9.3f"))
+local mn  = strtrim(string(r(mean), "%9.2f"))
 sum riskyAlbumin if highgrade <= 2
 local pct = strtrim(string(r(mean), "%9.3f"))
 file write tab5 "Albumin (g/Dl) & `obs' & `mn' & \$<\$ 3.8 g/Dl & `pct' \\" _n
 
 // Inflammation aggregate
 sum inflsum if highgrade <= 2
-local obs = strtrim(string(r(N),    "%9.0fc"))
-local mn  = strtrim(string(r(mean), "%9.3f"))
+local obs     = strtrim(string(r(N),    "%9.0fc"))
+local mn_sum  = strtrim(string(r(mean), "%9.3f"))
 sum anyinflamation if highgrade <= 2
-local pct = strtrim(string(r(mean), "%9.3f"))
-file write tab5 "Number of risky inflammation conditions & `obs' & `mn' & & \\" _n
-file write tab5 "Any risky inflammation condition & `obs' & & & `pct' \\" _n
+local mn_any  = strtrim(string(r(mean), "%9.3f"))
+file write tab5 "Number of risky inflammation conditions & `obs' & `mn_sum' & & \\" _n
+file write tab5 "Any risky inflammation condition & `obs' & `mn_any' & & `mn_any' \\" _n
 
 file write tab5 "\midrule" _n
 file write tab5 "\multicolumn{5}{l}{\textit{Measures of cardiovascular conditions}} \\" _n
@@ -133,7 +133,7 @@ file write tab5 "\addlinespace" _n
 // Diastolic
 sum diastolic if highgrade <= 2
 local obs = strtrim(string(r(N),    "%9.0fc"))
-local mn  = strtrim(string(r(mean), "%9.3f"))
+local mn  = strtrim(string(r(mean), "%9.1f"))
 sum riskydiastolic if highgrade <= 2
 local pct = strtrim(string(r(mean), "%9.3f"))
 file write tab5 "Diastolic blood pressure (mmHg) & `obs' & `mn' & \$\geq\$ 140 mmHg & `pct' \\" _n
@@ -141,7 +141,7 @@ file write tab5 "Diastolic blood pressure (mmHg) & `obs' & `mn' & \$\geq\$ 140 m
 // Systolic
 sum systolic if highgrade <= 2
 local obs = strtrim(string(r(N),    "%9.0fc"))
-local mn  = strtrim(string(r(mean), "%9.3f"))
+local mn  = strtrim(string(r(mean), "%9.1f"))
 sum riskysystolic if highgrade <= 2
 local pct = strtrim(string(r(mean), "%9.3f"))
 file write tab5 "Systolic blood pressure (mmHg) & `obs' & `mn' & \$\geq\$ 90 mmHg & `pct' \\" _n
@@ -149,19 +149,19 @@ file write tab5 "Systolic blood pressure (mmHg) & `obs' & `mn' & \$\geq\$ 90 mmH
 // Pulse
 sum pulse if highgrade <= 2
 local obs = strtrim(string(r(N),    "%9.0fc"))
-local mn  = strtrim(string(r(mean), "%9.3f"))
+local mn  = strtrim(string(r(mean), "%9.2f"))
 sum riskypulse if highgrade <= 2
 local pct = strtrim(string(r(mean), "%9.3f"))
 file write tab5 "Resting pulse (beats/min) & `obs' & `mn' & \$\geq\$ 90 BPM & `pct' \\" _n
 
 // Cardiovascular aggregate
 sum cardiosum if highgrade <= 2
-local obs = strtrim(string(r(N),    "%9.0fc"))
-local mn  = strtrim(string(r(mean), "%9.3f"))
+local obs     = strtrim(string(r(N),    "%9.0fc"))
+local mn_sum  = strtrim(string(r(mean), "%9.3f"))
 sum anycardio if highgrade <= 2
-local pct = strtrim(string(r(mean), "%9.3f"))
-file write tab5 "Number of risky cardiovascular conditions & `obs' & `mn' & & \\" _n
-file write tab5 "Any risky cardiovascular condition & `obs' & & & `pct' \\" _n
+local mn_any  = strtrim(string(r(mean), "%9.3f"))
+file write tab5 "Number of risky cardiovascular conditions & `obs' & `mn_sum' & & \\" _n
+file write tab5 "Any risky cardiovascular condition & `obs' & `mn_any' & & `mn_any' \\" _n
 
 file write tab5 "\midrule" _n
 file write tab5 "\multicolumn{5}{l}{\textit{Measures of metabolic conditions}} \\" _n
@@ -170,7 +170,7 @@ file write tab5 "\addlinespace" _n
 // Cholesterol
 sum cholesterol if highgrade <= 2
 local obs = strtrim(string(r(N),    "%9.0fc"))
-local mn  = strtrim(string(r(mean), "%9.3f"))
+local mn  = strtrim(string(r(mean), "%9.2f"))
 sum riskyCholest if highgrade <= 2
 local pct = strtrim(string(r(mean), "%9.3f"))
 file write tab5 "Total cholesterol (mg/Dl) & `obs' & `mn' & \$\geq\$ 240 mg/Dl & `pct' \\" _n
@@ -178,7 +178,7 @@ file write tab5 "Total cholesterol (mg/Dl) & `obs' & `mn' & \$\geq\$ 240 mg/Dl &
 // HDL
 sum hdl if highgrade <= 2
 local obs = strtrim(string(r(N),    "%9.0fc"))
-local mn  = strtrim(string(r(mean), "%9.3f"))
+local mn  = strtrim(string(r(mean), "%9.2f"))
 sum riskyhdl if highgrade <= 2
 local pct = strtrim(string(r(mean), "%9.3f"))
 file write tab5 "HDL (mg/Dl) & `obs' & `mn' & \$<\$ 40 mg/Dl & `pct' \\" _n
@@ -186,43 +186,47 @@ file write tab5 "HDL (mg/Dl) & `obs' & `mn' & \$<\$ 40 mg/Dl & `pct' \\" _n
 // HbA1c
 sum glycatedhemoglobin if highgrade <= 2
 local obs = strtrim(string(r(N),    "%9.0fc"))
-local mn  = strtrim(string(r(mean), "%9.3f"))
+local mn  = strtrim(string(r(mean), "%9.1f"))
 sum riskyglycatedhemoglobin if highgrade <= 2
 local pct = strtrim(string(r(mean), "%9.3f"))
 file write tab5 "Glycated hemoglobin (\%) & `obs' & `mn' & \$\geq\$ 6.4\% & `pct' \\" _n
 
 // Metabolic aggregate
 sum metabsum if highgrade <= 2
-local obs = strtrim(string(r(N),    "%9.0fc"))
-local mn  = strtrim(string(r(mean), "%9.3f"))
+local obs     = strtrim(string(r(N),    "%9.0fc"))
+local mn_sum  = strtrim(string(r(mean), "%9.3f"))
 sum anymetab if highgrade <= 2
-local pct = strtrim(string(r(mean), "%9.3f"))
-file write tab5 "Number of risky metabolic conditions & `obs' & `mn' & & \\" _n
-file write tab5 "Any risky metabolic condition & `obs' & & & `pct' \\" _n
+local mn_any  = strtrim(string(r(mean), "%9.3f"))
+file write tab5 "Number of risky metabolic conditions & `obs' & `mn_sum' & & \\" _n
+file write tab5 "Any risky metabolic condition & `obs' & `mn_any' & & `mn_any' \\" _n
 
 file write tab5 "\midrule" _n
 file write tab5 "\multicolumn{5}{l}{\textit{Aggregate risks}} \\" _n
 file write tab5 "\addlinespace" _n
 
+// Total risky count
 sum totalsum if highgrade <= 2
 local obs = strtrim(string(r(N),    "%9.0fc"))
 local mn  = strtrim(string(r(mean), "%9.3f"))
 file write tab5 "Number of risky conditions & `obs' & `mn' & & \\" _n
 
+// total1
 sum total1 if highgrade <= 2
 local obs = strtrim(string(r(N),    "%9.0fc"))
-local pct = strtrim(string(r(mean), "%9.3f"))
-file write tab5 "One or more risky conditions & `obs' & & & `pct' \\" _n
+local mn  = strtrim(string(r(mean), "%9.3f"))
+file write tab5 "One or more risky conditions & `obs' & `mn' & & `mn' \\" _n
 
+// total2
 sum total2 if highgrade <= 2
 local obs = strtrim(string(r(N),    "%9.0fc"))
-local pct = strtrim(string(r(mean), "%9.3f"))
-file write tab5 "Two or more risky conditions & `obs' & & & `pct' \\" _n
+local mn  = strtrim(string(r(mean), "%9.3f"))
+file write tab5 "Two or more risky conditions & `obs' & `mn' & & `mn' \\" _n
 
+// total3
 sum total3 if highgrade <= 2
 local obs = strtrim(string(r(N),    "%9.0fc"))
-local pct = strtrim(string(r(mean), "%9.3f"))
-file write tab5 "Three or more risky conditions & `obs' & & & `pct' \\" _n
+local mn  = strtrim(string(r(mean), "%9.3f"))
+file write tab5 "Three or more risky conditions & `obs' & `mn' & & `mn' \\" _n
 
 file write tab5 "\bottomrule" _n
 file write tab5 "\end{tabular}" _n

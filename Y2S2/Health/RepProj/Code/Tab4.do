@@ -175,7 +175,7 @@ foreach col in c1 c2 c3 c4 c5 c6 {
 }
 file write tab4 " \\" _n
 foreach col in c1 c2 c3 c4 c5 c6 {
-    local val = strtrim(string(scalar(p4_`col'_at_work), "%9.4f"))
+    local val = strtrim(string(scalar(p4_`col'_at_work), "%9.3f"))
     file write tab4 " & [`val']"
 }
 file write tab4 " \\" _n
@@ -194,7 +194,7 @@ foreach col in c1 c2 c3 c4 c5 c6 {
 }
 file write tab4 " \\" _n
 foreach col in c1 c2 c3 c4 c5 c6 {
-    local val = strtrim(string(scalar(p4_`col'_excel), "%9.4f"))
+    local val = strtrim(string(scalar(p4_`col'_excel), "%9.3f"))
     file write tab4 " & [`val']"
 }
 file write tab4 " \\" _n
@@ -213,7 +213,7 @@ foreach col in c1 c2 c3 c4 c5 c6 {
 }
 file write tab4 " \\" _n
 foreach col in c1 c2 c3 c4 c5 c6 {
-    local val = strtrim(string(scalar(p4_`col'_mental), "%9.4f"))
+    local val = strtrim(string(scalar(p4_`col'_mental), "%9.3f"))
     file write tab4 " & [`val']"
 }
 file write tab4 " \\" _n
@@ -232,7 +232,7 @@ foreach col in c1 c2 c3 c4 c5 c6 {
 }
 file write tab4 " \\" _n
 foreach col in c1 c2 c3 c4 c5 c6 {
-    local val = strtrim(string(scalar(p4_`col'_phys), "%9.4f"))
+    local val = strtrim(string(scalar(p4_`col'_phys), "%9.3f"))
     file write tab4 " & [`val']"
 }
 file write tab4 " \\" _n

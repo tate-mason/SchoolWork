@@ -1,0 +1,31 @@
+\begin{table}[htbp]
+\centering
+\caption{Table 4: Robustness Tests, Women Aged 21--40, 1993--2001 BRFSS}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+ & DD & DD state$\times$year & 2 vs 0 kids & DD married & DD single & DDD \\
+Outcome & Method & FE & & & & \\
+\midrule
+At work (OLS) & 0.0203 & 0.0206 & 0.0636 & 0.0183 & 0.0457 & 0.0130 \\
+ & (0.0074) & (0.0076) & (0.0097) & (0.0109) & (0.0110) & (0.0123) \\
+ & [0.008] & [0.009] & [0.000] & [0.099] & [0.000] & [0.298] \\
+\addlinespace
+Exc./very good health (OLS) & 0.0136 & 0.0119 & 0.0148 & 0.0211 & 0.0082 & -0.0045 \\
+ & (0.0074) & (0.0075) & (0.0100) & (0.0088) & (0.0127) & (0.0114) \\
+ & [0.073] & [0.118] & [0.146] & [0.021] & [0.521] & [0.695] \\
+\addlinespace
+Bad mental health days (NegBin) & -0.0687 & -0.0615 & -0.0195 & -0.1027 & -0.0514 & -0.0622 \\
+ & (0.0332) & (0.0326) & (0.0423) & (0.0519) & (0.0519) & (0.0730) \\
+ & [0.039] & [0.059] & [0.644] & [0.048] & [0.322] & [0.394] \\
+\addlinespace
+Bad physical health days (NegBin) & 0.0098 & 0.0249 & -0.0499 & 0.0432 & -0.0377 & 0.1226 \\
+ & (0.0398) & (0.0391) & (0.0521) & (0.0508) & (0.0675) & (0.0911) \\
+ & [0.805] & [0.525] & [0.338] & [0.394] & [0.577] & [0.178] \\
+\bottomrule
+\end{tabular}}
+\begin{minipage}{\linewidth}
+\smallskip\footnotesize
+\textit{Notes:} Standard errors are reported in parentheses and p-values on the test of the null that the coefficient is zero are reported in square brackets. All standard errors allow for arbitrary correlations between observations within the same state. Other covariates in the difference-in-differences model include: complete set of dummies for age, race, marital status, and number of children for the respondent, plus a complete set of dummies for the month of survey, year of survey, and state of residence. Other covariates in the difference-in-difference-in-differences model include: Complete set of dummies for age, race, marital status, education, and number of children for the respondent; a complete set of dummies for the month of survey, year of survey, state of residence, plus interactions between the education and the year effects, the number of children and the year effect, the education and number of children effects.
+\end{minipage}
+\end{table}

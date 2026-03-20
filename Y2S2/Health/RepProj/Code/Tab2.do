@@ -12,13 +12,6 @@
 local dataPath "`1'"
 local outPath  "`2'"
 
-/************************************************************
-* First, call the local ensuring it is switched "on", equal *
-* to 1. Then, I will generate the sample statistics after   *
-* subsetting the data to mothers aged 21-40 in the years    *
-* 1993-1996 using the BRFSS dataset.                        *
-************************************************************/
-
 use `dataPath'BRFSS_Final_Data.dta, clear
 
 drop if year < 1993 | year > 1995
@@ -28,9 +21,9 @@ drop if educ == 3
 drop if fips > 56
 
 recode educ (1/2=0) (4=1), gen(college_edu)
-gen income_1t = income1              // income <20k
-gen income_2t = income2 + income3 + income4   // income b/w 20k and 50k
-gen income_3t = income5   // income greater than 50k
+gen income_1t = income1
+gen income_2t = income2 + income3 + income4
+gen income_3t = income5
 
 // Variables and display labels
 local tab2_vars "age working white_nh hispanic black_nh other married div_sep_wid never_married income_1t income_2t income_3t incomemiss excel_vgood bad_mental_30 bad_phys_30 mental_poor phys_poor"
@@ -71,15 +64,15 @@ foreach v in age working {
     sum `v' if college_edu == 0 & kids == 1
     local m_hs1 = strtrim(string(r(mean), "%9.1f"))
     sum `v' if college_edu == 0 & kids > 1
-    local m_hs2 = strtrim(string(r(mean), "%9.3f"))
-    ttest `v' if college_edu == 0, by(twoplus_kids)
-    local p_hs  = strtrim(string(r(p), "%9.3f"))
+    local m_hs2 = strtrim(string(r(mean), "%9.1f"))
+    reg `v' twoplus_kids if college_edu == 0, vce(cluster fips)
+    local p_hs = strtrim(string(r(table)[4,1], "%9.3f")) // p-value for HS_edu
     sum `v' if college_edu == 1 & kids == 1
-    local m_col1 = strtrim(string(r(mean), "%9.3f"))
+    local m_col1 = strtrim(string(r(mean), "%9.1f"))
     sum `v' if college_edu == 1 & kids > 1
-    local m_col2 = strtrim(string(r(mean), "%9.3f"))
-    ttest `v' if college_edu == 1, by(twoplus_kids)
-    local p_col  = strtrim(string(r(p), "%9.3f"))
+    local m_col2 = strtrim(string(r(mean), "%9.1f"))
+    reg `v' twoplus_kids if college_edu == 1, vce(cluster fips)
+    local p_col = strtrim(string(r(table)[4,1], "%9.3f")) // p-value for college_edu
     file write tab2 "`lab_`v'' & `m_hs1' & `m_hs2' & `p_hs' & `m_col1' & `m_col2' & `p_col' \\" _n
 }
 
@@ -91,14 +84,14 @@ foreach v in white_nh black_nh hispanic other {
     local m_hs1 = strtrim(string(r(mean), "%9.3f"))
     sum `v' if college_edu == 0 & kids > 1
     local m_hs2 = strtrim(string(r(mean), "%9.3f"))
-    ttest `v' if college_edu == 0, by(twoplus_kids)
-    local p_hs  = strtrim(string(r(p), "%9.3f"))
+    reg `v' twoplus_kids if college_edu == 0, vce(cluster fips)
+    local p_hs = strtrim(string(r(table)[4,1], "%9.3f"))
     sum `v' if college_edu == 1 & kids == 1
     local m_col1 = strtrim(string(r(mean), "%9.3f"))
     sum `v' if college_edu == 1 & kids > 1
     local m_col2 = strtrim(string(r(mean), "%9.3f"))
-    ttest `v' if college_edu == 1, by(twoplus_kids)
-    local p_col  = strtrim(string(r(p), "%9.3f"))
+    reg `v' twoplus_kids if college_edu == 1, vce(cluster fips)
+    local p_col = strtrim(string(r(table)[4,1], "%9.3f"))
     file write tab2 "`lab_`v'' & `m_hs1' & `m_hs2' & `p_hs' & `m_col1' & `m_col2' & `p_col' \\" _n
 }
 
@@ -110,14 +103,14 @@ foreach v in married div_sep_wid never_married {
     local m_hs1 = strtrim(string(r(mean), "%9.3f"))
     sum `v' if college_edu == 0 & kids > 1
     local m_hs2 = strtrim(string(r(mean), "%9.3f"))
-    ttest `v' if college_edu == 0, by(twoplus_kids)
-    local p_hs  = strtrim(string(r(p), "%9.3f"))
+    reg `v' twoplus_kids if college_edu == 0, vce(cluster fips)
+    local p_hs = strtrim(string(r(table)[4,1], "%9.3f"))
     sum `v' if college_edu == 1 & kids == 1
     local m_col1 = strtrim(string(r(mean), "%9.3f"))
     sum `v' if college_edu == 1 & kids > 1
     local m_col2 = strtrim(string(r(mean), "%9.3f"))
-    ttest `v' if college_edu == 1, by(twoplus_kids)
-    local p_col  = strtrim(string(r(p), "%9.3f"))
+    reg `v' twoplus_kids if college_edu == 1, vce(cluster fips)
+    local p_col = strtrim(string(r(table)[4,1], "%9.3f"))
     file write tab2 "`lab_`v'' & `m_hs1' & `m_hs2' & `p_hs' & `m_col1' & `m_col2' & `p_col' \\" _n
 }
 
@@ -129,14 +122,14 @@ foreach v in income_1t income_2t income_3t incomemiss {
     local m_hs1 = strtrim(string(r(mean), "%9.3f"))
     sum `v' if college_edu == 0 & kids > 1
     local m_hs2 = strtrim(string(r(mean), "%9.3f"))
-    ttest `v' if college_edu == 0, by(twoplus_kids)
-    local p_hs  = strtrim(string(r(p), "%9.3f"))
+    reg `v' twoplus_kids if college_edu == 0, vce(cluster fips)
+    local p_hs = strtrim(string(r(table)[4,1], "%9.3f"))
     sum `v' if college_edu == 1 & kids == 1
     local m_col1 = strtrim(string(r(mean), "%9.3f"))
     sum `v' if college_edu == 1 & kids > 1
     local m_col2 = strtrim(string(r(mean), "%9.3f"))
-    ttest `v' if college_edu == 1, by(twoplus_kids)
-    local p_col  = strtrim(string(r(p), "%9.3f"))
+    reg `v' twoplus_kids if college_edu == 1, vce(cluster fips)
+    local p_col = strtrim(string(r(table)[4,1], "%9.3f"))
     file write tab2 "`lab_`v'' & `m_hs1' & `m_hs2' & `p_hs' & `m_col1' & `m_col2' & `p_col' \\" _n
 }
 
@@ -148,14 +141,14 @@ foreach v in excel_vgood bad_mental_30 bad_phys_30 mental_poor phys_poor {
     local m_hs1 = strtrim(string(r(mean), "%9.3f"))
     sum `v' if college_edu == 0 & kids > 1
     local m_hs2 = strtrim(string(r(mean), "%9.3f"))
-    ttest `v' if college_edu == 0, by(twoplus_kids)
-    local p_hs  = strtrim(string(r(p), "%9.3f"))
+    reg `v' twoplus_kids if college_edu == 0, vce(cluster fips)
+    local p_hs = strtrim(string(r(table)[4,1], "%9.3f"))
     sum `v' if college_edu == 1 & kids == 1
     local m_col1 = strtrim(string(r(mean), "%9.3f"))
     sum `v' if college_edu == 1 & kids > 1
     local m_col2 = strtrim(string(r(mean), "%9.3f"))
-    ttest `v' if college_edu == 1, by(twoplus_kids)
-    local p_col  = strtrim(string(r(p), "%9.3f"))
+    reg `v' twoplus_kids if college_edu == 1, vce(cluster fips)
+    local p_col = strtrim(string(r(table)[4,1], "%9.3f"))
     file write tab2 "`lab_`v'' & `m_hs1' & `m_hs2' & `p_hs' & `m_col1' & `m_col2' & `p_col' \\" _n
 }
 

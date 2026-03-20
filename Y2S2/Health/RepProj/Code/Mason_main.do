@@ -41,9 +41,9 @@ log using `outPath'Mason_rep_log.log, replace
 local Tab2     = 0
 local Tab3     = 0
 local Tab4     = 0
-local Tab5     = 0 // descriptives only: obs, sample mean, % risky
+local Tab5     = 1 // descriptives only: obs, sample mean, % risky
 local Tab6     = 0
-local Tab7     = 1
+local Tab7     = 0
 local Fig4     = 0 // parallel trends; vline at 1996; 5 subfigures
 local ARC      = 0 // robustness: Footnote 12 (col1), Footnote 21 (col2-3)
 local Extension = 0 
