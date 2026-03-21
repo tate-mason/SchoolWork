@@ -42,15 +42,18 @@
 }
 
 % Footline
-\setbeamertemplate{footline}{
+\setbeamertemplate{footline}{%
   \leavevmode%
   \hbox{%
     \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex,leftskip=1em,rightskip=1em]{footline}%
-      \insertshortauthor{} \hfill \insertframenumber/\inserttotalframenumber
+      \ifnum\theframenumber=0\relax\else%
+        \insertshortauthor{} \hfill \insertframenumber/\inserttotalframenumber%
+      \fi%
     \end{beamercolorbox}}%
 }
 
 % ---------- PACKAGES ----------
+\usepackage{appendixnumberbeamer}
 \usepackage{amsmath, amssymb, mathtools}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -72,7 +75,7 @@
 
 % ---------- AUTO-AGENDA ----------
 \AtBeginSection[]{
-  \begin{frame}{Roadmap}
+  \begin{frame}[noframenumbering]{Roadmap}
     \tableofcontents[currentsection]
   \end{frame}
 }
@@ -89,7 +92,7 @@
 % ------------------------------------------------------------
 % Title
 % ------------------------------------------------------------
-\begin{frame}
+\begin{frame}[noframenumbering]
   \titlepage
 \end{frame}
 
@@ -223,6 +226,45 @@
     \item Width: wider networks have more capacity per layer
     \item Larger networks risk overfitting $\Rightarrow$ need regularization (L2, dropout, early stopping)
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Activation Functions: Visual Intuition}
+  \hl{Why nonlinearity?} Without $\sigma$, stacking layers collapses to one linear map --- no expressive power gained.
+  \smallskip
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      \begin{tikzpicture}[scale=0.78]
+        \draw[->] (-2.3,0) -- (2.4,0) node[right,font=\tiny] {$z$};
+        \draw[->] (0,-0.2) -- (0,1.9) node[above,font=\tiny] {$\sigma(z)$};
+        \draw[UGARed, thick] (-2.2,0) -- (0,0) -- (2.2,1.76);
+        \node[UGARed, font=\tiny\bfseries] at (1.7,1.45) {ReLU};
+        \draw[blue!70!black, thick, domain=-2.2:2.2, samples=60]
+          plot (\x, {1.5/(1+exp(-1.8*\x))});
+        \node[blue!70!black, font=\tiny\bfseries] at (1.6,1.62) {sigmoid};
+        \draw[green!50!black, thick, domain=-2.2:2.2, samples=60]
+          plot (\x, {0.75*tanh(1.4*\x)+0.75});
+        \node[green!50!black, font=\tiny\bfseries] at (-1.5,1.65) {tanh};
+        \draw[gray!30] (-2.2,0.75) -- (2.2,0.75);
+        \node[font=\tiny, gray] at (-2.05,0.77) {0};
+        \draw[gray!30] (-2.2,1.5) -- (2.2,1.5);
+        \node[font=\tiny, gray] at (-2.05,1.52) {1};
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{itemize}
+        \item \textcolor{UGARed}{\textbf{ReLU}} $= \max(0,z)$\\
+              {\small Fast, sparse; default for deep nets}
+        \smallskip
+        \item \textcolor{blue!70!black}{\textbf{Sigmoid}} $= (1+e^{-z})^{-1}$\\
+              {\small Squashes to $(0,1)$; good for probabilities}
+        \smallskip
+        \item \textcolor{green!50!black}{\textbf{tanh}}\\
+              {\small Zero-centered; often preferred over sigmoid in hidden layers}
+        \smallskip
+        \item \hl{NNE}: ReLU hidden, \textbf{no activation} on output
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Functions: Training, Loss, and Others}
@@ -393,6 +435,37 @@ nne.fit(moments, thetas)
 % ============================================================
 \section{The Paper}
 % ============================================================
+
+\begin{frame}{Choosing Moments: The Key Practical Decision}
+  \hl{The NNE is only as good as the moments you feed it.}
+  \medskip
+
+  \hl{What makes a good moment?}
+  \begin{itemize}
+    \item \textbf{Informative}: variation in the moment maps to variation in $\theta$
+    \item \textbf{Low-noise}: estimable reliably from your sample size $N$
+    \item \textbf{Non-redundant}: adds something the other moments don't already capture
+  \end{itemize}
+  \medskip
+
+  \hl{Concrete examples from the paper:}
+  \begin{center}
+  \begin{tabular}{lll}
+    \toprule
+    \textbf{Model} & \textbf{Parameter} & \textbf{Identifying moment} \\
+    \midrule
+    AR(1)           & $\rho$            & Lag-1 autocorrelation $\hat\rho_1$ \\
+    AR(1)           & $\sigma$          & Variance $\widehat{\mathrm{Var}}(y)$ \\
+    Consumer search & Search cost $c$   & Mean consideration set size $\mathbb{E}[|\mathcal{C}_i|]$ \\
+    Consumer search & Quality $\mu_j$   & Purchase rate $\Pr(\text{buy } j)$ \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \medskip
+
+  \smallskip
+  \hl{Practical guidance:} more moments help up to a point --- adding uninformative ones introduces noise. Use domain knowledge to anchor your choice.
+\end{frame}
 
 \begin{frame}{Bhatt, Misra, and Qi (2023)}
   \begin{itemize}
