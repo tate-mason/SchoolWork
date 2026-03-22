@@ -1,19 +1,19 @@
----
-author: "Tate Mason"
-date: \today
-title: "Effect of a WNBA Team on Girls' Sports Participation"
-format: pdf 
----
 
-# Introduction
-This file serves as the data analysis portion of my project. I will be using NFHS data and WNBA data sourced from Kaggle to analyze the effect of a WNBA team
-on the youth sports participation of girls in a given state. I will be focusing on Basketball, Track, and Softball, as these are the most available sports in  
-WFHS.
 
-# Data Cleaning
-NFHS data was cleaned by Claude Code, scraping PDF's and converting to CSV's. WNBA data is downloaded clean. Still, I want to make sure things are formatted correctly.
 
-```{r}
+
+
+
+
+
+
+
+
+
+
+
+
+
 library(tidyverse)
 library(readr)
 library(ggplot2)
@@ -127,11 +127,11 @@ df_nfhs_wide <- df_nfhs_wide %>%
 
 head(df_nfhs_wide)
 summary(df_nfhs_wide)
-```
 
-# Data Analysis
 
-```{r}
+
+
+
 
 unique(df_wnba$year)
 # Map teams to states
@@ -186,9 +186,9 @@ ggplot() +
   theme(legend.position = "bottom",
         legend.key.size = unit(0.4, "cm"),
         legend.text = element_text(size = 7))
-```
 
-```{r}
+
+
 # Now time series of participation rates in basketball, track, and softball for girls
 
 wnba_states <- df_wnba %>%
@@ -276,16 +276,16 @@ ggplot(vb_df, aes(x = year, y = participation_rate, color = group, group = group
        x = "Year", y = "Mean Participation", color = "") +
   theme_minimal() +
   theme(legend.position = "bottom")
-```
 
-It appears that having a WNBA team in the state leads to a higher participation rate in sports like basketball, soccer, and volleyball. There are many confounders here. While population size is one, that is at least partially controlled for by looking at the share of participation. Still, there are many other factors that could be at play, such as the general culture of sports in a given state, the presence of other sports teams, and the socioeconomic status of the population. A more rigorous analysis would be needed to establish causality.
-To do so, we implement a difference-in-differences regression, controlling for state and year fixed effects, and clustering standard errors at the state level. This would allow us to better isolate the effect of having a WNBA team on girls sports participation, while controlling for unobserved heterogeneity across states and over time.
 
-# DiD
 
-Y_{st} = \beta_0 + \beta_1 \1\{Have WNBA\times Year\} + \delta_s + \gamma_t + \epsilon_{st}
 
-```{r}
+
+
+
+
+
+
 
 library(did)
 # Create treatment variable
@@ -302,4 +302,3 @@ library(lfe)
 did_model <- felm(Basketball ~ has_wnba | state + year | 0 | state,
                   data = df_did)
 summary(did_model)
-```
