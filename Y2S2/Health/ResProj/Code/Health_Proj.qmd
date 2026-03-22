@@ -222,34 +222,38 @@ wnba_states <- df_wnba %>%
 participation_df <- df_nfhs_wide %>%
   filter(gender == 1) %>%
   select(state, year, Basketball) %>%
+  mutate(total = rowSums(across(where(is.numeric)), na.rm = TRUE)) %>%
+  mutate(basketball_share = Basketball / total) %>%
   left_join(wnba_states %>% mutate(has_wnba = 1), 
             by = c("state" = "state_num", "year")) %>%
   mutate(has_wnba = replace_na(has_wnba, 0),
          group = ifelse(has_wnba == 1, "WNBA State", "No WNBA Team")) %>%
   group_by(group, year) %>%
-  summarise(participation_rate = mean(Basketball, na.rm = TRUE), .groups = "drop") %>%
+  summarise(participation_rate = mean(basketball_share, na.rm = TRUE), .groups = "drop") %>%
   filter(!is.na(year))
 
 ggplot(participation_df, aes(x = year, y = participation_rate, color = group, group = group)) +
   geom_line(linewidth = 1) +
-  labs(title = "Girls Basketball Participation: WNBA vs Non-WNBA States",
+  labs(title = "Girls Basketball Participation (Share of Total Participation): WNBA vs Non-WNBA States",
        x = "Year", y = "Mean Participation", color = "") +
   theme_minimal() +
   theme(legend.position = "bottom")
 
-tf_df <- df_nfhs_wide %>%
+soc_df <- df_nfhs_wide %>%
   filter(gender == 1) %>%
-  select(state, year, `Softball Fast Pitch`) %>%
+  select(state, year, Soccer) %>%
+  mutate(total = rowSums(across(where(is.numeric)), na.rm = TRUE)) %>%
+  mutate(soccer_share = Soccer / total) %>%
   left_join(wnba_states %>% mutate(has_wnba = 1), 
             by = c("state" = "state_num", "year")) %>%
   mutate(has_wnba = replace_na(has_wnba, 0),
          group = ifelse(has_wnba == 1, "WNBA State", "No WNBA Team")) %>%
   group_by(group, year) %>%
-  summarise(participation_rate = mean(`Softball Fast Pitch`, na.rm = TRUE), .groups = "drop") %>%
+  summarise(participation_rate = mean(`soccer_share`, na.rm = TRUE), .groups = "drop") %>%
   filter(!is.na(year)) 
-ggplot(tf_df, aes(x = year, y = participation_rate, color = group, group = group)) +
+ggplot(soc_df, aes(x = year, y = participation_rate, color = group, group = group)) +
   geom_line(linewidth = 1) +
-  labs(title = "Girls Softball Participation: WNBA vs Non-WNBA States",
+  labs(title = "Girls Soccer Participation: WNBA vs Non-WNBA States",
        x = "Year", y = "Mean Participation", color = "") +
   theme_minimal() +
   theme(legend.position = "bottom")
@@ -257,12 +261,14 @@ ggplot(tf_df, aes(x = year, y = participation_rate, color = group, group = group
 vb_df <- df_nfhs_wide %>%
   filter(gender == 1) %>%
   select(state, year, Volleyball) %>%
+  mutate(total = rowSums(across(where(is.numeric)), na.rm = TRUE)) %>%
+  mutate(vb_share = Volleyball / total) %>%
   left_join(wnba_states %>% mutate(has_wnba = 1), 
             by = c("state" = "state_num", "year")) %>%
   mutate(has_wnba = replace_na(has_wnba, 0),
          group = ifelse(has_wnba == 1, "WNBA State", "No WNBA Team")) %>%
   group_by(group, year) %>%
-  summarise(participation_rate = mean(Volleyball, na.rm = TRUE), .groups = "drop") %>%
+  summarise(participation_rate = mean(vb_share, na.rm = TRUE), .groups = "drop") %>%
   filter(!is.na(year))
 ggplot(vb_df, aes(x = year, y = participation_rate, color = group, group = group)) +
   geom_line(linewidth = 1) +
@@ -270,4 +276,30 @@ ggplot(vb_df, aes(x = year, y = participation_rate, color = group, group = group
        x = "Year", y = "Mean Participation", color = "") +
   theme_minimal() +
   theme(legend.position = "bottom")
+```
+
+It appears that having a WNBA team in the state leads to a higher participation rate in sports like basketball, soccer, and volleyball. There are many confounders here. While population size is one, that is at least partially controlled for by looking at the share of participation. Still, there are many other factors that could be at play, such as the general culture of sports in a given state, the presence of other sports teams, and the socioeconomic status of the population. A more rigorous analysis would be needed to establish causality.
+To do so, we implement a difference-in-differences regression, controlling for state and year fixed effects, and clustering standard errors at the state level. This would allow us to better isolate the effect of having a WNBA team on girls sports participation, while controlling for unobserved heterogeneity across states and over time.
+
+# DiD
+
+$Y_{st} = \beta_0 + \beta_1 \1\{Have WNBA\times Year\} + \delta_s + \gamma_t + \epsilon_{st}$
+
+```{r}
+
+library(did)
+# Create treatment variable
+df_did <- df_nfhs_wide %>%
+  filter(gender == 1) %>%
+  left_join(
+    wnba_states %>% group_by(state_num) %>% summarise(first_treat = min(year)),
+    by = c("state" = "state_num")
+  ) %>%
+  mutate(first_treat = replace_na(first_treat, 0),
+         has_wnba = as.integer(first_treat > 0 & year >= first_treat))
+
+library(lfe)
+did_model <- felm(Basketball ~ has_wnba | state + year | 0 | state,
+                  data = df_did)
+summary(did_model)
 ```
