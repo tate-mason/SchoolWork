@@ -1,0 +1,140 @@
+% ============================
+% LaTeX Template - Problem Set
+% ============================
+\documentclass[11pt]{article}
+
+% ---------- Page + layout ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\setstretch{1.1}
+\usepackage{parskip}
+
+% ---------- Math ----------
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+
+% ---------- Tables ----------
+\usepackage{booktabs}
+
+% ---------- Links ----------
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Header / footer ----------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{\course}}
+\chead{\textbf{\pset}}
+\rhead{\textbf{\name}}
+\cfoot{\thepage}
+
+% =========================
+% Metadata (edit if needed)
+% =========================
+\newcommand{\name}{Tate Mason}
+\newcommand{\course}{Econometrics II}
+\newcommand{\pset}{Problem Set 6}
+\newcommand{\duedate}{March 25, 2026}
+
+% =========================
+% Question / solution macros
+% =========================
+\newcounter{q}
+\renewcommand{\theq}{\arabic{q}}
+
+\newcommand{\question}[1]{%
+  \refstepcounter{q}
+  \vspace{0.75em}
+  \noindent{\Large\textbf{Question \theq.} \normalsize\textbf{#1}}%
+  \vspace{0.25em}
+  \par
+}
+
+\newcounter{subq}[q]
+\renewcommand{\thesubq}{\alph{subq}}
+
+\newcommand{\subquestion}[1]{%
+  \refstepcounter{subq}
+  \vspace{0.35em}
+  \noindent\textbf{(\thesubq)} \textbf{#1}\par
+}
+
+\newenvironment{solution}{%
+  \vspace{0.15em}
+  \noindent\textit{Solution. }\ignorespaces
+}{\vspace{0.5em}\par}
+
+% =========================
+% Easy math macros
+% =========================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\plim}{plim}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\newcommand{\P}{\mathbb{P}}
+
+\newcommand{\vct}[1]{\mathbf{#1}}
+\newcommand{\mtx}[1]{\mathbf{#1}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\1}{\mathbf{1}}
+
+% =========================
+% Document
+% =========================
+\begin{document}
+
+% ---------- Title block ----------
+{\Large\textbf{\course} \hfill \textbf{\pset}}\\
+\textbf{Name:} \name \hfill \textbf{Due:} \duedate\\
+\rule{\textwidth}{0.4pt}
+\question{Use ``dataHW6 Problem1.mat'' to complete this exercise. The purpose of this problem is to estimate a simple dynamic discrete choice problem. The data contain information on the choices (the $Y$'s), characteristics that do not vary over time (the $X_1$'s), and characteristics that do vary over time (the $X_{1t}$'s). The context of the problem is a dynamic model of labor supply. $Y$ takes values $\{0, 1, 2, 3\}$ reflecting retirement, flex-time, part-time, or full-time participation. The first column $X_1$ allows for choice specific constants, while the second column of $X_1$ is an indicator for gender. $X_{1t}$ is a time-varying measure of health.
+
+    Both sets of $X$'s are individual-level characteristics so the coefficients on these variables need to vary by choice. There is a cost to switching labor supply in the future that is \textit{common across all switches}. The choice in period 0 is given by $LY$. Once an individual retires (or chooses option 0) then that individual makes no further choices (you can verify this as if $Y_{it} = 0$ then $Y_{it+1} = 0$). The columns of $Y$ and $X_{1t}$ indicate observations over time, ten periods in all (so in period 10 it is a static problem). The only uncertainty from the individual's perspective is on their error term. In other words, individuals have perfect foresight about their future health. The error structure is Type 1 extreme value.}
+
+\subquestion{Estimate the dynamic discrete choice model including the discount factor.}
+
+\begin{solution}
+  \begin{table}[htbp]
+  \centering
+    \caption{DDC Estimates}
+    \begin{tabular}{lc}
+      \hline
+      & Parameter \\
+      \hline
+      \multicolumn{3}{l}{\textit{Flex-Time}} \\
+      $\beta_{0,1}$    & -0.961 \\
+      $\beta_{Gender,1}$   & 0.368 \\
+      $\beta_{Health,1}$ & 0.517 \\
+
+      \multicolumn{3}{l}{\textit{Part-Time}} \\
+      $\beta_{0,2}$    & --.051 \\
+      $\beta_{Gender,2}$   & 0.687 \\
+      $\beta_{Health, 2}$ & 0.759 \\
+
+      \multicolumn{3}{l}{Full-Time} \\
+      $\beta_{0,3}$ & -0.412 \\
+      $\beta_{Gender,3}$ & 1.029 \\
+      $\beta_{Health,3}$ & 0.992 \\
+      \hline
+
+      $\delta$ & 0.376 \\
+      $\beta$ & 0.896 \\
+      \hline
+    \end{tabular}
+  \end{table}
+\end{solution}
+
+\clearpage
+
+\subquestion{What variation in the data allows the discount factor to be identified?}
+
+The discount factor is identified via the health state. It is the only time variant characteristic in $X_{1t}$, so it will pin down $\beta$.
+
+\subquestion{What variation in the data allows the switching cost to be identified?}
+
+Switching cost is identified via the constant, the only characteristic which is choice specific in $X1$. Gender is not something which we are assuming can change in this model, thus it must be the constant identifying the cost $\delta$.
+\end{document}
