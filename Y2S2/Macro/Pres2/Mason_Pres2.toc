@@ -1,5 +1,5 @@
 \beamer@sectionintoc {1}{Introduction}{2}{0}{1}
 \beamer@sectionintoc {2}{Neural Network Primer}{6}{0}{2}
 \beamer@sectionintoc {3}{Worked Example: AR(1)}{12}{0}{3}
-\beamer@sectionintoc {4}{The Paper}{17}{0}{4}
-\beamer@sectionintoc {5}{Conclusion}{23}{0}{5}
+\beamer@sectionintoc {4}{The Paper}{22}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{35}{0}{5}
