@@ -1,0 +1,22 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from}\PYG{+w}{ }\PYG{n+nn}{sklearn.neural\PYGZus{}network}\PYG{+w}{ }\PYG{k+kn}{import} \PYG{n}{MLPRegressor}
+
+\PYG{n}{rng}\PYG{p}{,} \PYG{n}{L} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{default\PYGZus{}rng}\PYG{p}{(),} \PYG{l+m+mi}{1\PYGZus{}000}
+
+\PYG{c+c1}{\PYGZsh{} draw beta \PYGZti{} Uniform(0, 0.9) per Algorithm 1}
+\PYG{n}{betas} \PYG{o}{=} \PYG{n}{rng}\PYG{o}{.}\PYG{n}{uniform}\PYG{p}{(}\PYG{l+m+mf}{0.0}\PYG{p}{,} \PYG{l+m+mf}{0.9}\PYG{p}{,} \PYG{n}{L}\PYG{p}{)}
+\PYG{n}{M}     \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{n}{moments}\PYG{p}{(}\PYG{n}{model}\PYG{p}{(}\PYG{n}{b}\PYG{p}{,} \PYG{n}{rng}\PYG{o}{=}\PYG{n}{rng}\PYG{p}{))}
+                  \PYG{k}{for} \PYG{n}{b} \PYG{o+ow}{in} \PYG{n}{betas}\PYG{p}{])}
+
+\PYG{c+c1}{\PYGZsh{} 90/10 train/val split; shallow net, 32 nodes}
+\PYG{n}{L\PYGZus{}tr} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{l+m+mf}{0.9} \PYG{o}{*} \PYG{n}{L}\PYG{p}{)}
+\PYG{n}{nne}  \PYG{o}{=} \PYG{n}{MLPRegressor}\PYG{p}{(}\PYG{n}{hidden\PYGZus{}layer\PYGZus{}sizes}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{32}\PYG{p}{,),}
+                    \PYG{n}{activation}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}relu\PYGZsq{}}\PYG{p}{,}
+                    \PYG{n}{learning\PYGZus{}rate\PYGZus{}init}\PYG{o}{=}\PYG{l+m+mf}{0.01}\PYG{p}{,}
+                    \PYG{n}{max\PYGZus{}iter}\PYG{o}{=}\PYG{l+m+mi}{500}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{42}\PYG{p}{)}
+\PYG{n}{nne}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{M}\PYG{p}{[:}\PYG{n}{L\PYGZus{}tr}\PYG{p}{],} \PYG{n}{betas}\PYG{p}{[:}\PYG{n}{L\PYGZus{}tr}\PYG{p}{])}
+
+\PYG{c+c1}{\PYGZsh{} estimation: one forward pass on observed data}
+\PYG{n}{y\PYGZus{}obs}    \PYG{o}{=} \PYG{n}{model}\PYG{p}{(}\PYG{n}{beta\PYGZus{}true}\PYG{p}{)}
+\PYG{n}{beta\PYGZus{}hat} \PYG{o}{=} \PYG{n}{nne}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{moments}\PYG{p}{(}\PYG{n}{y\PYGZus{}obs}\PYG{p}{)}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{))}
+\end{MintedVerbatim}

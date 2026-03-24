@@ -68,7 +68,7 @@
 
 % ---------- METADATA ----------
 \title[NNE for Structural Models]{Estimating Parameters of Structural Models\\Using Neural Networks}
-\subtitle{Bhatt, Misra, and Qi (2023)}
+\subtitle{Wei and Jiang (2025)}
 \author[Tate Mason]{Tate Mason}
 \institute[UGA]{John Munro Godfrey Sr.\ Dept.\ of Economics \\ University of Georgia}
 \date{\today}
@@ -319,18 +319,20 @@
 \begin{frame}{AR(1) Model Setup}
   \hl{Data generating process:}
   \[
-    y_t = \rho\, y_{t-1} + \varepsilon_t,
-    \quad \varepsilon_t \overset{\text{iid}}{\sim} \mathcal{N}(0, \sigma^2)
+    y_i = \beta\, y_{i-1} + \varepsilon_i,
+    \quad \varepsilon_i \overset{\text{iid}}{\sim} \mathcal{N}(0, 1),
+    \quad \beta \in [0,1)
   \]
   \begin{itemize}
-    \item Parameters to estimate: $\theta = (\rho,\, \sigma)$, with $|\rho| < 1$
-    \item Observed: time series $\{y_t\}_{t=1}^T$
-    \item \hl{Moments} that summarize the data:
+    \item Single parameter to estimate: $\beta$; prior $\beta \sim \mathrm{Uniform}(0,\, 0.9)$
+    \item $y_1$ drawn from stationary distribution $\mathcal{N}\!\left(0,\, \tfrac{1}{1-\beta^2}\right)$;
+          sample size $n = 100$
+    \item \hl{Identifying moment} (lag-1 autocovariance):
           \[
-            m(y) \;=\; \bigl(\widehat{\mathrm{Var}}(y),\;\hat\rho_1,\;\hat\rho_2\bigr)
+            m(y) \;=\; \frac{1}{n-1}\sum_{i=2}^{n} y_i\, y_{i-1},
+            \qquad \mathbb{E}[y_i y_{i-1}] = \frac{\beta}{1-\beta^2}
           \]
-          where $\hat\rho_k$ is the sample autocorrelation at lag $k$
-    \item MLE is available for AR(1) — NNE is used here as a \textit{proof of concept}
+    \item MLE is available for AR(1) --- NNE used here as a \textit{proof of concept}
           to validate accuracy against a known benchmark
   \end{itemize}
 \end{frame}
@@ -340,34 +342,34 @@
     \begin{column}{0.44\textwidth}
       \hl{Algorithm, Steps 1--2:}
       \begin{enumerate}
-        \item Specify prior $\Pi(\theta)$ over $(\rho, \sigma)$
-        \item For each simulation $s = 1, \ldots, S$:
+        \item Specify prior $\Pi(\beta) = \mathrm{Uniform}(0,\, 0.9)$
+        \item For each example $\ell = 1, \ldots, L$:
           \begin{itemize}
-            \item Draw $\theta^{(s)} \sim \Pi$
-            \item Simulate AR(1) time series of length $T$
-            \item Compute moments $m^{(s)} = m\!\left(\{y_t^{(s)}\}\right)$
+            \item Draw $\beta^{(\ell)} \sim \Pi$
+            \item Simulate AR(1) of length $n = 100$
+            \item Compute moment $m^{(\ell)} = \frac{1}{n-1}\sum_{i=2}^n y_i^{(\ell)} y_{i-1}^{(\ell)}$
           \end{itemize}
       \end{enumerate}
       \vspace{0.4cm}
-      Moments carry the information about $(\rho, \sigma)$; the NN learns to invert this mapping.
+      The moment carries the information about $\beta$; the NN learns to invert this mapping.
     \end{column}
     \begin{column}{0.53\textwidth}
 \begin{minted}[fontsize=\scriptsize]{python}
 import numpy as np
 
-def simulate_ar1(rho, sigma, T=200, rng=None):
+def model(beta, n=100, rng=None):
     rng = rng or np.random.default_rng()
-    y = np.zeros(T)
-    for t in range(1, T):
-        y[t] = rho * y[t-1] \
-             + sigma * rng.standard_normal()
+    eps = rng.standard_normal(n)
+    y   = np.empty(n)
+    # draw y(1) from stationary dist N(0, 1/(1-beta^2))
+    y[0] = eps[0] / np.sqrt(1 - beta**2)
+    for i in range(1, n):
+        y[i] = beta * y[i-1] + eps[i]
     return y
 
-def compute_moments(y):
-    v  = np.var(y)
-    r1 = np.corrcoef(y[:-1], y[1:])[0, 1]
-    r2 = np.corrcoef(y[:-2], y[2:])[0, 1]
-    return np.array([v, r1, r2])
+def moments(y):
+    # lag-1 autocovariance: E[y_t * y_{t-1}]
+    return np.array([np.mean(y[1:] * y[:-1])])
 \end{minted}
     \end{column}
   \end{columns}
@@ -379,8 +381,8 @@ def compute_moments(y):
       \hl{Algorithm, Steps 3--4:}
       \begin{enumerate}
         \setcounter{enumi}{2}
-        \item Train NN $f_\phi : m \mapsto \theta$ on
-              $\{(m^{(s)}, \theta^{(s)})\}_{s=1}^S$
+        \item Train NN $f_\phi : m \mapsto \beta$ on
+              $\{(m^{(\ell)}, \beta^{(\ell)})\}_{\ell=1}^{L_{\mathrm{train}}}$
         \item \textbf{Estimation:} given $\{y_t^{\text{obs}}\}$,
               compute $m^{\text{obs}}$, then\\
               $\hat\theta = f_\phi(m^{\text{obs}})$
@@ -393,22 +395,24 @@ def compute_moments(y):
 \begin{minted}[fontsize=\scriptsize]{python}
 from sklearn.neural_network import MLPRegressor
 
-rng, S = np.random.default_rng(42), 5_000
+rng, L = np.random.default_rng(), 1_000
 
-rho_s   = rng.uniform(-0.95, 0.95, S)
-sigma_s = rng.uniform(0.1,   2.0,  S)
-thetas  = np.column_stack([rho_s, sigma_s])
+# draw beta ~ Uniform(0, 0.9) per Algorithm 1
+betas = rng.uniform(0.0, 0.9, L)
+M     = np.array([moments(model(b, rng=rng))
+                  for b in betas])
 
-moments = np.array([
-    compute_moments(
-        simulate_ar1(r, s, rng=rng))
-    for r, s in thetas
-])
+# 90/10 train/val split; shallow net, 32 nodes
+L_tr = int(0.9 * L)
+nne  = MLPRegressor(hidden_layer_sizes=(32,),
+                    activation='relu',
+                    learning_rate_init=0.01,
+                    max_iter=500, random_state=42)
+nne.fit(M[:L_tr], betas[:L_tr])
 
-nne = MLPRegressor(
-    hidden_layer_sizes=(64, 64),
-    max_iter=500, random_state=42)
-nne.fit(moments, thetas)
+# estimation: one forward pass on observed data
+y_obs    = model(beta_true)
+beta_hat = nne.predict(moments(y_obs).reshape(1,-1))
 \end{minted}
     \end{column}
   \end{columns}
@@ -447,9 +451,9 @@ nne.fit(moments, thetas)
 \begin{frame}{Accuracy and Efficiency}
   \hl{Accuracy:}
   \begin{itemize}
-    \item NNE recovers $(\rho, \sigma)$ with low bias across the parameter space
-    \item For $T \geq 100$, performance is close to MLE; gap narrows as $S \to \infty$
-    \item Bhatt, Misra, Qi (2023): NNE RMSE within 5\% of MLE benchmark for AR(1)
+    \item NNE recovers $\beta$ with low bias across the parameter space
+    \item For $n = 100$, NNE RMSE is close to GMM; gap narrows as $L \to \infty$
+    \item Wei \& Jiang (2025): NNE is robust to redundant moments while GMM bias grows sharply (Table 2)
   \end{itemize}
   \medskip
   \hl{Efficiency:}
@@ -485,10 +489,9 @@ nne.fit(moments, thetas)
     \toprule
     \textbf{Model} & \textbf{Parameter} & \textbf{Identifying moment} \\
     \midrule
-    AR(1)           & $\rho$            & Lag-1 autocorrelation $\hat\rho_1$ \\
-    AR(1)           & $\sigma$          & Variance $\widehat{\mathrm{Var}}(y)$ \\
-    Consumer search & Search cost $c$   & Mean consideration set size $\mathbb{E}[|\mathcal{C}_i|]$ \\
-    Consumer search & Quality $\mu_j$   & Purchase rate $\Pr(\text{buy } j)$ \\
+    AR(1)           & $\beta$           & Lag-1 autocovariance $\frac{1}{n-1}\sum y_i y_{i-1}$ \\
+    Consumer search & Search cost $\delta_0$ & Mean number of searches $\mathbb{E}[\text{\# searches}_i]$ \\
+    Consumer search & Product quality $\beta_j$ & Purchase rate $\Pr(\text{buy } j)$ \\
     \bottomrule
   \end{tabular}
   \end{center}
@@ -498,19 +501,19 @@ nne.fit(moments, thetas)
   \hl{Practical guidance:} more moments help up to a point --- adding uninformative ones introduces noise. Use domain knowledge to anchor your choice.
 \end{frame}
 
-\begin{frame}{Bhatt, Misra, and Qi (2023)}
+\begin{frame}{Wei and Jiang (2025)}
   \begin{itemize}
-    \item Published in \textit{Marketing Science}: ``Estimating Parameters of Structural
+    \item Working paper: ``Estimating Parameters of Structural
           Models Using Neural Networks''
     \item \hl{Goal}: provide a general-purpose, computationally efficient estimator
           for structural models with intractable likelihoods
     \item \hl{Approach}: NNE --- simulate (parameter, moment) pairs, train a NN, apply to data
     \item \hl{Contributions}:
       \begin{enumerate}
-        \item Theoretical properties: consistency and asymptotic normality of NNE
-              as $S \to \infty$ and network width $H \to \infty$
-        \item Practical guidelines: architecture choice, training sample size, moment selection
-        \item Applications: AR(1) time series, consumer search model, demand estimation
+        \item Theoretical properties: NNE converges to the limited-information
+              posterior mean $\mathbb{E}(\theta \mid m)$ as $L \to \infty$
+        \item Robustness to redundant moments (unlike SMM/GMM)
+        \item Applications: AR(1) time series and consumer sequential search model
       \end{enumerate}
     \item Paper is available in the \texttt{Readings/} folder
   \end{itemize}
@@ -529,49 +532,48 @@ nne.fit(moments, thetas)
   \end{tcolorbox}
   \begin{itemize}
     \item Exactly \textbf{one} hidden layer --- the simplest NN with universal approximation capacity
-    \item Bhatt et al.\ establish that the shallow NNE is consistent as
-          $S, H \to \infty$ under mild regularity conditions
+    \item Wei \& Jiang establish that the shallow NNE converges to $\mathbb{E}(\theta \mid m)$
+          as $L \to \infty$ under mild regularity conditions (Proposition 1)
     \item In practice, deeper architectures often perform better;
           shallow NN serves as a clean theoretical baseline
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Consumer Search Model}
-  \hl{Setup} (sequential search; Weitzman 1979):
+  \hl{Setup} (sequential search; Weitzman 1979, Ursu 2018):
   \begin{itemize}
-    \item Consumer $i$ considers $J$ products; pays cost $c$ to inspect each one
-    \item Utility from product $j$: $u_{ij} = \mu_j - p_j + \varepsilon_{ij}$,
-          where $\varepsilon_{ij}$ is a match value revealed only upon search
-    \item \hl{Optimal strategy}: inspect products in decreasing order of
-          reservation utility $z_j$, where $z_j$ solves
-          \[
-            c = \int_{z_j}^{\infty} (u - z_j)\, dF_\varepsilon(u)
-          \]
-    \item Stop searching when expected gain from the next product falls below $c$
+    \item Consumer $i$ sees $J$ hotels; utility from booking $j$:
+          $u_{ij} = z_{ij}'\beta + \varepsilon_{ij}$,\;
+          $\varepsilon_{ij} \sim \mathcal{N}(0,1)$ revealed only upon search
+    \item Outside option utility $u_{i0} = \eta + \varepsilon_{i0}$, known without search
+    \item Search cost for hotel $j$ at rank $s_{ij}$:
+          $c_{ij} = \exp(\delta_0 + \delta_1 \log s_{ij})$; first search is free
+    \item \hl{Optimal strategy}: search in decreasing order of reservation utility;
+          stop when best found utility exceeds all remaining reservation utilities
   \end{itemize}
   \medskip
-  \hl{Parameters}: $\theta = (\mu_1, \ldots, \mu_J,\; c,\; \sigma_\varepsilon)$
+  \hl{Parameters}: $\theta = (\beta,\; \eta,\; \delta_0,\; \delta_1)$
   \begin{itemize}
-    \item Likelihood of observed consideration sets is \textbf{intractable} ---
+    \item Likelihood over search/purchase combinations is \textbf{intractable} ---
           NNE is especially valuable here
   \end{itemize}
 \end{frame}
 
 \begin{frame}{NNE Applied to Consumer Search}
-  \hl{Moments} used to train the NNE:
+  \hl{Moments} used to train the NNE (46 total):
   \begin{itemize}
-    \item Product purchase rates: $\Pr(\text{purchase product } j)$
-    \item Mean consideration set size: $\mathbb{E}[|\mathcal{C}_i|]$
-    \item Fraction of consumers who search at least $k$ products, for $k = 1, 2, \ldots$
+    \item Mean of search/purchase outcomes $y_{ij}$; cross-covariance of $y_{ij}$ with hotel attributes $x_{ij}$
+    \item Consumer-level aggregates $\tilde{y}_i$: any non-free search, number of searches, purchase dummy
+    \item Mean, cross-covariance, and covariance matrix of $\tilde{y}_i$
   \end{itemize}
   \medskip
-  \hl{Results from Bhatt, Misra, Qi (2023)}:
+  \hl{Results from Wei \& Jiang (2025)}:
   \begin{itemize}
-    \item NNE recovers search cost $c$ and product qualities $\{\mu_j\}$
-          with accuracy comparable to full structural estimation
-    \item Speed advantage: $10\times$--$100\times$ faster than simulated MLE
-    \item Performance degrades gracefully as fewer moments are used ---
-          robust to moment selection in practice
+    \item NNE recovers all search model parameters with low bias across 100 Monte Carlo datasets
+    \item NNE achieves lower RMSE than smoothed SMLE across a wide range of computation costs;
+          advantage is largest at low cost
+    \item SMLE estimates are sensitive to the smoothing factor $\lambda$; NNE requires no tuning
+    \item On real Expedia data, NNE produces better model fit on buy rate, search count, and search ranking
   \end{itemize}
 \end{frame}
 
@@ -644,17 +646,9 @@ nne.fit(moments, thetas)
 
 \begin{frame}{Application to My Research}
   \begin{itemize}
-    \item
-    \item
-    \item
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Application to My Research (cont.)}
-  \begin{itemize}
-    \item
-    \item
-    \item
+    \item Models of consumer search and choice with large product sets
+    \item Search models with consumer lock in and dynamic consideration sets
+    \item Models of dynamic preferences and learning
   \end{itemize}
 \end{frame}
 

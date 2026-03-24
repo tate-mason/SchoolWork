@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  23 MAR 2026 11:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  24 MAR 2026 11:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -943,12 +943,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \pydata@fh@0=\write7
 \openout7 = `_4730C874979F3414FACAA79D08DA3041.data.minted'.
 
-runsystem(latexminted config  --timestamp 20260323113342 4730C874979F3414FACAA79D08DA3041)...executed safely (allowed).
+runsystem(latexminted config  --timestamp 20260324111342 4730C874979F3414FACAA79D08DA3041)...executed safely (allowed).
 
  (./_4730C874979F3414FACAA79D08DA3041.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20260323113342 4730C874979F3414FACAA79D08DA3041)...executed safely (allowed).
+runsystem(latexminted cleanconfig  --timestamp 20260324111342 4730C874979F3414FACAA79D08DA3041)...executed safely (allowed).
 
- (./_minted/default.style.minted) (./_minted/7B167453BD13288BEDD10C1D4859CA4A.highlight.minted
+ (./_minted/default.style.minted) (./_minted/D95DD8DAA35189B76AF33504C91246B4.highlight.minted
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
 )) [14
@@ -956,45 +956,49 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
 ]
 \openout4 = `Mason_Pres2.vrb'.
 
- (./Mason_Pres2.vrb (./_minted/5060C8ACC687EEF53BBA0C1D3BB1635F.highlight.minted)) [15
+ (./Mason_Pres2.vrb (./_minted/1F621230F00FC372E12E3311602BC616.highlight.minted))
+Overfull \vbox (14.89833pt too high) detected at line 419
+ []
+
+[15
 
 ]
-<../Pres2/Graphs/Figure2a_b_AR1_SMM_Plots.pdf, id=318, 614.295pt x 231.26399pt>
+<../Pres2/Graphs/Figure2a_b_AR1_SMM_Plots.pdf, id=321, 614.295pt x 231.26399pt>
 File: ../Pres2/Graphs/Figure2a_b_AR1_SMM_Plots.pdf Graphic file (type pdf)
 <use ../Pres2/Graphs/Figure2a_b_AR1_SMM_Plots.pdf>
-Package pdftex.def Info: ../Pres2/Graphs/Figure2a_b_AR1_SMM_Plots.pdf  used on input line 421.
+Package pdftex.def Info: ../Pres2/Graphs/Figure2a_b_AR1_SMM_Plots.pdf  used on input line 425.
 (pdftex.def)             Requested size: 358.50346pt x 134.96599pt.
  [16
 
  <../Pres2/Graphs/Figure2a_b_AR1_SMM_Plots.pdf>]
-<../Pres2/Graphs/Figure2c_d_AR1_LinearFit.pdf, id=337, 614.295pt x 238.49101pt>
+<../Pres2/Graphs/Figure2c_d_AR1_LinearFit.pdf, id=340, 614.295pt x 238.49101pt>
 File: ../Pres2/Graphs/Figure2c_d_AR1_LinearFit.pdf Graphic file (type pdf)
 <use ../Pres2/Graphs/Figure2c_d_AR1_LinearFit.pdf>
-Package pdftex.def Info: ../Pres2/Graphs/Figure2c_d_AR1_LinearFit.pdf  used on input line 427.
+Package pdftex.def Info: ../Pres2/Graphs/Figure2c_d_AR1_LinearFit.pdf  used on input line 431.
 (pdftex.def)             Requested size: 358.50346pt x 139.18369pt.
  [17
 
  <../Pres2/Graphs/Figure2c_d_AR1_LinearFit.pdf>]
-<../Pres2/Graphs/Figure2e_f_AR1_NeuralNet.pdf, id=356, 614.295pt x 226.446pt>
+<../Pres2/Graphs/Figure2e_f_AR1_NeuralNet.pdf, id=359, 614.295pt x 226.446pt>
 File: ../Pres2/Graphs/Figure2e_f_AR1_NeuralNet.pdf Graphic file (type pdf)
 <use ../Pres2/Graphs/Figure2e_f_AR1_NeuralNet.pdf>
-Package pdftex.def Info: ../Pres2/Graphs/Figure2e_f_AR1_NeuralNet.pdf  used on input line 433.
+Package pdftex.def Info: ../Pres2/Graphs/Figure2e_f_AR1_NeuralNet.pdf  used on input line 437.
 (pdftex.def)             Requested size: 358.50346pt x 132.1542pt.
  [18
 
  <../Pres2/Graphs/Figure2e_f_AR1_NeuralNet.pdf>]
-<../Pres2/Graphs/tab2.png, id=375, 946.53625pt x 318.18875pt>
+<../Pres2/Graphs/tab2.png, id=378, 946.53625pt x 318.18875pt>
 File: ../Pres2/Graphs/tab2.png Graphic file (type png)
 <use ../Pres2/Graphs/tab2.png>
-Package pdftex.def Info: ../Pres2/Graphs/tab2.png  used on input line 439.
+Package pdftex.def Info: ../Pres2/Graphs/tab2.png  used on input line 443.
 (pdftex.def)             Requested size: 398.3386pt x 133.90538pt.
  [19
 
  <../Pres2/Graphs/tab2.png>]
-<../Pres2/Graphs/fig3.png, id=395, 946.53625pt x 414.54875pt>
+<../Pres2/Graphs/fig3.png, id=398, 946.53625pt x 414.54875pt>
 File: ../Pres2/Graphs/fig3.png Graphic file (type png)
 <use ../Pres2/Graphs/fig3.png>
-Package pdftex.def Info: ../Pres2/Graphs/fig3.png  used on input line 445.
+Package pdftex.def Info: ../Pres2/Graphs/fig3.png  used on input line 449.
 (pdftex.def)             Requested size: 398.3386pt x 174.45718pt.
  [20
 
@@ -1002,11 +1006,7 @@ Package pdftex.def Info: ../Pres2/Graphs/fig3.png  used on input line 445.
 
 ] (./Mason_Pres2.toc) [22
 
-]
-Overfull \vbox (3.84093pt too high) detected at line 499
- []
-
-[23
+] [23
 
 ] [24
 
@@ -1017,58 +1017,58 @@ Overfull \vbox (3.84093pt too high) detected at line 499
 ] [27
 
 ]
-<../Pres2/Graphs/fig4.png, id=523, 946.53625pt x 706.64pt>
+<../Pres2/Graphs/fig4.png, id=526, 946.53625pt x 706.64pt>
 File: ../Pres2/Graphs/fig4.png Graphic file (type png)
 <use ../Pres2/Graphs/fig4.png>
-Package pdftex.def Info: ../Pres2/Graphs/fig4.png  used on input line 582.
+Package pdftex.def Info: ../Pres2/Graphs/fig4.png  used on input line 584.
 (pdftex.def)             Requested size: 256.0015pt x 191.11882pt.
  [28
 
  <../Pres2/Graphs/fig4.png>]
-<../Pres2/Graphs/fig5.png, id=540, 946.53625pt x 706.64pt>
+<../Pres2/Graphs/fig5.png, id=543, 946.53625pt x 706.64pt>
 File: ../Pres2/Graphs/fig5.png Graphic file (type png)
 <use ../Pres2/Graphs/fig5.png>
-Package pdftex.def Info: ../Pres2/Graphs/fig5.png  used on input line 588.
+Package pdftex.def Info: ../Pres2/Graphs/fig5.png  used on input line 590.
 (pdftex.def)             Requested size: 256.0015pt x 191.11882pt.
  [29
 
  <../Pres2/Graphs/fig5.png>]
-<../Pres2/Graphs/fig6.png, id=558, 946.53625pt x 467.7475pt>
+<../Pres2/Graphs/fig6.png, id=561, 946.53625pt x 467.7475pt>
 File: ../Pres2/Graphs/fig6.png Graphic file (type png)
 <use ../Pres2/Graphs/fig6.png>
-Package pdftex.def Info: ../Pres2/Graphs/fig6.png  used on input line 594.
+Package pdftex.def Info: ../Pres2/Graphs/fig6.png  used on input line 596.
 (pdftex.def)             Requested size: 358.50319pt x 177.16063pt.
  [30
 
  <../Pres2/Graphs/fig6.png>]
-<../Pres2/Graphs/fig7.png, id=575, 946.53625pt x 735.74875pt>
+<../Pres2/Graphs/fig7.png, id=578, 946.53625pt x 735.74875pt>
 File: ../Pres2/Graphs/fig7.png Graphic file (type png)
 <use ../Pres2/Graphs/fig7.png>
-Package pdftex.def Info: ../Pres2/Graphs/fig7.png  used on input line 600.
+Package pdftex.def Info: ../Pres2/Graphs/fig7.png  used on input line 602.
 (pdftex.def)             Requested size: 245.87697pt x 191.12177pt.
  [31
 
  <../Pres2/Graphs/fig7.png>]
-<../Pres2/Graphs/fig8.png, id=593, 946.53625pt x 729.72626pt>
+<../Pres2/Graphs/fig8.png, id=596, 946.53625pt x 729.72626pt>
 File: ../Pres2/Graphs/fig8.png Graphic file (type png)
 <use ../Pres2/Graphs/fig8.png>
-Package pdftex.def Info: ../Pres2/Graphs/fig8.png  used on input line 606.
+Package pdftex.def Info: ../Pres2/Graphs/fig8.png  used on input line 608.
 (pdftex.def)             Requested size: 247.89899pt x 191.1162pt.
  [32
 
  <../Pres2/Graphs/fig8.png>]
-<../Pres2/Graphs/tab4.png, id=610, 946.53625pt x 457.71pt>
+<../Pres2/Graphs/tab4.png, id=613, 946.53625pt x 457.71pt>
 File: ../Pres2/Graphs/tab4.png Graphic file (type png)
 <use ../Pres2/Graphs/tab4.png>
-Package pdftex.def Info: ../Pres2/Graphs/tab4.png  used on input line 612.
+Package pdftex.def Info: ../Pres2/Graphs/tab4.png  used on input line 614.
 (pdftex.def)             Requested size: 358.50319pt x 173.35892pt.
  [33
 
  <../Pres2/Graphs/tab4.png>]
-<../Pres2/Graphs/tab5.png, id=627, 946.53625pt x 318.18875pt>
+<../Pres2/Graphs/tab5.png, id=630, 946.53625pt x 318.18875pt>
 File: ../Pres2/Graphs/tab5.png Graphic file (type png)
 <use ../Pres2/Graphs/tab5.png>
-Package pdftex.def Info: ../Pres2/Graphs/tab5.png  used on input line 618.
+Package pdftex.def Info: ../Pres2/Graphs/tab5.png  used on input line 620.
 (pdftex.def)             Requested size: 358.50319pt x 120.51485pt.
  [34
 
@@ -1077,8 +1077,6 @@ Package pdftex.def Info: ../Pres2/Graphs/tab5.png  used on input line 618.
 ] [36
 
 ] [37
-
-] [38
 
 ]
 \tf@nav=\write8
@@ -1099,18 +1097,18 @@ Package rerunfilecheck Info: File `Mason_Pres2.out' has not changed.
 (rerunfilecheck)             Checksum: 3B9E55CFDFBF54F678A15195C09CB2B8;601.
  ) 
 Here is how much of TeX's memory you used:
- 33855 strings out of 467525
- 720361 string characters out of 5418983
- 1197151 words of memory out of 5000000
- 62054 multiletter control sequences out of 15000+600000
- 638059 words of font info for 80 fonts, out of 8000000 for 9000
+ 33860 strings out of 467525
+ 720550 string characters out of 5418983
+ 1201137 words of memory out of 5000000
+ 62060 multiletter control sequences out of 15000+600000
+ 638395 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,123p,520b,1265s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Mason_Pres2.pdf (38 pages, 2129051 bytes).
+ 128i,15n,123p,520b,1373s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Mason_Pres2.pdf (37 pages, 2157947 bytes).
 PDF statistics:
  810 PDF objects out of 1000 (max. 8388607)
  490 compressed objects within 5 object streams
- 82 named destinations out of 1000 (max. 500000)
+ 80 named destinations out of 1000 (max. 500000)
  143 words of extra memory for PDF output out of 10000 (max. 10000000)
 

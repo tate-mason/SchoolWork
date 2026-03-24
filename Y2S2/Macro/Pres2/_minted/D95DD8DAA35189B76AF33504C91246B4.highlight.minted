@@ -1,0 +1,17 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{numpy}\PYG{+w}{ }\PYG{k}{as}\PYG{+w}{ }\PYG{n+nn}{np}
+
+\PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{model}\PYG{p}{(}\PYG{n}{beta}\PYG{p}{,} \PYG{n}{n}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{,} \PYG{n}{rng}\PYG{o}{=}\PYG{k+kc}{None}\PYG{p}{):}
+    \PYG{n}{rng} \PYG{o}{=} \PYG{n}{rng} \PYG{o+ow}{or} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{default\PYGZus{}rng}\PYG{p}{()}
+    \PYG{n}{eps} \PYG{o}{=} \PYG{n}{rng}\PYG{o}{.}\PYG{n}{standard\PYGZus{}normal}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}
+    \PYG{n}{y}   \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{empty}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} draw y(1) from stationary dist N(0, 1/(1\PYGZhy{}beta\PYGZca{}2))}
+    \PYG{n}{y}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{eps}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{/} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{beta}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{n}\PYG{p}{):}
+        \PYG{n}{y}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{beta} \PYG{o}{*} \PYG{n}{y}\PYG{p}{[}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+} \PYG{n}{eps}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}
+    \PYG{k}{return} \PYG{n}{y}
+
+\PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{moments}\PYG{p}{(}\PYG{n}{y}\PYG{p}{):}
+    \PYG{c+c1}{\PYGZsh{} lag\PYGZhy{}1 autocovariance: E[y\PYGZus{}t * y\PYGZus{}\PYGZob{}t\PYGZhy{}1\PYGZcb{}]}
+    \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{y}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:]} \PYG{o}{*} \PYG{n}{y}\PYG{p}{[:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{])])}
+\end{MintedVerbatim}
