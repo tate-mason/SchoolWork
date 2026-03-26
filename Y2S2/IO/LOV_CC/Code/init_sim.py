@@ -13,13 +13,19 @@ set of parameters:
     - gamma_low = 0.2
     - gamma_high = 0.8
     - gamma = 0.5
-    - X_jt ~ N(x_bar, sigma_x^2) where x_bar is drawn from the mean of past choices and sigma_x is a parameter that we will want to see react to different regimes
+    - X_jt = 5
+    - a_ijt ~ N(alpha*(1/X_jt-X_bar), sigma_a) where alpha is set in different regimes
 We will simulate the consumer's choices over 100 periods, and then analyze how the objective changes over time, how the variance in choices change, and how the 
 variance changes with regimes. We also want to see how X and sigma comingle.
 
     Our objective function is:
-    U_jt = beta_i*X_jt - gamma*(X_jt - x_bar)^2 + epsilon_ijt
+    U_jt = beta_i*X_jt - gamma*(X_jt - x_bar)^2 + pi*a_ijt + epsilon_ijt
     where epsilon_ijt ~ T1EV
+
+    P_ijt = int exp(U_ijt) / 1 + sum_k exp(U_ikt) dF_j
+    s_jt = int P_ijt dF_j 
+    HHI_t = sum_j s_jt^2 
+    - note: individual HHI, such that HHI is the share of chosen product squared, not market share squared.
 """
 
 rng = np.random.default_rng(seed=219) # set seed for reproducibility
@@ -38,15 +44,16 @@ regimes = [
 ]
 
 def simulate(beta, gamma, sigma, T, rng):
+    options = np.array([1.0, 2.0, 3.0, 4.0, 5.0])
+
     x_choices = np.zeros(T)
     x_bar = np.zeros(T)
 
-    x_bar[0] = rng.standard_normal()
-    x_choices[0] = rng.normal(x_bar[0], sigma)
-
+    x_choices[0] = rng.choice(options)
+    x_bar[0] = x_choices[0] # initial mean is just the first choice
     for t in range(1, T):
         x_bar[t] = np.mean(x_choices[:t]) # mean of all prior choices
-        x_choices[t] = rng.normal(x_bar[t], sigma)
+        x_choices[t] = rng.choice(options)
 
     return x_choices, x_bar
 
@@ -105,3 +112,26 @@ fig2.suptitle("Consumer choices and utility by regime (σ=1.0)", fontsize=13, y=
 plt.tight_layout()
 plt.savefig("../Output/consumer_choices_and_utility_by_regime.png")
 plt.show()
+
+# Calculating Choice Probabilities and HHI
+
+options = np.array([1.0, 2.0, 3.0, 4.0, 5.0]) # possible choices
+
+beta, gamma = 0.5, 0.5
+x_choices, x_bar = simulate(beta, gamma, sigma_values[1], T, rng)  # using medium sigma for choice simulation
+
+j_obs = np.searchsorted(options, x_choices) # observed choice indices
+eps = rng.gumbel(size=(5, T)) # random shocks for each option and period
+
+def calculate_prob_and_hhi(options, x_bar, beta, gamma, eps, j_obs):
+    T = len(x_bar)
+    ll = 0.0
+    s_all = np.zeros((T, len(options)))
+    for t in range(T):
+        V = beta * options - gamma * (options - x_bar[t]) ** 2 + eps[:, t]
+        log_P = V - sp.special.logsumexp(V)
+        ll += log_P[j_obs[t]]
+        s_all[t] = np.exp(log_P)
+    HHI = np.mean(np.sum(s_all ** 2, axis=1))
+    return s_all, HHI, ll
+
