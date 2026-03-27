@@ -65,7 +65,7 @@ def log_lik(theta, X, X1, Y, Y_0, transition_matrix, x_grid, X1t_discrete):
 
             # --- Continuation values ---
             # transition_matrix[:, state_idx, j] is (10, N); transpose to (N, 10)
-            EV_t[:, j]      = u_j      + beta * (transition_matrix[:, state_idx, j-1].T @ emax_grid)
+            EV_t[:, j]  = u_j      + beta * (transition_matrix[:, state_idx, j-1].T @ emax_grid)
             EV_t_grid[:, j] = u_j_grid + beta * (transition_matrix[:, :, j-1].T      @ emax_grid)
 
         # Normalize retirement to 0
@@ -86,15 +86,10 @@ def log_lik(theta, X, X1, Y, Y_0, transition_matrix, x_grid, X1t_discrete):
         # Flow utilities
         u = np.zeros((N, J))
         for j in range(1, J):
-            u[:, j] = (
-                X @ beta_s[j - 1]
-                + beta_d[j - 1] * X1[:, t]
-                - delta * (prev != j)
-            )
-
+            u[:, j] = X @ beta_s[j - 1] + beta_d[j - 1] * X1[:, t] - delta * (prev != j)
         # Continuation value: EV_t1[t] already has beta baked in from backward pass
-        cont    = EV_t1[t] if t < T - 1 else np.zeros((N, J))
-        V_t     = u + cont
+        cont = EV_t1[t] if t < T - 1 else np.zeros((N, J))
+        V_t = u + cont
         V_t[:, 0] = 0.0  # retirement payoff normalized to 0
 
         # Logit log-likelihood: V_chosen - logsumexp(V_all)
@@ -109,7 +104,7 @@ def estimate_params(X, X1, Y, Y_0, transition_matrix, x_grid, X1t_discrete):
     from scipy.optimize import minimize
 
     # Initial guess: zeros for utility params, 0.9 for discount factor
-    theta_init      = np.zeros(11)
+    theta_init = np.zeros(11)
 
     result = minimize(
         log_lik,

@@ -10,7 +10,7 @@ from scipy.special import logsumexp
 
 def compute_transition_matrix(alpha, sigma):
     # Define the grid for X
-    x_grid = np.linspace(-3, 3, 10) # 10 points from -3 to 3
+    x_grid = np.linspace(0.05, 0.95, 10) # 10 points from -3 to 3
 
     # Initialize the transition matrix
     transition_matrix = np.zeros((10, 10, 3)) # dimensions: future X, current X, work choice
@@ -18,7 +18,7 @@ def compute_transition_matrix(alpha, sigma):
     # Compute the transition probabilities for each work choice
     for j in range(3): # loop over work choices
         for i in range(10): # loop over current X values
-            mean = alpha[0] + alpha[1] * x_grid[i] + alpha[2] * (j == 1) + alpha[3] * (j == 2) # compute the mean of the normal distribution for future X given current X and work choice
+            mean = alpha[0] + alpha[1] * x_grid[i] + alpha[2] * (j == 2) + alpha[3] * (j == 3) # compute the mean of the normal distribution for future X given current X and work choice
             transition_matrix[:, i, j] = sp.stats.norm.pdf(x_grid, loc=mean, scale=sigma) # compute the probability density of future X given current X and work choice
 
         # Normalize the transition probabilities so they sum to 1 for each current X and work choice
