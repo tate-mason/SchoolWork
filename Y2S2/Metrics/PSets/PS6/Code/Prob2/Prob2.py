@@ -49,3 +49,34 @@ print(tabulate(rows, headers=["Coefficient", "Value"], floatfmt=".4f")) # print 
 #=====================================================#
 
 from Prob2b import *
+
+transition_matrix, x_grid = compute_transition_matrix(alpha, sigma) # calling the function to compute the transition matrix using the estimated coefficients and standard error from part (a)
+
+#===========================================================#
+# Calling the function for part (c) to create a discretized #
+# X1t from the bins from the X values. Discretized states   #
+# will only be used to calculate E[V'] in part (d).         #
+#===========================================================#
+
+from Prob2c import *
+
+X1t_discrete = discretize_X1t(X1, transition_matrix, x_grid) # calling the function to discretize X1t based on the transition matrix
+
+#===========================================================#
+# Calling the function for part (d) to estimate the DDC     #
+# model. Future exp. utility depends on current choice and  #
+# current state. Transition matrix will be used to make     #
+# E[V'] to integrate over the distribution of X             #
+#===========================================================#
+
+from Prob2d import *
+
+theta_est = estimate_params(X, X1, Y, Y_0, transition_matrix, x_grid, X1t_discrete) # calling the function to estimate the parameters of the DDC model using the data and the transition matrix
+
+res = pd.DataFrame({
+    "Parameter": ["β_s (Flex-Time, X1)", "β_s (Flex-Time, X2)", "β_s (Part-Time, X1)", "β_s (Part-Time, X2)", "β_s (Full-Time, X1)", "β_s (Full-Time, X2)", "β_d (Flex-Time)", "β_d (Part-Time)", "β_d (Full-Time)", "δ", "β"],
+    "Estimate": theta_est
+})
+
+print(tabulate(res, headers="keys", tablefmt="pretty", floatfmt=".4f")) # print the estimated parameters in a tabular format
+

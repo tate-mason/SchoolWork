@@ -21,6 +21,10 @@ from statsmodels.regression.linear_model import OLS
 #=====================================================#
 
 def reg_X1_on_Xchoice(X1, Y):
+    
+    N = X1.shape[0] # number of individuals
+
+    lag_X1 = np.concatenate([np.full((N,1), np.nan), X1[:,:-1]], axis=1).ravel() # create the lagged X1 variable
 
     X1 = X1.ravel() # flatten the array to ensure it's 1D
     Y = Y.ravel() # flatten the array to ensure it's 1D
@@ -28,7 +32,6 @@ def reg_X1_on_Xchoice(X1, Y):
     part_time = (Y == 2) # create the binary for part-time workers
     full_time = (Y == 3) # create the binary for full-time workers
 
-    lag_X1 = np.concatenate(([np.nan], X1[:-1])) # create X_t-1
     X_reg = np.column_stack((lag_X1, part_time, full_time)) # create the regression matrix with the lagged X and the binary variables
     X_reg = sm.add_constant(X_reg) # add a constant term to the regression matrix
 
