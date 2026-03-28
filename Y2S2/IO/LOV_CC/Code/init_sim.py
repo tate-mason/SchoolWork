@@ -94,20 +94,20 @@ C_U = "#C44E52"
 fig2, axes2 = plt.subplots(1, 5, figsize=(16, 5), sharey=False)
 
 for ax, (beta, gamma, label) in zip(axes2, regimes):
-    x_choices, x_bar = simulate(beta, gamma, sigma_values[1], T, rng)  # using medium sigma for choice simulation
-
+    x_choices, x_bar = simulate(beta, gamma, sigma_values[1], T, rng)
     epsilon = rng.gumbel(size=T)
     U = beta * x_choices - gamma * (x_choices - x_bar) ** 2 + epsilon
-
-    ax.plot(idx, x_choices, label="$X_{jt}$", color=C_x, linewidth=2.0)
-    ax.plot(idx, x_bar, label="$\\bar{X}_{jt}$", color=C_Xb, linewidth=1.6, linestyle='--')
-    ax.plot(idx, U, label="$U_{jt}$", color=C_U, linewidth=1.2, alpha=0.6)
+    x_smooth = np.convolve(x_choices, np.ones(5)/5, mode='same')
+    ax.plot(idx, x_smooth, label="$X_{jt}$", color=C_x, linewidth=1.8, alpha=0.7)
+    ax.plot(idx, x_bar, label="$\\bar{X}_{jt}$", color=C_Xb, linewidth=1.2, alpha=0.7, linestyle='--')
+    U_smooth = np.convolve(U, np.ones(5)/5, mode='same')
+    ax.plot(idx, U_smooth, label="$U_{jt}$", color=C_U, linewidth=1.2, alpha=0.6)
     ax.set_title(label, fontsize=10)
     ax.set_xlabel("Period")
     ax.set_ylabel("Value")
     ax.legend(fontsize=9)
-    ax.set_xlim(0, T - 1)
-
+    ax.set_xlim(-1, T)
+    ax.set_ylim(-3, 5)
 fig2.suptitle("Consumer choices and utility by regime (σ=1.0)", fontsize=13, y=1.01)
 plt.tight_layout()
 plt.savefig("../Output/consumer_choices_and_utility_by_regime.png")
