@@ -1,94 +1,155 @@
 survey_year,gender,state,sport,schools,participants
-2002-03,Girls,Alabama,Competitive Spirit Squads,126.0,765.0
-2002-03,Girls,Alaska,Basketball,31.0,588.0
-2002-03,Girls,Alaska,Competitive Spirit Squads,97.0,810.0
-2002-03,Girls,Arizona,Basketball,122.0,
-2002-03,Girls,Arizona,Competitive Spirit Squads,163.0,
-2002-03,Girls,Arkansas,Basketball,60.0,1414.0
-2002-03,Girls,Arkansas,Competitive Spirit Squads,56.0,537.0
-2002-03,Girls,California,Basketball,411.0,42921.0
-2002-03,Girls,California,Competitive Spirit Squads,971.0,16618.0
-2002-03,Girls,California,Cross Country,632170.0,
-2002-03,Girls,Colorado,Basketball,230.0,5351.0
-2002-03,Girls,Colorado,Cross Country,15.0,
-2002-03,Girls,Connecticut,Basketball,133.0,4800.0
-2002-03,Girls,Connecticut,Competitive Spirit Squads,164.0,2277.0
-2002-03,Girls,Connecticut,Cross Country,72.0,3245.0
-2002-03,Girls,Delaware,Competitive Spirit Squads,39.0,557.0
-2002-03,Girls,District of Columbia,Basketball,42.0,275.0
-2002-03,Girls,District of Columbia,Competitive Spirit Squads,12.0,140.0
-2002-03,Girls,Florida,Competitive Spirit Squads,436.0,5344.0
-2002-03,Girls,Georgia,Basketball,211.0,4305.0
-2002-03,Girls,Georgia,Competitive Spirit Squads,311.0,3690.0
-2002-03,Girls,Hawaii,Basketball,47.0,724.0
-2002-03,Girls,Hawaii,Competitive Spirit Squads,60.0,794.0
-2002-03,Girls,Illinois,Competitive Spirit Squads,472.0,7819.0
-2002-03,Girls,Indiana,Competitive Spirit Squads,376.0,3981.0
-2002-03,Girls,Indiana,Basketball,57.0,2548.0
-2002-03,Girls,Kansas,Competitive Spirit Squads,214.0,
-2002-03,Girls,Kentucky,Basketball,279.0,5444.0
-2002-03,Girls,Kentucky,Competitive Spirit Squads,243.0,2427.0
-2002-03,Girls,Louisiana,Competitive Spirit Squads,307.0,1225.0
-2002-03,Girls,Louisiana,Basketball,97.0,1864.0
-2002-03,Girls,Louisiana,Cross Country,78.0,3025.0
-2002-03,Girls,Maryland,Competitive Spirit Squads,165.0,2100.0
-2002-03,Girls,Maryland,Cross Country,120.0,
-2002-03,Girls,Massachusetts,Competitive Spirit Squads,275.0,3968.0
-2002-03,Girls,Massachusetts,Cross Country,202.0,8819.0
-2002-03,Girls,Michigan,Basketball,165.0,4165.0
-2002-03,Girls,Michigan,Competitive Spirit Squads,579.0,6630.0
-2002-03,Girls,Michigan,Cross Country,16.0,
-2002-03,Girls,Minnesota,Competitive Spirit Squads,316.0,4486.0
-2002-03,Girls,Mississippi,Basketball,145.0,2500.0
-2002-03,Girls,Mississippi,Competitive Spirit Squads,123.0,1820.0
-2002-03,Girls,Missouri,Basketball,460.0,2200.0
-2002-03,Girls,Missouri,Competitive Spirit Squads,306.0,
-2002-03,Girls,Missouri,Cross Country,211114.0,
-2002-03,Girls,Montana,Basketball,,406.0
-2002-03,Girls,Montana,Competitive Spirit Squads,112.0,1067.0
-2002-03,Girls,Nebraska,Competitive Spirit Squads,172.0,
-2002-03,Girls,Nevada,Competitive Spirit Squads,59.0,561.0
-2002-03,Girls,New Hampshire,Basketball,73.0,1912.0
-2002-03,Girls,New Hampshire,Competitive Spirit Squads,68.0,736.0
-2002-03,Girls,New Hampshire,Cross Country,55.0,
-2002-03,Girls,New Jersey,Competitive Spirit Squads,318.0,3894.0
-2002-03,Girls,New Jersey,Cross Country,221.0,9424.0
-2002-03,Girls,New Mexico,Competitive Spirit Squads,107.0,992.0
-2002-03,Girls,New York,Competitive Spirit Squads,539.0,6122.0
-2002-03,Girls,New York,Cross Country,232.0,8508.0
-2002-03,Girls,North Carolina,Basketball,333.0,13746.0
-2002-03,Girls,North Carolina,Competitive Spirit Squads,302.0,
-2002-03,Girls,North Carolina,Cross Country,,234.0
-2002-03,Girls,North Dakota,Basketball,22.0,398.0
-2002-03,Girls,North Dakota,Competitive Spirit Squads,59.0,365.0
-2002-03,Girls,North Dakota,Cross Country,331194.0,
-2002-03,Girls,Oklahoma,Basketball,178.0,1783.0
-2002-03,Girls,Oklahoma,Competitive Spirit Squads,171.0,1238.0
-2002-03,Girls,Oregon,Basketball,61.0,650.0
-2002-03,Girls,Oregon,Competitive Spirit Squads,184.0,1928.0
-2002-03,Girls,Pennsylvania,Competitive Spirit Squads,489.0,4940.0
-2002-03,Girls,Pennsylvania,Cross Country,261.0,9135.0
-2002-03,Girls,Rhode Island,Basketball,24.0,
-2002-03,Girls,Rhode Island,Competitive Spirit Squads,,611.0
-2002-03,Girls,Rhode Island,Cross Country,21.0,631.0
-2002-03,Girls,South Carolina,Basketball,89.0,2602.0
-2002-03,Girls,South Carolina,Competitive Spirit Squads,130.0,1488.0
-2002-03,Girls,South Dakota,Basketball,20.0,224.0
-2002-03,Girls,South Dakota,Competitive Spirit Squads,148.0,649.0
-2002-03,Girls,Tennessee,Basketball,359.0,1500.0
-2002-03,Girls,Tennessee,Competitive Spirit Squads,243.0,2105.0
-2002-03,Girls,Vermont,Basketball,31.0,551.0
-2002-03,Girls,Vermont,Competitive Spirit Squads,48.0,466.0
-2002-03,Girls,Vermont,Cross Country,311227.0,
-2002-03,Girls,Virginia,Basketball,289.0,9578.0
-2002-03,Girls,Virginia,Competitive Spirit Squads,262.0,3356.0
-2002-03,Girls,Virginia,Cross Country,108.0,
-2002-03,Girls,Washington,Competitive Spirit Squads,276.0,
-2002-03,Girls,West Virginia,Basketball,122.0,2236.0
-2002-03,Girls,West Virginia,Competitive Spirit Squads,77.0,648.0
-2002-03,Girls,Wisconsin,Competitive Spirit Squads,379.0,4874.0
-2002-03,Girls,Wyoming,Basketball,39.0,486.0
-2002-03,Girls,Wyoming,Competitive Spirit Squads,38.0,273.0
+2002-03,Girls,Alabama,Basketball,399.0,5358.0
+2002-03,Girls,Alabama,Cross Country,126.0,
+2002-03,Girls,Alaska,Basketball,134.0,2003.0
+2002-03,Girls,Alaska,Competitive Spirit Squads,31.0,588.0
+2002-03,Girls,Alaska,Cross Country,97.0,810.0
+2002-03,Girls,Arizona,Basketball,212.0,6366.0
+2002-03,Girls,Arizona,Competitive Spirit Squads,422.0,3661.0
+2002-03,Girls,Arizona,Cross Country,163.0,1829.0
+2002-03,Girls,Arkansas,Basketball,231.0,4381.0
+2002-03,Girls,Arkansas,Competitive Spirit Squads,60.0,1414.0
+2002-03,Girls,Arkansas,Cross Country,56.0,537.0
+2002-03,Girls,California,Basketball,1160.0,33912.0
+2002-03,Girls,California,Competitive Spirit Squads,411.0,42921.0
+2002-03,Girls,California,Cross Country,971.0,
+2002-03,Girls,California,Field Hockey,63.0,2170.0
+2002-03,Girls,Colorado,Basketball,306.0,
+2002-03,Girls,Colorado,Competitive Spirit Squads,230.0,5351.0
+2002-03,Girls,Colorado,Cross Country,202.0,
+2002-03,Girls,Colorado,Field Hockey,15.0,490.0
+2002-03,Girls,Connecticut,Basketball,173.0,4263.0
+2002-03,Girls,Connecticut,Competitive Spirit Squads,133.0,4800.0
+2002-03,Girls,Connecticut,Cross Country,164.0,2277.0
+2002-03,Girls,Connecticut,Field Hockey,72.0,3245.0
+2002-03,Girls,Delaware,Basketball,44.0,973.0
+2002-03,Girls,Delaware,Cross Country,39.0,557.0
+2002-03,Girls,Delaware,Field Hockey,39.0,1372.0
+2002-03,Girls,District of Columbia,Basketball,13.0,260.0
+2002-03,Girls,District of Columbia,Competitive Spirit Squads,42.0,275.0
+2002-03,Girls,District of Columbia,Cross Country,12.0,440.0
+2002-03,Girls,Florida,Basketball,547.0,11353.0
+2002-03,Girls,Florida,Cross Country,436.0,5344.0
+2002-03,Girls,Georgia,Basketball,365.0,9258.0
+2002-03,Girls,Georgia,Competitive Spirit Squads,211.0,4305.0
+2002-03,Girls,Georgia,Cross Country,311.0,
+2002-03,Girls,Hawaii,Basketball,63.0,1594.0
+2002-03,Girls,Hawaii,Competitive Spirit Squads,47.0,724.0
+2002-03,Girls,Hawaii,Cross Country,60.0,794.0
+2002-03,Girls,Idaho,Basketball,169.0,3653.0
+2002-03,Girls,Idaho,Competitive Spirit Squads,170.0,1628.0
+2002-03,Girls,Idaho,Cross Country,93.0,786.0
+2002-03,Girls,Illinois,Basketball,671.0,18918.0
+2002-03,Girls,Illinois,Cross Country,472.0,7819.0
+2002-03,Girls,Indiana,Basketball,383.0,9539.0
+2002-03,Girls,Indiana,Cross Country,376.0,3981.0
+2002-03,Girls,Iowa,Basketball,397.0,8981.0
+2002-03,Girls,Iowa,Competitive Spirit Squads,57.0,2548.0
+2002-03,Girls,Iowa,Cross Country,313.0,
+2002-03,Girls,Kansas,Basketball,358.0,8080.0
+2002-03,Girls,Kansas,Cross Country,214.0,2386.0
+2002-03,Girls,Kentucky,Basketball,280.0,5950.0
+2002-03,Girls,Kentucky,Competitive Spirit Squads,279.0,5444.0
+2002-03,Girls,Kentucky,Cross Country,243.0,
+2002-03,Girls,Louisiana,Basketball,377.0,9401.0
+2002-03,Girls,Louisiana,Cross Country,307.0,1225.0
+2002-03,Girls,Maine,Basketball,143.0,3581.0
+2002-03,Girls,Maine,Competitive Spirit Squads,97.0,1864.0
+2002-03,Girls,Maine,Cross Country,107.0,951.0
+2002-03,Girls,Maine,Field Hockey,78.0,3025.0
+2002-03,Girls,Maryland,Basketball,177.0,4469.0
+2002-03,Girls,Maryland,Cross Country,165.0,2100.0
+2002-03,Girls,Maryland,Field Hockey,120.0,4042.0
+2002-03,Girls,Massachusetts,Basketball,343.0,10577.0
+2002-03,Girls,Massachusetts,Cross Country,275.0,3968.0
+2002-03,Girls,Massachusetts,Field Hockey,202.0,8819.0
+2002-03,Girls,Michigan,Basketball,709.0,20837.0
+2002-03,Girls,Michigan,Competitive Spirit Squads,165.0,4165.0
+2002-03,Girls,Michigan,Cross Country,579.0,
+2002-03,Girls,Michigan,Field Hockey,16.0,664.0
+2002-03,Girls,Minnesota,Basketball,443.0,12903.0
+2002-03,Girls,Minnesota,Cross Country,316.0,4486.0
+2002-03,Girls,Mississippi,Basketball,265.0,6025.0
+2002-03,Girls,Mississippi,Competitive Spirit Squads,145.0,2500.0
+2002-03,Girls,Mississippi,Cross Country,123.0,1320.0
+2002-03,Girls,Missouri,Basketball,531.0,12528.0
+2002-03,Girls,Missouri,Competitive Spirit Squads,150.0,2200.0
+2002-03,Girls,Missouri,Cross Country,306.0,4054.0
+2002-03,Girls,Missouri,Field Hockey,21.0,1114.0
+2002-03,Girls,Montana,Basketball,181.0,3661.0
+2002-03,Girls,Montana,Competitive Spirit Squads,,406.0
+2002-03,Girls,Montana,Cross Country,412.0,
+2002-03,Girls,Nebraska,Basketball,316.0,7116.0
+2002-03,Girls,Nebraska,Cross Country,172.0,
+2002-03,Girls,Nevada,Basketball,89.0,2435.0
+2002-03,Girls,Nevada,Cross Country,59.0,561.0
+2002-03,Girls,New Hampshire,Basketball,88.0,2244.0
+2002-03,Girls,New Hampshire,Competitive Spirit Squads,73.0,1912.0
+2002-03,Girls,New Hampshire,Cross Country,68.0,736.0
+2002-03,Girls,New Hampshire,Field Hockey,55.0,2019.0
+2002-03,Girls,New Jersey,Basketball,408.0,9520.0
+2002-03,Girls,New Jersey,Cross Country,318.0,3894.0
+2002-03,Girls,New Jersey,Field Hockey,221.0,9424.0
+2002-03,Girls,New Mexico,Basketball,151.0,4560.0
+2002-03,Girls,New Mexico,Cross Country,107.0,992.0
+2002-03,Girls,New York,Basketball,688.0,17245.0
+2002-03,Girls,New York,Cross Country,539.0,6122.0
+2002-03,Girls,New York,Field Hockey,232.0,8508.0
+2002-03,Girls,North Carolina,Basketball,343.0,9451.0
+2002-03,Girls,North Carolina,Competitive Spirit Squads,333.0,13746.0
+2002-03,Girls,North Carolina,Cross Country,,3674.0
+2002-03,Girls,North Carolina,Field Hockey,,234.0
+2002-03,Girls,North Dakota,Basketball,180.0,2940.0
+2002-03,Girls,North Dakota,Competitive Spirit Squads,22.0,398.0
+2002-03,Girls,North Dakota,Cross Country,59.0,365.0
+2002-03,Girls,Ohio,Basketball,784.0,17874.0
+2002-03,Girls,Ohio,Cross Country,564.0,6898.0
+2002-03,Girls,Ohio,Field Hockey,33.0,1194.0
+2002-03,Girls,Oklahoma,Basketball,471.0,7400.0
+2002-03,Girls,Oklahoma,Competitive Spirit Squads,178.0,1783.0
+2002-03,Girls,Oklahoma,Cross Country,171.0,
+2002-03,Girls,Oregon,Basketball,267.0,6140.0
+2002-03,Girls,Oregon,Competitive Spirit Squads,64.0,650.0
+2002-03,Girls,Oregon,Cross Country,184.0,1928.0
+2002-03,Girls,Pennsylvania,Basketball,647.0,19410.0
+2002-03,Girls,Pennsylvania,Cross Country,489.0,4940.0
+2002-03,Girls,Pennsylvania,Field Hockey,261.0,9135.0
+2002-03,Girls,Rhode Island,Basketball,48.0,1174.0
+2002-03,Girls,Rhode Island,Competitive Spirit Squads,24.0,618.0
+2002-03,Girls,Rhode Island,Cross Country,41.0,611.0
+2002-03,Girls,Rhode Island,Field Hockey,21.0,631.0
+2002-03,Girls,South Carolina,Basketball,193.0,5110.0
+2002-03,Girls,South Carolina,Competitive Spirit Squads,89.0,2602.0
+2002-03,Girls,South Carolina,Cross Country,130.0,1488.0
+2002-03,Girls,South Dakota,Basketball,188.0,3447.0
+2002-03,Girls,South Dakota,Competitive Spirit Squads,20.0,224.0
+2002-03,Girls,South Dakota,Cross Country,148.0,649.0
+2002-03,Girls,Tennessee,Basketball,352.0,5005.0
+2002-03,Girls,Tennessee,Competitive Spirit Squads,359.0,4500.0
+2002-03,Girls,Tennessee,Cross Country,243.0,
+2002-03,Girls,Texas,Basketball,1211.0,69386.0
+2002-03,Girls,Texas,Competitive Spirit Squads,676.0,23413.0
+2002-03,Girls,Texas,Cross Country,1154.0,28997.0
+2002-03,Girls,Utah,Basketball,148.0,2839.0
+2002-03,Girls,Utah,Cross Country,108.0,
+2002-03,Girls,Vermont,Basketball,74.0,1974.0
+2002-03,Girls,Vermont,Competitive Spirit Squads,31.0,551.0
+2002-03,Girls,Vermont,Cross Country,48.0,466.0
+2002-03,Girls,Vermont,Field Hockey,31.0,1227.0
+2002-03,Girls,Virginia,Basketball,291.0,7842.0
+2002-03,Girls,Virginia,Competitive Spirit Squads,289.0,9578.0
+2002-03,Girls,Virginia,Cross Country,262.0,
+2002-03,Girls,Virginia,Field Hockey,108.0,3742.0
+2002-03,Girls,Washington,Basketball,374.0,9981.0
+2002-03,Girls,Washington,Cross Country,276.0,3398.0
+2002-03,Girls,West Virginia,Basketball,131.0,2437.0
+2002-03,Girls,West Virginia,Competitive Spirit Squads,122.0,2236.0
+2002-03,Girls,West Virginia,Cross Country,77.0,648.0
+2002-03,Girls,Wisconsin,Basketball,,138474.0
+2002-03,Girls,Wisconsin,Cross Country,379.0,4874.0
+2002-03,Girls,Wyoming,Basketball,70.0,1597.0
+2002-03,Girls,Wyoming,Competitive Spirit Squads,39.0,486.0
+2002-03,Girls,Wyoming,Cross Country,38.0,273.0
 2002-03,Girls,Alabama,Golf,69.0,206.0
 2002-03,Girls,Alaska,Gymnastics,10.0,154.0
 2002-03,Girls,Alaska,Skiing Cross Country,30.0,375.0
@@ -96,18 +157,18 @@ survey_year,gender,state,sport,schools,participants
 2002-03,Girls,Arkansas,Golf,76.0,328.0
 2002-03,Girls,Arkansas,Gymnastics,,106.0
 2002-03,Girls,California,Golf,669.0,5547.0
-2002-03,Girls,California,Gymnastics,46.0,859.0
+2002-03,Girls,California,Gymnastics,46.0,
 2002-03,Girls,California,Skiing Cross Country,,32.0
 2002-03,Girls,California,Skiing Alpine,27.0,190.0
-2002-03,Girls,Colorado,Golf,130.0,1488.0
-2002-03,Girls,Colorado,Gymnastics,78.0,1428.0
+2002-03,Girls,Colorado,Golf,130.0,1188.0
+2002-03,Girls,Colorado,Gymnastics,78.0,
 2002-03,Girls,Colorado,Skiing Cross Country,17.0,150.0
 2002-03,Girls,Colorado,Skiing Alpine,17.0,150.0
 2002-03,Girls,Connecticut,Golf,36.0,321.0
 2002-03,Girls,Connecticut,Gymnastics,70.0,509.0
 2002-03,Girls,Delaware,Golf,18.0,
 2002-03,Girls,District of Columbia,Golf,,30.0
-2002-03,Girls,District of Columbia,Skiing Alpine,10.0,275.0
+2002-03,Girls,District of Columbia,Skiing Alpine,10.0,
 2002-03,Girls,Florida,Golf,327.0,2164.0
 2002-03,Girls,Georgia,Golf,248.0,1113.0
 2002-03,Girls,Georgia,Gymnastics,30.0,398.0
@@ -116,17 +177,20 @@ survey_year,gender,state,sport,schools,participants
 2002-03,Girls,Idaho,Golf,90.0,544.0
 2002-03,Girls,Idaho,Gymnastics,,16.0
 2002-03,Girls,Idaho,Skiing Alpine,,35.0
+2002-03,Girls,Illinois,Golf,361.0,3222.0
+2002-03,Girls,Illinois,Gymnastics,98.0,1916.0
 2002-03,Girls,Indiana,Golf,265.0,2352.0
 2002-03,Girls,Indiana,Gymnastics,92.0,1046.0
+2002-03,Girls,Iowa,Golf,329.0,3916.0
 2002-03,Girls,Kansas,Golf,402.0,4029.0
 2002-03,Girls,Kansas,Gymnastics,32.0,265.0
 2002-03,Girls,Kentucky,Golf,226.0,1379.0
 2002-03,Girls,Louisiana,Golf,101.0,320.0
-2002-03,Girls,Louisiana,Gymnastics,19.0,217.0
+2002-03,Girls,Louisiana,Gymnastics,19.0,
 2002-03,Girls,Maine,Golf,43.0,68.0
-2002-03,Girls,Maine,Gymnastics,17.0,121.0
-2002-03,Girls,Maine,Skiing Cross Country,39.0,
-2002-03,Girls,Maine,Skiing Alpine,,295.0
+2002-03,Girls,Maine,Gymnastics,17.0,
+2002-03,Girls,Maine,Skiing Cross Country,39.0,305.0
+2002-03,Girls,Maine,Skiing Alpine,41.0,295.0
 2002-03,Girls,Maryland,Golf,89.0,173.0
 2002-03,Girls,Maryland,Gymnastics,29.0,81.0
 2002-03,Girls,Massachusetts,Golf,25.0,400.0
@@ -134,48 +198,49 @@ survey_year,gender,state,sport,schools,participants
 2002-03,Girls,Massachusetts,Skiing Cross Country,20.0,334.0
 2002-03,Girls,Massachusetts,Skiing Alpine,68.0,885.0
 2002-03,Girls,Michigan,Golf,317.0,3980.0
-2002-03,Girls,Michigan,Gymnastics,,1408.0
+2002-03,Girls,Michigan,Gymnastics,91.0,1108.0
 2002-03,Girls,Michigan,Skiing Cross Country,,31.0
 2002-03,Girls,Michigan,Skiing Alpine,90.0,789.0
 2002-03,Girls,Minnesota,Golf,376.0,4982.0
 2002-03,Girls,Minnesota,Gymnastics,189.0,3107.0
-2002-03,Girls,Minnesota,Skiing Cross Country,107.0,
+2002-03,Girls,Minnesota,Skiing Cross Country,107.0,2199.0
 2002-03,Girls,Minnesota,Skiing Alpine,80.0,779.0
 2002-03,Girls,Mississippi,Golf,,110.0
-2002-03,Girls,Missouri,Golf,47.0,1520.0
+2002-03,Girls,Missouri,Golf,147.0,1520.0
 2002-03,Girls,Missouri,Gymnastics,,25.0
-2002-03,Girls,Montana,Golf,25.0,762.0
+2002-03,Girls,Montana,Golf,425.0,
 2002-03,Girls,Nebraska,Golf,425.0,1219.0
 2002-03,Girls,Nevada,Golf,57.0,513.0
-2002-03,Girls,Nevada,Skiing Alpine,,114.0
+2002-03,Girls,Nevada,Skiing Alpine,11.0,114.0
 2002-03,Girls,New Hampshire,Golf,26.0,27.0
 2002-03,Girls,New Hampshire,Gymnastics,23.0,152.0
 2002-03,Girls,New Hampshire,Skiing Cross Country,60.0,269.0
 2002-03,Girls,New Hampshire,Skiing Alpine,60.0,418.0
-2002-03,Girls,New Jersey,Golf,59.0,
+2002-03,Girls,New Jersey,Golf,59.0,510.0
 2002-03,Girls,New Jersey,Gymnastics,68.0,846.0
 2002-03,Girls,New Jersey,Skiing Alpine,,158.0
 2002-03,Girls,New Mexico,Golf,87.0,272.0
-2002-03,Girls,New York,Golf,2.0,948.0
+2002-03,Girls,New York,Golf,102.0,948.0
 2002-03,Girls,New York,Gymnastics,116.0,1598.0
 2002-03,Girls,New York,Skiing Cross Country,97.0,950.0
-2002-03,Girls,North Carolina,Golf,2.0,606.0
+2002-03,Girls,North Carolina,Golf,102.0,606.0
 2002-03,Girls,North Carolina,Gymnastics,10.0,59.0
-2002-03,Girls,North Dakota,Golf,103.0,597.0
-2002-03,Girls,North Dakota,Gymnastics,,84.0
-2002-03,Girls,Ohio,Golf,81.0,1975.0
+2002-03,Girls,North Dakota,Golf,403.0,597.0
+2002-03,Girls,North Dakota,Gymnastics,17.0,84.0
+2002-03,Girls,Ohio,Golf,184.0,1975.0
 2002-03,Girls,Ohio,Gymnastics,99.0,1089.0
 2002-03,Girls,Ohio,Skiing Alpine,,48.0
-2002-03,Girls,Oklahoma,Golf,371.0,4295.0
-2002-03,Girls,Oregon,Golf,38.0,1140.0
+2002-03,Girls,Oklahoma,Golf,371.0,1295.0
+2002-03,Girls,Oregon,Golf,138.0,1140.0
 2002-03,Girls,Pennsylvania,Golf,295.0,2950.0
-2002-03,Girls,Pennsylvania,Gymnastics,,210.0
+2002-03,Girls,Pennsylvania,Gymnastics,21.0,210.0
 2002-03,Girls,Rhode Island,Golf,,42.0
 2002-03,Girls,Rhode Island,Gymnastics,23.0,182.0
 2002-03,Girls,South Carolina,Golf,47.0,364.0
 2002-03,Girls,South Dakota,Golf,131.0,794.0
-2002-03,Girls,South Dakota,Gymnastics,35.0,328.0
+2002-03,Girls,South Dakota,Gymnastics,35.0,
 2002-03,Girls,Tennessee,Golf,222.0,650.0
+2002-03,Girls,Texas,Golf,1117.0,7266.0
 2002-03,Girls,Utah,Golf,38.0,82.0
 2002-03,Girls,Vermont,Golf,38.0,135.0
 2002-03,Girls,Vermont,Gymnastics,,110.0
@@ -184,101 +249,342 @@ survey_year,gender,state,sport,schools,participants
 2002-03,Girls,Virginia,Golf,87.0,147.0
 2002-03,Girls,Virginia,Gymnastics,70.0,801.0
 2002-03,Girls,Washington,Golf,260.0,2259.0
-2002-03,Girls,Washington,Gymnastics,79.0,1551.0
+2002-03,Girls,Washington,Gymnastics,79.0,1554.0
 2002-03,Girls,West Virginia,Golf,28.0,42.0
-2002-03,Girls,Wisconsin,Golf,36.0,1547.0
-2002-03,Girls,Wisconsin,Gymnastics,94.0,4327.0
+2002-03,Girls,Wisconsin,Golf,136.0,1547.0
+2002-03,Girls,Wisconsin,Gymnastics,94.0,1327.0
 2002-03,Girls,Wyoming,Golf,36.0,187.0
 2002-03,Girls,Wyoming,Gymnastics,,94.0
 2002-03,Girls,Wyoming,Skiing Cross Country,,110.0
 2002-03,Girls,Wyoming,Skiing Alpine,,49.0
-2002-03,Girls,Alabama,Soccer,108.0,2769.0
-2002-03,Girls,Alabama,Softball Slow Pitch,376.0,292.0
+2002-03,Girls,Alabama,Soccer,108.0,
+2002-03,Girls,Alabama,Softball Slow Pitch,376.0,6016.0
+2002-03,Girls,Alabama,Swimming and Diving,34.0,292.0
 2002-03,Girls,Alaska,Soccer,29.0,866.0
-2002-03,Girls,Alaska,Softball Slow Pitch,27.0,495.0
+2002-03,Girls,Alaska,Softball Slow Pitch,27.0,626.0
+2002-03,Girls,Alaska,Swimming and Diving,30.0,495.0
 2002-03,Girls,Arizona,Soccer,148.0,4180.0
-2002-03,Girls,Arizona,Softball Slow Pitch,201.0,2338.0
+2002-03,Girls,Arizona,Softball Slow Pitch,201.0,6096.0
+2002-03,Girls,Arizona,Swimming and Diving,95.0,2338.0
 2002-03,Girls,Arkansas,Soccer,36.0,839.0
 2002-03,Girls,Arkansas,Softball Fast Pitch,,62.0
-2002-03,Girls,Arkansas,Softball Slow Pitch,84.0,
+2002-03,Girls,Arkansas,Softball Slow Pitch,84.0,2980.0
+2002-03,Girls,Arkansas,Swimming and Diving,28.0,238.0
 2002-03,Girls,California,Soccer,1028.0,
 2002-03,Girls,California,Softball Fast Pitch,34.0,939.0
-2002-03,Girls,California,Softball Slow Pitch,4002.0,23255.0
+2002-03,Girls,California,Softball Slow Pitch,4002.0,29179.0
+2002-03,Girls,California,Swimming and Diving,728.0,23255.0
 2002-03,Girls,Colorado,Soccer,166.0,5584.0
-2002-03,Girls,Colorado,Softball Slow Pitch,148.0,3696.0
+2002-03,Girls,Colorado,Softball Slow Pitch,148.0,3587.0
+2002-03,Girls,Colorado,Swimming and Diving,215.0,
 2002-03,Girls,Connecticut,Soccer,149.0,5188.0
-2002-03,Girls,Connecticut,Softball Slow Pitch,172.0,3043.0
+2002-03,Girls,Connecticut,Softball Slow Pitch,172.0,4605.0
+2002-03,Girls,Connecticut,Swimming and Diving,98.0,3043.0
 2002-03,Girls,Delaware,Soccer,39.0,1228.0
-2002-03,Girls,Delaware,Softball Slow Pitch,38.0,
+2002-03,Girls,Delaware,Softball Slow Pitch,38.0,1016.0
+2002-03,Girls,Delaware,Swimming and Diving,25.0,581.0
 2002-03,Girls,District of Columbia,Soccer,,98.0
-2002-03,Girls,District of Columbia,Softball Slow Pitch,12.0,46.0
+2002-03,Girls,District of Columbia,Softball Slow Pitch,12.0,166.0
+2002-03,Girls,District of Columbia,Swimming and Diving,,46.0
 2002-03,Girls,Florida,Soccer,416.0,12234.0
-2002-03,Girls,Florida,Softball Fast Pitch,43.0,916.0
-2002-03,Girls,Florida,Softball Slow Pitch,509.0,7417.0
+2002-03,Girls,Florida,Softball Fast Pitch,43.0,
+2002-03,Girls,Florida,Softball Slow Pitch,509.0,10489.0
+2002-03,Girls,Florida,Swimming and Diving,359.0,7417.0
 2002-03,Girls,Georgia,Soccer,273.0,7329.0
 2002-03,Girls,Georgia,Softball Fast Pitch,91.0,870.0
-2002-03,Girls,Georgia,Softball Slow Pitch,280.0,2738.0
+2002-03,Girls,Georgia,Softball Slow Pitch,280.0,6357.0
+2002-03,Girls,Georgia,Swimming and Diving,156.0,2738.0
 2002-03,Girls,Hawaii,Soccer,62.0,1653.0
 2002-03,Girls,Hawaii,Softball Slow Pitch,51.0,
-2002-03,Girls,Hawaii,Softball Fast Pitch,12.0,159.0
-2002-03,Girls,Louisiana,Soccer,110.0,650.0
-2002-03,Girls,Louisiana,Softball Slow Pitch,,460.0
-2002-03,Girls,Maryland,Soccer,172.0,
-2002-03,Girls,Maryland,Softball Slow Pitch,174.0,1875.0
-2002-03,Girls,Massachusetts,Soccer,292.0,12173.0
-2002-03,Girls,Massachusetts,Softball Slow Pitch,331.0,3976.0
+2002-03,Girls,Hawaii,Swimming and Diving,50.0,664.0
+2002-03,Girls,Idaho,Soccer,,1516.0
+2002-03,Girls,Idaho,Softball Fast Pitch,12.0,159.0
+2002-03,Girls,Idaho,Softball Slow Pitch,96.0,
+2002-03,Girls,Idaho,Swimming and Diving,,73.0
+2002-03,Girls,Illinois,Soccer,332.0,14042.0
+2002-03,Girls,Illinois,Softball Slow Pitch,643.0,
+2002-03,Girls,Illinois,Swimming and Diving,266.0,6972.0
+2002-03,Girls,Indiana,Soccer,216.0,5737.0
+2002-03,Girls,Indiana,Softball Slow Pitch,358.0,8750.0
+2002-03,Girls,Indiana,Swimming and Diving,233.0,4653.0
+2002-03,Girls,Iowa,Soccer,78.0,3590.0
+2002-03,Girls,Iowa,Softball Slow Pitch,386.0,8523.0
+2002-03,Girls,Iowa,Swimming and Diving,58.0,1696.0
+2002-03,Girls,Kansas,Soccer,64.0,2345.0
+2002-03,Girls,Kansas,Softball Slow Pitch,180.0,4665.0
+2002-03,Girls,Kansas,Swimming and Diving,63.0,1460.0
+2002-03,Girls,Kentucky,Soccer,154.0,
+2002-03,Girls,Kentucky,Softball Fast Pitch,19.0,420.0
+2002-03,Girls,Kentucky,Softball Slow Pitch,259.0,5674.0
+2002-03,Girls,Kentucky,Swimming and Diving,126.0,1831.0
+2002-03,Girls,Louisiana,Soccer,110.0,1650.0
+2002-03,Girls,Louisiana,Softball Slow Pitch,362.0,5430.0
+2002-03,Girls,Louisiana,Swimming and Diving,46.0,460.0
+2002-03,Girls,Maine,Soccer,125.0,3764.0
+2002-03,Girls,Maine,Softball Slow Pitch,424.0,3175.0
+2002-03,Girls,Maine,Swimming and Diving,51.0,
+2002-03,Girls,Maryland,Soccer,172.0,5228.0
+2002-03,Girls,Maryland,Softball Slow Pitch,174.0,4720.0
+2002-03,Girls,Maryland,Swimming and Diving,120.0,1875.0
+2002-03,Girls,Massachusetts,Soccer,292.0,12178.0
+2002-03,Girls,Massachusetts,Softball Slow Pitch,331.0,10544.0
+2002-03,Girls,Massachusetts,Swimming and Diving,144.0,3976.0
 2002-03,Girls,Michigan,Soccer,388.0,13608.0
-2002-03,Girls,Michigan,Softball Slow Pitch,612.0,6647.0
+2002-03,Girls,Michigan,Softball Slow Pitch,612.0,17180.0
+2002-03,Girls,Michigan,Swimming and Diving,256.0,6647.0
 2002-03,Girls,Minnesota,Soccer,180.0,
-2002-03,Girls,Minnesota,Softball Slow Pitch,405.0,
-2002-03,Girls,Mississippi,Soccer,99.0,
-2002-03,Girls,Mississippi,Softball Fast Pitch,210.0,
-2002-03,Girls,Mississippi,Softball Slow Pitch,170.0,1630.0
+2002-03,Girls,Minnesota,Softball Slow Pitch,405.0,12539.0
+2002-03,Girls,Minnesota,Swimming and Diving,184.0,6866.0
+2002-03,Girls,Mississippi,Soccer,99.0,1885.0
+2002-03,Girls,Mississippi,Softball Fast Pitch,210.0,835.0
+2002-03,Girls,Mississippi,Softball Slow Pitch,170.0,4265.0
+2002-03,Girls,Mississippi,Swimming and Diving,44.0,1630.0
 2002-03,Girls,Missouri,Soccer,181.0,6484.0
-2002-03,Girls,Missouri,Softball Slow Pitch,457.0,2695.0
+2002-03,Girls,Missouri,Softball Slow Pitch,457.0,
+2002-03,Girls,Missouri,Swimming and Diving,99.0,2695.0
 2002-03,Girls,Montana,Soccer,34.0,988.0
-2002-03,Girls,Montana,Softball Slow Pitch,48.0,298.0
+2002-03,Girls,Montana,Softball Slow Pitch,48.0,1254.0
+2002-03,Girls,Montana,Swimming and Diving,19.0,298.0
 2002-03,Girls,Nebraska,Soccer,68.0,2090.0
-2002-03,Girls,Nebraska,Softball Slow Pitch,91.0,929.0
-2002-03,Girls,Nevada,Soccer,56.0,192.0
-2002-03,Girls,Nevada,Softball Slow Pitch,76.0,944.0
+2002-03,Girls,Nebraska,Softball Slow Pitch,91.0,2155.0
+2002-03,Girls,Nebraska,Swimming and Diving,47.0,
+2002-03,Girls,Nevada,Soccer,56.0,4792.0
+2002-03,Girls,Nevada,Softball Slow Pitch,76.0,1815.0
+2002-03,Girls,Nevada,Swimming and Diving,38.0,
 2002-03,Girls,New Hampshire,Soccer,74.0,2724.0
-2002-03,Girls,New Hampshire,Softball Slow Pitch,86.0,516.0
-2002-03,Girls,New Jersey,Soccer,341.0,1336.0
-2002-03,Girls,New Jersey,Softball Slow Pitch,401.0,4630.0
-2002-03,Girls,New Mexico,Soccer,68.0,718.0
-2002-03,Girls,New Mexico,Softball Slow Pitch,83.0,
+2002-03,Girls,New Hampshire,Softball Slow Pitch,86.0,2324.0
+2002-03,Girls,New Hampshire,Swimming and Diving,30.0,516.0
+2002-03,Girls,New Jersey,Soccer,341.0,
+2002-03,Girls,New Jersey,Softball Slow Pitch,401.0,11996.0
+2002-03,Girls,New Jersey,Swimming and Diving,129.0,4630.0
+2002-03,Girls,New Mexico,Soccer,68.0,1718.0
+2002-03,Girls,New Mexico,Softball Slow Pitch,83.0,1589.0
+2002-03,Girls,New Mexico,Swimming and Diving,40.0,589.0
 2002-03,Girls,New York,Soccer,637.0,22213.0
 2002-03,Girls,New York,Softball Slow Pitch,679.0,
-2002-03,Girls,North Carolina,Soccer,269.0,
-2002-03,Girls,North Carolina,Softball Slow Pitch,333.0,3726.0
+2002-03,Girls,New York,Swimming and Diving,317.0,7466.0
+2002-03,Girls,North Carolina,Soccer,269.0,7470.0
+2002-03,Girls,North Carolina,Softball Slow Pitch,333.0,
+2002-03,Girls,North Carolina,Swimming and Diving,206.0,3726.0
 2002-03,Girls,North Dakota,Soccer,18.0,719.0
-2002-03,Girls,North Dakota,Softball Slow Pitch,,317.0
-2002-03,Girls,North Dakota,Softball Fast Pitch,19.0,509.0
+2002-03,Girls,North Dakota,Swimming and Diving,,317.0
+2002-03,Girls,Ohio,Soccer,406.0,12301.0
+2002-03,Girls,Ohio,Softball Fast Pitch,19.0,509.0
+2002-03,Girls,Ohio,Softball Slow Pitch,757.0,48315.0
+2002-03,Girls,Ohio,Swimming and Diving,281.0,6124.0
 2002-03,Girls,Oklahoma,Soccer,86.0,1739.0
 2002-03,Girls,Oklahoma,Softball Fast Pitch,340.0,31.0
-2002-03,Girls,Oklahoma,Softball Slow Pitch,392.0,632.0
+2002-03,Girls,Oklahoma,Softball Slow Pitch,392.0,5872.0
+2002-03,Girls,Oklahoma,Swimming and Diving,41.0,532.0
 2002-03,Girls,Oregon,Soccer,140.0,
-2002-03,Girls,Oregon,Softball Slow Pitch,195.0,2291.0
-2002-03,Girls,Pennsylvania,Soccer,442.0,5470.0
-2002-03,Girls,Pennsylvania,Softball Slow Pitch,602.0,5184.0
+2002-03,Girls,Oregon,Softball Slow Pitch,195.0,4903.0
+2002-03,Girls,Oregon,Swimming and Diving,114.0,2291.0
+2002-03,Girls,Pennsylvania,Soccer,442.0,
+2002-03,Girls,Pennsylvania,Softball Slow Pitch,602.0,
+2002-03,Girls,Pennsylvania,Swimming and Diving,288.0,5184.0
 2002-03,Girls,Rhode Island,Soccer,45.0,1362.0
 2002-03,Girls,Rhode Island,Softball Fast Pitch,13.0,239.0
-2002-03,Girls,Rhode Island,Softball Slow Pitch,37.0,580.0
+2002-03,Girls,Rhode Island,Softball Slow Pitch,37.0,891.0
+2002-03,Girls,Rhode Island,Swimming and Diving,36.0,550.0
 2002-03,Girls,South Carolina,Soccer,110.0,3154.0
-2002-03,Girls,South Carolina,Softball Slow Pitch,187.0,
+2002-03,Girls,South Carolina,Softball Slow Pitch,187.0,4825.0
+2002-03,Girls,South Carolina,Swimming and Diving,56.0,962.0
 2002-03,Girls,Tennessee,Soccer,204.0,4350.0
-2002-03,Girls,Tennessee,Softball Slow Pitch,333.0,
-2002-03,Girls,Vermont,Soccer,,215.0
+2002-03,Girls,Tennessee,Softball Slow Pitch,333.0,6113.0
+2002-03,Girls,Texas,Soccer,447.0,16700.0
+2002-03,Girls,Texas,Softball Slow Pitch,936.0,26347.0
+2002-03,Girls,Texas,Swimming and Diving,377.0,6052.0
+2002-03,Girls,Utah,Soccer,71.0,2271.0
+2002-03,Girls,Utah,Softball Slow Pitch,92.0,2141.0
+2002-03,Girls,Utah,Swimming and Diving,70.0,1185.0
+2002-03,Girls,Vermont,Soccer,75.0,2415.0
 2002-03,Girls,Vermont,Softball Fast Pitch,,77.0
-2002-03,Girls,Vermont,Softball Slow Pitch,64.0,10.0
+2002-03,Girls,Vermont,Softball Slow Pitch,64.0,1593.0
+2002-03,Girls,Vermont,Swimming and Diving,,10.0
 2002-03,Girls,Virginia,Soccer,236.0,6737.0
-2002-03,Girls,Virginia,Softball Slow Pitch,284.0,3315.0
+2002-03,Girls,Virginia,Softball Slow Pitch,284.0,7629.0
+2002-03,Girls,Virginia,Swimming and Diving,142.0,3315.0
 2002-03,Girls,Washington,Soccer,258.0,8724.0
-2002-03,Girls,Washington,Softball Slow Pitch,319.0,4304.0
+2002-03,Girls,Washington,Softball Slow Pitch,319.0,8911.0
+2002-03,Girls,Washington,Swimming and Diving,155.0,4304.0
 2002-03,Girls,West Virginia,Soccer,67.0,1443.0
-2002-03,Girls,West Virginia,Softball Slow Pitch,118.0,564.0
+2002-03,Girls,West Virginia,Softball Slow Pitch,118.0,2476.0
+2002-03,Girls,West Virginia,Swimming and Diving,36.0,564.0
 2002-03,Girls,Wisconsin,Soccer,219.0,8017.0
-2002-03,Girls,Wisconsin,Softball Slow Pitch,437.0,3798.0
-2002-03,Girls,Wyoming,Soccer,,547.0
-2002-03,Girls,Wyoming,Softball Slow Pitch,,583.0
+2002-03,Girls,Wisconsin,Softball Slow Pitch,437.0,12089.0
+2002-03,Girls,Wisconsin,Swimming and Diving,133.0,3798.0
+2002-03,Girls,Wyoming,Soccer,17.0,547.0
+2002-03,Girls,Wyoming,Swimming and Diving,26.0,583.0
+2002-03,Girls,Wyoming,Softball Fast Pitch,,58.0
+2002-03,Girls,Alabama,Tennis,150.0,1528.0
+2002-03,Girls,Alabama,Track and Field Indoor,43.0,439.0
+2002-03,Girls,Alabama,Track and Field Outdoor,286.0,4290.0
+2002-03,Girls,Alabama,Volleyball,318.0,4928.0
+2002-03,Girls,Alaska,Tennis,,159.0
+2002-03,Girls,Alaska,Track and Field Outdoor,45.0,842.0
+2002-03,Girls,Alaska,Volleyball,419.0,1887.0
+2002-03,Girls,Arizona,Tennis,134.0,2212.0
+2002-03,Girls,Arizona,Track and Field Outdoor,182.0,5072.0
+2002-03,Girls,Arizona,Volleyball,214.0,6549.0
+2002-03,Girls,Arkansas,Tennis,66.0,632.0
+2002-03,Girls,Arkansas,Track and Field Indoor,,307.0
+2002-03,Girls,Arkansas,Track and Field Outdoor,153.0,2606.0
+2002-03,Girls,Arkansas,Volleyball,63.0,969.0
+2002-03,Girls,California,Tennis,878.0,19496.0
+2002-03,Girls,California,Track and Field Outdoor,970.0,34378.0
+2002-03,Girls,California,Volleyball,1114.0,32756.0
+2002-03,Girls,Colorado,Tennis,124.0,3749.0
+2002-03,Girls,Colorado,Track and Field Outdoor,284.0,6703.0
+2002-03,Girls,Colorado,Volleyball,307.0,9120.0
+2002-03,Girls,Connecticut,Track and Field Indoor,132.0,3556.0
+2002-03,Girls,Connecticut,Track and Field Outdoor,160.0,5498.0
+2002-03,Girls,Connecticut,Volleyball,143.0,3744.0
+2002-03,Girls,District of Columbia,Tennis,12.0,
+2002-03,Girls,District of Columbia,Track and Field Indoor,,96.0
+2002-03,Girls,District of Columbia,Track and Field Outdoor,12.0,248.0
+2002-03,Girls,District of Columbia,Volleyball,14.0,164.0
+2002-03,Girls,Delaware,Tennis,31.0,
+2002-03,Girls,Delaware,Track and Field Indoor,29.0,500.0
+2002-03,Girls,Delaware,Track and Field Outdoor,32.0,864.0
+2002-03,Girls,Delaware,Volleyball,37.0,1079.0
+2002-03,Girls,Florida,Tennis,427.0,4239.0
+2002-03,Girls,Florida,Track and Field Outdoor,462.0,10724.0
+2002-03,Girls,Florida,Volleyball,540.0,12196.0
+2002-03,Girls,Georgia,Track and Field Outdoor,344.0,8193.0
+2002-03,Girls,Georgia,Volleyball,207.0,4300.0
+2002-03,Girls,Hawaii,Tennis,59.0,945.0
+2002-03,Girls,Hawaii,Track and Field Outdoor,61.0,4292.0
+2002-03,Girls,Hawaii,Volleyball,67.0,1768.0
+2002-03,Girls,Iowa,Tennis,118.0,3292.0
+2002-03,Girls,Iowa,Track and Field Outdoor,376.0,9253.0
+2002-03,Girls,Iowa,Volleyball,395.0,12862.0
+2002-03,Girls,Idaho,Tennis,49.0,1061.0
+2002-03,Girls,Idaho,Track and Field Outdoor,150.0,2741.0
+2002-03,Girls,Idaho,Volleyball,165.0,3995.0
+2002-03,Girls,Illinois,Tennis,324.0,8609.0
+2002-03,Girls,Illinois,Track and Field Outdoor,582.0,16624.0
+2002-03,Girls,Illinois,Volleyball,700.0,22243.0
+2002-03,Girls,Indiana,Tennis,307.0,5441.0
+2002-03,Girls,Indiana,Track and Field Outdoor,375.0,9070.0
+2002-03,Girls,Indiana,Volleyball,387.0,9607.0
+2002-03,Girls,Kansas,Tennis,125.0,2264.0
+2002-03,Girls,Kansas,Track and Field Outdoor,338.0,
+2002-03,Girls,Kansas,Volleyball,358.0,9359.0
+2002-03,Girls,Kentucky,Tennis,216.0,2483.0
+2002-03,Girls,Kentucky,Track and Field Outdoor,245.0,4560.0
+2002-03,Girls,Kentucky,Volleyball,216.0,4584.0
+2002-03,Girls,Louisiana,Tennis,150.0,1044.0
+2002-03,Girls,Louisiana,Track and Field Indoor,83.0,821.0
+2002-03,Girls,Louisiana,Track and Field Outdoor,370.0,4056.0
+2002-03,Girls,Louisiana,Volleyball,167.0,4038.0
+2002-03,Girls,Maine,Tennis,75.0,4228.0
+2002-03,Girls,Maine,Track and Field Indoor,52.0,976.0
+2002-03,Girls,Maine,Track and Field Outdoor,94.0,2297.0
+2002-03,Girls,Maine,Volleyball,23.0,397.0
+2002-03,Girls,Maryland,Tennis,178.0,2207.0
+2002-03,Girls,Maryland,Track and Field Indoor,155.0,3577.0
+2002-03,Girls,Maryland,Track and Field Outdoor,173.0,4435.0
+2002-03,Girls,Maryland,Volleyball,174.0,4352.0
+2002-03,Girls,Massachusetts,Tennis,233.0,4315.0
+2002-03,Girls,Massachusetts,Track and Field Indoor,206.0,6765.0
+2002-03,Girls,Massachusetts,Track and Field Outdoor,274.0,10763.0
+2002-03,Girls,Massachusetts,Volleyball,217.0,5566.0
+2002-03,Girls,Michigan,Tennis,342.0,
+2002-03,Girls,Michigan,Track and Field Indoor,25.0,538.0
+2002-03,Girls,Michigan,Track and Field Outdoor,622.0,
+2002-03,Girls,Michigan,Volleyball,698.0,21678.0
+2002-03,Girls,Minnesota,Tennis,224.0,5849.0
+2002-03,Girls,Minnesota,Track and Field Outdoor,426.0,13948.0
+2002-03,Girls,Minnesota,Volleyball,437.0,
+2002-03,Girls,Mississippi,Tennis,159.0,1463.0
+2002-03,Girls,Mississippi,Track and Field Indoor,60.0,450.0
+2002-03,Girls,Mississippi,Track and Field Outdoor,226.0,5302.0
+2002-03,Girls,Mississippi,Volleyball,63.0,1605.0
+2002-03,Girls,Missouri,Tennis,172.0,3285.0
+2002-03,Girls,Missouri,Track and Field Outdoor,452.0,10999.0
+2002-03,Girls,Missouri,Volleyball,419.0,10764.0
+2002-03,Girls,Montana,Tennis,66.0,1183.0
+2002-03,Girls,Montana,Track and Field Outdoor,183.0,3027.0
+2002-03,Girls,Montana,Volleyball,173.0,3979.0
+2002-03,Girls,Nebraska,Tennis,54.0,1188.0
+2002-03,Girls,Nebraska,Track and Field Outdoor,314.0,6374.0
+2002-03,Girls,Nebraska,Volleyball,318.0,8248.0
+2002-03,Girls,Nevada,Tennis,40.0,603.0
+2002-03,Girls,Nevada,Track and Field Outdoor,78.0,2080.0
+2002-03,Girls,Nevada,Volleyball,86.0,2342.0
+2002-03,Girls,New Hampshire,Tennis,51.0,847.0
+2002-03,Girls,New Hampshire,Track and Field Indoor,44.0,1091.0
+2002-03,Girls,New Hampshire,Track and Field Outdoor,69.0,2078.0
+2002-03,Girls,New Hampshire,Volleyball,54.0,1312.0
+2002-03,Girls,New Jersey,Tennis,351.0,6119.0
+2002-03,Girls,New Jersey,Track and Field Indoor,203.0,6395.0
+2002-03,Girls,New Jersey,Volleyball,177.0,4382.0
+2002-03,Girls,New Mexico,Tennis,60.0,602.0
+2002-03,Girls,New Mexico,Track and Field Outdoor,152.0,
+2002-03,Girls,New Mexico,Volleyball,152.0,5056.0
+2002-03,Girls,New York,Tennis,429.0,8541.0
+2002-03,Girls,New York,Track and Field Indoor,353.0,8609.0
+2002-03,Girls,New York,Track and Field Outdoor,593.0,17540.0
+2002-03,Girls,New York,Volleyball,596.0,14689.0
+2002-03,Girls,North Carolina,Tennis,281.0,3521.0
+2002-03,Girls,North Carolina,Track and Field Indoor,110.0,1740.0
+2002-03,Girls,North Carolina,Track and Field Outdoor,330.0,7667.0
+2002-03,Girls,North Carolina,Volleyball,339.0,
+2002-03,Girls,North Dakota,Tennis,21.0,442.0
+2002-03,Girls,North Dakota,Track and Field Outdoor,165.0,1871.0
+2002-03,Girls,North Dakota,Volleyball,164.0,3448.0
+2002-03,Girls,Ohio,Tennis,389.0,6779.0
+2002-03,Girls,Ohio,Track and Field Indoor,165.0,3147.0
+2002-03,Girls,Ohio,Track and Field Outdoor,733.0,19476.0
+2002-03,Girls,Ohio,Volleyball,784.0,18324.0
+2002-03,Girls,Oklahoma,Tennis,109.0,861.0
+2002-03,Girls,Oklahoma,Track and Field Indoor,26.0,322.0
+2002-03,Girls,Oklahoma,Track and Field Outdoor,391.0,3831.0
+2002-03,Girls,Oklahoma,Volleyball,81.0,4176.0
+2002-03,Girls,Oregon,Tennis,116.0,2421.0
+2002-03,Girls,Oregon,Track and Field Outdoor,246.0,
+2002-03,Girls,Oregon,Volleyball,261.0,6686.0
+2002-03,Girls,Pennsylvania,Tennis,380.0,4560.0
+2002-03,Girls,Pennsylvania,Track and Field Indoor,143.0,2145.0
+2002-03,Girls,Pennsylvania,Track and Field Outdoor,522.0,
+2002-03,Girls,Pennsylvania,Volleyball,492.0,8856.0
+2002-03,Girls,Rhode Island,Tennis,43.0,914.0
+2002-03,Girls,Rhode Island,Track and Field Indoor,37.0,987.0
+2002-03,Girls,Rhode Island,Track and Field Outdoor,40.0,1140.0
+2002-03,Girls,Rhode Island,Volleyball,,934.0
+2002-03,Girls,South Carolina,Tennis,124.0,1644.0
+2002-03,Girls,South Carolina,Track and Field Outdoor,183.0,5078.0
+2002-03,Girls,South Carolina,Volleyball,482.0,3919.0
+2002-03,Girls,South Dakota,Tennis,24.0,306.0
+2002-03,Girls,South Dakota,Track and Field Outdoor,186.0,2714.0
+2002-03,Girls,South Dakota,Volleyball,180.0,3907.0
+2002-03,Girls,Tennessee,Tennis,201.0,1873.0
+2002-03,Girls,Tennessee,Track and Field Outdoor,225.0,4980.0
+2002-03,Girls,Tennessee,Volleyball,274.0,4480.0
+2002-03,Girls,Texas,Tennis,1105.0,16721.0
+2002-03,Girls,Texas,Track and Field Outdoor,1209.0,65624.0
+2002-03,Girls,Texas,Volleyball,943.0,51438.0
+2002-03,Girls,Utah,Tennis,78.0,1265.0
+2002-03,Girls,Utah,Track and Field Outdoor,112.0,3095.0
+2002-03,Girls,Utah,Volleyball,120.0,2885.0
+2002-03,Girls,Vermont,Tennis,26.0,428.0
+2002-03,Girls,Vermont,Track and Field Indoor,19.0,204.0
+2002-03,Girls,Vermont,Track and Field Outdoor,,1011.0
+2002-03,Girls,Vermont,Volleyball,,12.0
+2002-03,Girls,Virginia,Tennis,244.0,3233.0
+2002-03,Girls,Virginia,Track and Field Indoor,174.0,4460.0
+2002-03,Girls,Virginia,Track and Field Outdoor,286.0,7473.0
+2002-03,Girls,Virginia,Volleyball,269.0,6717.0
+2002-03,Girls,Washington,Tennis,240.0,6927.0
+2002-03,Girls,Washington,Track and Field Outdoor,344.0,9079.0
+2002-03,Girls,Washington,Volleyball,359.0,10374.0
+2002-03,Girls,Wisconsin,Tennis,200.0,5308.0
+2002-03,Girls,Wisconsin,Track and Field Outdoor,423.0,10905.0
+2002-03,Girls,Wisconsin,Volleyball,472.0,
+2002-03,Girls,West Virginia,Tennis,78.0,919.0
+2002-03,Girls,West Virginia,Track and Field Outdoor,103.0,2185.0
+2002-03,Girls,West Virginia,Volleyball,101.0,2142.0
+2002-03,Girls,Wyoming,Tennis,16.0,315.0
+2002-03,Girls,Wyoming,Track and Field Indoor,12.0,188.0
+2002-03,Girls,Wyoming,Track and Field Outdoor,69.0,1379.0
+2002-03,Girls,Wyoming,Volleyball,66.0,1713.0

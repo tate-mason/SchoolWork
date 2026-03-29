@@ -1,121 +1,279 @@
 survey_year,gender,state,sport,schools,participants
 1996-97,Girls,Alabama,Basketball,366.0,5543.0
-1996-97,Girls,Alabama,Competitive Spirit Squads,46.0,
+1996-97,Girls,Alabama,Cross Country,46.0,
+1996-97,Girls,Alabama,Competitive Spirit Squads,,50.0
+1996-97,Girls,Arkansas,Basketball,328.0,6635.0
+1996-97,Girls,Arkansas,Cross Country,94.0,
 1996-97,Girls,California,Basketball,989.0,27856.0
-1996-97,Girls,California,Competitive Spirit Squads,785.0,12193.0
+1996-97,Girls,California,Cross Country,785.0,12193.0
+1996-97,Girls,California,Field Hockey,61.0,
 1996-97,Girls,Colorado,Basketball,277.0,7276.0
-1996-97,Girls,Colorado,Competitive Spirit Squads,163.0,1985.0
-1996-97,Girls,Connecticut,Basketball,170.0,
-1996-97,Girls,Connecticut,Competitive Spirit Squads,149.0,
-1996-97,Girls,District of Columbia,Basketball,13.0,169.0
-1996-97,Girls,District of Columbia,Competitive Spirit Squads,,134.0
+1996-97,Girls,Colorado,Competitive Spirit Squads,88.0,1787.0
+1996-97,Girls,Colorado,Cross Country,163.0,1985.0
+1996-97,Girls,Connecticut,Basketball,170.0,4000.0
+1996-97,Girls,Connecticut,Cross Country,149.0,1934.0
+1996-97,Girls,Connecticut,Field Hockey,71.0,2835.0
+1996-97,Girls,Delaware,Basketball,41.0,1000.0
+1996-97,Girls,Delaware,Cross Country,34.0,
+1996-97,Girls,Delaware,Field Hockey,39.0,1500.0
+1996-97,Girls,Delaware,Competitive Spirit Squads,,154.0
 1996-97,Girls,Florida,Basketball,473.0,8141.0
-1996-97,Girls,Florida,Competitive Spirit Squads,389.0,4295.0
+1996-97,Girls,Florida,Cross Country,389.0,4295.0
 1996-97,Girls,Georgia,Basketball,340.0,8916.0
-1996-97,Girls,Georgia,Competitive Spirit Squads,264.0,2983.0
-1996-97,Girls,Idaho,Basketball,158.0,4124.0
-1996-97,Girls,Idaho,Competitive Spirit Squads,84.0,
+1996-97,Girls,Georgia,Competitive Spirit Squads,205.0,
+1996-97,Girls,Georgia,Cross Country,264.0,2983.0
+1996-97,Girls,Hawaii,Basketball,52.0,1400.0
+1996-97,Girls,Hawaii,Competitive Spirit Squads,38.0,566.0
+1996-97,Girls,Hawaii,Cross Country,54.0,
+1996-97,Girls,Idaho,Basketball,158.0,
+1996-97,Girls,Idaho,Cross Country,84.0,954.0
+1996-97,Girls,Illinois,Basketball,648.0,19508.0
+1996-97,Girls,Illinois,Cross Country,380.0,6399.0
 1996-97,Girls,Indiana,Basketball,380.0,11873.0
-1996-97,Girls,Indiana,Competitive Spirit Squads,349.0,3079.0
-1996-97,Girls,Kansas,Basketball,362.0,7216.0
-1996-97,Girls,Kansas,Competitive Spirit Squads,235.0,
+1996-97,Girls,Indiana,Cross Country,349.0,3079.0
+1996-97,Girls,Iowa,Basketball,402.0,12342.0
+1996-97,Girls,Iowa,Competitive Spirit Squads,44.0,862.0
+1996-97,Girls,Iowa,Cross Country,292.0,
+1996-97,Girls,Kansas,Basketball,362.0,
+1996-97,Girls,Kansas,Cross Country,235.0,2107.0
+1996-97,Girls,Kentucky,Basketball,250.0,5525.0
+1996-97,Girls,Kentucky,Competitive Spirit Squads,258.0,4979.0
+1996-97,Girls,Kentucky,Cross Country,189.0,2075.0
+1996-97,Girls,Kentucky,Field Hockey,15.0,
 1996-97,Girls,Louisiana,Basketball,376.0,9400.0
-1996-97,Girls,Louisiana,Competitive Spirit Squads,204.0,
+1996-97,Girls,Louisiana,Cross Country,204.0,1224.0
+1996-97,Girls,Maine,Basketball,132.0,3468.0
+1996-97,Girls,Maine,Competitive Spirit Squads,67.0,1096.0
+1996-97,Girls,Maine,Cross Country,101.0,926.0
+1996-97,Girls,Maine,Field Hockey,73.0,2830.0
 1996-97,Girls,Maryland,Basketball,172.0,4480.0
-1996-97,Girls,Maryland,Competitive Spirit Squads,156.0,1941.0
-1996-97,Girls,Massachusetts,Basketball,327.0,9783.0
-1996-97,Girls,Massachusetts,Competitive Spirit Squads,259.0,3547.0
-1996-97,Girls,Mississippi,Basketball,261.0,
-1996-97,Girls,Mississippi,Competitive Spirit Squads,45.0,950.0
+1996-97,Girls,Maryland,Competitive Spirit Squads,98.0,3573.0
+1996-97,Girls,Maryland,Cross Country,156.0,
+1996-97,Girls,Maryland,Field Hockey,113.0,4684.0
+1996-97,Girls,Massachusetts,Basketball,327.0,
+1996-97,Girls,Massachusetts,Cross Country,259.0,3547.0
+1996-97,Girls,Massachusetts,Field Hockey,190.0,
+1996-97,Girls,Michigan,Basketball,697.0,
+1996-97,Girls,Michigan,Competitive Spirit Squads,158.0,2549.0
+1996-97,Girls,Michigan,Cross Country,558.0,6344.0
+1996-97,Girls,Minnesota,Basketball,431.0,11979.0
+1996-97,Girls,Minnesota,Cross Country,294.0,3481.0
+1996-97,Girls,Mississippi,Basketball,261.0,5500.0
+1996-97,Girls,Mississippi,Competitive Spirit Squads,99.0,1300.0
+1996-97,Girls,Mississippi,Cross Country,45.0,950.0
 1996-97,Girls,Missouri,Basketball,528.0,13103.0
-1996-97,Girls,Missouri,Competitive Spirit Squads,242.0,3466.0
-1996-97,Girls,Nebraska,Basketball,334.0,7571.0
-1996-97,Girls,Nebraska,Competitive Spirit Squads,,1392.0
+1996-97,Girls,Missouri,Competitive Spirit Squads,120.0,1440.0
+1996-97,Girls,Missouri,Cross Country,242.0,
+1996-97,Girls,Montana,Basketball,80.0,4565.0
+1996-97,Girls,Montana,Cross Country,71.0,
+1996-97,Girls,Nebraska,Basketball,334.0,
+1996-97,Girls,Nebraska,Cross Country,171.0,1392.0
+1996-97,Girls,Nevada,Basketball,73.0,1922.0
+1996-97,Girls,Nevada,Cross Country,55.0,481.0
 1996-97,Girls,New Hampshire,Basketball,85.0,2338.0
-1996-97,Girls,New Hampshire,Competitive Spirit Squads,87.0,731.0
+1996-97,Girls,New Hampshire,Competitive Spirit Squads,119.0,1551.0
+1996-97,Girls,New Hampshire,Cross Country,67.0,731.0
+1996-97,Girls,New Hampshire,Field Hockey,50.0,1874.0
+1996-97,Girls,New Jersey,Basketball,381.0,9705.0
+1996-97,Girls,New Jersey,Cross Country,333.0,
+1996-97,Girls,New Jersey,Field Hockey,206.0,9369.0
+1996-97,Girls,New Mexico,Basketball,136.0,
+1996-97,Girls,New Mexico,Competitive Spirit Squads,111.0,1787.0
+1996-97,Girls,New Mexico,Cross Country,68.0,802.0
+1996-97,Girls,New Mexico,Field Hockey,221.0,
 1996-97,Girls,South Carolina,Basketball,321.0,7476.0
-1996-97,Girls,South Carolina,Competitive Spirit Squads,245.0,
+1996-97,Girls,South Carolina,Competitive Spirit Squads,52.0,960.0
+1996-97,Girls,South Carolina,Cross Country,245.0,2710.0
+1996-97,Girls,South Carolina,Field Hockey,,114.0
+1996-97,Girls,North Dakota,Basketball,159.0,3546.0
+1996-97,Girls,North Dakota,Cross Country,34.0,325.0
 1996-97,Girls,Ohio,Basketball,780.0,19162.0
-1996-97,Girls,Ohio,Competitive Spirit Squads,485.0,6705.0
+1996-97,Girls,Ohio,Cross Country,485.0,
+1996-97,Girls,Ohio,Field Hockey,31.0,999.0
+1996-97,Girls,Oklahoma,Basketball,471.0,
+1996-97,Girls,Oklahoma,Competitive Spirit Squads,168.0,2448.0
+1996-97,Girls,Oklahoma,Cross Country,177.0,
 1996-97,Girls,Oregon,Basketball,255.0,
-1996-97,Girls,Oregon,Competitive Spirit Squads,176.0,1900.0
-1996-97,Girls,Rhode Island,Basketball,45.0,
-1996-97,Girls,Rhode Island,Competitive Spirit Squads,37.0,615.0
-1996-97,Girls,Utah,Basketball,,2900.0
-1996-97,Girls,Utah,Competitive Spirit Squads,91.0,1180.0
-1996-97,Girls,Virginia,Basketball,275.0,6861.0
-1996-97,Girls,Virginia,Competitive Spirit Squads,238.0,
+1996-97,Girls,Oregon,Cross Country,176.0,1900.0
+1996-97,Girls,Pennsylvania,Basketball,626.0,18780.0
+1996-97,Girls,Pennsylvania,Cross Country,447.0,4470.0
+1996-97,Girls,Pennsylvania,Field Hockey,250.0,
+1996-97,Girls,Rhode Island,Basketball,45.0,947.0
+1996-97,Girls,Rhode Island,Cross Country,37.0,615.0
+1996-97,Girls,Rhode Island,Field Hockey,21.0,
+1996-97,Girls,South Dakota,Basketball,184.0,
+1996-97,Girls,South Dakota,Cross Country,107.0,
+1996-97,Girls,Tennessee,Basketball,337.0,
+1996-97,Girls,Tennessee,Competitive Spirit Squads,67.0,871.0
+1996-97,Girls,Tennessee,Cross Country,200.0,2200.0
+1996-97,Girls,Texas,Basketball,1158.0,68444.0
+1996-97,Girls,Texas,Cross Country,1056.0,29620.0
+1996-97,Girls,Utah,Basketball,114.0,2900.0
+1996-97,Girls,Utah,Competitive Spirit Squads,87.0,1833.0
+1996-97,Girls,Utah,Cross Country,94.0,1180.0
+1996-97,Girls,Vermont,Basketball,40.0,1443.0
+1996-97,Girls,Vermont,Competitive Spirit Squads,12.0,223.0
+1996-97,Girls,Vermont,Cross Country,33.0,
+1996-97,Girls,Vermont,Field Hockey,22.0,953.0
+1996-97,Girls,Virginia,Basketball,275.0,
+1996-97,Girls,Virginia,Cross Country,238.0,
+1996-97,Girls,Virginia,Field Hockey,95.0,3126.0
+1996-97,Girls,Washington,Basketball,369.0,10202.0
+1996-97,Girls,Washington,Cross Country,267.0,3270.0
 1996-97,Girls,West Virginia,Basketball,176.0,2776.0
-1996-97,Girls,West Virginia,Competitive Spirit Squads,63.0,
+1996-97,Girls,West Virginia,Competitive Spirit Squads,107.0,2245.0
+1996-97,Girls,West Virginia,Cross Country,63.0,515.0
+1996-97,Girls,Wisconsin,Basketball,415.0,12345.0
+1996-97,Girls,Wisconsin,Cross Country,326.0,3979.0
 1996-97,Girls,Wyoming,Basketball,70.0,1764.0
-1996-97,Girls,Wyoming,Competitive Spirit Squads,29.0,
+1996-97,Girls,Wyoming,Cross Country,29.0,
+1996-97,Girls,Alabama,Golf,102.0,213.0
+1996-97,Girls,Alabama,Gymnastics,,40.0
 1996-97,Girls,Alaska,Gymnastics,,161.0
+1996-97,Girls,Alaska,Skiing Cross Country,24.0,367.0
 1996-97,Girls,Alaska,Golf,47.0,593.0
-1996-97,Girls,Alaska,Skiing Cross Country,26.0,275.0
+1996-97,Girls,Alaska,Skiing Alpine,26.0,275.0
 1996-97,Girls,Colorado,Golf,89.0,901.0
 1996-97,Girls,Colorado,Gymnastics,67.0,761.0
-1996-97,Girls,Colorado,Skiing Cross Country,12.0,92.0
+1996-97,Girls,Colorado,Skiing Cross Country,12.0,
+1996-97,Girls,Colorado,Skiing Alpine,12.0,92.0
 1996-97,Girls,Connecticut,Golf,40.0,172.0
-1996-97,Girls,Connecticut,Gymnastics,55.0,507.0
+1996-97,Girls,Connecticut,Gymnastics,55.0,
 1996-97,Girls,Delaware,Golf,12.0,19.0
 1996-97,Girls,Florida,Golf,318.0,1595.0
-1996-97,Girls,Florida,Gymnastics,28.0,344.0
+1996-97,Girls,Georgia,Golf,144.0,320.0
+1996-97,Girls,Georgia,Gymnastics,28.0,344.0
+1996-97,Girls,Hawaii,Golf,22.0,54.0
+1996-97,Girls,Hawaii,Gymnastics,,48.0
+1996-97,Girls,Idaho,Golf,68.0,406.0
+1996-97,Girls,Idaho,Skiing Cross Country,,81.0
 1996-97,Girls,Illinois,Golf,260.0,1903.0
 1996-97,Girls,Illinois,Gymnastics,95.0,2006.0
+1996-97,Girls,Indiana,Golf,202.0,1849.0
+1996-97,Girls,Indiana,Gymnastics,88.0,1172.0
+1996-97,Girls,Iowa,Golf,342.0,4002.0
+1996-97,Girls,Kansas,Golf,72.0,134.0
+1996-97,Girls,Kansas,Gymnastics,21.0,253.0
+1996-97,Girls,Kentucky,Golf,138.0,898.0
 1996-97,Girls,Louisiana,Golf,22.0,44.0
 1996-97,Girls,Louisiana,Gymnastics,18.0,216.0
-1996-97,Girls,Louisiana,Skiing Cross Country,43.0,423.0
+1996-97,Girls,Maine,Golf,35.0,63.0
+1996-97,Girls,Maine,Gymnastics,19.0,425.0
+1996-97,Girls,Maine,Skiing Cross Country,38.0,331.0
+1996-97,Girls,Maine,Skiing Alpine,43.0,423.0
+1996-97,Girls,Maryland,Golf,110.0,107.0
+1996-97,Girls,Maryland,Gymnastics,13.0,207.0
 1996-97,Girls,Massachusetts,Golf,62.0,285.0
 1996-97,Girls,Massachusetts,Gymnastics,83.0,1284.0
-1996-97,Girls,Massachusetts,Skiing Cross Country,59.0,
+1996-97,Girls,Massachusetts,Skiing Cross Country,20.0,303.0
+1996-97,Girls,Massachusetts,Skiing Alpine,59.0,
+1996-97,Girls,Michigan,Golf,218.0,2818.0
+1996-97,Girls,Michigan,Gymnastics,72.0,1074.0
+1996-97,Girls,Michigan,Skiing Alpine,82.0,1000.0
+1996-97,Girls,Minnesota,Golf,344.0,3768.0
+1996-97,Girls,Minnesota,Gymnastics,181.0,2739.0
+1996-97,Girls,Minnesota,Skiing Cross Country,71.0,
+1996-97,Girls,Minnesota,Skiing Alpine,94.0,1648.0
 1996-97,Girls,Mississippi,Golf,12.0,65.0
-1996-97,Girls,Mississippi,Gymnastics,,36.0
-1996-97,Girls,Nebraska,Golf,98.0,
+1996-97,Girls,Missouri,Golf,80.0,867.0
+1996-97,Girls,Missouri,Gymnastics,,96.0
+1996-97,Girls,Montana,Golf,72.0,634.0
+1996-97,Girls,Nebraska,Golf,98.0,918.0
 1996-97,Girls,Nebraska,Gymnastics,19.0,205.0
-1996-97,Girls,Nebraska,Skiing Cross Country,14.0,303.0
+1996-97,Girls,Nevada,Golf,46.0,313.0
+1996-97,Girls,Nevada,Skiing Cross Country,,15.0
+1996-97,Girls,Nevada,Skiing Alpine,14.0,303.0
 1996-97,Girls,New Hampshire,Golf,22.0,50.0
 1996-97,Girls,New Hampshire,Gymnastics,19.0,161.0
-1996-97,Girls,New Hampshire,Skiing Cross Country,49.0,408.0
+1996-97,Girls,New Hampshire,Skiing Cross Country,49.0,
+1996-97,Girls,New Hampshire,Skiing Alpine,49.0,408.0
 1996-97,Girls,New Jersey,Golf,12.0,277.0
-1996-97,Girls,New Jersey,Gymnastics,75.0,1018.0
-1996-97,Girls,New Jersey,Skiing Cross Country,,132.0
+1996-97,Girls,New Jersey,Gymnastics,75.0,4018.0
+1996-97,Girls,New Jersey,Skiing Alpine,,132.0
 1996-97,Girls,New Mexico,Golf,56.0,240.0
 1996-97,Girls,New Mexico,Gymnastics,114.0,1763.0
-1996-97,Girls,New Mexico,Skiing Cross Country,,208.0
-1996-97,Girls,Rhode Island,Golf,,20.0
+1996-97,Girls,New Mexico,Skiing Cross Country,93.0,1226.0
+1996-97,Girls,South Carolina,Golf,71.0,220.0
+1996-97,Girls,South Carolina,Gymnastics,,37.0
+1996-97,Girls,Ohio,Golf,184.0,904.0
+1996-97,Girls,Ohio,Gymnastics,132.0,1038.0
+1996-97,Girls,Ohio,Skiing Cross Country,,62.0
+1996-97,Girls,Ohio,Skiing Alpine,,208.0
+1996-97,Girls,Oklahoma,Golf,155.0,618.0
+1996-97,Girls,Oregon,Golf,120.0,965.0
+1996-97,Girls,Pennsylvania,Golf,223.0,2230.0
+1996-97,Girls,Pennsylvania,Gymnastics,18.0,180.0
+1996-97,Girls,Rhode Island,Golf,,90.0
 1996-97,Girls,Rhode Island,Gymnastics,15.0,159.0
-1996-97,Girls,South Carolina,Golf,15.0,94.0
 1996-97,Girls,South Dakota,Golf,74.0,658.0
 1996-97,Girls,South Dakota,Gymnastics,35.0,388.0
+1996-97,Girls,Tennessee,Golf,202.0,769.0
+1996-97,Girls,Texas,Golf,1024.0,8802.0
+1996-97,Girls,Utah,Golf,26.0,40.0
+1996-97,Girls,Vermont,Golf,26.0,85.0
 1996-97,Girls,Vermont,Gymnastics,,129.0
-1996-97,Girls,Vermont,Skiing Cross Country,24.0,207.0
+1996-97,Girls,Vermont,Skiing Cross Country,22.0,223.0
+1996-97,Girls,Vermont,Skiing Alpine,24.0,207.0
 1996-97,Girls,Virginia,Gymnastics,76.0,934.0
-1996-97,Girls,Virginia,Golf,,1668.0
-1996-97,Girls,Washington,Golf,220.0,
+1996-97,Girls,Washington,Golf,220.0,1668.0
 1996-97,Girls,Washington,Gymnastics,80.0,1487.0
 1996-97,Girls,West Virginia,Golf,18.0,28.0
-1996-97,Girls,Wisconsin,Golf,,925.0
+1996-97,Girls,Wisconsin,Golf,89.0,925.0
 1996-97,Girls,Wisconsin,Gymnastics,98.0,1471.0
+1996-97,Girls,Wyoming,Golf,29.0,260.0
+1996-97,Girls,Wyoming,Gymnastics,11.0,164.0
+1996-97,Girls,Wyoming,Skiing Cross Country,,100.0
+1996-97,Girls,Alabama,Soccer,60.0,1501.0
+1996-97,Girls,Alabama,Softball Fast Pitch,96.0,1536.0
+1996-97,Girls,Alabama,Softball Slow Pitch,268.0,4516.0
+1996-97,Girls,Alabama,Swimming and Diving,32.0,274.0
 1996-97,Girls,Alaska,Soccer,13.0,
-1996-97,Girls,Alaska,Softball Fast Pitch,,426.0
+1996-97,Girls,Alaska,Softball Fast Pitch,17.0,426.0
+1996-97,Girls,Alaska,Softball Slow Pitch,,53.0
 1996-97,Girls,Alaska,Swimming and Diving,21.0,449.0
-1996-97,Girls,Alaska,Softball Slow Pitch,235.0,4257.0
+1996-97,Girls,Massachusetts,Softball Fast Pitch,168.0,4097.0
+1996-97,Girls,Massachusetts,Swimming and Diving,62.0,1750.0
+1996-97,Girls,Massachusetts,Softball Slow Pitch,235.0,4257.0
+1996-97,Girls,California,Soccer,799.0,24352.0
+1996-97,Girls,California,Softball Fast Pitch,927.0,26407.0
+1996-97,Girls,California,Swimming and Diving,636.0,19979.0
 1996-97,Girls,Colorado,Soccer,134.0,4397.0
 1996-97,Girls,Colorado,Softball Fast Pitch,119.0,3224.0
 1996-97,Girls,Colorado,Swimming and Diving,111.0,3636.0
-1996-97,Girls,Delaware,Soccer,35.0,916.0
+1996-97,Girls,Connecticut,Soccer,139.0,4505.0
+1996-97,Girls,Connecticut,Softball Fast Pitch,161.0,4404.0
+1996-97,Girls,Connecticut,Swimming and Diving,77.0,2239.0
+1996-97,Girls,Delaware,Soccer,35.0,
 1996-97,Girls,Delaware,Softball Fast Pitch,36.0,1096.0
 1996-97,Girls,Delaware,Swimming and Diving,24.0,620.0
-1996-97,Girls,District of Columbia,Soccer,,28.0
 1996-97,Girls,District of Columbia,Softball Fast Pitch,14.0,169.0
 1996-97,Girls,District of Columbia,Swimming and Diving,,58.0
-1996-97,Girls,Florida,Softball Fast Pitch,456.0,
 1996-97,Girls,Florida,Soccer,271.0,8383.0
+1996-97,Girls,Florida,Softball Fast Pitch,456.0,8927.0
 1996-97,Girls,Florida,Swimming and Diving,301.0,5977.0
-1996-97,Girls,Florida,Softball Slow Pitch,239.0,5887.0
+1996-97,Girls,Georgia,Soccer,210.0,
+1996-97,Girls,Georgia,Softball Fast Pitch,105.0,2783.0
+1996-97,Girls,Georgia,Softball Slow Pitch,239.0,5887.0
+1996-97,Girls,Georgia,Swimming and Diving,,2413.0
+1996-97,Girls,Hawaii,Soccer,53.0,
+1996-97,Girls,Hawaii,Softball Fast Pitch,43.0,746.0
+1996-97,Girls,Hawaii,Swimming and Diving,49.0,713.0
+1996-97,Girls,Idaho,Soccer,13.0,
+1996-97,Girls,Idaho,Softball Fast Pitch,68.0,1954.0
+1996-97,Girls,Idaho,Softball Slow Pitch,13.0,200.0
+1996-97,Girls,Idaho,Swimming and Diving,,100.0
 1996-97,Girls,Illinois,Soccer,235.0,10544.0
 1996-97,Girls,Illinois,Softball Fast Pitch,622.0,18042.0
 1996-97,Girls,Illinois,Swimming and Diving,261.0,7656.0
+1996-97,Girls,Indiana,Soccer,136.0,3928.0
+1996-97,Girls,Indiana,Softball Fast Pitch,331.0,8746.0
+1996-97,Girls,Indiana,Swimming and Diving,210.0,4479.0
+1996-97,Girls,Iowa,Soccer,53.0,2144.0
+1996-97,Girls,Iowa,Softball Fast Pitch,393.0,9964.0
+1996-97,Girls,Iowa,Swimming and Diving,61.0,1654.0
+1996-97,Girls,Kansas,Soccer,39.0,1536.0
+1996-97,Girls,Kansas,Softball Fast Pitch,154.0,4152.0
+1996-97,Girls,Kansas,Swimming and Diving,44.0,
 1996-97,Girls,Kentucky,Soccer,126.0,3191.0
 1996-97,Girls,Kentucky,Softball Fast Pitch,227.0,4859.0
 1996-97,Girls,Kentucky,Softball Slow Pitch,28.0,531.0
@@ -124,74 +282,239 @@ survey_year,gender,state,sport,schools,participants
 1996-97,Girls,Louisiana,Softball Fast Pitch,352.0,5280.0
 1996-97,Girls,Louisiana,Swimming and Diving,36.0,360.0
 1996-97,Girls,Maine,Soccer,118.0,3573.0
-1996-97,Girls,Maine,Softball Fast Pitch,118.0,3048.0
-1996-97,Girls,Maine,Swimming and Diving,46.0,826.0
+1996-97,Girls,Maine,Softball Fast Pitch,118.0,
+1996-97,Girls,Maine,Swimming and Diving,46.0,
+1996-97,Girls,Maryland,Soccer,129.0,4229.0
+1996-97,Girls,Maryland,Softball Fast Pitch,171.0,4598.0
+1996-97,Girls,Maryland,Swimming and Diving,66.0,1665.0
 1996-97,Girls,Massachusetts,Soccer,294.0,10515.0
-1996-97,Girls,Massachusetts,Softball Fast Pitch,319.0,10114.0
-1996-97,Girls,Massachusetts,Swimming and Diving,140.0,3338.0
+1996-97,Girls,Michigan,Soccer,263.0,9299.0
+1996-97,Girls,Michigan,Softball Fast Pitch,628.0,16546.0
+1996-97,Girls,Michigan,Swimming and Diving,215.0,5959.0
 1996-97,Girls,Minnesota,Soccer,127.0,4276.0
 1996-97,Girls,Minnesota,Softball Fast Pitch,378.0,10801.0
 1996-97,Girls,Minnesota,Swimming and Diving,175.0,5178.0
-1996-97,Girls,Minnesota,Softball Slow Pitch,209.0,
-1996-97,Girls,Missouri,Soccer,125.0,
+1996-97,Girls,Mississippi,Soccer,49.0,1225.0
+1996-97,Girls,Mississippi,Softball Fast Pitch,29.0,855.0
+1996-97,Girls,Mississippi,Softball Slow Pitch,209.0,4225.0
+1996-97,Girls,Mississippi,Swimming and Diving,39.0,429.0
+1996-97,Girls,Missouri,Soccer,425.0,4565.0
 1996-97,Girls,Missouri,Softball Fast Pitch,404.0,9531.0
 1996-97,Girls,Missouri,Swimming and Diving,94.0,2658.0
-1996-97,Girls,Nebraska,Soccer,47.0,
+1996-97,Girls,Montana,Soccer,18.0,423.0
+1996-97,Girls,Montana,Softball Fast Pitch,31.0,759.0
+1996-97,Girls,Montana,Swimming and Diving,19.0,356.0
+1996-97,Girls,Nebraska,Soccer,47.0,1641.0
 1996-97,Girls,Nebraska,Softball Fast Pitch,52.0,1285.0
 1996-97,Girls,Nebraska,Swimming and Diving,42.0,968.0
-1996-97,Girls,New Hampshire,Soccer,54.0,2220.0
+1996-97,Girls,Nevada,Soccer,33.0,1013.0
+1996-97,Girls,Nevada,Softball Fast Pitch,63.0,2339.0
+1996-97,Girls,Nevada,Swimming and Diving,34.0,861.0
+1996-97,Girls,New Hampshire,Soccer,54.0,
 1996-97,Girls,New Hampshire,Softball Fast Pitch,85.0,2246.0
-1996-97,Girls,New Hampshire,Swimming and Diving,176.0,4009.0
-1996-97,Girls,New Hampshire,Softball Slow Pitch,109.0,
-1996-97,Girls,Oklahoma,Soccer,68.0,1356.0
+1996-97,Girls,New Jersey,Soccer,298.0,10892.0
+1996-97,Girls,New Jersey,Softball Fast Pitch,376.0,12527.0
+1996-97,Girls,New Jersey,Swimming and Diving,176.0,
+1996-97,Girls,New Mexico,Soccer,33.0,1092.0
+1996-97,Girls,New Mexico,Softball Fast Pitch,70.0,978.0
+1996-97,Girls,New Mexico,Swimming and Diving,36.0,621.0
+1996-97,Girls,South Carolina,Soccer,183.0,4619.0
+1996-97,Girls,South Carolina,Softball Fast Pitch,224.0,4843.0
+1996-97,Girls,South Carolina,Softball Slow Pitch,109.0,2411.0
+1996-97,Girls,South Carolina,Swimming and Diving,144.0,2618.0
+1996-97,Girls,Ohio,Soccer,299.0,9144.0
+1996-97,Girls,Ohio,Softball Fast Pitch,684.0,16684.0
+1996-97,Girls,Ohio,Softball Slow Pitch,62.0,1956.0
+1996-97,Girls,Ohio,Swimming and Diving,322.0,5149.0
+1996-97,Girls,Oklahoma,Soccer,68.0,4356.0
 1996-97,Girls,Oklahoma,Softball Fast Pitch,270.0,4482.0
 1996-97,Girls,Oklahoma,Softball Slow Pitch,295.0,4884.0
 1996-97,Girls,Oklahoma,Swimming and Diving,41.0,500.0
-1996-97,Girls,Rhode Island,Soccer,,1207.0
+1996-97,Girls,Oregon,Soccer,132.0,3917.0
+1996-97,Girls,Oregon,Softball Fast Pitch,192.0,5136.0
+1996-97,Girls,Oregon,Swimming and Diving,111.0,2154.0
+1996-97,Girls,Pennsylvania,Soccer,322.0,11270.0
+1996-97,Girls,Pennsylvania,Softball Fast Pitch,582.0,18627.0
+1996-97,Girls,Pennsylvania,Swimming and Diving,292.0,256.0
+1996-97,Girls,Rhode Island,Soccer,41.0,1207.0
 1996-97,Girls,Rhode Island,Softball Fast Pitch,28.0,718.0
-1996-97,Girls,Rhode Island,Softball Slow Pitch,20.0,
+1996-97,Girls,Rhode Island,Softball Slow Pitch,20.0,398.0
 1996-97,Girls,Rhode Island,Swimming and Diving,,255.0
-1996-97,Girls,South Carolina,Soccer,75.0,1997.0
-1996-97,Girls,South Carolina,Softball Fast Pitch,190.0,4618.0
-1996-97,Girls,South Carolina,Swimming and Diving,31.0,316.0
 1996-97,Girls,Tennessee,Soccer,137.0,3404.0
 1996-97,Girls,Tennessee,Softball Fast Pitch,314.0,5825.0
-1996-97,Girls,Tennessee,Swimming and Diving,326.0,6207.0
-1996-97,Girls,Tennessee,Softball Slow Pitch,,111.0
+1996-97,Girls,Texas,Soccer,320.0,15002.0
+1996-97,Girls,Texas,Softball Fast Pitch,713.0,26207.0
+1996-97,Girls,Texas,Swimming and Diving,326.0,6207.0
+1996-97,Girls,Utah,Soccer,69.0,2210.0
+1996-97,Girls,Utah,Softball Fast Pitch,83.0,2001.0
+1996-97,Girls,Utah,Swimming and Diving,62.0,1378.0
+1996-97,Girls,Vermont,Soccer,52.0,1836.0
+1996-97,Girls,Vermont,Softball Fast Pitch,42.0,1205.0
+1996-97,Girls,Vermont,Softball Slow Pitch,,111.0
+1996-97,Girls,Virginia,Soccer,197.0,4888.0
+1996-97,Girls,Virginia,Softball Fast Pitch,269.0,6606.0
+1996-97,Girls,Virginia,Swimming and Diving,92.0,2478.0
+1996-97,Girls,Washington,Soccer,227.0,6947.0
+1996-97,Girls,Washington,Softball Fast Pitch,108.0,2274.0
+1996-97,Girls,Washington,Softball Slow Pitch,212.0,
+1996-97,Girls,Washington,Swimming and Diving,143.0,3815.0
 1996-97,Girls,West Virginia,Soccer,58.0,938.0
-1996-97,Girls,West Virginia,Softball Fast Pitch,11.0,2244.0
+1996-97,Girls,West Virginia,Softball Fast Pitch,111.0,
 1996-97,Girls,West Virginia,Swimming and Diving,27.0,372.0
-1996-97,Girls,Alaska,Track and Field Indoor,77.0,1357.0
-1996-97,Girls,Colorado,Track and Field Indoor,281.0,8484.0
-1996-97,Girls,Connecticut,Tennis,102.0,2749.0
-1996-97,Girls,Connecticut,Track and Field Indoor,129.0,3132.0
-1996-97,Girls,Delaware,Tennis,27.0,575.0
-1996-97,Girls,Delaware,Track and Field Indoor,,955.0
-1996-97,Girls,Florida,Track and Field Indoor,476.0,8887.0
-1996-97,Girls,Hawaii,Track and Field Indoor,55.0,1442.0
-1996-97,Girls,Hawaii,Tennis,,1795.0
-1996-97,Girls,Kentucky,Track and Field Indoor,84.0,1839.0
-1996-97,Girls,Kentucky,Tennis,82.0,820.0
-1996-97,Girls,Maine,Tennis,38.0,786.0
-1996-97,Girls,Maine,Track and Field Indoor,27.0,443.0
-1996-97,Girls,Massachusetts,Tennis,175.0,5328.0
-1996-97,Girls,Massachusetts,Track and Field Indoor,172.0,4212.0
-1996-97,Girls,Minnesota,Track and Field Indoor,426.0,14900.0
-1996-97,Girls,Minnesota,Tennis,23.0,279.0
-1996-97,Girls,Missouri,Track and Field Indoor,409.0,11416.0
-1996-97,Girls,Nebraska,Track and Field Indoor,337.0,9480.0
-1996-97,Girls,Nebraska,Tennis,36.0,
-1996-97,Girls,New Mexico,Track and Field Indoor,129.0,2764.0
-1996-97,Girls,New Mexico,Tennis,276.0,6834.0
-1996-97,Girls,Pennsylvania,Track and Field Indoor,443.0,
-1996-97,Girls,Pennsylvania,Tennis,134.0,2412.0
-1996-97,Girls,Rhode Island,Tennis,29.0,967.0
-1996-97,Girls,Rhode Island,Track and Field Indoor,40.0,914.0
-1996-97,Girls,South Dakota,Track and Field Indoor,144.0,3825.0
-1996-97,Girls,Tennessee,Track and Field Indoor,225.0,4050.0
-1996-97,Girls,Vermont,Tennis,,145.0
-1996-97,Girls,Vermont,Track and Field Indoor,,15.0
-1996-97,Girls,Washington,Track and Field Indoor,357.0,16001.0
-1996-97,Girls,West Virginia,Track and Field Indoor,125.0,2097.0
-1996-97,Girls,Wisconsin,Track and Field Indoor,415.0,15952.0
-1996-97,Girls,Wisconsin,Tennis,12.0,199.0
+1996-97,Girls,Wisconsin,Soccer,135.0,4933.0
+1996-97,Girls,Wisconsin,Softball Fast Pitch,379.0,11015.0
+1996-97,Girls,Wisconsin,Swimming and Diving,121.0,3777.0
+1996-97,Girls,Wyoming,Soccer,14.0,582.0
+1996-97,Girls,Wyoming,Swimming and Diving,25.0,
+1996-97,Girls,Alabama,Tennis,143.0,1458.0
+1996-97,Girls,Alabama,Track and Field Indoor,41.0,418.0
+1996-97,Girls,Alabama,Track and Field Outdoor,266.0,4019.0
+1996-97,Girls,Alabama,Volleyball,264.0,4091.0
+1996-97,Girls,Alaska,Tennis,,76.0
+1996-97,Girls,Alaska,Track and Field Outdoor,33.0,
+1996-97,Girls,Alaska,Volleyball,77.0,1357.0
+1996-97,Girls,California,Tennis,762.0,15628.0
+1996-97,Girls,California,Track and Field Outdoor,848.0,
+1996-97,Girls,California,Volleyball,989.0,28035.0
+1996-97,Girls,Colorado,Tennis,117.0,2820.0
+1996-97,Girls,Colorado,Track and Field Outdoor,268.0,5955.0
+1996-97,Girls,Colorado,Volleyball,281.0,8484.0
+1996-97,Girls,Connecticut,Tennis,100.0,
+1996-97,Girls,Connecticut,Track and Field Indoor,102.0,2749.0
+1996-97,Girls,Connecticut,Track and Field Outdoor,149.0,5144.0
+1996-97,Girls,Connecticut,Volleyball,129.0,3132.0
+1996-97,Girls,Delaware,Tennis,30.0,451.0
+1996-97,Girls,Delaware,Track and Field Indoor,27.0,575.0
+1996-97,Girls,Delaware,Track and Field Outdoor,34.0,873.0
+1996-97,Girls,Delaware,Volleyball,31.0,955.0
+1996-97,Girls,District of Columbia,Tennis,12.0,46.0
+1996-97,Girls,District of Columbia,Track and Field Indoor,13.0,145.0
+1996-97,Girls,District of Columbia,Track and Field Outdoor,14.0,187.0
+1996-97,Girls,District of Columbia,Volleyball,13.0,130.0
+1996-97,Girls,Florida,Tennis,373.0,3431.0
+1996-97,Girls,Florida,Track and Field Outdoor,414.0,9808.0
+1996-97,Girls,Florida,Volleyball,476.0,8887.0
+1996-97,Girls,Georgia,Tennis,319.0,4142.0
+1996-97,Girls,Georgia,Track and Field Outdoor,318.0,7572.0
+1996-97,Girls,Georgia,Volleyball,94.0,2080.0
+1996-97,Girls,Hawaii,Tennis,53.0,691.0
+1996-97,Girls,Hawaii,Track and Field Outdoor,55.0,1286.0
+1996-97,Girls,Hawaii,Volleyball,55.0,1442.0
+1996-97,Girls,Idaho,Tennis,50.0,842.0
+1996-97,Girls,Idaho,Track and Field Outdoor,138.0,2727.0
+1996-97,Girls,Idaho,Volleyball,150.0,4237.0
+1996-97,Girls,Illinois,Tennis,276.0,7601.0
+1996-97,Girls,Illinois,Track and Field Outdoor,580.0,16834.0
+1996-97,Girls,Illinois,Volleyball,684.0,22406.0
+1996-97,Girls,Indiana,Tennis,304.0,5471.0
+1996-97,Girls,Indiana,Track and Field Outdoor,367.0,9875.0
+1996-97,Girls,Indiana,Volleyball,382.0,10564.0
+1996-97,Girls,Iowa,Tennis,118.0,2855.0
+1996-97,Girls,Iowa,Track and Field Indoor,,1795.0
+1996-97,Girls,Iowa,Track and Field Outdoor,384.0,
+1996-97,Girls,Iowa,Volleyball,404.0,13905.0
+1996-97,Girls,Kansas,Tennis,124.0,2269.0
+1996-97,Girls,Kansas,Track and Field Outdoor,361.0,6577.0
+1996-97,Girls,Kansas,Volleyball,358.0,10642.0
+1996-97,Girls,Kentucky,Tennis,199.0,2275.0
+1996-97,Girls,Kentucky,Track and Field Outdoor,221.0,4197.0
+1996-97,Girls,Kentucky,Volleyball,84.0,1839.0
+1996-97,Girls,Louisiana,Tennis,149.0,1043.0
+1996-97,Girls,Louisiana,Track and Field Indoor,82.0,820.0
+1996-97,Girls,Louisiana,Track and Field Outdoor,367.0,4037.0
+1996-97,Girls,Louisiana,Volleyball,164.0,2296.0
+1996-97,Girls,Maine,Tennis,83.0,1285.0
+1996-97,Girls,Maine,Track and Field Indoor,38.0,786.0
+1996-97,Girls,Maine,Track and Field Outdoor,93.0,
+1996-97,Girls,Maine,Volleyball,,443.0
+1996-97,Girls,Maryland,Tennis,159.0,2037.0
+1996-97,Girls,Maryland,Track and Field Indoor,138.0,2942.0
+1996-97,Girls,Maryland,Track and Field Outdoor,161.0,4069.0
+1996-97,Girls,Maryland,Volleyball,163.0,3653.0
+1996-97,Girls,Massachusetts,Tennis,225.0,3713.0
+1996-97,Girls,Massachusetts,Track and Field Indoor,175.0,5328.0
+1996-97,Girls,Massachusetts,Track and Field Outdoor,264.0,9761.0
+1996-97,Girls,Massachusetts,Volleyball,172.0,4212.0
+1996-97,Girls,Michigan,Tennis,330.0,7792.0
+1996-97,Girls,Michigan,Track and Field Outdoor,642.0,18163.0
+1996-97,Girls,Michigan,Volleyball,687.0,20739.0
+1996-97,Girls,Minnesota,Tennis,214.0,4843.0
+1996-97,Girls,Minnesota,Track and Field Outdoor,410.0,11576.0
+1996-97,Girls,Minnesota,Volleyball,426.0,14900.0
+1996-97,Girls,Mississippi,Tennis,141.0,1040.0
+1996-97,Girls,Mississippi,Track and Field Indoor,23.0,279.0
+1996-97,Girls,Mississippi,Track and Field Outdoor,236.0,3800.0
+1996-97,Girls,Mississippi,Volleyball,40.0,805.0
+1996-97,Girls,Missouri,Tennis,154.0,2935.0
+1996-97,Girls,Missouri,Track and Field Outdoor,426.0,10952.0
+1996-97,Girls,Missouri,Volleyball,409.0,11416.0
+1996-97,Girls,Montana,Tennis,55.0,956.0
+1996-97,Girls,Montana,Track and Field Outdoor,474.0,3072.0
+1996-97,Girls,Montana,Volleyball,148.0,3715.0
+1996-97,Girls,Nebraska,Tennis,54.0,1111.0
+1996-97,Girls,Nebraska,Track and Field Outdoor,334.0,6774.0
+1996-97,Girls,Nebraska,Volleyball,337.0,9480.0
+1996-97,Girls,Nevada,Tennis,34.0,479.0
+1996-97,Girls,Nevada,Track and Field Outdoor,69.0,2013.0
+1996-97,Girls,Nevada,Volleyball,75.0,2306.0
+1996-97,Girls,New Hampshire,Tennis,45.0,637.0
+1996-97,Girls,New Hampshire,Track and Field Indoor,36.0,81.0
+1996-97,Girls,New Hampshire,Track and Field Outdoor,64.0,
+1996-97,Girls,New Hampshire,Volleyball,47.0,1091.0
+1996-97,Girls,New Jersey,Tennis,321.0,5955.0
+1996-97,Girls,New Jersey,Track and Field Indoor,234.0,5775.0
+1996-97,Girls,New Jersey,Track and Field Outdoor,335.0,
+1996-97,Girls,New Jersey,Volleyball,141.0,2722.0
+1996-97,Girls,New Mexico,Tennis,69.0,431.0
+1996-97,Girls,New Mexico,Track and Field Outdoor,136.0,1939.0
+1996-97,Girls,New Mexico,Volleyball,129.0,2764.0
+1996-97,Girls,New Mexico,Track and Field Indoor,276.0,6834.0
+1996-97,Girls,South Carolina,Tennis,262.0,3377.0
+1996-97,Girls,South Carolina,Track and Field Indoor,118.0,1254.0
+1996-97,Girls,South Carolina,Track and Field Outdoor,291.0,8380.0
+1996-97,Girls,South Carolina,Volleyball,313.0,7098.0
+1996-97,Girls,Ohio,Tennis,363.0,6447.0
+1996-97,Girls,Ohio,Track and Field Indoor,141.0,2798.0
+1996-97,Girls,Ohio,Track and Field Outdoor,736.0,19942.0
+1996-97,Girls,Ohio,Volleyball,774.0,19088.0
+1996-97,Girls,Oklahoma,Tennis,109.0,956.0
+1996-97,Girls,Oklahoma,Track and Field Indoor,22.0,192.0
+1996-97,Girls,Oklahoma,Track and Field Outdoor,391.0,3564.0
+1996-97,Girls,Oklahoma,Volleyball,58.0,802.0
+1996-97,Girls,Oregon,Tennis,118.0,2127.0
+1996-97,Girls,Oregon,Track and Field Outdoor,239.0,5606.0
+1996-97,Girls,Oregon,Volleyball,266.0,7236.0
+1996-97,Girls,Pennsylvania,Tennis,359.0,3590.0
+1996-97,Girls,Pennsylvania,Track and Field Indoor,134.0,2412.0
+1996-97,Girls,Pennsylvania,Track and Field Outdoor,498.0,15936.0
+1996-97,Girls,Pennsylvania,Volleyball,443.0,7974.0
+1996-97,Girls,Tennessee,Tennis,231.0,2293.0
+1996-97,Girls,Tennessee,Track and Field Outdoor,218.0,4578.0
+1996-97,Girls,Tennessee,Volleyball,225.0,4050.0
+1996-97,Girls,Texas,Tennis,1066.0,15731.0
+1996-97,Girls,Texas,Track and Field Outdoor,1159.0,62988.0
+1996-97,Girls,Texas,Volleyball,47.0,51422.0
+1996-97,Girls,Utah,Tennis,73.0,1099.0
+1996-97,Girls,Utah,Track and Field Outdoor,104.0,3268.0
+1996-97,Girls,Utah,Volleyball,111.0,2810.0
+1996-97,Girls,Vermont,Tennis,21.0,329.0
+1996-97,Girls,Vermont,Track and Field Indoor,,145.0
+1996-97,Girls,Vermont,Track and Field Outdoor,30.0,807.0
+1996-97,Girls,Vermont,Volleyball,,15.0
+1996-97,Girls,Virginia,Tennis,223.0,2948.0
+1996-97,Girls,Virginia,Track and Field Indoor,155.0,3800.0
+1996-97,Girls,Virginia,Track and Field Outdoor,260.0,6429.0
+1996-97,Girls,Virginia,Volleyball,217.0,4718.0
+1996-97,Girls,Washington,Tennis,239.0,5383.0
+1996-97,Girls,Washington,Track and Field Outdoor,340.0,8341.0
+1996-97,Girls,Washington,Volleyball,357.0,16001.0
+1996-97,Girls,West Virginia,Tennis,96.0,999.0
+1996-97,Girls,West Virginia,Track and Field Outdoor,140.0,2692.0
+1996-97,Girls,West Virginia,Volleyball,125.0,2097.0
+1996-97,Girls,Wisconsin,Tennis,165.0,4699.0
+1996-97,Girls,Wisconsin,Track and Field Outdoor,377.0,9396.0
+1996-97,Girls,Wisconsin,Volleyball,415.0,15952.0
+1996-97,Girls,Wyoming,Tennis,15.0,250.0
+1996-97,Girls,Wyoming,Track and Field Indoor,12.0,199.0
+1996-97,Girls,Wyoming,Track and Field Outdoor,68.0,1395.0
+1996-97,Girls,Wyoming,Volleyball,70.0,1910.0

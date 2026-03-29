@@ -96,6 +96,26 @@ Here, $\lambda(\gamma)$ is the firm's belief about the distribution of $\gamma$ 
 The firm chooses $a$ to maximize profits based on its current beliefs and the expected future value of advertising. Note, the distribution of $\lambda(\gamma) \sim N(\frac{1}{\Sigma_j}, \sigma_{\lambda})$.
 This states they use past purchases to update their mean belief about the distribution of $\gamma$, but they have some variance in that belief.
 
+\section{Firm Optimization}
+
+The firm will choose $a$ to maximize profits $\pi$ based on the perceived distribution of $\gamma$ in the consumer population. The firm will also keep track of the sum of product attributes chosen by the consumer, $\Sigma_j$, to update their beliefs about $\gamma$.
+The firm will solve the following optimization problem:
+
+\begin{equation}
+  V(a, \Sigma_j | \lambda(\gamma)) = \max_{a} \{\pi(a) + \int_{\gamma} V(a', \Sigma_j' | \lambda(\gamma)) d\lambda(\gamma)\}
+\end{equation}
+
+Where $\pi(a) = (1 + a)p - c$ is the profit function, $\lambda(\gamma) \sim N(\frac{1}{\Sigma}, \sigma_{\lambda})$, and $\Sigma_j' = \Sigma_j + X_{jt}\cdot P_{ijt}$ is the updated sum of product attributes chosen by the consumer conditional on choosing product $j$ at time $t$.
+The firm's FOC's are as follows:
+
+\begin{gather*}
+  \frac{\partial V}{\partial a} = p + P_{ijt}(1-P_{ijt})\int_{\gamma}[V(\Sigma_j + X_{jt} | \lambda'(\gamma)) - V(\Sigma_j | \lambda'(\gamma))]d\lambda(\gamma) = 0 \\
+  = p + P_{ijt}(1-P_{ijt})[V(\Sigma_j + X_{jt} | \lambda(\Sigma_j + X_{jt})) - V(\Sigma_j | \lambda(\Sigma_j))] = 0 \\
+  \Rightarrow p^* = (P_{ijt}(1-P_{ijt}))\cdot[V(\Sigma_j + X_{jt} | \lambda(\Sigma_j + X_{jt})) - V(\Sigma_j | \lambda(\Sigma_j))] \\
+\end{gather*}
+
+The firm will choose $a$ such that the marginal profit from advertising equals the expected marginal value of advertising in terms of future profits. The firm will update their beliefs about $\gamma$ based on the consumer's choices and the sum of product attributes chosen, $\Sigma_j$.
+
 \section{Results}
 
 The simulation will involve setting $\beta$ and $\gamma$ at differing levels to observe how consumer choices change.

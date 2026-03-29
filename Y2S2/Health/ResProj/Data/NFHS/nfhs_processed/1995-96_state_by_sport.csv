@@ -1,313 +1,309 @@
 survey_year,gender,state,sport,schools,participants
 1995-96,Girls,Alabama,Basketball,368.0,5573.0
 1995-96,Girls,Alabama,Cross Country,50.0,473.0
-1995-96,Girls,Alaska,Basketball,93.0,2083.0
-1995-96,Girls,Alaska,Cross Country,70.0,685.0
+1995-96,Girls,Alaska,Basketball,93.0,
 1995-96,Girls,Arizona,Basketball,180.0,5330.0
+1995-96,Girls,Arizona,Cross Country,124.0,1386.0
 1995-96,Girls,Arkansas,Basketball,331.0,7782.0
 1995-96,Girls,Arkansas,Cross Country,82.0,537.0
 1995-96,Girls,California,Basketball,989.0,27856.0
 1995-96,Girls,California,Cross Country,785.0,12193.0
-1995-96,Girls,California,Field Hockey,61.0,1956.0
-1995-96,Girls,Colorado,Basketball,271.0,7073.0
-1995-96,Girls,Colorado,Competitive Spirit Squads,115.0,
+1995-96,Girls,California,Field Hockey,,1956.0
+1995-96,Girls,Colorado,Basketball,271.0,
+1995-96,Girls,Colorado,Competitive Spirit Squads,115.0,1708.0
 1995-96,Girls,Colorado,Cross Country,154.0,1837.0
 1995-96,Girls,Connecticut,Basketball,169.0,3994.0
 1995-96,Girls,Connecticut,Cross Country,148.0,1759.0
-1995-96,Girls,Connecticut,Field Hockey,71.0,2826.0
 1995-96,Girls,Delaware,Basketball,44.0,1019.0
 1995-96,Girls,Delaware,Cross Country,32.0,398.0
-1995-96,Girls,Delaware,Field Hockey,39.0,
-1995-96,Girls,District of Columbia,Basketball,14.0,162.0
-1995-96,Girls,District of Columbia,Competitive Spirit Squads,10.0,171.0
-1995-96,Girls,District of Columbia,Cross Country,10.0,80.0
+1995-96,Girls,Delaware,Competitive Spirit Squads,,171.0
+1995-96,Girls,District of Columbia,Basketball,,162.0
 1995-96,Girls,Florida,Basketball,442.0,9076.0
-1995-96,Girls,Florida,Cross Country,344.0,4020.0
-1995-96,Girls,Florida,Competitive Spirit Squads,210.0,3546.0
-1995-96,Girls,Hawaii,Basketball,55.0,1382.0
-1995-96,Girls,Hawaii,Competitive Spirit Squads,63.0,751.0
+1995-96,Girls,Florida,Cross Country,344.0,864020.0
+1995-96,Girls,Georgia,Basketball,3835.0,8951.0
+1995-96,Girls,Georgia,Competitive Spirit Squads,210.0,3546.0
+1995-96,Girls,Georgia,Cross Country,234.0,2694.0
+1995-96,Girls,Hawaii,Competitive Spirit Squads,,751.0
 1995-96,Girls,Hawaii,Cross Country,54.0,346.0
+1995-96,Girls,Idaho,Basketball,158.0,4001.0
+1995-96,Girls,Idaho,Cross Country,,803.0
+1995-96,Girls,Illinois,Basketball,638.0,18786.0
 1995-96,Girls,Indiana,Basketball,379.0,11812.0
-1995-96,Girls,Indiana,Cross Country,344.0,3927.0
+1995-96,Girls,Indiana,Cross Country,344.0,927.0
 1995-96,Girls,Indiana,Competitive Spirit Squads,44.0,
+1995-96,Girls,Iowa,Basketball,398.0,12221.0
+1995-96,Girls,Iowa,Competitive Spirit Squads,,854.0
+1995-96,Girls,Iowa,Cross Country,289.0,3129.0
 1995-96,Girls,Kansas,Basketball,354.0,8574.0
-1995-96,Girls,Kentucky,Basketball,273.0,5405.0
-1995-96,Girls,Kentucky,Competitive Spirit Squads,255.0,5001.0
-1995-96,Girls,Kentucky,Cross Country,209.0,1848.0
-1995-96,Girls,Kentucky,Field Hockey,14.0,567.0
+1995-96,Girls,Kansas,Cross Country,218.0,1930.0
+1995-96,Girls,Kansas,Competitive Spirit Squads,,5001.0
+1995-96,Girls,Kentucky,Basketball,273.0,
+1995-96,Girls,Kentucky,Competitive Spirit Squads,255.0,
 1995-96,Girls,Louisiana,Basketball,376.0,9400.0
 1995-96,Girls,Louisiana,Cross Country,204.0,1224.0
-1995-96,Girls,Louisiana,Competitive Spirit Squads,,4101.0
-1995-96,Girls,Louisiana,Field Hockey,76.0,
+1995-96,Girls,Maine,Basketball,134.0,4715.0
+1995-96,Girls,Maine,Competitive Spirit Squads,,1101.0
+1995-96,Girls,Maine,Cross Country,109.0,865.0
+1995-96,Girls,Maine,Field Hockey,,2820.0
 1995-96,Girls,Maryland,Basketball,170.0,4275.0
 1995-96,Girls,Maryland,Cross Country,140.0,1589.0
-1995-96,Girls,Maryland,Field Hockey,107.0,
+1995-96,Girls,Maryland,Field Hockey,107.0,3693.0
 1995-96,Girls,Massachusetts,Basketball,304.0,9676.0
 1995-96,Girls,Massachusetts,Cross Country,247.0,3440.0
 1995-96,Girls,Massachusetts,Field Hockey,184.0,8063.0
-1995-96,Girls,Michigan,Basketball,698.0,20239.0
-1995-96,Girls,Michigan,Competitive Spirit Squads,161.0,2379.0
-1995-96,Girls,Michigan,Cross Country,545.0,5926.0
+1995-96,Girls,Massachusetts,Competitive Spirit Squads,161.0,2379.0
 1995-96,Girls,Minnesota,Basketball,427.0,
-1995-96,Girls,Mississippi,Basketball,261.0,4860.0
-1995-96,Girls,Mississippi,Competitive Spirit Squads,99.0,1300.0
+1995-96,Girls,Minnesota,Competitive Spirit Squads,,2735.0
+1995-96,Girls,Minnesota,Cross Country,285.0,3018.0
+1995-96,Girls,Mississippi,Competitive Spirit Squads,,1300.0
 1995-96,Girls,Mississippi,Cross Country,45.0,910.0
+1995-96,Girls,Mississippi,Basketball,261.0,4860.0
 1995-96,Girls,Missouri,Basketball,524.0,12677.0
 1995-96,Girls,Missouri,Competitive Spirit Squads,135.0,1965.0
 1995-96,Girls,Missouri,Cross Country,235.0,3336.0
-1995-96,Girls,Missouri,Field Hockey,19.0,748.0
-1995-96,Girls,Montana,Basketball,182.0,4168.0
-1995-96,Girls,Montana,Cross Country,76.0,829.0
 1995-96,Girls,Nebraska,Basketball,335.0,7784.0
 1995-96,Girls,Nebraska,Cross Country,163.0,1317.0
-1995-96,Girls,Nevada,Basketball,71.0,1879.0
-1995-96,Girls,Nevada,Cross Country,50.0,460.0
-1995-96,Girls,Nevada,Competitive Spirit Squads,120.0,
-1995-96,Girls,Nevada,Field Hockey,49.0,1911.0
-1995-96,Girls,New Hampshire,Basketball,85.0,
-1995-96,Girls,New Jersey,Basketball,372.0,9657.0
-1995-96,Girls,New Jersey,Cross Country,333.0,3972.0
-1995-96,Girls,New Jersey,Field Hockey,204.0,9567.0
-1995-96,Girls,New Mexico,Basketball,422.0,3073.0
+1995-96,Girls,Nevada,Basketball,,1879.0
+1995-96,Girls,New Hampshire,Basketball,,2316.0
+1995-96,Girls,New Hampshire,Competitive Spirit Squads,120.0,1359.0
+1995-96,Girls,New Hampshire,Cross Country,,654.0
+1995-96,Girls,New Hampshire,Field Hockey,,1911.0
+1995-96,Girls,New Jersey,Basketball,372.0,
+1995-96,Girls,New Mexico,Basketball,4122.0,3073.0
 1995-96,Girls,New Mexico,Competitive Spirit Squads,125.0,1879.0
 1995-96,Girls,New Mexico,Cross Country,78.0,978.0
-1995-96,Girls,New Mexico,Field Hockey,223.0,8004.0
-1995-96,Girls,New York,Basketball,696.0,
-1995-96,Girls,North Carolina,Basketball,320.0,7184.0
-1995-96,Girls,North Carolina,Competitive Spirit Squads,32.0,544.0
-1995-96,Girls,North Carolina,Cross Country,237.0,2718.0
+1995-96,Girls,New Mexico,Field Hockey,223.0,
+1995-96,Girls,New York,Basketball,696.0,16154.0
+1995-96,Girls,New York,Field Hockey,,8004.0
+1995-96,Girls,North Carolina,Basketball,320.0,
+1995-96,Girls,North Carolina,Competitive Spirit Squads,,544.0
+1995-96,Girls,North Carolina,Cross Country,237.0,
 1995-96,Girls,North Dakota,Basketball,162.0,3572.0
-1995-96,Girls,North Dakota,Cross Country,35.0,316.0
-1995-96,Girls,North Dakota,Field Hockey,31.0,1131.0
-1995-96,Girls,North Dakota,Competitive Spirit Squads,163.0,2430.0
-1995-96,Girls,Oregon,Basketball,276.0,7728.0
-1995-96,Girls,Oregon,Cross Country,136.0,2940.0
-1995-96,Girls,Oregon,Field Hockey,250.0,
+1995-96,Girls,Ohio,Basketball,774.0,18212.0
+1995-96,Girls,Ohio,Cross Country,590.0,153.0
+1995-96,Girls,Ohio,Field Hockey,,1131.0
+1995-96,Girls,Oklahoma,Basketball,471.0,9805.0
+1995-96,Girls,Oklahoma,Competitive Spirit Squads,163.0,2430.0
+1995-96,Girls,Oklahoma,Cross Country,176.0,1242.0
+1995-96,Girls,Oregon,Basketball,276.0,
+1995-96,Girls,Pennsylvania,Cross Country,445.0,4450.0
+1995-96,Girls,Pennsylvania,Field Hockey,250.0,
 1995-96,Girls,Pennsylvania,Basketball,625.0,18750.0
-1995-96,Girls,Pennsylvania,Field Hockey,,8750.0
-1995-96,Girls,Pennsylvania,Cross Country,39.0,583.0
-1995-96,Girls,South Carolina,Basketball,200.0,6129.0
-1995-96,Girls,South Carolina,Cross Country,103.0,1187.0
-1995-96,Girls,South Carolina,Field Hockey,,47.0
+1995-96,Girls,South Carolina,Basketball,200.0,5129.0
+1995-96,Girls,South Carolina,Cross Country,103.0,
 1995-96,Girls,South Dakota,Basketball,176.0,3599.0
-1995-96,Girls,South Dakota,Cross Country,97.0,559.0
-1995-96,Girls,South Dakota,Competitive Spirit Squads,67.0,804.0
-1995-96,Girls,Tennessee,Basketball,330.0,6179.0
-1995-96,Girls,Tennessee,Cross Country,1025.0,29354.0
-1995-96,Girls,Tennessee,Competitive Spirit Squads,87.0,1703.0
-1995-96,Girls,Tennessee,Field Hockey,25.0,954.0
-1995-96,Girls,Vermont,Basketball,47.0,1254.0
+1995-96,Girls,Tennessee,Basketball,330.0,
+1995-96,Girls,Tennessee,Competitive Spirit Squads,67.0,4.0
+1995-96,Girls,Tennessee,Cross Country,193.0,2089.0
+1995-96,Girls,Texas,Basketball,1158.0,67030.0
+1995-96,Girls,Utah,Basketball,109.0,2770.0
+1995-96,Girls,Utah,Cross Country,,1072.0
+1995-96,Girls,Vermont,Cross Country,,245.0
+1995-96,Girls,Vermont,Basketball,,1254.0
+1995-96,Girls,Vermont,Competitive Spirit Squads,,176.0
 1995-96,Girls,Virginia,Basketball,281.0,6308.0
 1995-96,Girls,Virginia,Cross Country,217.0,2429.0
-1995-96,Girls,Virginia,Field Hockey,85.0,3015.0
+1995-96,Girls,Virginia,Field Hockey,,3015.0
 1995-96,Girls,Washington,Basketball,361.0,10032.0
 1995-96,Girls,Washington,Cross Country,266.0,3065.0
-1995-96,Girls,West Virginia,Basketball,136.0,2836.0
-1995-96,Girls,West Virginia,Competitive Spirit Squads,140.0,2352.0
-1995-96,Girls,West Virginia,Cross Country,63.0,550.0
-1995-96,Girls,Wisconsin,Basketball,,12630.0
-1995-96,Girls,Wyoming,Basketball,67.0,1738.0
-1995-96,Girls,Wyoming,Cross Country,31.0,320.0
+1995-96,Girls,Washington,Competitive Spirit Squads,140.0,2352.0
+1995-96,Girls,West Virginia,Basketball,1386.0,
+1995-96,Girls,Wisconsin,Basketball,415.0,12630.0
+1995-96,Girls,Wisconsin,Cross Country,328.0,3693.0
+1995-96,Girls,Wyoming,Cross Country,,320.0
+1995-96,Girls,Wyoming,Basketball,,1738.0
 1995-96,Girls,Alabama,Golf,87.0,182.0
-1995-96,Girls,Alabama,Gymnastics,,40.0
 1995-96,Girls,Alaska,Gymnastics,,143.0
-1995-96,Girls,Alaska,Skiing Cross Country,25.0,344.0
+1995-96,Girls,Alaska,Skiing Cross Country,25.0,
 1995-96,Girls,Arizona,Golf,47.0,343.0
 1995-96,Girls,Arkansas,Golf,103.0,259.0
-1995-96,Girls,Arkansas,Gymnastics,34.0,291.0
-1995-96,Girls,California,Golf,13.0,
-1995-96,Girls,California,Gymnastics,66.0,1300.0
-1995-96,Girls,California,Skiing Cross Country,,58.0
-1995-96,Girls,California,Skiing Alpine,26.0,275.0
+1995-96,Girls,Arkansas,Gymnastics,,291.0
+1995-96,Girls,California,Gymnastics,,1300.0
+1995-96,Girls,California,Skiing Alpine,,275.0
 1995-96,Girls,Colorado,Golf,67.0,515.0
-1995-96,Girls,Colorado,Gymnastics,66.0,678.0
-1995-96,Girls,Colorado,Skiing Cross Country,,45.0
-1995-96,Girls,Colorado,Skiing Alpine,12.0,87.0
-1995-96,Girls,Connecticut,Gymnastics,55.0,508.0
-1995-96,Girls,Delaware,Golf,12.0,20.0
-1995-96,Girls,Delaware,Skiing Alpine,,75.0
+1995-96,Girls,Colorado,Gymnastics,,678.0
+1995-96,Girls,Connecticut,Golf,37.0,
+1995-96,Girls,Connecticut,Gymnastics,,508.0
+1995-96,Girls,Delaware,Golf,,20.0
 1995-96,Girls,Florida,Golf,215.0,
-1995-96,Girls,Georgia,Golf,,228.0
-1995-96,Girls,Georgia,Gymnastics,28.0,321.0
-1995-96,Girls,Hawaii,Golf,,47.0
-1995-96,Girls,Hawaii,Gymnastics,,26.0
-1995-96,Girls,Idaho,Golf,67.0,333.0
-1995-96,Girls,Idaho,Gymnastics,,72.0
-1995-96,Girls,Idaho,Skiing Cross Country,,149.0
-1995-96,Girls,Illinois,Gymnastics,100.0,
-1995-96,Girls,Indiana,Golf,194.0,
-1995-96,Girls,Indiana,Gymnastics,85.0,
-1995-96,Girls,Indiana,Skiing Alpine,,17.0
-1995-96,Girls,Kansas,Golf,68.0,686.0
-1995-96,Girls,Kansas,Gymnastics,17.0,218.0
+1995-96,Girls,Georgia,Golf,121.0,228.0
+1995-96,Girls,Georgia,Gymnastics,,321.0
+1995-96,Girls,Idaho,Golf,,333.0
+1995-96,Girls,Illinois,Golf,243.0,1533.0
+1995-96,Girls,Illinois,Gymnastics,,61963.0
+1995-96,Girls,Indiana,Golf,194.0,1815.0
+1995-96,Girls,Indiana,Gymnastics,,1230.0
+1995-96,Girls,Iowa,Golf,339.0,3962.0
+1995-96,Girls,Iowa,Gymnastics,,218.0
 1995-96,Girls,Kentucky,Golf,182.0,755.0
-1995-96,Girls,Kentucky,Gymnastics,,24.0
-1995-96,Girls,Kentucky,Skiing Alpine,,10.0
-1995-96,Girls,Louisiana,Golf,22.0,44.0
-1995-96,Girls,Louisiana,Gymnastics,18.0,216.0
-1995-96,Girls,Maine,Skiing Cross Country,,316.0
-1995-96,Girls,Maine,Skiing Alpine,43.0,
-1995-96,Girls,Maine,Golf,38.0,74.0
-1995-96,Girls,Maine,Gymnastics,13.0,119.0
+1995-96,Girls,Louisiana,Gymnastics,,216.0
+1995-96,Girls,Louisiana,Skiing Alpine,43.0,
+1995-96,Girls,Maine,Gymnastics,,119.0
+1995-96,Girls,Maine,Skiing Alpine,,359.0
 1995-96,Girls,Maryland,Golf,100.0,114.0
-1995-96,Girls,Maryland,Gymnastics,,73.0
-1995-96,Girls,Massachusetts,Golf,59.0,254.0
-1995-96,Girls,Massachusetts,Gymnastics,86.0,
-1995-96,Girls,Massachusetts,Skiing Cross Country,,285.0
-1995-96,Girls,Massachusetts,Skiing Alpine,61.0,917.0
-1995-96,Girls,Michigan,Golf,197.0,2514.0
-1995-96,Girls,Michigan,Skiing Alpine,77.0,971.0
-1995-96,Girls,Michigan,Skiing Cross Country,85.0,1168.0
+1995-96,Girls,Massachusetts,Golf,,254.0
+1995-96,Girls,Massachusetts,Gymnastics,,1357.0
+1995-96,Girls,Massachusetts,Skiing Alpine,,917.0
 1995-96,Girls,Minnesota,Golf,321.0,2145.0
-1995-96,Girls,Mississippi,Golf,,71.0
-1995-96,Girls,Missouri,Golf,74.0,794.0
-1995-96,Girls,Missouri,Gymnastics,,56.0
-1995-96,Girls,Montana,Golf,72.0,625.0
-1995-96,Girls,Nebraska,Golf,88.0,876.0
-1995-96,Girls,Nebraska,Gymnastics,21.0,208.0
-1995-96,Girls,Nevada,Golf,43.0,291.0
-1995-96,Girls,Nevada,Skiing Alpine,14.0,284.0
-1995-96,Girls,New Hampshire,Golf,20.0,32.0
-1995-96,Girls,New Hampshire,Gymnastics,13.0,85.0
-1995-96,Girls,New Hampshire,Skiing Cross Country,48.0,239.0
+1995-96,Girls,Minnesota,Gymnastics,171.0,1385.0
+1995-96,Girls,Minnesota,Skiing Cross Country,,1168.0
+1995-96,Girls,Minnesota,Skiing Alpine,,620.0
+1995-96,Girls,Missouri,Golf,,794.0
+1995-96,Girls,Montana,Golf,,625.0
+1995-96,Girls,Nebraska,Golf,,876.0
+1995-96,Girls,Nebraska,Gymnastics,,208.0
+1995-96,Girls,Nevada,Golf,,291.0
+1995-96,Girls,Nevada,Skiing Alpine,,284.0
 1995-96,Girls,New Hampshire,Skiing Alpine,,416.0
-1995-96,Girls,New Jersey,Golf,12.0,261.0
-1995-96,Girls,New Jersey,Gymnastics,74.0,989.0
-1995-96,Girls,New Jersey,Skiing Alpine,,144.0
-1995-96,Girls,New Mexico,Golf,45.0,299.0
-1995-96,Girls,New Mexico,Skiing Cross Country,91.0,1114.0
-1995-96,Girls,New York,Golf,75.0,347.0
-1995-96,Girls,North Carolina,Golf,63.0,4105.0
-1995-96,Girls,North Carolina,Gymnastics,16.0,168.0
-1995-96,Girls,North Dakota,Golf,67.0,623.0
-1995-96,Girls,North Dakota,Gymnastics,14.0,
+1995-96,Girls,New Jersey,Golf,,261.0
+1995-96,Girls,New Jersey,Gymnastics,,989.0
+1995-96,Girls,New Mexico,Golf,,299.0
+1995-96,Girls,New Mexico,Skiing Cross Country,,1114.0
+1995-96,Girls,New York,Golf,,347.0
+1995-96,Girls,North Carolina,Golf,,105.0
+1995-96,Girls,North Carolina,Gymnastics,,168.0
+1995-96,Girls,North Dakota,Golf,,523.0
 1995-96,Girls,Ohio,Golf,208.0,717.0
-1995-96,Girls,Ohio,Gymnastics,98.0,974.0
-1995-96,Girls,Ohio,Skiing Cross Country,,52.0
-1995-96,Girls,Ohio,Skiing Alpine,,20.0
+1995-96,Girls,Ohio,Gymnastics,,974.0
+1995-96,Girls,Oklahoma,Golf,154.0,610.0
 1995-96,Girls,Oregon,Golf,134.0,1072.0
 1995-96,Girls,Pennsylvania,Golf,210.0,2100.0
-1995-96,Girls,Pennsylvania,Gymnastics,16.0,160.0
-1995-96,Girls,South Carolina,Golf,,51.0
-1995-96,Girls,South Dakota,Golf,76.0,617.0
-1995-96,Girls,South Dakota,Gymnastics,37.0,409.0
+1995-96,Girls,Pennsylvania,Gymnastics,,160.0
+1995-96,Girls,South Dakota,Golf,,617.0
+1995-96,Girls,South Dakota,Gymnastics,,409.0
 1995-96,Girls,Tennessee,Golf,195.0,742.0
-1995-96,Girls,Utah,Golf,26.0,33.0
-1995-96,Girls,Vermont,Skiing Cross Country,,173.0
-1995-96,Girls,Vermont,Skiing Alpine,24.0,
-1995-96,Girls,Vermont,Golf,16.0,79.0
-1995-96,Girls,Vermont,Gymnastics,,62.0
-1995-96,Girls,Virginia,Gymnastics,69.0,810.0
-1995-96,Girls,Washington,Golf,217.0,1434.0
-1995-96,Girls,Washington,Gymnastics,72.0,
-1995-96,Girls,West Virginia,Golf,14.0,18.0
-1995-96,Girls,Wisconsin,Golf,84.0,878.0
-1995-96,Girls,Wisconsin,Gymnastics,98.0,1293.0
-1995-96,Girls,Wyoming,Golf,29.0,216.0
-1995-96,Girls,Wyoming,Gymnastics,10.0,164.0
-1995-96,Girls,Wyoming,Skiing Cross Country,,93.0
-1995-96,Girls,Wyoming,Skiing Alpine,,64.0
+1995-96,Girls,Texas,Golf,974.0,8777.0
+1995-96,Girls,Vermont,Skiing Alpine,,250.0
+1995-96,Girls,Virginia,Gymnastics,,810.0
+1995-96,Girls,Washington,Golf,217.0,
+1995-96,Girls,Wisconsin,Golf,,878.0
+1995-96,Girls,Wisconsin,Gymnastics,,1293.0
+1995-96,Girls,Wyoming,Golf,,216.0
+1995-96,Girls,Wyoming,Gymnastics,,164.0
 1995-96,Girls,Alabama,Soccer,57.0,1426.0
-1995-96,Girls,Alabama,Softball Fast Pitch,61.0,976.0
-1995-96,Girls,Alaska,Soccer,17.0,466.0
-1995-96,Girls,Arizona,Soccer,72.0,
+1995-96,Girls,Alabama,Softball Fast Pitch,,976.0
+1995-96,Girls,Alabama,Softball Slow Pitch,28.0,240.0
+1995-96,Girls,Alaska,Soccer,,466.0
+1995-96,Girls,Alaska,Softball Slow Pitch,22.0,641.0
+1995-96,Girls,Arizona,Soccer,72.0,1855.0
 1995-96,Girls,Arizona,Softball Fast Pitch,168.0,5313.0
+1995-96,Girls,Arizona,Softball Slow Pitch,,1796.0
+1995-96,Girls,Arkansas,Softball Slow Pitch,21.0,242.0
 1995-96,Girls,California,Soccer,799.0,24353.0
-1995-96,Girls,California,Softball Fast Pitch,927.0,26407.0
-1995-96,Girls,Colorado,Soccer,,3888.0
-1995-96,Girls,Colorado,Softball Fast Pitch,107.0,2998.0
-1995-96,Girls,Connecticut,Soccer,137.0,4279.0
-1995-96,Girls,Connecticut,Softball Fast Pitch,168.0,4593.0
+1995-96,Girls,California,Softball Fast Pitch,,26407.0
+1995-96,Girls,California,Softball Slow Pitch,636.0,19979.0
+1995-96,Girls,Colorado,Soccer,117.0,
+1995-96,Girls,Colorado,Softball Fast Pitch,,2998.0
+1995-96,Girls,Colorado,Softball Slow Pitch,107.0,3025.0
+1995-96,Girls,Connecticut,Soccer,137.0,
+1995-96,Girls,Connecticut,Softball Fast Pitch,,4593.0
+1995-96,Girls,Connecticut,Softball Slow Pitch,76.0,1925.0
 1995-96,Girls,Delaware,Soccer,33.0,
-1995-96,Girls,Delaware,Softball Fast Pitch,361153.0,
-1995-96,Girls,District of Columbia,Soccer,,19.0
-1995-96,Girls,District of Columbia,Softball Fast Pitch,13.0,173.0
-1995-96,Girls,Florida,Soccer,310.0,8128.0
-1995-96,Girls,Florida,Softball Fast Pitch,420.0,
-1995-96,Girls,Georgia,Soccer,185.0,4375.0
-1995-96,Girls,Georgia,Softball Fast Pitch,531140.0,
+1995-96,Girls,Delaware,Softball Fast Pitch,,1153.0
+1995-96,Girls,Delaware,Softball Slow Pitch,21.0,
+1995-96,Girls,District of Columbia,Softball Fast Pitch,,173.0
+1995-96,Girls,Florida,Soccer,310.0,
+1995-96,Girls,Florida,Softball Fast Pitch,,8987.0
+1995-96,Girls,Florida,Softball Slow Pitch,275.0,5183.0
+1995-96,Girls,Georgia,Soccer,185.0,
+1995-96,Girls,Georgia,Softball Fast Pitch,,1140.0
+1995-96,Girls,Georgia,Softball Slow Pitch,106.0,1760.0
 1995-96,Girls,Hawaii,Soccer,47.0,
-1995-96,Girls,Hawaii,Softball Fast Pitch,46.0,741.0
-1995-96,Girls,Idaho,Soccer,13.0,
-1995-96,Girls,Idaho,Softball Fast Pitch,66.0,1742.0
-1995-96,Girls,Illinois,Soccer,215.0,9964.0
-1995-96,Girls,Illinois,Softball Fast Pitch,612.0,17619.0
-1995-96,Girls,Indiana,Soccer,118.0,3413.0
-1995-96,Girls,Indiana,Softball Fast Pitch,323.0,8535.0
-1995-96,Girls,Kansas,Soccer,38.0,1597.0
-1995-96,Girls,Kansas,Softball Fast Pitch,143.0,3781.0
-1995-96,Girls,Kentucky,Soccer,89.0,2593.0
-1995-96,Girls,Kentucky,Softball Fast Pitch,215.0,4515.0
-1995-96,Girls,Louisiana,Soccer,38.0,570.0
-1995-96,Girls,Louisiana,Softball Fast Pitch,352.0,5280.0
-1995-96,Girls,Maryland,Soccer,118.0,3970.0
-1995-96,Girls,Maryland,Softball Fast Pitch,163.0,4458.0
-1995-96,Girls,Massachusetts,Soccer,269.0,9666.0
-1995-96,Girls,Massachusetts,Softball Fast Pitch,297.0,9882.0
-1995-96,Girls,Michigan,Soccer,239.0,8347.0
-1995-96,Girls,Michigan,Softball Fast Pitch,626.0,16466.0
-1995-96,Girls,Minnesota,Soccer,98.0,3203.0
-1995-96,Girls,Minnesota,Softball Fast Pitch,364.0,
-1995-96,Girls,Mississippi,Soccer,40.0,1200.0
-1995-96,Girls,Mississippi,Softball Fast Pitch,28.0,840.0
-1995-96,Girls,Missouri,Soccer,118.0,4266.0
-1995-96,Girls,Missouri,Softball Fast Pitch,389.0,
-1995-96,Girls,Montana,Soccer,14.0,357.0
-1995-96,Girls,Montana,Softball Fast Pitch,29.0,756.0
-1995-96,Girls,Nebraska,Soccer,46.0,1549.0
-1995-96,Girls,Nebraska,Softball Fast Pitch,34.0,806.0
-1995-96,Girls,Nevada,Soccer,28.0,934.0
-1995-96,Girls,Nevada,Softball Fast Pitch,60.0,1977.0
-1995-96,Girls,New Hampshire,Soccer,,2051.0
-1995-96,Girls,New Hampshire,Softball Fast Pitch,85.0,2420.0
-1995-96,Girls,New Jersey,Soccer,287.0,9001.0
+1995-96,Girls,Hawaii,Softball Fast Pitch,,741.0
+1995-96,Girls,Hawaii,Softball Slow Pitch,42.0,433.0
+1995-96,Girls,Idaho,Softball Fast Pitch,,1742.0
+1995-96,Girls,Illinois,Soccer,215.0,
+1995-96,Girls,Illinois,Softball Fast Pitch,,17619.0
+1995-96,Girls,Illinois,Softball Slow Pitch,260.0,7709.0
+1995-96,Girls,Indiana,Soccer,118.0,
+1995-96,Girls,Indiana,Softball Fast Pitch,,8535.0
+1995-96,Girls,Indiana,Softball Slow Pitch,200.0,4246.0
+1995-96,Girls,Iowa,Soccer,52.0,
+1995-96,Girls,Iowa,Softball Fast Pitch,,9866.0
+1995-96,Girls,Iowa,Softball Slow Pitch,60.0,1638.0
+1995-96,Girls,Kansas,Soccer,38.0,
+1995-96,Girls,Kansas,Softball Fast Pitch,,3781.0
+1995-96,Girls,Kansas,Softball Slow Pitch,45.0,1055.0
+1995-96,Girls,Kentucky,Soccer,89.0,
+1995-96,Girls,Kentucky,Softball Fast Pitch,,4515.0
+1995-96,Girls,Kentucky,Softball Slow Pitch,96.0,999.0
+1995-96,Girls,Louisiana,Soccer,38.0,
+1995-96,Girls,Louisiana,Softball Fast Pitch,,5280.0
+1995-96,Girls,Louisiana,Softball Slow Pitch,36.0,360.0
+1995-96,Girls,Maine,Soccer,125.0,
+1995-96,Girls,Maine,Softball Fast Pitch,,2994.0
+1995-96,Girls,Maine,Softball Slow Pitch,40.0,763.0
+1995-96,Girls,Maryland,Soccer,118.0,
+1995-96,Girls,Maryland,Softball Fast Pitch,,4458.0
+1995-96,Girls,Maryland,Softball Slow Pitch,62.0,
+1995-96,Girls,Massachusetts,Soccer,269.0,
+1995-96,Girls,Massachusetts,Softball Fast Pitch,,9882.0
+1995-96,Girls,Massachusetts,Softball Slow Pitch,127.0,3120.0
+1995-96,Girls,Michigan,Soccer,239.0,
+1995-96,Girls,Michigan,Softball Fast Pitch,,16466.0
+1995-96,Girls,Michigan,Softball Slow Pitch,204.0,5527.0
+1995-96,Girls,Minnesota,Soccer,98.0,
+1995-96,Girls,Minnesota,Softball Fast Pitch,,7875.0
+1995-96,Girls,Minnesota,Softball Slow Pitch,168.0,2844.0
+1995-96,Girls,Mississippi,Soccer,40.0,
+1995-96,Girls,Mississippi,Softball Fast Pitch,,840.0
+1995-96,Girls,Mississippi,Softball Slow Pitch,39.0,432.0
+1995-96,Girls,Missouri,Soccer,118.0,
+1995-96,Girls,Missouri,Softball Fast Pitch,,8646.0
+1995-96,Girls,Missouri,Softball Slow Pitch,85.0,2224.0
+1995-96,Girls,Montana,Soccer,14.0,
+1995-96,Girls,Montana,Softball Fast Pitch,,756.0
+1995-96,Girls,Montana,Softball Slow Pitch,18.0,322.0
+1995-96,Girls,Nebraska,Soccer,46.0,
+1995-96,Girls,Nebraska,Softball Fast Pitch,,806.0
+1995-96,Girls,Nebraska,Softball Slow Pitch,34.0,905.0
+1995-96,Girls,Nevada,Softball Fast Pitch,,1977.0
+1995-96,Girls,Nevada,Softball Slow Pitch,32.0,805.0
+1995-96,Girls,New Hampshire,Softball Fast Pitch,,2420.0
 1995-96,Girls,New Jersey,Softball Fast Pitch,369.0,12814.0
-1995-96,Girls,New Mexico,Soccer,40.0,1190.0
-1995-96,Girls,New Mexico,Softball Fast Pitch,56.0,
-1995-96,Girls,New York,Soccer,885.0,19664.0
-1995-96,Girls,New York,Softball Fast Pitch,698.0,17985.0
-1995-96,Girls,North Carolina,Soccer,172.0,4723.0
-1995-96,Girls,North Carolina,Softball Fast Pitch,154.0,3362.0
-1995-96,Girls,North Dakota,Soccer,12.0,579.0
-1995-96,Girls,North Dakota,Softball Fast Pitch,606.0,15639.0
-1995-96,Girls,Oklahoma,Soccer,66.0,1340.0
-1995-96,Girls,Oklahoma,Softball Fast Pitch,241.0,3957.0
-1995-96,Girls,Oregon,Soccer,115.0,3450.0
+1995-96,Girls,New Jersey,Softball Slow Pitch,175.0,
+1995-96,Girls,New Mexico,Softball Fast Pitch,,1293.0
+1995-96,Girls,New Mexico,Softball Slow Pitch,27.0,565.0
+1995-96,Girls,New York,Softball Fast Pitch,,17985.0
+1995-96,Girls,New York,Softball Slow Pitch,257.0,436.0
+1995-96,Girls,South Carolina,Softball Fast Pitch,154.0,3362.0
+1995-96,Girls,South Carolina,Softball Slow Pitch,132.0,2334.0
+1995-96,Girls,North Dakota,Softball Slow Pitch,12.0,307.0
+1995-96,Girls,Ohio,Softball Fast Pitch,606.0,15639.0
+1995-96,Girls,Ohio,Softball Slow Pitch,277.0,
+1995-96,Girls,Oklahoma,Softball Fast Pitch,241.0,
+1995-96,Girls,Oklahoma,Softball Slow Pitch,40.0,492.0
 1995-96,Girls,Oregon,Softball Fast Pitch,190.0,5700.0
-1995-96,Girls,Pennsylvania,Soccer,306.0,10710.0
+1995-96,Girls,Oregon,Softball Slow Pitch,114.0,1710.0
 1995-96,Girls,Pennsylvania,Softball Fast Pitch,575.0,18400.0
-1995-96,Girls,Rhode Island,Soccer,38.0,1072.0
+1995-96,Girls,Pennsylvania,Softball Slow Pitch,254.0,4572.0
 1995-96,Girls,Rhode Island,Softball Fast Pitch,27.0,612.0
-1995-96,Girls,South Carolina,Soccer,63.0,1564.0
-1995-96,Girls,South Carolina,Softball Fast Pitch,188.0,4177.0
-1995-96,Girls,Tennessee,Soccer,119.0,
-1995-96,Girls,Tennessee,Softball Fast Pitch,307.0,696.0
-1995-96,Girls,Utah,Soccer,68.0,2124.0
-1995-96,Girls,Utah,Softball Fast Pitch,,1968.0
-1995-96,Girls,Vermont,Soccer,49.0,1750.0
+1995-96,Girls,Tennessee,Softball Fast Pitch,307.0,5696.0
+1995-96,Girls,Texas,Softball Fast Pitch,695.0,25169.0
+1995-96,Girls,Texas,Softball Slow Pitch,307.0,
+1995-96,Girls,Utah,Softball Fast Pitch,81.0,1968.0
+1995-96,Girls,Utah,Softball Slow Pitch,62.0,1317.0
 1995-96,Girls,Vermont,Softball Fast Pitch,48.0,1399.0
-1995-96,Girls,Virginia,Soccer,129.0,3894.0
-1995-96,Girls,Virginia,Softball Fast Pitch,259.0,
-1995-96,Girls,Washington,Soccer,217.0,6678.0
+1995-96,Girls,Virginia,Softball Fast Pitch,259.0,6018.0
 1995-96,Girls,Washington,Softball Fast Pitch,197.0,6746.0
-1995-96,Girls,West Virginia,Soccer,46.0,
-1995-96,Girls,West Virginia,Softball Fast Pitch,109.0,
-1995-96,Girls,Wisconsin,Soccer,127.0,4107.0
+1995-96,Girls,Washington,Softball Slow Pitch,129.0,3522.0
+1995-96,Girls,West Virginia,Softball Fast Pitch,109.0,2310.0
+1995-96,Girls,West Virginia,Softball Slow Pitch,21.0,262.0
 1995-96,Girls,Wisconsin,Softball Fast Pitch,372.0,11233.0
-1995-96,Girls,Wyoming,Soccer,14.0,593.0
-1995-96,Girls,Alabama,Tennis,139.0,
+1995-96,Girls,Wisconsin,Softball Slow Pitch,120.0,3295.0
+1995-96,Girls,Wyoming,Softball Slow Pitch,25.0,616.0
+1995-96,Girls,Alabama,Tennis,139.0,1417.0
 1995-96,Girls,Alabama,Track and Field Indoor,37.0,377.0
 1995-96,Girls,Alabama,Track and Field Outdoor,267.0,4034.0
 1995-96,Girls,Alabama,Volleyball,256.0,3967.0
-1995-96,Girls,Alaska,Tennis,,92.0
 1995-96,Girls,Alaska,Track and Field Outdoor,36.0,770.0
-1995-96,Girls,Alaska,Volleyball,,1346.0
+1995-96,Girls,Alaska,Volleyball,74.0,1346.0
 1995-96,Girls,Arizona,Tennis,105.0,1882.0
 1995-96,Girls,Arizona,Track and Field Outdoor,154.0,4410.0
 1995-96,Girls,Arizona,Volleyball,181.0,6148.0
-1995-96,Girls,Arkansas,Tennis,1230.0,1141.0
+1995-96,Girls,Arkansas,Tennis,123.0,
 1995-96,Girls,Arkansas,Track and Field Outdoor,269.0,4591.0
-1995-96,Girls,Arkansas,Volleyball,712272.0,
+1995-96,Girls,Arkansas,Volleyball,,2272.0
 1995-96,Girls,California,Tennis,762.0,15628.0
 1995-96,Girls,California,Track and Field Outdoor,848.0,27325.0
 1995-96,Girls,California,Volleyball,989.0,28035.0
@@ -315,141 +311,138 @@ survey_year,gender,state,sport,schools,participants
 1995-96,Girls,Colorado,Track and Field Outdoor,262.0,5514.0
 1995-96,Girls,Colorado,Volleyball,277.0,8259.0
 1995-96,Girls,Connecticut,Tennis,123.0,2179.0
-1995-96,Girls,Connecticut,Track and Field Indoor,98.0,2465.0
+1995-96,Girls,Connecticut,Track and Field Indoor,,2465.0
 1995-96,Girls,Connecticut,Track and Field Outdoor,153.0,5084.0
-1995-96,Girls,Connecticut,Volleyball,130.0,3076.0
-1995-96,Girls,Delaware,Tennis,30.0,470.0
-1995-96,Girls,Delaware,Track and Field Indoor,27.0,505.0
-1995-96,Girls,Delaware,Track and Field Outdoor,32.0,834.0
-1995-96,Girls,Delaware,Volleyball,29.0,857.0
-1995-96,Girls,District of Columbia,Tennis,,53.0
-1995-96,Girls,District of Columbia,Track and Field Indoor,12.0,100.0
-1995-96,Girls,District of Columbia,Track and Field Outdoor,14.0,156.0
-1995-96,Girls,District of Columbia,Volleyball,15.0,146.0
-1995-96,Girls,Florida,Tennis,340.0,3256.0
-1995-96,Girls,Florida,Track and Field Outdoor,378.0,
+1995-96,Girls,Connecticut,Volleyball,130.0,863076.0
+1995-96,Girls,Delaware,Tennis,,470.0
+1995-96,Girls,Delaware,Track and Field Indoor,,505.0
+1995-96,Girls,Delaware,Track and Field Outdoor,,834.0
+1995-96,Girls,Delaware,Volleyball,,857.0
+1995-96,Girls,District of Columbia,Track and Field Indoor,,100.0
+1995-96,Girls,District of Columbia,Track and Field Outdoor,,156.0
+1995-96,Girls,District of Columbia,Volleyball,,146.0
+1995-96,Girls,Florida,Tennis,340.0,863256.0
+1995-96,Girls,Florida,Track and Field Outdoor,378.0,8435.0
 1995-96,Girls,Florida,Volleyball,434.0,9425.0
 1995-96,Girls,Georgia,Tennis,322.0,4026.0
-1995-96,Girls,Georgia,Track and Field Outdoor,318.0,
-1995-96,Girls,Georgia,Volleyball,71.0,
-1995-96,Girls,Hawaii,Tennis,50.0,649.0
-1995-96,Girls,Hawaii,Track and Field Outdoor,51.0,716.0
-1995-96,Girls,Hawaii,Volleyball,52.0,1092.0
-1995-96,Girls,Idaho,Tennis,50.0,783.0
-1995-96,Girls,Idaho,Track and Field Outdoor,138.0,
+1995-96,Girls,Georgia,Track and Field Outdoor,318.0,7221.0
+1995-96,Girls,Georgia,Volleyball,,1642.0
+1995-96,Girls,Hawaii,Tennis,,649.0
+1995-96,Girls,Hawaii,Track and Field Outdoor,,716.0
+1995-96,Girls,Hawaii,Volleyball,,1092.0
+1995-96,Girls,Idaho,Tennis,,783.0
+1995-96,Girls,Idaho,Track and Field Outdoor,138.0,2726.0
 1995-96,Girls,Idaho,Volleyball,150.0,3957.0
-1995-96,Girls,Indiana,Tennis,302.0,865437.0
-1995-96,Girls,Indiana,Track and Field Outdoor,367.0,
+1995-96,Girls,Illinois,Track and Field Outdoor,572.0,17741.0
+1995-96,Girls,Illinois,Volleyball,685.0,22569.0
+1995-96,Girls,Indiana,Tennis,302.0,
+1995-96,Girls,Indiana,Track and Field Outdoor,367.0,869816.0
 1995-96,Girls,Indiana,Volleyball,382.0,10545.0
-1995-96,Girls,Indiana,Track and Field Indoor,70.0,1777.0
-1995-96,Girls,Kansas,Tennis,120.0,62164.0
+1995-96,Girls,Iowa,Tennis,117.0,
+1995-96,Girls,Iowa,Track and Field Outdoor,380.0,868754.0
+1995-96,Girls,Iowa,Volleyball,400.0,13767.0
+1995-96,Girls,Kansas,Tennis,120.0,2164.0
 1995-96,Girls,Kansas,Track and Field Outdoor,361.0,6539.0
 1995-96,Girls,Kansas,Volleyball,359.0,10340.0
 1995-96,Girls,Kentucky,Tennis,206.0,2006.0
 1995-96,Girls,Kentucky,Track and Field Outdoor,234.0,3819.0
-1995-96,Girls,Kentucky,Volleyball,88.0,1717.0
-1995-96,Girls,Louisiana,Tennis,149.0,1043.0
-1995-96,Girls,Louisiana,Track and Field Indoor,82.0,820.0
+1995-96,Girls,Kentucky,Volleyball,,1717.0
+1995-96,Girls,Louisiana,Tennis,149.0,
+1995-96,Girls,Louisiana,Track and Field Indoor,,820.0
 1995-96,Girls,Louisiana,Track and Field Outdoor,367.0,4037.0
 1995-96,Girls,Louisiana,Volleyball,164.0,2296.0
-1995-96,Girls,Maine,Tennis,83.0,1454.0
-1995-96,Girls,Maine,Track and Field Indoor,34.0,205.0
-1995-96,Girls,Maine,Track and Field Outdoor,95.0,2383.0
-1995-96,Girls,Maine,Volleyball,26.0,417.0
-1995-96,Girls,Maryland,Tennis,148.0,81979.0
+1995-96,Girls,Maine,Tennis,,1454.0
+1995-96,Girls,Maine,Track and Field Indoor,,205.0
+1995-96,Girls,Maine,Track and Field Outdoor,,2383.0
+1995-96,Girls,Maine,Volleyball,,417.0
+1995-96,Girls,Maryland,Tennis,148.0,1979.0
 1995-96,Girls,Maryland,Track and Field Indoor,113.0,2453.0
 1995-96,Girls,Maryland,Track and Field Outdoor,156.0,3980.0
 1995-96,Girls,Maryland,Volleyball,162.0,3858.0
 1995-96,Girls,Massachusetts,Tennis,211.0,3534.0
 1995-96,Girls,Massachusetts,Track and Field Indoor,165.0,5025.0
 1995-96,Girls,Massachusetts,Track and Field Outdoor,245.0,9415.0
-1995-96,Girls,Massachusetts,Volleyball,148.0,3728.0
-1995-96,Girls,Michigan,Tennis,322.0,
+1995-96,Girls,Massachusetts,Volleyball,148.0,83728.0
+1995-96,Girls,Michigan,Tennis,322.0,87572.0
 1995-96,Girls,Michigan,Track and Field Outdoor,638.0,17307.0
 1995-96,Girls,Michigan,Volleyball,682.0,20037.0
 1995-96,Girls,Minnesota,Tennis,204.0,4239.0
-1995-96,Girls,Minnesota,Track and Field Outdoor,408.0,
-1995-96,Girls,Minnesota,Volleyball,421.0,
-1995-96,Girls,Mississippi,Tennis,161.0,1075.0
-1995-96,Girls,Mississippi,Track and Field Indoor,21.0,268.0
+1995-96,Girls,Minnesota,Track and Field Outdoor,408.0,6956.0
+1995-96,Girls,Minnesota,Volleyball,421.0,11477.0
+1995-96,Girls,Mississippi,Tennis,161.0,
+1995-96,Girls,Mississippi,Track and Field Indoor,,268.0
 1995-96,Girls,Mississippi,Track and Field Outdoor,236.0,3621.0
-1995-96,Girls,Mississippi,Volleyball,38.0,510.0
+1995-96,Girls,Mississippi,Volleyball,,510.0
 1995-96,Girls,Missouri,Tennis,151.0,3104.0
 1995-96,Girls,Missouri,Track and Field Outdoor,420.0,11032.0
 1995-96,Girls,Missouri,Volleyball,404.0,10557.0
-1995-96,Girls,Montana,Tennis,60.0,
-1995-96,Girls,Montana,Track and Field Outdoor,182.0,
-1995-96,Girls,Montana,Volleyball,157.0,4034.0
-1995-96,Girls,Nebraska,Tennis,52.0,1168.0
-1995-96,Girls,Nebraska,Track and Field Outdoor,338.0,
-1995-96,Girls,Nebraska,Volleyball,335.0,
-1995-96,Girls,Nevada,Tennis,32.0,442.0
-1995-96,Girls,Nevada,Track and Field Outdoor,65.0,1656.0
-1995-96,Girls,Nevada,Volleyball,,2106.0
-1995-96,Girls,New Hampshire,Tennis,45.0,606.0
-1995-96,Girls,New Hampshire,Track and Field Indoor,35.0,716.0
-1995-96,Girls,New Hampshire,Track and Field Outdoor,65.0,1584.0
-1995-96,Girls,New Hampshire,Volleyball,45.0,1059.0
+1995-96,Girls,Nebraska,Track and Field Outdoor,338.0,6591.0
+1995-96,Girls,Nebraska,Volleyball,335.0,9446.0
+1995-96,Girls,Nevada,Tennis,,442.0
+1995-96,Girls,Nevada,Track and Field Outdoor,,1656.0
+1995-96,Girls,New Hampshire,Tennis,,606.0
+1995-96,Girls,New Hampshire,Track and Field Indoor,,716.0
+1995-96,Girls,New Hampshire,Track and Field Outdoor,,1584.0
+1995-96,Girls,New Hampshire,Volleyball,,1059.0
 1995-96,Girls,New Jersey,Tennis,322.0,5934.0
 1995-96,Girls,New Jersey,Track and Field Indoor,237.0,5574.0
 1995-96,Girls,New Jersey,Track and Field Outdoor,336.0,11869.0
-1995-96,Girls,New Jersey,Volleyball,133.0,2358.0
-1995-96,Girls,New Mexico,Tennis,41.0,551.0
+1995-96,Girls,New Jersey,Volleyball,133.0,
+1995-96,Girls,New Mexico,Tennis,,551.0
 1995-96,Girls,New Mexico,Track and Field Outdoor,113.0,2596.0
 1995-96,Girls,New Mexico,Volleyball,126.0,3252.0
 1995-96,Girls,New York,Tennis,427.0,7480.0
-1995-96,Girls,New York,Track and Field Indoor,258.0,
-1995-96,Girls,New York,Track and Field Outdoor,552.0,15013.0
+1995-96,Girls,New York,Track and Field Indoor,258.0,6140.0
+1995-96,Girls,New York,Track and Field Outdoor,552.0,15043.0
 1995-96,Girls,New York,Volleyball,583.0,13862.0
-1995-96,Girls,North Dakota,Tennis,18.0,392.0
-1995-96,Girls,North Dakota,Track and Field Outdoor,184.0,2016.0
-1995-96,Girls,North Dakota,Volleyball,145.0,3104.0
+1995-96,Girls,North Carolina,Tennis,261.0,3377.0
+1995-96,Girls,North Carolina,Track and Field Indoor,108.0,1550.0
+1995-96,Girls,North Carolina,Track and Field Outdoor,291.0,7845.0
+1995-96,Girls,North Carolina,Volleyball,311.0,6503.0
+1995-96,Girls,North Dakota,Tennis,,392.0
+1995-96,Girls,North Dakota,Volleyball,,3104.0
 1995-96,Girls,Ohio,Tennis,385.0,6061.0
 1995-96,Girls,Ohio,Track and Field Indoor,123.0,2614.0
 1995-96,Girls,Ohio,Track and Field Outdoor,735.0,18528.0
 1995-96,Girls,Ohio,Volleyball,700.0,18116.0
 1995-96,Girls,Oklahoma,Tennis,108.0,947.0
-1995-96,Girls,Oklahoma,Track and Field Indoor,22.0,190.0
-1995-96,Girls,Oklahoma,Track and Field Outdoor,390.0,
-1995-96,Girls,Oklahoma,Volleyball,56.0,783.0
+1995-96,Girls,Oklahoma,Track and Field Indoor,,190.0
+1995-96,Girls,Oklahoma,Track and Field Outdoor,390.0,3487.0
+1995-96,Girls,Oklahoma,Volleyball,,783.0
 1995-96,Girls,Oregon,Tennis,123.0,984.0
 1995-96,Girls,Oregon,Track and Field Outdoor,276.0,
-1995-96,Girls,Oregon,Volleyball,276.0,5520.0
+1995-96,Girls,Oregon,Volleyball,276.0,
 1995-96,Girls,Pennsylvania,Tennis,354.0,3540.0
 1995-96,Girls,Pennsylvania,Track and Field Indoor,136.0,2448.0
 1995-96,Girls,Pennsylvania,Track and Field Outdoor,496.0,15872.0
 1995-96,Girls,Pennsylvania,Volleyball,438.0,7884.0
 1995-96,Girls,Rhode Island,Tennis,,726.0
-1995-96,Girls,Rhode Island,Track and Field Indoor,31.0,722.0
-1995-96,Girls,Rhode Island,Track and Field Outdoor,36.0,
-1995-96,Girls,Rhode Island,Volleyball,40.0,981.0
+1995-96,Girls,Rhode Island,Track and Field Indoor,,722.0
+1995-96,Girls,Rhode Island,Volleyball,,981.0
 1995-96,Girls,South Carolina,Tennis,108.0,1468.0
-1995-96,Girls,South Carolina,Track and Field Outdoor,185.0,
+1995-96,Girls,South Carolina,Track and Field Outdoor,185.0,5145.0
 1995-96,Girls,South Carolina,Volleyball,176.0,3357.0
-1995-96,Girls,South Dakota,Tennis,21.0,296.0
-1995-96,Girls,South Dakota,Track and Field Outdoor,171.0,2826.0
-1995-96,Girls,South Dakota,Volleyball,134.0,3577.0
 1995-96,Girls,Tennessee,Tennis,225.0,2239.0
 1995-96,Girls,Tennessee,Track and Field Outdoor,209.0,4454.0
 1995-96,Girls,Tennessee,Volleyball,216.0,3933.0
-1995-96,Girls,Vermont,Tennis,28.0,387.0
-1995-96,Girls,Vermont,Track and Field Indoor,,99.0
-1995-96,Girls,Vermont,Track and Field Outdoor,28.0,723.0
-1995-96,Girls,Vermont,Volleyball,,20.0
-1995-96,Girls,Virginia,Tennis,,2709.0
+1995-96,Girls,Utah,Track and Field Outdoor,101.0,3071.0
+1995-96,Girls,Utah,Volleyball,110.0,2778.0
+1995-96,Girls,Vermont,Tennis,,387.0
+1995-96,Girls,Vermont,Track and Field Outdoor,,723.0
+1995-96,Girls,Virginia,Tennis,222.0,2709.0
 1995-96,Girls,Virginia,Track and Field Indoor,144.0,3168.0
 1995-96,Girls,Virginia,Track and Field Outdoor,266.0,6647.0
-1995-96,Girls,Virginia,Volleyball,214.0,
+1995-96,Girls,Virginia,Volleyball,214.0,4082.0
+1995-96,Girls,Washington,Track and Field Outdoor,,8042.0
 1995-96,Girls,Washington,Tennis,234.0,5150.0
-1995-96,Girls,Washington,Track and Field Outdoor,339.0,
 1995-96,Girls,Washington,Volleyball,354.0,9992.0
-1995-96,Girls,West Virginia,Tennis,82.0,920.0
+1995-96,Girls,West Virginia,Tennis,,920.0
 1995-96,Girls,West Virginia,Track and Field Outdoor,102.0,2374.0
-1995-96,Girls,West Virginia,Volleyball,96.0,2082.0
+1995-96,Girls,West Virginia,Volleyball,,2082.0
 1995-96,Girls,Wisconsin,Tennis,,4387.0
-1995-96,Girls,Wisconsin,Track and Field Outdoor,377.0,
+1995-96,Girls,Wisconsin,Track and Field Outdoor,377.0,9305.0
 1995-96,Girls,Wisconsin,Volleyball,418.0,15467.0
-1995-96,Girls,Wyoming,Tennis,17.0,255.0
-1995-96,Girls,Wyoming,Track and Field Indoor,10.0,169.0
-1995-96,Girls,Wyoming,Track and Field Outdoor,69.0,1461.0
-1995-96,Girls,Wyoming,Volleyball,68.0,1889.0
+1995-96,Girls,Wyoming,Tennis,,255.0
+1995-96,Girls,Wyoming,Track and Field Indoor,,169.0
+1995-96,Girls,Wyoming,Track and Field Outdoor,,1461.0
+1995-96,Girls,Wyoming,Volleyball,,1889.0

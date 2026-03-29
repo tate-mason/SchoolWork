@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  27 MAR 2026 14:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  28 MAR 2026 14:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -563,10 +563,10 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.103 F
-       urther, we will look at the basics of the firm's decision of what to ... [1]
-./model_writeup.tex:104: Undefined control sequence.
-l.104 $C_t \sim N(\bar{X_{j,t}}, \simga
+l.103 
+       [1]
+./model_writeup.tex:124: Undefined control sequence.
+l.124 $C_t \sim N(\bar{X_{j,t}}, \simga
                                        _x)$ where $\bar{X_{j,t}}$ is the ave...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -574,63 +574,63 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<../../Output/consumer_choices_and_utility_by_regime.png, id=55, 1156.32pt x 361.35pt>
+<../../Output/consumer_choices_and_utility_by_regime.png, id=59, 1156.32pt x 361.35pt>
 File: ../../Output/consumer_choices_and_utility_by_regime.png Graphic file (type png)
 <use ../../Output/consumer_choices_and_utility_by_regime.png>
-Package pdftex.def Info: ../../Output/consumer_choices_and_utility_by_regime.png  used on input line 109.
+Package pdftex.def Info: ../../Output/consumer_choices_and_utility_by_regime.png  used on input line 129.
 (pdftex.def)             Requested size: 469.75502pt x 146.79808pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--111
+Underfull \hbox (badness 10000) in paragraph at lines 129--131
 
  []
 
-[2 <../../Output/consumer_choices_and_utility_by_regime.png>]
+[2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 123.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sigma' on input line 123.
+(hyperref)                removing `math shift' on input line 143.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 123.
+(hyperref)                removing `\sigma' on input line 143.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 123.
+(hyperref)                removing `subscript' on input line 143.
 
-<../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png, id=62, 939.51pt x 361.35pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 143.
+
+<../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png, id=66, 939.51pt x 361.35pt>
 File: ../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png Graphic file (type png)
 <use ../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png>
-Package pdftex.def Info: ../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png  used on input line 125.
+Package pdftex.def Info: ../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png  used on input line 145.
 (pdftex.def)             Requested size: 469.75502pt x 180.67456pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--127
+Underfull \hbox (badness 10000) in paragraph at lines 145--147
 
  []
 
-(/usr/local/texlive/2026/texmf-dist/tex/latex/listings/lstlang1.sty
+[3 <../../Output/consumer_choices_and_utility_by_regime.png>] (/usr/local/texlive/2026/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 138.
-LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 138.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 158.
+LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 158.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/inconsolata/ot1zi4.fd
 File: ot1zi4.fd 2018/01/14 OT1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 138.
+(Font)              scaled to size 10.95pt on input line 158.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zi4' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 138.
+(Font)              scaled to size 9.0pt on input line 158.
  (../../Code/init_sim.py
 LaTeX Font Info:    Font shape `OT1/zi4/b/n' will be
 (Font)              scaled to size 9.0pt on input line 1.
- [3{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc} <../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png>]
+ [4{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc} <../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png>]
 
 LaTeX Font Warning: Font shape `OT1/zi4/m/it' undefined
 (Font)              using `OT1/zi4/m/n' instead on input line 31.
@@ -937,7 +937,7 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-[4]
+[5]
 
 ../../Code/init_sim.py:75: LaTeX Error: Invalid UTF-8 byte sequence (Ï\lst@FillFixed@).
 
@@ -1039,7 +1039,7 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-[5{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+[6{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
 
 ../../Code/init_sim.py:111: LaTeX Error: Invalid UTF-8 byte sequence (Ï\lst@FillFixed@).
 
@@ -1070,7 +1070,7 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-) [6] (./model_writeup.aux)
+) [7] (./model_writeup.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1080,21 +1080,21 @@ L3 programming layer <2026-01-19>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `model_writeup.out' has not changed.
-(rerunfilecheck)             Checksum: 62B2B1F0DF57B619BDF5F7E1A84548FC;980.
+(rerunfilecheck)             Checksum: FEE24F3454CF74F3C2BEF048ADB13EFC;1111.
  ) 
 Here is how much of TeX's memory you used:
- 18717 strings out of 467525
- 303893 string characters out of 5418983
- 1230906 words of memory out of 5000000
- 47149 multiletter control sequences out of 15000+600000
- 638088 words of font info for 107 fonts, out of 8000000 for 9000
+ 18727 strings out of 467525
+ 304017 string characters out of 5418983
+ 1226115 words of memory out of 5000000
+ 47152 multiletter control sequences out of 15000+600000
+ 638190 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,1010b,2368s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,1010b,2368s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on model_writeup.pdf (7 pages, 420156 bytes).
+Output written on model_writeup.pdf (8 pages, 424662 bytes).
 PDF statistics:
- 321 PDF objects out of 1000 (max. 8388607)
- 276 compressed objects within 3 object streams
- 155 named destinations out of 1000 (max. 500000)
- 20547 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 331 PDF objects out of 1000 (max. 8388607)
+ 285 compressed objects within 3 object streams
+ 158 named destinations out of 1000 (max. 500000)
+ 20555 words of extra memory for PDF output out of 20736 (max. 10000000)
 

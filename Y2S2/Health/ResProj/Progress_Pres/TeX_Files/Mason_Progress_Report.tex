@@ -1,0 +1,469 @@
+% ============================================================
+%  WNBA & Girls' Sports Participation — Beamer Presentation
+%  Engine: pdflatex  (or lualatex / xelatex)
+%  Packages: beamer, booktabs, graphicx, siunitx, tikz, pgfplots
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+% ---- Theme base ----
+\usetheme{Madrid}           % clean frame structure; we override colours below
+\usecolortheme{default}
+
+% ---- Colour palette ----
+%   Primary:   WNBA orange-ish red
+%   Secondary: deep navy
+%   Accent:    warm grey for backgrounds
+\definecolor{wnbared}{RGB}{200, 41, 41}
+\definecolor{navydark}{RGB}{18, 35, 65}
+\definecolor{warmgrey}{RGB}{245, 244, 241}
+\definecolor{midgrey}{RGB}{120, 120, 120}
+\definecolor{treated}{RGB}{200, 41, 41}
+\definecolor{control}{RGB}{55, 126, 184}
+
+% ---- Override beamer colours ----
+\setbeamercolor{palette primary}   {bg=navydark,  fg=white}
+\setbeamercolor{palette secondary} {bg=navydark,  fg=white}
+\setbeamercolor{palette tertiary}  {bg=wnbared,   fg=white}
+\setbeamercolor{palette quaternary}{bg=navydark,  fg=white}
+\setbeamercolor{structure}         {fg=navydark}
+\setbeamercolor{frametitle}        {bg=navydark, fg=white}
+\setbeamercolor{title}             {bg=navydark, fg=white}
+\setbeamercolor{block title}       {bg=navydark, fg=white}
+\setbeamercolor{block body}        {bg=warmgrey, fg=black}
+\setbeamercolor{alerted text}      {fg=wnbared}
+\setbeamercolor{example text}      {fg=navydark}
+
+% ---- Fonts ----
+\usepackage[T1]{fontenc}
+\usepackage{bbm}
+\usepackage{lmodern}
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{frametitle}{size=\normalsize, series=\bfseries}
+\setbeamerfont{block title}{size=\small, series=\bfseries}
+
+% ---- Remove nav symbols, add slide numbers ----
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.45\paperwidth,ht=2.5ex,dp=1.5ex,left,leftskip=1em]
+      {palette primary}%
+      \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.35\paperwidth,ht=2.5ex,dp=1.5ex,center]
+      {palette secondary}%
+      \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.20\paperwidth,ht=2.5ex,dp=1.5ex,right,rightskip=1em]
+      {palette tertiary}%
+      \usebeamerfont{date in head/foot}%
+      \insertframenumber{} / \inserttotalframenumber
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+% ---- Packages ----
+\usepackage{booktabs}       % professional tables
+\usepackage{graphicx}       % \includegraphics
+\usepackage{siunitx}        % number formatting
+\usepackage{multicol}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{amsmath}
+
+% ---- Convenience commands ----
+\newcommand{\attg}{\widehat{\mathrm{ATT}}(g,t)}
+\newcommand{\red}[1]{{\color{wnbared}\textbf{#1}}}
+\newcommand{\navy}[1]{{\color{navydark}\textbf{#1}}}
+\newcommand{\note}[1]{{\footnotesize\color{midgrey}#1}}
+
+% ============================================================
+%  TITLE INFO — edit here
+% ============================================================
+\title[WNBA \& Girls' Sports]{Does a WNBA Team Increase \\ Girls' High School Sports Participation?}
+\subtitle{Evidence from a Staggered Difference-in-Differences Design}
+\author[Tate Mason]{Tate Mason}
+\institute[UGA]{Department of Economics \\ University of Georgia}
+\date{April 1, 2026}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% ---- Title slide ----
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ---- Outline ----
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% ============================================================
+\section{Motivation \& Research Question}
+% ============================================================
+
+\begin{frame}{Motivation}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \begin{itemize}
+        \item Title IX (1972) dramatically expanded female athletics, but \red{role-model effects} remain understudied.
+        \vspace{0.4em}
+        \item WNBA founded 1997 — first major professional women's basketball league in the US.
+        \vspace{0.4em}
+        \item Franchises entered states \textbf{staggered across 1997--2018}, creating quasi-experimental variation.
+        \vspace{0.4em}
+        \item \navy{Question:} Does local exposure to a professional women's team \emph{increase} girls' participation in high school sports?
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      \begin{block}{Why it matters}
+        \small
+        \begin{itemize}
+          \item Physical/mental health benefits of youth sports
+          \item Long-run labour market returns to athletic participation
+          \item Informing policy on sports funding and media representation
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ============================================================
+\section{Data}
+% ============================================================
+
+\begin{frame}{Data Sources}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Girls' Participation — NFHS}
+        \begin{itemize}\small
+          \item National Federation of State High School Associations
+          \item Annual PDF reports, scraped \& digitised
+          \item \textbf{Sports:} Basketball, Soccer, Cross Country, Track \& Field
+          \item \textbf{Coverage:} 51 states, 1993--94 through 2018--19 (26 years)
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Treatment — WNBA Franchises}
+        \begin{itemize}\small
+          \item Franchise history from official WNBA records
+          \item Treatment: first year any franchise operates in a state
+          \item \textbf{18 treated states,} 33 never-treated states
+          \item 8 distinct treatment cohorts (1997--2010)
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Panel Summary Statistics}
+  \begin{table}
+    \centering
+    \small
+    \caption{Mean Girls' High School Participation by Sport (1993--2018)}
+    \begin{tabular}{lSS}
+      \toprule
+      {\textbf{Sport}} & {\textbf{Ever-Treated States}} &
+        {\textbf{Never-Treated States}} \\
+      \midrule
+      Basketball   & {15,725} & {5,741}  \\
+      Cross Country& {7,022} & {2,162} \\
+      Soccer       & {11,381} & {8,221} \\
+      Track \& Field & {19,109} & {7,652} \\
+      \midrule
+      \textbf{Number of States} & 18 & 33 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Trends in Participation}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{../Graphics/spaghetti_basketball.pdf}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{../Graphics/spaghetti_cross_country.pdf}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Treatment Cohorts}
+  \begin{columns}[T]
+    \begin{column}{0.40\textwidth}
+      \begin{table}
+        \centering
+        \scriptsize                      % one step smaller than \small
+        \setlength{\tabcolsep}{3pt}      % tighten column padding
+        \caption{WNBA Franchise Entry by Cohort}
+        \begin{tabular}{lp{2.1cm}c}
+          \toprule
+          \textbf{Year} & \textbf{States} & \textbf{N} \\
+          \midrule
+          Never treated & --- & 33 \\
+          \midrule
+          1997 & NY, TX, NC, AZ, OH, CA, UT & 7 \\
+          1998 & VA, MI                       & 2 \\
+          1999 & FL, MN                       & 2 \\
+          2000 & OR, IN, WA                   & 3 \\
+          2003 & CT                           & 1 \\
+          2006 & IL                           & 1 \\
+          2008 & GA                           & 1 \\
+          2010 & OK                           & 1 \\
+          \midrule
+          \textbf{Total} & & \textbf{18} \\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+    \end{column}
+    \begin{column}{0.57\textwidth}
+      \vspace{0.3em}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{../Graphics/map_wnba_states.pdf}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ============================================================
+\section{Empirical Strategy}
+% ============================================================
+
+\begin{frame}{Model Setup}
+  \begin{block}{Estimating equation}
+    \small
+    \[
+      Y_{it} = \beta_0 + \beta_1 \sum_{t=1997}^{2018} \mathbbm{1}\{\text{WNBA}_{it}\} + \gamma_i + \delta_t + \epsilon_{it}
+    \]
+  \end{block}
+  \begin{itemize}
+    \item $Y_{it}$: number of girls participating in a given sport in state $i$ and year $t$.
+    \item $\mathbbm{1}\{\text{WNBA}_{it}\}$: indicator for whether state $i$ has a WNBA team in year $t$.
+    \item $\gamma_i$: state fixed effects (control for time-invariant differences across states).
+    \item $\delta_t$: year fixed effects (control for common shocks over time).
+    \item $\epsilon_{it}$: error term.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Identification Strategy}
+  \textbf{Callaway \& Sant'Anna (2021)} staggered difference-in-differences:
+
+  \vspace{0.6em}
+  \begin{itemize}
+    \item Define \textbf{group} $g$ = first year state $i$ gets a WNBA team (\textit{or} $g = 0$ if never treated).
+    \vspace{0.4em}
+    \item Estimate \textbf{group-time average treatment effects}:
+      \[
+        \attg = \mathbb{E}[Y_{it}(g) - Y_{it}(0) \mid G_i = g]
+      \]
+    \item \textbf{Control group:} never-treated states only (33 states).
+    \item \textbf{Estimator:} regression adjustment within each $(g,t)$ cell.
+    \item Standard errors clustered by state; 95\% uniform confidence bands.
+  \end{itemize}
+
+  \vspace{0.6em}
+  \begin{block}{Key assumption}
+    \small Parallel trends conditional on covariates: in the absence of a WNBA team, treated and never-treated states would have evolved similarly. We test this via pre-treatment event-study coefficients.
+  \end{block}
+\end{frame}
+
+% ============================================================
+\section{Results}
+% ============================================================
+
+\begin{frame}{Estimation Results}
+  \begin{table}
+    \centering
+    \caption{C\&S Simple-Aggregate ATT by Sport}
+    \begin{tabular}{lSSS}
+      \toprule
+      \textbf{Sport} & {ATT} & {SE} & {$p$} \\
+      \midrule
+      Basketball    & 2349 & 860 & 0.006 \\
+      Soccer        & -1347 & 3918 & 0.731 \\
+      Cross Country & 1194 & 925 & 0.197 \\
+      Track \& Field& 2499 & 1481 & 0.091 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Estimation Results, cont.}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{../Graphics/forest_att.pdf}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Event Study: Basketball}
+  \begin{columns}[T]
+    \begin{column}{0.62\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth]{../Graphics/es_basketball.pdf}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.35\textwidth}
+      \vspace{1em}
+      \begin{itemize}\small
+        \item Pre-period coefficients \textbf{centred near zero} — supports parallel trends.
+        \vspace{0.5em}
+        \item Post-entry: No discernable effect until year 4, though trending positively.
+        \vspace{0.5em}
+        \item Effect slowly grows after initial entry before seeming to stabilize at an increase of about 2000 additional girls.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Event Studies: All Sports}
+  \begin{columns}
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth]{../Graphics/es_soccer.pdf}
+        \caption{Soccer}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth]{../Graphics/es_cross_country.pdf}
+        \caption{Cross Country}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \begin{columns}
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth]{../Graphics/es_track_field.pdf}
+        \caption{Track \& Field}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \vspace{1em}\small
+      \begin{itemize}
+        \item Soccer: No evidence of any effect; coefficients are small with massive confidence intervals.
+        \item Cross Country: Positive, but not statistically significant; wide confidence bands.
+        \item Track \& Field: Some evidence of a positive effect in early post-treatment years, but statistical signficance is borderline. 
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}{ATT by Treatment Cohort: Basketball}
+  \begin{columns}
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth]{../Graphics/cohort_basketball.pdf}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth]{../Graphics/cohort_cross_country.pdf}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ============================================================
+\section{Conclusion}
+% ============================================================
+
+\begin{frame}{Summary \& Implications}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \textbf{Main findings}
+      \begin{itemize}
+        \item Pre-trends pass visual inspection across all sports.
+        \item WNBA entry associated with a modest, but significant increase in basketball participation (approx. \ 2000 additional girls)
+        \item No signficant effects on soccer or cross country; some suggestive evidence for track \& field seeing a boost, but statistical significance is borderline.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      \begin{block}{Economic implications}
+        \small
+          Role-model effects can boost youth sports participation, with potential long-term health and economic benefits.
+      \end{block}
+      \vspace{0.4em}
+      \begin{block}{Next steps}
+        \small
+        \begin{itemize}
+          \item Synthetic Difference-in-Differences
+          \item Explore substitution vs.\ complementarity across sports (e.g., does WNBA entry boost basketball but reduce soccer?)
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[plain]
+  \begin{center}
+    {\Large\color{navydark}\bfseries Thank you}\\[1em]
+    {\color{midgrey} Questions welcome}\\[2em]
+    \small
+    \texttt{Tate.Mason@uga.edu}
+  \end{center}
+\end{frame}
+
+%============================================================%
+\section{Appendix}
+%============================================================%
+
+\begin{frame}{Appendix: Additional Figures}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.65\textwidth]{../Graphics/gantt_treatment.pdf}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Appendix: Additional Figures, cont.}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{../Graphics/spaghetti_track_field.pdf}
+        \caption{Spaghetti Plot of Track \& Field Participation (Relative to 1993 Baseline)}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=0.9\textwidth]{../Graphics/spaghetti_soccer.pdf}
+        \caption{Spaghetti Plot of Soccer Participation (Relative to 1993 Baseline)}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Appendix: Data Limitations}
+  \begin{itemize}
+    \item NFHS data digitised from annual PDF reports — potential for transcription errors. 
+    \item WNBA treatment defined at state level; may not capture local variation in media exposure or fan engagement.
+    \item No sort of income or demographic controls, which could confound results if WNBA entry is correlated with other state-level trends.
+  \end{itemize}
+\end{frame}
+
+\end{document}

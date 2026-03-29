@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1774637148.99615 "model_writeup.tex" "model_writeup.pdf" "model_writeup" 1774637150.08813 2
-  "../../Code/init_sim.py" 1774637120.05998 4854 5177b3fdb158b4cab3f506c2514779d8 ""
-  "../../Output/consumer_choices_and_utility_by_regime.png" 1774637127.12018 149933 6324578751aa1803e71b73fa5e4e8a3c ""
-  "../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png" 1774637125.02389 110073 df356577f1e0044b06bcfea80cbce5e5 ""
+["pdflatex"] 1774720845.97181 "model_writeup.tex" "model_writeup.pdf" "model_writeup" 1774720847.06439 2
+  "../../Code/init_sim.py" 1774713209.75256 4854 5177b3fdb158b4cab3f506c2514779d8 ""
+  "../../Output/consumer_choices_and_utility_by_regime.png" 1774713209.75316 149933 6324578751aa1803e71b73fa5e4e8a3c ""
+  "../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png" 1774710390.00321 110073 df356577f1e0044b06bcfea80cbce5e5 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc" 1561323594 2496 4d35740f3a177992ff7b134746c0a1db ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc" 1455745497 9446 fe5580ca6042a44427f18d450942e7d0 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -136,12 +136,12 @@
   "/usr/local/texlive/2026/texmf-dist/tex/latex/xcolor/xcolor.sty" 1727642399 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1762376337 5006 d7e899bb5d9717c7f214e9bc0284de7b ""
   "/usr/local/texlive/2026/texmf-dist/web2c/texmf.cnf" 1770478701 43630 e9fa012910491fe5ae08a72c3c2997a7 ""
-  "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1773939083 5541377 04880c840ca220163a28f1a3af0ee662 ""
+  "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1774016311 5541377 04880c840ca220163a28f1a3af0ee662 ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1772409757 3636768 9f94d239f422c02416e379a36a852ffd ""
   "/usr/local/texlive/2026/texmf.cnf" 1772409725 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "model_writeup.aux" 1774637149.98709 1135 4f750859d1b721bb0e9763977f4e7c8c "pdflatex"
-  "model_writeup.out" 1774637149.99023 980 62b2b1f0df57b619bdf5f7e1a84548fc "pdflatex"
-  "model_writeup.tex" 1774635218.88005 8926 3c13f7a8c120af5ef5bd6df93796cc4b ""
+  "model_writeup.aux" 1774720846.96901 1249 092dfe6db2307581d2a6be5020286234 "pdflatex"
+  "model_writeup.out" 1774720846.9701 1111 fee24f3454cf74f3c2bef048adb13efc "pdflatex"
+  "model_writeup.tex" 1774720843.98705 10486 26afb0805e225c6f167335e9a21416bb ""
   (generated)
   "model_writeup.aux"
   "model_writeup.log"

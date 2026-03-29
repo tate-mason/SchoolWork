@@ -48,10 +48,19 @@ YEAR_SECTIONS = [
 ]
 
 # Sport names per girls page, by era.
-# Eras are determined by survey year; the lookup is (era, girls_page_index).
-# "4page" era: 4 girls state-table pages per section (pre-2006)
-# "5page" era: 5 girls state-table pages per section (2006-07 onward)
+# "3page" era: 3 sports per page (1993-94, 1994-95)
+# "4page" era: 4 sports per page (1995-96 through 2002-03)
+# "5page" era: 5 pages of girls tables (2003-04 onward)
+# "abbrev" era: 2000-01 only — 2-letter state codes, 8+ sports per page
 GIRLS_SPORTS = {
+    "3page": [
+        ["Basketball", "Competitive Spirit Squads", "Cross Country"],
+        ["Field Hockey", "Golf", "Gymnastics"],
+        ["Skiing Cross Country", "Skiing Alpine", "Soccer"],
+        ["Softball Fast Pitch", "Softball Slow Pitch", "Swimming and Diving"],
+        ["Tennis", "Track and Field Indoor", "Track and Field Outdoor"],
+        ["Volleyball"],
+    ],
     "4page": [
         ["Basketball", "Competitive Spirit Squads", "Cross Country", "Field Hockey"],
         ["Golf", "Gymnastics", "Skiing Cross Country", "Skiing Alpine"],
@@ -65,13 +74,44 @@ GIRLS_SPORTS = {
         ["Soccer", "Softball Slow Pitch", "Softball Fast Pitch", "Swimming and Diving"],
         ["Tennis", "Track and Field Indoor", "Track and Field Outdoor", "Volleyball"],
     ],
+    # 2000-01: abbreviated state codes, all sports spread across 2 dense pages
+    "abbrev": [
+        ["Basketball", "Competitive Spirit Squads", "Cross Country",
+         "Field Hockey", "Golf", "Gymnastics", "Skiing Cross Country", "Skiing Alpine"],
+        ["Soccer", "Softball Fast Pitch", "Softball Slow Pitch",
+         "Tennis", "Track and Field Indoor", "Track and Field Outdoor", "Volleyball"],
+    ],
+}
+
+# 2-letter state abbreviation lookup (used in 2000-01 and similar years)
+STATE_ABBREVS = {
+    'AK': 'Alaska',    'AL': 'Alabama',   'AR': 'Arkansas',  'AZ': 'Arizona',
+    'CA': 'California','CO': 'Colorado',  'CT': 'Connecticut','DC': 'District of Columbia',
+    'DE': 'Delaware',  'FL': 'Florida',   'GA': 'Georgia',   'HI': 'Hawaii',
+    'IA': 'Iowa',      'ID': 'Idaho',     'IL': 'Illinois',  'IN': 'Indiana',
+    'KS': 'Kansas',    'KY': 'Kentucky',  'LA': 'Louisiana', 'MA': 'Massachusetts',
+    'MD': 'Maryland',  'ME': 'Maine',     'MI': 'Michigan',  'MN': 'Minnesota',
+    'MO': 'Missouri',  'MS': 'Mississippi','MT': 'Montana',  'NC': 'North Carolina',
+    'ND': 'North Dakota','NE': 'Nebraska', 'NH': 'New Hampshire','NJ': 'New Jersey',
+    'NM': 'New Mexico','NV': 'Nevada',    'NY': 'New York',  'OH': 'Ohio',
+    'OK': 'Oklahoma',  'OR': 'Oregon',    'PA': 'Pennsylvania','RI': 'Rhode Island',
+    'SC': 'South Carolina','SD': 'South Dakota','TN': 'Tennessee','TX': 'Texas',
+    'UT': 'Utah',      'VA': 'Virginia',  'VT': 'Vermont',   'WA': 'Washington',
+    'WI': 'Wisconsin', 'WV': 'West Virginia','WY': 'Wyoming',
 }
 
 def girls_era(survey_year):
-    """Return '5page' for 2006-07+, '4page' otherwise."""
+    """Return era string based on survey year start."""
     try:
         start = int(survey_year[:4])
-        return "5page" if start >= 2006 else "4page"
+        if start <= 1994:
+            return "3page"
+        elif start == 2000:
+            return "abbrev"
+        elif start >= 2003:
+            return "5page"
+        else:
+            return "4page"
     except ValueError:
         return "4page"
 
@@ -104,8 +144,14 @@ def clean_num(text):
 
 
 def match_state(raw):
-    raw = raw.strip()
-    if not raw or len(raw) < 3:
+    # Strip surrounding whitespace and punctuation OCR artifacts
+    raw = re.sub(r'^[^\w]+|[^\w]+$', '', raw.strip())
+    if not raw:
+        return None
+    # Handle 2-letter state abbreviations (e.g. 2000-01 format)
+    if raw.upper() in STATE_ABBREVS:
+        return STATE_ABBREVS[raw.upper()]
+    if len(raw) < 3:
         return None
     if raw in US_STATES:
         return raw
@@ -178,9 +224,22 @@ def detect_columns(word_list, sport_names):
     # Look for a y-bin containing 'state' where 'schools' appears within ±16px.
     # This tolerates the slight y-misalignment common in scanned-page OCR.
     def _is_schools(t):
-        return re.sub(r'[^\w.]', '', t.lower()) in ('schools', 'sch')
+        # Keep only letters for matching (strips underscores, punctuation, OCR artifacts)
+        cl = re.sub(r'[^a-z]', '', t.lower())
+        if cl in ('schools', 'sch', 'schoois', 'schoals'):
+            return True
+        if len(cl) < 3:
+            return False
+        # Handle OCR combining e.g. 'Schools__Particip.' → starts with 'school'
+        if cl.startswith('school') and len(cl) >= 6:
+            return True
+        # Fuzzy match for OCR misreadings like 'Sckocls', 'Scheols', 'Sshonls', etc.
+        # Only attempt fuzzy on tokens of plausible Schools length (5-10 chars)
+        if 5 <= len(cl) <= 10:
+            return bool(get_close_matches(cl, ['schools'], n=1, cutoff=0.68))
+        return False
     def _is_state(t):
-        return re.sub(r'[^\w]', '', t.lower()) in ('state', 'states')
+        return re.sub(r'[^\w]', '', t.lower()) in ('state', 'states', 'st')
 
     header_y = None
     for yb in sorted(y_bins.keys()):
@@ -193,6 +252,17 @@ def detect_columns(word_list, sport_names):
             header_y = yb
             break
 
+    # Fallback: no 'State' word found but page has multiple 'Schools' headers.
+    # Use the y-bin with the most Schools-like words as the header row.
+    if header_y is None:
+        schools_counts = {}
+        for yb, ws in y_bins.items():
+            cnt = sum(1 for _, t in ws if _is_schools(t))
+            if cnt >= 2:
+                schools_counts[yb] = cnt
+        if schools_counts:
+            header_y = max(schools_counts, key=schools_counts.__getitem__)
+
     if header_y is None:
         return [], None
 
@@ -204,10 +274,9 @@ def detect_columns(word_list, sport_names):
         if abs(yb - header_y) > 36:
             continue
         for x, t in ws:
-            tl = re.sub(r'[^\w.]', '', t.lower())  # keep only alnum + dot
-            if tl in ('schools', 'sch'):
+            if _is_schools(t):
                 schools_xs.append(x)
-            elif 'particip' in tl:
+            elif 'particip' in re.sub(r'[^\w.]', '', t.lower()):
                 particip_xs.append(x)
 
     schools_xs = sorted(set(schools_xs))
@@ -244,27 +313,51 @@ def detect_columns(word_list, sport_names):
 
 # ── State-row extraction ──────────────────────────────────────────────────────
 
-def extract_state_rows(word_list, col_defs, header_y):
-    """Return [{state, sport, schools, participants}] from word positions."""
+def extract_state_rows(word_list, col_defs, header_y, word_list_lo=None):
+    """Return [{state, sport, schools, participants}] from word positions.
+
+    word_list_lo: optional lower-confidence word list used only for state-name detection.
+    word_list is used for numeric data extraction (higher confidence → cleaner numbers).
+    """
+    # Build y-bins from high-conf words (for number extraction)
     y_bins = {}
     for x, y, t in word_list:
         yb = round(y / 8) * 8
         y_bins.setdefault(yb, []).append((x, t))
 
+    # Build y-bins from low-conf words (for state name detection)
+    y_bins_lo = {}
+    src = word_list_lo if word_list_lo is not None else word_list
+    for x, y, t in src:
+        yb = round(y / 8) * 8
+        y_bins_lo.setdefault(yb, []).append((x, t))
+
     results = []
     current_state = None
-    state_x_max = 600   # state names are in the left ~35% at 200 DPI
+    state_x_max = 900   # state names are in the left ~35% (scaled for up to 300 DPI)
 
-    for yb in sorted(y_bins.keys()):
+    for yb in sorted(y_bins_lo.keys()):
         if yb <= header_y + 8:
             continue
 
-        ws = sorted(y_bins[yb], key=lambda w: w[0])
+        ws_lo = sorted(y_bins_lo[yb], key=lambda w: w[0])
+        texts_x_lo = [(t, x) for x, t in ws_lo]
+
+        # Use high-conf words for number extraction (same y-bin)
+        ws = sorted(y_bins.get(yb, []), key=lambda w: w[0])
         texts_x = [(t, x) for x, t in ws]
 
-        # Check for state name in left column
-        left_text = ' '.join(t for t, x in texts_x if x < state_x_max)
+        # Check for state name in left column (try full text first, then single tokens
+        # to handle 2-letter abbreviation rows like "AK  122  1,797 ...")
+        left_text = ' '.join(t for t, x in texts_x_lo if x < state_x_max)
         state_hit = match_state(left_text)
+        if not state_hit:
+            # Try individual leftmost tokens (handles 2-letter abbreviations)
+            for t, x in texts_x_lo:
+                if x < state_x_max:
+                    state_hit = match_state(t)
+                    if state_hit:
+                        break
         if state_hit:
             current_state = state_hit
 
@@ -313,7 +406,7 @@ def extract_totals(img):
 # ── Per-year processing ───────────────────────────────────────────────────────
 
 def process_section(survey_year, cover_pg, next_pg,
-                    dpi_scan=80, dpi_extract=200):
+                    dpi_scan=80, dpi_extract=300):
     end_pg  = min(next_pg - 1, 500)
     n_pages = end_pg - cover_pg + 1
     era     = girls_era(survey_year)
@@ -403,15 +496,21 @@ def process_section(survey_year, cover_pg, next_pg,
             continue
         expected_sports = sports_table[girls_pg_idx]
 
-        words = ocr_words(hi)
-        col_defs, header_y = detect_columns(words, expected_sports)
+        # Use low-confidence words for column header detection (catches faint 'Schools' headers)
+        # but high-confidence words for actual data extraction.
+        # conf=0 needed: some pages have Schools at exactly conf=0 (e.g. 2006-07 pg462)
+        words_lo = ocr_words(hi, conf=0)
+        words    = ocr_words(hi)
+        col_defs, header_y = detect_columns(words_lo, expected_sports)
 
         if not col_defs:
-            # Try to proceed anyway — maybe it's a continuation page with same sports
-            print(f"    pg{pg_num} +{offset}: no header detected → skip")
+            # Advance index so the NEXT page gets the correct sports label.
+            # (Skipping without advancing causes subsequent pages to be mislabeled.)
+            print(f"    pg{pg_num} +{offset}: no header detected → skip (advancing idx)")
+            girls_pg_idx += 1
             continue
 
-        rows = extract_state_rows(words, col_defs, header_y)
+        rows = extract_state_rows(words, col_defs, header_y, word_list_lo=words_lo)
         detected_sports = [cd['sport'] for cd in col_defs]
         print(f"    pg{pg_num} +{offset}: sports={detected_sports}  rows={len(rows)}")
 
