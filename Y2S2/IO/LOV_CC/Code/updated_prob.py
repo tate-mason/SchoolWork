@@ -97,6 +97,7 @@ def simulate_cons(beta, gamma, sigma_gamma, T, J, X_bar, sigma_x, rng, S=1000):
         chosen_idx[0] = np.argmax(u0)
         x_chosen[0] = X_jt[0, chosen_idx[0]]
         Sigma[0] = x_chosen[0]
+        U_all = np.zeros((S, T))
 
         for t in range(1, T):
             u = np.zeros(J)
@@ -117,13 +118,36 @@ def simulate_cons(beta, gamma, sigma_gamma, T, J, X_bar, sigma_x, rng, S=1000):
         x_bar_all[s] = x_bar
         X_jt_all[s] = X_jt
         V_all[s] = V
+        U_all[s] = V[np.arange(T), chosen_idx]
         ll_all[s] = ll
     return (x_chosen_all.mean(axis=0),  # shape (T,)
             x_bar_all.mean(axis=0),      # shape (T,)
             X_jt_all.mean(axis=0),       # shape (T, J)
             V_all.mean(axis=0),          # shape (T, J)
             prob_all.mean(axis=0),             # shape (T,J)
+            U_all.mean(axis=0),              # shape (T,)
             ll_all.mean())               # scalar
+
+colors = plt.cm.tab10(np.linspace(0,1,len(regimes)))
+x_chosen, x_bar, X_jt, V, prob, U, ll = simulate_cons(
+    0.5, 0.5, sigma_gamma[1], T, J, X_bar, sigma_x, rng
+)
+
+fig, ax = plt.subplots(figsize=(8, 4))
+for (beta, gamma, label, ls), color in zip(regimes, colors):
+    x_chosen, x_bar, X_jt, V, prob, U, ll = simulate_cons(
+        beta, gamma, sigma_gamma[1], T, J, X_bar, sigma_x, rng
+    )
+    ax.plot(np.arange(T), U, label=label, color=color, linewidth=1.5, linestyle=ls)
+
+ax.set_xlabel("Period")
+ax.set_ylabel("Utility")
+ax.set_title("Consumer Utility by Regime")
+ax.legend(fontsize=7)
+plt.tight_layout()
+plt.savefig("consumer_utility_by_regime.pdf", bbox_inches='tight', format='pdf')
+plt.show()
+
 
 # Consumer Choice by Regime
 
@@ -133,7 +157,7 @@ for j in range(J):
     fig, ax = plt.subplots(figsize=(8,4))
 
     for (beta, gamma, label,ls), color in zip(regimes, colors):
-        x_chosen, x_bar, X_jt, V, prob, ll = simulate_cons(
+        x_chosen, x_bar, X_jt, V, prob, ll, U = simulate_cons(
             beta, gamma, sigma_gamma[1], T, J, X_bar, sigma_x, rng
         )
 
