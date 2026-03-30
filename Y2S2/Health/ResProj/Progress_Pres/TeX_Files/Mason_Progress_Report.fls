@@ -1,4 +1,4 @@
-PWD /Users/tate/SchoolWork/Y2S2/Health/ResProj/Progress_Pres/TeX_Files
+PWD /Users/tate/Schoolwork/Y2S2/Health/ResProj/Progress_Pres/TeX_Files
 INPUT /usr/local/texlive/2026/texmf.cnf
 INPUT /usr/local/texlive/2026/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -526,7 +526,6 @@ INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm1
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/bbm/bbm12.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
-INPUT /usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/lm/t1lmr.fd
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/lm/t1lmr.fd
@@ -596,7 +595,6 @@ INPUT ./Mason_Progress_Report.out
 INPUT ./Mason_Progress_Report.out
 INPUT /Users/tate/Library/texlive/2026/texmf-var/fonts/pk/ljfour/public/bbm/bbm12.600pk
 INPUT /Users/tate/Library/texlive/2026/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk
-INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmex10.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmmi12.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmr12.pfb

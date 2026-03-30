@@ -243,11 +243,11 @@
 \section{Empirical Strategy}
 % ============================================================
 
-\begin{frame}{Model Setup}
+\begin{frame}{Baseline TWFE Specification}
   \begin{block}{Estimating equation}
     \small
     \[
-      Y_{it} = \beta_0 + \beta_1 \sum_{t=1997}^{2018} \mathbbm{1}\{\text{WNBA}_{it}\} + \gamma_i + \delta_t + \epsilon_{it}
+      Y_{it} = \beta_0 + \beta_1 \mathbbm{1}\{\text{WNBA}_{it}\} + \gamma_i + \delta_t + \epsilon_{it}
     \]
   \end{block}
   \begin{itemize}
@@ -272,7 +272,7 @@
         \attg = \mathbb{E}[Y_{it}(g) - Y_{it}(0) \mid G_i = g]
       \]
     \item \textbf{Control group:} never-treated states only (33 states).
-    \item \textbf{Estimator:} regression adjustment within each $(g,t)$ cell.
+    \item Allows for staggered timing whereas baseline TWFE is biased
     \item Standard errors clustered by state; 95\% uniform confidence bands.
   \end{itemize}
 

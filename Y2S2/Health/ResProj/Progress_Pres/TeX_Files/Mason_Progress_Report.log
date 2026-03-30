@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  29 MAR 2026 17:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  30 MAR 2026 12:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1073,7 +1073,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <12> on input line 260.
  [8
 
-{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 283.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1086,7 +1086,7 @@ Overfull \vbox (2.59592pt too high) detected at line 283
 ] [10
 
 ]
-<../Graphics/forest_att.pdf, id=246, 578.16pt x 289.08pt>
+<../Graphics/forest_att.pdf, id=244, 578.16pt x 289.08pt>
 File: ../Graphics/forest_att.pdf Graphic file (type pdf)
 <use ../Graphics/forest_att.pdf>
 Package pdftex.def Info: ../Graphics/forest_att.pdf  used on input line 311.
@@ -1094,7 +1094,7 @@ Package pdftex.def Info: ../Graphics/forest_att.pdf  used on input line 311.
  [11
 
  <../Graphics/forest_att.pdf>]
-<../Graphics/es_basketball.pdf, id=260, 650.43pt x 397.485pt>
+<../Graphics/es_basketball.pdf, id=258, 650.43pt x 397.485pt>
 File: ../Graphics/es_basketball.pdf Graphic file (type pdf)
 <use ../Graphics/es_basketball.pdf>
 Package pdftex.def Info: ../Graphics/es_basketball.pdf  used on input line 332.
@@ -1102,12 +1102,12 @@ Package pdftex.def Info: ../Graphics/es_basketball.pdf  used on input line 332.
  [12
 
  <../Graphics/es_basketball.pdf>]
-<../Graphics/es_soccer.pdf, id=274, 650.43pt x 397.485pt>
+<../Graphics/es_soccer.pdf, id=272, 650.43pt x 397.485pt>
 File: ../Graphics/es_soccer.pdf Graphic file (type pdf)
 <use ../Graphics/es_soccer.pdf>
 Package pdftex.def Info: ../Graphics/es_soccer.pdf  used on input line 351.
 (pdftex.def)             Requested size: 207.23543pt x 126.6398pt.
-<../Graphics/es_cross_country.pdf, id=275, 650.43pt x 397.485pt>
+<../Graphics/es_cross_country.pdf, id=273, 650.43pt x 397.485pt>
 File: ../Graphics/es_cross_country.pdf Graphic file (type pdf)
 <use ../Graphics/es_cross_country.pdf>
 Package pdftex.def Info: ../Graphics/es_cross_country.pdf  used on input line 351.
@@ -1115,7 +1115,7 @@ Package pdftex.def Info: ../Graphics/es_cross_country.pdf  used on input line 35
  [13
 
  <../Graphics/es_soccer.pdf> <../Graphics/es_cross_country.pdf>]
-<../Graphics/es_track_field.pdf, id=296, 650.43pt x 397.485pt>
+<../Graphics/es_track_field.pdf, id=294, 650.43pt x 397.485pt>
 File: ../Graphics/es_track_field.pdf Graphic file (type pdf)
 <use ../Graphics/es_track_field.pdf>
 Package pdftex.def Info: ../Graphics/es_track_field.pdf  used on input line 371.
@@ -1123,12 +1123,12 @@ Package pdftex.def Info: ../Graphics/es_track_field.pdf  used on input line 371.
  [14
 
  <../Graphics/es_track_field.pdf>]
-<../Graphics/cohort_basketball.pdf, id=310, 578.16pt x 361.35pt>
+<../Graphics/cohort_basketball.pdf, id=308, 578.16pt x 361.35pt>
 File: ../Graphics/cohort_basketball.pdf Graphic file (type pdf)
 <use ../Graphics/cohort_basketball.pdf>
 Package pdftex.def Info: ../Graphics/cohort_basketball.pdf  used on input line 389.
 (pdftex.def)             Requested size: 207.23543pt x 129.51797pt.
-<../Graphics/cohort_cross_country.pdf, id=311, 578.16pt x 361.35pt>
+<../Graphics/cohort_cross_country.pdf, id=309, 578.16pt x 361.35pt>
 File: ../Graphics/cohort_cross_country.pdf Graphic file (type pdf)
 <use ../Graphics/cohort_cross_country.pdf>
 Package pdftex.def Info: ../Graphics/cohort_cross_country.pdf  used on input line 389.
@@ -1144,7 +1144,7 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [17
 
 ]
-<../Graphics/gantt_treatment.pdf, id=369, 794.97pt x 578.16pt>
+<../Graphics/gantt_treatment.pdf, id=367, 794.97pt x 578.16pt>
 File: ../Graphics/gantt_treatment.pdf Graphic file (type pdf)
 <use ../Graphics/gantt_treatment.pdf>
 Package pdftex.def Info: ../Graphics/gantt_treatment.pdf  used on input line 440.
@@ -1152,12 +1152,12 @@ Package pdftex.def Info: ../Graphics/gantt_treatment.pdf  used on input line 440
  [18
 
  <../Graphics/gantt_treatment.pdf>]
-<../Graphics/spaghetti_track_field.pdf, id=382, 650.43pt x 397.485pt>
+<../Graphics/spaghetti_track_field.pdf, id=380, 650.43pt x 397.485pt>
 File: ../Graphics/spaghetti_track_field.pdf Graphic file (type pdf)
 <use ../Graphics/spaghetti_track_field.pdf>
 Package pdftex.def Info: ../Graphics/spaghetti_track_field.pdf  used on input line 459.
 (pdftex.def)             Requested size: 207.23543pt x 126.6398pt.
-<../Graphics/spaghetti_soccer.pdf, id=383, 650.43pt x 397.485pt>
+<../Graphics/spaghetti_soccer.pdf, id=381, 650.43pt x 397.485pt>
 File: ../Graphics/spaghetti_soccer.pdf Graphic file (type pdf)
 <use ../Graphics/spaghetti_soccer.pdf>
 Package pdftex.def Info: ../Graphics/spaghetti_soccer.pdf  used on input line 459.
@@ -1185,18 +1185,18 @@ Package rerunfilecheck Info: File `Mason_Progress_Report.out' has not changed.
 (rerunfilecheck)             Checksum: F592188BF39025CC50E531A059CE4039;658.
  ) 
 Here is how much of TeX's memory you used:
- 39998 strings out of 467525
- 984538 string characters out of 5418983
+ 39999 strings out of 467525
+ 984541 string characters out of 5418983
  1459361 words of memory out of 5000000
- 68151 multiletter control sequences out of 15000+600000
+ 68153 multiletter control sequences out of 15000+600000
  702640 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,123p,742b,1035s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </Users/tate/Library/texlive/2026/texmf-var/fonts/pk/ljfour/public/bbm/bbm12.600pk> </Users/tate/Library/texlive/2026/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsso12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Mason_Progress_Report.pdf (20 pages, 429131 bytes).
+ </Users/tate/Library/texlive/2026/texmf-var/fonts/pk/ljfour/public/bbm/bbm12.600pk> </Users/tate/Library/texlive/2026/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsso12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Mason_Progress_Report.pdf (20 pages, 424742 bytes).
 PDF statistics:
- 507 PDF objects out of 1000 (max. 8388607)
- 343 compressed objects within 4 object streams
+ 498 PDF objects out of 1000 (max. 8388607)
+ 337 compressed objects within 4 object streams
  47 named destinations out of 1000 (max. 500000)
  468 words of extra memory for PDF output out of 10000 (max. 10000000)
 

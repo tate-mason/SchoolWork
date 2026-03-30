@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  28 MAR 2026 14:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  30 MAR 2026 14:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -563,55 +563,30 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.103 
-       [1]
-./model_writeup.tex:124: Undefined control sequence.
-l.124 $C_t \sim N(\bar{X_{j,t}}, \simga
-                                       _x)$ where $\bar{X_{j,t}}$ is the ave...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<../../Output/consumer_choices_and_utility_by_regime.png, id=59, 1156.32pt x 361.35pt>
-File: ../../Output/consumer_choices_and_utility_by_regime.png Graphic file (type png)
-<use ../../Output/consumer_choices_and_utility_by_regime.png>
-Package pdftex.def Info: ../../Output/consumer_choices_and_utility_by_regime.png  used on input line 129.
-(pdftex.def)             Requested size: 469.75502pt x 146.79808pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--131
-
- []
-
-[2]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 143.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sigma' on input line 143.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 143.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 143.
-
-<../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png, id=66, 939.51pt x 361.35pt>
-File: ../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png Graphic file (type png)
-<use ../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png>
-Package pdftex.def Info: ../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png  used on input line 145.
-(pdftex.def)             Requested size: 469.75502pt x 180.67456pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--147
-
- []
-
-[3 <../../Output/consumer_choices_and_utility_by_regime.png>] (/usr/local/texlive/2026/texmf-dist/tex/latex/listings/lstlang1.sty
+l.103 \section
+              {Firm Optimization} [1] [2]
+<../../Output/consumer_choices_by_regime_1.pdf, id=56, 858.49321pt x 294.765pt>
+File: ../../Output/consumer_choices_by_regime_1.pdf Graphic file (type pdf)
+<use ../../Output/consumer_choices_by_regime_1.pdf>
+Package pdftex.def Info: ../../Output/consumer_choices_by_regime_1.pdf  used on input line 135.
+(pdftex.def)             Requested size: 469.75502pt x 161.29366pt.
+<../../Output/consumer_choices_by_regime_2.pdf, id=57, 641.8819pt x 294.765pt>
+File: ../../Output/consumer_choices_by_regime_2.pdf Graphic file (type pdf)
+<use ../../Output/consumer_choices_by_regime_2.pdf>
+Package pdftex.def Info: ../../Output/consumer_choices_by_regime_2.pdf  used on input line 140.
+(pdftex.def)             Requested size: 469.75502pt x 215.72087pt.
+ [3 <../../Output/consumer_choices_by_regime_1.pdf> <../../Output/consumer_choices_by_regime_2.pdf>]
+<../../Output/firm_optimal_a_by_regime_1.pdf, id=180, 857.9275pt x 294.765pt>
+File: ../../Output/firm_optimal_a_by_regime_1.pdf Graphic file (type pdf)
+<use ../../Output/firm_optimal_a_by_regime_1.pdf>
+Package pdftex.def Info: ../../Output/firm_optimal_a_by_regime_1.pdf  used on input line 146.
+(pdftex.def)             Requested size: 469.75502pt x 161.3971pt.
+<../../Output/firm_optimal_a_by_regime_2.pdf, id=181, 641.33156pt x 294.765pt>
+File: ../../Output/firm_optimal_a_by_regime_2.pdf Graphic file (type pdf)
+<use ../../Output/firm_optimal_a_by_regime_2.pdf>
+Package pdftex.def Info: ../../Output/firm_optimal_a_by_regime_2.pdf  used on input line 151.
+(pdftex.def)             Requested size: 469.75502pt x 215.90977pt.
+ [4 <../../Output/firm_optimal_a_by_regime_1.pdf> <../../Output/firm_optimal_a_by_regime_2.pdf>] (/usr/local/texlive/2026/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 158.
@@ -627,25 +602,30 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 (Font)              scaled to size 9.0pt on input line 158.
- (../../Code/init_sim.py
+ (../../Code/updated_prob.py
 LaTeX Font Info:    Font shape `OT1/zi4/b/n' will be
 (Font)              scaled to size 9.0pt on input line 1.
- [4{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc} <../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png>]
+
 
 LaTeX Font Warning: Font shape `OT1/zi4/m/it' undefined
-(Font)              using `OT1/zi4/m/n' instead on input line 31.
+(Font)              using `OT1/zi4/m/n' instead on input line 37.
 
 LaTeX Font Info:    Font shape `OT1/zi4/m/it' will be
-(Font)              scaled to size 9.0pt on input line 31.
+(Font)              scaled to size 9.0pt on input line 37.
+[5
 
-../../Code/init_sim.py:39: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+
+
+{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}]
+
+../../Code/updated_prob.py:50: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.39     (0.2, 0.2, 'Low regime (β=
-                                    0.2, γ=0.2)'),
+l.50     (0.2, 0.2, 'Low regime (β=
+                                    0.2, γ=0.2)', '-.'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -653,14 +633,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:39: LaTeX Error: Invalid UTF-8 byte "B2.
+../../Code/updated_prob.py:50: LaTeX Error: Invalid UTF-8 byte "B2.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.39     (0.2, 0.2, 'Low regime (β=
-                                    0.2, γ=0.2)'),
+l.50     (0.2, 0.2, 'Low regime (β=
+                                    0.2, γ=0.2)', '-.'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -668,14 +648,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:39: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+../../Code/updated_prob.py:50: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.39     (0.2, 0.2, 'Low regime (β=0.2, γ=
-                                            0.2)'),
+l.50     (0.2, 0.2, 'Low regime (β=0.2, γ=
+                                            0.2)', '-.'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -683,14 +663,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:39: LaTeX Error: Invalid UTF-8 byte "B3.
+../../Code/updated_prob.py:50: LaTeX Error: Invalid UTF-8 byte "B3.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.39     (0.2, 0.2, 'Low regime (β=0.2, γ=
-                                            0.2)'),
+l.50     (0.2, 0.2, 'Low regime (β=0.2, γ=
+                                            0.2)', '-.'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -698,14 +678,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:40: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+../../Code/updated_prob.py:51: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.40     (0.5, 0.5, 'Medium regime (β=
-                                       0.5, γ=0.5)'),
+l.51     (0.5, 0.5, 'Medium regime (β=
+                                       0.5, γ=0.5)', ':'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -713,14 +693,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:40: LaTeX Error: Invalid UTF-8 byte "B2.
+../../Code/updated_prob.py:51: LaTeX Error: Invalid UTF-8 byte "B2.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.40     (0.5, 0.5, 'Medium regime (β=
-                                       0.5, γ=0.5)'),
+l.51     (0.5, 0.5, 'Medium regime (β=
+                                       0.5, γ=0.5)', ':'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -728,14 +708,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:40: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+../../Code/updated_prob.py:51: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.40     (0.5, 0.5, 'Medium regime (β=0.5, γ=
-                                               0.5)'),
+l.51     (0.5, 0.5, 'Medium regime (β=0.5, γ=
+                                               0.5)', ':'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -743,14 +723,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:40: LaTeX Error: Invalid UTF-8 byte "B3.
+../../Code/updated_prob.py:51: LaTeX Error: Invalid UTF-8 byte "B3.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.40     (0.5, 0.5, 'Medium regime (β=0.5, γ=
-                                               0.5)'),
+l.51     (0.5, 0.5, 'Medium regime (β=0.5, γ=
+                                               0.5)', ':'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -758,14 +738,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:41: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+../../Code/updated_prob.py:52: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.41     (0.8, 0.8, 'High regime (β=
-                                     0.8, γ=0.8)'),
+l.52     (0.8, 0.8, 'High regime (β=
+                                     0.8, γ=0.8)', '--'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -773,14 +753,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:41: LaTeX Error: Invalid UTF-8 byte "B2.
+../../Code/updated_prob.py:52: LaTeX Error: Invalid UTF-8 byte "B2.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.41     (0.8, 0.8, 'High regime (β=
-                                     0.8, γ=0.8)'),
+l.52     (0.8, 0.8, 'High regime (β=
+                                     0.8, γ=0.8)', '--'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -788,14 +768,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:41: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+../../Code/updated_prob.py:52: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.41     (0.8, 0.8, 'High regime (β=0.8, γ=
-                                             0.8)'),
+l.52     (0.8, 0.8, 'High regime (β=0.8, γ=
+                                             0.8)', '--'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -803,14 +783,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:41: LaTeX Error: Invalid UTF-8 byte "B3.
+../../Code/updated_prob.py:52: LaTeX Error: Invalid UTF-8 byte "B3.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.41     (0.8, 0.8, 'High regime (β=0.8, γ=
-                                             0.8)'),
+l.52     (0.8, 0.8, 'High regime (β=0.8, γ=
+                                             0.8)', '--'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -818,14 +798,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:42: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+../../Code/updated_prob.py:53: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.42     (0.2, 0.8, 'Mixed regime (β=
-                                      0.2, γ=0.8)'),
+l.53     (0.2, 0.5, 'Mixed regime (β=
+                                      0.2, γ=0.5)', '-'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -833,14 +813,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:42: LaTeX Error: Invalid UTF-8 byte "B2.
+../../Code/updated_prob.py:53: LaTeX Error: Invalid UTF-8 byte "B2.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.42     (0.2, 0.8, 'Mixed regime (β=
-                                      0.2, γ=0.8)'),
+l.53     (0.2, 0.5, 'Mixed regime (β=
+                                      0.2, γ=0.5)', '-'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -848,14 +828,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:42: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+../../Code/updated_prob.py:53: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.42     (0.2, 0.8, 'Mixed regime (β=0.2, γ=
-                                              0.8)'),
+l.53     (0.2, 0.5, 'Mixed regime (β=0.2, γ=
+                                              0.5)', '-'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -863,14 +843,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:42: LaTeX Error: Invalid UTF-8 byte "B3.
+../../Code/updated_prob.py:53: LaTeX Error: Invalid UTF-8 byte "B3.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.42     (0.2, 0.8, 'Mixed regime (β=0.2, γ=
-                                              0.8)'),
+l.53     (0.2, 0.5, 'Mixed regime (β=0.2, γ=
+                                              0.5)', '-'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -878,14 +858,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:43: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+../../Code/updated_prob.py:54: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.43     (0.8, 0.2, 'Mixed regime (β=
-                                      0.8, γ=0.2)')
+l.54     (0.8, 0.5, 'Mixed regime (β=
+                                      0.8, γ=0.5)', '-'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -893,14 +873,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:43: LaTeX Error: Invalid UTF-8 byte "B2.
+../../Code/updated_prob.py:54: LaTeX Error: Invalid UTF-8 byte "B2.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.43     (0.8, 0.2, 'Mixed regime (β=
-                                      0.8, γ=0.2)')
+l.54     (0.8, 0.5, 'Mixed regime (β=
+                                      0.8, γ=0.5)', '-'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -908,14 +888,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:43: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+../../Code/updated_prob.py:54: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.43     (0.8, 0.2, 'Mixed regime (β=0.8, γ=
-                                              0.2)')
+l.54     (0.8, 0.5, 'Mixed regime (β=0.8, γ=
+                                              0.5)', '-'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -923,30 +903,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:43: LaTeX Error: Invalid UTF-8 byte "B3.
+../../Code/updated_prob.py:54: LaTeX Error: Invalid UTF-8 byte "B3.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.43     (0.8, 0.2, 'Mixed regime (β=0.8, γ=
-                                              0.2)')
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-[5]
-
-../../Code/init_sim.py:75: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.75         ax.plot(idx, roll_var, label=f"σ=
-                                               {sigma}", color=color, linewi...
+l.54     (0.8, 0.5, 'Mixed regime (β=0.8, γ=
+                                              0.5)', '-'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -954,123 +918,257 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-../../Code/init_sim.py:75: LaTeX Error: Invalid UTF-8 byte "83.
+../../Code/updated_prob.py:55: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.75         ax.plot(idx, roll_var, label=f"σ=
-                                               {sigma}", color=color, linewi...
+l.55     (0.5, 0.2, 'Mixed regime (β=
+                                      0.5, γ=0.2)', '-'),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-LaTeX Font Info:    Trying to load font information for TS1+zi4 on input line 79.
-(/usr/local/texlive/2026/texmf-dist/tex/latex/inconsolata/ts1zi4.fd
+
+../../Code/updated_prob.py:55: LaTeX Error: Invalid UTF-8 byte "B2.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55     (0.5, 0.2, 'Mixed regime (β=
+                                      0.5, γ=0.2)', '-'),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+../../Code/updated_prob.py:55: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55     (0.5, 0.2, 'Mixed regime (β=0.5, γ=
+                                              0.2)', '-'),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+../../Code/updated_prob.py:55: LaTeX Error: Invalid UTF-8 byte "B3.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55     (0.5, 0.2, 'Mixed regime (β=0.5, γ=
+                                              0.2)', '-'),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+../../Code/updated_prob.py:56: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.56     (0.5, 0.8, 'Mixed regime (β=
+                                      0.5, γ=0.8)', '-'),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+../../Code/updated_prob.py:56: LaTeX Error: Invalid UTF-8 byte "B2.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.56     (0.5, 0.8, 'Mixed regime (β=
+                                      0.5, γ=0.8)', '-'),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+../../Code/updated_prob.py:56: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.56     (0.5, 0.8, 'Mixed regime (β=0.5, γ=
+                                              0.8)', '-'),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+../../Code/updated_prob.py:56: LaTeX Error: Invalid UTF-8 byte "B3.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.56     (0.5, 0.8, 'Mixed regime (β=0.5, γ=
+                                              0.8)', '-'),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+../../Code/updated_prob.py:57: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57     (0.8, 0.2, 'Mixed regime (β=
+                                      0.8, γ=0.2)', '-'),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+../../Code/updated_prob.py:57: LaTeX Error: Invalid UTF-8 byte "B2.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57     (0.8, 0.2, 'Mixed regime (β=
+                                      0.8, γ=0.2)', '-'),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+../../Code/updated_prob.py:57: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57     (0.8, 0.2, 'Mixed regime (β=0.8, γ=
+                                              0.2)', '-'),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+../../Code/updated_prob.py:57: LaTeX Error: Invalid UTF-8 byte "B3.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57     (0.8, 0.2, 'Mixed regime (β=0.8, γ=
+                                              0.2)', '-'),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+../../Code/updated_prob.py:58: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.58     (0.2, 0.8, 'Mixed regime (β=
+                                      0.2, γ=0.8)', '-')
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+../../Code/updated_prob.py:58: LaTeX Error: Invalid UTF-8 byte "B2.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.58     (0.2, 0.8, 'Mixed regime (β=
+                                      0.2, γ=0.8)', '-')
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+../../Code/updated_prob.py:58: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.58     (0.2, 0.8, 'Mixed regime (β=0.2, γ=
+                                              0.8)', '-')
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+../../Code/updated_prob.py:58: LaTeX Error: Invalid UTF-8 byte "B3.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.58     (0.2, 0.8, 'Mixed regime (β=0.2, γ=
+                                              0.8)', '-')
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+[6] [7] [8] [9] [10]
+LaTeX Font Info:    Trying to load font information for TS1+zi4 on input line 297.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/inconsolata/ts1zi4.fd
 File: ts1zi4.fd 2018/01/14 TS1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `TS1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 79.
+(Font)              scaled to size 9.0pt on input line 297.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zi4' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-
-
-../../Code/init_sim.py:80: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.80     ax.legend(title="σ_x"
-                               )
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-../../Code/init_sim.py:80: LaTeX Error: Invalid UTF-8 byte "83.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.80     ax.legend(title="σ_x"
-                               )
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-../../Code/init_sim.py:83: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.83 ...ance of consumer choices by regime and σ"
-                                                  , fontsize=13, y=1.01)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-../../Code/init_sim.py:83: LaTeX Error: Invalid UTF-8 byte "83.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.83 ...ance of consumer choices by regime and σ"
-                                                  , fontsize=13, y=1.01)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-[6{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
-
-../../Code/init_sim.py:111: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.111 ...nsumer choices and utility by regime (σ=
-                                                  1.0)", fontsize=13, y=1.01)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-../../Code/init_sim.py:111: LaTeX Error: Invalid UTF-8 byte "83.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.111 ...nsumer choices and utility by regime (σ=
-                                                  1.0)", fontsize=13, y=1.01)
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-) [7] (./model_writeup.aux)
+) [11{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}] (./model_writeup.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1080,21 +1178,21 @@ L3 programming layer <2026-01-19>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `model_writeup.out' has not changed.
-(rerunfilecheck)             Checksum: FEE24F3454CF74F3C2BEF048ADB13EFC;1111.
+(rerunfilecheck)             Checksum: 92052B7FF436E27B61EA768700E55597;620.
  ) 
 Here is how much of TeX's memory you used:
- 18727 strings out of 467525
- 304017 string characters out of 5418983
- 1226115 words of memory out of 5000000
- 47152 multiletter control sequences out of 15000+600000
- 638190 words of font info for 109 fonts, out of 8000000 for 9000
+ 18940 strings out of 467525
+ 307684 string characters out of 5418983
+ 1243730 words of memory out of 5000000
+ 47207 multiletter control sequences out of 15000+600000
+ 637833 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,1010b,2368s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on model_writeup.pdf (8 pages, 424662 bytes).
+ 75i,9n,79p,1010b,2305s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on model_writeup.pdf (12 pages, 283070 bytes).
 PDF statistics:
- 331 PDF objects out of 1000 (max. 8388607)
- 285 compressed objects within 3 object streams
- 158 named destinations out of 1000 (max. 500000)
- 20555 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 766 PDF objects out of 1000 (max. 8388607)
+ 526 compressed objects within 6 object streams
+ 330 named destinations out of 1000 (max. 500000)
+ 20549 words of extra memory for PDF output out of 20736 (max. 10000000)
 

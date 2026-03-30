@@ -64,12 +64,16 @@
 The consumer's problem is to maximize utility subject to their choice set. The utility function is as follows:
 
 \begin{equation}
-  U_{ijt} = \beta_i X_{jt} - (\gamma_{i}\Sigma_j)^2 + \zeta_{jt} a + \xi_j + \epsilon_{ijt}
+  U_{ijt} = \beta_i X_{jt} - (\gamma_{i}\Sigma_j)^2 + a + \xi_j + \epsilon_{ijt}
 \end{equation}
 
+\begin{gather*}
+  \Sigma_j = X_{jt} - \bar{X}_{jt}
+\end{gather*}
+
 Where $U_{ijt}$ is the utility of consumer $i$ from product $j$ at time $t$. $X_{jt}$ is the attribute of product $j$ at time $t$.  $\gamma_{i}$ denotes 
-a cost of sameness. $\Sigma_j$ is the sum of product attributes chosen until time $t$. Note, $\gamma_i$ has a standard normal distribution. $\zeta_{jt}$ captures 
-some utility from advertising on product $j$ at time $t$. $\xi_j$ captures utility from unobserved quality. Finally, $\epsilon_{ijt}$ is a  random error term distributed T1EV.
+a cost of sameness. $\Sigma_j$ is the sum of product attributes chosen until time $t$. Note, $\gamma_i$ has a standard normal distribution. 
+$\xi_j$ captures utility from unobserved quality. Finally, $\epsilon_{ijt}$ is a  random error term distributed T1EV.
 
 \begin{equation}
   P_{ijt} = \frac{e^{U_{ijt}}}{1 + \sum_{k} e^{U_{ikt}}}
@@ -81,10 +85,10 @@ Where the denominator sums over all products $k$ in the choice set at time $t$, 
 The firm will maximize profits by choosing how to advertise to the consumer according to their perceptions surrounding the distribution of $\gamma$.
 
 \begin{equation}
-  \pi = (1 + a)p - c
+  \pi = (1 + a)p - c*(\kappa*a)^2
 \end{equation}
 
-Where $a$ is the advertising level and $p$ is the price of the product, and $c$ is some baseline cost for the firm. If the firm chooses not to advertise, they get a profit of $p-c$. If they choose to advertise, they get a profit of $(1+a)p - c$.
+Where $a$ is the advertising level and $p$ is the price of the product, $c$ is some baseline cost for the firm, and $\kappa$ is an advertising specific cost. If the firm chooses not to advertise, they get a profit of $p-c$. If they choose to advertise, they get a profit of $(1+a)p - c$.
 
 The firm can choose to advertise at different levels, such that $a\in [0,1]$. This can be conceived of as a loss of revenue in hopes of maintaining a customer. The firm chooses $a$ to maximize profits based on the following function:
 
@@ -105,7 +109,7 @@ The firm will solve the following optimization problem:
   V(a, \Sigma_j | \lambda(\gamma)) = \max_{a} \{\pi(a) + \int_{\gamma} V(a', \Sigma_j' | \lambda(\gamma)) d\lambda(\gamma)\}
 \end{equation}
 
-Where $\pi(a) = (1 + a)p - c$ is the profit function, $\lambda(\gamma) \sim N(\frac{1}{\Sigma}, \sigma_{\lambda})$, and $\Sigma_j' = \Sigma_j + X_{jt}\cdot P_{ijt}$ is the updated sum of product attributes chosen by the consumer conditional on choosing product $j$ at time $t$.
+Where $\pi(a) = (1 + a)p - c*(\kappa*a)^2$ is the profit function, $\lambda(\gamma) \sim N(\frac{1}{\Sigma}, \sigma_{\lambda})$, and $\Sigma_j' = \Sigma_j + X_{jt}\cdot P_{ijt}$ is the updated sum of product attributes chosen by the consumer conditional on choosing product $j$ at time $t$.
 The firm's FOC's are as follows:
 
 \begin{gather*}
@@ -118,43 +122,39 @@ The firm will choose $a$ such that the marginal profit from advertising equals t
 
 \section{Results}
 
-The simulation will involve setting $\beta$ and $\gamma$ at differing levels to observe how consumer choices change.
+On the consumer side, there are a few things to note. Firstly, as $\gamma$ grows, the utility becomes noisier, no matter the value of $\beta$. Secondly, notice it takes about 10 periods for utility to find some sort of stability. However, as $\beta$ grows, the time to stabilite grows.
+For instance, in the low regime, it takes only five or so periods, where as in the high regime, this is closer to 20. These results suggest that $\beta$ finds a sweet spot in utility and $\gamma$ fluctuates around it.
 
-Further, we will look at the basics of the firm's decision of what to present to the consumer. The firm will "send" three products each period. Define $C_t = \{c_1, c_2, c_3\}$ as the set of products the firm sends at time $t$.
-$C_t \sim N(\bar{X_{j,t}}, \simga_x)$ where $\bar{X_{j,t}}$ is the average attribute of product $j$ at time $t$ and $\sigma_x$ is the standard deviation of the attributes of the products sent by the firm. We want to 
-see how the firm will react to various regimes in terms of $\sigma_x$ and how that will affect consumer choices.
+In the firm's problem, we look at the firm's advertising decision. In the low regime, they are mostly advertising, with a couple of deviations around period 50 and 75. The rest of the regimes, however, see a lot of variation in the decision to advertise. This is to be expected,
+since the firm bases its decision based off of its observations of $\Sigma$ to approximate $\gamma$. 
 
-\subsection{Consumer Choices and Utility}
-\begin{centering}
-  \includegraphics[width=\textwidth]{../../Output/consumer_choices_and_utility_by_regime.png}
-\end{centering}
+\clearpage
 
-The blue line represents the chosen product attribute at time $t$. The orange line represents the utility from that period. The black dashed line is the evolution of the mean attribute. From the figures, we can see that in the
-low regime, it seems that after about 50 periods, we converge to a "steady state" where utiility is in line with the chosen attribute, implying in this case they have been able to find the "sweet spot". In the medium regime,
-It takes closer to 75 periods, with a lot of volatility even until the 70th or so period. In this period the "sweet spot" is less clear, as there is still lower utility than attribute value. In the high regime, we actually see a 
-decent fit, but with spikes intermittently. This is likely because when the consumer is more sensitive to variety, the deviations will be more pronounced. They also like what they like more, so this creates an interesting dynamic
-where they want newness (which they may like), but if it is too new they'll be punished. In the regime with low utility from characteristic and a higher variety parameter, we cannot get a good fit, with utility going all over the place,
-especially in a negative direction. This is likely because the consumer is very sensitive to newness, and any new draw of $\sigma_x$ that is too high will cause a sharp drop in utility. In the inverse regime, we see almost the exact opposite,
-though with an admittedly better fit to the $X_{jt}$ chosen. Here, this is likely because the consumer is just happy to have new product characteristics, and is relatively insensitive to redundancy in product characteristics. This is why
-we see positive spikes in utility. 
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../../Output/consumer_choices_by_regime_1.pdf}
+\end{figure}
 
-All in all, we see that utility is more volatile as $X_{jt}$ deviates from $\bar{X}_{jt}$, a data fact we should expect. We also see that the initial parameters of the consumer have a large effect of the model.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../../Output/consumer_choices_by_regime_2.pdf}
+\end{figure}
+\clearpage
 
-\subsection{Rolling Variance of Consumer Choices and $\sigma_x$}
-\begin{centering}
-  \includegraphics[width=\textwidth]{../../Output/rolling_variance_of_consumer_choices_by_regime_and_sigma.png}
-\end{centering}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../../Output/firm_optimal_a_by_regime_1.pdf}
+\end{figure}
 
-Now, we can discuss the rolling variance of $\sigma_x$. I set it to 3 starting values $\sigma_x = [0.5, 1.0, 1.5]$. Starting in the low regime, the high value of $\sigma_x$ grows in variance over the entire time horizon while the middle and low 
-value reach steady state after about 40-50 periods. In the medium regime, they converge similarly, with $\sigma_x = 1.5$ having decreasing variance for the first 10 or so periods. The middle and low values do not really evolve, staying fairly
-constant over the time horizon. In the high regime, All three values grow in variance, but the high value grows the entire time while the other two converge after about 25-35 periods. In the regime with $\beta=0.2, \gamma=0.8$, the high value of
-the high value grows the entire time, while the other two almost immediately converge to a steady state. In the inverse regime, the high variance falls immediately, before climbing back for about 10 periods, then falling for 20 periods and then 
-converging. The other two converge after about 10 periods.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../../Output/firm_optimal_a_by_regime_2.pdf}
+\end{figure}
 
-Here, it seems that without high variance, sigma is not super volatile regardless of regime. When variance is high, however, it is very volatile with respect to $\gamma$ especially. This is likely because when the consumer is more sensitive 
-to variety, deviations will be more pronounced and so the variance of $\sigma_x$ will be more volatile. 
+\clearpage
+
 
 \section{Code}
-\lstinputlisting[language=Python]{../../Code/init_sim.py}
+\lstinputlisting[language=Python]{../../Code/updated_prob.py}
 
 \end{document}
