@@ -25,16 +25,17 @@ def reg_X1_on_Xchoice(X1, Y):
     N = X1.shape[0] # number of observations after filtering
     
     lag_X1 = np.concatenate([np.full((N,1), np.nan), X1[:,:-1]], axis=1).ravel() # create the lagged X1 variable, adding a column of NaN values at the beginning to account for the lag, and flatten the array to ensure it's 1D
+    lag_Y = np.concatenate([np.full((N,1), np.nan), Y[:,:-1]], axis=1).ravel() # create the lagged Y variable, adding a column of NaN values at the beginning to account for the lag, and flatten the array to ensure it's 1D
 
     X1 = X1.ravel() # flatten the array to ensure it's 1D
     Y = Y.ravel() # flatten the array to ensure it's 1D
 
-    active  = (Y!=0)
+    active  = (lag_Y!=0)
 
-    part_time = (Y[active] == 2) # create the binary for part-time workers
-    full_time = (Y[active] == 3) # create the binary for full-time workers
+    part_time = (lag_Y[active] == 2) # create the binary for part-time workers
+    full_time = (lag_Y[active] == 3) # create the binary for full-time workers
 
-    X_reg = np.column_stack((lag_X1[active], part_time[active], full_time[active])) # create the regression matrix with the lagged X and the binary variables
+    X_reg = np.column_stack((lag_X1[active], part_time, full_time)) # create the regression matrix with the lagged X and the binary variables
     X_reg = sm.add_constant(X_reg) # add a constant term to the regression matrix
 
     transition_model = OLS(X1[active], X_reg, missing='drop') # fit the OLS regression, dropping any rows with NaN values (the first row due to the lag)

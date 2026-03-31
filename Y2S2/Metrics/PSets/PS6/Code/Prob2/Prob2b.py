@@ -10,7 +10,8 @@ from scipy.special import logsumexp
 
 def compute_transition_matrix(alpha, sigma):
     # Define the grid for X
-    x_grid = np.linspace(0.05, 0.95, 10) # 10 points from -3 to 3
+    p_grid = np.linspace(0.05, 0.95, 10)
+    x_grid = sp.stats.norm.ppf(p_grid, loc=0, scale=1) # compute the corresponding X values for the grid points using the inverse CDF of the normal distribution
 
     # Initialize the transition matrix
     transition_matrix = np.zeros((10, 10, 3)) # dimensions: future X, current X, work choice

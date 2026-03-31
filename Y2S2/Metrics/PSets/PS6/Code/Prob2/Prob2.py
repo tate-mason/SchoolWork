@@ -51,6 +51,7 @@ print(tabulate(rows, headers=["Coefficient", "Value"], floatfmt=".4f")) # print 
 from Prob2b import *
 
 transition_matrix, x_grid = compute_transition_matrix(alpha, sigma) # calling the function to compute the transition matrix using the estimated coefficients and standard error from part (a)
+print(transition_matrix.shape)
 
 #===========================================================#
 # Calling the function for part (c) to create a discretized #
@@ -60,7 +61,7 @@ transition_matrix, x_grid = compute_transition_matrix(alpha, sigma) # calling th
 
 from Prob2c import *
 
-X1t_discrete = discretize_X1t(X1, transition_matrix, x_grid) # calling the function to discretize X1t based on the transition matrix
+X1t_discrete = discretize_X1t(X1, x_grid)
 
 #===========================================================#
 # Calling the function for part (d) to estimate the DDC     #

@@ -65,8 +65,8 @@ def log_lik(theta, X, X1, Y, Y_0, transition_matrix, x_grid, X1t_discrete):
 
             # --- Continuation values ---
             # transition_matrix[:, state_idx, j] is (10, N); transpose to (N, 10)
-            EV_t[:, j]  = u_j      + beta * (transition_matrix[:, state_idx, j-1].T @ emax_grid)
-            EV_t_grid[:, j] = u_j_grid + beta * (transition_matrix[:, :, j-1].T      @ emax_grid)
+            EV_t[:, j]  = u_j + beta * (transition_matrix[:, state_idx, j-1].T @ emax_grid)
+            EV_t_grid[:, j] = u_j_grid + beta * (transition_matrix[:, :, j-1].T @ emax_grid)
 
         # Normalize retirement to 0
         EV_t[:, 0]      = 0.0
