@@ -3,4 +3,4 @@
 \beamer@sectionintoc {3}{Empirical Strategy}{8}{0}{3}
 \beamer@sectionintoc {4}{Results}{10}{0}{4}
 \beamer@sectionintoc {5}{Conclusion}{16}{0}{5}
-\beamer@sectionintoc {6}{Appendix}{18}{0}{6}
+\beamer@sectionintoc {6}{Appendix}{19}{0}{6}

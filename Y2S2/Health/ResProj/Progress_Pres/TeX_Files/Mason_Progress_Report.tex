@@ -247,16 +247,17 @@
   \begin{block}{Estimating equation}
     \small
     \[
-      Y_{it} = \beta_0 + \beta_1 \mathbbm{1}\{\text{WNBA}_{it}\} + \gamma_i + \delta_t + \epsilon_{it}
+      Y_{it} = \beta_0 + \beta_1 \mathbbm{1}\{\text{WNBA}_{it}\} + \epsilon_{it}
     \]
   \end{block}
   \begin{itemize}
     \item $Y_{it}$: number of girls participating in a given sport in state $i$ and year $t$.
     \item $\mathbbm{1}\{\text{WNBA}_{it}\}$: indicator for whether state $i$ has a WNBA team in year $t$.
-    \item $\gamma_i$: state fixed effects (control for time-invariant differences across states).
-    \item $\delta_t$: year fixed effects (control for common shocks over time).
     \item $\epsilon_{it}$: error term.
+    \item Future versions will include state and year fixed effects, as well as covariates (e.g., population, median income).
   \end{itemize}
+  \textit{This specification is biased with staggered treatment timing, so I correct with Callaway \& Sant'Anna (2021) method.}
+  
 \end{frame}
 
 
@@ -294,10 +295,10 @@
       \toprule
       \textbf{Sport} & {ATT} & {SE} & {$p$} \\
       \midrule
-      Basketball    & 2349 & 860 & 0.006 \\
-      Soccer        & -1347 & 3918 & 0.731 \\
-      Cross Country & 1194 & 925 & 0.197 \\
-      Track \& Field& 2499 & 1481 & 0.091 \\
+      Basketball    & 2365 & 867 & 0.006 \\
+      Soccer        & 2867 & 1357 & 0.035 \\
+      Cross Country & 1341 & 890 & 0.132 \\
+      Track \& Field& 3297 & 1160 & 0.005 \\
       \bottomrule
     \end{tabular}
   \end{table}
@@ -392,6 +393,16 @@
 \section{Conclusion}
 % ============================================================
 
+
+\begin{frame}{Priority Items \& Limitations}
+  \begin{itemize}
+    \item NFHS data digitised from annual PDF reports — potential for transcription errors. 
+    \item WNBA treatment defined at state level; may not capture local variation in media exposure or fan engagement.
+    \item Baseline TWFE estimates are biased with staggered treatment timing; C\&S method addresses this but relies on parallel trends assumption.
+    \item Event-study coefficients have wide confidence intervals, especially for non-basketball sports, limiting precision of inference.
+    \item Add state and year covariates (e.g., population, median income) to improve precision and test robustness.
+  \end{itemize}
+\end{frame}
 \begin{frame}{Summary \& Implications}
   \begin{columns}[T]
     \begin{column}{0.55\textwidth}
@@ -456,14 +467,6 @@
       \end{figure}
     \end{column}
   \end{columns}
-\end{frame}
-
-\begin{frame}{Appendix: Data Limitations}
-  \begin{itemize}
-    \item NFHS data digitised from annual PDF reports — potential for transcription errors. 
-    \item WNBA treatment defined at state level; may not capture local variation in media exposure or fan engagement.
-    \item No sort of income or demographic controls, which could confound results if WNBA entry is correlated with other state-level trends.
-  \end{itemize}
 \end{frame}
 
 \end{document}

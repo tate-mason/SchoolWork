@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  30 MAR 2026 12:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  31 MAR 2026 11:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1065,20 +1065,20 @@ Overfull \vbox (1.3576pt too high) detected at line 240
 [7
 
  <../Graphics/map_wnba_states.pdf>]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 260.
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 261.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 260.
+(Font)              <12> on input line 261.
  [8
 
 {/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 283.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 284.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \vbox (2.59592pt too high) detected at line 283
+Overfull \vbox (2.59592pt too high) detected at line 284
  []
 
 [9
@@ -1089,7 +1089,7 @@ Overfull \vbox (2.59592pt too high) detected at line 283
 <../Graphics/forest_att.pdf, id=244, 578.16pt x 289.08pt>
 File: ../Graphics/forest_att.pdf Graphic file (type pdf)
 <use ../Graphics/forest_att.pdf>
-Package pdftex.def Info: ../Graphics/forest_att.pdf  used on input line 311.
+Package pdftex.def Info: ../Graphics/forest_att.pdf  used on input line 312.
 (pdftex.def)             Requested size: 388.56725pt x 194.28249pt.
  [11
 
@@ -1097,76 +1097,76 @@ Package pdftex.def Info: ../Graphics/forest_att.pdf  used on input line 311.
 <../Graphics/es_basketball.pdf, id=258, 650.43pt x 397.485pt>
 File: ../Graphics/es_basketball.pdf Graphic file (type pdf)
 <use ../Graphics/es_basketball.pdf>
-Package pdftex.def Info: ../Graphics/es_basketball.pdf  used on input line 332.
+Package pdftex.def Info: ../Graphics/es_basketball.pdf  used on input line 333.
 (pdftex.def)             Requested size: 267.67937pt x 163.58247pt.
  [12
 
  <../Graphics/es_basketball.pdf>]
-<../Graphics/es_soccer.pdf, id=272, 650.43pt x 397.485pt>
+<../Graphics/es_soccer.pdf, id=275, 650.43pt x 397.485pt>
 File: ../Graphics/es_soccer.pdf Graphic file (type pdf)
 <use ../Graphics/es_soccer.pdf>
-Package pdftex.def Info: ../Graphics/es_soccer.pdf  used on input line 351.
+Package pdftex.def Info: ../Graphics/es_soccer.pdf  used on input line 352.
 (pdftex.def)             Requested size: 207.23543pt x 126.6398pt.
-<../Graphics/es_cross_country.pdf, id=273, 650.43pt x 397.485pt>
+<../Graphics/es_cross_country.pdf, id=276, 650.43pt x 397.485pt>
 File: ../Graphics/es_cross_country.pdf Graphic file (type pdf)
 <use ../Graphics/es_cross_country.pdf>
-Package pdftex.def Info: ../Graphics/es_cross_country.pdf  used on input line 351.
+Package pdftex.def Info: ../Graphics/es_cross_country.pdf  used on input line 352.
 (pdftex.def)             Requested size: 207.23543pt x 126.6398pt.
  [13
 
  <../Graphics/es_soccer.pdf> <../Graphics/es_cross_country.pdf>]
-<../Graphics/es_track_field.pdf, id=294, 650.43pt x 397.485pt>
+<../Graphics/es_track_field.pdf, id=303, 650.43pt x 397.485pt>
 File: ../Graphics/es_track_field.pdf Graphic file (type pdf)
 <use ../Graphics/es_track_field.pdf>
-Package pdftex.def Info: ../Graphics/es_track_field.pdf  used on input line 371.
+Package pdftex.def Info: ../Graphics/es_track_field.pdf  used on input line 372.
 (pdftex.def)             Requested size: 207.23543pt x 126.6398pt.
  [14
 
  <../Graphics/es_track_field.pdf>]
-<../Graphics/cohort_basketball.pdf, id=308, 578.16pt x 361.35pt>
+<../Graphics/cohort_basketball.pdf, id=320, 578.16pt x 361.35pt>
 File: ../Graphics/cohort_basketball.pdf Graphic file (type pdf)
 <use ../Graphics/cohort_basketball.pdf>
-Package pdftex.def Info: ../Graphics/cohort_basketball.pdf  used on input line 389.
+Package pdftex.def Info: ../Graphics/cohort_basketball.pdf  used on input line 390.
 (pdftex.def)             Requested size: 207.23543pt x 129.51797pt.
-<../Graphics/cohort_cross_country.pdf, id=309, 578.16pt x 361.35pt>
+<../Graphics/cohort_cross_country.pdf, id=321, 578.16pt x 361.35pt>
 File: ../Graphics/cohort_cross_country.pdf Graphic file (type pdf)
 <use ../Graphics/cohort_cross_country.pdf>
-Package pdftex.def Info: ../Graphics/cohort_cross_country.pdf  used on input line 389.
+Package pdftex.def Info: ../Graphics/cohort_cross_country.pdf  used on input line 390.
 (pdftex.def)             Requested size: 207.23543pt x 129.51797pt.
  [15
 
  <../Graphics/cohort_basketball.pdf> <../Graphics/cohort_cross_country.pdf>] [16
 
+] [17
+
 ]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 429.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 440.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [17
+) [18
 
 ]
-<../Graphics/gantt_treatment.pdf, id=367, 794.97pt x 578.16pt>
+<../Graphics/gantt_treatment.pdf, id=386, 794.97pt x 578.16pt>
 File: ../Graphics/gantt_treatment.pdf Graphic file (type pdf)
 <use ../Graphics/gantt_treatment.pdf>
-Package pdftex.def Info: ../Graphics/gantt_treatment.pdf  used on input line 440.
+Package pdftex.def Info: ../Graphics/gantt_treatment.pdf  used on input line 451.
 (pdftex.def)             Requested size: 280.63116pt x 204.09695pt.
- [18
-
- <../Graphics/gantt_treatment.pdf>]
-<../Graphics/spaghetti_track_field.pdf, id=380, 650.43pt x 397.485pt>
-File: ../Graphics/spaghetti_track_field.pdf Graphic file (type pdf)
-<use ../Graphics/spaghetti_track_field.pdf>
-Package pdftex.def Info: ../Graphics/spaghetti_track_field.pdf  used on input line 459.
-(pdftex.def)             Requested size: 207.23543pt x 126.6398pt.
-<../Graphics/spaghetti_soccer.pdf, id=381, 650.43pt x 397.485pt>
-File: ../Graphics/spaghetti_soccer.pdf Graphic file (type pdf)
-<use ../Graphics/spaghetti_soccer.pdf>
-Package pdftex.def Info: ../Graphics/spaghetti_soccer.pdf  used on input line 459.
-(pdftex.def)             Requested size: 186.51062pt x 113.97581pt.
  [19
 
- <../Graphics/spaghetti_track_field.pdf> <../Graphics/spaghetti_soccer.pdf>] [20
+ <../Graphics/gantt_treatment.pdf>]
+<../Graphics/spaghetti_track_field.pdf, id=400, 650.43pt x 397.485pt>
+File: ../Graphics/spaghetti_track_field.pdf Graphic file (type pdf)
+<use ../Graphics/spaghetti_track_field.pdf>
+Package pdftex.def Info: ../Graphics/spaghetti_track_field.pdf  used on input line 470.
+(pdftex.def)             Requested size: 207.23543pt x 126.6398pt.
+<../Graphics/spaghetti_soccer.pdf, id=401, 650.43pt x 397.485pt>
+File: ../Graphics/spaghetti_soccer.pdf Graphic file (type pdf)
+<use ../Graphics/spaghetti_soccer.pdf>
+Package pdftex.def Info: ../Graphics/spaghetti_soccer.pdf  used on input line 470.
+(pdftex.def)             Requested size: 186.51062pt x 113.97581pt.
+ [20
 
-]
+ <../Graphics/spaghetti_track_field.pdf> <../Graphics/spaghetti_soccer.pdf>]
 \tf@nav=\write6
 \openout6 = `Mason_Progress_Report.nav'.
 
@@ -1193,10 +1193,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  128i,15n,123p,742b,1035s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/tate/Library/texlive/2026/texmf-var/fonts/pk/ljfour/public/bbm/bbm12.600pk> </Users/tate/Library/texlive/2026/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsso12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Mason_Progress_Report.pdf (20 pages, 424742 bytes).
+Output written on Mason_Progress_Report.pdf (20 pages, 432089 bytes).
 PDF statistics:
- 498 PDF objects out of 1000 (max. 8388607)
- 337 compressed objects within 4 object streams
+ 510 PDF objects out of 1000 (max. 8388607)
+ 349 compressed objects within 4 object streams
  47 named destinations out of 1000 (max. 500000)
  468 words of extra memory for PDF output out of 10000 (max. 10000000)
 
