@@ -137,4 +137,65 @@ The discount factor is identified via the health state. It is the only time vari
 \subquestion{What variation in the data allows the switching cost to be identified?}
 
 Switching cost is identified via the constant, the only characteristic which is choice specific in $X1$. Gender is not something which we are assuming can change in this model, thus it must be the constant identifying the cost $\delta$.
+
+\question{Use \texttt{dataHW6\_Problem2.mat} to complete this exercise. The setup is identical to Problem 1. The data contain information on the choices (the $Y$'s), characteristics that do not vary over time (the $X_1$'s), and characteristics that do vary over time (the $X_{1t}$'s). The context is a dynamic model of labor supply. $Y$ takes values $\{0,1,2,3\}$ reflecting retirement, flextime, part-time, or full-time participation. The first column of $X_1$ allows for choice-specific constants; the second column is an indicator for gender. $X_{1t}$ is a time-varying measure of health. Both sets of $X$'s are individual-level characteristics, so coefficients on these variables vary by choice. There is a cost to switching labor supply that is common across all switches. The choice in period 0 is given by $LY$. Once an individual retires (chooses option 0), no further choices are made (if $Y_{it}=0$ then $Y_{it+1}=0$).
+
+Individuals only have expectations over future values of $X_{1t}$. Given $X_{1t}$ and $Y_t$, the transition is:
+\[
+X_{1t+1} = \alpha_0 + \alpha_1 X_{1t} + \alpha_2(Y_t=2) + \alpha_3(Y_t=3) + \epsilon_{t+1}, \quad Y_t > 0
+\]
+where $\epsilon_{t+1} \sim \mathcal{N}(0,\sigma)$ is unknown to the individual until $t+1$.}
+
+\subquestion{Estimate the transition parameters $\alpha$ and $\sigma$. (Truth: $\alpha = [0.0,\ -0.75,\ 0.05,\ -0.25]$, $\sigma=1$)}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{lc}
+    Coefficient & Value \\
+    \hline
+    $\alpha_0$ & 0.0165 \\
+    $\alpha_1$ & -0.7540\\
+    $\alpha_2$ & 0.0345\\
+    $\alpha_3$ & -0.2517\\
+    \hline
+    $\sigma$ & 1.0067\\
+  \end{tabular}
+\end{table}
+
+\subquestion{Use the estimated $\hat{\alpha}$ and $\hat{\sigma}$ to construct a $10\times10\times3$ discrete transition matrix, where the first dimension is future $X$, the second is current $X$, and the third is work choice. Use a grid of $X$ values at the inverse normal CDF evaluated at $[0.05, 0.15, \ldots, 0.95]$, and create cutoff points for grid assignment.}
+
+\subquestion{Create a discretized version of $X_{1t}$ using the bins above. Use discretized states only for expected future values; contemporaneous flow utility is still a function of $X_{1t}$.}
+
+\subquestion{Estimate the dynamic discrete choice model including the discount factor. Future expected utility depends on current choice and current state; use the transition matrix to integrate over the future $X$ distribution. True parameters: coefficients on $X$'s (constant, gender, health) for three choices $[-0.75,\ 0.25,\ 0.25]$, $[-0.25,\ 0.5,\ 0.5]$, $[-0.85,\ 0.75,\ 0.75]$; switching cost $0.4$ (enters negatively); discount factor $0.8$.}
+
+\begin{table}[htbp]
+    \centering
+  \begin{tabular}{lcc}
+    & Coefficient & Estimate \\
+    \hline
+    Flex-Time & & \\
+    & $\beta_0$ & -0.789 \\
+    & $\beta_{Gender}$ & -0.501 \\
+    & $\beta_{Health}$ & 0.083 \\
+    Part-Time & & \\
+    & $\beta_0$ & -0.501 \\
+    & $\beta_{Gender}$ & 0.607 \\
+    & $\beta_{Health}$ & 0.199 \\
+    Full-Time & & \\
+    & $\beta_0$ & -0.882 \\
+    & $\beta_{Gender}$ & 0.746 \\
+    & $\beta_{Health}$ & 0.325 \\
+    \hline
+    & $\delta$ & 0.204 \\
+    & $\beta_{DF}$ & 0.822 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+My estimates are mostly terrible. I am sorry. I was not able to get them where I wanted while balancing all other work. I will work at it when I have more time since this is directly applicable to my work.
+
+\subquestion{What variation in the data allows the discount factor to be identified?}
+
+The expectation over future health states identifies the discount factor. That is, with some rational expectation of future health states, we can adequately discount the future.
+
 \end{document}

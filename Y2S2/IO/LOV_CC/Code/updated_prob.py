@@ -6,6 +6,8 @@ from scipy.special import logsumexp
 import matplotlib.pyplot as plt
 import seaborn as sns
 from tabulate import tabulate
+from collections import namedtuple
+from progress.bar import IncrementalBar
 
 """
 This file will be used to do initial simulation of the love of variety problem:
@@ -45,6 +47,7 @@ rng = np.random.default_rng(seed=219)
 # Parameterization
 T = 100
 sigma_gamma = [0.5, 1.0, 1.5]
+kappa = 5
 
 regimes = [
     (0.2, 0.2, 'Low regime (β=0.2, γ=0.2)', '-.'),
@@ -61,11 +64,13 @@ regimes = [
 J = 5
 S = 1000
 X_bar = rng.standard_normal()
-sigma_x = 1.0
+sigma_x = rng.standard_normal() * 0.5 + 1.0
+
+ConsResult = namedtuple('ConsResult', ['x_chosen_all', 'x_bar_all', 'X_jt_all', 'V_all', 'prob_all', 'U_all', 'll'])
 
 # Consumer Choice Problem
 
-def simulate_cons(beta, gamma, sigma_gamma, T, J, X_bar, sigma_x, rng, S=1000):
+def simulate_cons(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=1000):
     x_chosen_all = np.zeros((S, T))
     x_bar_all    = np.zeros((S, T))
     X_jt_all     = np.zeros((S, T, J))
@@ -101,9 +106,115 @@ def simulate_cons(beta, gamma, sigma_gamma, T, J, X_bar, sigma_x, rng, S=1000):
 
         for t in range(1, T):
             u = np.zeros(J)
-            a[t] = 0.23 # 10% chance of promotion
+            a[t] = 0.20
             x_bar[t] = np.mean(x_chosen[:t])
             X_jt[t] = rng.normal(loc=x_bar[t], scale=sigma_x, size=J)
+            for j in range(J):
+                u[j] = beta*X_jt[t,j] - gamma*Sigma[t-1]**2 + kappa*a[t] + epsilon_ijt[j]
+            V[t] = u
+            chosen_idx[t] = np.argmax(u)
+            x_chosen[t] = X_jt[t, chosen_idx[t]] 
+            Sigma[t] = x_chosen[t] - np.mean(x_chosen[:t+1])
+
+        ll = -np.sum(V[np.arange(T), chosen_idx]-logsumexp(V,axis=1,keepdims=True))
+        prob = np.exp(V) / np.exp(V).sum(axis=1, keepdims=True)
+        prob_all[s] = prob
+        x_chosen_all[s] = x_chosen
+        x_bar_all[s] = x_bar
+        X_jt_all[s] = X_jt
+        V_all[s] = V
+        U_all[s] = V[np.arange(T), chosen_idx]
+        ll_all[s] = ll
+    return ConsResult(
+            x_chosen_all.mean(axis=0),  # shape (T,)
+            x_bar_all.mean(axis=0),      # shape (T,)
+            X_jt_all.mean(axis=0),       # shape (T, J)
+            V_all.mean(axis=0),          # shape (T, J)
+            prob_all.mean(axis=0),             # shape (T,J)
+            U_all.mean(axis=0),              # shape (T,)
+            ll_all.mean())               # scalar
+
+colors = plt.cm.tab10(np.linspace(0,1,len(regimes)))
+
+fig, ax = plt.subplots(figsize=(8, 4))
+for (beta, gamma, label, ls), color in zip(regimes, colors):
+    x_chosen, x_bar, X_jt, V, prob, U, ll = simulate_cons(
+        beta, gamma, 5, sigma_gamma[1], T, J, X_bar, sigma_x, rng
+    )
+    ax.plot(np.arange(T), U, label=label, color=color, linewidth=1.5, linestyle=ls)
+
+ax.set_xlabel("Period")
+ax.set_ylabel("Utility")
+ax.set_title("Consumer Utility by Regime")
+ax.legend(fontsize=7)
+plt.tight_layout()
+plt.savefig("consumer_utility_by_regime.pdf", bbox_inches='tight', format='pdf')
+
+
+# Consumer Choice by Regime
+
+colors = plt.cm.tab10(np.linspace(0,1,len(regimes)))
+
+for j in range(J):
+    fig, ax = plt.subplots(figsize=(8,4))
+
+    for (beta, gamma, label,ls), color in zip(regimes, colors):
+        x_chosen, x_bar, X_jt, V, prob, ll, U = simulate_cons(
+            beta, gamma, 5, sigma_gamma[1], T, J, X_bar, sigma_x, rng
+        )
+
+        prob_smooth = np.convolve(prob[:,j], np.ones(5)/5, mode='same')
+        ax.plot(np.arange(T), prob_smooth, label=label, color=color, linewidth=1.5, linestyle=ls)
+    ax.set_title(f"Product {j+1}", fontsize=9)
+    ax.set_xlabel("Period")
+    ax.set_ylim(0.15,0.27)
+    ax.set_xlim(5, 95)
+    ax.set_ylabel("Choice Probability")
+    ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(0,1))
+    fig.suptitle("Choice Probability by Product and Regime", fontsize=13, y=1.01)
+    plt.tight_layout()
+    plt.savefig(f"choice_prob_product_{j+1}.pdf", bbox_inches='tight', format='pdf')
+
+def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=1000):
+    x_chosen_all = np.zeros((S, T))
+    x_bar_all    = np.zeros((S, T))
+    X_jt_all     = np.zeros((S, T, J))
+    V_all        = np.zeros((S, T, J))
+    ll_all       = np.zeros(S)
+    prob_all     = np.zeros((S, T, J))
+
+    for s in range(S):
+
+        epsilon_ijt = rng.gumbel(0,1, size=J)
+        eps_markov = rng.standard_normal(size=T)
+
+        x_chosen = np.zeros(T) # empty vector of choices per period
+        X_jt = np.zeros((T,J))
+        x_bar = np.zeros(T)
+        x_bar[0] = X_bar
+
+        Sigma = np.zeros(T) # empty vector for the sum of characteristics
+
+        V = np.zeros((T, J))
+        chosen_idx = np.zeros(T, dtype=int)
+        U_all = np.zeros((S, T))
+
+        X_jt[0] = rng.normal(loc=x_bar[0], scale=sigma_x, size=J)
+        a = np.zeros(T)
+
+        a[0] = 0
+        epsilon_0 = rng.gumbel(0,1,size=J)
+        u0 = beta*X_jt[0] - gamma*0 + a[0] + epsilon_0
+        V[0] = u0
+        chosen_idx[0] = np.argmax(u0)
+        x_chosen[0] = X_jt[0, chosen_idx[0]]
+        Sigma[0] = x_chosen[0]
+
+        for t in range(1, T):
+            u = np.zeros(J)
+            x_bar[t] = np.mean(x_chosen[:t])
+            X_jt[t] = rng.normal(loc=x_bar[t], scale=sigma_x, size=J)
+            a[t] = kappa*(x_bar[t-1] - x_chosen[t])**2 # Markovian promotion based on distance from mean 
             for j in range(J):
                 u[j] = beta*X_jt[t,j] - gamma*Sigma[t-1]**2 + a[t] + epsilon_ijt[j]
             V[t] = u
@@ -120,45 +231,44 @@ def simulate_cons(beta, gamma, sigma_gamma, T, J, X_bar, sigma_x, rng, S=1000):
         V_all[s] = V
         U_all[s] = V[np.arange(T), chosen_idx]
         ll_all[s] = ll
-    return (x_chosen_all.mean(axis=0),  # shape (T,)
+    return ConsResult(
+            x_chosen_all.mean(axis=0),  # shape (T,)
             x_bar_all.mean(axis=0),      # shape (T,)
             X_jt_all.mean(axis=0),       # shape (T, J)
             V_all.mean(axis=0),          # shape (T, J)
             prob_all.mean(axis=0),             # shape (T,J)
             U_all.mean(axis=0),              # shape (T,)
-            ll_all.mean())               # scalar
+            ll_all.mean()
+            )               
 
+
+# Utility Plots
 colors = plt.cm.tab10(np.linspace(0,1,len(regimes)))
-x_chosen, x_bar, X_jt, V, prob, U, ll = simulate_cons(
-    0.5, 0.5, sigma_gamma[1], T, J, X_bar, sigma_x, rng
-)
 
+# Utility Plots
 fig, ax = plt.subplots(figsize=(8, 4))
+colors = plt.cm.tab10(np.linspace(0, 1, len(regimes)))
+
 for (beta, gamma, label, ls), color in zip(regimes, colors):
-    x_chosen, x_bar, X_jt, V, prob, U, ll = simulate_cons(
-        beta, gamma, sigma_gamma[1], T, J, X_bar, sigma_x, rng
+    x_chosen, x_bar, X_jt, V, prob_all, U, ll = simulate_cons_markov(
+        beta, gamma, 5, sigma_gamma[1], T, J, X_bar, sigma_x, rng
     )
-    ax.plot(np.arange(T), U, label=label, color=color, linewidth=1.5, linestyle=ls)
+    ax.plot(np.arange(T), U, label=label, color=color, linewidth=1.5, linestyle=ls)  # <-- ax.plot, not plt.plot
 
 ax.set_xlabel("Period")
 ax.set_ylabel("Utility")
-ax.set_title("Consumer Utility by Regime")
+ax.set_title("Consumer Utility by Regime (Markov)")
 ax.legend(fontsize=7)
 plt.tight_layout()
-plt.savefig("consumer_utility_by_regime.pdf", bbox_inches='tight', format='pdf')
-plt.show()
+plt.savefig("consumer_utility_by_regime_markov.pdf", bbox_inches='tight', format='pdf')
 
-
-# Consumer Choice by Regime
-
-colors = plt.cm.tab10(np.linspace(0,1,len(regimes)))
 
 for j in range(J):
     fig, ax = plt.subplots(figsize=(8,4))
 
     for (beta, gamma, label,ls), color in zip(regimes, colors):
-        x_chosen, x_bar, X_jt, V, prob, ll, U = simulate_cons(
-            beta, gamma, sigma_gamma[1], T, J, X_bar, sigma_x, rng
+        x_chosen, x_bar, X_jt, V, prob, U, ll = simulate_cons_markov(
+            beta, gamma, 5, sigma_gamma[1], T, J, X_bar, sigma_x, rng
         )
 
         prob_smooth = np.convolve(prob[:,j], np.ones(5)/5, mode='same')
@@ -171,156 +281,59 @@ for j in range(J):
     ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(0,1))
     fig.suptitle("Choice Probability by Product and Regime", fontsize=13, y=1.01)
     plt.tight_layout()
-    plt.savefig(f"choice_prob_product_{j+1}.pdf", bbox_inches='tight', format='pdf')
-    plt.show()
+    plt.savefig(f"choice_prob_product_{j+1}_markov.pdf", bbox_inches='tight', format='pdf')
 
-def simulate_cons_directed_ads(beta, gamma, sigma_gamma, T, J, X_bar, sigma_x, rng, S=1000):
-    x_chosen_all = np.zeros((S, T))
-    x_bar_all    = np.zeros((S, T))
-    X_jt_all     = np.zeros((S, T, J))
-    V_all        = np.zeros((S, T, J))
-    ll_all       = np.zeros(S)
-    prob_all     = np.zeros((S, T, J))
-
-    for s in range(S):
-
-        epsilon_ijt = rng.gumbel(0,1, size=J)
-
-        x_chosen = np.zeros(T) # empty vector of choices per period
-        X_jt = np.zeros((T,J))
-        x_bar = np.zeros(T)
-        x_bar[0] = X_bar
-
-        Sigma = np.zeros(T) # empty vector for the sum of characteristics
-
-        V = np.zeros((T, J))
-        chosen_idx = np.zeros(T, dtype=int)
-
-        X_jt[0] = rng.normal(loc=x_bar[0], scale=sigma_x, size=J)
-        a = np.zeros(T)
-
-        a[0] = 0
-        epsilon_0 = rng.gumbel(0,1,size=J)
-        u0 = beta*X_jt[0] - gamma*0 + a[0] + epsilon_0
-        V[0] = u0
-        chosen_idx[0] = np.argmax(u0)
-        x_chosen[0] = X_jt[0, chosen_idx[0]]
-        Sigma[0] = x_chosen[0]
-
-        for t in range(1, T):
-            u = np.zeros(J)
-            ad = 1.0 if j == 1 else 0.0 
-            x_bar[t] = np.mean(x_chosen[:t])
-            X_jt[t] = rng.normal(loc=x_bar[t], scale=sigma_x, size=J)
-            for j in range(J):
-                u[j] = beta*X_jt[t,j] - gamma*Sigma[t-1]**2 + ad + epsilon_ijt[j]
-            V[t] = u
-            chosen_idx[t] = np.argmax(u)
-            x_chosen[t] = X_jt[t, chosen_idx[t]] 
-            Sigma[t] = x_chosen[t] - np.mean(x_chosen[:t+1])
-
-        ll = -np.sum(V[np.arange(T), chosen_idx]-logsumexp(V,axis=1,keepdims=True))
-        prob = np.exp(V) / np.exp(V).sum(axis=1, keepdims=True)
-        prob_all[s] = prob
-        x_chosen_all[s] = x_chosen
-        x_bar_all[s] = x_bar
-        X_jt_all[s] = X_jt
-        V_all[s] = V
-        ll_all[s] = ll
-    return (x_chosen_all.mean(axis=0),  # shape (T,)
-            x_bar_all.mean(axis=0),      # shape (T,)
-            X_jt_all.mean(axis=0),       # shape (T, J)
-            V_all.mean(axis=0),          # shape (T, J)
-            prob_all.mean(axis=0),             # shape (T,J)
-            ll_all.mean())               # scalar
-
-colors = plt.cm.tab10(np.linspace(0,1,len(regimes)))
-
-for j in range(J):
-    fig, ax = plt.subplots(figsize=(8,4))
-
-    for (beta, gamma, label,ls), color in zip(regimes, colors):
-        x_chosen, x_bar, X_jt, V, prob, ll = simulate_cons(
-            beta, gamma, sigma_gamma[1], T, J, X_bar, sigma_x, rng
-        )
-
-        prob_smooth = np.convolve(prob[:,j], np.ones(5)/5, mode='same')
-        ax.plot(np.arange(T), prob_smooth, label=label, color=color, linewidth=1.5, linestyle=ls)
-    ax.set_title(f"Product {j+1}", fontsize=9)
-    ax.set_xlabel("Period")
-    ax.set_ylim(0.15,0.27)
-    ax.set_xlim(5, 95)
-    ax.set_ylabel("Choice Probability")
-    ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(0,1))
-    fig.suptitle("Choice Probability by Product and Regime", fontsize=13, y=1.01)
-    plt.tight_layout()
-    plt.savefig(f"choice_prob_product_{j+1}_directed_ads.pdf", bbox_inches='tight', format='pdf')
-    plt.show()
 #=============================================================#
-# Firm Problem and Equilibrium Analysis                       #
+# Firm Value Function w.r.t. CCP                              #
 #=============================================================#
 
-def inferred_choice_prob(a, X_j, Sigma_t, lambda_t, beta):
-    U_firm = beta*X_j + a - lambda_t*Sigma_t
-    U_outside=0
-    return np.exp(U_firm) / (1 + np.exp(U_firm))
+p = 2.0
+mc = 1.0
+beta_disc = 0.9
 
-def solve_firm(Sigma, X_bar, beta, p, c, kappa_vec, a_grid, beta_disc, tol=1e-6):
-    T = len(Sigma)
-    V = np.zeros((T, len(a_grid)))
-    optimal_a = np.zeros(T)
+def firm_value_function(beta, gamma, kappa, beta_disc, mc, sigma_gamma, T, J, X_bar, sigma_x, rng, p, S=1000):
 
-    for i in range(T-1, -1, -1):
-        lambda_t = 1 / (Sigma[i]**2) if Sigma[i] > 0 else 1.0
-        for j, a in enumerate(a_grid):
-            prob = inferred_choice_prob(a, X_bar, Sigma[i], lambda_t, beta)
-            pi = prob*((1+a)*p - c - (kappa_vec[i]*a)**2)
-            if i < T-1:
-                exp_V = np.max(V[i+1])
-                V[i,j] = pi + beta_disc*lambda_t*exp_V
+    cons = simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S)
+
+    prob = cons.prob_all
+    X_bar = cons.x_bar_all
+    x_chosen = cons.x_chosen_all
+    X_jt = cons.X_jt_all
+
+    Vf = np.zeros((T+1, J))
+    a_opt = np.zeros((T,J))
+
+    for t in range(T-1, -1, -1):
+        eps_f = rng.standard_normal(size=J)
+        for j in range(J):
+            X_kt = X_jt[t].sum() - X_jt[t,j] 
+            s_jt = prob[t,j]
+            for a_val in [0,1]:
+                pi = s_jt*(p-mc) - kappa*((X_bar[t] - x_chosen[t])/X_kt)**2
+                EV_f = Vf[t+1, j]
+                V_t = pi + beta_disc*EV_f
+                if a_val == 0:
+                    V_no_ad = V_t
+                else:
+                    V_ad = V_t
+
+            if V_ad >= V_no_ad:
+                Vf[t,j] = V_ad
+                a_opt[t,j] = 1
             else:
-                V[i,j] = pi
-    optimal_a = a_grid[np.argmax(V, axis=1)]
-    return optimal_a, V
+                Vf[t,j] = V_no_ad
+                a_opt[t,j] = 0
+    return Vf, a_opt
 
-x_chosen, x_bar, X_jt, V_cons, ll = simulate_cons(
-    0.5, 0.5, sigma_gamma[1], T, J, X_bar, sigma_x, rng
-)
-Sigma_path = np.array([np.mean(x_chosen[:t+1]) for t in range(T)])
+for (beta, gamma, label, ls), color in zip(regimes, colors):
+    Vf, a = firm_value_function(
+        beta, gamma, kappa, beta_disc, mc, sigma_gamma, T, J, X_bar, sigma_x, rng, p, 1000
+    )
+    ax.plot(np.arange(T+1), Vf, label=label, color=color, linewidth=1.5, linestyle=ls)  # <-- ax.plot, not plt.plot
 
-regimes_1 = regimes[:4]
-regimes_2 = regimes[4:]
-
-for fig_num, regime_subset in enumerate([regimes_1, regimes_2], start=1):
-    fig, axes = plt.subplots(1, len(regime_subset), 
-                             figsize=(3*len(regime_subset), 4), sharey=True)
-    
-    for ax, (beta, gamma, label) in zip(axes, regime_subset):
-        x_chosen, x_bar, X_jt, V_cons, ll = simulate_cons(
-            beta, gamma, sigma_gamma[1], T, J, X_bar, sigma_x, rng
-        )
-        Sigma_path = np.array([np.mean(x_chosen[:t+1]) for t in range(T)])
-        kappa_vec = np.clip(
-            rng.normal(loc=1/Sigma_path, scale=sigma_lambda[1], size=T),
-            0.01, None
-        )
-        
-        optimal_a, _ = solve_firm(
-            Sigma_path, X_bar, beta=beta, p=1.0, c=0.5,
-            kappa_vec=kappa_vec, a_grid=np.linspace(0, 1, 50), beta_disc=0.9
-        )
-        
-        optimal_a_smooth = np.convolve(optimal_a, np.ones(5)/5, mode='same')
-        ax.plot(np.arange(T), optimal_a_smooth, color='steelblue', linewidth=1.5)
-        ax.axhline(np.mean(optimal_a_smooth), color='black', linestyle='--',
-                   linewidth=1, label=f"Mean={np.mean(optimal_a_smooth):.2f}")
-        ax.set_title(label, fontsize=8)
-        ax.set_xlabel("Period")
-        ax.legend(fontsize=8)
-    
-    axes[0].set_ylabel("Optimal $a$")
-    fig.suptitle("Firm's Optimal Advertising by Consumer Regime", fontsize=13, y=1.01)
-    plt.tight_layout()
-    plt.savefig(f"firm_optimal_a_by_regime_{fig_num}.pdf", 
-                dpi=300, bbox_inches='tight', format='pdf')
-    plt.show()
+ax.set_xlabel("Period")
+ax.set_ylabel("Advertising")
+ax.set_title("Firm Advertising Choice in Set Rate Setting")
+plt.tight_layout()
+plt.savefig("ad_choice_set.pdf", bbox_inches='tight', format='pdf')
+plt.show()
