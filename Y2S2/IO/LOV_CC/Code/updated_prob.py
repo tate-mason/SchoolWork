@@ -47,7 +47,7 @@ rng = np.random.default_rng(seed=219)
 # Parameterization
 T = 100
 sigma_gamma = [0.5, 1.0, 1.5]
-kappa = 5
+kappa = 2
 
 regimes = [
     (0.2, 0.2, 'Low regime (β=0.2, γ=0.2)', '-.'),
@@ -77,17 +77,18 @@ def simulate_cons(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=
     V_all        = np.zeros((S, T, J))
     ll_all       = np.zeros(S)
     prob_all     = np.zeros((S, T, J))
+    U_all = np.zeros((S, T))
 
     for s in range(S):
 
-        epsilon_ijt = rng.gumbel(0,1, size=J)
+        epsilon_ijt = rng.gumbel(0,1, size=(T,J))
 
         x_chosen = np.zeros(T) # empty vector of choices per period
         X_jt = np.zeros((T,J))
         x_bar = np.zeros(T)
         x_bar[0] = X_bar
 
-        Sigma = np.zeros(T) # empty vector for the sum of characteristics
+        Sigma = np.zeros((T,J)) # empty vector for the sum of characteristics
 
         V = np.zeros((T, J))
         chosen_idx = np.zeros(T, dtype=int)
@@ -101,20 +102,20 @@ def simulate_cons(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=
         V[0] = u0
         chosen_idx[0] = np.argmax(u0)
         x_chosen[0] = X_jt[0, chosen_idx[0]]
-        Sigma[0] = x_chosen[0]
-        U_all = np.zeros((S, T))
+        Sigma[0, chosen_idx[0]] = x_chosen[0]
 
         for t in range(1, T):
             u = np.zeros(J)
             a[t] = 0.20
             x_bar[t] = np.mean(x_chosen[:t])
             X_jt[t] = rng.normal(loc=x_bar[t], scale=sigma_x, size=J)
-            for j in range(J):
-                u[j] = beta*X_jt[t,j] - gamma*Sigma[t-1]**2 + kappa*a[t] + epsilon_ijt[j]
+            Sigma[t] = Sigma[t-1].copy()
+            Sigma[t, chosen_idx[t-1]] += x_chosen[t-1]
+            u = beta*X_jt[t] - gamma*Sigma[t-1]**2 + kappa*a[t] + epsilon_ijt[t]
             V[t] = u
             chosen_idx[t] = np.argmax(u)
             x_chosen[t] = X_jt[t, chosen_idx[t]] 
-            Sigma[t] = x_chosen[t] - np.mean(x_chosen[:t+1])
+
 
         ll = -np.sum(V[np.arange(T), chosen_idx]-logsumexp(V,axis=1,keepdims=True))
         prob = np.exp(V) / np.exp(V).sum(axis=1, keepdims=True)
@@ -146,9 +147,10 @@ for (beta, gamma, label, ls), color in zip(regimes, colors):
 ax.set_xlabel("Period")
 ax.set_ylabel("Utility")
 ax.set_title("Consumer Utility by Regime")
-ax.legend(fontsize=7)
+ax.legend(fontsize=7, loc="upper right", bbox_to_anchor=(1,1))
 plt.tight_layout()
 plt.savefig("consumer_utility_by_regime.pdf", bbox_inches='tight', format='pdf')
+plt.close()
 
 
 # Consumer Choice by Regime
@@ -170,10 +172,11 @@ for j in range(J):
     ax.set_ylim(0.15,0.27)
     ax.set_xlim(5, 95)
     ax.set_ylabel("Choice Probability")
-    ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(0,1))
+    ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(1,1))
     fig.suptitle("Choice Probability by Product and Regime", fontsize=13, y=1.01)
     plt.tight_layout()
     plt.savefig(f"choice_prob_product_{j+1}.pdf", bbox_inches='tight', format='pdf')
+    plt.close()
 
 def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=1000):
     x_chosen_all = np.zeros((S, T))
@@ -182,10 +185,11 @@ def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, 
     V_all        = np.zeros((S, T, J))
     ll_all       = np.zeros(S)
     prob_all     = np.zeros((S, T, J))
+    U_all = np.zeros((S, T))
 
     for s in range(S):
 
-        epsilon_ijt = rng.gumbel(0,1, size=J)
+        epsilon_ijt = rng.gumbel(0,1, size=(T,J))
         eps_markov = rng.standard_normal(size=T)
 
         x_chosen = np.zeros(T) # empty vector of choices per period
@@ -193,11 +197,10 @@ def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, 
         x_bar = np.zeros(T)
         x_bar[0] = X_bar
 
-        Sigma = np.zeros(T) # empty vector for the sum of characteristics
+        Sigma = np.zeros((T,J)) # empty vector for the sum of characteristics
 
         V = np.zeros((T, J))
         chosen_idx = np.zeros(T, dtype=int)
-        U_all = np.zeros((S, T))
 
         X_jt[0] = rng.normal(loc=x_bar[0], scale=sigma_x, size=J)
         a = np.zeros(T)
@@ -206,21 +209,20 @@ def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, 
         epsilon_0 = rng.gumbel(0,1,size=J)
         u0 = beta*X_jt[0] - gamma*0 + a[0] + epsilon_0
         V[0] = u0
-        chosen_idx[0] = np.argmax(u0)
         x_chosen[0] = X_jt[0, chosen_idx[0]]
-        Sigma[0] = x_chosen[0]
+        Sigma[0, chosen_idx[0]] = x_chosen[0]
 
         for t in range(1, T):
             u = np.zeros(J)
             x_bar[t] = np.mean(x_chosen[:t])
             X_jt[t] = rng.normal(loc=x_bar[t], scale=sigma_x, size=J)
-            a[t] = kappa*(x_bar[t-1] - x_chosen[t])**2 # Markovian promotion based on distance from mean 
-            for j in range(J):
-                u[j] = beta*X_jt[t,j] - gamma*Sigma[t-1]**2 + a[t] + epsilon_ijt[j]
+            a[t] = kappa*(x_bar[t-1] - x_chosen[t-1])**2 # Markovian promotion based on distance from mean 
+            Sigma[t] = Sigma[t-1].copy()
+            Sigma[t, chosen_idx[t-1]] += x_chosen[t-1]
+            u = beta*X_jt[t] - gamma*Sigma[t-1]**2 + a[t] + epsilon_ijt[t]
             V[t] = u
             chosen_idx[t] = np.argmax(u)
             x_chosen[t] = X_jt[t, chosen_idx[t]] 
-            Sigma[t] = x_chosen[t] - np.mean(x_chosen[:t+1])
 
         ll = -np.sum(V[np.arange(T), chosen_idx]-logsumexp(V,axis=1,keepdims=True))
         prob = np.exp(V) / np.exp(V).sum(axis=1, keepdims=True)
@@ -258,9 +260,11 @@ for (beta, gamma, label, ls), color in zip(regimes, colors):
 ax.set_xlabel("Period")
 ax.set_ylabel("Utility")
 ax.set_title("Consumer Utility by Regime (Markov)")
-ax.legend(fontsize=7)
+# put legend in top right
+ax.legend(fontsize=7, loc="upper right", bbox_to_anchor=(1,1))
 plt.tight_layout()
 plt.savefig("consumer_utility_by_regime_markov.pdf", bbox_inches='tight', format='pdf')
+plt.close()
 
 
 for j in range(J):
@@ -278,10 +282,11 @@ for j in range(J):
     ax.set_ylim(0.15,0.27)
     ax.set_xlim(5, 95)
     ax.set_ylabel("Choice Probability")
-    ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(0,1))
+    ax.legend(fontsize=7, loc="upper right", bbox_to_anchor=(1,1))
     fig.suptitle("Choice Probability by Product and Regime", fontsize=13, y=1.01)
     plt.tight_layout()
     plt.savefig(f"choice_prob_product_{j+1}_markov.pdf", bbox_inches='tight', format='pdf')
+    plt.close()
 
 #=============================================================#
 # Firm Value Function w.r.t. CCP                              #
@@ -293,6 +298,73 @@ beta_disc = 0.9
 
 def firm_value_function(beta, gamma, kappa, beta_disc, mc, sigma_gamma, T, J, X_bar, sigma_x, rng, p, S=1000):
 
+    cons = simulate_cons(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S)
+
+    prob = cons.prob_all
+    X_bar_avg = cons.x_bar_all
+    x_chosen = cons.x_chosen_all
+    X_jt = cons.X_jt_all
+
+    Vf = np.zeros((T+1, J))
+    a_opt = np.zeros((T,J))
+    V_diff = np.zeros((T,J))
+
+    for t in range(T-1, -1, -1):
+        eps_f = rng.standard_normal(size=J)
+        for j in range(J):
+            X_kt = X_jt[t].sum() - X_jt[t,j] 
+            s_jt = prob[t,j]
+            for a_val in [0,1]:
+                ad_cost = a_val
+                pi = s_jt*(p-mc) - kappa*ad_cost**2
+                EV_f = Vf[t+1, j]
+                V_t = pi + beta_disc*EV_f
+                if a_val == 0:
+                    V_no_ad = V_t
+                else:
+                    V_ad = V_t
+
+            V_diff[t,j] = V_ad - V_no_ad
+
+            if V_ad >= V_no_ad:
+                Vf[t,j] = V_ad
+                a_opt[t,j] = 1
+            else:
+                Vf[t,j] = V_no_ad
+                a_opt[t,j] = 0
+    return Vf, a_opt, V_diff
+
+from scipy.ndimage import uniform_filter1d
+
+fig, axes = plt.subplots(1,2,figsize=(14, 4))
+for (beta, gamma, label, ls), color in zip(regimes, colors):
+    Vf, a, V_diff = firm_value_function(
+        beta, gamma, kappa, beta_disc, mc, sigma_gamma, T, J, X_bar, sigma_x, rng, p, 1000
+    )
+    smoothed = uniform_filter1d(a.mean(axis=1), size=10)  # Smooth the average advertising choice over time
+    axes[0].plot(np.arange(T), smoothed, label=label, color=color, linewidth=1.5, linestyle=ls)  # <-- ax.plot, not plt.plot
+    axes[1].plot(np.arange(T), V_diff.mean(axis=1), label=label, color=color, linewidth=1.5, linestyle=ls)  # <-- ax.plot, not plt.plot
+
+axes[0].set_xlabel("Period")
+axes[0].set_ylabel("Pr(Advertise)")
+axes[0].set_title("Smoothed Ad Probability (Fixed)")
+axes[0].axhline(0.5, color='k', linewidth=0.5, linestyle=':')  # indifference line
+
+axes[1].set_xlabel("Period")
+axes[1].set_ylabel("V(ad) - V(no ad)")
+axes[1].set_title("Ad Incentive Over Time (Fixed)")
+axes[1].axhline(0, color='k', linewidth=0.8, linestyle='--')  # zero = indifference
+
+handles, labels_leg = axes[1].get_legend_handles_labels()
+fig.legend(handles, labels_leg, fontsize=7, loc='lower center',
+           bbox_to_anchor=(0.5, -0.15), ncol=3)
+
+plt.tight_layout()
+plt.savefig("ad_choice_both.pdf", bbox_inches='tight', format='pdf')
+plt.close()
+
+def simulate_firm_markov(beta, gamma, kappa, beta_disc, mc, sigma_gamma, T, J, X_bar, sigma_x, rng, p, S=1000):
+    
     cons = simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S)
 
     prob = cons.prob_all
@@ -302,14 +374,17 @@ def firm_value_function(beta, gamma, kappa, beta_disc, mc, sigma_gamma, T, J, X_
 
     Vf = np.zeros((T+1, J))
     a_opt = np.zeros((T,J))
+    V_diff = np.zeros((T,J))
 
     for t in range(T-1, -1, -1):
         eps_f = rng.standard_normal(size=J)
         for j in range(J):
             X_kt = X_jt[t].sum() - X_jt[t,j] 
             s_jt = prob[t,j]
-            for a_val in [0,1]:
-                pi = s_jt*(p-mc) - kappa*((X_bar[t] - x_chosen[t])/X_kt)**2
+            markov_a = kappa*(X_bar[t] - x_chosen[t])**2
+            for a_val in [0,markov_a]:
+                ad_cost = a_val
+                pi = s_jt*(p-mc) - ad_cost
                 EV_f = Vf[t+1, j]
                 V_t = pi + beta_disc*EV_f
                 if a_val == 0:
@@ -317,23 +392,40 @@ def firm_value_function(beta, gamma, kappa, beta_disc, mc, sigma_gamma, T, J, X_
                 else:
                     V_ad = V_t
 
+            V_diff[t,j] = V_ad - V_no_ad
+
             if V_ad >= V_no_ad:
                 Vf[t,j] = V_ad
                 a_opt[t,j] = 1
             else:
                 Vf[t,j] = V_no_ad
                 a_opt[t,j] = 0
-    return Vf, a_opt
+    return Vf, a_opt, V_diff
 
+fig, axes = plt.subplots(1,2,figsize=(14, 4))
 for (beta, gamma, label, ls), color in zip(regimes, colors):
-    Vf, a = firm_value_function(
+    Vf_m, a_m, V_diff_m = simulate_firm_markov(
         beta, gamma, kappa, beta_disc, mc, sigma_gamma, T, J, X_bar, sigma_x, rng, p, 1000
     )
-    ax.plot(np.arange(T+1), Vf, label=label, color=color, linewidth=1.5, linestyle=ls)  # <-- ax.plot, not plt.plot
+    smoothed_m = uniform_filter1d(a_m.mean(axis=1), size=10)  # Smooth the average advertising choice over time
+    ax.plot(np.arange(T), smoothed_m, label=label, color=color, linewidth=1.5, linestyle=ls)
+    ax.plot(np.arange(T), V_diff_m.mean(axis=1), label=label, color=color, linewidth=1.5, linestyle=ls) 
 
-ax.set_xlabel("Period")
-ax.set_ylabel("Advertising")
-ax.set_title("Firm Advertising Choice in Set Rate Setting")
+axes[0].set_xlabel("Period")
+axes[0].set_ylabel("Pr(Advertise)")
+axes[0].set_title("Smoothed Ad Probability (Markov)")
+axes[0].axhline(0.5, color='k', linewidth=0.5, linestyle=':')  # indifference line
+
+axes[1].set_xlabel("Period")
+axes[1].set_ylabel("V(ad) - V(no ad)")
+axes[1].set_title("Ad Incentive Over Time (Markov)")
+axes[1].axhline(0, color='k', linewidth=0.8, linestyle='--')  # zero = indifference
+
+handles, labels_leg = axes[1].get_legend_handles_labels()
+fig.legend(handles, labels_leg, fontsize=7, loc='lower center',
+           bbox_to_anchor=(0.5, -0.15), ncol=3)
+
 plt.tight_layout()
-plt.savefig("ad_choice_set.pdf", bbox_inches='tight', format='pdf')
-plt.show()
+plt.savefig("ad_choice_markov_both.pdf", bbox_inches='tight', format='pdf')
+plt.close()
+
