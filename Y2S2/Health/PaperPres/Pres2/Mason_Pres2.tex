@@ -122,19 +122,6 @@
 
 \begin{frame}{This Paper's Contribution}
   \begin{itemize}
-    \item \textbf{Administrative, population-level data} for Norway: near-universal coverage, no recall bias, no small-sample issues
-    \item \textbf{Extended family (dynastic) analysis:} following Adermon, Lindahl, and Palme (2021) for education, but extending to health --- aunts, uncles, cousins, and spouses thereof
-    \begin{itemize}
-      \item Ignoring dynasty \textbf{understates} intergenerational persistence by 42\%
-    \end{itemize}
-    \item \textbf{Both mental and physical health} measured with the same data infrastructure
-    \item \textbf{Causal policy evaluation:} triple differences design leveraging a targeted Norwegian pilot program
-    \item Provides a lower bound for intergenerational persistence (sickness leave truncated from top and bottom --- see Data section)
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{This Paper's Contribution (cont.)}
-  \begin{itemize}
     \item Connects three literatures:
     \begin{enumerate}
       \item \textbf{Intergenerational health persistence}: adds administrative mental health, dynasty component, causal policy variation
@@ -181,29 +168,15 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Measuring Children's Mental Health}
+\begin{frame}{Measuring Mental Health}
+  \textbf{Children's Mental Health:}
   \begin{itemize}
     \item \textbf{Source:} KUHR registry --- GP and ER visits between ages 13 and 18
     \item \textbf{Mental health indicator:} any GP or ER visit with an ICPC-2 code starting with the letter ``P''
-    \item \textbf{Extensive margin:} indicator for at least one mental health event
-    \begin{itemize}
-      \item Control group mean: 23\% of adolescents whose parents have no MH diagnosis have at least one MH event
-      \item 24\% of all children in the sample have a MH diagnosis
-    \end{itemize}
-    \item \textbf{Intensive margin:} total number of MH-related healthcare events
-    \item KUHR not available before 2006 $\Rightarrow$ children observed ages 13--18 between 2006--2020; born 1988--2007
-    \item Nearly all children (94.3\%) have at least one GP visit between ages 13--18 --- near-universal coverage
   \end{itemize}
-\end{frame}
-
-\begin{frame}{Measuring Parental Mental Health: The Sickness Leave Registry}
+  \textbf{Parents' Mental Health:}
   \begin{itemize}
-    \item \textbf{What it captures:} any sickness leave certified by a physician for mental health reasons (ICPC-2 code ``P''), measured when parents are ages 25--30
-    \begin{itemize}
-      \item Parent ages 25--30 are observed prior to child's adolescence, ruling out co-diagnosis
-    \end{itemize}
-    \item \textbf{Extensive margin:} indicator for at least one MH sickness leave event
-    \item \textbf{Intensive margin:} average number of MH sickness leave days
+    \item \textbf{Source:} Sickness leave registry --- any physician-certified sickness leave for mental health reasons (ICPC-2 code ``P'') at ages 25--30
     \item \textbf{Why this window:} ensures parental health is measured \textit{before} the child's outcome window (ages 13--18)
     \item 7\% of mothers and 4\% of fathers take at least one MH sickness leave at ages 25--30
     \item Most common MH condition: depression (both genders)
@@ -254,6 +227,40 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Sample Statistics}
+  \scriptsize
+  \begin{table}
+  \centering
+  \begin{tabular}{lcccc}
+  \toprule
+  & \multicolumn{2}{c}{All Children} & \multicolumn{2}{c}{Analysis Sample} \\
+  \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+  & Mean & SD & Mean & SD \\
+  \midrule
+  \multicolumn{5}{l}{\textit{Panel A: Children}} \\
+  Any MH diagnosis          & 23.09 & 42.14 & 24.00 & 42.71 \\
+  Depression                & 6.72  & 25.03 & 6.96  & 25.45 \\
+  Any specialist care (MH)  & 4.03  & 19.67 & 4.11  & 19.85 \\
+  Male                      & 0.51  & 0.50  & 0.51  & 0.50  \\
+  GPA                       & 4.09  & 0.82  & 4.05  & 0.83  \\
+  $\geq 1$ parent college   & 0.36  & 0.48  & 0.33  & 0.47  \\
+  \midrule
+  \multicolumn{5}{l}{\textit{Panel B: Mother}} \\
+  Any sick leave (25--30)   & 0.50  & 0.50  & 0.54  & 0.50  \\
+  Any MH sick leave (25--30)& 0.06  & 0.24  & 0.07  & 0.26  \\
+  Any depression SL (25--30)& 0.04  & 0.20  & 0.05  & 0.21  \\
+  \midrule
+  \multicolumn{5}{l}{\textit{Panel C: Father}} \\
+  Any sick leave (25--30)   & 0.26  & 0.44  & 0.28  & 0.45  \\
+  Any MH sick leave (25--30)& 0.03  & 0.18  & 0.04  & 0.19  \\
+  Any depression SL (25--30)& 0.02  & 0.14  & 0.02  & 0.14  \\
+  \bottomrule
+  \multicolumn{5}{p{0.85\linewidth}}{\scriptsize Children's health measured ages 13--18; parental health at ages 25--30. $N=370{,}498$ (analysis sample).}
+  \end{tabular}
+  \end{table}
+\end{frame}
+
+
 % -------------------------------------------------------
 \section{Empirical Framework}
 % -------------------------------------------------------
@@ -288,24 +295,6 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Robustness Strategy}
-  \begin{itemize}
-    \item Eight robustness columns (Tables 7--8), from most to least parsimonious:
-    \begin{enumerate}
-      \item Baseline (Column 6 of main tables)
-      \item No controls
-      \item Add primary care visit frequency (GP visit FE) --- addresses surveillance bias
-      \item Add sickness leave eligibility determinants and fertility controls
-      \item Add individual-level controls: birth weight, birth rank, parent ages at birth
-      \item Add school-by-cohort FE
-      \item Add first GP fixed effects (at age 13)
-      \item Extend parental age window to 30--35
-    \end{enumerate}
-    \item Results: parent-child association declines by up to 40\% with controls, but remains statistically significant and economically meaningful throughout
-    \item Largest declines from SES controls (3.4 pp) and GP visit controls (1.9 pp)
-  \end{itemize}
-\end{frame}
-
 \begin{frame}{A Note on Measurement of Parental Health}
   \begin{itemize}
     \item \textbf{Upper vs.\ lower bound concern:}
@@ -319,6 +308,74 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Dynastic Correlations in Mental Health (Extensive Margin)}
+  \scriptsize
+  \begin{tabular}{lcccc}
+  \toprule
+  & (1) & (2) & (3) & (4) \\
+  & Parents only & $+$ Siblings & Full dynasty & $+$ Physical health \\
+  \midrule
+  Parents' MH
+    & 9.805$^{***}$ & 9.664$^{***}$ & 9.569$^{***}$ & 9.257$^{***}$ \\
+    & (0.254) & (0.254) & (0.254) & (0.255) \\
+  Parents' siblings MH
+    & & 2.990$^{***}$ & 2.848$^{***}$ & 2.557$^{***}$ \\
+    & & (0.208) & (0.208) & (0.210) \\
+  Spouses of parents' siblings MH
+    & & & 1.417$^{***}$ & 1.181$^{***}$ \\
+    & & & (0.256) & (0.258) \\
+  Parents' cousins MH
+    & & & 1.654$^{***}$ & 1.475$^{***}$ \\
+    & & & (0.163) & (0.164) \\
+  Spouses of parents' cousins MH
+    & & & 0.676$^{***}$ & 0.556$^{***}$ \\
+    & & & (0.195) & (0.195) \\
+  Siblings of spouses of parents' siblings MH
+    & & & 1.025$^{***}$ & 0.883$^{***}$ \\
+    & & & (0.206) & (0.208) \\
+  \midrule
+  Control for physical health & No & No & No & Yes \\
+  Control mean & \multicolumn{4}{c}{22.9} \\
+  Sum of coefficients & 9.8 & 12.7 & 17.2 & 15.9 \\
+  $R^2$ & 0.052 & 0.052 & 0.053 & 0.053 \\
+  $N$ & \multicolumn{4}{c}{370,498} \\
+  \bottomrule
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Dynastic Correlations in Mental Health: Intensive Margin}
+\scriptsize
+\begin{tabular}{lcccc}
+\toprule
+ & (1) & (2) & (3) & (4) \\
+ & Parents only & $+$ Siblings & Full dynasty & $+$ Physical health \\
+\midrule
+Parents' MH
+  & 0.050$^{***}$ & 0.050$^{***}$ & 0.049$^{***}$ & 0.048$^{***}$ \\
+  & (0.003) & (0.003) & (0.003) & (0.003) \\
+Parents' siblings MH
+  & & 0.017$^{***}$ & 0.017$^{***}$ & 0.016$^{***}$ \\
+  & & (0.002) & (0.002) & (0.002) \\
+Sp.\ of par.\ siblings MH
+  & & & 0.007$^{***}$ & 0.006$^{***}$ \\
+  & & & (0.002) & (0.002) \\
+Parents' cousins MH
+  & & & 0.007$^{***}$ & 0.006$^{***}$ \\
+  & & & (0.002) & (0.002) \\
+Sp.\ of par.\ cousins MH
+  & & & 0.002 & 0.002 \\
+  & & & (0.002) & (0.002) \\
+Sib.\ of sp.\ of par.\ siblings MH
+  & & & 0.004$^{**}$ & 0.003$^{*}$ \\
+  & & & (0.002) & (0.002) \\
+\midrule
+Control for physical health & No & No & No & Yes \\
+Sum of coefficients & 0.050 & 0.067 & 0.085 & 0.080 \\
+$R^2$ & 0.032 & 0.032 & 0.032 & 0.034 \\
+$N$ & \multicolumn{4}{c}{370,498} \\
+\bottomrule
+\end{tabular}
+\end{frame}
 % -------------------------------------------------------
 \section{Intergenerational Persistence in Health}
 % -------------------------------------------------------
@@ -329,12 +386,12 @@
     \begin{itemize}
       \item Control group mean = 23\% $\Rightarrow$ this is a \textbf{40\% increase} in the probability of a MH event
     \end{itemize}
-    \item Adding extended family branches (Columns 2--5): parent coefficient barely changes
+    \item Adding extended family branches: parent coefficient barely changes
     \begin{itemize}
       \item Parent-child association is largely \textbf{orthogonal} to extended family associations
     \end{itemize}
-    \item \textbf{Full dynastic model (Column 6):} parent coefficient = 9.6 pp; sum of all extended family = 7.6 pp $\Rightarrow$ dynasty adds 79\% more
-    \item \textbf{Controlling for physical health (Column 7):} parent coefficient = 9.3 pp --- MH associations not driven by cross-condition correlations
+    \item \textbf{Full dynastic model (Column 3):} parent coefficient = 9.6 pp; sum of all extended family = 7.6 pp $\Rightarrow$ dynasty adds 79\% more
+    \item \textbf{Controlling for physical health (Column 4):} parent coefficient = 9.3 pp --- MH associations not driven by cross-condition correlations
     \item All extended family branches are statistically significant; magnitude decreasing in familial distance
   \end{itemize}
 \end{frame}
@@ -389,7 +446,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Comparing Health and Educational Persistence (Table 6)}
+\begin{frame}{Comparing Health and Educational Persistence}
   \begin{itemize}
     \item Replicate Adermon, Lindahl, and Palme (2021) for Norway using Grade 10 GPA as outcome
     \item \textbf{Parent-child education elasticity:} 0.45 --- nine times larger than MH (0.05)
@@ -447,25 +504,14 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Who Was Targeted and Why It Matters}
-  \begin{itemize}
-    \item \textbf{Direct target:} children ages 0--6 in 2007 whose parents had a MH diagnosis or substance abuse problem
-    \item Healthcare providers were mandated to: register dependent children, converse with patients about children's needs, offer help navigating support services
-    \item \textbf{Not a screening program for children themselves:} children were not required to be screened for MH conditions
-    \begin{itemize}
-      \item This creates an ambiguous prediction: more scrutiny could increase diagnoses; effective treatment could decrease them
-    \end{itemize}
-    \item Empirically: the policy \textbf{reduced} the parent-child association $\Rightarrow$ treatment effect dominates the increased scrutiny effect
-    \item Qualitatively evaluated as successful in 2010 and 2014 (Deloitte 2015; Ramb\o{}ll 2010)
-  \end{itemize}
-\end{frame}
-
 \begin{frame}{Empirical Strategy: Triple Differences}
   \small
   Since 26 out of 428 municipalities were not chosen randomly, use a \textbf{triple differences} design:
   \[
-    Y_{icm} = \alpha + \beta(E_{ic} \times D_{im} \times MPH_i) + \delta_1 MPH_i + \delta_2(E_{ic} \times MPH_i) + \delta_3(D_{im} \times MPH_i)
-             + \delta_4(E_{ic} \times D_{im}) + \mathbf{X}_i' \boldsymbol{\mu} + \rho_c + \pi_m + \varepsilon_{icm}
+  \begin{align}
+    Y_{icm} \; &= \alpha + \beta(E_{ic} \times D_{im} \times MPH_i) + \delta_1 MPH_i + \delta_2(E_{ic} \times MPH_i) + \delta_3(D_{im} \times MPH_i) \\
+              & + \delta_4(E_{ic} \times D_{im}) + \mathbf{X}_i' \boldsymbol{\mu} + \rho_c + \pi_m + \varepsilon_{icm}
+  \end{align}
   \]
   \begin{itemize}
     \item $Y_{icm}$: any MH GP/ER visit ages 13--18 for child $i$, cohort $c$, municipality $m$ ($\times 100$)
@@ -479,17 +525,10 @@
 \end{frame}
 
 \begin{frame}{Credibility: Parallel Trends and Placebo Tests}
-  \begin{itemize}
-    \item \textbf{Identifying assumption:} absent the pilot, children with and without MH parents would have evolved similarly in treated and control municipalities
-    \item \textbf{Event study (Equation 4):} estimate $\beta^\tau$ for each birth cohort age in 2007
-    \begin{itemize}
-      \item No systematic pre-trends for ages 7--11 in 2007 $\Rightarrow$ supports parallel trends
-      \item Largest treatment effects for youngest children (ages 2--4): longest exposure to program
-    \end{itemize}
-    \item \textbf{Placebo 1:} outcomes predetermined at birth (e.g., birth weight) --- triple interaction is never statistically significant
-    \item \textbf{Placebo 2:} outcomes unlikely to be affected by intervention (fractures, musculoskeletal) --- triple interaction statistically insignificant
-    \item \textbf{Robustness:} add municipality-specific trends in supply of health services; results unchanged (Panel C of Table 9)
-  \end{itemize}
+  \begin{figure}
+    \centering
+    \includegraphics[width=.6\textwidth]{page-38.png}
+  \end{figure}
 \end{frame}
 
 \begin{frame}{Policy Effects on the Intergenerational Association}
@@ -510,6 +549,42 @@
     \end{itemize}
   \end{itemize}
 \end{frame}
+
+\begin{frame}{Effects of the Pilot Program on Intergenerational Persistence}
+  \scriptsize
+  \begin{tabular}{lccccc}
+    \toprule
+    & All & College & No College & Males & Females \\
+    & (1) & (2) & (3) & (4) & (5) \\
+    \midrule
+    \multicolumn{6}{l}{\textit{Panel A: Baseline}} \\[2pt]
+    $\mathbf{1}$[Parental MH]
+      & 9.730$^{***}$ & 8.983$^{***}$ & 10.104$^{***}$ & 8.699$^{***}$ & 10.840$^{***}$ \\
+      & (0.461) & (0.532) & (0.671) & (0.669) & (0.905) \\
+    $\mathbf{1}$[Parental MH] $\times$ (Age$_{2007}\leq 6$) $\times$ Pilot
+      & $-$3.796$^{***}$ & $-$6.210$^{***}$ & $-$2.141 & $-$3.603$^{**}$ & $-$3.916$^{***}$ \\
+      & (0.927) & (1.307) & (1.390) & (1.574) & (1.253) \\
+    \midrule
+    \multicolumn{6}{l}{\textit{Panel B: Duration}} \\[2pt]
+    $\mathbf{1}$[Parental MH]
+      & 9.801$^{***}$ & 8.965$^{***}$ & 10.148$^{***}$ & 8.649$^{***}$ & 11.036$^{***}$ \\
+      & (0.466) & (0.545) & (0.656) & (0.730) & (0.943) \\
+    $\mathbf{1}$[Parental MH] $\times$ Duration $\times$ Pilot
+      & $-$1.114$^{***}$ & $-$2.425$^{***}$ & $-$0.568 & $-$1.403$^{***}$ & $-$0.795$^{*}$ \\
+      & (0.277) & (0.488) & (0.341) & (0.507) & (0.403) \\
+    \midrule
+    \multicolumn{6}{l}{\textit{Panel C: Municipality trends}} \\[2pt]
+    $\mathbf{1}$[Parental MH]
+      & 9.703$^{***}$ & 9.007$^{***}$ & 10.076$^{***}$ & 8.673$^{***}$ & 10.804$^{***}$ \\
+      & (0.457) & (0.535) & (0.671) & (0.667) & (0.887) \\
+    $\mathbf{1}$[Parental MH] $\times$ (Age$_{2007}\leq 6$) $\times$ Pilot
+      & $-$3.778$^{***}$ & $-$6.145$^{***}$ & $-$2.137 & $-$3.610$^{**}$ & $-$3.866$^{***}$ \\
+      & (0.920) & (1.327) & (1.388) & (1.558) & (1.242) \\
+    \midrule
+    $N$ & 129,683 & 60,596 & 69,087 & 66,074 & 63,609 \\
+    \bottomrule
+    \end{tabular}
+  \end{frame}
 
 \begin{frame}{Heterogeneity: Who Benefits Most?}
   \begin{itemize}
@@ -553,7 +628,6 @@
     \item \textbf{Open questions for future research:}
     \begin{itemize}
       \item Causal mechanisms: exogenous shocks to parental MH (e.g., job loss, health shocks) on child outcomes
-      \item Long-run effects of the pilot on education, income, and adult MH
       \item Do the gains from the program extend beyond mental health to labor market outcomes?
       \item Optimal design of interventions that reduce average persistence \emph{and} inequality simultaneously
     \end{itemize}

@@ -1,4 +1,4 @@
-PWD /Users/tate/SchoolWork/Y2S2/Health/PaperPres/Pres2
+PWD /Users/tate/Schoolwork/Y2S2/Health/PaperPres/Pres2
 INPUT /usr/local/texlive/2026/texmf.cnf
 INPUT /usr/local/texlive/2026/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -387,6 +387,7 @@ INPUT ./Mason_Pres2.toc
 INPUT ./Mason_Pres2.toc
 INPUT Mason_Pres2.toc
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmssi8.tfm
 INPUT ./Mason_Pres2.toc
 INPUT ./Mason_Pres2.toc
 INPUT Mason_Pres2.toc
@@ -410,6 +411,11 @@ INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssxi10.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssxi8.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssxi8.tfm
+INPUT ./page-38.png
+INPUT ./page-38.png
+INPUT ./page-38.png
+INPUT ./page-38.png
+INPUT ./page-38.png
 INPUT ./Mason_Pres2.toc
 INPUT ./Mason_Pres2.toc
 INPUT Mason_Pres2.toc
@@ -431,5 +437,7 @@ INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb
