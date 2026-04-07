@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from tabulate import tabulate
 from collections import namedtuple
-from progress.bar import IncrementalBar
 
 """
 This file will be used to do initial simulation of the love of variety problem:
@@ -110,14 +109,16 @@ def simulate_cons(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=
             #x_bar[t] = np.mean(x_chosen[:t])
             X_jt[t] = np.array(prod_space)
             Sigma[t] = Sigma[t-1].copy()
-            Sigma[t, chosen_idx[t-1]] += (x_bar - x_chosen[t-1])
-            u = beta*X_jt[t] - gamma*(Sigma[t])**2 + kappa*a[t] + epsilon_ijt[t] # love variety
+            Sigma[t, chosen_idx[t-1]] += x_chosen[t-1]
+            u = beta*X_jt[t] - gamma*Sigma[t] + kappa*a[t] + epsilon_ijt[t] # love variety
             V[t] = u
             chosen_idx[t] = np.argmax(V[t])
             x_chosen[t] = X_jt[t, chosen_idx[t]] 
 
-        ll = -np.sum(V[np.arange(T), chosen_idx]-logsumexp(V,axis=1,keepdims=True))
-        prob = np.exp(V) / np.exp(V).sum(axis=1, keepdims=True)
+        log_denom = logsumexp(V, axis=1) # shape (T,)
+        prob = np.exp(V - log_denom[:, None])
+        ll = -np.sum(V[np.arange(T), chosen_idx] - log_denom)
+        
         prob_all[s] = prob
         x_chosen_all[s] = x_chosen
         x_bar_all[s] = x_bar
@@ -148,7 +149,7 @@ ax.set_ylabel("Utility")
 ax.set_title("Consumer Utility by Regime")
 ax.legend(fontsize=7, loc="upper right", bbox_to_anchor=(1,1))
 plt.tight_layout()
-plt.savefig("consumer_utility_by_regime.pdf", bbox_inches='tight', format='pdf')
+plt.savefig("consumer_utility_by_regime.png", bbox_inches='tight', format='png')
 plt.close()
 
 
@@ -170,8 +171,8 @@ for j in range(J):
     ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(1, 1))
     fig.suptitle("Choice Probability by Product and Regime", fontsize=13, y=1.01)
     plt.tight_layout()
-    plt.savefig(f"choice_prob_product_{j+1}.pdf", bbox_inches='tight', format='pdf')
-    plt.close()
+    plt.savefig(f"choice_prob_product_{j+1}.png", bbox_inches='tight', format='png')
+    plt.show()
 
 def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=1000):
     x_chosen_all = np.zeros((S, T))
@@ -211,14 +212,17 @@ def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, 
             X_jt[t] = np.array(prod_space)
             a[t] = kappa*(x_bar - x_chosen[t-1])**2 # Markovian promotion based on distance from mean 
             Sigma[t] = Sigma[t-1].copy()
-            Sigma[t, chosen_idx[t-1]] += (x_bar - x_chosen[t-1])
-            u = beta*X_jt[t] - gamma*Sigma[t]**2 + a[t] + epsilon_ijt[t] # love sameness
+            Sigma[t, chosen_idx[t-1]] += x_chosen[t-1]
+            u = beta*X_jt[t] - gamma*Sigma[t] + a[t] + epsilon_ijt[t] # love sameness
             V[t] = u
             chosen_idx[t] = np.argmax(V[t])
             x_chosen[t] = X_jt[t, chosen_idx[t]] 
 
-        ll = -np.sum(V[np.arange(T), chosen_idx]-logsumexp(V,axis=1,keepdims=True))
-        prob = np.exp(V) / np.exp(V).sum(axis=1, keepdims=True)
+        
+        log_denom = logsumexp(V, axis=1)
+        prob = np.exp(V - log_denom[:,None])
+        ll = -np.sum(V[np.arange(T), chosen_idx] - log_denom)
+        
         prob_all[s] = prob
         x_chosen_all[s] = x_chosen
         x_bar_all[s] = x_bar
@@ -254,7 +258,7 @@ ax.set_title("Consumer Utility by Regime (Markov)")
 # put legend in top right
 ax.legend(fontsize=7, loc="upper right", bbox_to_anchor=(1,1))
 plt.tight_layout()
-plt.savefig("consumer_utility_by_regime_markov.pdf", bbox_inches='tight', format='pdf')
+plt.savefig("consumer_utility_by_regime_markov.png", bbox_inches='tight', format='png')
 plt.close()
 
 
@@ -274,8 +278,8 @@ for j in range(J):
     ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(1, 1))
     fig.suptitle("Choice Probability by Product and Regime", fontsize=13, y=1.01)
     plt.tight_layout()
-    plt.savefig(f"choice_prob_product_{j+1}_markov.pdf", bbox_inches='tight', format='pdf')
-    plt.close()
+    plt.savefig(f"choice_prob_product_{j+1}_markov.png", bbox_inches='tight', format='png')
+    plt.show()
 
 #=============================================================#
 # Firm Value Function w.r.t. CCP                              #
@@ -349,7 +353,7 @@ fig.legend(handles, labels_leg, fontsize=7, loc='lower center',
            bbox_to_anchor=(0.5, -0.15), ncol=3)
 
 plt.tight_layout()
-plt.savefig("ad_choice_both.pdf", bbox_inches='tight', format='pdf')
+plt.savefig("ad_choice_both.pdf", bbox_inches='tight', format='png')
 plt.close()
 
 def simulate_firm_markov(beta, gamma, kappa, beta_disc, mc, sigma_gamma, T, J, X_bar, sigma_x, rng, p, S=1000):
@@ -415,6 +419,6 @@ fig.legend(handles, labels_leg, fontsize=7, loc='lower center',
            bbox_to_anchor=(0.5, -0.15), ncol=3)
 
 plt.tight_layout()
-plt.savefig("ad_choice_markov_both.pdf", bbox_inches='tight', format='pdf')
+plt.savefig("ad_choice_markov_both.png", bbox_inches='tight', format='png')
 plt.close()
 
