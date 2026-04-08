@@ -1,0 +1,212 @@
+% ============================
+% LaTeX Template - Problem Set
+% ============================
+\documentclass[11pt]{article}
+
+% ---------- Page + layout ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\setstretch{1.1}
+\usepackage{parskip}
+
+% ---------- Math ----------
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage{threeparttable}
+\usepackage[utf8]{inputenc}
+
+% ---------- Tables ----------
+\usepackage{booktabs}
+
+% ---------- Links ----------
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Header / footer ----------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{\course}}
+\chead{\textbf{\pset}}
+\rhead{\textbf{\name}}
+\cfoot{\thepage}
+
+% =========================
+% Metadata (edit if needed)
+% =========================
+\newcommand{\name}{Tate Mason}
+\newcommand{\course}{Econometrics II}
+\newcommand{\pset}{Problem Set 7}
+\newcommand{\duedate}{April 8, 2026}
+
+% =========================
+% Question / solution macros
+% =========================
+\newcounter{q}
+\renewcommand{\theq}{\arabic{q}}
+
+\newcommand{\question}[1]{%
+  \refstepcounter{q}
+  \vspace{0.75em}
+  \noindent{\Large\textbf{Question \theq.} \normalsize\textbf{#1}}%
+  \vspace{0.25em}
+  \par
+}
+
+\newcounter{subq}[q]
+\renewcommand{\thesubq}{\alph{subq}}
+
+\newcommand{\subquestion}[1]{%
+  \refstepcounter{subq}
+  \vspace{0.35em}
+  \noindent\textbf{(\thesubq)} \textbf{#1}\par
+}
+
+\newenvironment{solution}{%
+  \vspace{0.15em}
+  \noindent\textit{Solution. }\ignorespaces
+}{\vspace{0.5em}\par}
+
+% =========================
+% Easy math macros
+% =========================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\plim}{plim}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\newcommand{\P}{\mathbb{P}}
+
+\newcommand{\vct}[1]{\mathbf{#1}}
+\newcommand{\mtx}[1]{\mathbf{#1}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\1}{\mathbf{1}}
+
+% =========================
+% Document
+% =========================
+\begin{document}
+
+% ---------- Title block ----------
+{\Large\textbf{\course} \hfill \textbf{\pset}}\\
+\textbf{Name:} \name \hfill \textbf{Due:} \duedate\\
+\rule{\textwidth}{0.4pt}
+
+\question{Use \texttt{dataHW7\_Problem1.mat} to complete this exercise. The data is identical to
+\texttt{dataHW6\_Problem2.mat} --- meaning the structure of the problem is the same as are the
+underlying parameters. The purpose of this problem is to estimate a simple dynamic discrete choice
+problem using CCPs. The data contain information on the choices ($Y$'s), characteristics that do
+not vary over time ($X_1$'s), and characteristics that do vary over time ($X_{1t}$'s). The context
+of the problem is a dynamic model of labor supply. $Y$ takes values $\{0, 1, 2, 3\}$ reflecting
+retirement, flex-time, part-time, or full-time participation. The first column of $X_1$ allows for
+choice-specific constants, while the second column is an indicator for gender. $X_{1t}$ is a
+time-varying measure of health.
+Both sets of $X$'s are individual-level characteristics, so the coefficients on these variables must
+vary by choice. There is a cost to switching labor supply that is common across all switches. The
+choice in period 0 is given by $LY$. Once an individual retires (chooses option 0) they make no
+further choices: if $Y_{it} = 0$ then $Y_{it+1} = 0$. The columns of $Y$ and $X_{1t}$ indicate
+observations over time, ten periods in all, so that period 10 is a static problem. Individuals are
+uncertain about future health. Given $X_{1t}$ and $Y_t$, the health transition is:
+%
+\begin{equation}
+    X_{1,t+1} = \alpha_0 + \alpha_1 X_{1t} + \alpha_2 \mathbf{1}(Y_t = 2)
+                + \alpha_3 \mathbf{1}(Y_t = 3) + \varepsilon_{t+1}
+\end{equation}
+%
+for $Y_t > 0$, where $\varepsilon_{t+1} \sim \mathcal{N}(0, \sigma)$ is unknown to the individual
+until time $t+1$.}
+
+\subquestion{Estimate the transition parameterts, the $\alpha$'s and $\sigma$.}
+
+\begin{solution}
+  \begin{table}[htbp]
+  \centering
+    \caption{OLS Estimates}
+    \begin{tabular}{lc}
+      \hline
+      & Parameter \\
+      \hline
+      $\alpha_{0}$    & 0.015 \\
+      $\alpha_{1}$ & -0.754 \\
+      $\alpha_{pt}$ & 0.035 \\
+      $\alpha_{ft}$ & -0.257 \\
+      \hline
+      $\sigma$ & 1.003 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{solution}
+
+\clearpage
+
+\subquestion{Estimate the CCP's via a single logit model of retirement based on LY, X1, X1t, and a set of time dummies.}
+
+\begin{solution}
+  \begin{table}[h!]
+    \centering
+    \begin{threeparttable}
+    \caption{Part B: Conditional Choice Probability Logit Estimates}
+      \begin{tabular}{lc}
+        \toprule
+        Variable & Coef. \\
+        \midrule
+        $X_1$ (Constant)                           & $-$3.6991  \\
+        $X_2$ (Gender)                             & $-$0.8556  \\
+        $X_t$ (Health)                             & $-$0.3494  \\
+        $Y_0$ (Initial state)                      &    0.0115  \\
+        $\mathbf{1}(\bar{Y}_{t-1}=2)$ (Part-time) & $-$0.1116\\
+        $\mathbf{1}(\bar{Y}_{t-1}=3)$ (Full-time) & $-$0.0807 \\
+        $t=2$  & $-$0.0443  \\
+        $t=3$  &    0.1227  \\
+        $t=4$  &    0.2846  \\
+        $t=5$  &    0.6496  \\
+        $t=6$  &    1.0620  \\
+        $t=7$  &    1.5239  \\
+        $t=8$  &    2.1992  \\
+        $t=9$  &    3.6510  \\
+        \midrule
+        Observations & \multicolumn{4}{l}{39,413} \\
+        Pseudo $R^2$ & \multicolumn{4}{l}{0.2354} \\
+        \bottomrule
+      \end{tabular}
+    \end{threeparttable}
+  \end{table}
+\end{solution}
+
+\subquestion{Use the CCP estimates and the future value terms calculated in (C) to estimate choice specific parameters, switching costs, and the discount factor via multinomial logit.}
+
+\begin{solution}
+\begin{table}[h!]
+  \centering
+  \begin{threeparttable}
+  \caption{Part D: Dynamic Discrete Choice Estimates (CCP Method)}
+    \begin{tabular}{lcc}
+      \toprule
+      Parameter & Estimate & Truth \\
+      \midrule
+      \multicolumn{4}{l}{\textit{Flex-time ($j=1$)}} \\
+      \quad Constant & $-$0.8940 & $-$0.75 \\
+      \quad Gender   &    0.5936 &    0.25 \\
+      \quad Health   &    0.1695 &    0.25 \\
+      \midrule
+      \multicolumn{4}{l}{\textit{Part-time ($j=2$)}} \\
+      \quad Constant & $-$0.3305 & $-$0.25 \\
+      \quad Gender   &    0.8890 &    0.50 \\
+      \quad Health   &    0.4162 &    0.50 \\
+      \midrule
+      \multicolumn{4}{l}{\textit{Full-time ($j=3$)}} \\
+      \quad Constant & $-$1.0477  & $-$0.85 \\
+      \quad Gender   &    1.1255  &    0.75 \\
+      \quad Health   &    0.6673  &    0.75 \\
+      \midrule
+      Switching cost          & 0.4239 & 0.40 \\
+      Discount factor $\beta$ & 0.7796 & 0.80 \\
+      \bottomrule
+    \end{tabular}
+  \end{threeparttable}
+\end{table}
+\end{solution}
+
+\end{document}
