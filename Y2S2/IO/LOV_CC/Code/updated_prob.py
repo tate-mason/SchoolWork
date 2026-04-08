@@ -11,7 +11,7 @@ from collections import namedtuple
 """
 This file will be used to do initial simulation of the love of variety problem:
     - Consumer Problem: U_ijt = beta_i*X_jt - gamma_i*(Sigma_jt) + a_ijt + epsilon_ijt
-        s.t. gamma ~ N(0, sigma_gamma); Sigma_jt = sum_t^T  X_jt
+        s.t. gamma ~ N(0, sigma_gamma); Sigma_jt = X_jt - 1/t*sum_{k=1}^t x_kt 
     - Firm Problem: V(a_t;Sigma_jt, lambda_t(gamma_i)) = {pi + int_gamma V(a';Sigma_jt+1, lambda_t+1(gamma_i))dlambda_t(gamma_i)}
         s.t. pi = (1+a)p - c
              lambda_t(gamma) ~ N(1/Sigma_jt, sigma_lambda), a = {0,1}
@@ -88,8 +88,6 @@ def simulate_cons(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=
         x_bar = np.mean(prod_space)
         #x_bar[0] = np.mean(prod_space)
 
-        Sigma = np.zeros((T,J)) # empty vector for the sum of characteristics
-
         V = np.zeros((T, J))
         chosen_idx = np.zeros(T, dtype=int)
 
@@ -101,16 +99,14 @@ def simulate_cons(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=
         V[0] = u0
         chosen_idx[0] = np.argmax(u0)
         x_chosen[0] = X_jt[0, chosen_idx[0]]
-        Sigma[0, chosen_idx[0]] = x_chosen[0]
 
         for t in range(1, T):
             u = np.zeros(J)
-            a[t] = 1.0
-            #x_bar[t] = np.mean(x_chosen[:t])
             X_jt[t] = np.array(prod_space)
-            Sigma[t] = Sigma[t-1].copy()
-            Sigma[t, chosen_idx[t-1]] += x_chosen[t-1]
-            u = beta*X_jt[t] - gamma*Sigma[t] + kappa*a[t] + epsilon_ijt[t] # love variety
+            a[t] = 0.0
+            #x_bar[t] = np.mean(x_chosen[:t])
+            Sigma = X_jt[t] - x_bar
+            u = beta*X_jt[t] - gamma*Sigma**2 + kappa*a[t] + epsilon_ijt[t] # love variety
             V[t] = u
             chosen_idx[t] = np.argmax(V[t])
             x_chosen[t] = X_jt[t, chosen_idx[t]] 
@@ -193,7 +189,6 @@ def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, 
         x_bar = np.mean(prod_space)
         #x_bar[0] = np.mean(prod_space)
 
-        Sigma = np.zeros((T,J)) # empty vector for the sum of characteristics
 
         V = np.zeros((T, J))
         chosen_idx = np.zeros(T, dtype=int)
@@ -202,18 +197,17 @@ def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, 
         a = np.zeros(T)
 
         a[0] = 0
-        u0 = beta*X_jt[0] - gamma*0 + a[0] + epsilon_ijt[0]
+        u0 = beta*X_jt[0] - gamma*0 + kappa*a[0] + epsilon_ijt[0]
         V[0] = u0
         x_chosen[0] = X_jt[0, chosen_idx[0]]
-        Sigma[0, chosen_idx[0]] = x_chosen[0]
 
         for t in range(1, T):
-            u = np.zeros(J)
             X_jt[t] = np.array(prod_space)
-            a[t] = kappa*(x_bar - x_chosen[t-1])**2 # Markovian promotion based on distance from mean 
-            Sigma[t] = Sigma[t-1].copy()
-            Sigma[t, chosen_idx[t-1]] += x_chosen[t-1]
-            u = beta*X_jt[t] - gamma*Sigma[t] + a[t] + epsilon_ijt[t] # love sameness
+            u = np.zeros(J)
+            #a[t] = kappa*(x_bar - x_chosen[t-1])**2 # Markovian promotion based on distance from mean 
+            a[t] = 0
+            Sigma = X_jt[t] - x_bar
+            u = beta*X_jt[t] - gamma*Sigma**2 + kappa*a[t] + epsilon_ijt[t] # love sameness
             V[t] = u
             chosen_idx[t] = np.argmax(V[t])
             x_chosen[t] = X_jt[t, chosen_idx[t]] 
