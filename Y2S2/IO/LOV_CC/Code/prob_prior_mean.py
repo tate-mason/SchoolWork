@@ -131,8 +131,8 @@ for j in range(J):
     ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(1, 1))
     fig.suptitle("Choice Probability by Product and Regime", fontsize=13, y=1.01)
     plt.tight_layout()
-    plt.savefig(f"prior_mean_choice_prob_product_{j+1}.png", bbox_inches='tight', format='png')
-    plt.show()
+    plt.savefig(f"prior_mean_choice_prob_product_{j+1}.pdf", bbox_inches='tight', format='pdf')
+    plt.close()
 
 def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, T_prior, J, sigma_x, rng, S):
     x_chosen_S = np.zeros((S, T))
@@ -224,6 +224,9 @@ for j in range(J):
     ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(1, 1))
     fig.suptitle("Choice Probability by Product and Regime", fontsize=13, y=1.01)
     plt.tight_layout()
-    plt.savefig(f"prior_mean_choice_prob_markov_product_{j+1}.png", bbox_inches='tight', format='png')
-    plt.show()
+    plt.savefig(f"prior_mean_choice_prob_markov_product_{j+1}.pdf", bbox_inches='tight', format='pdf')
+    plt.close()
 
+print(np.var(x_chosen, axis=0))
+print(np.var(x_bar, axis=0))
+print(np.var(prob, axis=0))
