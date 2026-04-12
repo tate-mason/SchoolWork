@@ -167,7 +167,7 @@ for j in range(J):
     ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(1, 1))
     fig.suptitle("Choice Probability by Product and Regime", fontsize=13, y=1.01)
     plt.tight_layout()
-    plt.savefig(f"choice_prob_product_{j+1}.png", bbox_inches='tight', format='png')
+    plt.savefig(f"fixed_mean_choice_prob_product_{j+1}.pdf", bbox_inches='tight', format='pdf')
     plt.show()
 
 def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=1000):

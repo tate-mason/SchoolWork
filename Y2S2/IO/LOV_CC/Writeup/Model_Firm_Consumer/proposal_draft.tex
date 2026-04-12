@@ -1,0 +1,250 @@
+\documentclass[11pt]{article}
+
+% ── Packages ────────────────────────────────────────────────
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{float}
+% code packages
+\usepackage{listings}
+\usepackage{inconsolata}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
+\usepackage{csvsimple}
+\usepackage{booktabs}
+
+% ── Hyperref setup ──────────────────────────────────────────
+\hypersetup{
+    colorlinks = true,
+    linkcolor  = black,
+    citecolor  = black,
+    urlcolor   = blue
+}
+
+% ── Theorem environments ────────────────────────────────────
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+% ── Spacing ─────────────────────────────────────────────────
+\onehalfspacing
+
+% ── Title block ─────────────────────────────────────────────
+\title{Love of Variety Model and Simulation}
+\author{Tate Mason}
+\date{\today}
+
+% ============================================================
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+% ── Abstract ────────────────────────────────────────────────
+
+\newpage
+\setcounter{page}{1}
+
+\section{Model}
+
+\subsection{Consumer's Problem}
+The consumer's problem is to maximize utility subject to their choice set. The utility function is as follows:
+
+\begin{equation}
+  U_{ijt} = \beta_i X_{jt} - \gamma_{i}(\Sigma_{ijt})^2 + \kappa a_{jt} - \alpha p_{jt} + \xi_j + \epsilon_{ijt}
+\end{equation}
+
+\begin{gather*}
+  \Sigma_{ijt} = X_{jt}-\bar{X}_{it}
+\end{gather*}
+
+Here, $U_{ijt}$ is the utility of consumer $i$ who chooses product $j$ in period $t$. Utility depends on utility from characteristics associated with product $X_jt$, $\beta_i$,
+love of variety $\gamma_i$, how different your current choice is from the mean $\Sigma_{ijt}$, advertising $a_{jt}$, prices $p_{jt}$, and unobserved quality $\xi_j$.
+Further, a gumbel shock $\varepsilon_{ijt}$ also impacts utility. This is what allows us to construct choice probabilities as follows:
+
+\begin{equation}
+  P_{ijt} = \frac{e^{U_{ijt}}}{1 + \sum_{k} e^{U_{ikt}}}
+\end{equation}
+
+\section{Simulation}
+
+To understand model behavior, I first do Monte Carlo exercises across different environments. This will be replaced by Nielsen scanner data once access is gained.
+
+\subsection{Parameters}
+
+\begin{table}[hbtp]
+  \centering
+  \begin{tabular}{lcl}
+    \toprule
+    Parameter & Value & Description \\
+    \midrule
+    $\beta_i$ & \{1, 2.5, 4\} & Consumer preference for product attributes \\
+    $\gamma_i$ & \{1, 2.5, 4\} & Consumer love of variety \\
+    $\kappa$ & 3 & Advertising cost parameter \\
+    $\alpha_j$ & 0 & Price sensitivity \\
+    $\xi_j$ & 0 & Unobserved quality \\
+    \bottomrule
+  \end{tabular}
+  \caption{Simulation Parameters}
+  \label{tab:model_parameters}
+\end{table}
+
+Parameters were informed by the gumbel distribution for scaling. Prices and unobserved quality are set to 0 for simplicity in early phases of testing. Will be added as 
+I get further into the project.
+
+\subsection{Simulation Procedure}
+
+I have simulated two specifications so far: one in which the mean is fixed as the mean of an ordinal product set and one with a mean informed by "prior preferences" over products from a normal distribution. Below I go into each of these with graphs of choice probabilities in a market with one consumer.
+
+\subsection{Set Mean}
+In the first simulation routine, The product set $J$ is defined as $J = \{1.0, 2.0, 3.0, 4.0, 5.0\}$. Consider this the most simple form available, where $\bar{X}_it = 2.5$, the mean of $J$. Thus, $\Sigma_{ijt} = X_{jt} - 2.5$. Therefore, the only thing changing over time is the new epsilon draw each period. This specification also sets $a_{jt}=0$ to really allow the $\beta_i, \ \gamma_i$ regimes to show their behavior.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=\textwidth]{../../Output/fixed_mean_choice_prob_product_1.png}
+    \caption{Choice Probability of Product 1 by Regime}
+    \label{fig:choice_prob_product_1}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=\textwidth]{../../Output/fixed_mean_choice_prob_product_2.png}
+    \caption{Choice Probability of Product 2 by Regime}
+    \label{fig:choice_prob_product_2}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=\textwidth]{../../Output/fixed_mean_choice_prob_product_3.png}
+    \caption{Choice Probability of Product 3 by Regime}
+    \label{fig:choice_prob_product_3}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../../Output/fixed_mean_choice_prob_product_4.png}
+    \caption{Choice Probability of Product 4 by Regime}
+    \label{fig:choice_prob_product_4}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=\textwidth]{../../Output/fixed_mean_choice_prob_product_5.png}
+    \caption{Choice Probability of Product 5 by Regime (Fixed Advertising $a=0.2$)}
+    \label{fig:choice_prob_product_5}
+\end{figure}
+
+In this setup, choice probabilities are practically flat, as is expected. I will pick out a few lines. In product 3, the ($\beta=1, \ \gamma=4)$ regime has the the highest probability of choosing this product. This is to be expected, as they want to minimize the $\gamma$ term by getting as close to the mean as possible. For product 4, the ($\beta=4, \ \gamma=2.5)$ has the highest probability. This is because their utility gain outweighs the penalty enough to choose a higher utility product, though not enough to choose the highest utility product. Product 5, is chosen most by the $(\beta=4, \ \gamma=1)$ regime for similar reasons as descibed above. The low penalty allows them to "indulge" in a higher utility product.
+
+\subsection{Prior Mean}
+
+In this routine, I implemented an idea Josh had in a meeting: the consumer has priors over what they like. So, to implement a version of this, I sim five periods before my main simulation of 100 periods to create a mean over $X$'s as they enter the model. Further, I simulated it with $J \sim N(0,1)$ with 5 products. I did this because in the case from the above section, regimes went to $X = \{4,5\}$. I wanted to do this to test how I have things specified. Below are choice probabilities for the set advertising case ($\a=2.0$) and the evolving advertising case $(\bar{X}_it - X_{jt-1})$. 
+
+\clearpage
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../../Code/prior_mean_choice_prob_product_1.png}
+    \caption{Choice Probability of Product 1 by Regime (Fixed Advertising $a=2$)}
+    \label{fig:choice_prob_product_1}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../../Output/choice_prob_product_1_markov.pdf}
+    \caption{Choice Probability of Product 1 by Regime (Difference from Mean)}
+    \label{fig:choice_prob_product_1_markov}
+  \end{subfigure}
+  \caption{Choice Probability of Product 1 across Regimes}
+  \label{fig:choice_prob_product_1_all}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../../Code/prior_mean_choice_prob_product_2.png}
+    \caption{Choice Probability of Product 2 by Regime (Fixed Advertising $a=2$)}
+    \label{fig:choice_prob_product_2}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../../Code/prior_mean_choice_prob_markov_product_2.png}
+    \caption{Choice Probability of Product 2 by Regime (Difference from Mean)}
+    \label{fig:choice_prob_product_2_markov}
+  \end{subfigure}
+  \caption{Choice Probability of Product 2 across Regimes}
+  \label{fig:choice_prob_product_2_all}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../../Code/prior_mean_choice_prob_product_3.png}
+    \caption{Choice Probability of Product 3 by Regime (Fixed Advertising $a=2$)}
+    \label{fig:choice_prob_product_3}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../../Code/prior_mean_choice_prob_markov_product_3.png}
+    \caption{Choice Probability of Product 3 by Regime (Difference from Mean)}
+    \label{fig:choice_prob_product_3_markov}
+  \end{subfigure}
+  \caption{Choice Probability of Product 3 across Regimes}
+  \label{fig:choice_prob_product_3_all}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../../Code/prior_mean_choice_prob_product_4.png}
+    \caption{Choice Probability of Product 4 by Regime (Fixed Advertising $a=2$)}
+    \label{fig:choice_prob_product_4}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../../Code/prior_mean_choice_prob_markov_product_4.png}
+    \caption{Choice Probability of Product 4 by Regime (Difference from Mean)}
+    \label{fig:choice_prob_product_4_markov}
+  \end{subfigure}
+  \caption{Choice Probability of Product 4 across Regimes}
+  \label{fig:choice_prob_product_4_all}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../../Code/prior_mean_choice_prob_product_5.png}
+    \caption{Choice Probability of Product 5 by Regime (Fixed Advertising $a=2$)}
+    \label{fig:choice_prob_product_5}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../../Code/prior_mean_choice_prob_markov_product_5.png}
+    \caption{Choice Probability of Product 5 Regime (Difference from Mean)}
+    \label{fig:choice_prob_product_5_markov}
+  \end{subfigure}
+  \caption{Choice Probability of Product 5 across Regimes}
+  \label{fig:choice_prob_product_5_all}
+\end{figure}
+
+In this specification, we see similar patterns. If a regime is high $\beta$ and low $\gamma$, they choose the highest value product, like product 4. In fixed ads, regimes in the middle, like $(\beta=1, \ \gamma=2.5)$, will spread choices across 1, 2, 3, 5. This is the behavior I am most interested in: sampling products if things get too "samey". In the specification where ads are based on difference from the mean, product 1 is basically taken out of the model, indicating there needs to be work on this front.
+
+\section{Next Steps}
+
+Next, I would like to go to 5 consumers, and see how things change. I also want to see how pulling from $\gamma\sim N(0, \sigma_{\gamma})$ affects things. Of course, I also need to start really thinking about the firm side and the consumer's value function. I am also working on beginning my literature review, which has inspired some interesting ideas.
+
+\end{document}
