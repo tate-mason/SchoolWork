@@ -86,7 +86,7 @@ def simulate_cons(beta, gamma, kappa, sigma_gamma, T, T_prior, J, sigma_x, rng, 
             X_jt[t] = np.array(prod_space)
             a[t] = 2.0
             x_bar[t] = np.mean(x_chosen[:t])
-            Sigma = X_jt[t] - x_bar[t]
+            Sigma = 1/(X_jt[t] - x_bar[t])
             u = beta*X_jt[t] - gamma*Sigma**2 + kappa*a[t] + epsilon_ijt[t] # love variety
             V[t] = u
             chosen_idx[t] = np.argmax(V[t])
@@ -179,7 +179,7 @@ def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, T_prior, J, sigma_x
             X_jt[t] = np.array(prod_space)
             a[t] = (x_bar[t] - x_chosen[t-1])**2
             x_bar[t] = np.mean(x_chosen[:t])
-            Sigma = X_jt[t] - x_bar[t]
+            Sigma = 1/(X_jt[t] - x_bar[t])
             u = beta*X_jt[t] - gamma*Sigma**2 + kappa*a[t] + epsilon_ijt[t] # love variety
             V[t] = u
             chosen_idx[t] = np.argmax(V[t])

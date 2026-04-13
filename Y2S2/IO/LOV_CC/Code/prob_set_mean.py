@@ -105,7 +105,7 @@ def simulate_cons(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=
             X_jt[t] = np.array(prod_space)
             a[t] = 0.0
             #x_bar[t] = np.mean(x_chosen[:t])
-            Sigma = X_jt[t] - x_bar
+            Sigma = 1/(X_jt[t] - x_bar)
             u = beta*X_jt[t] - gamma*Sigma**2 + kappa*a[t] + epsilon_ijt[t] # love variety
             V[t] = u
             chosen_idx[t] = np.argmax(V[t])
@@ -206,7 +206,7 @@ def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, 
             u = np.zeros(J)
             #a[t] = kappa*(x_bar - x_chosen[t-1])**2 # Markovian promotion based on distance from mean 
             a[t] = 0
-            Sigma = X_jt[t] - x_bar
+            Sigma = 1/(X_jt[t] - x_bar)
             u = beta*X_jt[t] - gamma*Sigma**2 + kappa*a[t] + epsilon_ijt[t] # love sameness
             V[t] = u
             chosen_idx[t] = np.argmax(V[t])
