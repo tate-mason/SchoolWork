@@ -20,15 +20,15 @@ T_prior = 5 # prior time
 
 # preferences settings
 regimes = [
+    (1, 0.5, "β=1, γ=0.5", '-'),
     (1, 1, "β=1, γ=1", '-'),
-    (2.5, 2.5, "β=2.5, γ=2.5", '--'),
-    (4, 4, "β=4, γ=4", ':'),
-    (1, 4, "β=1, γ=4", '-'),
-    (1, 2.5, "β=1, γ=2.5", '--'),
-    (2.5, 1, "β=2.5, γ=1", ':'),
-    (2.5, 4, "β=2.5, γ=4", '-'),
-    (4, 1, "β=4, γ=1", '--'),
-    (4, 2.5, "β=4, γ=2.5", ':')
+    (1, 1.5, "β=1, γ=1.5", '-.'),
+    (2.5, 0.5, "β=2.5, γ=0.5", '--'),
+    (2.5, 1, "β=2.5, γ=1", '--'),
+    (2.5, 1.5, "β=2.5, γ=1.5", '--'),
+    (4, 0.5, "β=4, γ=0.5", ':'),
+    (4, 1, "β=4, γ=1", ':'),
+    (4, 1.5, "β=4, γ=1.5", ':'),
 ]
 
 prod_space = np.abs(rng.standard_normal(size=5))
@@ -57,6 +57,7 @@ def simulate_cons(beta, gamma, kappa, sigma_gamma, T, T_prior, J, sigma_x, rng, 
         X_prior = np.array(prod_space)
         x_bar_prior = np.mean(prod_space)
 
+        # initial state
         for t in range(T_prior):
             var = gamma*(X_prior - x_bar_prior)**2
             eps_prior = rng.gumbel(0, 1, size=J)
@@ -86,8 +87,8 @@ def simulate_cons(beta, gamma, kappa, sigma_gamma, T, T_prior, J, sigma_x, rng, 
             X_jt[t] = np.array(prod_space)
             a[t] = 2.0
             x_bar[t] = np.mean(x_chosen[:t])
-            Sigma = 1/(X_jt[t] - x_bar[t])
-            u = beta*X_jt[t] - gamma*Sigma**2 + kappa*a[t] + epsilon_ijt[t] # love variety
+            Sigma = X_jt[t] - x_bar[t]
+            u = beta*X_jt[t] + gamma*Sigma**2 + kappa*a[t] + epsilon_ijt[t] # love variety
             V[t] = u
             chosen_idx[t] = np.argmax(V[t])
             x_chosen[t] = X_jt[t, chosen_idx[t]] 
@@ -179,8 +180,8 @@ def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, T_prior, J, sigma_x
             X_jt[t] = np.array(prod_space)
             a[t] = (x_bar[t] - x_chosen[t-1])**2
             x_bar[t] = np.mean(x_chosen[:t])
-            Sigma = 1/(X_jt[t] - x_bar[t])
-            u = beta*X_jt[t] - gamma*Sigma**2 + kappa*a[t] + epsilon_ijt[t] # love variety
+            Sigma = X_jt[t] - x_bar[t]
+            u = beta*X_jt[t] + gamma*Sigma**2 + kappa*a[t] + epsilon_ijt[t] # love variety
             V[t] = u
             chosen_idx[t] = np.argmax(V[t])
             x_chosen[t] = X_jt[t, chosen_idx[t]] 
