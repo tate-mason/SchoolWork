@@ -119,7 +119,7 @@
   \begin{enumerate}
     \item \hl{Model:} Derive a discrete-choice demand system where the
           utility of a product depends on both deviation from the consumer's
-          experienced mean $\bar{X}_{it}$ and product quality $X_{jt}$
+          experienced characteristic mean $\bar{X}_{it}$ and product quality $X_{jt}$
     \vspace{4pt}
     \item \hl{Simulation:} Characterize consumer and firm behavior
           across preference regimes $(\beta_i, \gamma_i)$ and advertising
@@ -128,11 +128,37 @@
     \item \hl{Estimation (coming):} Bring model to Nielsen scanner data
           to recover structural parameters
     \vspace{4pt}
-    \item \hl{Counterfactuals (coming):} Study targeting policy and
+    \item \hl{Counterfactuals (coming):} Study advertising targeting policy and
           welfare implications
   \end{enumerate}
   \vspace{6pt}
   \textbf{Today's talk:} Model + simulation results
+\end{frame}
+
+\begin{frame}{Literature Connections}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \hl{Demand side}
+      \begin{itemize}
+        \item McFadden (1974): MNL foundation
+        \item Berry, Levinsohn, Pakes (1995): RC logit
+        \item Erdem \& Keane (1996): Learning dynamics
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \hl{Advertising / firm side}
+      \begin{itemize}
+        \item Nerlove \& Arrow (1962): Goodwill
+        \item Ackerberg (2001): Informative ads
+        \item Goldfarb \& Tucker (2011): Targeted digital ads
+      \end{itemize}
+    \end{column}
+  \end{columns}
+
+  \vspace{5pt}
+  \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Contribution}]
+    I develop a dynamic demand model which parameterizes variety-seeking and use it to study how consumers with different preferences for variety respond to both product entry and dynamic advertising strategies.
+  \end{tcolorbox}
 \end{frame}
 
 % ============================================================
@@ -149,7 +175,7 @@
               + \xi_j + \varepsilon_{ijt}
   \end{equation*}
   where $\Sigma_{ijt} = X_{jt} - \bar{X}_{it}$ and
-  $\bar{X}_{it} = \frac{1}{t}\sum_{k=1}^{t} X_{ikt}$
+  $\bar{X}_{it} = \frac{1}{t}\sum_{t=1}^{T} X_{ikt}$
 
   \vspace{8pt}
   \begin{columns}[T]
@@ -174,7 +200,7 @@
 \begin{frame}{State Variable: Experienced Mean}
   \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Experienced Mean $\bar{X}_{it}$}]
     \[
-      \bar{X}_{it} = \frac{1}{t} \sum_{k=1}^{t} x_{ikt}
+      \bar{X}_{it} = \frac{1}{t} \sum_{t=1}^{T} x_{ikt}
     \]
     Updates each period as the consumer makes a new choice.
     This is the key state variable linking past behavior to current utility.
@@ -194,31 +220,31 @@
   \textit{Prior mean yields more heterogeneous behavior --- more on this shortly.}
 \end{frame}
 
-\begin{frame}{Firm's Problem}
-  \hl{Firm $j$ solves a dynamic program:}
-  \[
-    V_j(t; \Sigma_{jt}, \lambda_t(\gamma_i)) = \max_{a \in \{0,1\}}
-    \left\{ \pi_{jt}(a) + \beta_{df} \, \E\bigl[V_j(t{+}1;\cdot)\bigr] \right\}
-  \]
-
-  \vspace{4pt}
-  \hl{Per-period profit:}
-  \[
-    \pi_{jt}(a) = s_{jt}(p - mc) - \mu \, a
-  \]
-
-  \vspace{4pt}
-  \hl{Two advertising specifications:}
-  \begin{itemize}
-    \item \textbf{Fixed:} $a \in \{0, 1\}$ (binary on/off)
-    \item \textbf{Heuristic} $a_t \propto (\bar{X}_{it} - X_{jt-1})^2$
-          --- higher spending when product is far from consumer's mean
-          --- work in progress: not ideal measure of drift
-  \end{itemize}
-
-  \vspace{4pt}
-  Solved via backward induction; firm chooses $a$ to maximize discounted profits (to be completed)
-\end{frame}
+%\begin{frame}{Firm's Problem}
+%  \hl{Firm $j$ solves a dynamic program:}
+%  \[
+%    V_j(t; \Sigma_{jt}, \lambda_t(\gamma_i)) = \max_{a \in \{0,1\}}
+%    \left\{ \pi_{jt}(a) + \beta_{df} \, \E\bigl[V_j(t{+}1;\cdot)\bigr] \right\}
+%  \]
+%
+%  \vspace{4pt}
+%  \hl{Per-period profit:}
+%  \[
+%    \pi_{jt}(a) = s_{jt}(p - mc) - \mu \, a
+%  \]
+%
+%  \vspace{4pt}
+%  \hl{Two advertising specifications:}
+%  \begin{itemize}
+%    \item \textbf{Fixed:} $a \in \{0, 1\}$ (binary on/off)
+%    \item \textbf{Heuristic} $a_t \propto (\bar{X}_{it} - X_{jt-1})^2$
+%          --- higher spending when product is far from consumer's mean
+%          --- work in progress: not ideal measure of drift
+%  \end{itemize}
+%
+%  \vspace{4pt}
+%  Solved via backward induction; firm chooses $a$ to maximize discounted profits (to be completed)
+%\end{frame}
 
 % ============================================================
 \section{Simulation Design}
@@ -294,7 +320,7 @@
   \hl{Product 3:}
   \begin{itemize}
     \item Chosen by the regime who is neither quality-sensitive nor variety-seeking (low $\beta_i$, low $\gamma_i$) who are content to stick to the mean.
-    \item Small uptake by medium qualtiy-sensitive consumers (medium $\beta_i$, low $\gamma_i$), attempt to learn about quality but not variety-seeking enough to try other products.
+    \item Small uptake by medium quality-sensitive consumers (medium $\beta_i$, low $\gamma_i$), attempt to learn about quality but not variety-seeking enough to try other products.
   \end{itemize}
   \hl{Product 5:}
   \begin{itemize}
@@ -349,7 +375,7 @@
 \begin{frame}{Road to Estimation}
   \begin{enumerate}
     \item \hl{Multiple consumers} \\
-          Extend simulation to $I = 5$ heterogeneous consumers;
+          Extend simulation to $I = 5$ consumers who have heterogeneous $(\beta_i, \gamma_i)$;
           aggregate to market shares
 
     \vspace{4pt}
@@ -373,35 +399,6 @@
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{Literature Connections}
-  \begin{columns}[T]
-    \begin{column}{0.48\textwidth}
-      \hl{Demand side}
-      \begin{itemize}
-        \item McFadden (1974): MNL foundation
-        \item Berry, Levinsohn, Pakes (1995): RC logit
-        \item Erdem \& Keane (1996): Learning dynamics
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.48\textwidth}
-      \hl{Advertising / firm side}
-      \begin{itemize}
-        \item Nerlove \& Arrow (1962): Goodwill
-        \item Ackerberg (2001): Informative ads
-        \item Goldfarb \& Tucker (2011): Targeted digital ads
-      \end{itemize}
-    \end{column}
-  \end{columns}
-
-  \vspace{5pt}
-  \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Contribution}]
-    I connect the love-of-variety demand literature to the dynamic
-    targeting literature by making $(X_{jt}-\bar{X}_{it})$ the sufficient
-    statistic for both consumer switching and firm ad decisions,
-    as well as by introducing a novel way to generate consumer heterogeneity
-    in this framework via the love-of-variety.
-  \end{tcolorbox}
-\end{frame}
 
 \begin{frame}{Summary}
   \begin{enumerate}

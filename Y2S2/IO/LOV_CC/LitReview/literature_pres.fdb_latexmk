@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1776177398.79986 "literature_pres.tex" "literature_pres.pdf" "literature_pres" 1776177400.66124 0
+["pdflatex"] 1776202687.94384 "literature_pres.tex" "literature_pres.pdf" "literature_pres" 1776202689.80195 0
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -217,11 +217,11 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1773939083 5541377 04880c840ca220163a28f1a3af0ee662 ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1772409757 3636768 9f94d239f422c02416e379a36a852ffd ""
   "/usr/local/texlive/2026/texmf.cnf" 1772409725 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "literature_pres.aux" 1776177400.58504 5166 ca1162fe78cd22758de5bc0001074f8e "pdflatex"
-  "literature_pres.nav" 1776177400.58614 3367 2620026489a7c150b042987c84781fbc "pdflatex"
-  "literature_pres.out" 1776177400.58591 746 9ca6160a27a00926d75f7ff3d784ed0e "pdflatex"
-  "literature_pres.tex" 1776177398.26081 22286 17a1d83b7a3b645ab106d86235f751f3 ""
-  "literature_pres.toc" 1776177400.5881 286 4a58558b0db9183f49449f6ce97c4530 "pdflatex"
+  "literature_pres.aux" 1776202689.7228 5034 b6d2def1000659fe2893aca7fd02da6d "pdflatex"
+  "literature_pres.nav" 1776202689.72383 3272 6f163a1696377cefa37c271ae7cfda5e "pdflatex"
+  "literature_pres.out" 1776202689.72361 746 9ca6160a27a00926d75f7ff3d784ed0e "pdflatex"
+  "literature_pres.tex" 1776202683.2788 21257 98eefb25716e0acd4cab3ee10fd3c50d ""
+  "literature_pres.toc" 1776202689.72385 285 f9ad514ed412726b198c340551cc3007 "pdflatex"
   (generated)
   "literature_pres.aux"
   "literature_pres.log"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  14 APR 2026 15:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  14 APR 2026 15:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -80,11 +80,11 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-<../fixed_mean_choice_prob_product_1.pdf, id=1, 570.14127pt x 294.765pt>
+<../fixed_mean_choice_prob_product_1.pdf, id=1, 570.11058pt x 294.765pt>
 File: ../fixed_mean_choice_prob_product_1.pdf Graphic file (type pdf)
 <use ../fixed_mean_choice_prob_product_1.pdf>
 Package pdftex.def Info: ../fixed_mean_choice_prob_product_1.pdf  used on input line 9.
-(pdftex.def)             Requested size: 345.0pt x 178.3671pt.
+(pdftex.def)             Requested size: 345.0pt x 178.38058pt.
 <../../Code/prior_mean_choice_prob_product_1.pdf, id=2, 570.11058pt x 294.765pt>
 File: ../../Code/prior_mean_choice_prob_product_1.pdf Graphic file (type pdf)
 <use ../../Code/prior_mean_choice_prob_product_1.pdf>
@@ -110,26 +110,26 @@ File: ../../Code/prior_mean_choice_prob_product_3.pdf Graphic file (type pdf)
 <use ../../Code/prior_mean_choice_prob_product_3.pdf>
 Package pdftex.def Info: ../../Code/prior_mean_choice_prob_product_3.pdf  used on input line 15.
 (pdftex.def)             Requested size: 345.0pt x 178.3671pt.
-<../fixed_mean_choice_prob_product_4.pdf, id=7, 570.1865pt x 294.765pt>
+<../fixed_mean_choice_prob_product_4.pdf, id=7, 570.14127pt x 294.765pt>
 File: ../fixed_mean_choice_prob_product_4.pdf Graphic file (type pdf)
 <use ../fixed_mean_choice_prob_product_4.pdf>
 Package pdftex.def Info: ../fixed_mean_choice_prob_product_4.pdf  used on input line 16.
-(pdftex.def)             Requested size: 345.0pt x 178.35811pt.
+(pdftex.def)             Requested size: 345.0pt x 178.3671pt.
 <../../Code/prior_mean_choice_prob_product_4.pdf, id=8, 570.1865pt x 294.765pt>
 File: ../../Code/prior_mean_choice_prob_product_4.pdf Graphic file (type pdf)
 <use ../../Code/prior_mean_choice_prob_product_4.pdf>
 Package pdftex.def Info: ../../Code/prior_mean_choice_prob_product_4.pdf  used on input line 17.
 (pdftex.def)             Requested size: 345.0pt x 178.35811pt.
-<../fixed_mean_choice_prob_product_5.pdf, id=9, 570.11058pt x 294.765pt>
+<../fixed_mean_choice_prob_product_5.pdf, id=9, 570.14127pt x 294.765pt>
 File: ../fixed_mean_choice_prob_product_5.pdf Graphic file (type pdf)
 <use ../fixed_mean_choice_prob_product_5.pdf>
 Package pdftex.def Info: ../fixed_mean_choice_prob_product_5.pdf  used on input line 18.
-(pdftex.def)             Requested size: 345.0pt x 178.38058pt.
-<../../Code/prior_mean_choice_prob_product_5.pdf, id=10, 570.11058pt x 294.765pt>
+(pdftex.def)             Requested size: 345.0pt x 178.3671pt.
+<../../Code/prior_mean_choice_prob_product_5.pdf, id=10, 570.14127pt x 294.765pt>
 File: ../../Code/prior_mean_choice_prob_product_5.pdf Graphic file (type pdf)
 <use ../../Code/prior_mean_choice_prob_product_5.pdf>
 Package pdftex.def Info: ../../Code/prior_mean_choice_prob_product_5.pdf  used on input line 19.
-(pdftex.def)             Requested size: 345.0pt x 178.38058pt.
+(pdftex.def)             Requested size: 345.0pt x 178.3671pt.
  [1
 
 {/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <../fixed_mean_choice_prob_product_1.pdf> <../../Code/prior_mean_choice_prob_product_1.pdf>] [2 <../fixed_mean_choice_prob_product_2.pdf> <../../Code/prior_mean_choice_prob_product_2.pdf> <../fixed_mean_choice_prob_product_3.pdf>] [3 <../../Code/prior_mean_choice_prob_product_3.pdf> <../fixed_mean_choice_prob_product_4.pdf> <../../Code/prior_mean_choice_prob_product_4.pdf>] [4 <../fixed_mean_choice_prob_product_5.pdf> <../../Code/prior_mean_choice_prob_product_5.pdf>] (./comp.aux)
@@ -147,9 +147,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,5n,65p,197b,203s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on comp.pdf (4 pages, 152839 bytes).
+Output written on comp.pdf (4 pages, 152940 bytes).
 PDF statistics:
- 456 PDF objects out of 1000 (max. 8388607)
+ 457 PDF objects out of 1000 (max. 8388607)
  63 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)

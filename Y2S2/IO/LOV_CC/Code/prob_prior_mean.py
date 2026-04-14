@@ -20,15 +20,15 @@ T_prior = 5 # prior time
 
 # preferences settings
 regimes = [
-    (.3, .3, "β=0.1, γ=0.55", '-'),
-    (.35, .35,   "β=0.2, γ=0.7", '-'),
-    (.4, .4, "β=0.3, γ=0.85", '-.'),
-    (.3, .3, "β=0.1, γ=0.55", '--'),
-    (.35, .35,   "β=0.2, γ=0.7", '--'),
-    (.4, .4, "β=0.3, γ=0.85", '--'),
-    (.3, .3, "β=0.1, γ=0.55", ':'),
-    (.35, .35,   "β=0.2, γ=0.7", ':'),
-    (.4, .4, "β=0.3, γ=0.85", ':'),
+    (.4, .4, "β=0.1, γ=0.55", '-'),
+    (.45, .45,   "β=0.2, γ=0.7", '-'),
+    (.5, .5, "β=0.3, γ=0.85", '-.'),
+    (.4, .4, "β=0.1, γ=0.55", '--'),
+    (.45, .45,   "β=0.2, γ=0.7", '--'),
+    (.5, .5, "β=0.3, γ=0.85", '--'),
+    (.4, .4, "β=0.1, γ=0.55", ':'),
+    (.45, .45,   "β=0.2, γ=0.7", ':'),
+    (.5, .5, "β=0.3, γ=0.85", ':'),
 ]
 
 prod_space = np.array([1, 2, 3, 4, 5]) # product characteristics
@@ -56,7 +56,7 @@ def simulate_cons(beta, gamma, kappa, sigma_gamma, T, T_prior, J, sigma_x, rng, 
 
         prior_choices = np.zeros(T_prior)
         X_prior = np.array(prod_space)
-        x_bar_prior = 2.5
+        x_bar_prior = 0
 
         # initial state
         for t in range(T_prior):
@@ -78,13 +78,17 @@ def simulate_cons(beta, gamma, kappa, sigma_gamma, T, T_prior, J, sigma_x, rng, 
         a = np.zeros(T)
         x_bar[0] = x_bar_prior # informed by choices before model 
         a[0] = 0.0
-        u0 = beta*X_jt[0] + a[0] + epsilon_ijt[0]
+        u0 = beta*X_jt[0] + gamma*(X_jt[0] - x_bar[0])**2 + a[0] + epsilon_ijt[0]
         V[0] = u0
         chosen_idx[0] = np.argmax(u0)
         x_chosen[0] = X_jt[0, chosen_idx[0]]
 
         for t in range(1, T):
             u = np.zeros(J)
+            if t == 1:
+                V[t-1] = u0
+                chosen_idx[t-1] = np.argmax(u0)
+                x_chosen[t-1] = X_jt[t-1, chosen_idx[t-1]]
             X_jt[t] = np.array(prod_space)
             a[t] = 0
             x_bar[t] = np.mean(x_chosen[:t])
