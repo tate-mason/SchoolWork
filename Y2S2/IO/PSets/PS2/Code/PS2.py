@@ -52,12 +52,12 @@ from PS2a import *
 print("=== Part A ===")
 
 lhs_wm = XMat['walmart']
-rhs_wm = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'log_dist_benton', 'south']]
+rhs_wm = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'log_dist_benton', 'n_small_stores', 'south']]
 
 print(sm.Probit(lhs_wm, sm.add_constant(rhs_wm)).fit().summary())
 
 lhs_km = XMat['kmart']
-rhs_km = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'south']]
+rhs_km = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'n_small_stores', 'south']]
 
 print(sm.Probit(lhs_km, sm.add_constant(rhs_km)).fit().summary())
 
@@ -66,12 +66,12 @@ print(sm.Probit(lhs_km, sm.add_constant(rhs_km)).fit().summary())
 print("=== Part B ===")
 
 lhs_wm_comp = XMat['walmart']
-rhs_wm_comp = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'log_dist_benton', 'south', 'kmart']]
+rhs_wm_comp = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'log_dist_benton', 'n_small_stores', 'south', 'kmart']]
 
 print(sm.Probit(lhs_wm_comp, sm.add_constant(rhs_wm_comp)).fit().summary())
 
 lhs_km_comp = XMat['kmart']
-rhs_km_comp = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'south', 'walmart']]
+rhs_km_comp = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'n_small_stores', 'south', 'walmart']]
 
 print(sm.Probit(lhs_km_comp, sm.add_constant(rhs_km_comp)).fit().summary())
 
@@ -82,7 +82,7 @@ print(sm.Probit(lhs_km_comp, sm.add_constant(rhs_km_comp)).fit().summary())
 print("=== Part C ===")
 
 lhs_km_iv = XMat['kmart']
-rhs_km_iv = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'south', 'walmart']]
+rhs_km_iv = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'n_small_stores', 'south', 'walmart']]
 instrument_km_iv = 'log_dist_benton'
 
 # First stage regression
@@ -91,13 +91,13 @@ XMat['predicted_walmart'] = first_stage_km_iv.predict(sm.add_constant(XMat[instr
 
 # Second stage regression
 
-rhs_km_iv2 = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'south', 'predicted_walmart']]
+rhs_km_iv2 = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'south', 'n_small_stores', 'predicted_walmart']]
 model_km_iv = sm.Probit(lhs_km_iv, sm.add_constant(rhs_km_iv2))
 results_km_iv = model_km_iv.fit()
 print(results_km_iv.summary())
 
 lhs_wm_iv = XMat['walmart']
-rhs_wm_iv = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'log_dist_benton', 'south', 'kmart']]
+rhs_wm_iv = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'n_small_stores', 'log_dist_benton', 'south', 'kmart']]
 instrument_wm_iv = 'n_small_stores'
 
 # First stage regression
@@ -105,7 +105,7 @@ first_stage_wm_iv = sm.OLS(XMat['kmart'], sm.add_constant(XMat[instrument_wm_iv]
 XMat['predicted_kmart'] = first_stage_wm_iv.predict(sm.add_constant(XMat[instrument_wm_iv]))
 
 # Second stage regression
-rhs_wm_iv2 = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'log_dist_benton', 'south', 'predicted_kmart']]
+rhs_wm_iv2 = XMat[['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'n_small_stores', 'log_dist_benton', 'south', 'predicted_kmart']]
 model_wm_iv = sm.Probit(lhs_wm_iv, sm.add_constant(rhs_wm_iv2))
 results_wm_iv = model_wm_iv.fit()
 print(results_wm_iv.summary())  
@@ -124,7 +124,7 @@ print(results_wm_iv.summary())
 
 # Spec 1: LHS = number of large players, RHS = market controls
 
-controls = ['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'log_dist_benton', 'south']
+controls = ['log_pop', 'log_retail_sales_pc', 'pct_urban', 'midwest', 'log_dist_benton', 'n_small_stores', 'south']
 
 XMat['n_large'] = XMat['kmart'].astype(int) + XMat['walmart'].astype(int)
 

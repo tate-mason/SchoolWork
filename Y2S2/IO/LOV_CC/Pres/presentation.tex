@@ -1,540 +1,461 @@
-\documentclass[aspectratio=169, 10pt]{beamer}
+% ============================================================
+% UGA-Themed Beamer Presentation
+% Love of Variety, Habit Formation, and Dynamic Advertising
+%
+% Compile with:
+%   pdflatex presentation.tex
+% ============================================================
 
-%--- Theme ---------------------------------------------------------------------
-\usetheme{Madrid}
-\usecolortheme{default}
+\documentclass[aspectratio=169,professionalfonts]{beamer}
 
-%--- Custom color palette ------------------------------------------------------
-\definecolor{navyblue}{RGB}{0, 51, 102}
-\definecolor{steelblue}{RGB}{70, 130, 180}
-\definecolor{lightgray}{RGB}{240, 240, 245}
-
-\setbeamercolor{palette primary}{bg=navyblue, fg=white}
-\setbeamercolor{palette secondary}{bg=steelblue, fg=white}
-\setbeamercolor{palette tertiary}{bg=navyblue!80, fg=white}
-\setbeamercolor{palette quaternary}{bg=navyblue, fg=white}
-\setbeamercolor{structure}{fg=navyblue}
-\setbeamercolor{frametitle}{bg=navyblue, fg=white}
-\setbeamercolor{title}{bg=navyblue, fg=white}
-\setbeamercolor{block title}{bg=steelblue, fg=white}
-\setbeamercolor{block body}{bg=lightgray}
-\setbeamercolor{block title alerted}{bg=red!70!black, fg=white}
-\setbeamercolor{block body alerted}{bg=red!5}
-
-%--- Fonts and spacing ---------------------------------------------------------
-\usepackage{amsmath, amssymb}
-\usepackage{booktabs}
-\usepackage{natbib}
-\usepackage{graphicx}
+% ---------- COLORS ----------
 \usepackage{xcolor}
-\usepackage{tikz}
-\usepackage{appendixnumberbeamer}  % restarts frame counter at appendix
+\definecolor{UGARed}{HTML}{BA0C2F}
+\definecolor{UGABlack}{HTML}{000000}
+\definecolor{UGAGray}{HTML}{8A8D8F}
 
-\setbeamerfont{title}{size=\large, series=\bfseries}
-\setbeamerfont{frametitle}{size=\normalsize, series=\bfseries}
-\setbeamerfont{footline}{size=\tiny}
+% ---------- THEME ----------
+\usetheme{default}
+\useinnertheme{circles}
+\useoutertheme[subsection=false]{miniframes}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
 
-%--- Navigation ---------------------------------------------------------------
-\setbeamertemplate{navigation symbols}{}   % hide default nav icons
-\setbeamertemplate{itemize items}[circle]
-\setbeamertemplate{enumerate items}[default]
+% Head/foot colors
+\setbeamercolor{subsection in head/foot}{fg=white, bg=UGARed}
+\setbeamercolor{headline}{fg=white, bg=UGARed}
+\setbeamercolor{section in head/foot}{fg=white, bg=UGARed}
+\setbeamercolor{section in head/foot shaded}{fg=white, bg=white}
+\setbeamercolor{footline}{bg=UGABlack, fg=white}
+\setbeamercolor{frametitle}{fg=UGABlack}
+\setbeamercolor{title}{fg=UGABlack}
+\setbeamercolor{normal text}{fg=UGABlack}
+\setbeamercolor{structure}{fg=UGARed}
 
-%--- Footer -------------------------------------------------------------------
+% Headline
+\setbeamertemplate{headline}{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{headline}
+    \insertsectionnavigationhorizontal{\paperwidth}{}{}
+  \end{beamercolorbox}
+}
+
+% Footline
 \setbeamertemplate{footline}{%
   \leavevmode%
   \hbox{%
-    \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.25ex,dp=1ex,center]{palette primary}%
-      \usebeamerfont{footline}\insertshortauthor
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.34\paperwidth,ht=2.25ex,dp=1ex,center]{palette secondary}%
-      \usebeamerfont{footline}\insertshorttitle
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.25ex,dp=1ex,right]{palette primary}%
-      \usebeamerfont{footline}\insertframenumber{} / \inserttotalframenumber\hspace{2mm}
-    \end{beamercolorbox}%
-  }%
-  \vskip0pt%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex,leftskip=1em,rightskip=1em]{footline}%
+      \ifnum\theframenumber=0\relax\else%
+        \insertshortauthor{} \hfill \insertframenumber/\inserttotalframenumber%
+      \fi%
+    \end{beamercolorbox}}%
 }
 
-%--- Handy commands -----------------------------------------------------------
-\newcommand{\E}{\mathbb{E}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\xbar}{\bar{X}}
-\newcommand{\Sig}{\Sigma}
+% ---------- PACKAGES ----------
+\usepackage{appendixnumberbeamer}
+\usepackage{amsmath, amssymb, mathtools}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
 
-%--- Title information --------------------------------------------------------
+% ---------- METADATA ----------
 \title[Love of Variety \& Dynamic Advertising]{%
     Love of Variety, Habit Formation, \\
-    and Dynamic Advertising
-}
+    and Dynamic Advertising}
 \subtitle{A Structural Demand Model with Prior-Informed Preferences}
 \author[T. Mason]{Tate Mason}
-\institute[UGA]{Department of Economics \\ University of Georgia}
+\institute[UGA]{John Munro Godfrey Sr.\ Dept.\ of Economics \\ University of Georgia}
 \date{\today}
 
-%===============================================================================
+% ---------- AUTO-AGENDA ----------
+\AtBeginSection[]{
+  \begin{frame}[noframenumbering]{Roadmap}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% ---------- MACROS ----------
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\hl}[1]{\textbf{\textcolor{UGARed}{#1}}}
+\hypersetup{colorlinks=true, linkcolor=UGARed, urlcolor=UGARed}
+
+% ============================================================
 \begin{document}
-%===============================================================================
 
-%--- Title slide ---------------------------------------------------------------
-\begin{frame}[plain]
-    \titlepage
+% ------------------------------------------------------------
+% Title
+% ------------------------------------------------------------
+\begin{frame}[noframenumbering]
+  \titlepage
 \end{frame}
 
-%--- Outline ------------------------------------------------------------------
-\begin{frame}{Roadmap}
-    \tableofcontents
-\end{frame}
-
-%===============================================================================
-\section{Motivation}  % ~3 min
-%===============================================================================
+% ============================================================
+\section{Motivation}
+% ============================================================
 
 \begin{frame}{Why Does Variety Matter?}
-    \begin{columns}[T]
-        \begin{column}{0.55\textwidth}
-            \textbf{Empirical facts:}
-            \begin{itemize}
-                \item Consumers switch brands even when quality is unchanged
-                \item Yet brand preferences are highly persistent
-                  \citep{bronnenberg2012brand}
-                \item Advertising breaks inertia \citep{shum2004does}
-            \end{itemize}
-            \vspace{6pt}
-            \textbf{These facts are hard to reconcile simultaneously} \\[4pt]
-            $\Rightarrow$ Need a model that nests both variety-seeking
-            and habit formation
-        \end{column}
-        \begin{column}{0.42\textwidth}
-            \begin{block}{Research Question}
-                How do consumer variety preferences shape the incentive
-                to target advertising, and what does this imply for
-                equilibrium market structure?
-            \end{block}
-        \end{column}
-    \end{columns}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \begin{itemize}
+        \item Canonical logit models ignore consumer preferences for variety, which are
+              empirically important (e.g., McFadden 1974; Berry, Levinsohn,
+              Pakes 1995)
+        \item Variety-seeking and habit formation are two sides of the same coin:
+              consumers either prefer to try new things or stick to what they know
+        \item These preferences shape consumer switching behavior, which in turn
+              shapes firms' incentives to target advertising and build market share
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Research Question}]
+        How much do consumer tastes for variety and habit influence consumption dynamics and firms' advertising strategies in a dynamic market?
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{What This Paper Does}
-    \begin{enumerate}
-        \item \textbf{Model:} Derive a discrete-choice demand system where the
-              disutility of a product depends on deviation from the consumer's
-              experienced mean $\bar{X}_{it}$
-        \vspace{4pt}
-        \item \textbf{Simulation:} Characterize consumer and firm behavior
-              across preference regimes $(\beta_i, \gamma_i)$ and advertising
-              specifications
-        \vspace{4pt}
-        \item \textbf{Estimation (coming):} Bring model to Nielsen scanner data
-              to recover structural parameters
-        \vspace{4pt}
-        \item \textbf{Counterfactuals (coming):} Study targeting policy and
-              welfare implications
-    \end{enumerate}
-    \vspace{6pt}
-    \textbf{Today's talk:} Model + simulation results
+  \begin{enumerate}
+    \item \hl{Model:} Derive a discrete-choice demand system where the
+          utility of a product depends on both deviation from the consumer's
+          experienced mean $\bar{X}_{it}$ and product quality $X_{jt}$
+    \vspace{4pt}
+    \item \hl{Simulation:} Characterize consumer and firm behavior
+          across preference regimes $(\beta_i, \gamma_i)$ and advertising
+          specifications
+    \vspace{4pt}
+    \item \hl{Estimation (coming):} Bring model to Nielsen scanner data
+          to recover structural parameters
+    \vspace{4pt}
+    \item \hl{Counterfactuals (coming):} Study targeting policy and
+          welfare implications
+  \end{enumerate}
+  \vspace{6pt}
+  \textbf{Today's talk:} Model + simulation results
 \end{frame}
 
-%===============================================================================
-\section{Model}  % ~5 min
-%===============================================================================
+% ============================================================
+\section{Model}
+% ============================================================
 
 \begin{frame}{Consumer's Problem}
-    Consumer $i$ chooses product $j$ in period $t$ to maximize:
-    \begin{equation*}
-        U_{ijt} = \underbrace{\beta_i X_{jt}}_{\text{quality gain}}
-                  - \underbrace{\gamma_i \Sigma_{ijt}^2}_{\text{variety penalty}}
-                  + \underbrace{\kappa \, a_{jt}}_{\text{advertising}}
-                  - \underbrace{\alpha \, p_{jt}}_{\text{price}}
-                  + \xi_j + \varepsilon_{ijt}
-    \end{equation*}
-    where $\Sigma_{ijt} = X_{jt} - \bar{X}_{it}$ and
-    $\bar{X}_{it} = \frac{1}{t}\sum_{k=1}^{t} x_{ikt}$
+  Consumer $i$ chooses product $j$ in period $t$ to maximize:
+  \begin{equation*}
+    U_{ijt} = \underbrace{\beta_i X_{jt}}_{\text{quality gain}}
+              + \underbrace{\gamma_i \Sigma_{ijt}^2}_{\text{variety component}}
+              + \underbrace{\kappa \, a_{jt}}_{\text{advertising}}
+              - \underbrace{\alpha \, p_{jt}}_{\text{price}}
+              + \xi_j + \varepsilon_{ijt}
+  \end{equation*}
+  where $\Sigma_{ijt} = X_{jt} - \bar{X}_{it}$ and
+  $\bar{X}_{it} = \frac{1}{t}\sum_{k=1}^{t} X_{ikt}$
 
-    \vspace{8pt}
-    \begin{columns}[T]
-        \begin{column}{0.48\textwidth}
-            \textbf{Key parameters:}
-            \begin{itemize}
-                \item $\beta_i > 0$: marginal utility of quality
-                \item $\gamma_i > 0$: variety-seeking
-                \item $\gamma_i < 0$: habit persistence
-                \item $\kappa > 0$: advertising shifter
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.48\textwidth}
-            \textbf{Choice probability (MNL):}
-            \begin{equation*}
-                P_{ijt} = \frac{e^{U_{ijt}}}{1 + \sum_{k} e^{U_{ikt}}}
-            \end{equation*}
-            Follows from $\varepsilon_{ijt} \sim \text{Gumbel}(0,1)$
-            \citep{mcfadden1974conditional}
-        \end{column}
-    \end{columns}
+  \vspace{8pt}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \hl{Key parameters:}
+      \begin{itemize}
+        \item $\beta_i > 0$: marginal utility of quality
+        \item $\gamma_i > 0$: variety-seeking
+        \item $\kappa > 0$: advertising shifter
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \hl{Choice probability (MNL):}
+      \begin{equation*}
+        P_{ijt} = \frac{e^{U_{ijt}}}{1 + \sum_{k} e^{U_{ikt}}}
+      \end{equation*}
+      Follows from $\varepsilon_{ijt} \sim \text{Gumbel}(0,1)$
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{State Variable: Experienced Mean}
-    \begin{block}{Experienced Mean $\bar{X}_{it}$}
-        \[
-            \bar{X}_{it} = \frac{1}{t} \sum_{k=1}^{t} x_{ikt}
-        \]
-        Updates each period as the consumer makes a new choice.
-        This is the key state variable linking past behavior to current utility.
-    \end{block}
+  \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Experienced Mean $\bar{X}_{it}$}]
+    \[
+      \bar{X}_{it} = \frac{1}{t} \sum_{k=1}^{t} x_{ikt}
+    \]
+    Updates each period as the consumer makes a new choice.
+    This is the key state variable linking past behavior to current utility.
+  \end{tcolorbox}
 
-    \vspace{6pt}
-    \textbf{Two initialization strategies (both simulated today):}
-    \begin{enumerate}
-        \item \textbf{Set mean:} $\bar{X}_{i0} = \bar{J}$, the mean of the
-              product set. Simple benchmark.
-        \item \textbf{Prior mean:} Simulate $T_{\text{prior}} = 5$ pre-sample
-              periods from $J \sim |N(0,1)|$ to generate an experience-based
-              prior. Inspired by \citet{bronnenberg2012brand}.
-    \end{enumerate}
+  \vspace{6pt}
+  \hl{Two initialization strategies (both simulated today):}
+  \begin{enumerate}
+    \item \textbf{Set mean:} $\bar{X}_{i0} = \bar{J}$, the mean of the
+          product set. Simple benchmark.
+    \item \textbf{Initial state:} Simulate $T_{\text{prior}} = 5$ pre-sample
+          periods from $J \in [1,2,3,4,5]$ to generate an experience-based
+          prior. Similar to Bronnenberg, Dub\'e, Joo (2021).
+  \end{enumerate}
 
-    \vspace{6pt}
-    \textit{Prior mean yields more heterogeneous behavior — more on this shortly.}
+  \vspace{1pt}
+  \textit{Prior mean yields more heterogeneous behavior --- more on this shortly.}
 \end{frame}
 
 \begin{frame}{Firm's Problem}
-    \textbf{Firm $j$ solves a dynamic program:}
-    \[
-        V_j(t; \Sigma_{jt}, \lambda_t(\gamma_i)) = \max_{a \in \{0,1\}}
-        \left\{ \pi_{jt}(a) + \delta \, \E\bigl[V_j(t{+}1;\cdot)\bigr] \right\}
-    \]
+  \hl{Firm $j$ solves a dynamic program:}
+  \[
+    V_j(t; \Sigma_{jt}, \lambda_t(\gamma_i)) = \max_{a \in \{0,1\}}
+    \left\{ \pi_{jt}(a) + \beta_{df} \, \E\bigl[V_j(t{+}1;\cdot)\bigr] \right\}
+  \]
 
-    \vspace{4pt}
-    \textbf{Per-period profit:}
-    \[
-        \pi_{jt}(a) = s_{jt}(p - c) - \kappa \, a^2
-    \]
+  \vspace{4pt}
+  \hl{Per-period profit:}
+  \[
+    \pi_{jt}(a) = s_{jt}(p - mc) - \mu \, a
+  \]
 
-    \vspace{4pt}
-    \textbf{Two advertising specifications:}
-    \begin{itemize}
-        \item \textbf{Fixed:} $a \in \{0, 1\}$ (binary on/off)
-        \item \textbf{Markovian:} $a_t \propto (\bar{X}_{it} - x_{jt-1})^2$
-              — higher spending when product is far from consumer's mean
-    \end{itemize}
+  \vspace{4pt}
+  \hl{Two advertising specifications:}
+  \begin{itemize}
+    \item \textbf{Fixed:} $a \in \{0, 1\}$ (binary on/off)
+    \item \textbf{Heuristic} $a_t \propto (\bar{X}_{it} - X_{jt-1})^2$
+          --- higher spending when product is far from consumer's mean
+          --- work in progress: not ideal measure of drift
+  \end{itemize}
 
-    \vspace{4pt}
-    Solved by backward induction over $T = 100$ periods.
+  \vspace{4pt}
+  Solved via backward induction; firm chooses $a$ to maximize discounted profits (to be completed)
 \end{frame}
 
-%===============================================================================
-\section{Simulation Design}  % ~3 min
-%===============================================================================
+% ============================================================
+\section{Simulation Design}
+% ============================================================
 
 \begin{frame}{Simulation Parameters}
-    \begin{columns}[T]
-        \begin{column}{0.5\textwidth}
-            \begin{table}
-                \centering
-                \caption{Parameters}
-                \begin{tabular}{lll}
-                    \toprule
-                    Param. & Value & Description \\
-                    \midrule
-                    $T$         & 100             & Periods \\
-                    $J$         & 5               & Products \\
-                    $S$         & 1{,}000         & Simulations \\
-                    $\kappa$    & 3               & Advertising \\
-                    $\alpha$    & 0               & Price (off) \\
-                    $\xi_j$     & 0               & Quality (off) \\
-                    $\delta$    & 0.9             & Discount factor \\
-                    \bottomrule
-                \end{tabular}
-            \end{table}
-        \end{column}
-        \begin{column}{0.47\textwidth}
-            \textbf{Preference regimes} $(\beta_i, \gamma_i)$:
-            \vspace{4pt}
-            \begin{itemize}\small
-                \item $(1, 1)$, $(2.5, 2.5)$, $(4, 4)$
-                \item $(1, 4)$, $(1, 2.5)$
-                \item $(4, 1)$, $(4, 2.5)$
-                \item $(2.5, 1)$, $(2.5, 4)$
-            \end{itemize}
-            \vspace{8pt}
-            \textit{9 regimes $\times$ 2 mean specs $\times$ 2 ad specs = 36 cells}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-%===============================================================================
-\section{Results: Consumer Behavior}  % ~6 min
-%===============================================================================
-
-\begin{frame}{Set Mean: Flat Choice Probabilities}
-    \begin{columns}[T]
-        \begin{column}{0.55\textwidth}
-            \includegraphics[width=\linewidth]{figures/fixed_mean_choice_prob_product_3.pdf}
-            % Replace with your actual figure path
-        \end{column}
-        \begin{column}{0.42\textwidth}
-            \textbf{Key findings (set mean):}
-            \begin{itemize}
-                \item Probabilities are essentially flat: $\bar{X}_{it}$ is constant,
-                      so the only period-to-period variation is $\varepsilon_{ijt}$
-                \item $(\beta=1, \gamma=4)$: highest prob.\ for product 3 (closest
-                      to mean)
-                \item $(\beta=4, \gamma=1)$: gravitates to highest $X_j$
-            \end{itemize}
-            \vspace{4pt}
-            \textit{Useful benchmark but behavioral dynamics absent.}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Prior Mean: Behavioral Dynamics Emerge}
-    \begin{columns}[T]
-        \begin{column}{0.55\textwidth}
-            \includegraphics[width=\linewidth]{figures/prior_mean_choice_prob_product_1.pdf}
-            % Replace with your actual figure path
-        \end{column}
-        \begin{column}{0.42\textwidth}
-            \textbf{Key findings (prior mean):}
-            \begin{itemize}
-                \item $(\beta=1, \gamma=2.5)$ flips across products ---
-                      variety-seeking dominates
-                \item $(\beta=4, \gamma=1)$ locks onto highest $X_j$ quickly
-                \item $(\beta=4, \gamma=2.5)$ converges to product 4 after
-                      $\sim$30 periods: penalty relevant early, dominated later
-            \end{itemize}
-            \vspace{4pt}
-            \textbf{Takeaway:} A dynamic $\bar{X}_{it}$ is essential for
-            realistic variety-seeking behavior.
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Regime Comparison: Probability Ordering}
-    \begin{center}
-        \small
-        \renewcommand{\arraystretch}{1.3}
-        \begin{tabular}{lcc}
-            \toprule
-            \textbf{Regime} & \textbf{Set Mean} & \textbf{Prior Mean} \\
-            \midrule
-            $(\beta=1, \gamma=4)$   & Concentrates at $X=3$ & Spreads across $X < 3$ \\
-            $(\beta=4, \gamma=1)$   & Concentrates at $X=5$ & Locks onto highest product \\
-            $(\beta=4, \gamma=2.5)$ & Moderate spread        & Converges after $\sim$30 $t$ \\
-            $(\beta=1, \gamma=2.5)$ & Moderate spread        & Cycles among low-$X$ products \\
-            \bottomrule
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \begin{table}
+        \centering
+        \caption{Parameters}
+        \begin{tabular}{lll}
+          \toprule
+          Param. & Value & Description \\
+          \midrule
+          $T$         & 100             & Periods \\
+          $J$         & 5               & Products \\
+          $S$         & 1{,}000         & Simulations \\
+          $\kappa$    & 0               & Advertising (off) \\
+          $\alpha$    & 0               & Price (off) \\
+          $\xi_j$     & 0               & Quality (off) \\
+          $\beta_{df}$    & 0             & Discount factor (off) \\
+          \bottomrule
         \end{tabular}
-    \end{center}
-
-    \vspace{8pt}
-    \begin{alertblock}{Key Insight}
-        The prior mean specification generates the heterogeneous, dynamic
-        sorting across products that we observe in scanner data, while the
-        set mean is too static to be taken to data.
-    \end{alertblock}
+      \end{table}
+    \end{column}
+    \begin{column}{0.47\textwidth}
+      \hl{Preference for Characteristic $j$:}
+      \begin{itemize}
+      \item $\beta_i \in \{1, 2.5, 4\}$ --- low, medium, high quality sensitivity
+      \end{itemize}
+      \vspace{4pt}
+      \hl{Preference for Variety:}
+      \begin{itemize}
+      \item $\gamma_i \in \{0.5, 1, 1.5\}$ --- low, medium, high variety-seeking
+      \end{itemize}
+      \vspace{8pt}
+      \textit{9 regimes $\times$ 2 mean specs $\times$ 2 ad specs = 36 cells}
+    \end{column}
+  \end{columns}
 \end{frame}
 
-%===============================================================================
-\section{Results: Firm Behavior}  % ~4 min
-%===============================================================================
+% ============================================================
+\section{Results: Consumer Behavior}
+% ============================================================
 
-\begin{frame}{Firm Advertising Incentives}
-    \begin{columns}[T]
-        \begin{column}{0.55\textwidth}
-            \includegraphics[width=\linewidth]{figures/ad_choice_both.pdf}
-            % Replace with your actual figure path
-        \end{column}
-        \begin{column}{0.42\textwidth}
-            \textbf{Left panel:} Smoothed $\Pr(\text{advertise})$ over time \\[4pt]
-            \textbf{Right panel:} $V(\text{ad}) - V(\text{no ad})$ over time
-
-            \vspace{8pt}
-            \begin{itemize}
-                \item Ad incentive is high early (market building) and
-                      declines as consumer's mean converges
-                \item Markovian spec: incentive spikes whenever consumer
-                      drifts far from firm's product
-                \item High $\beta$ regimes: firm benefits more from advertising
-                      (consumers are quality-sensitive)
-            \end{itemize}
-        \end{column}
-    \end{columns}
+\begin{frame}{Set Mean Specification}
+  \begin{figure}
+    \centering
+    \begin{subfigure}
+      \centering
+      \includegraphics[width=.48\linewidth]{../Output/fixed_mean_choice_prob_product_1.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}
+      \centering
+      \includegraphics[width=.48\linewidth]{../Output/fixed_mean_choice_prob_product_5.pdf}
+    \end{subfigure}
+    \vspace{4pt}
+    \begin{subfigure}
+      \centering
+      \includegraphics[width=.48\linewidth]{../Output/fixed_mean_choice_prob_product_3.pdf}
+    \end{subfigure}
+  \end{figure}
 \end{frame}
 
-\begin{frame}{Markovian vs.\ Fixed Advertising}
-    \begin{block}{Fixed Advertising ($a \in \{0,1\}$)}
-        Firm chooses a constant binary action each period.
-        Ad incentive $\approx$ constant once consumer probs stabilize.
-    \end{block}
-
-    \vspace{6pt}
-    \begin{block}{Markovian Advertising ($a \propto (\bar{X}_{it} - x_{jt-1})^2$)}
-        Firm advertises more intensively when the consumer's last choice
-        is far from their product. More responsive to consumer state.
-    \end{block}
-
-    \vspace{6pt}
-    \textbf{Implication for estimation:} The Markovian spec generates
-    time-varying ad intensity that can be matched to observed promotional
-    data in Nielsen, while the fixed spec cannot.
+\begin{frame}{Prior Mean Specification}
+  \hl{Product 1:}
+  \begin{itemize}
+    \item Chosen by variety-seeking consumers ($\gamma_i$ high) who are drawn to the extreme initial state, 
+    \item avoided by quality-sensitive consumers ($\beta_i$ high) who learn that it is low quality.
+  \end{itemize}
+  \hl{Product 3:}
+  \begin{itemize}
+    \item Chosen by the regime who is neither quality-sensitive nor variety-seeking (low $\beta_i$, low $\gamma_i$) who are content to stick to the mean.
+    \item Small uptake by medium qualtiy-sensitive consumers (medium $\beta_i$, low $\gamma_i$), attempt to learn about quality but not variety-seeking enough to try other products.
+  \end{itemize}
+  \hl{Product 5:}
+  \begin{itemize}
+    \item Chosen by quality-sensitive consumers ($\beta_i$ high) who are drawn to the extreme initial state and learn that it is high quality.
+    \item Avoided by variety seeking consumers ($\gamma_i$ high) and those who are neither ($\beta_i$ low, $\gamma_i$ low) who are content to stick to the mean.
+    \item Highest probability of choice overall, consistent with idea of utility maximization
+  \end{itemize}
 \end{frame}
 
-%===============================================================================
-\section{Next Steps}  % ~3 min
-%===============================================================================
+\begin{frame}{Initial State Specification}
+  \begin{figure}
+    \centering
+    \begin{subfigure}
+      \centering
+      \includegraphics[width=.48\linewidth]{../Code/prior_mean_choice_prob_product_1.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}
+      \centering
+      \includegraphics[width=.48\linewidth]{../Code/prior_mean_choice_prob_product_5.pdf}
+    \end{subfigure}
+    \vspace{4pt}
+    \begin{subfigure}
+      \centering
+      \includegraphics[width=.48\linewidth]{../Code/prior_mean_choice_prob_product_3.pdf}
+    \end{subfigure}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Initial State Specification}
+  \hl{Product 1:}
+  \begin{itemize}
+    \item Chosen by variety-seeking consumers ($\gamma_i$ high)
+    \item Avoided by quality-sensitive consumers ($\beta_i$ high), conditional on low variety-seeking
+  \end{itemize}
+  \hl{Product 3:}
+  \begin{itemize}
+    \item Chosen by the regime who is neither quality-sensitive nor variety-seeking (low $\beta_i$, low $\gamma_i$)
+    \item Still avoided by most consumer types
+  \end{itemize}
+  \hl{Product 5:}
+  \begin{itemize}
+    \item Almost identical to set mean spec
+    \item Utility maximizing consumers always prefer the highest quality product, only impact probability of choice each period
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+\section{Next Steps}
+% ============================================================
 
 \begin{frame}{Road to Estimation}
-    \begin{enumerate}
-        \item \textbf{Multiple consumers} \\
-              Extend simulation to $I = 5$ heterogeneous consumers;
-              aggregate to market shares
+  \begin{enumerate}
+    \item \hl{Multiple consumers} \\
+          Extend simulation to $I = 5$ heterogeneous consumers;
+          aggregate to market shares
 
-        \vspace{4pt}
-        \item \textbf{Heterogeneous $\gamma_i$} \\
-              Draw $\gamma_i \sim N(0, \sigma_\gamma)$; simulate over
-              $\sigma_\gamma \in \{0.5, 1.0, 1.5\}$
+    \vspace{4pt}
+    \item \hl{Heterogeneous $\gamma_i$} \\
+          Draw $\gamma_i \sim N(0, \sigma_\gamma)$; simulate over
+          $\sigma_\gamma \in \{0.5, 1.0, 1.5\}$
 
-        \vspace{4pt}
-        \item \textbf{Consumer value function} \\
-              Move from reduced-form simulation to solving the full
-              dynamic discrete choice with continuation values
+    \vspace{4pt}
+    \item \hl{Consumer value function} \\
+          Move from reduced-form simulation to solving the full
+          dynamic discrete choice with continuation values
 
-        \vspace{4pt}
-        \item \textbf{Nielsen scanner data} \\
-              Match simulated moments to data;
-              identify $(\beta_i, \gamma_i)$ using BLP instruments
-              \citep{berry1995automobile, conlon2020best}
+    \vspace{4pt}
+    \item \hl{Nielsen scanner data} \\
+          Match simulated moments to data;
+          identify $(\beta_i, \gamma_i)$ using BLP instruments
 
-        \vspace{4pt}
-        \item \textbf{Counterfactuals} \\
-              Ad targeting policy; consumer welfare under variety vs.\ habit
-    \end{enumerate}
+    \vspace{4pt}
+    \item \hl{Firm's Problem} \\
+          Ad targeting policy; profit maximization; counterfactuals
+  \end{enumerate}
 \end{frame}
 
 \begin{frame}{Literature Connections}
-    \begin{columns}[T]
-        \begin{column}{0.48\textwidth}
-            \textbf{Demand side}
-            \begin{itemize}
-                \item \citet{mcfadden1974conditional}: MNL foundation
-                \item \citet{berry1995automobile}: RC logit
-                \item \citet{dube2010state}: State dependence
-                \item \citet{erdem1996brand}: Learning dynamics
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.48\textwidth}
-            \textbf{Advertising / firm side}
-            \begin{itemize}
-                \item \citet{nerlove1962advertising}: Goodwill
-                \item \citet{ackerberg2001empirically}: Informative ads
-                \item \citet{goldfarb2011online}: Targeted digital ads
-                \item \citet{doraszelski2010computable}: Dynamic ad game
-            \end{itemize}
-        \end{column}
-    \end{columns}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \hl{Demand side}
+      \begin{itemize}
+        \item McFadden (1974): MNL foundation
+        \item Berry, Levinsohn, Pakes (1995): RC logit
+        \item Erdem \& Keane (1996): Learning dynamics
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \hl{Advertising / firm side}
+      \begin{itemize}
+        \item Nerlove \& Arrow (1962): Goodwill
+        \item Ackerberg (2001): Informative ads
+        \item Goldfarb \& Tucker (2011): Targeted digital ads
+      \end{itemize}
+    \end{column}
+  \end{columns}
 
-    \vspace{10pt}
-    \begin{block}{Contribution}
-        We connect the love-of-variety demand literature to the dynamic
-        targeting literature by making $\bar{X}_{it}$ the sufficient
-        statistic for both consumer switching and firm ad decisions.
-    \end{block}
+  \vspace{5pt}
+  \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Contribution}]
+    I connect the love-of-variety demand literature to the dynamic
+    targeting literature by making $(X_{jt}-\bar{X}_{it})$ the sufficient
+    statistic for both consumer switching and firm ad decisions,
+    as well as by introducing a novel way to generate consumer heterogeneity
+    in this framework via the love-of-variety.
+  \end{tcolorbox}
 \end{frame}
 
-%--- Conclusion ---------------------------------------------------------------
 \begin{frame}{Summary}
-    \begin{enumerate}
-        \item \textbf{Model:} Consumer utility depends on deviation from
-              experienced mean; nests variety-seeking and habit formation
+  \begin{enumerate}
+    \item \hl{Model:} Consumer utility depends on deviation from
+          experienced mean; nests variety-seeking and habit formation
 
-        \vspace{4pt}
-        \item \textbf{Set mean:} Flat choice probabilities --- good benchmark,
-              insufficient for data
+    \vspace{4pt}
+    \item \hl{Set mean:} Flat choice probabilities --- good benchmark,
+          insufficient for data
 
-        \vspace{4pt}
-        \item \textbf{Prior mean:} Rich behavioral dynamics; regime differences
-              generate cross-sectional sorting consistent with scanner data
+    \vspace{4pt}
+    \item \hl{Prior mean:} Rich behavioral dynamics; regime differences
+          generate cross-sectional sorting consistent with scanner data
 
-        \vspace{4pt}
-        \item \textbf{Firm:} Markovian advertising incentive rises when
-              consumer drifts; generates time-varying promotional intensity
+    \vspace{4pt}
+    \item \hl{Firm:} Markovian advertising incentive rises when
+          consumer drifts; generates time-varying promotional intensity
 
-        \vspace{4pt}
-        \item \textbf{Next:} Multiple consumers, structural estimation,
-              Nielsen data
-    \end{enumerate}
+    \vspace{4pt}
+    \item \hl{Next:} Multiple consumers, structural estimation,
+          Nielsen data
+  \end{enumerate}
 
-    \vspace{10pt}
-    \centering
-    \Large\textbf{Thank you --- questions welcome}
+  \vspace{10pt}
+  \centering
+  \Large\textbf{Thank you --- questions welcome}
 \end{frame}
 
-%===============================================================================
+% ============================================================
 % Appendix
-%===============================================================================
+% ============================================================
 \appendix
-\begin{frame}[plain]
-    \centering
-    \vspace{2cm}
-    {\Large \textbf{Appendix}}
+\begin{frame}[plain, noframenumbering]
+  \centering
+  \vspace{2cm}
+  {\Large \textbf{Appendix}}
 \end{frame}
 
 \begin{frame}{Simulation Algorithm (Consumer)}
-    \begin{enumerate}
-        \item Draw $\varepsilon_{ijt} \sim \text{Gumbel}(0,1)$ for all $i, j, t$
-        \item Initialize $\bar{X}_{i0}$ (set mean or prior mean)
-        \item For $t = 1, \ldots, T$:
-            \begin{enumerate}
-                \item Compute $U_{ijt} = \beta_i X_{jt}
-                      - \gamma_i (X_{jt} - \bar{X}_{it})^2
-                      + \kappa a_{jt} + \varepsilon_{ijt}$
-                \item Set $j^* = \arg\max_j U_{ijt}$
-                \item Update $\bar{X}_{it+1} = \frac{1}{t}\sum_{k \le t} x_{ijk^*}$
-            \end{enumerate}
-        \item Compute CCPs via log-sum-exp for numerical stability:
-              $\log P_{ijt} = U_{ijt} - \log \sum_k e^{U_{ikt}}$
-        \item Average over $S = 1{,}000$ simulation draws
-    \end{enumerate}
-\end{frame}
-
-\begin{frame}{Firm Backward Induction}
-    Terminal condition: $V_j(T+1) = 0$
-
-    \vspace{6pt}
-    For $t = T, T-1, \ldots, 1$:
-    \[
-        V_j(t) = \max_{a \in \{0,1\}}
-        \Bigl[ s_{jt}(p - c) - \kappa a^2 + \delta \, V_j(t+1) \Bigr]
-    \]
-
-    Optimal policy: advertise if $V(\text{ad}) \ge V(\text{no ad})$:
-    \[
-        a_j^*(t) = \mathbf{1}\bigl[s_{jt}(p-c) - \kappa > s_{jt}(p-c) \bigr]
-                 = \mathbf{1}[\kappa > 0]
-    \]
-
-    \textit{With the fixed binary spec the firm always advertises when $\kappa > 0$;
-    the Markovian spec breaks this degeneracy by making cost state-dependent.}
-\end{frame}
-
-%--- References ---------------------------------------------------------------
-\begin{frame}[allowframebreaks]{References}
-    \bibliographystyle{aer}
-    \bibliography{references}
-
-    % Minimal inline fallback if .bib unavailable:
-    \begin{thebibliography}{99}\small
-        \bibitem{ackerberg2001empirically} Ackerberg (2001). RAND J.\ Econ., 32, 316.
-        \bibitem{berry1995automobile} Berry, Levinsohn, Pakes (1995). Econometrica, 63, 841.
-        \bibitem{bronnenberg2012brand} Bronnenberg, Dubé, Gentzkow (2012). AER, 102, 2472.
-        \bibitem{conlon2020best} Conlon \& Gortmaker (2020). RAND J.\ Econ., 51, 1108.
-        \bibitem{doraszelski2010computable} Doraszelski \& Markovich (2010). RAND J.\ Econ., 38, 557.
-        \bibitem{dube2010state} Dubé, Hitsch, Rossi (2010). RAND J.\ Econ., 41, 417.
-        \bibitem{erdem1996brand} Erdem \& Keane (1996). Marketing Sci., 15, 1.
-        \bibitem{goldfarb2011online} Goldfarb \& Tucker (2011). Marketing Sci., 30, 389.
-        \bibitem{mcfadden1974conditional} McFadden (1974). In \textit{Frontiers in Econometrics}.
-        \bibitem{nerlove1962advertising} Nerlove \& Arrow (1962). Economica, 29, 129.
-        \bibitem{nevo2001measuring} Nevo (2001). Econometrica, 69, 307.
-        \bibitem{shum2004does} Shum (2004). J.\ Econ.\ Mgmt.\ Strategy, 13, 241.
-    \end{thebibliography}
+  \begin{enumerate}
+    \item Draw $\varepsilon_{ijt} \sim \text{Gumbel}(0,1)$ for all $i, j, t$
+    \item Initialize $\bar{X}_{i0}$ (set mean or prior mean)
+    \item For $t = 1, \ldots, T$:
+      \begin{enumerate}
+        \item Compute $U_{ijt} = \beta_i X_{jt}
+              - \gamma_i (X_{jt} - \bar{X}_{it})^2
+              + \kappa a_{jt} + \varepsilon_{ijt}$
+        \item Set $j^* = \arg\max_j U_{ijt}$
+        \item Update $\bar{X}_{it+1} = \frac{1}{t}\sum_{k \le t} x_{ijk^*}$
+      \end{enumerate}
+    \item Compute CCPs via log-sum-exp for numerical stability:
+          $\log P_{ijt} = U_{ijt} - \log \sum_k e^{U_{ikt}}$
+    \item Average over $S = 1{,}000$ simulation draws
+  \end{enumerate}
 \end{frame}
 
 \end{document}
