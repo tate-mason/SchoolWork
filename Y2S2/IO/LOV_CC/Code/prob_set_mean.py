@@ -49,18 +49,17 @@ sigma_gamma = [0.5, 1.0, 1.5]
 kappa = 3
 
 regimes = [
-    (.4, .4, "β=0.1, γ=0.55", '-'),
-    (.45, .45,   "β=0.2, γ=0.7", '-'),
-    (.5, .5, "β=0.3, γ=0.85", '-.'),
-    (.4, .4, "β=0.1, γ=0.55", '--'),
-    (.45, .45,   "β=0.2, γ=0.7", '--'),
-    (.5, .5, "β=0.3, γ=0.85", '--'),
-    (.4, .4, "β=0.1, γ=0.55", ':'),
-    (.45, .45,   "β=0.2, γ=0.7", ':'),
-    (.5, .5, "β=0.3, γ=0.85", ':'),
+    (1.30, 0.50, "β=1.3, γ=0.5", '-'),
+    (1.30, 1.30,   "β=1.3, γ=1.3", '-'),
+    (2.00, 1.30, "β=2.0, γ=1.3", '-.'),
+    (2.00, 2.00, "β=2.0, γ=2.0", '--'),
+    (3.00, 2.50, "β=3.0, γ=2.5", '--'),
+    (1.30, 1.00, "β=1.3, γ=1.0", '-.'),
+    (3.30, 2.30 , "β=3.3, γ=2.3", '-.'),
 ]
 
-prod_space = [1.0, 2.0, 3.0, 4.0, 5.0]
+# 15 products evenly spaced between 1 and 5
+prod_space = np.linspace(1, 5, 5)
 J = len(prod_space)
 S = 1000
 sigma_x = rng.uniform(0.5, 1.5)
@@ -110,7 +109,7 @@ def simulate_cons(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=
             a[t] = 0.0
             x_bar[t] = np.mean(x_chosen[:t])
             Sigma = X_jt[t] - x_bar[t]
-            u = beta*X_jt[t] + gamma*Sigma**2 + kappa*a[t] + epsilon_ijt[t] # love variety
+            u = beta*X_jt[t] + gamma*np.log(1 + Sigma**2) + kappa*a[t] + epsilon_ijt[t] # love variety
             V[t] = u
             chosen_idx[t] = np.argmax(V[t])
             x_chosen[t] = X_jt[t, chosen_idx[t]] 
@@ -134,45 +133,70 @@ def simulate_cons(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=
             prob_all.mean(axis=0),             # shape (T,J)
             U_all.mean(axis=0),              # shape (T,)
             ll_all.mean())               # scalar
+snr_by_regime = {}
 
+for (beta, gamma, label, ls) in regimes:
+    snr_draws = np.zeros(S)
+    for s in range(S):
+        epsilon_ijt = rng.gumbel(0, 1, size=(T, J))
+        x_chosen = np.zeros(T)
+        X_jt = np.zeros((T, J))
+        x_bar = np.zeros(T)
+        V = np.zeros((T, J))
+        chosen_idx = np.zeros(T, dtype=int)
+        X_jt[0] = np.array(prod_space)
+        x_bar[0] = 2.5
+        u0 = beta*X_jt[0] + gamma*np.log(1 + (X_jt[0] - 2.5)**2) + epsilon_ijt[0]
+        V[0] = u0
+        chosen_idx[0] = np.argmax(u0)
+        x_chosen[0] = X_jt[0, chosen_idx[0]]
+        for t in range(1, T):
+            X_jt[t] = np.array(prod_space)
+            x_bar[t] = np.mean(x_chosen[:t])
+            Sigma = X_jt[t] - x_bar[t]
+            u = beta*X_jt[t] + gamma*np.log(1 + Sigma**2) + epsilon_ijt[t]
+            V[t] = u
+            chosen_idx[t] = np.argmax(V[t])
+            x_chosen[t] = X_jt[t, chosen_idx[t]]
+        snr_draws[s] = (V[50].max() - V[50].min()) / np.sqrt(np.pi**2 / 6)
+    snr_by_regime[label] = (snr_draws.mean(), snr_draws.std())
+
+print("\nSNR Summary by Regime")
+print(f"{'Regime':<20} {'Mean SNR':>10} {'Std SNR':>10} {'Min SNR':>10}")
+print("-" * 52)
+for label, (mean, std) in snr_by_regime.items():
+    print(f"{label:<20} {mean:>10.3f} {std:>10.3f}")
 colors = plt.cm.tab10(np.linspace(0,1,len(regimes)))
 
-fig, ax = plt.subplots(figsize=(8, 4))
-for (beta, gamma, label, ls), color in zip(regimes, colors):
-    x_chosen, x_bar, X_jt, V, prob, U, ll = simulate_cons(
-        beta, gamma, kappa, sigma_gamma[1], T, J, X_bar, sigma_x, rng
-    )
-    ax.plot(np.arange(T), U, label=label, color=color, linewidth=1.5, linestyle=ls)
+from matplotlib.backends.backend_pdf import PdfPages
 
-ax.set_xlabel("Period")
-ax.set_ylabel("Utility")
-ax.set_title("Consumer Utility by Regime")
-ax.legend(fontsize=7, loc="upper right", bbox_to_anchor=(1,1))
-plt.tight_layout()
-plt.savefig("consumer_utility_by_regime.png", bbox_inches='tight', format='png')
-plt.close()
+with PdfPages("../Output/fixed_mean_choice_prob_all_products.pdf") as pdf:
+    for j in range(J):
+        fig, ax = plt.subplots(figsize=(8, 4))
+        for (beta, gamma, label, ls), color in zip(regimes, colors):
+            x_chosen, x_bar, X_jt, V, prob, U, ll = simulate_cons(
+                beta, gamma, kappa, sigma_gamma[1], T, J, X_bar, sigma_x, rng
+            )
+            prob_smooth = np.convolve(prob[:, j], np.ones(5)/5, mode='same')
+            ax.plot(np.arange(T), prob_smooth, label=label, color=color, linewidth=1.5, linestyle=ls)
+        ax.set_title(f"Product {j+1} (X={prod_space[j]:.1f})", fontsize=9)
+        ax.set_xlabel("Period")
+        ax.set_xlim(0, 100)
+        ax.set_ylabel("Choice Probability")
+        ax.set_ylim(0, 1)
+        ax.set_yticks(np.linspace(0, 1, 10))
+        ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(1, 1))
+        plt.tight_layout()
+        pdf.savefig(fig, bbox_inches='tight')
+        plt.close()
+
+    print(f"Mean Utility: {U.mean():.4f}")
+
+print(f"SNR = {(U.max() - U.min()) / np.sqrt(np.pi**2 / 6):.4f}") # SNR = (mean utility)^2 / (variance of Gumbel noise)
+
+# Want SNR > 2 to ensure that the signal from the utility is strong enough relative to the noise.
 
 
-# Consumer Choice by Regime
-
-for j in range(J):
-    fig, ax = plt.subplots(figsize=(8, 4))
-    for (beta, gamma, label, ls), color in zip(regimes, colors):
-        x_chosen, x_bar, X_jt, V, prob, U, ll = simulate_cons(
-            beta, gamma, kappa, sigma_gamma[1], T, J, X_bar, sigma_x, rng
-        )
-        prob_smooth = np.convolve(prob[:, j], np.ones(5)/5, mode='same')
-        ax.plot(np.arange(T), prob_smooth, label=label, color=color, linewidth=1.5, linestyle=ls)
-
-    ax.set_title(f"Product {j+1} (X={prod_space[j]:.1f})", fontsize=9)
-    ax.set_xlabel("Period")
-    ax.set_xlim(5, 20)
-    ax.set_ylabel("Choice Probability")
-    ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(1, 1))
-    fig.suptitle("Choice Probability by Product and Regime", fontsize=13, y=1.01)
-    plt.tight_layout()
-    plt.savefig(f"fixed_mean_choice_prob_product_{j+1}.pdf", bbox_inches='tight', format='pdf')
-    plt.close()
 
 #def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=1000):
 #    x_chosen_all = np.zeros((S, T))

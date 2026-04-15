@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  12 APR 2026 16:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  15 APR 2026 10:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -576,86 +576,73 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [1
 
 {/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 94.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.94 \subsection
+                {Parameters} [1]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 102.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 94.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.111 
-       [1]
-<../../Output/fixed_mean_choice_prob_product_1.pdf, id=57, 570.47382pt x 294.765pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 102.
+<../../Output/fixed_mean_choice_prob_product_1.pdf, id=60, 570.11058pt x 294.765pt>
 File: ../../Output/fixed_mean_choice_prob_product_1.pdf Graphic file (type pdf)
 <use ../../Output/fixed_mean_choice_prob_product_1.pdf>
-Package pdftex.def Info: ../../Output/fixed_mean_choice_prob_product_1.pdf  used on input line 117.
-(pdftex.def)             Requested size: 469.75502pt x 242.72084pt.
-<../../Output/fixed_mean_choice_prob_product_2.pdf, id=58, 570.4142pt x 294.765pt>
+Package pdftex.def Info: ../../Output/fixed_mean_choice_prob_product_1.pdf  used on input line 124.
+(pdftex.def)             Requested size: 469.75502pt x 242.88277pt.
+ [2]
+<../../Output/fixed_mean_choice_prob_product_2.pdf, id=66, 570.14127pt x 294.765pt>
 File: ../../Output/fixed_mean_choice_prob_product_2.pdf Graphic file (type pdf)
 <use ../../Output/fixed_mean_choice_prob_product_2.pdf>
-Package pdftex.def Info: ../../Output/fixed_mean_choice_prob_product_2.pdf  used on input line 124.
-(pdftex.def)             Requested size: 469.75502pt x 242.74783pt.
- [2 <../../Output/fixed_mean_choice_prob_product_1.pdf>]
-<../../Output/fixed_mean_choice_prob_product_3.pdf, id=107, 570.3546pt x 294.765pt>
+Package pdftex.def Info: ../../Output/fixed_mean_choice_prob_product_2.pdf  used on input line 131.
+(pdftex.def)             Requested size: 469.75502pt x 242.86926pt.
+<../../Output/fixed_mean_choice_prob_product_3.pdf, id=67, 570.14127pt x 294.765pt>
 File: ../../Output/fixed_mean_choice_prob_product_3.pdf Graphic file (type pdf)
 <use ../../Output/fixed_mean_choice_prob_product_3.pdf>
-Package pdftex.def Info: ../../Output/fixed_mean_choice_prob_product_3.pdf  used on input line 131.
-(pdftex.def)             Requested size: 469.75502pt x 242.77481pt.
-<../../Output/fixed_mean_choice_prob_product_4.pdf, id=108, 570.3546pt x 294.765pt>
+Package pdftex.def Info: ../../Output/fixed_mean_choice_prob_product_3.pdf  used on input line 138.
+(pdftex.def)             Requested size: 469.75502pt x 242.86926pt.
+ [3 <../../Output/fixed_mean_choice_prob_product_1.pdf> <../../Output/fixed_mean_choice_prob_product_2.pdf>]
+<../../Output/fixed_mean_choice_prob_product_4.pdf, id=159, 570.14127pt x 294.765pt>
 File: ../../Output/fixed_mean_choice_prob_product_4.pdf Graphic file (type pdf)
 <use ../../Output/fixed_mean_choice_prob_product_4.pdf>
-Package pdftex.def Info: ../../Output/fixed_mean_choice_prob_product_4.pdf  used on input line 137.
-(pdftex.def)             Requested size: 469.75502pt x 242.77481pt.
- [3 <../../Output/fixed_mean_choice_prob_product_2.pdf> <../../Output/fixed_mean_choice_prob_product_3.pdf>]
-<../../Output/fixed_mean_choice_prob_product_5.pdf, id=201, 570.3546pt x 294.765pt>
+Package pdftex.def Info: ../../Output/fixed_mean_choice_prob_product_4.pdf  used on input line 144.
+(pdftex.def)             Requested size: 469.75502pt x 242.86926pt.
+<../../Output/fixed_mean_choice_prob_product_5.pdf, id=160, 570.14127pt x 294.765pt>
 File: ../../Output/fixed_mean_choice_prob_product_5.pdf Graphic file (type pdf)
 <use ../../Output/fixed_mean_choice_prob_product_5.pdf>
-Package pdftex.def Info: ../../Output/fixed_mean_choice_prob_product_5.pdf  used on input line 144.
-(pdftex.def)             Requested size: 469.75502pt x 242.77481pt.
- [4 <../../Output/fixed_mean_choice_prob_product_4.pdf> <../../Output/fixed_mean_choice_prob_product_5.pdf>]
-
-LaTeX Warning: Command \= invalid in math mode on input line 153.
-
-./proposal_draft.tex:153: Please use \mathaccent for accents in math mode.
-\MT@orig@add@accent ...gnorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.153 ...ities for the set advertising case ($\a=2
-                                                  .0$) and the evolving adve...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-[5]
-<../../Code/prior_mean_choice_prob_product_1.pdf, id=299, 570.3546pt x 294.765pt>
+Package pdftex.def Info: ../../Output/fixed_mean_choice_prob_product_5.pdf  used on input line 151.
+(pdftex.def)             Requested size: 469.75502pt x 242.86926pt.
+ [4 <../../Output/fixed_mean_choice_prob_product_3.pdf> <../../Output/fixed_mean_choice_prob_product_4.pdf>] [5 <../../Output/fixed_mean_choice_prob_product_5.pdf>]
+<../../Code/prior_mean_choice_prob_product_1.pdf, id=300, 570.11058pt x 294.765pt>
 File: ../../Code/prior_mean_choice_prob_product_1.pdf Graphic file (type pdf)
 <use ../../Code/prior_mean_choice_prob_product_1.pdf>
-Package pdftex.def Info: ../../Code/prior_mean_choice_prob_product_1.pdf  used on input line 159.
-(pdftex.def)             Requested size: 328.82707pt x 169.94283pt.
-<../../Code/prior_mean_choice_prob_product_2.pdf, id=300, 570.4142pt x 294.765pt>
+Package pdftex.def Info: ../../Code/prior_mean_choice_prob_product_1.pdf  used on input line 165.
+(pdftex.def)             Requested size: 328.82707pt x 170.01479pt.
+<../../Code/prior_mean_choice_prob_product_2.pdf, id=301, 570.14127pt x 294.765pt>
 File: ../../Code/prior_mean_choice_prob_product_2.pdf Graphic file (type pdf)
 <use ../../Code/prior_mean_choice_prob_product_2.pdf>
-Package pdftex.def Info: ../../Code/prior_mean_choice_prob_product_2.pdf  used on input line 166.
-(pdftex.def)             Requested size: 328.82707pt x 169.92484pt.
-<../../Code/prior_mean_choice_prob_product_3.pdf, id=301, 570.4142pt x 294.765pt>
+Package pdftex.def Info: ../../Code/prior_mean_choice_prob_product_2.pdf  used on input line 172.
+(pdftex.def)             Requested size: 328.82707pt x 170.00578pt.
+<../../Code/prior_mean_choice_prob_product_3.pdf, id=302, 570.14127pt x 294.765pt>
 File: ../../Code/prior_mean_choice_prob_product_3.pdf Graphic file (type pdf)
 <use ../../Code/prior_mean_choice_prob_product_3.pdf>
-Package pdftex.def Info: ../../Code/prior_mean_choice_prob_product_3.pdf  used on input line 173.
-(pdftex.def)             Requested size: 328.82707pt x 169.92484pt.
-<../../Code/prior_mean_choice_prob_product_4.pdf, id=302, 570.3546pt x 294.765pt>
+Package pdftex.def Info: ../../Code/prior_mean_choice_prob_product_3.pdf  used on input line 179.
+(pdftex.def)             Requested size: 328.82707pt x 170.00578pt.
+<../../Code/prior_mean_choice_prob_product_4.pdf, id=303, 570.1865pt x 294.765pt>
 File: ../../Code/prior_mean_choice_prob_product_4.pdf Graphic file (type pdf)
 <use ../../Code/prior_mean_choice_prob_product_4.pdf>
-Package pdftex.def Info: ../../Code/prior_mean_choice_prob_product_4.pdf  used on input line 180.
-(pdftex.def)             Requested size: 328.82707pt x 169.94283pt.
+Package pdftex.def Info: ../../Code/prior_mean_choice_prob_product_4.pdf  used on input line 186.
+(pdftex.def)             Requested size: 328.82707pt x 169.9968pt.
  [6
 
  <../../Code/prior_mean_choice_prob_product_1.pdf> <../../Code/prior_mean_choice_prob_product_2.pdf> <../../Code/prior_mean_choice_prob_product_3.pdf>]
-<../../Code/prior_mean_choice_prob_product_5.pdf, id=440, 570.4142pt x 294.765pt>
+<../../Code/prior_mean_choice_prob_product_5.pdf, id=440, 570.14127pt x 294.765pt>
 File: ../../Code/prior_mean_choice_prob_product_5.pdf Graphic file (type pdf)
 <use ../../Code/prior_mean_choice_prob_product_5.pdf>
-Package pdftex.def Info: ../../Code/prior_mean_choice_prob_product_5.pdf  used on input line 187.
-(pdftex.def)             Requested size: 328.82707pt x 169.92484pt.
+Package pdftex.def Info: ../../Code/prior_mean_choice_prob_product_5.pdf  used on input line 193.
+(pdftex.def)             Requested size: 328.82707pt x 170.00578pt.
  [7 <../../Code/prior_mean_choice_prob_product_4.pdf> <../../Code/prior_mean_choice_prob_product_5.pdf>] [8] (./proposal_draft.aux)
  ***********
 LaTeX2e <2025-11-01>
@@ -666,21 +653,21 @@ L3 programming layer <2026-01-19>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `proposal_draft.out' has not changed.
-(rerunfilecheck)             Checksum: 454FC27F313E8E694F2C00D781C0A3AC;884.
+(rerunfilecheck)             Checksum: B82AAF003231332C0C71C2D4D9D70257;977.
  ) 
 Here is how much of TeX's memory you used:
- 18096 strings out of 467525
- 299658 string characters out of 5418983
- 752074 words of memory out of 5000000
+ 18093 strings out of 467525
+ 299640 string characters out of 5418983
+ 751074 words of memory out of 5000000
  46674 multiletter control sequences out of 15000+600000
- 636781 words of font info for 100 fonts, out of 8000000 for 9000
+ 636679 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,9n,79p,1011b,461s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on proposal_draft.pdf (9 pages, 328456 bytes).
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on proposal_draft.pdf (9 pages, 266059 bytes).
 PDF statistics:
- 593 PDF objects out of 1000 (max. 8388607)
- 168 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 16499 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 588 PDF objects out of 1000 (max. 8388607)
+ 170 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
+ 16507 words of extra memory for PDF output out of 17280 (max. 10000000)
 
