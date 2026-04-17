@@ -62,7 +62,7 @@
 \title[Love of Variety \& Dynamic Advertising]{%
     Love of Variety, Habit Formation, \\
     and Dynamic Advertising}
-\subtitle{A Structural Demand Model with Prior-Informed Preferences}
+\subtitle{}
 \author[T. Mason]{Tate Mason}
 \institute[UGA]{John Munro Godfrey Sr.\ Dept.\ of Economics \\ University of Georgia}
 \date{\today}
@@ -94,6 +94,43 @@
 \section{Motivation}
 % ============================================================
 
+\begin{frame}{Motivation: Data Privacy, Ad Targeting, and Consumer Agency}
+  \begin{itemize}
+    \item Concerns around data privacy and ad targetin
+    \begin{itemize}
+      \item Facebook's $5B$ FTC settlement
+      \item Google ad tracking opt-out
+    \end{itemize}
+    \item Amazon anti-trust scrutiny
+    \begin{itemize}
+      \item $70\%$ of US e-commerce; $40\%$ of all retail
+      \item Uses consumer data to target ads and build market share
+    \end{itemize}
+    \item Consumer agency over data (opt out)
+    \begin{itemize}
+      \item Apple iOS 14.5 update: $85\%$ opt-out rate
+      \item Facebook ad revenue down $10\%$ in Q2 2022
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Addressing the Concern}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \begin{itemize}
+        \item How can we test the impact of policy interventions surrounding data privacy?
+        \item Structural demand estimation is a powerful tool for policy analysis, but
+              requires a model of consumer behavior and firm incentives
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Key Challenge}]
+        How do we model consumer behavior in a way that captures the key drivers of consumption dynamics and firms' response?
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{frame}
+
 \begin{frame}{Why Does Variety Matter?}
   \begin{columns}[T]
     \begin{column}{0.55\textwidth}
@@ -101,15 +138,14 @@
         \item Canonical logit models ignore consumer preferences for variety, which are
               empirically important (e.g., McFadden 1974; Berry, Levinsohn,
               Pakes 1995)
-        \item Variety-seeking and habit formation are two sides of the same coin:
-              consumers either prefer to try new things or stick to what they know
         \item These preferences shape consumer switching behavior, which in turn
-              shapes firms' incentives to target advertising and build market share
+              shapes firms' incentives to strategically target ads and promotions 
+        \item Understanding the role of variety-seeking is crucial for modeling consumer behavior and evaluating the impact data privacy policies on both consumers and firms 
       \end{itemize}
     \end{column}
     \begin{column}{0.42\textwidth}
       \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Research Question}]
-        How much do consumer tastes for variety and habit influence consumption dynamics and firms' advertising strategies in a dynamic market?
+        How much do consumer tastes for novelty and habit influence consumption dynamics and firms' advertising strategies in a dynamic market?
       \end{tcolorbox}
     \end{column}
   \end{columns}
@@ -168,15 +204,16 @@
 \begin{frame}{Consumer's Problem}
   Consumer $i$ chooses product $j$ in period $t$ to maximize:
   \begin{equation*}
-    U_{ijt} = \underbrace{\beta_i X_{jt}}_{\text{quality gain}}
-              + \underbrace{\gamma_i \Sigma_{ijt}^2}_{\text{variety component}}
+    U_{ijt} = \underbrace{\beta_{ij} X_{jt}}_{\text{characteristic component}}
+              + \underbrace{\gamma_i \log(1 + \Sigma_{ijt}^2)}_{\text{novelty component}}
               + \underbrace{\kappa \, a_{jt}}_{\text{advertising}}
               - \underbrace{\alpha \, p_{jt}}_{\text{price}}
-              + \xi_j + \varepsilon_{ijt}
+              + \xi_{ij} + \varepsilon_{ijt}
   \end{equation*}
-  where $\Sigma_{ijt} = X_{jt} - \bar{X}_{it}$ and
-  $\bar{X}_{it} = \frac{1}{t}\sum_{t=1}^{T} X_{ikt}$
-
+  \begin{itemize}
+    \item where $\Sigma_{ijt} = X_{jt} - \theta_{it}$ is the deviation of product $j$'s characteristic from consumer $i$'s previously chosen characteristics $\theta_{it}$ in period $t$.
+    \item at the moment, $\theta_{it} = \frac{1}{t}\sum_{s=1}^{t-1} X_{js}$, or the mean of previously chosen product characteristics.
+  \end{itemize}
   \vspace{8pt}
   \begin{columns}[T]
     \begin{column}{0.48\textwidth}
@@ -197,27 +234,27 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{State Variable: Experienced Mean}
-  \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Experienced Mean $\bar{X}_{it}$}]
+\begin{frame}{State Variable: History of Choices}
+  \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{History of Choices $\theta_{it}$}]
     \[
-      \bar{X}_{it} = \frac{1}{t} \sum_{t=1}^{T} x_{ikt}
+    \theta_{it} = f(\{X_{js}\}_{s < t}) = \frac{1}{t}\sum_{s=1}^{t-1} X_{js}
     \]
+
+    The consumer's history, for simplicity, is summarized by the mean of previously chosen product characteristics.
     Updates each period as the consumer makes a new choice.
     This is the key state variable linking past behavior to current utility.
   \end{tcolorbox}
 
   \vspace{6pt}
-  \hl{Two initialization strategies (both simulated today):}
+  \hl{Initialization strategie:}
   \begin{enumerate}
-    \item \textbf{Set mean:} $\bar{X}_{i0} = \bar{J}$, the mean of the
-          product set. Simple benchmark.
     \item \textbf{Initial state:} Simulate $T_{\text{prior}} = 5$ pre-sample
           periods from $J \in [1,2,3,4,5]$ to generate an experience-based
           prior. Similar to Bronnenberg, Dub\'e, Joo (2021).
   \end{enumerate}
 
   \vspace{1pt}
-  \textit{Prior mean yields more heterogeneous behavior --- more on this shortly.}
+  \textit{Initial history yields more heterogeneous behavior --- more on this shortly.}
 \end{frame}
 
 %\begin{frame}{Firm's Problem}
@@ -291,46 +328,37 @@
 \section{Results: Consumer Behavior}
 % ============================================================
 
-\begin{frame}{Set Mean Specification}
-  \begin{figure}
-    \centering
-    \begin{subfigure}
-      \centering
-      \includegraphics[width=.48\linewidth]{../Output/fixed_mean_choice_prob_product_1.pdf}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}
-      \centering
-      \includegraphics[width=.48\linewidth]{../Output/fixed_mean_choice_prob_product_5.pdf}
-    \end{subfigure}
-    \vspace{4pt}
-    \begin{subfigure}
-      \centering
-      \includegraphics[width=.48\linewidth]{../Output/fixed_mean_choice_prob_product_3.pdf}
-    \end{subfigure}
-  \end{figure}
+\begin{frame}{Naive Measurement}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Near static choice probabilities
+        \item Any variation due to $\varepsilon_{ijt}$, not consumer preferences
+        \item CCPs are not informative about consumer behavior or firm incentives
+        \item Nearly all mass on Product 5, which has the highest quality $X_{jt}$
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.47\textwidth}
+      \begin{table}
+        \centering
+        \caption{Naive CCPs}
+        \begin{tabular}{lc}
+          \toprule
+          Product & CCP \\
+          \midrule
+          Product 1     & 0.02\% \\
+          Product 2     & 0.90\% \\
+          Product 3     & 5.00\% \\
+          Product 4     & 20.0\% \\
+          Product 5     & 78.0\% \\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+    \end{column}
+  \end{columns}
 \end{frame}
 
-\begin{frame}{Prior Mean Specification}
-  \hl{Product 1:}
-  \begin{itemize}
-    \item Chosen by variety-seeking consumers ($\gamma_i$ high) who are drawn to the extreme initial state, 
-    \item avoided by quality-sensitive consumers ($\beta_i$ high) who learn that it is low quality.
-  \end{itemize}
-  \hl{Product 3:}
-  \begin{itemize}
-    \item Chosen by the regime who is neither quality-sensitive nor variety-seeking (low $\beta_i$, low $\gamma_i$) who are content to stick to the mean.
-    \item Small uptake by medium quality-sensitive consumers (medium $\beta_i$, low $\gamma_i$), attempt to learn about quality but not variety-seeking enough to try other products.
-  \end{itemize}
-  \hl{Product 5:}
-  \begin{itemize}
-    \item Chosen by quality-sensitive consumers ($\beta_i$ high) who are drawn to the extreme initial state and learn that it is high quality.
-    \item Avoided by variety seeking consumers ($\gamma_i$ high) and those who are neither ($\beta_i$ low, $\gamma_i$ low) who are content to stick to the mean.
-    \item Highest probability of choice overall, consistent with idea of utility maximization
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Initial State Specification}
+\begin{frame}{LOV Specification}
   \begin{figure}
     \centering
     \begin{subfigure}
@@ -350,23 +378,6 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{Initial State Specification}
-  \hl{Product 1:}
-  \begin{itemize}
-    \item Chosen by variety-seeking consumers ($\gamma_i$ high)
-    \item Avoided by quality-sensitive consumers ($\beta_i$ high), conditional on low variety-seeking
-  \end{itemize}
-  \hl{Product 3:}
-  \begin{itemize}
-    \item Chosen by the regime who is neither quality-sensitive nor variety-seeking (low $\beta_i$, low $\gamma_i$)
-    \item Still avoided by most consumer types
-  \end{itemize}
-  \hl{Product 5:}
-  \begin{itemize}
-    \item Almost identical to set mean spec
-    \item Utility maximizing consumers always prefer the highest quality product, only impact probability of choice each period
-  \end{itemize}
-\end{frame}
 
 % ============================================================
 \section{Next Steps}

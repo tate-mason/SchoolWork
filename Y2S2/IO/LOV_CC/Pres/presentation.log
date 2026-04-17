@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  14 APR 2026 16:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  16 APR 2026 14:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -761,246 +761,143 @@ Dictionary: translator-theorem-dictionary, Language: English
 ] (./presentation.toc) [2
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 116.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 115.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 116.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 115.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Underfull \hbox (badness 1057) in paragraph at lines 116--116
-\OT1/cmss/m/n/10.95 for va-ri-ety and habit in-flu-
- []
-
-
-Underfull \hbox (badness 1270) in paragraph at lines 116--116
-\OT1/cmss/m/n/10.95 ence con-sump-tion dy-nam-ics
- []
-
-[3
+) [3
 
 ] [4
 
-] [5
+]
+Underfull \hbox (badness 1270) in paragraph at lines 152--152
+\OT1/cmss/m/n/10.95 ence con-sump-tion dy-nam-ics
+ []
 
-] (./presentation.toc) [6
+[5
+
+] [6
 
 ] [7
 
-] [8
+] (./presentation.toc) [8
 
-] (./presentation.toc) [9
+] [9
 
 ] [10
 
 ] (./presentation.toc) [11
 
-]
+] [12
 
-./presentation.tex:312: LaTeX Error: Environment subfigure undefined.
+] (./presentation.toc) [13
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.312 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-<../Output/fixed_mean_choice_prob_product_1.pdf, id=248, 570.11058pt x 294.765pt>
-File: ../Output/fixed_mean_choice_prob_product_1.pdf Graphic file (type pdf)
-<use ../Output/fixed_mean_choice_prob_product_1.pdf>
-Package pdftex.def Info: ../Output/fixed_mean_choice_prob_product_1.pdf  used on input line 312.
-(pdftex.def)             Requested size: 191.20082pt x 98.85594pt.
-
-./presentation.tex:312: LaTeX Error: \begin{center} on input line 312 ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.312 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./presentation.tex:312: LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.312 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-<../Output/fixed_mean_choice_prob_product_5.pdf, id=249, 570.14127pt x 294.765pt>
-File: ../Output/fixed_mean_choice_prob_product_5.pdf Graphic file (type pdf)
-<use ../Output/fixed_mean_choice_prob_product_5.pdf>
-Package pdftex.def Info: ../Output/fixed_mean_choice_prob_product_5.pdf  used on input line 312.
-(pdftex.def)             Requested size: 191.20082pt x 98.85146pt.
-
-./presentation.tex:312: LaTeX Error: \begin{center} on input line 312 ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.312 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./presentation.tex:312: LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.312 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-<../Output/fixed_mean_choice_prob_product_3.pdf, id=250, 570.14127pt x 294.765pt>
-File: ../Output/fixed_mean_choice_prob_product_3.pdf Graphic file (type pdf)
-<use ../Output/fixed_mean_choice_prob_product_3.pdf>
-Package pdftex.def Info: ../Output/fixed_mean_choice_prob_product_3.pdf  used on input line 312.
-(pdftex.def)             Requested size: 191.20082pt x 98.85146pt.
-
-./presentation.tex:312: LaTeX Error: \begin{center} on input line 312 ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.312 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Overfull \vbox (1.50603pt too high) detected at line 312
- []
-
-[12
-
- <../Output/fixed_mean_choice_prob_product_1.pdf> <../Output/fixed_mean_choice_prob_product_5.pdf> <../Output/fixed_mean_choice_prob_product_3.pdf>] [13
+] [14
 
 ]
 
-./presentation.tex:351: LaTeX Error: Environment subfigure undefined.
+./presentation.tex:379: LaTeX Error: Environment subfigure undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.351 \end{frame}
+l.379 \end{frame}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<../Code/prior_mean_choice_prob_product_1.pdf, id=409, 570.11058pt x 294.765pt>
+<../Code/prior_mean_choice_prob_product_1.pdf, id=295, 570.11058pt x 294.765pt>
 File: ../Code/prior_mean_choice_prob_product_1.pdf Graphic file (type pdf)
 <use ../Code/prior_mean_choice_prob_product_1.pdf>
-Package pdftex.def Info: ../Code/prior_mean_choice_prob_product_1.pdf  used on input line 351.
+Package pdftex.def Info: ../Code/prior_mean_choice_prob_product_1.pdf  used on input line 379.
 (pdftex.def)             Requested size: 191.20082pt x 98.85594pt.
 
-./presentation.tex:351: LaTeX Error: \begin{center} on input line 351 ended by \end{subfigure}.
+./presentation.tex:379: LaTeX Error: \begin{center} on input line 379 ended by \end{subfigure}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.351 \end{frame}
+l.379 \end{frame}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./presentation.tex:351: LaTeX Error: Environment subfigure undefined.
+./presentation.tex:379: LaTeX Error: Environment subfigure undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.351 \end{frame}
+l.379 \end{frame}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<../Code/prior_mean_choice_prob_product_5.pdf, id=410, 570.14127pt x 294.765pt>
+<../Code/prior_mean_choice_prob_product_5.pdf, id=296, 570.14127pt x 294.765pt>
 File: ../Code/prior_mean_choice_prob_product_5.pdf Graphic file (type pdf)
 <use ../Code/prior_mean_choice_prob_product_5.pdf>
-Package pdftex.def Info: ../Code/prior_mean_choice_prob_product_5.pdf  used on input line 351.
+Package pdftex.def Info: ../Code/prior_mean_choice_prob_product_5.pdf  used on input line 379.
 (pdftex.def)             Requested size: 191.20082pt x 98.85146pt.
 
-./presentation.tex:351: LaTeX Error: \begin{center} on input line 351 ended by \end{subfigure}.
+./presentation.tex:379: LaTeX Error: \begin{center} on input line 379 ended by \end{subfigure}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.351 \end{frame}
+l.379 \end{frame}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./presentation.tex:351: LaTeX Error: Environment subfigure undefined.
+./presentation.tex:379: LaTeX Error: Environment subfigure undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.351 \end{frame}
+l.379 \end{frame}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<../Code/prior_mean_choice_prob_product_3.pdf, id=411, 570.14127pt x 294.765pt>
+<../Code/prior_mean_choice_prob_product_3.pdf, id=297, 570.14127pt x 294.765pt>
 File: ../Code/prior_mean_choice_prob_product_3.pdf Graphic file (type pdf)
 <use ../Code/prior_mean_choice_prob_product_3.pdf>
-Package pdftex.def Info: ../Code/prior_mean_choice_prob_product_3.pdf  used on input line 351.
+Package pdftex.def Info: ../Code/prior_mean_choice_prob_product_3.pdf  used on input line 379.
 (pdftex.def)             Requested size: 191.20082pt x 98.85146pt.
 
-./presentation.tex:351: LaTeX Error: \begin{center} on input line 351 ended by \end{subfigure}.
+./presentation.tex:379: LaTeX Error: \begin{center} on input line 379 ended by \end{subfigure}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.351 \end{frame}
+l.379 \end{frame}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \vbox (1.50603pt too high) detected at line 351
+Overfull \vbox (1.50603pt too high) detected at line 379
  []
 
-[14
+[15
 
- <../Code/prior_mean_choice_prob_product_1.pdf> <../Code/prior_mean_choice_prob_product_5.pdf> <../Code/prior_mean_choice_prob_product_3.pdf>] [15
-
-] (./presentation.toc) [16
+ <../Code/prior_mean_choice_prob_product_1.pdf> <../Code/prior_mean_choice_prob_product_5.pdf> <../Code/prior_mean_choice_prob_product_3.pdf>] (./presentation.toc) [16
 
 ] [17
 
@@ -1009,7 +906,7 @@ Overfull \vbox (1.50603pt too high) detected at line 351
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\translate ' on input line 433.
+(hyperref)                removing `\translate ' on input line 444.
 
 [19
 
@@ -1034,18 +931,18 @@ Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: 420FBF9F8169BE219B35A2DB9DFD3D45;648.
  ) 
 Here is how much of TeX's memory you used:
- 27692 strings out of 467525
- 564748 string characters out of 5418983
- 941399 words of memory out of 5000000
- 56034 multiletter control sequences out of 15000+600000
+ 27674 strings out of 467525
+ 563687 string characters out of 5418983
+ 941285 words of memory out of 5000000
+ 56016 multiletter control sequences out of 15000+600000
  636829 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,123p,387b,958s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on presentation.pdf (20 pages, 290374 bytes).
+ 128i,15n,123p,387b,959s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on presentation.pdf (20 pages, 258551 bytes).
 PDF statistics:
- 710 PDF objects out of 1000 (max. 8388607)
- 321 compressed objects within 4 object streams
+ 585 PDF objects out of 1000 (max. 8388607)
+ 309 compressed objects within 4 object streams
  47 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
