@@ -96,20 +96,20 @@
 
 \begin{frame}{Motivation: Data Privacy, Ad Targeting, and Consumer Agency}
   \begin{itemize}
-    \item Concerns around data privacy and ad targetin
+    \item Concerns around data privacy and ad targeting
     \begin{itemize}
       \item Facebook's $5B$ FTC settlement
       \item Google ad tracking opt-out
     \end{itemize}
     \item Amazon anti-trust scrutiny
     \begin{itemize}
-      \item $70\%$ of US e-commerce; $40\%$ of all retail
-      \item Uses consumer data to target ads and build market share
+      \item Amazon accounts for almost $40\%$ of US e-commerce sales (Statista, 2023)
+      \item Uses consumer data to target ads and build market share as both retailer and platform
     \end{itemize}
     \item Consumer agency over data (opt out)
     \begin{itemize}
-      \item Apple iOS 14.5 update: $85\%$ opt-out rate
-      \item Facebook ad revenue down $10\%$ in Q2 2022
+      \item Apple iOS 14.5 update: $85\%$ opt-out rate upon rollout (Flurry Analytics, 2022)
+      \item Facebook ad revenue down \$13bn in 2022 due to app tracking transparency (ATT) policy
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -118,7 +118,7 @@
   \begin{columns}[T]
     \begin{column}{0.55\textwidth}
       \begin{itemize}
-        \item How can we test the impact of policy interventions surrounding data privacy?
+        \item How can we test the impact of policy interventions surrounding data tracking and ad targeting in a context like Amazon, where the firm has strong incentives to strategically target ads and promotions?
         \item Structural demand estimation is a powerful tool for policy analysis, but
               requires a model of consumer behavior and firm incentives
       \end{itemize}
@@ -136,11 +136,10 @@
     \begin{column}{0.55\textwidth}
       \begin{itemize}
         \item Canonical logit models ignore consumer preferences for variety, which are
-              empirically important (e.g., McFadden 1974; Berry, Levinsohn,
-              Pakes 1995)
-        \item These preferences shape consumer switching behavior, which in turn
-              shapes firms' incentives to strategically target ads and promotions 
-        \item Understanding the role of variety-seeking is crucial for modeling consumer behavior and evaluating the impact data privacy policies on both consumers and firms 
+              empirically important 
+        \item These preferences may shape consumer switching behavior, which in turn
+              shapes firms' incentives to strategically target ads and promotions (i.e. to encourage switch to a higher markup product)
+        \item Understanding the role of variety-seeking is valuable for modeling consumer behavior and evaluating the impact data privacy policies on both consumers and firms 
       \end{itemize}
     \end{column}
     \begin{column}{0.42\textwidth}
@@ -155,7 +154,7 @@
   \begin{enumerate}
     \item \hl{Model:} Derive a discrete-choice demand system where the
           utility of a product depends on both deviation from the consumer's
-          experienced characteristic mean $\bar{X}_{it}$ and product quality $X_{jt}$
+          choice history $\theta_{it}$ and product quality $X_{jt}$
     \vspace{4pt}
     \item \hl{Simulation:} Characterize consumer and firm behavior
           across preference regimes $(\beta_i, \gamma_i)$ and advertising
@@ -178,14 +177,14 @@
       \begin{itemize}
         \item McFadden (1974): MNL foundation
         \item Berry, Levinsohn, Pakes (1995): RC logit
-        \item Erdem \& Keane (1996): Learning dynamics
+        \item Bronnenberg, Dub\'e, Joo (2021): Preference learning and experience-based priors
       \end{itemize}
     \end{column}
     \begin{column}{0.48\textwidth}
       \hl{Advertising / firm side}
       \begin{itemize}
         \item Nerlove \& Arrow (1962): Goodwill
-        \item Ackerberg (2001): Informative ads
+        \item Erdem \& Keane (1996): Learning dynamics
         \item Goldfarb \& Tucker (2011): Targeted digital ads
       \end{itemize}
     \end{column}
@@ -193,7 +192,7 @@
 
   \vspace{5pt}
   \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Contribution}]
-    I develop a dynamic demand model which parameterizes variety-seeking and use it to study how consumers with different preferences for variety respond to both product entry and dynamic advertising strategies.
+    I develop a dynamic demand model which micro-founds variety-seeking and use it to study how consumer preferences for novelty and habit shape consumption dynamics and firms' optimization strategies in a dynamic market. 
   \end{tcolorbox}
 \end{frame}
 
@@ -208,7 +207,7 @@
               + \underbrace{\gamma_i \log(1 + \Sigma_{ijt}^2)}_{\text{novelty component}}
               + \underbrace{\kappa \, a_{jt}}_{\text{advertising}}
               - \underbrace{\alpha \, p_{jt}}_{\text{price}}
-              + \xi_{ij} + \varepsilon_{ijt}
+              + \xi_{j} + \varepsilon_{ijt}
   \end{equation*}
   \begin{itemize}
     \item where $\Sigma_{ijt} = X_{jt} - \theta_{it}$ is the deviation of product $j$'s characteristic from consumer $i$'s previously chosen characteristics $\theta_{it}$ in period $t$.
@@ -311,15 +310,14 @@
     \begin{column}{0.47\textwidth}
       \hl{Preference for Characteristic $j$:}
       \begin{itemize}
-      \item $\beta_i \in \{1, 2.5, 4\}$ --- low, medium, high quality sensitivity
+        \item $\beta_i = 2 $ --- fixed quality sensitivity
       \end{itemize}
       \vspace{4pt}
       \hl{Preference for Variety:}
       \begin{itemize}
-      \item $\gamma_i \in \{0.5, 1, 1.5\}$ --- low, medium, high variety-seeking
+      \item $\gamma_i \in \{6, 9, 12\}$ --- low, medium, high variety-seeking
       \end{itemize}
       \vspace{8pt}
-      \textit{9 regimes $\times$ 2 mean specs $\times$ 2 ad specs = 36 cells}
     \end{column}
   \end{columns}
 \end{frame}
@@ -347,10 +345,10 @@
           Product & CCP \\
           \midrule
           Product 1     & 0.02\% \\
-          Product 2     & 0.90\% \\
-          Product 3     & 5.00\% \\
-          Product 4     & 20.0\% \\
-          Product 5     & 78.0\% \\
+          Product 2     & 0.54\% \\
+          Product 3     & 4.05\% \\
+          Product 4     & 22.3\% \\
+          Product 5     & 72.0\% \\
           \bottomrule
         \end{tabular}
       \end{table}
@@ -363,17 +361,17 @@
     \centering
     \begin{subfigure}
       \centering
-      \includegraphics[width=.48\linewidth]{../Code/prior_mean_choice_prob_product_1.pdf}
+      \includegraphics[width=.48\linewidth]{../Output/prior_mean_prob_product_1.pdf}
     \end{subfigure}
     \hfill
     \begin{subfigure}
       \centering
-      \includegraphics[width=.48\linewidth]{../Code/prior_mean_choice_prob_product_5.pdf}
+      \includegraphics[width=.48\linewidth]{../Output/prior_mean_prob_product_5.pdf}
     \end{subfigure}
     \vspace{4pt}
     \begin{subfigure}
       \centering
-      \includegraphics[width=.48\linewidth]{../Code/prior_mean_choice_prob_product_3.pdf}
+      \includegraphics[width=.48\linewidth]{../Output/prior_mean_prob_product_4.pdf}
     \end{subfigure}
   \end{figure}
 \end{frame}
@@ -388,11 +386,6 @@
     \item \hl{Multiple consumers} \\
           Extend simulation to $I = 5$ consumers who have heterogeneous $(\beta_i, \gamma_i)$;
           aggregate to market shares
-
-    \vspace{4pt}
-    \item \hl{Heterogeneous $\gamma_i$} \\
-          Draw $\gamma_i \sim N(0, \sigma_\gamma)$; simulate over
-          $\sigma_\gamma \in \{0.5, 1.0, 1.5\}$
 
     \vspace{4pt}
     \item \hl{Consumer value function} \\
@@ -417,16 +410,8 @@
           experienced mean; nests variety-seeking and habit formation
 
     \vspace{4pt}
-    \item \hl{Set mean:} Flat choice probabilities --- good benchmark,
-          insufficient for data
-
-    \vspace{4pt}
-    \item \hl{Prior mean:} Rich behavioral dynamics; regime differences
-          generate cross-sectional sorting consistent with scanner data
-
-    \vspace{4pt}
-    \item \hl{Firm:} Markovian advertising incentive rises when
-          consumer drifts; generates time-varying promotional intensity
+    \item \hl{History:} Rich behavioral dynamics; regime differences
+          generate cross-sectional sorting
 
     \vspace{4pt}
     \item \hl{Next:} Multiple consumers, structural estimation,
@@ -446,6 +431,16 @@
   \centering
   \vspace{2cm}
   {\Large \textbf{Appendix}}
+\end{frame}
+
+\begin{frame}{References}
+  \begin{thebibliography}{9}
+    \bibitem{BLP} Berry, Levinsohn, Pakes (1995). "Automobile Prices in Market Equilibrium." Econometrica.
+    \bibitem{BDJ} Bronnenberg, Dub\'e, Joo (2021). "Experience-Based Learning and the Dynamics of Brand Shares." Journal of Political Economy.
+    \bibitem{NerloveArrow} Nerlove \& Arrow (1962). "Optimal Advertising Policy under Dynamic Conditions." Economica.
+    \bibitem{ErdemKeane} Erdem \& Keane (1996). "Decision-Making under Uncertainty: Capturing Dynamic Brand Choice Processes in Turbulent Consumer Goods Markets." Marketing Science.
+    \bibitem{GoldfarbTucker} Goldfarb \& Tucker (2011). "Privacy Regulation and Online Advertising." Management Science.
+  \end{thebibliography}
 \end{frame}
 
 \begin{frame}{Simulation Algorithm (Consumer)}

@@ -21,15 +21,9 @@ T_prior = 5 # prior time
 
 # preferences settings
 regimes = [
-    (2, 3.00, "β = 1.3, γ = 0.65", "-"),
-    (2, 4.50, "β = 1.3, γ = 1.3", "--"),
-    (2, 6.00, "β = 1.3, γ = 2.6", ":"),
-    (2, 4.00, "β = 2.0, γ = 1.0", "-"),
-    (2, 6.00, "β = 2.0, γ = 2.0", "--"),
-    (2, 8.00, "β = 2.0, γ = 4.0", ":"),
-    (2, 6.00, "β = 3.0, γ = 1.5", "-"),
-    (2, 9.00, "β = 3.0, γ = 3.0", "--"),
-    (2, 12.0, "β = 3.0, γ = 6.0", ":"),
+    (2, 3.00, "β = 2.0, γ = 3.0", "-"),
+    (2, 5.00, "β = 2.0, γ = 5.0", "--"),
+    (2, 7.00, "β = 2.0, γ = 7.0", ":"),
 ]
 
 prod_space = np.linspace(1, 5, 5)
@@ -123,27 +117,25 @@ colors = plt.cm.tab10(np.linspace(0,1,len(regimes)))
 
 # Consumer Choice by Regime
 
-from matplotlib.backends.backend_pdf import PdfPages
 
-with PdfPages("../Output/initial_mean_choice_prob_all_products.pdf") as pdf:
-    for j in range(J):
-        fig, ax = plt.subplots(figsize=(8, 4))
-        for (beta, gamma, label, ls), color in zip(regimes, colors):
-            x_chosen, x_bar, X_jt, V, prob, U, ll = simulate_cons(
-                beta, gamma, kappa, sigma_gamma[1], T, J, X_bar, sigma_x, rng, S
-            )
-            prob_smooth = np.convolve(prob[:, j], np.ones(5)/5, mode='same')
-            ax.plot(np.arange(T), prob_smooth, label=label, color=color, linewidth=1.5, linestyle=ls)
-        ax.set_title(f"Product {j+1} (X={prod_space[j]:.1f})", fontsize=9)
-        ax.set_xlabel("Period")
-        ax.set_xlim(0, 100)
-        ax.set_ylabel("Choice Probability")
-        ax.set_ylim(0, 1)
-        ax.set_yticks(np.linspace(0, 1, 10))
-        ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(1, 1))
-        plt.tight_layout()
-        pdf.savefig(fig, bbox_inches='tight')
-        plt.close()
+for j in range(J):
+    fig, ax = plt.subplots(figsize=(8, 4))
+    for (beta, gamma, label, ls), color in zip(regimes, colors):
+        x_chosen, x_bar, X_jt, V, prob, U, ll = simulate_cons(
+            beta, gamma, kappa, sigma_gamma[1], T, J, X_bar, sigma_x, rng, S
+        )
+        prob_smooth = np.convolve(prob[:, j], np.ones(5)/5, mode='same')
+        ax.plot(np.arange(T), prob_smooth, label=label, color=color, linewidth=1.5, linestyle=ls)
+    ax.set_title(f"Product {j+1} (X={prod_space[j]:.1f})", fontsize=9)
+    ax.set_xlabel("Period")
+    ax.set_xlim(0, 100)
+    ax.set_ylabel("Choice Probability")
+    ax.set_ylim(0, 1)
+    ax.set_yticks(np.linspace(0, 1, 5))
+    ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(1, 1))
+    plt.tight_layout()
+    fig.savefig(f'../Output/prior_mean_prob_product_{j+1}.pdf', bbox_inches='tight', format='pdf')
+    plt.close()
 
 # pick one regime to diagnose
 beta_diag, gamma_diag = 1.30, .7
@@ -198,21 +190,19 @@ prob_raw = simulate_cons_raw(beta_diag, gamma_diag, kappa, sigma_gamma[1], T, J,
 
 colors_diag = plt.cm.tab10(np.linspace(0, 1, 10))
 
-with PdfPages("../Output/dyn_mean_individual_paths_diagnostic.pdf") as pdf:
-    for j in range(J):
-        fig, ax = plt.subplots(figsize=(8, 4))
-        for s in range(10):
-            ax.plot(np.arange(T), prob_raw[s, :, j],
-                    color=colors_diag[s], linewidth=1.0, alpha=0.7, label=f"s={s}")
-        ax.set_title(f"Product {j+1} (X={prod_space[j]:.1f}) — β={beta_diag}, γ={gamma_diag}", fontsize=9)
-        ax.set_xlabel("Period")
-        ax.set_xlim(0, 100)
-        ax.set_ylabel("Choice Probability")
-        ax.set_ylim(0, 1)
-        ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(1, 1))
-        plt.tight_layout()
-        pdf.savefig(fig, bbox_inches='tight')
-        plt.close()
+for j in range(J):
+    fig, ax = plt.subplots(figsize=(8, 4))
+    for s in range(10):
+        ax.plot(np.arange(T), prob_raw[s, :, j],
+                color=colors_diag[s], linewidth=1.0, alpha=0.7, label=f"s={s}")
+    ax.set_title(f"Product {j+1} (X={prod_space[j]:.1f}) — β={beta_diag}, γ={gamma_diag}", fontsize=9)
+    ax.set_xlabel("Period")
+    ax.set_xlim(0, 100)
+    ax.set_ylabel("Choice Probability")
+    ax.set_ylim(0, 1)
+    ax.legend(fontsize=7, loc="upper left", bbox_to_anchor=(1, 1))
+    plt.tight_layout()
+    plt.close()
 
 def simulate_cons_naive(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, rng, S=1000):
     x_chosen_S = np.zeros((S, T))
@@ -268,7 +258,7 @@ def simulate_cons_naive(beta, gamma, kappa, sigma_gamma, T, J, X_bar, sigma_x, r
             x_bar_S.mean(axis=0),      # shape (T,)
             X_jt_S.mean(axis=0),       # shape (T, J)
             V_S.mean(axis=0),          # shape (T, J)
-            prob_S.mean(axis=0),             # shape (T,J)
+            prob_S.mean(axis=1),             # shape (T,J)
             U_S.mean(axis=0),              # shape (T,)
             ll_S.mean())               # scalar
 
@@ -276,11 +266,13 @@ naive_regimes = [(2, "β = 2.0", "-")]
 
 prob_tab = PrettyTable()
 prob_tab.field_names = ["Product", "Regime", "Mean Prob (t=50)"]
-for j in range(J):
-    for (beta, label, ls) in naive_regimes:
-        result = simulate_cons_naive(beta, gamma, kappa, sigma_gamma[1], T, J, X_bar, sigma_x, rng, S)
-        prob_at_50 = result.prob_S[49, j]  # t=50 is index 49
+
+for (beta, label, ls) in naive_regimes:
+    result = simulate_cons_naive(beta, gamma, kappa, sigma_gamma[1], T, J, X_bar, sigma_x, rng, S)
+    for j in range(J):
+        prob_at_50 = result.prob_S[49, j]
         prob_tab.add_row([f"Product {j+1}", label, f"{prob_at_50:.4f}"])
+
 print(prob_tab)
 #def simulate_cons_markov(beta, gamma, kappa, sigma_gamma, T, T_prior, J, sigma_x, rng, S):
 #    x_chosen_S = np.zeros((S, T))
