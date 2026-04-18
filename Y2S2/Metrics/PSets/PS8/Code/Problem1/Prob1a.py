@@ -22,7 +22,7 @@ def log_MLE(beta, X, Y, Z):
     for j in range(1, J):
         jj = j-1
         # utility
-        V[:, j] = X@B[:,jj] + Z@gamma
+        V[:, j] = X@B[:,jj] + Z[:,jj]*gamma[jj]
     
     denom = sp.special.logsumexp(V, axis=1) # define denominator of likelihood
     Vchosen = V[np.arange(N), Y] # chosen values (size N, correspond to Y)

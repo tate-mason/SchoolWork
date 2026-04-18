@@ -175,24 +175,26 @@
     \begin{column}{0.48\textwidth}
       \hl{Demand side}
       \begin{itemize}
-        \item McFadden (1974): MNL foundation
-        \item Berry, Levinsohn, Pakes (1995): RC logit
-        \item Bronnenberg, Dub\'e, Joo (2021): Preference learning and experience-based priors
+        \footnotesize
+        \item Lattin (1987): State dependence in consumer choice
+        \item Chintagunta (1999): Extension to panel data
+        \item Dub\'e, Hitsch, Rossi (2010): Habit formation and switching costs
+        \item Bronnenberg, Dub\'e, Gentzkow (2012): Experience-based learning and consumer behavior
       \end{itemize}
     \end{column}
     \begin{column}{0.48\textwidth}
       \hl{Advertising / firm side}
       \begin{itemize}
-        \item Nerlove \& Arrow (1962): Goodwill
+        \item Shaffer and Zhang (1995): Theoretical basis for ad targeting in a two-period model
         \item Erdem \& Keane (1996): Learning dynamics
-        \item Goldfarb \& Tucker (2011): Targeted digital ads
+        \item Zhang, Choi, Cheng (2025): Updated targeting game
       \end{itemize}
     \end{column}
   \end{columns}
 
   \vspace{5pt}
   \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Contribution}]
-    I develop a dynamic demand model which micro-founds variety-seeking and use it to study how consumer preferences for novelty and habit shape consumption dynamics and firms' optimization strategies in a dynamic market. 
+    I build upon Chintagunta's dynamic demand model which micro-founds variety-seeking by using it to study how consumer preferences for novelty and habit shape consumption dynamics and firms' optimization strategies in a dynamic market. 
   \end{tcolorbox}
 \end{frame}
 
@@ -249,7 +251,7 @@
   \begin{enumerate}
     \item \textbf{Initial state:} Simulate $T_{\text{prior}} = 5$ pre-sample
           periods from $J \in [1,2,3,4,5]$ to generate an experience-based
-          prior. Similar to Bronnenberg, Dub\'e, Joo (2021).
+          prior.
   \end{enumerate}
 
   \vspace{1pt}
@@ -407,7 +409,7 @@
 \begin{frame}{Summary}
   \begin{enumerate}
     \item \hl{Model:} Consumer utility depends on deviation from
-          experienced mean; nests variety-seeking and habit formation
+          experiences; nests variety-seeking and habit formation
 
     \vspace{4pt}
     \item \hl{History:} Rich behavioral dynamics; regime differences
@@ -435,11 +437,28 @@
 
 \begin{frame}{References}
   \begin{thebibliography}{9}
-    \bibitem{BLP} Berry, Levinsohn, Pakes (1995). "Automobile Prices in Market Equilibrium." Econometrica.
-    \bibitem{BDJ} Bronnenberg, Dub\'e, Joo (2021). "Experience-Based Learning and the Dynamics of Brand Shares." Journal of Political Economy.
-    \bibitem{NerloveArrow} Nerlove \& Arrow (1962). "Optimal Advertising Policy under Dynamic Conditions." Economica.
-    \bibitem{ErdemKeane} Erdem \& Keane (1996). "Decision-Making under Uncertainty: Capturing Dynamic Brand Choice Processes in Turbulent Consumer Goods Markets." Marketing Science.
-    \bibitem{GoldfarbTucker} Goldfarb \& Tucker (2011). "Privacy Regulation and Online Advertising." Management Science.
+    \bibitem{lattin1987}
+    Lattin, J. M. (1987). \textit{State dependence in consumer choice}. Journal of Consumer Research, 14(3), 417-431.
+
+    \bibitem{chintagunta1999}
+    Chintagunta, P. K. (1999). \textit{Panel data analysis of state dependence and heterogeneity in brand choice behavior}. Journal of Econometrics, 89(1-2), 5-34.
+
+    \bibitem{dube2010}
+    Dub\'e, J. P., Hitsch, G. J., \& Rossi, P. E. (2010). \textit{Do switching costs make markets less competitive?} Journal of Marketing Research, 47(6), 965-982.
+
+    \bibitem{shaffer1995}
+    Shaffer, G., \& Zhang, Z. J. (1995). \textit{Competitive advertising in a duopoly}. Marketing Science, 14(3_supplement), G206-G218.
+
+    \bibitem{erdem1996}
+    Erdem, T., \& Keane, M. P. (1996). \textit{Decision-making under uncertainty: Capturing dynamic brand choice processes in turbulent consumer goods markets}. Marketing Science, 15(1), 1-20. 
+
+    \bibitem{bronnenberg2012}
+    Bronnenberg, B. J., Dub\'e, J. P., \& Gentzkow, M. (2012). \textit{The Evolution of Brand Preferences: Evidence from Consumer Migration}. American Economic Review, 102(6), 2472-2508.
+
+    \bibitem{zhang2025}
+    Zhang, J., Choi, J., \& Cheng, S. (2025). \textit{Dynamic advertising targeting: A structural approach}. Marketing Science, 44(1), 1-20.
+
+    \bibitem{bronnenberg2021}
   \end{thebibliography}
 \end{frame}
 

@@ -24,7 +24,7 @@ df = sp.io.loadmat('../../Data/Problem1/dataHW8_Problem1.mat')
 print(df.keys())
 
 df["X"] = np.asarray(df["Xi"]) # (constant, parent graduated, GPA)
-df["Y"] = np.asarray(df["Y"]).ravel() # (attend college (2 or 4 year) or not) ravel to make it 1D
+df["Y"] = np.asarray(df["Y"]).ravel() # (attend college (4 year) or not) ravel to make it 1D
 df["Z"] = np.asarray(df["Z"]) # (dist to nearest 2Y college, dist to nearest 4Y college)
 
 #============================#
@@ -33,7 +33,10 @@ df["Z"] = np.asarray(df["Z"]) # (dist to nearest 2Y college, dist to nearest 4Y 
 
 from Prob1a import *
 
-b0 = np.zeros(df["X"].shape[1] + df["Z"].shape[1]) # starting values for optimization
+Kx = df["X"].shape[1]
+Kz = df["Z"].shape[1]
+
+b0 = np.zeros(Kx*(3-1) + Kz) # starting values for optimization
 
 res_MLE = sp.optimize.minimize(
     log_MLE,
@@ -57,7 +60,7 @@ print(res_table)
 
 from Prob1b import *
 
-b0 = np.zeros(df["X"].shape[1] + df["Z"].shape[1]) # starting values for optimization
+b0 = np.zeros(Kx + Kz) # starting values for optimization
 res_NLLS = sp.optimize.minimize(
     log_NLLS,
     b0,
@@ -74,3 +77,32 @@ for i in range(len(b_mle)):
 
 print(res_table)
 
+#============================#
+# Problem 1c: MoM            #
+#============================#
+
+from Prob1c import *
+
+Kx = df["X"].shape[1]
+Kz = df["Z"].shape[1]
+J = 3
+
+Y_encoded = np.eye(J)[df["Y"].astype(int)] 
+
+b0 = np.zeros(Kx*(J-1) + Kz) # starting values for optimization
+
+res_MoM = sp.optimize.minimize(
+    log_moments,
+    b0,
+    args=(df["X"], Y_encoded, df["Z"]),
+    method="BFGS"
+)
+b_MoM = res_MoM.x
+se_MoM = np.sqrt(np.diag(res_MoM.hess_inv))
+
+res_table = PrettyTable()
+res_table.field_names = ["Method", "β_hat", "Std. Error"]
+for i in range(len(b_mle)):
+    res_table.add_row(["MoM", round(b_mle[i], 4), round(se_mle[i], 4)])
+
+print(res_table)

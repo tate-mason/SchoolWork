@@ -7,6 +7,9 @@ File for MLE estimation of logit model. Contains:
 """
 
 def log_NLLS(b, X, Y, Z):
-    z = X @ b[:-2] + Z @ b[-2:] # linear predictor
-    ll = Y*z - np.log1p(np.exp(z)) # log likelihood of logistic
-    return -np.sum(ll) # minimize -sum
+    mu = 1/(1 + np.exp(-X@b[:X.shape[1]] - Z@b[X.shape[1]:]))
+    resid = Y - mu
+    nlls = resid.T@resid
+    return nlls
+
+
