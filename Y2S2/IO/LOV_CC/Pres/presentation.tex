@@ -95,16 +95,13 @@
 % ============================================================
 
 \begin{frame}{Motivation: Data Privacy, Ad Targeting, and Consumer Agency}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
   \begin{itemize}
-    \item Concerns around data privacy and ad targeting
-    \begin{itemize}
-      \item Facebook's $5B$ FTC settlement
-      \item Google ad tracking opt-out
-    \end{itemize}
     \item Amazon anti-trust scrutiny
     \begin{itemize}
       \item Amazon accounts for almost $40\%$ of US e-commerce sales (Statista, 2023)
-      \item Uses consumer data to target ads and build market share as both retailer and platform
+      \item Able to use consumer data to target ads and build market share as both retailer and platform
     \end{itemize}
     \item Consumer agency over data (opt out)
     \begin{itemize}
@@ -112,20 +109,10 @@
       \item Facebook ad revenue down \$13bn in 2022 due to app tracking transparency (ATT) policy
     \end{itemize}
   \end{itemize}
-\end{frame}
-
-\begin{frame}{Addressing the Concern}
-  \begin{columns}[T]
-    \begin{column}{0.55\textwidth}
-      \begin{itemize}
-        \item How can we test the impact of policy interventions surrounding data tracking and ad targeting in a context like Amazon, where the firm has strong incentives to strategically target ads and promotions?
-        \item Structural demand estimation is a powerful tool for policy analysis, but
-              requires a model of consumer behavior and firm incentives
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.42\textwidth}
-      \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Key Challenge}]
-        How do we model consumer behavior in a way that captures the key drivers of consumption dynamics and firms' response?
+  \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Key Concern}]
+        How do data privacy policies that limit firms' ability to target ads based on consumer data impact consumer welfare and firms' incentives to invest in product quality and advertising?
       \end{tcolorbox}
     \end{column}
   \end{columns}
@@ -135,24 +122,24 @@
   \begin{columns}[T]
     \begin{column}{0.55\textwidth}
       \begin{itemize}
+        \item Understanding the role of variety-seeking is valuable for modeling consumer behavior and evaluating the impact data privacy policies on both consumers and firms 
         \item Canonical logit models ignore consumer preferences for variety, which are
               empirically important 
         \item These preferences may shape consumer switching behavior, which in turn
               shapes firms' incentives to strategically target ads and promotions (i.e. to encourage switch to a higher markup product)
-        \item Understanding the role of variety-seeking is valuable for modeling consumer behavior and evaluating the impact data privacy policies on both consumers and firms 
       \end{itemize}
     \end{column}
-    \begin{column}{0.42\textwidth}
+    \begin{column}{0.45\textwidth}
       \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Research Question}]
-        How much do consumer tastes for novelty and habit influence consumption dynamics and firms' advertising strategies in a dynamic market?
+        How do consumer preferences for variety and habit impact the firms' targeting strategy and what are the welfare implications of data privacy policies that limit ad targeting?
       \end{tcolorbox}
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}{What This Paper Does}
+\begin{frame}{What This Paper Does (So Far)}
   \begin{enumerate}
-    \item \hl{Model:} Derive a discrete-choice demand system where the
+    \item \hl{Model:} Model a discrete-choice demand system where the
           utility of a product depends on both deviation from the consumer's
           choice history $\theta_{it}$ and product quality $X_{jt}$
     \vspace{4pt}
@@ -175,11 +162,9 @@
     \begin{column}{0.48\textwidth}
       \hl{Demand side}
       \begin{itemize}
-        \footnotesize
         \item Lattin (1987): State dependence in consumer choice
         \item Chintagunta (1999): Extension to panel data
         \item Dub\'e, Hitsch, Rossi (2010): Habit formation and switching costs
-        \item Bronnenberg, Dub\'e, Gentzkow (2012): Experience-based learning and consumer behavior
       \end{itemize}
     \end{column}
     \begin{column}{0.48\textwidth}
@@ -192,9 +177,9 @@
     \end{column}
   \end{columns}
 
-  \vspace{5pt}
+  \vspace{1pt}
   \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Contribution}]
-    I build upon Chintagunta's dynamic demand model which micro-founds variety-seeking by using it to study how consumer preferences for novelty and habit shape consumption dynamics and firms' optimization strategies in a dynamic market. 
+    Unite the demand and supply side literatures by modeling consumer preferences for variety and habit formation in a dynamic discrete choice framework with strategic advertising.
   \end{tcolorbox}
 \end{frame}
 
@@ -207,8 +192,7 @@
   \begin{equation*}
     U_{ijt} = \underbrace{\beta_{ij} X_{jt}}_{\text{characteristic component}}
               + \underbrace{\gamma_i \log(1 + \Sigma_{ijt}^2)}_{\text{novelty component}}
-              + \underbrace{\kappa \, a_{jt}}_{\text{advertising}}
-              - \underbrace{\alpha \, p_{jt}}_{\text{price}}
+              - \underbrace{\alpha \, p_{jt} (1-a_{jt})}_{\text{ad-adjusted price}}
               + \xi_{j} + \varepsilon_{ijt}
   \end{equation*}
   \begin{itemize}
@@ -241,9 +225,7 @@
     \theta_{it} = f(\{X_{js}\}_{s < t}) = \frac{1}{t}\sum_{s=1}^{t-1} X_{js}
     \]
 
-    The consumer's history, for simplicity, is summarized by the mean of previously chosen product characteristics.
-    Updates each period as the consumer makes a new choice.
-    This is the key state variable linking past behavior to current utility.
+    The consumer's history is summarized by the mean of previously chosen product characteristics.
   \end{tcolorbox}
 
   \vspace{6pt}
@@ -289,39 +271,24 @@
 % ============================================================
 
 \begin{frame}{Simulation Parameters}
-  \begin{columns}[T]
-    \begin{column}{0.5\textwidth}
-      \begin{table}
-        \centering
-        \caption{Parameters}
-        \begin{tabular}{lll}
-          \toprule
-          Param. & Value & Description \\
-          \midrule
-          $T$         & 100             & Periods \\
-          $J$         & 5               & Products \\
-          $S$         & 1{,}000         & Simulations \\
-          $\kappa$    & 0               & Advertising (off) \\
-          $\alpha$    & 0               & Price (off) \\
-          $\xi_j$     & 0               & Quality (off) \\
-          $\beta_{df}$    & 0             & Discount factor (off) \\
-          \bottomrule
-        \end{tabular}
-      \end{table}
-    \end{column}
-    \begin{column}{0.47\textwidth}
-      \hl{Preference for Characteristic $j$:}
-      \begin{itemize}
-        \item $\beta_i = 2 $ --- fixed quality sensitivity
-      \end{itemize}
-      \vspace{4pt}
-      \hl{Preference for Variety:}
-      \begin{itemize}
-      \item $\gamma_i \in \{6, 9, 12\}$ --- low, medium, high variety-seeking
-      \end{itemize}
-      \vspace{8pt}
-    \end{column}
-  \end{columns}
+  \begin{table}
+    \centering
+    \caption{Parameters}
+    \begin{tabular}{lll}
+      \toprule
+      Param. & Value & Description \\
+      \midrule
+      $T$         & 100             & Periods \\
+      $J$         & 5               & Products \\
+      $S$         & 1{,}000         & Simulations \\
+      $\alpha$    & 0               & Price (off) \\
+      $\xi_j$     & 0               & Quality (off) \\
+      $\beta_{df}$    & 0             & Discount factor (off) \\
+      $\beta_{ij}$   & 2             & Quality sensitivity \\
+      $\gamma_i$     & $\{6, 9, 12\}$ & Variety-seeking \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
 \end{frame}
 
 % ============================================================
@@ -437,6 +404,7 @@
 
 \begin{frame}{References}
   \begin{thebibliography}{9}
+    \footnotesize
     \bibitem{lattin1987}
     Lattin, J. M. (1987). \textit{State dependence in consumer choice}. Journal of Consumer Research, 14(3), 417-431.
 
@@ -444,7 +412,7 @@
     Chintagunta, P. K. (1999). \textit{Panel data analysis of state dependence and heterogeneity in brand choice behavior}. Journal of Econometrics, 89(1-2), 5-34.
 
     \bibitem{dube2010}
-    Dub\'e, J. P., Hitsch, G. J., \& Rossi, P. E. (2010). \textit{Do switching costs make markets less competitive?} Journal of Marketing Research, 47(6), 965-982.
+    Dub\'e, J. P., Hitsch, G. J., \& Rossi, P. E. (2009). \textit{State dependence and alternative explanations for consumer inertia}. NBER Working Paper No. 14912.
 
     \bibitem{shaffer1995}
     Shaffer, G., \& Zhang, Z. J. (1995). \textit{Competitive advertising in a duopoly}. Marketing Science, 14(3_supplement), G206-G218.
@@ -458,7 +426,6 @@
     \bibitem{zhang2025}
     Zhang, J., Choi, J., \& Cheng, S. (2025). \textit{Dynamic advertising targeting: A structural approach}. Marketing Science, 44(1), 1-20.
 
-    \bibitem{bronnenberg2021}
   \end{thebibliography}
 \end{frame}
 
