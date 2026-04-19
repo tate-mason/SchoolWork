@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1776608828.74069 "presentation.tex" "presentation.pdf" "presentation" 1776608830.47638 2
+["pdflatex"] 1776626645.89281 "presentation.tex" "presentation.pdf" "presentation" 1776626647.58412 2
   "../Output/prior_mean_prob_product_1.pdf" 1776607290.63603 16072 3e53e2af1a1bb7bd8f38c8835e4ed2e0 ""
   "../Output/prior_mean_prob_product_4.pdf" 1776607290.63661 15852 00113cfec180fbf143b5a7c6e2cba81d ""
   "../Output/prior_mean_prob_product_5.pdf" 1776607290.6368 16009 7c9aa5f041d232a5341b803a6f11662a ""
@@ -241,11 +241,11 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1773939083 5541377 04880c840ca220163a28f1a3af0ee662 ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1772409757 3636768 9f94d239f422c02416e379a36a852ffd ""
   "/usr/local/texlive/2026/texmf.cnf" 1772409725 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "presentation.aux" 1776608830.35009 5497 d68b68e3525c85d0ba2d28eaea5e00a8 "pdflatex"
-  "presentation.nav" 1776608830.35105 3216 8228f93fe9c117f94415bb26da3626a0 "pdflatex"
-  "presentation.out" 1776608830.35086 648 420fbf9f8169be219b35a2db9dfd3d45 "pdflatex"
-  "presentation.tex" 1776608827.74716 16385 cddff5fa052c67d74bcc3fce4a0008c3 ""
-  "presentation.toc" 1776608830.35108 251 b76fe376c6bc5efed90ff80dd5c72617 "pdflatex"
+  "presentation.aux" 1776626647.45931 5625 aab669ad77feaa943afa0adca39e25ac "pdflatex"
+  "presentation.nav" 1776626647.46035 3308 545bd51ef176048a40d6f16baa9df43c "pdflatex"
+  "presentation.out" 1776626647.46014 648 420fbf9f8169be219b35a2db9dfd3d45 "pdflatex"
+  "presentation.tex" 1776626644.60104 16858 f069533553be2621e5ee93c508fc2885 ""
+  "presentation.toc" 1776626647.46038 251 390d4e2edb91ec08f0d88b025ff4ecbf "pdflatex"
   (generated)
   "presentation.aux"
   "presentation.log"

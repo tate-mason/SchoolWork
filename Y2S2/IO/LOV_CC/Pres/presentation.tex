@@ -95,8 +95,6 @@
 % ============================================================
 
 \begin{frame}{Motivation: Data Privacy, Ad Targeting, and Consumer Agency}
-  \begin{columns}[T]
-    \begin{column}{0.55\textwidth}
   \begin{itemize}
     \item Amazon anti-trust scrutiny
     \begin{itemize}
@@ -109,42 +107,30 @@
       \item Facebook ad revenue down \$13bn in 2022 due to app tracking transparency (ATT) policy
     \end{itemize}
   \end{itemize}
-  \end{column}
-    \begin{column}{0.45\textwidth}
-      \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Key Concern}]
-        How do data privacy policies that limit firms' ability to target ads based on consumer data impact consumer welfare and firms' incentives to invest in product quality and advertising?
-      \end{tcolorbox}
-    \end{column}
-  \end{columns}
+  \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Key Concern}]
+    How do data privacy policies that limit firms' ability to target ads based on consumer data impact consumer welfare and firms' incentives to invest in product quality and advertising?
+  \end{tcolorbox}
 \end{frame}
 
 \begin{frame}{Why Does Variety Matter?}
-  \begin{columns}[T]
-    \begin{column}{0.55\textwidth}
-      \begin{itemize}
-        \item Understanding the role of variety-seeking is valuable for modeling consumer behavior and evaluating the impact data privacy policies on both consumers and firms 
-        \item Canonical logit models ignore consumer preferences for variety, which are
-              empirically important 
-        \item These preferences may shape consumer switching behavior, which in turn
-              shapes firms' incentives to strategically target ads and promotions (i.e. to encourage switch to a higher markup product)
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.45\textwidth}
-      \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Research Question}]
-        How do consumer preferences for variety and habit impact the firms' targeting strategy and what are the welfare implications of data privacy policies that limit ad targeting?
-      \end{tcolorbox}
-    \end{column}
-  \end{columns}
+  \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Research Question}]
+    How do consumer preferences for variety and habit impact the firms' targeting strategy and what are the welfare implications of data privacy policies that limit ad targeting?
+  \end{tcolorbox}
+  \begin{itemize}
+    \item Understanding the role of variety-seeking is valuable for modeling consumer behavior and evaluating the impact data privacy policies on both consumers and firms 
+    \item Canonical logit models ignore consumer preferences for variety, which are
+          empirically important 
+    \item These preferences may shape consumer switching behavior, which in turn
+          shapes firms' incentives to strategically target ads and promotions (i.e. to encourage switch to a higher markup product)
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{What This Paper Does (So Far)}
   \begin{enumerate}
-    \item \hl{Model:} Model a discrete-choice demand system where the
-          utility of a product depends on both deviation from the consumer's
-          choice history $\theta_{it}$ and product quality $X_{jt}$
+    \item \hl{Model:} Dynamic discrete choice model of consumer behavior with love of variety and strategic advertising by firms
     \vspace{4pt}
     \item \hl{Simulation:} Characterize consumer and firm behavior
-          across preference regimes $(\beta_i, \gamma_i)$ and advertising
+          across preference regimes and advertising
           specifications
     \vspace{4pt}
     \item \hl{Estimation (coming):} Bring model to Nielsen scanner data
@@ -154,7 +140,7 @@
           welfare implications
   \end{enumerate}
   \vspace{6pt}
-  \textbf{Today's talk:} Model + simulation results
+  \textbf{Today's talk:} Consumer demand function + simulation results
 \end{frame}
 
 \begin{frame}{Literature Connections}
@@ -204,9 +190,8 @@
     \begin{column}{0.48\textwidth}
       \hl{Key parameters:}
       \begin{itemize}
-        \item $\beta_i > 0$: marginal utility of quality
+        \item $\beta_i > 0$: quality
         \item $\gamma_i > 0$: variety-seeking
-        \item $\kappa > 0$: advertising shifter
       \end{itemize}
     \end{column}
     \begin{column}{0.48\textwidth}
@@ -229,10 +214,10 @@
   \end{tcolorbox}
 
   \vspace{6pt}
-  \hl{Initialization strategie:}
+  \hl{Simulation design:}
   \begin{enumerate}
     \item \textbf{Initial state:} Simulate $T_{\text{prior}} = 5$ pre-sample
-          periods from $J \in [1,2,3,4,5]$ to generate an experience-based
+          periods, choose products from $J \in [1,2,3,4,5]$ to generate an experience-based
           prior.
   \end{enumerate}
 
@@ -281,11 +266,11 @@
       $T$         & 100             & Periods \\
       $J$         & 5               & Products \\
       $S$         & 1{,}000         & Simulations \\
-      $\alpha$    & 0               & Price (off) \\
-      $\xi_j$     & 0               & Quality (off) \\
-      $\beta_{df}$    & 0             & Discount factor (off) \\
-      $\beta_{ij}$   & 2             & Quality sensitivity \\
+      $\beta_{ij}$   & 2             & Quality \\
       $\gamma_i$     & $\{6, 9, 12\}$ & Variety-seeking \\
+      $\alpha$    & 0               & Price (off) \\
+      $\xi_j$     & 0               & Unobserved quality (off) \\
+      $\beta_{df}$    & 0             & Discount factor (off) \\
       \bottomrule
     \end{tabular}
   \end{table}
@@ -295,11 +280,16 @@
 \section{Results: Consumer Behavior}
 % ============================================================
 
-\begin{frame}{Naive Measurement}
+\begin{frame}{Utility Measurement (No LOV)}
+  \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Utility Function without LOV}]
+    \begin{equation*}
+      \hat{P}_{jt} = \beta_{ij} X_{jt} + \epsilon_{ijt}
+    \end{equation*}
+  \end{tcolorbox}
   \begin{columns}[T]
     \begin{column}{0.5\textwidth}
+      
       \begin{itemize}
-        \item Near static choice probabilities
         \item Any variation due to $\varepsilon_{ijt}$, not consumer preferences
         \item CCPs are not informative about consumer behavior or firm incentives
         \item Nearly all mass on Product 5, which has the highest quality $X_{jt}$
@@ -307,8 +297,7 @@
     \end{column}
     \begin{column}{0.47\textwidth}
       \begin{table}
-        \centering
-        \caption{Naive CCPs}
+        \caption{CCPs (No LOV)}
         \begin{tabular}{lc}
           \toprule
           Product & CCP \\
@@ -323,6 +312,20 @@
       \end{table}
     \end{column}
   \end{columns}
+\end{frame}
+
+\begin{frame}{Consumer Behavior with LOV}
+  \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Utility Function with LOV}]
+    \begin{equation*}
+      \hat{P}_{jt} = \beta_{ij} X_{jt} + \gamma_i \log(1 + \Sigma_{ijt}^2) + \epsilon_{ijt}
+    \end{equation*}
+  \end{tcolorbox}
+  \begin{itemize}
+    \item $\Sigma_{ijt} = X_{jt} - \theta_{it}$ captures the deviation of product $j$'s characteristic from consumer $i$'s previously chosen characteristics $\theta_{it}$ in period $t$.
+    \item Consumer behavior varies significantly across variety specifications
+    \item Higher $\gamma_i$ leads to more switching 
+    \item Cross-sectional sorting: consumers with higher $\gamma_i$ are more likely to switch to lower indexed products
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{LOV Specification}
