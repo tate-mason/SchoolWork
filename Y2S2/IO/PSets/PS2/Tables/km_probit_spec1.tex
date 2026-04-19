@@ -1,0 +1,30 @@
+\begin{center}
+\begin{tabular}{lclc}
+\toprule
+\textbf{Dep. Variable:}         &      kmart       & \textbf{  No. Observations:  } &     2065    \\
+\textbf{Model:}                 &      Probit      & \textbf{  Df Residuals:      } &     2058    \\
+\textbf{Method:}                &       MLE        & \textbf{  Df Model:          } &        6    \\
+\textbf{Date:}                  & Sun, 19 Apr 2026 & \textbf{  Pseudo R-squ.:     } &   0.4147    \\
+\textbf{Time:}                  &     13:14:07     & \textbf{  Log-Likelihood:    } &   -588.23   \\
+\textbf{converged:}             &       True       & \textbf{  LL-Null:           } &   -1005.0   \\
+\textbf{Covariance Type:}       &    nonrobust     & \textbf{  LLR p-value:       } & 8.771e-177  \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lcccccc}
+                                & \textbf{coef} & \textbf{std err} & \textbf{z} & \textbf{P$> |$z$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+\midrule
+\textbf{const}                  &     -18.8344  &        1.239     &   -15.195  &         0.000        &      -21.264    &      -16.405     \\
+\textbf{log\_pop}               &       1.4425  &        0.106     &    13.575  &         0.000        &        1.234    &        1.651     \\
+\textbf{log\_retail\_sales\_pc} &       1.4964  &        0.135     &    11.088  &         0.000        &        1.232    &        1.761     \\
+\textbf{pct\_urban}             &       1.0844  &        0.232     &     4.665  &         0.000        &        0.629    &        1.540     \\
+\textbf{midwest}                &       0.4124  &        0.145     &     2.850  &         0.004        &        0.129    &        0.696     \\
+\textbf{n\_small\_stores}       &       0.0055  &        0.019     &     0.284  &         0.776        &       -0.032    &        0.043     \\
+\textbf{south}                  &       0.0546  &        0.142     &     0.385  &         0.701        &       -0.224    &        0.333     \\
+\bottomrule
+\end{tabular}
+%\caption{Probit Regression Results}
+\end{center}
+
+Possibly complete quasi-separation: A fraction 0.11 of observations can be \newline
+ perfectly predicted. This might indicate that there is complete \newline
+ quasi-separation. In this case some parameters will not be identified.

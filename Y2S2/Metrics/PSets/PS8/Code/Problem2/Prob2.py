@@ -25,6 +25,11 @@ k = np.maximum(df['k'], 0)
 y = df['y']
 w = np.maximum(df['w'], 0)
 
+b = np.concatenate([
+    [2.0, 0.5],
+    np.zeros(4),
+    np.zeros(5*4)
+])
 #============================#
 # Problem 2a: Moment Creation#
 #============================#
@@ -62,7 +67,7 @@ print(moment_table)
 
 from Prob2b import *
 
-w_sim, k_sim, y_sim = sim_moments(np.zeros(5), k, y, w)
+w_sim, k_sim, y_sim = sim_moments(b, k, y, w)
 
 m_sim = gmm_moments(np.zeros(5), k_sim, y_sim, w_sim)
 
@@ -81,25 +86,23 @@ from Prob2c import *
 # Bootstrapping IW Matrix
 N_b = 50
 m_b = np.zeros((N_b, len(m)))
+
 for i in range(N_b):
-    w_b, k_b, y_b = sim_moments(np.zeros(5), k, y, w)
-    m_b[i] = gmm_moments(np.zeros(5), k_b, y_b, w_b)
+    w_b, k_b, y_b = sim_moments(b, k, y, w)
+    m_b[i] = gmm_moments(b, k_b, y_b, w_b)
 
 W = np.linalg.inv(np.cov(m_b.T) + 1e-6*np.eye(len(m)))
 
-b = np.concatenate([
-    [1.5, 0.8],
-    np.zeros(4),
-    np.zeros(5*4)
-])
 
 print(W.shape, m.shape)
+
 res_SMM = minimize(
     log_smm_moments,
     b,
-    args=(m_sim, m, W, k, y, w),
-    method="Nelder-Mead" # no gradient
+    args=(m, W, k, y, w),   # no m_sim
+    method="Nelder-Mead"
 )
+
 print(res_SMM.success)
 print(res_SMM.message)
 print(res_SMM.fun)      # objective value at solution
