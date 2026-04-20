@@ -1,0 +1,203 @@
+% ============================================================
+%  Report Template
+% ============================================================
+
+\documentclass[11pt]{article}
+
+% ── Packages ────────────────────────────────────────────────
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{float}
+% code packages
+\usepackage{listings}
+\usepackage{inconsolata}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
+\usepackage{csvsimple}
+\usepackage{booktabs}
+
+% ── Hyperref setup ──────────────────────────────────────────
+\hypersetup{
+    colorlinks = true,
+    linkcolor  = black,
+    citecolor  = black,
+    urlcolor   = blue
+}
+
+% ── Theorem environments ────────────────────────────────────
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+% ── Spacing ─────────────────────────────────────────────────
+\onehalfspacing
+
+% ── Title block ─────────────────────────────────────────────
+\title{Problem Set 2}
+\author{Tate Mason}
+\date{\today}
+
+% ============================================================
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+% ── Abstract ────────────────────────────────────────────────
+
+\newpage
+\setcounter{page}{1}
+
+% ── 1. Introduction ─────────────────────────────────────────
+\section{Introduction}
+
+This problem set was concerned with evaluating models of entry and competition. Given data from Jia (2008), I used a variety of estimation techniques to estimate the probability of entry. First, I used a probit, then a different specification of the probit, and finally an IV model to model entry simply. Next, I used an ordered probit \'a la Bresnahan and Reiss (1991) to model the effect of number of firms in a market on entry. Lastly, I used the Seim (2006) method to model the effect of predicted entry of a competitor on own entry.
+
+This report is laid out as follows. Section 2 will present the profit and entry functions, section 3 will present the simple estimation results, section 4 will present the ordered probit results, and section 5 will present the Seim method results. Finally, section 6 will conclude.
+
+% ── 2. Data Facts ─────────────────────────────────────────────────
+\section{Profit and Entry Functions}
+
+The profit function for Walmart is as follows:
+
+The profit function for KMart is as follows:
+
+The entry function for Walmart is as follows:
+
+The entry function for KMart is as follows:
+
+% ── 3. Model / Theoretical Framework ───────────────────────
+\section{Simple Estimation}
+
+This section will present the results of the simple estimation techniques, probit under two specifications, and an IV regression. The probit specifications will differ by inclusion of competitor as a regressor. In the IV specification, I will use the log of the distance to Bentonville as an instrument for Walmart's entry in the KMart regression, and the number of small stores in the market as an instrument for KMart's entry in the Walmart regression.
+
+\subsection{Probit (No Competitor)}
+
+First, I will present the results of the probit regression without the competitor as a regressor.
+
+\begin{equation}
+  P(Entry_j) = \Phi(\beta_0 + \beta_1X_j)
+\end{equation}
+where $X_j$ is a vector of characteristics including log population, log retail sales per capita, percent urban, indicators for region, log distance to Bentonville (Walmart spec. only), and number of small stores
+
+\textbf{Walmart:}
+
+\input{../Tables/wm_probit_spec1.tex}
+
+\textbf{KMart:}
+
+\input{../Tables/km_probit_spec1.tex}
+
+From these results, we can see that Walmart faces less baseline entry friction than Kmart, as the constant is less negative. Population effects are also stronger for Walmart, as is being in the South. The distance to Bentonville is significantly negative, implying Walmart does not want to be too close to its headquarters, which is consistent with a belief of Walmart wanting to expand into new markets. Kmart seems to have a slight gain in the Midwest and a slight boost in entry with markets who are more urban.
+
+\subsection{Probit (Competitor)}
+Next, I will present the results of the probit regression with the competitor as a regressor.
+
+\textbf{Walmart:}
+\input{../Tables/wm_probit_spec2.tex}
+
+\textbf{KMart:}
+\input{../Tables/km_probit_spec2.tex}
+
+Under this specification, the presence of a competitor has a significant negative effect on entry for both Walmart and KMart, but the effect is much stronger for KMart. This is consistent with the idea that Walmart is the dominant player in the market, and KMart is more likely to be deterred by Walmart's presence than vice versa.
+
+\subsection{IV Regression}
+Next, I will present the results of the IV regression. The results are as follows:
+
+\begin{equation}
+  P(Entry_j) = \Phi(\beta_0 + \beta_1X_j + \beta_2Competitor_k)
+\end{equation}
+
+where $X_j$ is a vector of characteristics including log population, log retail sales per capita, percent urban, indicators for region, log distance to Bentonville (Walmart spec. only), and number of small stores. The competitor variable is instrumented as described above.
+
+\begin{equation}
+  P(Entry_i) = \Phi(\beta_0 + \beta_1X_i + \beta_2\hat{Competitor}_k)
+\end{equation}
+
+\textbf{Walmart:}
+\input{../Tables/wm_iv_probit.tex}
+
+\textbf{KMart:}
+\input{../Tables/km_iv_probit.tex}
+
+The IV results show that Walmart's predicted entry has a massively negative effect on KMart's entry probability, implying that a) Walmart's entry is a strong deterrent to KMart's entry, and b) the OLS results were biasing the results downwards. For Walmart, KMart's predicted entry has a negative effect, but there is likely a misspecification in instrument as standard errors are not available. To be diagnosed. However, the general magnitude is consistent with the OLS results, implying that KMart is less of a deterrent to Walmart.
+
+
+\section{Ordered Probit}
+
+\subsection{Specification 1}
+In the first specification of the ordered probit, we group Walmart and Kmart together, and model the number of firms in the market as a function of the same characteristics as above. The results are as follows:
+
+\input{../Tables/ordered_probit_spec1.tex}
+
+Here, we see that being the first entrant has a significant positive effect on entry, but the second entrant is a fraction of the effect, though still significant. This result lends itself to the idea of first mover advantages, as the first entrant is able to capture a large portion of the market. We still see a negative effect of distance to Bentonville, but the effect is smaller than in the simple probit, which is consistent with the idea that distance to Bentonville is more of a deterrent for Walmart than KMart. We also see that as there are more small stores, there is a deterrance to entry, though this effect is small.
+
+\subsection{Specification 2}
+Here, we group all firms together, modeling number of firms in the market as a function of the same characteristics as above. The results are as follows:
+
+\input{../Tables/ordered_probit_spec2.tex}
+
+The first mover advantage is still present, but to a lesser degree. Second mover advantage has also increased. Interestingly, after being the first mover, the number of firms in the market has a relatively stable effect on entry, implying that only first mover advantage is important, and after that, the number of firms in the market does not have a major effect on entry. Distance to Bentonvill is still negative, but less so than in the above. Small stores are now positive, which makes sense given small stores are more likely to enter into markets where other small firms are present. 
+
+\section{Seim Method}
+In this section, I will present the results of the Seim method. The results are as follows:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcc}
+\toprule
+ & \textbf{Walmart} & \textbf{KMart} \\
+\textbf{Variable} & \textbf{Coefficient} & \textbf{Coefficient} \\
+\midrule
+Log Population & 6.68 & 1.25 \\
+Log Retail Sales (pc) & 0.11 & -1.03 \\
+Percent Urban & 8.95 & 3.10 \\
+Midwest & -1.63 & 0.10 \\
+Log Distance to Bentonville & -3.28 & 0.17 \\
+Number of Small Stores & 0.06 & 0.10 \\
+South & -1.55 & -0.82 \\
+Predicted KMart Entry & 1.15 & -- \\
+Preidcted Walmart Entry & -- & -14.38 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ── 6. Conclusion ───────────────────────────────────────────
+\section{Conclusion}
+
+In conclusion, I have presented some data facts, estimation results, and a regime comparison for the problem set. I will have to go back and check my code for the regime comparison, as the results are not what I expected. 
+However, I still feel that this exercise was very useful in a few dimensions. Firstly, it was a good refresher on the different estiamtion techniques, and the biases that can result from misspecified methods of computation.
+Secondly, it was good for thinking of pricing games and how to derive the FOC's for the different regimes. Finally, the data exploration exercise was good as I am trying to learn Python and its plotting libraries.
+
+% ── References ──────────────────────────────────────────────
+\newpage
+\bibliographystyle{aer}
+
+% ── Appendix ────────────────────────────────────────────────
+\newpage
+\appendix
+
+\section{Code}
+
+\subsection{Main Code}
+
+\lstinputlisting[language=Python]{../Code/Prob2.py}
+
+\subsection{Seim Code}
+\lstinputlisting[language=Python]{../Code/PS2c.py}
+
+\end{document}

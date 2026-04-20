@@ -1,39 +1,27 @@
 \begin{center}
-\begin{tabular}{lclc}
-\toprule
-\textbf{Dep. Variable:}         &      n\_total      & \textbf{  Log-Likelihood:    } &   -1250.3   \\
-\textbf{Model:}                 &    OrderedModel    & \textbf{  AIC:               } &     2541.   \\
-\textbf{Method:}                & Maximum Likelihood & \textbf{  BIC:               } &     2653.   \\
-\textbf{Date:}                  &  Sun, 19 Apr 2026  & \textbf{                     } &             \\
-\textbf{Time:}                  &      13:14:08      & \textbf{                     } &             \\
-\textbf{No. Observations:}      &         2065       & \textbf{                     } &             \\
-\textbf{Df Residuals:}          &         2045       & \textbf{                     } &             \\
-\textbf{Df Model:}              &            7       & \textbf{                     } &             \\
-\bottomrule
-\end{tabular}
 \begin{tabular}{lcccccc}
-                                & \textbf{coef} & \textbf{std err} & \textbf{z} & \textbf{P$> |$z$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+                                & \textbf{Coefficient} & \textbf{Std Error} \\
 \midrule
-\textbf{log\_pop}               &       1.7589  &        0.073     &    24.012  &         0.000        &        1.615    &        1.902     \\
-\textbf{log\_retail\_sales\_pc} &       1.2985  &        0.085     &    15.239  &         0.000        &        1.131    &        1.465     \\
-\textbf{pct\_urban}             &       1.1849  &        0.152     &     7.777  &         0.000        &        0.886    &        1.484     \\
-\textbf{midwest}                &       0.5019  &        0.124     &     4.033  &         0.000        &        0.258    &        0.746     \\
-\textbf{log\_dist\_benton}      &      -0.2866  &        0.053     &    -5.453  &         0.000        &       -0.390    &       -0.184     \\
-\textbf{n\_small\_stores}       &       2.7925  &        0.071     &    39.343  &         0.000        &        2.653    &        2.932     \\
-\textbf{south}                  &       0.7867  &        0.122     &     6.433  &         0.000        &        0.547    &        1.026     \\
-\textbf{0.0/1.0}                &      14.0616  &        0.801     &    17.561  &         0.000        &       12.492    &       15.631     \\
-\textbf{1.0/2.0}                &       1.2129  &        0.047     &    25.966  &         0.000        &        1.121    &        1.304     \\
-\textbf{2.0/3.0}                &       1.0088  &        0.042     &    24.084  &         0.000        &        0.927    &        1.091     \\
-\textbf{3.0/4.0}                &       1.0971  &        0.041     &    26.894  &         0.000        &        1.017    &        1.177     \\
-\textbf{4.0/5.0}                &       1.0198  &        0.045     &    22.788  &         0.000        &        0.932    &        1.108     \\
-\textbf{5.0/6.0}                &       1.0504  &        0.049     &    21.631  &         0.000        &        0.955    &        1.146     \\
-\textbf{6.0/7.0}                &       1.0265  &        0.053     &    19.299  &         0.000        &        0.922    &        1.131     \\
-\textbf{7.0/8.0}                &       0.9840  &        0.064     &    15.320  &         0.000        &        0.858    &        1.110     \\
-\textbf{8.0/9.0}                &       0.8639  &        0.080     &    10.770  &         0.000        &        0.707    &        1.021     \\
-\textbf{9.0/10.0}               &       1.2793  &        0.068     &    18.871  &         0.000        &        1.146    &        1.412     \\
-\textbf{10.0/11.0}              &       0.8734  &        0.119     &     7.327  &         0.000        &        0.640    &        1.107     \\
-\textbf{11.0/12.0}              &       1.0653  &        0.109     &     9.787  &         0.000        &        0.852    &        1.279     \\
-\textbf{12.0/13.0}              &       0.9233  &        0.121     &     7.609  &         0.000        &        0.685    &        1.161     \\
+\textbf{Log Population}               &       1.7589  &        0.073      \\
+  \textbf{Log Retail Sales (pc)} &       1.2985  &        0.085      \\
+\textbf{\% Urban}             &       1.1849  &        0.152      \\
+\textbf{Midwest}                &       0.5019  &        0.124      \\
+\textbf{Log Distance to Bentonville}      &      -0.2866  &        0.053      \\
+\textbf{\# Small Stores}       &       2.7925  &        0.071      \\
+\textbf{South}                  &       0.7867  &        0.122      \\
+\textbf{$0\rightarrow 1$ Firm}                &      14.0616  &        0.801      \\
+\textbf{$1\rightarrow 2$ Firms}                &       1.2129  &        0.047      \\
+\textbf{$2\rightarrow 3$ Firms}                &       1.0088  &        0.042      \\
+\textbf{$3\rightarrow 4$ Firms}                &       1.0971  &        0.041      \\
+\textbf{$4\rightarrow 5$ Firms}                &       1.0198  &        0.045      \\
+\textbf{$5\rightarrow 6$ Firms}                &       1.0504  &        0.049      \\
+\textbf{$6\rightarrow 7$ Firms}                &       1.0265  &        0.053      \\
+\textbf{$7\rightarrow 8$ Firms}                &       0.9840  &        0.064      \\
+\textbf{$8\rightarrow 9$ Firms}                &       0.8639  &        0.080      \\
+\textbf{$9\rightarrow 10$ Firms}               &       1.2793  &        0.068      \\
+\textbf{$10\rightarrow 11$ Firms}              &       0.8734  &        0.119      \\
+\textbf{$11\rightarrow 12$ Firms}              &       1.0653  &        0.109      \\
+\textbf{$12\rightarrow 13$ Firms}              &       0.9233  &        0.121      \\
 \bottomrule
 \end{tabular}
 %\caption{OrderedModel Results}
