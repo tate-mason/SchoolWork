@@ -116,7 +116,7 @@
     How do consumer preferences for variety impact the firms' targeting strategy and what are the welfare implications of data privacy policies that limit ad targeting?
   \end{tcolorbox}
   \begin{itemize}
-    \item Understanding the role of variety-seeking is valuable for modeling consumer behavior and evaluating the impact data privacy policies on both consumers and firms 
+    \item Understanding the role of variety-seeking is valuable for modeling consumer behavior and evaluating the impact of data privacy policies on both consumers and firms.
     \item Canonical logit models ignore consumer preferences for variety, which are
           empirically important 
     \item These preferences may shape consumer switching behavior, which in turn
@@ -149,7 +149,7 @@
       \begin{itemize}
         \item Lattin (1987): State dependence in consumer choice
         \item Chintagunta (1999): Extension to panel data
-        \item Dub\'e, Hitsch, Rossi (2010): Habit formation and switching costs
+        \item Dub\'e, Hitsch, Rossi (2009): Habit formation and switching costs
       \end{itemize}
     \end{column}
     \begin{column}{0.48\textwidth}
@@ -214,11 +214,11 @@
 
   \vspace{6pt}
   \hl{Simulation design:}
-  \begin{enumerate}
+  \begin{itemize}
     \item \textbf{Initial state:} Simulate $T_{\text{prior}} = 5$ pre-sample
           periods, choose products from $J \in [1,2,3,4,5]$ to generate an experience-based
           prior.
-  \end{enumerate}
+  \end{itemize}
 \end{frame}
 
 %\begin{frame}{Firm's Problem}
@@ -279,7 +279,7 @@
 \begin{frame}{Utility Measurement (No LOV)}
   \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Utility Function without LOV}]
     \begin{equation*}
-      \hat{P}_{jt} = \beta_{ij} X_{jt} + \epsilon_{ijt}
+      \hat{U}_{jt} = \beta_{ij} X_{jt} + \epsilon_{ijt}
     \end{equation*}
   \end{tcolorbox}
   \begin{columns}[T]
@@ -313,14 +313,14 @@
 \begin{frame}{Consumer Behavior with LOV}
   \begin{tcolorbox}[colback=red!5!white, colframe=UGARed, title=\textbf{Utility Function with LOV}]
     \begin{equation*}
-      \hat{P}_{jt} = \beta_{ij} X_{jt} + \gamma_i \log(1 + \Sigma_{ijt}^2) + \epsilon_{ijt}
+      \hat{U}_{jt} = \beta_{ij} X_{jt} + \gamma_i \log(1 + \Sigma_{ijt}^2) + \epsilon_{ijt}
     \end{equation*}
   \end{tcolorbox}
   \begin{itemize}
-    \item $\Sigma_{ijt} = X_{jt} - \theta_{it}$ captures the deviation of product $j$'s characteristic from consumer $i$'s previously chosen characteristics $\theta_{it}$ in period $t$.
-    \item Consumer behavior varies significantly across variety specifications
-    \item Higher $\gamma_i$ leads to more switching 
-    \item Cross-sectional sorting: consumers with higher $\gamma_i$ are more likely to switch to lower indexed products
+    \item where $\Sigma_{ijt} = X_{jt} - \theta_{it}$ as before.
+    \item Consumer behavior varies significantly across variety specifications.
+    \item Higher $\gamma_i$ leads to more switching.
+    \item Cross-sectional sorting: consumers with higher $\gamma_i$ are more likely to switch to lower indexed products.
   \end{itemize}
 \end{frame}
 
@@ -378,8 +378,8 @@
           experiences; nests variety-seeking 
 
     \vspace{4pt}
-    \item \hl{History:} Rich behavioral dynamics; regime differences
-          generate cross-sectional sorting
+    \item \hl{History:} Rich behavioral dynamics; greater preference for variety 
+          generates cross-sectional sorting
 
     \vspace{4pt}
     \item \hl{Next:} Multiple consumers, structural estimation,
@@ -435,10 +435,10 @@
     \item For $t = 1, \ldots, T$:
       \begin{enumerate}
         \item Compute $U_{ijt} = \beta_i X_{jt}
-              - \gamma_i (X_{jt} - \bar{X}_{it})^2
-              + \kappa a_{jt} + \varepsilon_{ijt}$
+              + \gamma_i \log(1 + (X_{jt} - \bar{X}_{it})^2)
+              \varepsilon_{ijt}$
         \item Set $j^* = \arg\max_j U_{ijt}$
-        \item Update $\bar{X}_{it+1} = \frac{1}{t}\sum_{k \le t} x_{ijk^*}$
+        \item Update $\bar{X}_{i,t+1}
       \end{enumerate}
     \item Compute CCPs via log-sum-exp for numerical stability:
           $\log P_{ijt} = U_{ijt} - \log \sum_k e^{U_{ikt}}$
