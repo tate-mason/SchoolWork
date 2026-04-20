@@ -411,7 +411,6 @@ INPUT /usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.e
 INPUT ./presentation.toc
 INPUT ./presentation.toc
 INPUT presentation.toc
-INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
 INPUT ./presentation.toc
 INPUT ./presentation.toc
 INPUT presentation.toc
@@ -466,7 +465,6 @@ INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.p
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb
-INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
