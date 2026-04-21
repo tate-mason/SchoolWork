@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  20 APR 2026 11:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  21 APR 2026 11:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -559,27 +559,47 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [1
 
-{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (../Tables/wm_probit_spec1.tex
+{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+./Mason_PS2.tex:103: Undefined control sequence.
+l.103   \mathbbm
+                {P}(\text{Entry})^W = \max_a\sum_{t=0}^{\infty}(\rho_t\beta)...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.16 \end{center}
-                  [1]) (../Tables/km_probit_spec1.tex) (../Tables/wm_probit_spec2.tex [2]) (../Tables/km_probit_spec2.tex) (../Tables/wm_iv_probit.tex [3]) (../Tables/km_iv_probit.tex) (../Tables/ordered_probit_spec1.tex [4]) (../Tables/ordered_probit_spec2.tex [5]) [6] [7] (/usr/local/texlive/2026/texmf-dist/tex/latex/listings/lstlang1.sty
+l.108 T
+       he entry function for KMart is as follows: [1{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+./Mason_PS2.tex:111: Undefined control sequence.
+l.111   \mathbbm
+                {P}(\text{Entry})^K = \max_a\sum_{t=0}^{\infty}(\rho_t\beta)...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+(../Tables/wm_probit_spec1.tex) (../Tables/km_probit_spec1.tex [2]) (../Tables/wm_probit_spec2.tex) (../Tables/km_probit_spec2.tex [3]) (../Tables/wm_iv_probit.tex) (../Tables/km_iv_probit.tex [4]) (../Tables/ordered_probit_spec1.tex [5]) (../Tables/ordered_probit_spec2.tex [6]) [7] [8] [9] (/usr/local/texlive/2026/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 198.
-LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 198.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 237.
+LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 237.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/inconsolata/ot1zi4.fd
 File: ot1zi4.fd 2018/01/14 OT1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 198.
+(Font)              scaled to size 10.95pt on input line 237.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zi4' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 198.
+(Font)              scaled to size 9.0pt on input line 237.
  (../Code/Prob2.py
 LaTeX Font Info:    Font shape `OT1/zi4/b/n' will be
 (Font)              scaled to size 9.0pt on input line 1.
@@ -590,7 +610,7 @@ LaTeX Font Warning: Font shape `OT1/zi4/m/it' undefined
 
 LaTeX Font Info:    Font shape `OT1/zi4/m/it' will be
 (Font)              scaled to size 9.0pt on input line 28.
-[8{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}] [9] [10] [11] [12]) (../Code/PS2c.py [13]) [14] (./Mason_PS2.aux)
+[10{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}] [11] [12] [13] [14] [15]) (../Code/PS2c.py [16]) [17] (./Mason_PS2.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -600,21 +620,21 @@ L3 programming layer <2026-01-19>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `Mason_PS2.out' has not changed.
-(rerunfilecheck)             Checksum: 9906D349E42EE08742AE54AB85444619;1742.
+(rerunfilecheck)             Checksum: E6CD109812CD76CE039F560618A06BDC;1961.
  ) 
 Here is how much of TeX's memory you used:
- 18913 strings out of 467525
- 306517 string characters out of 5418983
- 1309458 words of memory out of 5000000
- 47188 multiletter control sequences out of 15000+600000
- 638431 words of font info for 113 fonts, out of 8000000 for 9000
+ 18959 strings out of 467525
+ 307124 string characters out of 5418983
+ 1371468 words of memory out of 5000000
+ 47198 multiletter control sequences out of 15000+600000
+ 639274 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,9n,79p,1006b,2305s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Mason_PS2.pdf (15 pages, 189637 bytes).
+ 75i,9n,79p,1135b,2305s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on Mason_PS2.pdf (18 pages, 255310 bytes).
 PDF statistics:
- 491 PDF objects out of 1000 (max. 8388607)
- 447 compressed objects within 5 object streams
- 276 named destinations out of 1000 (max. 500000)
- 22129 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 547 PDF objects out of 1000 (max. 8388607)
+ 490 compressed objects within 5 object streams
+ 290 named destinations out of 1000 (max. 500000)
+ 24185 words of extra memory for PDF output out of 24883 (max. 10000000)
 

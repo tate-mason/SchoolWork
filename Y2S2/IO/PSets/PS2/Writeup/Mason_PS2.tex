@@ -74,11 +74,44 @@ This report is laid out as follows. Section 2 will present the profit and entry 
 
 The profit function for Walmart is as follows:
 
+\begin{equation*}
+  \pi_{t}^W(N_t) = \underbrace{R_t(N_t)\bar{\mu}_t}_{\text{Net revenue}} - \underbrace{[\sum_i\sum_lD_{it}(N_t)\Omega_{il}(N_t)sh_{il}(N_t)]}_{\text{Shipping cost}} - \underbrace{\sum_l L(q_{lt})w_{lt}}_{\text{Labor cost}} - \underbrace{\sum_lF_{lt}}_{\text{Fixed cost}}
+\end{equation*}
+
+Where:
+\begin{itemize}
+  \item $D_it = \frac{R_{it}(N_t)}{\bar{p}_t}$ is orders from county $i$
+  \item $\bar{mu}_t$ is the average markup in the market
+  \item $\Omega_{il}(N_t)$ is the order flow matrix
+  \item $sh_{il}(N_t)$ is the cost of shipping from location $l$ to county $i$
+  \item $q_{lt} = \sum_i\Omega_{il}(N_t)D_it(N_t)$ is the orders fulfilled by location $l$
+\end{itemize}
+
 The profit function for KMart is as follows:
 
+\begin{equation*}
+  \pi_{t}^K(N_t) = \underbrace{R_t(N_t)\bar{\mu}_t}_{\text{Net revenue}} - \\
+  \underbrace{[\sum_i\sum_lD_{it}(N_t)\Omega_{il}(N_t)sh_{il}(N_t)]}_{\text{Shipping cost}} \\
+  \underbrace{\sum_l L(q_{lt})w_{lt}}_{\text{Labor cost}} -  \\
+  \underbrace{\sum_lF_{lt}}_{\text{Fixed cost}}
+\end{equation*}
+
+Where all follows as above
+
 The entry function for Walmart is as follows:
+\begin{equation}
+  \mathbbm{P}(\text{Entry})^W = \max_a\sum_{t=0}^{\infty}(\rho_t\beta)^t[\sum_{j\in\mathcal{B}_t^{K}}(\pi_{jt}^g - c_{jt}^g - \tau d_{jt}^g) + \sum_{j\in\mathcal{B}^{0}}(\pi_{jt}^f - c_{jt}^f - \tau d_{jt}^f)]
+\end{equation}
+
+Note, in this equation, Walmart is choosing to enter either a market $g, \ f$ which already has a KMart, or a market with no firms. Entry is determined by profit net of costs in each location, discounted by a productivity adjusted discount factor.
 
 The entry function for KMart is as follows:
+
+\begin{equation}
+  \mathbbm{P}(\text{Entry})^K = \max_a\sum_{t=0}^{\infty}(\rho_t\beta)^t[\sum_{j\in\mathcal{B}_t^{W}}(\pi_{jt}^g - c_{jt}^g - \tau d_{jt}^g) + \sum_{j\in\mathcal{B}^{0}}(\pi_{jt}^f - c_{jt}^f - \tau d_{jt}^f)]
+\end{equation}
+
+Same as above.
 
 % ── 3. Model / Theoretical Framework ───────────────────────
 \section{Simple Estimation}
@@ -136,6 +169,8 @@ where $X_j$ is a vector of characteristics including log population, log retail 
 
 The IV results show that Walmart's predicted entry has a massively negative effect on KMart's entry probability, implying that a) Walmart's entry is a strong deterrent to KMart's entry, and b) the OLS results were biasing the results downwards. For Walmart, KMart's predicted entry has a negative effect, but there is likely a misspecification in instrument as standard errors are not available. To be diagnosed. However, the general magnitude is consistent with the OLS results, implying that KMart is less of a deterrent to Walmart.
 
+\subsection{Comparing Across Specifications}
+In the simple case, it would seem we are biasing the results upwards by not including competition effects, as the presence of a competitor should act as a deterrent. When we include competition effects, we see that the constant term becomes more negative, which is more consistent with the idea that there are significant barriers to entry, and the presence of a competitor is a significant deterrent to entry. The IV results show that the presence of a competitor is an even stronger deterrent than the OLS results suggest, which implies that there is likely some endogeneity in the OLS results, as firms are more likely to enter into markets where there are no competitors, and less likely to enter into markets where there are competitors. This effect is especially pronounced for KMart, who sees Walmart's potential entry as a strong deterrent.
 
 \section{Ordered Probit}
 
@@ -176,12 +211,16 @@ Preidcted Walmart Entry & -- & -14.38 \\
 \end{tabular}
 \end{table}
 
+These results show that Walmart still has a strong effect on KMart's entry probability, similar in magnitude to the constant from the simple probit regression. Where I think I have made an error, is that Walmart sees Kmart's potential entry as a positive effect, though very small. This is counterintuitive, but if I were to rationalize it, I would say that Walmart sees Kmart's potential entry as a sign of a healthy market, and because Walmart is the dominant firm, it is not deterred, but rather motivated to enter. However, I will have to go back to my code and check for bugs, as this result is not what I expected. Besides the $\Delta_i$ terms, the results are generally consistent with the other specifications, with population and percent urban being strong predictors of entry, and distance to Bentonville being a strong detterent for Walmart.
+
+
 % ── 6. Conclusion ───────────────────────────────────────────
 \section{Conclusion}
 
-In conclusion, I have presented some data facts, estimation results, and a regime comparison for the problem set. I will have to go back and check my code for the regime comparison, as the results are not what I expected. 
-However, I still feel that this exercise was very useful in a few dimensions. Firstly, it was a good refresher on the different estiamtion techniques, and the biases that can result from misspecified methods of computation.
-Secondly, it was good for thinking of pricing games and how to derive the FOC's for the different regimes. Finally, the data exploration exercise was good as I am trying to learn Python and its plotting libraries.
+In conclusion, this problem set was concerned with evaluating models of entry and competition. Going from the simplest possible probit model of entry to a (simplified) method which accounts for strategic planning of entry, we see that the effect of a competitor on the entry decision is significant, and likely much stronger than can be fully captured in a simple probit. Comparing across models, one thing is constant: a competitor entering the market is a deterrent to entry. What differs is the magnitude of the effect. In the probits, this is a very small effect, with the IV having the strongest at $-4.58$ for predicted Walmart entry on KMart. When we move to the ordered probit, we see that the first mover is greatly incentivized to enter, but after that, the gain from entry is much smaller, consistent with the idea that being first to market provides great value. Finally, the Seim method shows that Walmart's predicted entry is hugely influential on KMart's entry decision, but KMart's predicted entry may actually slightly encourage Walmart to enter the market, though this may be a bug. 
+
+In all, I think the ordered probit and Seim methods are more consistent with the idea of strategic entry, and would be used well in tandem to model the effect of competition on entry. The simple probit methods are useful for baseline estimation, but the true effect of entry competition is likely stronger than can be captured.
+
 
 % ── References ──────────────────────────────────────────────
 \newpage
