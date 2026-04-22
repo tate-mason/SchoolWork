@@ -1,0 +1,197 @@
+\documentclass[12pt]{article}
+
+%--- Packages ---%
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{authblk}
+\usepackage{mathtools} % in preamble
+
+\onehalfspacing
+\bibliographystyle{aer}
+
+%--- Theorem Environments ---%
+\newtheorem{assumption}{Assumption}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+
+%--- Title ---%
+\title{\textbf{Love of Variety and Strategic Advertising:\\
+               Evidence from Scanner Data}}
+
+\author[1]{Tate Mason}
+\affil[1]{John Munro Godfrey Sr. Department of Economics, University of Georgia}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    % placeholder
+\end{abstract}
+
+\noindent\textbf{Keywords:} discrete choice, love of variety, habit formation,
+                             structural estimation, advertising, demand estimation
+
+\newpage
+
+%============================================================%
+\section{Introduction}
+%============================================================%
+
+In the baseline logit model, a consumer is perceived as having a fixed preference for each product, and the utility from consuming a product is independent of past consumption. Further, it is assumed that a new good is always a utility boosting event, by the error term's property of being identically and independently distributed. However, in many markets, consumers may have a love of variety, or a desire to consume different products over time. This can be due to factors such as boredom, satiation, or a preference for novelty. In such cases, the utility from consuming a product may depend on past consumption, and the introduction of a new good may not always lead to an increase in utility.
+
+This paper develops a dynamic discrete choice model of consumer demand that incorporates a love of variety, and estimates the model using scanner data. The model allows for both forward-looking and myopic consumers, and includes a state variable that captures the mean consumption of each product. The model also incorporates strategic advertising by firms, which can influence consumer preferences and demand.
+
+This idea is motivated by the idea that there are markets which see firms both acting as the host of the market as well as a participant in it. For example, in the grocery market, a firm like Kroger is both a retailer that hosts other firms' products, as well as a producer of its own goods. This may present a market power dynamic where the player with a dual role may have more access to consumer histories and preferences, allowing for more effective advertising via targeting. This paper seeks to understand the implications of this dynamic for consumer welfare and market outcomes. This will be accomplished by estimating the model using scanner data, and conducting counterfactual analyses to evaluate the effects of different market structures.
+
+The primary contribution of this paper is wedding the love of variety and targeted advertising literatures, which have largely been separate, taking the other as given. Further, the firm side dynamics have been largely theoretical, and this paper seeks to provide empirical understanding of the effects of strategic advertising in a dynamic demand setting. Finally, the paper contributes to the broader literature on dynamic discrete choice models, by developing a model that incorporates both forward-looking and myopic consumers, and by providing an estimation strategy that can be applied to other settings.
+
+%============================================================%
+\section{Related Literature}
+%============================================================%
+
+    \subsection{Discrete Choice Demand Estimation}
+        % McFadden (1974), Berry (1994), BLP (1995)
+
+    \subsection{Variety-Seeking and Habit Formation}
+        % Inertia vs. variety-seeking behavior in consumer choice
+
+    \subsection{Advertising and Dynamic Demand}
+        % Strategic advertising, state dependence, firm-side dynamics
+
+%============================================================%
+\section{Model}
+%============================================================%
+
+    \subsection{Environment}
+    There is a continuum of consumers $i\in\mathcal{I}$ who shop for $t\in\mathcal{T}$ periods. Each period $t$, they can make one purchase from a market. The market is made up of a continuum of firms $f\in\mathcal{F}$ in which one firm $f^*$ acts as both the market and a producer. $f^*$ will be the primary player, strategically advertising to consumer $i$ based on inferences about their type. $f^*$ will see all other $f\in\mathcal{F}$ as a competitor, denoted $\bar{f}$. The consumer is only concerned with maximizing their utility, while the firm wants to maximize profits.
+
+
+    \subsection{Consumer's Problem}
+    The consumer's problem is the following. In each period $t$, the consumer $i$ chooses a product $j$ from the menu of available products $J_t$. The consumer's utility from choosing product $j$ at time $t$ is given by:
+
+    \begin{alignat*}{1}
+        U_{ijt} &= \beta_i X_{jt} + \gamma_i \log(1 + (X_{jt} - \theta_{it})^2) 
+                  + \alpha_i p_{jt}(1 - a_{it}) + \xi_j + \varepsilon_{ijt} \\
+    \shortintertext{subject to}
+        \theta_{it} &= \{f(X_{js})\}_{s < t} \\
+        \gamma_i &\sim \mathcal{N}(0, 1)\\ \varepsilon_{ijt} &\sim \text{T1EV}(0,1)
+    \end{alignat*}
+
+    where $\beta_i$ is a consumer's utility from characteristic $X_{jt}$, $\gamma_i$ is their preference for variety, $\theta_{it}$ is a function of the consumers' past purchases. This could take the form of the mean characteristic of past purchases, the median characteristic, the norm, etc. $\alpha_i$ is a hetergeneous price sensitivity to $p_{jt}$, which is affected by some advertising $a_{it}$ in the form of coupons. $\xi_j$ is unobserved quality in product $j$, and $\varepsilon_{ijt}$ is the Gumbel shock which allows for a closed form logit.
+
+    The choice probability of consumer $i$ choosing product $j$ in time $t$ is as follows:
+    \begin{alignat*}{1}
+      P_{ijt} = \frac{\exp{U_{ijt}}}{\sum_k\exp{U_{ikt}}}
+    \end{alignat*}
+
+    I am currently working under a specification in which the consumer is a static agent, but hope to expand to a forward-looking learning agent after the simple case is handled.
+
+    \subsection{Firm's Problem}
+
+    \subsection{Equilibrium}
+        % Definition of equilibrium
+        % Existence
+
+%============================================================%
+\section{Identification}
+%============================================================%
+
+    \subsection{Demand-Side Identification}
+        % Variation driving identification of beta, gamma
+        % Role of the mean X-bar as a state variable
+
+    \subsection{Advertising Identification}
+        % Exclusion restrictions
+        % Instruments for advertising: cost shifters, rival characteristics
+
+    \subsection{Discussion}
+        % Endogeneity concerns
+        % Separating habit formation from unobserved heterogeneity
+
+%============================================================%
+\section{Estimation}
+%============================================================%
+
+    \subsection{Data}
+        % Nielsen scanner data: structure, sample selection, summary statistics
+
+    \subsection{Identification of Random Coefficients}
+        % BLP instruments / differentiation instruments (Gandhi \& Houde 2019)
+
+    \subsection{GMM Objective and Moment Conditions}
+        % Moment conditions, weighting matrix
+        % Berry inversion / contraction mapping
+
+    \subsection{CCP Approach}
+        % Hotz-Miller reduction
+        % First-stage CCP estimation
+
+%============================================================%
+\section{Monte Carlo Simulation}
+%============================================================%
+
+    \subsection{Design}
+        % Parameter regimes (beta, gamma), product space, T, S
+
+    \subsection{Fixed Mean Specification}
+        % Results and interpretation
+
+    \subsection{Prior Mean Specification}
+        % Prior period simulation, dynamic mean
+        % Results and interpretation
+
+    \subsection{Markovian Advertising Specification}
+        % Firm's advertising as function of state
+        % Results and interpretation
+
+%============================================================%
+\section{Empirical Results}
+%============================================================%
+
+    \subsection{Parameter Estimates}
+    \subsection{Model Fit}
+    \subsection{Heterogeneity in Variety-Seeking}
+    \subsection{Advertising Response}
+
+%============================================================%
+\section{Counterfactuals}
+%============================================================%
+
+    \subsection{Counterfactual 1}
+        % e.g., ban on targeted advertising
+
+    \subsection{Counterfactual 2}
+        % e.g., product line extension / assortment change
+
+%============================================================%
+\section{Conclusion}
+%============================================================%
+
+%============================================================%
+\newpage
+\bibliography{references}
+
+%============================================================%
+\newpage
+\appendix
+
+\section{Proofs}
+    \subsection{Proof of Proposition \ref{}}
+
+\section{Additional Tables and Figures}
+
+\section{Simulation Details}
+    % Full algorithm pseudocode
+    % Convergence diagnostics
+
+\end{document}
