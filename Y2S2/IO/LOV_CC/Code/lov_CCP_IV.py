@@ -105,7 +105,7 @@ for g in gamma:
     tab_LOV_g.add_row(["Inclusive Value", round(IV_LOV.mean(),4)])
 
     print(tab_LOV_g)
-    save_tex_table(tab_LOV_g.get_latex_string(), f"tab_lov_{g}.tex")
+    save_tex_table(tab_LOV_g.get_latex_string(), f"tab_lov_{g}")
 
     
 
@@ -172,6 +172,7 @@ def ccp_iv_intro(S, T, T_prior, t_star, J, beta, gamma):
     )
 
 for g in gamma:
+    IV_lov_no, prob_lov_no = ccp_iv_base(S=1000, T=100, T_prior=5, J=5, beta=2, gamma=g)
     IV_LOV_intro, prob_LOV_intro = ccp_iv_intro(S=1000, T=100, T_prior=5, t_star=50, J=5, beta=2, gamma=g)
 
     tab_LOV_intro_g = PrettyTable()
@@ -179,7 +180,7 @@ for g in gamma:
     tab_LOV_intro_g.field_names = (['Product', 'CCP'])
     for j in range(J_prime):
         tab_LOV_intro_g.add_row([f"Product {j+1}", round(prob_LOV_intro[:, j].mean(), 4)])
-    tab_LOV_intro_g.add_row(["Inclusive Value", round(IV_LOV_intro.mean(),4)])
+    tab_LOV_intro_g.add_row(["$\%\Delta$ Inclusive Value", round((IV_LOV_intro.mean()/IV_lov_no.mean()),4)])
 
     print(tab_LOV_intro_g)
-    save_tex_table(tab_LOV_intro_g.get_latex_string(), f"tab_lov_intro_{g}.tex")
+    save_tex_table(tab_LOV_intro_g.get_latex_string(), f"tab_lov_intro_{g}_5")

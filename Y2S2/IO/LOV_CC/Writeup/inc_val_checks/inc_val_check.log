@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  21 APR 2026 15:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  21 APR 2026 15:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -138,67 +138,309 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-(../../Output/Tables/tab_lov_intro_0.tex.tex) (../../Output/Tables/tab_lov_0.tex.tex)
-Overfull \hbox (88.1601pt too wide) in paragraph at lines 19--22
+[1
+
+{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (../../Output/Tables/tab_lov_intro_0_5.tex) (../../Output/Tables/tab_lov_0.tex)
+Overfull \hbox (103.16013pt too wide) in paragraph at lines 24--27
 []\OT1/cmr/bx/n/10 No Va-ri-ety \OT1/cmr/m/n/10 (New Prod-uct, No En-try) []  []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19--22
+Underfull \hbox (badness 10000) in paragraph at lines 24--27
 
  []
 
-(../../Output/Tables/tab_lov_intro_6.tex.tex) (../../Output/Tables/tab_lov_6.tex.tex)
-Overfull \hbox (60.78493pt too wide) in paragraph at lines 23--26
+(../../Output/Tables/tab_lov_intro_6_5.tex) (../../Output/Tables/tab_lov_6.tex)
+Overfull \hbox (75.78496pt too wide) in paragraph at lines 28--31
 []$\OML/cmm/m/it/10 ^^M[] \OT1/cmr/m/n/10 = 6$ (New Prod-uct, No En-try) []  []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--26
+Underfull \hbox (badness 10000) in paragraph at lines 28--31
 
  []
 
-(../../Output/Tables/tab_lov_intro_9.tex.tex) (../../Output/Tables/tab_lov_9.tex.tex)
-Overfull \hbox (60.78493pt too wide) in paragraph at lines 27--30
+(../../Output/Tables/tab_lov_intro_9_5.tex) (../../Output/Tables/tab_lov_9.tex)
+Overfull \hbox (75.78496pt too wide) in paragraph at lines 32--35
 []$\OML/cmm/m/it/10 ^^M[] \OT1/cmr/m/n/10 = 9$ (New Prod-uct, No En-try) []  []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 27--30
+Underfull \hbox (badness 10000) in paragraph at lines 32--35
 
  []
 
-(../../Output/Tables/tab_lov_intro_12.tex.tex) (../../Output/Tables/tab_lov_12.tex.tex)
-Overfull \hbox (65.78494pt too wide) in paragraph at lines 31--34
+(../../Output/Tables/tab_lov_intro_12_5.tex) (../../Output/Tables/tab_lov_12.tex)
+Overfull \hbox (80.78497pt too wide) in paragraph at lines 36--39
 []$\OML/cmm/m/it/10 ^^M[] \OT1/cmr/m/n/10 = 12$ (New Prod-uct, No En-try) []  []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--34
+Underfull \hbox (badness 10000) in paragraph at lines 36--39
 
  []
 
-[1
+[2
 
-{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./inc_val_check.aux)
+] (../../Output/Tables/tab_lov_intro_0_1.tex
+../../Output/Tables/tab_lov_intro_0_1.tex:9: Missing $ inserted.
+<inserted text> 
+                $
+l.9 \%\Delta
+             Inclusive Value & 0.9994 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+../../Output/Tables/tab_lov_intro_0_1.tex:9: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.9 \%\Delta Inclusive Value &
+                               0.9994 \\
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../../Output/Tables/tab_lov_intro_0_1.tex:9: Missing $ inserted.
+<inserted text> 
+                $
+l.9 \%\Delta Inclusive Value &
+                               0.9994 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+../../Output/Tables/tab_lov_intro_0_1.tex:9: Missing } inserted.
+<inserted text> 
+                }
+l.9 \%\Delta Inclusive Value &
+                               0.9994 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+) (../../Output/Tables/tab_lov_0.tex)
+Overfull \hbox (103.25117pt too wide) in paragraph at lines 44--47
+[]\OT1/cmr/bx/n/10 No Va-ri-ety \OT1/cmr/m/n/10 (New Prod-uct, No En-try) []  []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--47
+
+ []
+
+(../../Output/Tables/tab_lov_intro_6_1.tex
+../../Output/Tables/tab_lov_intro_6_1.tex:9: Missing $ inserted.
+<inserted text> 
+                $
+l.9 \%\Delta
+             Inclusive Value & 0.9961 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+../../Output/Tables/tab_lov_intro_6_1.tex:9: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.9 \%\Delta Inclusive Value &
+                               0.9961 \\
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../../Output/Tables/tab_lov_intro_6_1.tex:9: Missing $ inserted.
+<inserted text> 
+                $
+l.9 \%\Delta Inclusive Value &
+                               0.9961 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+../../Output/Tables/tab_lov_intro_6_1.tex:9: Missing } inserted.
+<inserted text> 
+                }
+l.9 \%\Delta Inclusive Value &
+                               0.9961 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+) (../../Output/Tables/tab_lov_6.tex)
+Overfull \hbox (75.876pt too wide) in paragraph at lines 48--51
+[]$\OML/cmm/m/it/10 ^^M[] \OT1/cmr/m/n/10 = 6$ (New Prod-uct, No En-try) []  []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--51
+
+ []
+
+(../../Output/Tables/tab_lov_intro_9_1.tex
+../../Output/Tables/tab_lov_intro_9_1.tex:9: Missing $ inserted.
+<inserted text> 
+                $
+l.9 \%\Delta
+             Inclusive Value & 0.9932 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+../../Output/Tables/tab_lov_intro_9_1.tex:9: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.9 \%\Delta Inclusive Value &
+                               0.9932 \\
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../../Output/Tables/tab_lov_intro_9_1.tex:9: Missing $ inserted.
+<inserted text> 
+                $
+l.9 \%\Delta Inclusive Value &
+                               0.9932 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+../../Output/Tables/tab_lov_intro_9_1.tex:9: Missing } inserted.
+<inserted text> 
+                }
+l.9 \%\Delta Inclusive Value &
+                               0.9932 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+) (../../Output/Tables/tab_lov_9.tex)
+Overfull \hbox (75.876pt too wide) in paragraph at lines 52--55
+[]$\OML/cmm/m/it/10 ^^M[] \OT1/cmr/m/n/10 = 9$ (New Prod-uct, No En-try) []  []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--55
+
+ []
+
+(../../Output/Tables/tab_lov_intro_12_1.tex
+../../Output/Tables/tab_lov_intro_12_1.tex:9: Missing $ inserted.
+<inserted text> 
+                $
+l.9 \%\Delta
+             Inclusive Value & 0.9908 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+../../Output/Tables/tab_lov_intro_12_1.tex:9: Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.9 \%\Delta Inclusive Value &
+                               0.9908 \\
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../../Output/Tables/tab_lov_intro_12_1.tex:9: Missing $ inserted.
+<inserted text> 
+                $
+l.9 \%\Delta Inclusive Value &
+                               0.9908 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+../../Output/Tables/tab_lov_intro_12_1.tex:9: Missing } inserted.
+<inserted text> 
+                }
+l.9 \%\Delta Inclusive Value &
+                               0.9908 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+) (../../Output/Tables/tab_lov_12.tex)
+Overfull \hbox (80.87602pt too wide) in paragraph at lines 56--59
+[]$\OML/cmm/m/it/10 ^^M[] \OT1/cmr/m/n/10 = 12$ (New Prod-uct, No En-try) []  []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--59
+
+ []
+
+[3
+
+] (../../Output/Tables/tab_lov_intro_0_3.tex) (../../Output/Tables/tab_lov_0.tex)
+Overfull \hbox (103.16013pt too wide) in paragraph at lines 64--67
+[]\OT1/cmr/bx/n/10 No Va-ri-ety \OT1/cmr/m/n/10 (New Prod-uct, No En-try) []  []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--67
+
+ []
+
+(../../Output/Tables/tab_lov_intro_6_3.tex) (../../Output/Tables/tab_lov_6.tex)
+Overfull \hbox (75.78496pt too wide) in paragraph at lines 68--71
+[]$\OML/cmm/m/it/10 ^^M[] \OT1/cmr/m/n/10 = 6$ (New Prod-uct, No En-try) []  []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--71
+
+ []
+
+(../../Output/Tables/tab_lov_intro_9_3.tex) (../../Output/Tables/tab_lov_9.tex)
+Overfull \hbox (75.78496pt too wide) in paragraph at lines 72--75
+[]$\OML/cmm/m/it/10 ^^M[] \OT1/cmr/m/n/10 = 9$ (New Prod-uct, No En-try) []  []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--75
+
+ []
+
+(../../Output/Tables/tab_lov_intro_12_3.tex) (../../Output/Tables/tab_lov_12.tex)
+Overfull \hbox (80.78497pt too wide) in paragraph at lines 76--79
+[]$\OML/cmm/m/it/10 ^^M[] \OT1/cmr/m/n/10 = 12$ (New Prod-uct, No En-try) []  []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--79
+
+ []
+
+[4
+
+] (./inc_val_check.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 483 strings out of 467525
- 10155 string characters out of 5418983
- 451756 words of memory out of 5000000
- 29449 multiletter control sequences out of 15000+600000
+ 547 strings out of 467525
+ 12531 string characters out of 5418983
+ 448756 words of memory out of 5000000
+ 29473 multiletter control sequences out of 15000+600000
  628029 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,6n,38p,494b,126s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 35i,7n,38p,494b,126s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on inc_val_check.pdf (1 page, 85569 bytes).
+Output written on inc_val_check.pdf (4 pages, 93101 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+ 57 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
