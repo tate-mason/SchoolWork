@@ -24,7 +24,7 @@ T_prior = 5 # history formation
 prod_space = np.linspace(1,5,5) # menu of products
 J = len(prod_space) # number of products
 
-prod_space_new = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 5.0])
+prod_space_new = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 8.0])
 J_prime = len(prod_space_new)
 
 beta = 2 # quality utility
@@ -32,6 +32,7 @@ gamma = np.array([0, 6, 9, 12]) # variety utility
 
 cons_res = namedtuple('cons_res', [
     'IV_S',
+    'IV_tstar',
     'prob_S',
 ])
 # ============================================================================================= #
@@ -88,14 +89,16 @@ def ccp_iv_base(S, T, T_prior, J, beta, gamma):
 
         IV_S[s] = IV
         prob_S[s] = prob
+        IV_tstar = IV[50]
 
     return cons_res(
         IV_S.mean(axis=0),
+        IV_tstar.mean(),
         prob_S.mean(axis=0)
     )
 
 for g in gamma:
-    IV_LOV, prob_LOV = ccp_iv_base(S=1000, T=100, T_prior=5, J=5, beta=2, gamma=g)
+    IV_LOV, IV_tstar, prob_LOV = ccp_iv_base(S=1000, T=100, T_prior=5, J=5, beta=2, gamma=g)
 
     tab_LOV_g = PrettyTable()
     tab_LOV_g.title = f"CCP with LOV γ={g}"
@@ -164,16 +167,18 @@ def ccp_iv_intro(S, T, T_prior, t_star, J, beta, gamma):
         prob = np.exp(V - IV[:,None])
 
         IV_S[s] = IV
+        IV_tstar = IV[t_star]
         prob_S[s] = prob
 
     return cons_res(
         IV_S.mean(axis=0),
+        IV_tstar.mean(),
         prob_S.mean(axis=0)
     )
 
 for g in gamma:
-    IV_lov_no, prob_lov_no = ccp_iv_base(S=1000, T=100, T_prior=5, J=5, beta=2, gamma=g)
-    IV_LOV_intro, prob_LOV_intro = ccp_iv_intro(S=1000, T=100, T_prior=5, t_star=50, J=5, beta=2, gamma=g)
+    IV_lov_no, IV_tstar_no, prob_lov_no = ccp_iv_base(S=1000, T=100, T_prior=5, J=5, beta=2, gamma=g)
+    IV_LOV_intro, IV_tstar, prob_LOV_intro = ccp_iv_intro(S=1000, T=100, T_prior=5, t_star=50, J=5, beta=2, gamma=g)
 
     tab_LOV_intro_g = PrettyTable()
     tab_LOV_intro_g.title = f"LOV with Product Introduction (γ={g})"
@@ -181,6 +186,7 @@ for g in gamma:
     for j in range(J_prime):
         tab_LOV_intro_g.add_row([f"Product {j+1}", round(prob_LOV_intro[:, j].mean(), 4)])
     tab_LOV_intro_g.add_row(["$\%\Delta$ Inclusive Value", round((IV_LOV_intro.mean()/IV_lov_no.mean()),4)])
+    tab_LOV_intro_g.add_row([f"IV at t={t_star}", round(IV_tstar, 4)])
 
     print(tab_LOV_intro_g)
-    save_tex_table(tab_LOV_intro_g.get_latex_string(), f"tab_lov_intro_{g}_5")
+    save_tex_table(tab_LOV_intro_g.get_latex_string(), f"tab_lov_intro_{g}_8")
