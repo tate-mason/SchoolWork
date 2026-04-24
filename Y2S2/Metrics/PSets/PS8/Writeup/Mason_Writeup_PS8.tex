@@ -1,0 +1,183 @@
+% ============================
+% LaTeX Template - Problem Set
+% ============================
+\documentclass[11pt]{article}
+
+% ---------- Page + layout ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\setstretch{1.1}
+\usepackage{parskip}
+
+% ---------- Math ----------
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage{threeparttable}
+\usepackage[utf8]{inputenc}
+
+% ---------- Tables ----------
+\usepackage{booktabs}
+
+% ---------- Links ----------
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Header / footer ----------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{\course}}
+\chead{\textbf{\pset}}
+\rhead{\textbf{\name}}
+\cfoot{\thepage}
+
+% =========================
+% Metadata (edit if needed)
+% =========================
+\newcommand{\name}{Tate Mason}
+\newcommand{\course}{Econometrics II}
+\newcommand{\pset}{Problem Set 8}
+\newcommand{\duedate}{April 22, 2026}
+
+% =========================
+% Question / solution macros
+% =========================
+\newcounter{q}
+\renewcommand{\theq}{\arabic{q}}
+
+\newcommand{\question}[1]{%
+  \refstepcounter{q}
+  \vspace{0.75em}
+  \noindent{\Large\textbf{Question \theq.} \normalsize\textbf{#1}}%
+  \vspace{0.25em}
+  \par
+}
+
+\newcounter{subq}[q]
+\renewcommand{\thesubq}{\alph{subq}}
+
+\newcommand{\subquestion}[1]{%
+  \refstepcounter{subq}
+  \vspace{0.35em}
+  \noindent\textbf{(\thesubq)} \textbf{#1}\par
+}
+
+\newenvironment{solution}{%
+  \vspace{0.15em}
+  \noindent\textit{Solution. }\ignorespaces
+}{\vspace{0.5em}\par}
+
+% =========================
+% Easy math macros
+% =========================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\plim}{plim}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\newcommand{\P}{\mathbb{P}}
+
+\newcommand{\vct}[1]{\mathbf{#1}}
+\newcommand{\mtx}[1]{\mathbf{#1}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\1}{\mathbf{1}}
+
+% =========================
+% Document
+% =========================
+\begin{document}
+
+% ---------- Title block ----------
+{\Large\textbf{\course} \hfill \textbf{\pset}}\\
+\textbf{Name:} \name \hfill \textbf{Due:} \duedate\\
+\rule{\textwidth}{0.4pt}
+
+% =========================
+% Question 1
+% =========================
+\question{Logit estimation via MLE, NLLS, and MoM}
+
+Estimate a logit model of the 4-year college attendance choice (relative to 2-year college)
+among post-secondary attendees using \texttt{dataHW8\_Problem1.mat}. The outcome $Y_i$
+indicates attendance at a 4-year college. $X_i$ contains individual characteristics including
+a constant, a parental college-graduation indicator, and the student's high-school GPA.
+$Z$ contains choice-specific attributes: distance to the nearest 2-year college and distance
+to the nearest 4-year college (coefficients common across choices).
+
+
+\begin{solution}
+  Because all three methods return the same estimates, I will report one table with the $\beta$ estimates, $\gamma$ estimates, and standard errors.
+
+  \begin{table}[ht]
+    \centering
+      \begin{tabular}{lcc}
+        \toprule
+        \textbf{4-Yr College} & \textbf{Estimate} & \textbf{Std. Error} \\
+        \midrule
+        $\beta_0$ & -2.05 & 0.19 \\
+        $\beta_1$ & 1.30 & 0.05 \\
+        $\beta_2$ & 0.65 & 0.06 \\
+        $\gamma_1$ & 0.02 & 0.00 \\
+      \bottomrule
+      \end{tabular}
+    \caption{Logit estimates of 4-year college attendance choice.}
+  \end{table}
+\end{solution}
+        
+\clearpage
+
+% =========================
+% Question 2
+% =========================
+\question{Two-Period Labor Supply Model with Savings}
+
+Use \texttt{dataHW8\_Problem2.mat}. Individuals are endowed with first-period savings drawn
+from $k_1 \sim \text{Uniform}[1.5,\,3.5]$. In each period they jointly choose whether to
+work and how much to consume/save. Wages take five values $\{0.5,\,0.75,\,1.0,\,1.5,\,2.0\}$.
+The initial wage distribution is $(\delta_1,\delta_2,\delta_3,\delta_4,\,1-\sum_j \delta_j)$
+and wages transition according to
+\[
+  \Pi =
+  \begin{pmatrix}
+    \rho_1+\rho_2+\rho_3 & \rho_2             & \rho_3 & 0                   & 0 \\
+    \rho_2+\rho_3        & \rho_1             & \rho_2 & \rho_3              & 0 \\
+    \rho_3               & \rho_2             & \rho_1 & \rho_2              & \rho_3 \\
+    0                    & \rho_3             & \rho_2 & \rho_1              & \rho_2+\rho_3 \\
+    0                    & 0                  & \rho_3 & \rho_2              & \rho_1+\rho_2+\rho_3
+  \end{pmatrix}
+\]
+with $\rho_1 + 2\rho_2 + 2\rho_3 = 1$. Flow utility is
+\[
+  u(c_t, l_t) = \beta \ln c_t - \gamma \cdot \mathbf{1}(l_t = 1) + \varepsilon_{l_t},
+  \qquad \varepsilon_{l_t} \overset{\text{iid}}{\sim} \text{Type I EV},
+\]
+with discount factor $\delta = 0.9$. True parameter values: $\delta_j = 0.2$ for all $j$,
+$\rho_1 = 0.4$, $\rho_2 = 0.2$, $\rho_3 = 0.1$, $\beta = 2$, $\gamma = 0.5$.
+
+\subquestion{Construct a set of moments to target in estimation from
+\texttt{dataHW8\_Problem2.mat}. Report the sample moments.}
+
+\begin{solution}
+  \input{Tables/Tables_data_moments.tex}
+\end{solution}
+
+\clearpage
+\subquestion{Simulate $N = 20{,}000$ observations at the true parameter values and verify that
+the simulated moments are close to the sample moments.}
+
+\begin{solution}
+  \input{Tables/Tables_data_vs_sim_moments.tex}
+\end{solution}
+
+\subquestion{Estimate the model parameters by embedding the simulation inside an SMM
+estimator. Restrict the wage distribution probabilities and transition parameters to sum to one
+using a multinomial-logit-style reparameterization. Report estimates of $\beta$, $\gamma$,
+$\delta_j$ for $j = 1,\ldots,5$, and $\rho_1,\rho_2,\rho_3$.}
+
+\begin{solution}
+  \input{Tables/Tables_SMM_estimates.tex}
+\end{solution}
+
+\end{document}
