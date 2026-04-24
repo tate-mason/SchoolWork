@@ -20,11 +20,12 @@ S = 1000 # simulations
 
 T = 100 # time periods
 T_prior = 5 # history formation
+t_star = 50 # product introduction time
 
 prod_space = np.linspace(1,5,5) # menu of products
 J = len(prod_space) # number of products
 
-prod_space_new = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 8.0])
+prod_space_new = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 3.0])
 J_prime = len(prod_space_new)
 
 beta = 2 # quality utility
@@ -106,15 +107,14 @@ for g in gamma:
     for j in range(J):
         tab_LOV_g.add_row([f"Product {j+1}", round(prob_LOV[:, j].mean(), 4)])
     tab_LOV_g.add_row(["Inclusive Value", round(IV_LOV.mean(),4)])
+    tab_LOV_g.add_row([f"IV at t={t_star}", round(IV_tstar, 4)])
 
     print(tab_LOV_g)
-    save_tex_table(tab_LOV_g.get_latex_string(), f"tab_lov_{g}")
+    save_tex_table(tab_LOV_g.get_latex_string(), f"tab_lov_{g}_3")
 
     
 
 #======================================================================================================#
-
-t_star = 50
 
 def ccp_iv_intro(S, T, T_prior, t_star, J, beta, gamma):
     x_chosen_S = np.zeros((S, T))
@@ -189,4 +189,4 @@ for g in gamma:
     tab_LOV_intro_g.add_row([f"IV at t={t_star}", round(IV_tstar, 4)])
 
     print(tab_LOV_intro_g)
-    save_tex_table(tab_LOV_intro_g.get_latex_string(), f"tab_lov_intro_{g}_8")
+    save_tex_table(tab_LOV_intro_g.get_latex_string(), f"tab_lov_intro_{g}_3")
