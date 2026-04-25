@@ -90,17 +90,63 @@
 % -----------------------
 \begin{document}
 
+
+\vspace{0.5em}
+
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
 \begin{center}
   {\large \textbf{\Title}}\\[0.5em]
   {\large \Author}\\
   {\Affil}\\[0.25em]
   {\Date}
 \end{center}
+    \vspace{2cm}
+    
+    \begin{minipage}{0.85\textwidth}
+        \begin{center}
+            \textbf{Abstract}
+        \end{center}
+        This paper investigates the impact of a women's professional sports league on girls' youth sports participation. Using the Women's National Basketball Association's (WNBA) inaugural season in 1997 as treatment, I apply two-way fixed effects methods to determine if there are any effects of the league's formation on the participation of girls in high school sports. Across four sports, I find modest increases in basketball and track participation, while cross-country and soccer do not exhibit any statistically significant effects.
+    \end{minipage}
+    
+    \vfill
+\end{titlepage}
 
-\vspace{0.5em}
+\section{Introduction}
 
-\section*{Abstract}
-This paper investigates
+In 1997, the Women's National Basketball Association (WNBA) held its inaugural season. Since its conception, the league has expanded from an initial six teams, to a recently accounced 18 teams by 2030. This growth across states presents an interesting question: does the existence of a professional sports league encourage girls to engage in youth sports? 
+
+\section{Literature}
+
+\section{Methodology}
+
+\subsection{Data}
+
+\subsection{Estimation}
+
+The proliferation of the WNBA lends itself to a differences-in-differences design. However, using the canonical differences-in-differences design would lead to biased estimates due to staggered treatment. Thus, I shift to the design of \cite{Callaway_SA}, which accounts for the bias by construction.
+
+
+The estimating equation is as follows:
+
+\begin{equation}
+Y_{it} = \alpha_i + \lambda_t + \delta \cdot D_{it} + \varepsilon_{it}
+\end{equation}
+
+where $Y_{it}$ is state $i$'s participation in a sport at time $t$, $\alpha_i$ accounts for state-level fixed effects, $\lambda_t$ accounts for year effects, $D_{it}$ is a treatment indicator, indicating if state $i$ has a WNBA team in year $t$. Thus, $\delta$ represents the average treatment effect for a unit treated in a given expansion cohort. 
+
+
+
+\section{Results}
+
+\section{Robustness}
+
+\section{Discussion}
+
+\section{Conclusion}
 
 \printbibliography
   
