@@ -117,7 +117,13 @@
 
 \section{Introduction}
 
-In 1997, the Women's National Basketball Association (WNBA) held its inaugural season. Since its conception, the league has expanded from an initial six teams, to a recently accounced 18 teams by 2030. This growth across states presents an interesting question: does the existence of a professional sports league encourage girls to engage in youth sports? 
+In 1997, the Women's National Basketball Association (WNBA) held its inaugural season, marking a significant milestone in the history of women's professional athletics. The league's formation provided a new platform through which female athletes could showcase their talents and serve as role models as professionals rather than amateurs. The WNBA's establishment was not only a significant moment for professional sports, but held plausible implications for sports participation for the next generation of female athletes. This paper investigates the impact of the WNBA's formation and evolution on girls' youth sports participation, particularly in high school athletics. 
+
+Professional athletes can serve as role models for the youth, and the presence of a professional sports league can influence youth participation in several ways. First, the visibility of professional athletes can inspire engagement in sports at a young age. Second, the presence of a professional team can increase the availability of resources and infrastructure (i.e. facilities, coaching, etc.) for youth sports in the local community. Third, the presence of a professional team can increase the social acceptance and cultural relevance of a given sport, which can encourage participation.
+
+The question of whether the presence of a professional sports league can influence youth participation is of interest to both the league as well as educators. For the league, understanding how the presence of a professional team in a given market can influence youth participation can inform marketing, outreach, and even future expansion decisions. For educators, understanding how to encourage youth sports participation via role models can promote physical activity and the associated benefits for health and well-being. Building upon the work of \cite{Reilly_rod}, I apply two-way fixed effects methods to data on high school sports participation from the National Federation of State High School Associations (NFHS) to ascertain whether the presence of a WNBA team in a given state is associated with increases in girls' sports participation. I find modest increases in basketball and track participation, while cross-country and soccer do not exhibit any statistically significant effects. I then apply a synthetic differences-in-differences method to further investigate the effects of a state having a WNBA team on high school sports participation, and find more varied results.
+
+The rest of the paper is organized as follows. Section 2 reviews the relevant literature on the effects of professional sports leagues on youth sports participation. Section 3 describes the data and estimation strategy. Section 4 presents the results, while Section 5 discusses findings. Finally, Section 6 concludes.
 
 \section{Literature}
 
@@ -125,24 +131,117 @@ In 1997, the Women's National Basketball Association (WNBA) held its inaugural s
 
 \subsection{Data}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Code/map_wnba_states.pdf}
+  \label{fig:wnba_map}
+\end{figure}
+
+The primary data source for this analysis is National Federation of State High School Associations (NFHS) data on high school sports participation. The NFHS collects data on the number of participants in various sports at the high school level across the United States. I focus on four sports: basketball, track and field, cross-country, and soccer. The treatment variable is an indicator for whether a state has a WNBA team in a given year, which I construct using data on WNBA team locations and years of operation. Data on WNBA team locations and years of operation are obtained from the official WNBA website. Figure \ref{fig:wnba_map} shows the expansion path of the WNBA from its inaugural season in 1997 to 2010, the last year of expansion considered in this analysis. From 2010 to present, the WNBA has expanded to a total of 15 teams, with a further three to be added by 2030.
+
+Data from NFHS spans 1993 to 2016, allowing for a pre-treatment period of four years and a post-treatment period of 6 years. The data is aggregated at the state-year level, and I balance the panel so that each state has observations for all years in the sample. The final dataset includes 47 states and 24 years, results in a total of 1,128 state-year observations. \ref{tab:summary} provides summary statistics for the key variables in the analysis.
+
+\textbf{TABLE 1 HERE}
+
+\ref{tab: treat_summ} provides summary statistics for treated states.
+
+\textbf{TABLE 2 HERE}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Code/trend_basketball.pdf}
+  \label{fig:participation_trends}
+\end{figure}
+
+
 \subsection{Estimation}
 
-The proliferation of the WNBA lends itself to a differences-in-differences design. However, using the canonical differences-in-differences design would lead to biased estimates due to staggered treatment. Thus, I shift to the design of \cite{Callaway_SA}, which accounts for the bias by construction.
-
-
-The estimating equation is as follows:
-
+To estimate the effect of having a WNBA team on high school sports participation, I use a two-way fixed effects regression model. The model is specified as follows:
 \begin{equation}
-Y_{it} = \alpha_i + \lambda_t + \delta \cdot D_{it} + \varepsilon_{it}
+Y_{st} = \alpha + \beta \cdot \text{WNBA}_{st} + \gamma_s + \delta_t + \epsilon_{st}
 \end{equation}
+where \(Y_{st}\) is the number of participants in a given sport in state \(s\) and year \(t\), \(\text{WNBA}_{st}\) is an indicator variable that equals 1 if state \(s\) has a WNBA team in year \(t\) and 0 otherwise, \(\gamma_s\) are state fixed effects that control for time-invariant differences across states, \(\delta_t\) are year fixed effects that control for common shocks across all states in a given year, and \(\epsilon_{st}\) is the error term. The coefficient \(\beta\) captures the average treatment effect of having a WNBA team on high school sports participation. I cluster standard errors at the state level to account for potential serial correlation within states over time.
 
-where $Y_{it}$ is state $i$'s participation in a sport at time $t$, $\alpha_i$ accounts for state-level fixed effects, $\lambda_t$ accounts for year effects, $D_{it}$ is a treatment indicator, indicating if state $i$ has a WNBA team in year $t$. Thus, $\delta$ represents the average treatment effect for a unit treated in a given expansion cohort. 
-
-
+This model relies on the assumption of parallel trends, which states that in the absence of treatment, the treated and control states would have followed similar trends in sports participation over time. I will test this assumption by examining pre-treatment trends in the data via event study analyses. Additionally, I will apply a synthetic differences-in-differences method to further investigate the effects of having a WNBA team on high school sports participation, which can help to relax some of the assumptions of the two-way fixed effects model and provide a more robust estimate of the treatment effect. The synthetic differences-in-differences method constructs a synthetic control group for each treated state by weighting the control states in such a way that the pre-treatment characteristics of the synthetic control group closely match those of the treated state. This method allows for a more flexible comparison between treated and control states, and can help to address potential issues with the parallel trends assumption.
 
 \section{Results}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../Code/es_basketball.pdf}
+    \label{fig:es_basketball}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../Code/es_track_field.pdf}
+    \label{fig:es_track}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../Code/es_cross_country.pdf}
+    \label{fig:es_cross_country}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../Code/es_soccer.pdf}
+    \label{fig:es_soccer}
+\end{figure}
+
+From Figure \ref{fig:es_basketball}, we can see that the pre-treatment coefficients are relatively flat and close to zero, suggesting that there are no significant differences in basketball participation trends between treated and control states prior to the treatment. This provides some evidence in support of the parallel trends assumption for basketball participation. To be transparent, there are a couple of years with wide confidence bands, lending to some unvertainty about the validity of the result, but given the overall picture, I am comfortable proceeding under the assumption of parallel trends for basketball participation. When looking at the other sports, soccer has no discernible pre-treatment nor does cros-country, but track and field appears on a mostly upward trend until two years before treatment. This leads to some dubiousness about the vailidity of parallel trends for track and field. Again, however, the standard errors are wide for track in the early event years, so I do not think there is much evidence to suggest a conclusion either way.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Code/cohort_basketball.pdf}
+  \label{fig:cohort_basketball}
+\end{figure}
+
+\begin{figuer}
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Code/cohort_track_field.pdf}
+  \label{fig:cohort_track}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Code/cohort_cross_country.pdf}
+  \label{fig:cohort_cross_country}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Code/cohort_soccer.pdf}
+  \label{fig:cohort_soccer}
+\end{figure}
+
+
 \section{Robustness}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Code/sdid_basketball.pdf}
+  \label{fig:sdid_basketball}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Code/sdid_track_field.pdf}
+  \label{fig:sdid_track}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Code/sdid_cross_country.pdf}
+  \label{fig:sdid_cross_country}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Code/sdid_soccer.pdf}
+  \label{fig:sdid_soccer}
+\end{figure}
 
 \section{Discussion}
 
@@ -150,5 +249,7 @@ where $Y_{it}$ is state $i$'s participation in a sport at time $t$, $\alpha_i$ a
 
 \printbibliography
   
+\section*{Tables and Figures}
+
 
 \end{document}
