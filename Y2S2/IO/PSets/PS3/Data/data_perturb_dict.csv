@@ -1,0 +1,9 @@
+﻿Var,Desc
+year,year
+county,fips code for county
+min_dist1,shippng distance from FC to county
+presence_state1,dummy variable indicating if there is FC in the state that the county is located
+tot_empl1,Total employment at FCs in the county
+tot_size1,Total square feet of space of FCs in the county
+swapid,swap number
+presence_county1,dummy variable indicating if there is FC in the the county

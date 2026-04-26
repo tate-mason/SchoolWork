@@ -1,0 +1,16 @@
+﻿Var,Desc
+year,year
+county,fips code for county
+mode,"shopping mode. Amazon=1, taxed online competitors=2, non-taxed online competitors=3"
+nb_hh,total households in county
+avg_spending_annual_county,total retail spending in county=Mode 1+Mode 2+Mode 3 + Mode 0
+tax_rate,sales tax rate
+alpha,preferences for county/year/mode
+pop_density,population density in county
+rent,rental rate per square foot
+wage,annual wage for employee at facility
+min_dist0,shippng distance from FC to county
+presence_state0,dummy variable indicating if there is FC in the state that the county is located
+tot_empl0,Total employment at FCs in the county
+tot_size0,Total square feet of space of FCs in the county
+presence_county0,dummy variable indicating if there is FC in the the county
