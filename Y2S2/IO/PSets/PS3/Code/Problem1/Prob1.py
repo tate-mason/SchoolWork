@@ -82,3 +82,20 @@ results_obs = {
 print("\nResults for Observed Data:")
 for key, value in results_obs.items():
     print(f"{key}: {value:.2f}")
+
+for d in [data_perturb1, data_perturb2, data_perturb3, data_perturb4]:
+    d['tau'] = data_obs_amazon['tax_rate']*d['presence_state1']
+    d['choice'] = data_obs_amazon['alpha'] + 2.5*np.log(1 + d['tau'])
+
+    results_obs_d = {
+            'gross_revenue': np.sum(discount*data_obs_amazon['nb_hh']*np.exp(d['choice'])),
+            'labor_cost': np.sum(discount*d['tot_empl1']*data_obs_amazon['wage']),
+            'rent_cost': np.sum(discount*d['tot_size1']*data_obs_amazon['rent']),
+            'ship_dist': np.sum(discount*d['min_dist1']),
+            'pop_dens': np.sum(discount*data_obs_amazon['pop_density']),
+            'tax_rate': np.sum(discount*data_obs_amazon['nb_hh'] * d['tau']) / np.sum(discount*data_obs_amazon['nb_hh'])
+    }
+
+    print("\nResults for Perturbation Data:")
+    for key, value in results_obs_d.items():
+        print(f"{key}: {value:.2f}")
