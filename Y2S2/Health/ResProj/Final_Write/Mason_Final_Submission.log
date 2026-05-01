@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  26 APR 2026 10:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  1 MAY 2026 12:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -703,6 +703,9 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+
+LaTeX Warning: Citation 'CSA' on page 1 undefined on input line 112.
+
 LaTeX Font Info:    Trying to load font information for U+msa on input line 113.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -742,57 +745,62 @@ File: ../Code/trend_basketball.pdf Graphic file (type pdf)
 <use ../Code/trend_basketball.pdf>
 Package pdftex.def Info: ../Code/trend_basketball.pdf  used on input line 152.
 (pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
+
+LaTeX Warning: Citation 'CSA' on page 2 undefined on input line 159.
+
 [2 <../Code/map_wnba_states.pdf>]
+
+LaTeX Warning: Citation 'arkhangelsky' on page 3 undefined on input line 166.
+
 <../Code/es_basketball.pdf, id=65, 650.43pt x 397.485pt>
 File: ../Code/es_basketball.pdf Graphic file (type pdf)
 <use ../Code/es_basketball.pdf>
-Package pdftex.def Info: ../Code/es_basketball.pdf  used on input line 171.
+Package pdftex.def Info: ../Code/es_basketball.pdf  used on input line 172.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
- [3 <../Code/trend_basketball.pdf>]
-<../Code/es_track_field.pdf, id=79, 650.43pt x 397.485pt>
+<../Code/es_track_field.pdf, id=66, 650.43pt x 397.485pt>
 File: ../Code/es_track_field.pdf Graphic file (type pdf)
 <use ../Code/es_track_field.pdf>
-Package pdftex.def Info: ../Code/es_track_field.pdf  used on input line 177.
+Package pdftex.def Info: ../Code/es_track_field.pdf  used on input line 178.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
-<../Code/es_cross_country.pdf, id=80, 650.43pt x 397.485pt>
+<../Code/es_cross_country.pdf, id=67, 650.43pt x 397.485pt>
 File: ../Code/es_cross_country.pdf Graphic file (type pdf)
 <use ../Code/es_cross_country.pdf>
-Package pdftex.def Info: ../Code/es_cross_country.pdf  used on input line 183.
+Package pdftex.def Info: ../Code/es_cross_country.pdf  used on input line 184.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
-<../Code/es_soccer.pdf, id=81, 650.43pt x 397.485pt>
+<../Code/es_soccer.pdf, id=68, 650.43pt x 397.485pt>
 File: ../Code/es_soccer.pdf Graphic file (type pdf)
 <use ../Code/es_soccer.pdf>
-Package pdftex.def Info: ../Code/es_soccer.pdf  used on input line 189.
+Package pdftex.def Info: ../Code/es_soccer.pdf  used on input line 190.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
- [4 <../Code/es_basketball.pdf> <../Code/es_track_field.pdf>]
-<../Code/cohort_basketball.pdf, id=105, 578.16pt x 361.35pt>
+[3 <../Code/trend_basketball.pdf>]
+<../Code/cohort_basketball.pdf, id=85, 578.16pt x 361.35pt>
 File: ../Code/cohort_basketball.pdf Graphic file (type pdf)
 <use ../Code/cohort_basketball.pdf>
-Package pdftex.def Info: ../Code/cohort_basketball.pdf  used on input line 197.
+Package pdftex.def Info: ../Code/cohort_basketball.pdf  used on input line 198.
 (pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
 
 
-./Mason_Final_Submission.tex:201: LaTeX Error: Environment figuer undefined.
+./Mason_Final_Submission.tex:202: LaTeX Error: Environment figuer undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.201 \begin{figuer}
+l.202 \begin{figuer}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<../Code/cohort_track_field.pdf, id=106, 578.16pt x 361.35pt>
+<../Code/cohort_track_field.pdf, id=86, 578.16pt x 361.35pt>
 File: ../Code/cohort_track_field.pdf Graphic file (type pdf)
 <use ../Code/cohort_track_field.pdf>
-Package pdftex.def Info: ../Code/cohort_track_field.pdf  used on input line 203.
+Package pdftex.def Info: ../Code/cohort_track_field.pdf  used on input line 204.
 (pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
-./Mason_Final_Submission.tex:205: Extra }, or forgotten \endgroup.
+./Mason_Final_Submission.tex:206: Extra }, or forgotten \endgroup.
 \@endfloatbox ...pagefalse \outer@nobreak \egroup 
                                                   \color@endbox 
-l.205 \end{figure}
+l.206 \end{figure}
                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -800,68 +808,68 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-./Mason_Final_Submission.tex:205: Too many }'s.
+./Mason_Final_Submission.tex:206: Too many }'s.
 \color@endbox ->\color@endgroup \egroup 
                                         
-l.205 \end{figure}
+l.206 \end{figure}
                   
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
 
-./Mason_Final_Submission.tex:205: LaTeX Error: \begin{document} ended by \end{figure}.
+./Mason_Final_Submission.tex:206: LaTeX Error: \begin{document} ended by \end{figure}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.205 \end{figure}
+l.206 \end{figure}
                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-./Mason_Final_Submission.tex:205: Extra \endgroup.
+./Mason_Final_Submission.tex:206: Extra \endgroup.
 \end  ...end#1\endcsname \@checkend {#1}\endgroup 
                                                   \UseHook {env/#1/after}\if...
-l.205 \end{figure}
+l.206 \end{figure}
                   
 Things are pretty mixed up, but I think the worst is over.
 
-<../Code/cohort_cross_country.pdf, id=107, 578.16pt x 361.35pt>
+<../Code/cohort_cross_country.pdf, id=87, 578.16pt x 361.35pt>
 File: ../Code/cohort_cross_country.pdf Graphic file (type pdf)
 <use ../Code/cohort_cross_country.pdf>
-Package pdftex.def Info: ../Code/cohort_cross_country.pdf  used on input line 209.
+Package pdftex.def Info: ../Code/cohort_cross_country.pdf  used on input line 210.
 (pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
-<../Code/cohort_soccer.pdf, id=108, 578.16pt x 361.35pt>
+<../Code/cohort_soccer.pdf, id=88, 578.16pt x 361.35pt>
 File: ../Code/cohort_soccer.pdf Graphic file (type pdf)
 <use ../Code/cohort_soccer.pdf>
-Package pdftex.def Info: ../Code/cohort_soccer.pdf  used on input line 215.
+Package pdftex.def Info: ../Code/cohort_soccer.pdf  used on input line 216.
 (pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
-<../Code/sdid_basketball.pdf, id=109, 650.43pt x 397.485pt>
+<../Code/sdid_basketball.pdf, id=89, 650.43pt x 397.485pt>
 File: ../Code/sdid_basketball.pdf Graphic file (type pdf)
 <use ../Code/sdid_basketball.pdf>
-Package pdftex.def Info: ../Code/sdid_basketball.pdf  used on input line 224.
+Package pdftex.def Info: ../Code/sdid_basketball.pdf  used on input line 225.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
-<../Code/sdid_track_field.pdf, id=110, 650.43pt x 397.485pt>
+<../Code/sdid_track_field.pdf, id=90, 650.43pt x 397.485pt>
 File: ../Code/sdid_track_field.pdf Graphic file (type pdf)
 <use ../Code/sdid_track_field.pdf>
-Package pdftex.def Info: ../Code/sdid_track_field.pdf  used on input line 230.
+Package pdftex.def Info: ../Code/sdid_track_field.pdf  used on input line 231.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
-<../Code/sdid_cross_country.pdf, id=111, 650.43pt x 397.485pt>
+<../Code/sdid_cross_country.pdf, id=91, 650.43pt x 397.485pt>
 File: ../Code/sdid_cross_country.pdf Graphic file (type pdf)
 <use ../Code/sdid_cross_country.pdf>
-Package pdftex.def Info: ../Code/sdid_cross_country.pdf  used on input line 236.
+Package pdftex.def Info: ../Code/sdid_cross_country.pdf  used on input line 237.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
-<../Code/sdid_soccer.pdf, id=112, 650.43pt x 397.485pt>
+<../Code/sdid_soccer.pdf, id=92, 650.43pt x 397.485pt>
 File: ../Code/sdid_soccer.pdf Graphic file (type pdf)
 <use ../Code/sdid_soccer.pdf>
-Package pdftex.def Info: ../Code/sdid_soccer.pdf  used on input line 242.
+Package pdftex.def Info: ../Code/sdid_soccer.pdf  used on input line 243.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
 
-LaTeX Warning: Empty bibliography on input line 250.
+LaTeX Warning: Empty bibliography on input line 251.
 
-[5 <../Code/es_cross_country.pdf> <../Code/cohort_track_field.pdf>] [6 <../Code/es_soccer.pdf>] [7 <../Code/cohort_basketball.pdf> <../Code/cohort_cross_country.pdf>] [8 <../Code/cohort_soccer.pdf> <../Code/sdid_basketball.pdf>] [9 <../Code/sdid_track_field.pdf> <../Code/sdid_cross_country.pdf>] [10 <../Code/sdid_soccer.pdf>] (./Mason_Final_Submission.aux)
+[4 <../Code/es_basketball.pdf> <../Code/cohort_track_field.pdf>] [5 <../Code/es_track_field.pdf>] [6 <../Code/es_cross_country.pdf> <../Code/es_soccer.pdf>] [7 <../Code/cohort_basketball.pdf> <../Code/cohort_cross_country.pdf>] [8 <../Code/cohort_soccer.pdf> <../Code/sdid_basketball.pdf>] [9 <../Code/sdid_track_field.pdf> <../Code/sdid_cross_country.pdf>] [10 <../Code/sdid_soccer.pdf>] (./Mason_Final_Submission.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -885,18 +893,18 @@ Package logreq Info: Writing requests to 'Mason_Final_Submission.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20595 strings out of 467525
- 356660 string characters out of 5418983
- 1229194 words of memory out of 5000000
+ 20591 strings out of 467525
+ 356626 string characters out of 5418983
+ 1229329 words of memory out of 5000000
  49184 multiletter control sequences out of 15000+600000
- 638630 words of font info for 114 fonts, out of 8000000 for 9000
+ 638528 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,1270b,1154s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Mason_Final_Submission.pdf (11 pages, 245427 bytes).
+ 75i,6n,79p,1270b,1285s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on Mason_Final_Submission.pdf (11 pages, 262495 bytes).
 PDF statistics:
- 252 PDF objects out of 1000 (max. 8388607)
- 195 compressed objects within 2 object streams
+ 263 PDF objects out of 1000 (max. 8388607)
+ 201 compressed objects within 3 object streams
  22 named destinations out of 1000 (max. 500000)
  20623 words of extra memory for PDF output out of 20736 (max. 10000000)
 

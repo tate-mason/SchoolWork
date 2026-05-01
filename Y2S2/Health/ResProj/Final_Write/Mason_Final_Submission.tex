@@ -109,7 +109,7 @@
         \begin{center}
             \textbf{Abstract}
         \end{center}
-        This paper investigates the impact of a women's professional sports league on girls' youth sports participation. Using the Women's National Basketball Association's (WNBA) inaugural season in 1997 as treatment, I apply two-way fixed effects methods to determine if there are any effects of the league's formation on the participation of girls in high school sports. Across four sports, I find modest increases in basketball and track participation, while cross-country and soccer do not exhibit any statistically significant effects.
+        This paper investigates the impact of a women's professional sports league on girls' youth sports participation. Using the Women's National Basketball Association's (WNBA) inaugural season in 1997 as treatment, I apply the methods of \cite{CSA} methods to determine if there are any effects of the league's formation on the participation of girls in high school sports. Across four sports, I find modest increases in basketball and track participation, while cross-country and soccer do not exhibit any statistically significant effects.
     \end{minipage}
     
     \vfill
@@ -156,13 +156,14 @@ Data from NFHS spans 1993 to 2016, allowing for a pre-treatment period of four y
 
 \subsection{Estimation}
 
-To estimate the effect of having a WNBA team on high school sports participation, I use a two-way fixed effects regression model. The model is specified as follows:
+Following \cite{CSA}, I estimate the following differences-in-differences  model:
 \begin{equation}
-Y_{st} = \alpha + \beta \cdot \text{WNBA}_{st} + \gamma_s + \delta_t + \epsilon_{st}
+  \hat{ATT}_{gt} = (Y_t - Y_{g-1}|G=g) - (Y_t - Y_{g-1}|\text{WNBA}=0)
 \end{equation}
-where \(Y_{st}\) is the number of participants in a given sport in state \(s\) and year \(t\), \(\text{WNBA}_{st}\) is an indicator variable that equals 1 if state \(s\) has a WNBA team in year \(t\) and 0 otherwise, \(\gamma_s\) are state fixed effects that control for time-invariant differences across states, \(\delta_t\) are year fixed effects that control for common shocks across all states in a given year, and \(\epsilon_{st}\) is the error term. The coefficient \(\beta\) captures the average treatment effect of having a WNBA team on high school sports participation. I cluster standard errors at the state level to account for potential serial correlation within states over time.
 
-This model relies on the assumption of parallel trends, which states that in the absence of treatment, the treated and control states would have followed similar trends in sports participation over time. I will test this assumption by examining pre-treatment trends in the data via event study analyses. Additionally, I will apply a synthetic differences-in-differences method to further investigate the effects of having a WNBA team on high school sports participation, which can help to relax some of the assumptions of the two-way fixed effects model and provide a more robust estimate of the treatment effect. The synthetic differences-in-differences method constructs a synthetic control group for each treated state by weighting the control states in such a way that the pre-treatment characteristics of the synthetic control group closely match those of the treated state. This method allows for a more flexible comparison between treated and control states, and can help to address potential issues with the parallel trends assumption.
+where \(Y_t\) is the participation in a given sport in year \(t\) for a state which receives a WNBA team in treatment cohort \(g\), and \(Y_{g-1}\) is the participation in the year prior to treatment for that cohort. The second term is the same difference but for states that do not ever receive a WNBA team. I then aggregate these estimates across cohorts to obtain an overall estimate of the effect of having a WNBA team. Standard errors are clustered at the state level to account for serial correlation within states over time.
+
+I also apply the synthetic differences-in-differences method of \cite{arkhangelsky} to test for robustness of the results. This method creates a synthetic control group for each treated cohort by weighting the control states to match the pre-treatment trends of the treated states. This allows for a more flexible comparison between treated and control states, helping to address potential violations of the parallel trends assumption needed for the staggered differences-in-differences approach.
 
 \section{Results}
 
