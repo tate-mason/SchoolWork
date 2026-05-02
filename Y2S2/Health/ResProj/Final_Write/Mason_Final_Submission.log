@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  1 MAY 2026 12:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  2 MAY 2026 16:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -327,240 +327,30 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
 \Hy@SectionHShift=\skip62
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/biblatex.sty
-Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
- (/usr/local/texlive/2026/texmf-dist/tex/latex/logreq/logreq.sty
-Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count320
- (/usr/local/texlive/2026/texmf-dist/tex/latex/logreq/logreq.def
-File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
-)) (/usr/local/texlive/2026/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip63
+\bibsep=\skip64
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count320
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box57
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count321
+\float@exts=\toks32
+\float@box=\box58
+\@float@everytoks=\toks33
+\@floatcapt=\box59
 )
-\c@tabx@nest=\count321
-\c@listtotal=\count322
-\c@listcount=\count323
-\c@liststart=\count324
-\c@liststop=\count325
-\c@citecount=\count326
-\c@citetotal=\count327
-\c@multicitecount=\count328
-\c@multicitetotal=\count329
-\c@instcount=\count330
-\c@maxnames=\count331
-\c@minnames=\count332
-\c@maxitems=\count333
-\c@minitems=\count334
-\c@citecounter=\count335
-\c@maxcitecounter=\count336
-\c@savedcitecounter=\count337
-\c@uniquelist=\count338
-\c@uniquename=\count339
-\c@refsection=\count340
-\c@refsegment=\count341
-\c@maxextratitle=\count342
-\c@maxextratitleyear=\count343
-\c@maxextraname=\count344
-\c@maxextradate=\count345
-\c@maxextraalpha=\count346
-\c@abbrvpenalty=\count347
-\c@highnamepenalty=\count348
-\c@lownamepenalty=\count349
-\c@maxparens=\count350
-\c@parenlevel=\count351
-\blx@tempcnta=\count352
-\blx@tempcntb=\count353
-\blx@tempcntc=\count354
-\c@blx@maxsection=\count355
-\blx@maxsegment@0=\count356
-\blx@notetype=\count357
-\blx@parenlevel@text=\count358
-\blx@parenlevel@foot=\count359
-\blx@sectionciteorder@0=\count360
-\blx@sectionciteorderinternal@0=\count361
-\blx@entrysetcounter=\count362
-\blx@biblioinstance=\count363
-\labelnumberwidth=\skip63
-\labelalphawidth=\skip64
-\biblabelsep=\skip65
-\bibitemsep=\skip66
-\bibnamesep=\skip67
-\bibinitsep=\skip68
-\bibparsep=\skip69
-\bibhang=\skip70
-\blx@bcfin=\read2
-\blx@bcfout=\write3
-\blx@langwohyphens=\language91
-\c@mincomprange=\count364
-\c@maxcomprange=\count365
-\c@mincompwidth=\count366
-Package biblatex Info: Trying to load biblatex default data model...
-Package biblatex Info: ... file 'blx-dm.def' found.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/blx-dm.def
-File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
-)
-Package biblatex Info: Trying to load biblatex custom data model...
-Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count367
-\c@savedafterword=\count368
-\c@annotator=\count369
-\c@savedannotator=\count370
-\c@author=\count371
-\c@savedauthor=\count372
-\c@bookauthor=\count373
-\c@savedbookauthor=\count374
-\c@commentator=\count375
-\c@savedcommentator=\count376
-\c@editor=\count377
-\c@savededitor=\count378
-\c@editora=\count379
-\c@savededitora=\count380
-\c@editorb=\count381
-\c@savededitorb=\count382
-\c@editorc=\count383
-\c@savededitorc=\count384
-\c@foreword=\count385
-\c@savedforeword=\count386
-\c@holder=\count387
-\c@savedholder=\count388
-\c@introduction=\count389
-\c@savedintroduction=\count390
-\c@namea=\count391
-\c@savednamea=\count392
-\c@nameb=\count393
-\c@savednameb=\count394
-\c@namec=\count395
-\c@savednamec=\count396
-\c@translator=\count397
-\c@savedtranslator=\count398
-\c@shortauthor=\count399
-\c@savedshortauthor=\count400
-\c@shorteditor=\count401
-\c@savedshorteditor=\count402
-\c@labelname=\count403
-\c@savedlabelname=\count404
-\c@institution=\count405
-\c@savedinstitution=\count406
-\c@lista=\count407
-\c@savedlista=\count408
-\c@listb=\count409
-\c@savedlistb=\count410
-\c@listc=\count411
-\c@savedlistc=\count412
-\c@listd=\count413
-\c@savedlistd=\count414
-\c@liste=\count415
-\c@savedliste=\count416
-\c@listf=\count417
-\c@savedlistf=\count418
-\c@location=\count419
-\c@savedlocation=\count420
-\c@organization=\count421
-\c@savedorganization=\count422
-\c@origlocation=\count423
-\c@savedoriglocation=\count424
-\c@origpublisher=\count425
-\c@savedorigpublisher=\count426
-\c@publisher=\count427
-\c@savedpublisher=\count428
-\c@language=\count429
-\c@savedlanguage=\count430
-\c@origlanguage=\count431
-\c@savedoriglanguage=\count432
-\c@pageref=\count433
-\c@savedpageref=\count434
-\shorthandwidth=\skip71
-\shortjournalwidth=\skip72
-\shortserieswidth=\skip73
-\shorttitlewidth=\skip74
-\shortauthorwidth=\skip75
-\shorteditorwidth=\skip76
-\locallabelnumberwidth=\skip77
-\locallabelalphawidth=\skip78
-\localshorthandwidth=\skip79
-\localshortjournalwidth=\skip80
-\localshortserieswidth=\skip81
-\localshorttitlewidth=\skip82
-\localshortauthorwidth=\skip83
-\localshorteditorwidth=\skip84
-Package biblatex Info: Trying to load compatibility code...
-Package biblatex Info: ... file 'blx-compat.def' found.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/blx-compat.def
-File: blx-compat.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
-)
-Package biblatex Info: Trying to load generic definitions...
-Package biblatex Info: ... file 'biblatex.def' found.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/biblatex.def
-File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
-\c@textcitecount=\count435
-\c@textcitetotal=\count436
-\c@textcitemaxnames=\count437
-\c@biburlbigbreakpenalty=\count438
-\c@biburlbreakpenalty=\count439
-\c@biburlnumpenalty=\count440
-\c@biburlucpenalty=\count441
-\c@biburllcpenalty=\count442
-\biburlbigskip=\muskip19
-\biburlnumskip=\muskip20
-\biburlucskip=\muskip21
-\biburllcskip=\muskip22
-\c@smartand=\count443
-)
-Package biblatex Info: Trying to load bibliography style 'numeric'...
-Package biblatex Info: ... file 'numeric.bbx' found.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
-File: numeric.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
-Package biblatex Info: Trying to load bibliography style 'standard'...
-Package biblatex Info: ... file 'standard.bbx' found.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count444
-\c@bbx:relatedtotal=\count445
-))
-Package biblatex Info: Trying to load citation style 'numeric'...
-Package biblatex Info: ... file 'numeric.cbx' found.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
-File: numeric.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
-Package biblatex Info: Redefining '\cite'.
-Package biblatex Info: Redefining '\parencite'.
-Package biblatex Info: Redefining '\footcite'.
-Package biblatex Info: Redefining '\footcitetext'.
-Package biblatex Info: Redefining '\smartcite'.
-Package biblatex Info: Redefining '\supercite'.
-Package biblatex Info: Redefining '\textcite'.
-Package biblatex Info: Redefining '\textcites'.
-Package biblatex Info: Redefining '\cites'.
-Package biblatex Info: Redefining '\parencites'.
-Package biblatex Info: Redefining '\smartcites'.
-)
-Package biblatex Info: Trying to load configuration file...
-Package biblatex Info: ... file 'biblatex.cfg' found.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/biblatex.cfg
-File: biblatex.cfg 
-)
-Package biblatex Info: Input encoding 'utf8' detected.
-Package biblatex Info: Document encoding is UTF8 ....
- (/usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2026-01-19 L3 programming layer (loader) 
+Package hyperref Info: Option `colorlinks' set `true' on input line 24.
+\c@assumption=\count322
+\c@proposition=\count323
  (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count446
-))
-Package biblatex Info: ... and expl3
-(biblatex)             2026-01-19 L3 programming layer (loader) 
-(biblatex)             is new enough (at least 2020/04/06),
-(biblatex)             setting 'casechanger=expl3'.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (/usr/local/texlive/2026/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2025-10-09 L3 Experimental document command parser
-)
-Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
-))
-Package hyperref Info: Option `colorlinks' set `true' on input line 24.
-\c@assumption=\count447
-\c@proposition=\count448
-\@quotelevel=\count449
-\@quotereset=\count450
- (./Mason_Final_Submission.aux)
+\l__color_backend_stack_int=\count324
+) (./Mason_Final_Submission.aux)
 \openout1 = `Mason_Final_Submission.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
@@ -637,17 +427,17 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 ) (/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count451
+\scratchcounter=\count325
 \scratchdimen=\dimen196
-\scratchbox=\box57
-\nofMPsegments=\count452
-\nofMParguments=\count453
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count454
+\scratchbox=\box60
+\nofMPsegments=\count326
+\nofMParguments=\count327
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count328
 \MPscratchDim=\dimen197
-\MPnumerator=\count455
-\makeMPintoPDFobject=\count456
-\everyMPtoPDFconversion=\toks33
+\MPnumerator=\count329
+\makeMPintoPDFobject=\count330
+\everyMPtoPDFconversion=\toks35
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -662,57 +452,16 @@ Package color Info: Driver file: pdftex.def on input line 149.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/mathcolor.ltx))
 Package hyperref Info: Link coloring ON on input line 91.
  (./Mason_Final_Submission.out) (./Mason_Final_Submission.out)
-\@outlinefile=\write4
-\openout4 = `Mason_Final_Submission.out'.
+\@outlinefile=\write3
+\openout3 = `Mason_Final_Submission.out'.
 
-Package biblatex Info: Trying to load language 'english'...
-Package biblatex Info: ... file 'english.lbx' found.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
-)
-Package biblatex Info: Input encoding 'utf8' detected.
-Package biblatex Info: Automatic encoding selection.
-(biblatex)             Assuming data encoding 'utf8'.
-\openout3 = `Mason_Final_Submission.bcf'.
-
-Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'Mason_Final_Submission.bbl' not found.
-
-No file Mason_Final_Submission.bbl.
-Package biblatex Info: Reference section=0 on input line 91.
-Package biblatex Info: Reference segment=0 on input line 91.
-./Mason_Final_Submission.tex:103: Undefined control sequence.
-l.103   {\Affil
-               }\\[0.25em]
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./Mason_Final_Submission.tex:103: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103   {\Affil}\\
-                  [0.25em]
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-LaTeX Warning: Citation 'CSA' on page 1 undefined on input line 112.
-
-LaTeX Font Info:    Trying to load font information for U+msa on input line 113.
-(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Trying to load font information for U+msa on input line 112.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 113.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 112.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -720,191 +469,302 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [1
 
 {/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Citation 'Reilly_rod' on page 1 undefined on input line 124.
-
-<../Code/map_wnba_states.pdf, id=49, 650.43pt x 397.485pt>
-File: ../Code/map_wnba_states.pdf Graphic file (type pdf)
-<use ../Code/map_wnba_states.pdf>
-Package pdftex.def Info: ../Code/map_wnba_states.pdf  used on input line 136.
-(pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.141 
-       [1]
+l.133 T
+       here is also literature on the role model effect of professional athl... [1]
 
-LaTeX Warning: Reference `tab:summary' on page 2 undefined on input line 142.
+Package natbib Warning: Citation `fedderson_sports_2009' on page 2 undefined on input line 133.
+
+[2] [3] [4] [5] [6] [7] (./Mason_Final_Submission.bbl)
+<../Code/map_wnba_states.pdf, id=198, 650.43pt x 397.485pt>
+File: ../Code/map_wnba_states.pdf Graphic file (type pdf)
+<use ../Code/map_wnba_states.pdf>
+Package pdftex.def Info: ../Code/map_wnba_states.pdf  used on input line 218.
+(pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
+ (../Code/sumstat_treated_vs_control.tex
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 8.
 
 
-LaTeX Warning: Reference `tab: treat_summ' on page 2 undefined on input line 146.
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 8.
 
-<../Code/trend_basketball.pdf, id=54, 578.16pt x 361.35pt>
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
+(Font)              size <5> substituted on input line 8.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 8.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 8.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <5.5> not available
+(Font)              size <5> substituted on input line 8.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 8.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (../Code/sumstat_by_cohort.tex
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)
+<../Code/trend_basketball.pdf, id=199, 578.16pt x 361.35pt>
 File: ../Code/trend_basketball.pdf Graphic file (type pdf)
 <use ../Code/trend_basketball.pdf>
-Package pdftex.def Info: ../Code/trend_basketball.pdf  used on input line 152.
+Package pdftex.def Info: ../Code/trend_basketball.pdf  used on input line 229.
 (pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
+ [8]
+Overfull \vbox (86.89143pt too high) has occurred while \output is active []
 
-LaTeX Warning: Citation 'CSA' on page 2 undefined on input line 159.
-
-[2 <../Code/map_wnba_states.pdf>]
-
-LaTeX Warning: Citation 'arkhangelsky' on page 3 undefined on input line 166.
-
-<../Code/es_basketball.pdf, id=65, 650.43pt x 397.485pt>
+ [9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.233 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.233 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.233 
+       <../Code/map_wnba_states.pdf> <../Code/trend_basketball.pdf>]
+<../Code/es_basketball.pdf, id=229, 650.43pt x 397.485pt>
 File: ../Code/es_basketball.pdf Graphic file (type pdf)
 <use ../Code/es_basketball.pdf>
-Package pdftex.def Info: ../Code/es_basketball.pdf  used on input line 172.
+Package pdftex.def Info: ../Code/es_basketball.pdf  used on input line 236.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
-<../Code/es_track_field.pdf, id=66, 650.43pt x 397.485pt>
+<../Code/es_track_field.pdf, id=230, 650.43pt x 397.485pt>
 File: ../Code/es_track_field.pdf Graphic file (type pdf)
 <use ../Code/es_track_field.pdf>
-Package pdftex.def Info: ../Code/es_track_field.pdf  used on input line 178.
+Package pdftex.def Info: ../Code/es_track_field.pdf  used on input line 243.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
-<../Code/es_cross_country.pdf, id=67, 650.43pt x 397.485pt>
+<../Code/es_cross_country.pdf, id=231, 650.43pt x 397.485pt>
 File: ../Code/es_cross_country.pdf Graphic file (type pdf)
 <use ../Code/es_cross_country.pdf>
-Package pdftex.def Info: ../Code/es_cross_country.pdf  used on input line 184.
+Package pdftex.def Info: ../Code/es_cross_country.pdf  used on input line 250.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
-<../Code/es_soccer.pdf, id=68, 650.43pt x 397.485pt>
+<../Code/es_soccer.pdf, id=232, 650.43pt x 397.485pt>
 File: ../Code/es_soccer.pdf Graphic file (type pdf)
 <use ../Code/es_soccer.pdf>
-Package pdftex.def Info: ../Code/es_soccer.pdf  used on input line 190.
+Package pdftex.def Info: ../Code/es_soccer.pdf  used on input line 257.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
-[3 <../Code/trend_basketball.pdf>]
-<../Code/cohort_basketball.pdf, id=85, 578.16pt x 361.35pt>
+<../Code/cohort_basketball.pdf, id=233, 578.16pt x 361.35pt>
 File: ../Code/cohort_basketball.pdf Graphic file (type pdf)
 <use ../Code/cohort_basketball.pdf>
-Package pdftex.def Info: ../Code/cohort_basketball.pdf  used on input line 198.
+Package pdftex.def Info: ../Code/cohort_basketball.pdf  used on input line 264.
 (pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
-
-
-./Mason_Final_Submission.tex:202: LaTeX Error: Environment figuer undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.202 \begin{figuer}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-<../Code/cohort_track_field.pdf, id=86, 578.16pt x 361.35pt>
+<../Code/cohort_track_field.pdf, id=234, 578.16pt x 361.35pt>
 File: ../Code/cohort_track_field.pdf Graphic file (type pdf)
 <use ../Code/cohort_track_field.pdf>
-Package pdftex.def Info: ../Code/cohort_track_field.pdf  used on input line 204.
+Package pdftex.def Info: ../Code/cohort_track_field.pdf  used on input line 271.
 (pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
-./Mason_Final_Submission.tex:206: Extra }, or forgotten \endgroup.
-\@endfloatbox ...pagefalse \outer@nobreak \egroup 
-                                                  \color@endbox 
-l.206 \end{figure}
-                  
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./Mason_Final_Submission.tex:206: Too many }'s.
-\color@endbox ->\color@endgroup \egroup 
-                                        
-l.206 \end{figure}
-                  
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-
-./Mason_Final_Submission.tex:206: LaTeX Error: \begin{document} ended by \end{figure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.206 \end{figure}
-                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./Mason_Final_Submission.tex:206: Extra \endgroup.
-\end  ...end#1\endcsname \@checkend {#1}\endgroup 
-                                                  \UseHook {env/#1/after}\if...
-l.206 \end{figure}
-                  
-Things are pretty mixed up, but I think the worst is over.
-
-<../Code/cohort_cross_country.pdf, id=87, 578.16pt x 361.35pt>
+<../Code/cohort_cross_country.pdf, id=235, 578.16pt x 361.35pt>
 File: ../Code/cohort_cross_country.pdf Graphic file (type pdf)
 <use ../Code/cohort_cross_country.pdf>
-Package pdftex.def Info: ../Code/cohort_cross_country.pdf  used on input line 210.
+Package pdftex.def Info: ../Code/cohort_cross_country.pdf  used on input line 278.
 (pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
-<../Code/cohort_soccer.pdf, id=88, 578.16pt x 361.35pt>
+<../Code/cohort_soccer.pdf, id=236, 578.16pt x 361.35pt>
 File: ../Code/cohort_soccer.pdf Graphic file (type pdf)
 <use ../Code/cohort_soccer.pdf>
-Package pdftex.def Info: ../Code/cohort_soccer.pdf  used on input line 216.
+Package pdftex.def Info: ../Code/cohort_soccer.pdf  used on input line 285.
 (pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
-<../Code/sdid_basketball.pdf, id=89, 650.43pt x 397.485pt>
+<../Code/forest_att.pdf, id=237, 578.16pt x 289.08pt>
+File: ../Code/forest_att.pdf Graphic file (type pdf)
+<use ../Code/forest_att.pdf>
+Package pdftex.def Info: ../Code/forest_att.pdf  used on input line 292.
+(pdftex.def)             Requested size: 375.80544pt x 187.89977pt.
+<../Code/sdid_basketball.pdf, id=238, 650.43pt x 397.485pt>
 File: ../Code/sdid_basketball.pdf Graphic file (type pdf)
 <use ../Code/sdid_basketball.pdf>
-Package pdftex.def Info: ../Code/sdid_basketball.pdf  used on input line 225.
+Package pdftex.def Info: ../Code/sdid_basketball.pdf  used on input line 299.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
-<../Code/sdid_track_field.pdf, id=90, 650.43pt x 397.485pt>
+<../Code/sdid_track_field.pdf, id=239, 650.43pt x 397.485pt>
 File: ../Code/sdid_track_field.pdf Graphic file (type pdf)
 <use ../Code/sdid_track_field.pdf>
-Package pdftex.def Info: ../Code/sdid_track_field.pdf  used on input line 231.
+Package pdftex.def Info: ../Code/sdid_track_field.pdf  used on input line 306.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
-<../Code/sdid_cross_country.pdf, id=91, 650.43pt x 397.485pt>
+<../Code/sdid_cross_country.pdf, id=240, 650.43pt x 397.485pt>
 File: ../Code/sdid_cross_country.pdf Graphic file (type pdf)
 <use ../Code/sdid_cross_country.pdf>
-Package pdftex.def Info: ../Code/sdid_cross_country.pdf  used on input line 237.
+Package pdftex.def Info: ../Code/sdid_cross_country.pdf  used on input line 313.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
-<../Code/sdid_soccer.pdf, id=92, 650.43pt x 397.485pt>
+<../Code/sdid_soccer.pdf, id=241, 650.43pt x 397.485pt>
 File: ../Code/sdid_soccer.pdf Graphic file (type pdf)
 <use ../Code/sdid_soccer.pdf>
-Package pdftex.def Info: ../Code/sdid_soccer.pdf  used on input line 243.
+Package pdftex.def Info: ../Code/sdid_soccer.pdf  used on input line 320.
 (pdftex.def)             Requested size: 375.80544pt x 229.66202pt.
+<../Code/placebo_basketball.pdf, id=242, 578.16pt x 361.35pt>
+File: ../Code/placebo_basketball.pdf Graphic file (type pdf)
+<use ../Code/placebo_basketball.pdf>
+Package pdftex.def Info: ../Code/placebo_basketball.pdf  used on input line 327.
+(pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
+<../Code/placebo_track_field.pdf, id=243, 578.16pt x 361.35pt>
+File: ../Code/placebo_track_field.pdf Graphic file (type pdf)
+<use ../Code/placebo_track_field.pdf>
+Package pdftex.def Info: ../Code/placebo_track_field.pdf  used on input line 334.
+(pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
+<../Code/placebo_cross_country.pdf, id=244, 578.16pt x 361.35pt>
+File: ../Code/placebo_cross_country.pdf Graphic file (type pdf)
+<use ../Code/placebo_cross_country.pdf>
+Package pdftex.def Info: ../Code/placebo_cross_country.pdf  used on input line 341.
+(pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
+<../Code/placebo_soccer.pdf, id=245, 578.16pt x 361.35pt>
+File: ../Code/placebo_soccer.pdf Graphic file (type pdf)
+<use ../Code/placebo_soccer.pdf>
+Package pdftex.def Info: ../Code/placebo_soccer.pdf  used on input line 348.
+(pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
+ (../Code/results_comparison.tex
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
 
-LaTeX Warning: Empty bibliography on input line 251.
+ []
 
-[4 <../Code/es_basketball.pdf> <../Code/cohort_track_field.pdf>] [5 <../Code/es_track_field.pdf>] [6 <../Code/es_cross_country.pdf> <../Code/es_soccer.pdf>] [7 <../Code/cohort_basketball.pdf> <../Code/cohort_cross_country.pdf>] [8 <../Code/cohort_soccer.pdf> <../Code/sdid_basketball.pdf>] [9 <../Code/sdid_track_field.pdf> <../Code/sdid_cross_country.pdf>] [10 <../Code/sdid_soccer.pdf>] (./Mason_Final_Submission.aux)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)
+
+Package natbib Warning: There were undefined citations.
+
+[10
+pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                     <../Code/es_basketball.pdf>] [11
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                     <../Code/es_track_field.pdf>] [12
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                     <../Code/es_cross_country.pdf> <../Code/es_soccer.pdf>] [13
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                     <../Code/cohort_basketball.pdf> <../Code/cohort_track_field.pdf>] [14
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                     <../Code/cohort_cross_country.pdf> <../Code/cohort_soccer.pdf>] [15
+pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                     <../Code/forest_att.pdf> <../Code/sdid_basketball.pdf>] [16
+pdfTeX warning (ext4): destination with the same identifier (name{figure.13}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.14}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                     <../Code/sdid_track_field.pdf> <../Code/sdid_cross_country.pdf>] [17
+pdfTeX warning (ext4): destination with the same identifier (name{figure.15}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.16}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                     <../Code/sdid_soccer.pdf> <../Code/placebo_basketball.pdf>] [18
+pdfTeX warning (ext4): destination with the same identifier (name{figure.17}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.18}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                     <../Code/placebo_track_field.pdf> <../Code/placebo_cross_country.pdf>] [19
+pdfTeX warning (ext4): destination with the same identifier (name{figure.19}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.355 \end{document}
+                     <../Code/placebo_soccer.pdf>] (./Mason_Final_Submission.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `Mason_Final_Submission.out' has not changed.
-(rerunfilecheck)             Checksum: C8B9896C27A231E089D2571BE2D24CA5;835.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                Mason_Final_Submission
-(biblatex)                and rerun LaTeX afterwards.
-
-Package logreq Info: Writing requests to 'Mason_Final_Submission.run.xml'.
-\openout1 = `Mason_Final_Submission.run.xml'.
-
+(rerunfilecheck)             Checksum: 4ECF292814B25BEAC912A84BBCB7ABC6;709.
  ) 
 Here is how much of TeX's memory you used:
- 20591 strings out of 467525
- 356626 string characters out of 5418983
- 1229329 words of memory out of 5000000
- 49184 multiletter control sequences out of 15000+600000
- 638528 words of font info for 112 fonts, out of 8000000 for 9000
+ 14121 strings out of 467525
+ 222479 string characters out of 5418983
+ 682008 words of memory out of 5000000
+ 42615 multiletter control sequences out of 15000+600000
+ 649236 words of font info for 179 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,1270b,1285s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Mason_Final_Submission.pdf (11 pages, 262495 bytes).
+ 75i,11n,79p,1705b,505s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Mason_Final_Submission.pdf (20 pages, 370911 bytes).
 PDF statistics:
- 263 PDF objects out of 1000 (max. 8388607)
- 201 compressed objects within 3 object streams
- 22 named destinations out of 1000 (max. 500000)
- 20623 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 498 PDF objects out of 1000 (max. 8388607)
+ 407 compressed objects within 5 object streams
+ 64 named destinations out of 1000 (max. 500000)
+ 43680 words of extra memory for PDF output out of 51595 (max. 10000000)
 

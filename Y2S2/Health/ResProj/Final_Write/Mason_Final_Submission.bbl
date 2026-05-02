@@ -1,0 +1,71 @@
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Arkhangelsky et~al.(2021)Arkhangelsky, Athey, Hirshberg, Imbens, and Wager]{arkhangelsky_synthetic_2021}
+Dmitry Arkhangelsky, Susan Athey, David~A. Hirshberg, Guido~W. Imbens, and Stefan Wager.
+\newblock Synthetic {Difference}-in-{Differences}.
+\newblock \emph{American Economic Review}, 111\penalty0 (12):\penalty0 4088--4118, December 2021.
+\newblock ISSN 0002-8282.
+\newblock \doi{10.1257/aer.20190159}.
+\newblock URL \url{https://pubs.aeaweb.org/doi/10.1257/aer.20190159}.
+
+\bibitem[Beck and LaLumia(2022)]{beck_female_2022}
+Margo Beck and Sara LaLumia.
+\newblock Female {Role} {Models} and {Labor} {Force} {Participation}: {The} {Case} of the {All}-{American} {Girls} {Professional} {Baseball} {League}.
+\newblock \emph{Eastern Economic Journal}, 48\penalty0 (4):\penalty0 488--517, October 2022.
+\newblock ISSN 0094-5056, 1939-4632.
+\newblock \doi{10.1057/s41302-022-00219-w}.
+\newblock URL \url{https://link.springer.com/10.1057/s41302-022-00219-w}.
+
+\bibitem[Callaway and Sant'Anna(2020)]{csa_2021}
+Brantly Callaway and Pedro H.~C. Sant'Anna.
+\newblock Difference-in-{Differences} with {Multiple} {Time} {Periods}, December 2020.
+\newblock URL \url{http://arxiv.org/abs/1803.09015}.
+\newblock arXiv:1803.09015 [econ].
+
+\bibitem[De~Chaisemartin and D’Haultfœuille(2020)]{de_chaisemartin_two-way_2020}
+Clément De~Chaisemartin and Xavier D’Haultfœuille.
+\newblock Two-{Way} {Fixed} {Effects} {Estimators} with {Heterogeneous} {Treatment} {Effects}.
+\newblock \emph{American Economic Review}, 110\penalty0 (9):\penalty0 2964--2996, September 2020.
+\newblock ISSN 0002-8282.
+\newblock \doi{10.1257/aer.20181169}.
+\newblock URL \url{https://pubs.aeaweb.org/doi/10.1257/aer.20181169}.
+
+\bibitem[Frick and Wicker(2016)]{frick_trickle-down_2016}
+B.~Frick and P.~Wicker.
+\newblock The trickle-down effect: how elite sporting success affects amateur participation in {German} football.
+\newblock \emph{Applied Economics Letters}, 23\penalty0 (4):\penalty0 259--263, March 2016.
+\newblock ISSN 1350-4851, 1466-4291.
+\newblock \doi{10.1080/13504851.2015.1068916}.
+\newblock URL \url{http://www.tandfonline.com/doi/full/10.1080/13504851.2015.1068916}.
+
+\bibitem[Goodman-Bacon(2021)]{goodman-bacon_differences_2021}
+Andrew Goodman-Bacon.
+\newblock Difference-in-differences with variation in treatment timing.
+\newblock \emph{Journal of Econometrics}, 225\penalty0 (2):\penalty0 254--277, 2021.
+\newblock ISSN 0304-4076.
+\newblock \doi{https://doi.org/10.1016/j.jeconom.2021.03.014}.
+\newblock URL \url{https://www.sciencedirect.com/science/article/pii/S0304407621001445}.
+
+\bibitem[Reilly and Rodriguez(2024)]{reilly_effects_2024}
+Patrick Reilly and Zachary Rodriguez.
+\newblock Effects of the {Women}'s {National} {Basketball} {Association} on {High} {School} {Sports} and {College} {Enrollment}.
+\newblock \emph{SSRN Electronic Journal}, 2024.
+\newblock ISSN 1556-5068.
+\newblock \doi{10.2139/ssrn.4814099}.
+\newblock URL \url{https://www.ssrn.com/abstract=4814099}.
+
+\bibitem[Stevenson(2010)]{stevenson_beyond_2010}
+Betsey Stevenson.
+\newblock Beyond the {Classroom}: {Using} {Title} {IX} to {Measure} the {Return} to {High} {School} {Sports}.
+\newblock \emph{The Review of Economics and Statistics}, 92\penalty0 (2):\penalty0 284--301, May 2010.
+\newblock ISSN 0034-6535.
+\newblock \doi{10.1162/rest.2010.11623}.
+\newblock URL \url{https://doi.org/10.1162/rest.2010.11623}.
+\newblock \_eprint: https://direct.mit.edu/rest/article-pdf/92/2/284/1617566/rest.2010.11623.pdf.
+
+\end{thebibliography}

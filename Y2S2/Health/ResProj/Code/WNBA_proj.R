@@ -171,7 +171,7 @@ df %>%
   print()
 
 # ============================================================
-# 4. MAP: STATES WITH WNBA TEAMS (colour = first-treatment cohort)
+# 4. MAP: STATES WITH WNBA TEAMS (color = first-treatment cohort)
 # ============================================================
 
 cohort_years <- sort(unique(team_state$first_treat))
@@ -254,7 +254,7 @@ plot_trend <- function(sport_col, sport_label, data = df) {
     )) +
     labs(
       title    = paste0("Girls' ", sport_label, ": Mean Participation by Group"),
-      subtitle = "Balanced panel — states with complete data only",
+      subtitle = "Balanced panel - states with complete data only",
       x = "Year", y = "Mean participants", color = "", linetype = ""
     ) +
     theme_minimal(base_size = 12) +
@@ -266,6 +266,21 @@ ggsave("trend_soccer.pdf",        plot_trend("soccer",        "Soccer"),        
 ggsave("trend_cross_country.pdf", plot_trend("cross_country", "Cross Country"), width = 8, height = 5, dpi = 200)
 ggsave("trend_track_field.pdf",   plot_trend("track_field",   "Track & Field"), width = 8, height = 5, dpi = 200)
 cat("Saved trend plots.\n")
+
+# ---- Overall trend: all four sports combined ----
+df_overall_trend <- df %>%
+  mutate(total_part = basketball + cross_country + soccer + track_field) %>%
+  group_by(state) %>%
+  filter(all(!is.na(total_part))) %>%
+  ungroup()
+
+ggsave(
+  "trend_overall.pdf",
+  plot_trend("total_part", "All Four Sports (Total)", data = df_overall_trend) +
+    labs(subtitle = "Balanced panel - states with complete data in all four sports"),
+  width = 8, height = 5, dpi = 200
+)
+cat("Saved: trend_overall.pdf\n")
 
 # ============================================================
 # 6. CALLAWAY-SANT'ANNA DiD
@@ -349,9 +364,9 @@ run_cs <- function(yname, sport_label, data = df,
     scale_fill_manual(values  = c("FALSE" = "#377EB8", "TRUE" = "#E41A1C")) +
     labs(
       title    = paste0("Event Study: Girls' ", sport_label, " Participation"),
-      subtitle = "Callaway-Sant\u2019Anna (2021) | Never-treated control | 95% uniform CB | Normalized to t\u22121",
+      subtitle = "Callaway-Sant'Anna (2021) | Never-treated control | 95% uniform CB | Normalized to t=-1",
       x        = "Event time (years relative to first WNBA franchise)",
-      y        = "ATT relative to t\u22121 (participants)"
+      y        = "ATT relative to t=-1 (participants)"
     ) +
     theme_minimal(base_size = 12) +
     theme(plot.title = element_text(face = "bold"), panel.grid.minor = element_blank())
@@ -363,7 +378,7 @@ run_cs <- function(yname, sport_label, data = df,
     geom_hline(yintercept = 0, linetype = "dashed", color = "grey40") +
     labs(
       title    = paste0("ATT by Cohort: Girls' ", sport_label),
-      subtitle = "Callaway-Sant\u2019Anna (2021) | Never-treated control",
+      subtitle = "Callaway-Sant'Anna (2021) | Never-treated control",
       x = "Treatment cohort", y = "ATT (participants)"
     ) +
     theme_minimal(base_size = 12) +
@@ -419,7 +434,7 @@ forest_plot <- ggplot(
   geom_point(size = 4, color = "#E41A1C") +
   labs(
     title    = "Overall ATT: Effect of WNBA Franchise on Girls' Participation",
-    subtitle = "Callaway-Sant\u2019Anna (2021) | Never-treated control | 95% CI",
+    subtitle = "Callaway-Sant'Anna (2021) | Never-treated control | 95% CI",
     x = "ATT (participants)", y = NULL
   ) +
   theme_minimal(base_size = 12) +
@@ -671,13 +686,13 @@ compare_plot <- ggplot(
   geom_vline(xintercept = 0, linetype = "dashed", color = "grey50") +
   geom_errorbarh(aes(xmin = CI_lo, xmax = CI_hi),
                  height = 0.15, linewidth = 0.7,
-                 position = position_dodgev(height = 0.4)) +
-  geom_point(size = 3.5, position = position_dodgev(height = 0.4)) +
+                 position = position_dodge2(width = 0.4)) +
+  geom_point(size = 3.5, position = position_dodge2(width = 0.4)) +
   scale_color_manual(values = c("TWFE" = "#377EB8", "Callaway-Sant'Anna" = "#E41A1C")) +
   scale_shape_manual(values = c("TWFE" = 17,        "Callaway-Sant'Anna" = 16)) +
   labs(
-    title    = "TWFE vs. Callaway-Sant\u2019Anna: Overall ATT by Sport",
-    subtitle = "Staggered DiD — TWFE may be biased due to negative weighting | 95% CI",
+    title    = "TWFE vs. Callaway-Sant'Anna: Overall ATT by Sport",
+    subtitle = "Staggered DiD - TWFE may be biased due to negative weighting | 95% CI",
     x = "ATT (participants)", y = NULL,
     color = "Estimator", shape = "Estimator"
   ) +
@@ -945,7 +960,11 @@ make_cohort_trend <- function(sport_col, sport_label, data = df) {
     filter(!is.na(.data[[sport_col]])) %>%
     left_join(base_vals, by = "state") %>%
     filter(!is.na(base), base > 0) %>%
-    mutate(idx = (.data[[sport_col]] / base) * 100)
+    mutate(
+      idx          = (.data[[sport_col]] / base) * 100,
+      cohort_label = if_else(first_treat == 0, "Never treated",
+                             paste0("Cohort: ", first_treat))
+    )
 
   cohort_means <- df_idx %>%
     group_by(cohort_label, year) %>%
@@ -1047,14 +1066,156 @@ ggsave("gantt_treatment.pdf", width = 11, height = 8, dpi = 200)
 cat("Saved: gantt_treatment.pdf\n")
 
 # ============================================================
-# 13. SUMMARY TABLE: ALL METHODS
+# 13. SUMMARY TABLE: ALL METHODS (console)
 # ============================================================
+# Full LaTeX table saved as results_comparison.tex in section 14.
 
 cat("\n", strrep("=", 60), "\n", sep = "")
 cat("FINAL SUMMARY: ATT across all methods and sports\n")
 cat(strrep("=", 60), "\n\n")
 
-summary_rows <- list()
+summary_console <- bind_rows(list(
+  tibble(Sport = "Basketball",    CS_ATT = round(res_bball$simple$overall.att,  1), CS_SE = round(res_bball$simple$overall.se,  1), TWFE_ATT = round(coef(twfe_bball$twfe)["has_wnba"],  1), TWFE_SE = round(se(twfe_bball$twfe)["has_wnba"],  1)),
+  tibble(Sport = "Soccer",        CS_ATT = round(res_soccer$simple$overall.att, 1), CS_SE = round(res_soccer$simple$overall.se, 1), TWFE_ATT = round(coef(twfe_soccer$twfe)["has_wnba"], 1), TWFE_SE = round(se(twfe_soccer$twfe)["has_wnba"], 1)),
+  tibble(Sport = "Cross Country", CS_ATT = round(res_cc$simple$overall.att,     1), CS_SE = round(res_cc$simple$overall.se,     1), TWFE_ATT = round(coef(twfe_cc$twfe)["has_wnba"],     1), TWFE_SE = round(se(twfe_cc$twfe)["has_wnba"],     1)),
+  tibble(Sport = "Track & Field", CS_ATT = round(res_tf$simple$overall.att,     1), CS_SE = round(res_tf$simple$overall.se,     1), TWFE_ATT = round(coef(twfe_tf$twfe)["has_wnba"],     1), TWFE_SE = round(se(twfe_tf$twfe)["has_wnba"],     1))
+))
+print(summary_console)
+
+# ============================================================
+# 14. LaTeX TABLES
+# ============================================================
+# kableExtra writes standalone .tex documents by default (with its own
+# \documentclass, \usepackage{...}, and \begin{document}).  When those files
+# are \input{} into a parent document the preamble commands land in the body
+# and LaTeX halts with "Can be used only in preamble."
+#
+# Fix: strip everything outside \begin{table}...\end{table} before saving.
+# We also replace the curly apostrophe in "Girls'" with a straight one so the
+# caption compiles cleanly inside the parent document.
+
+strip_kable_preamble <- function(kbl_obj) {
+  txt <- as.character(kbl_obj)
+  txt <- sub("(?s).*?(\\\\begin\\{table)", "\\1", txt, perl = TRUE)
+  txt <- sub("(?s)(\\\\end\\{table\\}[*]?).*", "\\1", txt, perl = TRUE)
+  txt <- gsub("\u2019", "'", txt, fixed = TRUE)
+  txt
+}
+
+if (!requireNamespace("kableExtra", quietly = TRUE)) {
+  install.packages("kableExtra", repos = "https://cloud.r-project.org")
+}
+library(kableExtra)
+
+sports_cols  <- c("basketball", "cross_country", "soccer", "track_field")
+sports_names <- c("Basketball", "Cross Country", "Soccer", "Track & Field")
+
+# ---- Table 1: Treated vs. Never-Treated by Sport ----
+
+sumstat_tv <- df %>%
+  pivot_longer(all_of(sports_cols), names_to = "sport_col", values_to = "participation") %>%
+  filter(!is.na(participation)) %>%
+  mutate(
+    sport = sports_names[match(sport_col, sports_cols)],
+    group = if_else(first_treat > 0, "Ever-Treated", "Never-Treated")
+  ) %>%
+  group_by(sport, group) %>%
+  summarise(
+    Mean = mean(participation, na.rm = TRUE),
+    SD   = sd(participation, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  pivot_wider(names_from = group, values_from = c(Mean, SD)) %>%
+  mutate(
+    Diff  = `Mean_Ever-Treated` - `Mean_Never-Treated`,
+    sport = factor(sport, levels = sports_names)
+  ) %>%
+  arrange(sport) %>%
+  transmute(
+    Sport        = as.character(sport),
+    `NT Mean`    = format(round(`Mean_Never-Treated`, 0), big.mark = ","),
+    `NT SD`      = format(round(`SD_Never-Treated`,   0), big.mark = ","),
+    `ET Mean`    = format(round(`Mean_Ever-Treated`,  0), big.mark = ","),
+    `ET SD`      = format(round(`SD_Ever-Treated`,    0), big.mark = ","),
+    `Difference` = format(round(Diff, 0), big.mark = ",")
+  )
+
+tbl1 <- kbl(
+  sumstat_tv,
+  format    = "latex",
+  booktabs  = TRUE,
+  caption   = "Summary Statistics: Girls' Sport Participation by Treatment Status",
+  col.names = c("Sport", "Mean", "SD", "Mean", "SD", "Difference"),
+  align     = c("l", "r", "r", "r", "r", "r"),
+  linesep   = ""
+) %>%
+  add_header_above(c(" " = 1, "Never-Treated" = 2, "Ever-Treated" = 2, " " = 1)) %>%
+  kable_styling(latex_options = "hold_position", font_size = 11) %>%
+  footnote(
+    general           = "Means and SDs pooled across all state-years; participation measured in number of girls. Ever-treated = states that ever hosted a WNBA franchise.",
+    general_title     = "Note:",
+    footnote_as_chunk = TRUE,
+    escape            = FALSE
+  )
+
+writeLines(strip_kable_preamble(tbl1), "sumstat_treated_vs_control.tex")
+cat("Saved: sumstat_treated_vs_control.tex\n")
+
+# ---- Table 2: Mean Participation by Treatment Cohort ----
+
+cohort_order <- c("1997", "1998", "1999", "2000", "2003", "2006", "2008", "2010",
+                  "Never-Treated")
+
+n_by_cohort <- df %>%
+  distinct(state, first_treat) %>%
+  count(first_treat) %>%
+  mutate(cohort_label = if_else(first_treat == 0, "Never-Treated",
+                                as.character(first_treat)))
+
+sumstat_cohort <- df %>%
+  mutate(cohort_label = if_else(first_treat == 0, "Never-Treated",
+                                as.character(first_treat))) %>%
+  pivot_longer(all_of(sports_cols), names_to = "sport_col", values_to = "participation") %>%
+  filter(!is.na(participation)) %>%
+  mutate(sport = sports_names[match(sport_col, sports_cols)]) %>%
+  group_by(cohort_label, sport) %>%
+  summarise(Mean = round(mean(participation, na.rm = TRUE), 0), .groups = "drop") %>%
+  pivot_wider(names_from = sport, values_from = Mean) %>%
+  left_join(n_by_cohort %>% select(cohort_label, N = n), by = "cohort_label") %>%
+  mutate(cohort_label = factor(cohort_label, levels = cohort_order)) %>%
+  arrange(cohort_label) %>%
+  mutate(
+    Basketball      = format(Basketball,      big.mark = ","),
+    `Cross Country` = format(`Cross Country`, big.mark = ","),
+    Soccer          = format(Soccer,          big.mark = ","),
+    `Track & Field` = format(`Track & Field`, big.mark = ",")
+  ) %>%
+  select(Cohort = cohort_label, N, Basketball, `Cross Country`, Soccer, `Track & Field`)
+
+tbl2 <- kbl(
+  sumstat_cohort,
+  format   = "latex",
+  booktabs = TRUE,
+  caption  = "Mean Girls' Sport Participation by Treatment Cohort",
+  align    = c("l", "r", "r", "r", "r", "r"),
+  linesep  = ""
+) %>%
+  kable_styling(latex_options = "hold_position", font_size = 11) %>%
+  row_spec(nrow(sumstat_cohort) - 1, extra_latex_after = "\\midrule") %>%
+  row_spec(nrow(sumstat_cohort), bold = TRUE) %>%
+  footnote(
+    general           = "Cell entries are mean participants averaged across all state-years in each cohort.",
+    general_title     = "Note:",
+    footnote_as_chunk = TRUE,
+    escape            = FALSE
+  )
+
+writeLines(strip_kable_preamble(tbl2), "sumstat_by_cohort.tex")
+cat("Saved: sumstat_by_cohort.tex\n")
+
+# ---- Table 3: ATT Comparison Across All Methods and Sports ----
+
+results_rows <- list()
 for (row_info in list(
   list(sport = "Basketball",    cs = res_bball,  twfe = twfe_bball,  sdid = sdid_bball),
   list(sport = "Soccer",        cs = res_soccer, twfe = twfe_soccer, sdid = sdid_soccer),
@@ -1063,29 +1224,44 @@ for (row_info in list(
 )) {
   sdid_att <- if (!is.null(row_info$sdid)) row_info$sdid$overall_tau else NA_real_
   sdid_se  <- if (!is.null(row_info$sdid)) row_info$sdid$overall_se  else NA_real_
-  summary_rows[[length(summary_rows) + 1]] <- tibble(
-    Sport          = row_info$sport,
-    TWFE_ATT       = round(coef(row_info$twfe$twfe)["has_wnba"], 1),
-    TWFE_SE        = round(se(row_info$twfe$twfe)["has_wnba"], 1),
-    CS_ATT         = round(row_info$cs$simple$overall.att, 1),
-    CS_SE          = round(row_info$cs$simple$overall.se, 1),
-    SDID_ATT       = round(sdid_att, 1),
-    SDID_SE        = round(sdid_se, 1)
+  results_rows[[length(results_rows) + 1]] <- tibble(
+    Sport    = row_info$sport,
+    TWFE_ATT = round(coef(row_info$twfe$twfe)["has_wnba"], 1),
+    TWFE_SE  = round(se(row_info$twfe$twfe)["has_wnba"], 1),
+    CS_ATT   = round(row_info$cs$simple$overall.att, 1),
+    CS_SE    = round(row_info$cs$simple$overall.se, 1),
+    SDID_ATT = round(sdid_att, 1),
+    SDID_SE  = round(sdid_se, 1)
   )
 }
 
-summary_df <- bind_rows(summary_rows)
-print(summary_df)
+results_df <- bind_rows(results_rows) %>%
+  transmute(
+    Sport,
+    TWFE = paste0(format(TWFE_ATT, big.mark = ","), " (", format(TWFE_SE, big.mark = ","), ")"),
+    CS   = paste0(format(CS_ATT,   big.mark = ","), " (", format(CS_SE,   big.mark = ","), ")"),
+    SDID = if_else(
+      is.na(SDID_ATT), "---",
+      paste0(format(SDID_ATT, big.mark = ","), " (", format(SDID_SE, big.mark = ","), ")")
+    )
+  )
 
-cat("\nAll output files:\n")
-cat("  map_wnba_states.pdf\n")
-cat("  trend_{basketball,soccer,cross_country,track_field,composite}.pdf\n")
-cat("  es_{basketball,soccer,cross_country,track_field}.pdf\n")
-cat("  cohort_{basketball,soccer,cross_country,track_field}.pdf\n")
-cat("  sdid_{basketball,soccer,cross_country,track_field}.pdf\n")
-cat("  placebo_{basketball,soccer,cross_country,track_field}.pdf\n")
-cat("  compare_twfe_cs.pdf\n")
-cat("  spaghetti_{basketball,soccer,cross_country,track_field}.pdf\n")
-cat("  cohort_trend_{basketball,soccer,cross_country,track_field}.pdf\n")
-cat("  gantt_treatment.pdf\n")
-cat("  forest_att.pdf\n")
+tbl3 <- kbl(
+  results_df,
+  format    = "latex",
+  booktabs  = TRUE,
+  caption   = "ATT Estimates Across Estimators and Sports",
+  col.names = c("Sport", "TWFE", "Callaway-Sant'Anna", "Synthetic DiD"),
+  align     = c("l", "r", "r", "r"),
+  linesep   = ""
+) %>%
+  kable_styling(latex_options = "hold_position", font_size = 11) %>%
+  footnote(
+    general           = "Standard errors in parentheses. ATT = average treatment effect on the treated (participants). TWFE = two-way fixed effects; Callaway-Sant'Anna = staggered DiD with never-treated control; Synthetic DiD = Arkhangelsky et al. (2021) stacked by cohort.",
+    general_title     = "Note:",
+    footnote_as_chunk = TRUE,
+    escape            = FALSE
+  )
+
+writeLines(strip_kable_preamble(tbl3), "results_comparison.tex")
+cat("Saved: results_comparison.tex\n")
