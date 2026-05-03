@@ -3,46 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Mason_Final_Submission.aux
 The style file: plainnat.bst
 Database file #1: bib_health.bib
-Warning--I didn't find a database entry for "fedderson_sports_2009"
-You've used 8 entries,
+You've used 10 entries,
             2773 wiz_defined-function locations,
-            668 strings with 7121 characters,
-and the built_in function-call counts, 3867 in all, are:
-= -- 395
-> -- 173
-< -- 7
-+ -- 59
-- -- 51
-* -- 328
-:= -- 610
-add.period$ -- 47
-call.type$ -- 8
-change.case$ -- 41
-chr.to.int$ -- 8
-cite$ -- 16
-duplicate$ -- 155
-empty$ -- 308
-format.name$ -- 69
-if$ -- 804
+            678 strings with 7512 characters,
+and the built_in function-call counts, 4576 in all, are:
+= -- 464
+> -- 204
+< -- 9
++ -- 70
+- -- 60
+* -- 371
+:= -- 724
+add.period$ -- 57
+call.type$ -- 10
+change.case$ -- 50
+chr.to.int$ -- 10
+cite$ -- 20
+duplicate$ -- 189
+empty$ -- 370
+format.name$ -- 82
+if$ -- 955
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 7
-newline$ -- 71
-num.names$ -- 32
-pop$ -- 53
+missing$ -- 8
+newline$ -- 85
+num.names$ -- 40
+pop$ -- 72
 preamble$ -- 1
-purify$ -- 33
+purify$ -- 40
 quote$ -- 0
-skip$ -- 118
+skip$ -- 145
 stack$ -- 0
-substring$ -- 178
-swap$ -- 14
+substring$ -- 182
+swap$ -- 17
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 88
+type$ -- 110
 warning$ -- 0
-while$ -- 36
+while$ -- 42
 width$ -- 0
-write$ -- 155
-(There was 1 warning)
+write$ -- 187

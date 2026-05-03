@@ -108,7 +108,7 @@
         \begin{center}
             \textbf{Abstract}
         \end{center}
-        This paper investigates the impact of a women's professional sports league on girls' youth sports participation. Using the Women's National Basketball Association's (WNBA) inaugural season in 1997 as treatment, I apply the methods of \cite{csa_2021} methods to determine if there are any effects of the league's formation on the participation of girls in high school sports. Across four sports, I find modest increases in basketball and track participation, while cross-country and soccer do not exhibit any statistically significant effects.
+        This paper investigates the impact of a women's professional sports league on girls' youth sports participation. Using the Women's National Basketball Association's (WNBA) inaugural season in 1997 as treatment, I apply the \cite{csa_2021} estimator to determine if there are any effects of the league's formation on the participation of girls in high school sports. Across four sports, I find a positive, though imprecisely estimated, effect on per capita basketball participation, while track and field, cross-country, and soccer do not exhibit any statistically significant effects.
     \end{minipage}
     
     \vfill
@@ -116,13 +116,9 @@
 
 \section{Introduction}
 
-In 1997, the Women's National Basketball Association (WNBA) held its inaugural season, marking a significant milestone in the history of women's professional athletics. The league's formation provided a new platform through which female athletes could showcase their talents and serve as role models as professionals rather than amateurs. The WNBA's establishment was not only a significant moment for professional sports, but held plausible implications for sports participation for the next generation of female athletes. This paper investigates the impact of the WNBA's formation and evolution on girls' youth sports participation, particularly in high school athletics. 
+The Women's National Basketball Association (WNBA) was founded in 1997 and is the longest-running women's professional sports league in the United States. The league has grown significantly since its inception, with 15 teams currently competing in the league and further expansion on the horizon. The WNBA, in recent years, has become a prominent platform for the promotion of women's sports and has seen record viewership and attendance \citep{wnba_record_2024}. The presence of a sports team has potentially far-reaching effects on the local community, including increased interest in the sport, improved facilities, and increased opportunities for youth participation. However, the extent to which the presence of a WNBA team has influenced youth sports participation has not been rigorously studied. This is a particularly important question given previous research on the effects of Title IX, which found that increased opportunities for girls in sports led to significant increases in sports participation and subsequent increases in college enrollment and labor force participation for women \cite{stevenson_beyond_2010}.
 
-Professional athletes can serve as role models for the youth, and the presence of a professional sports league can influence youth participation in several ways. First, the visibility of professional athletes can inspire engagement in sports at a young age. Second, the presence of a professional team can increase the availability of resources and infrastructure (i.e. facilities, coaching, etc.) for youth sports in the local community. Third, the presence of a professional team can increase the social acceptance and cultural relevance of a given sport, which can encourage participation.
-
-The question of whether the presence of a professional sports league can influence youth participation is of interest to both the league as well as educators. For the league, understanding how the presence of a professional team in a given market can influence youth participation can inform marketing, outreach, and even future expansion decisions. For educators, understanding how to encourage youth sports participation via role models can promote physical activity and the associated benefits for health and well-being. Building upon the work of \citet{reilly_effects_2024}, I apply the methods of \cite{csa_2021} to data on high school sports participation from the National Federation of State High School Associations (NFHS) to ascertain whether the presence of a WNBA team in a given state is associated with increases in girls' sports participation. 
-
-I find varied results across sports. For basketball, I find a large increase in participation following the introduction of a WNBA team in a state, with an estimated increase of 2,137 participants per state. Sports like track-and-field, soccer, and cross-country exhibit increases in participation, but these increases are on the border of statistical significance. I perform multiple robustness checks, including applying the synthetic differences-in-differences method of \citet{arkhangelsky_synthetic_2021}, as well as a permutation placebo test.
+I aim to fill this gap in the literature by examining the impact of the WNBA's formation on girls' high school sports participation. Using a differences-in-differences approach, I compare the changes in sports participation in states that received a WNBA team to those that did not. The staggered rollout of WNBA teams across states allows for variation in treatment timing, and the presence of never-treated states provides a natural control group for comparison. The main findings are largely null: while point estimates for basketball are positive, no sport exhibits effects that are robust to permutation-based inference, and the results are sensitive to the choice of outcome scaling. This null result is itself informative, suggesting that any effects of WNBA franchise entry on girls' sports participation are not detectable at the state level with available data.
 
 The rest of the paper is organized as follows. Section 2 reviews the relevant literature on the effects of professional sports leagues on youth sports participation. Section 3 describes the data. Section 4 introduces the estimation strategy. Section 5 presents  and discusses the main results, while Section 6 discusses robustness findings. Finally, Section 7 concludes.
 
@@ -130,7 +126,7 @@ The rest of the paper is organized as follows. Section 2 reviews the relevant li
 
 The literature on girls' sports participation follows a few main threads. First, \citet{stevenson_beyond_2010} was an important paper in the field, as it was one of the first to use a differences-in-differences strategy to estimate the effect of Title IX on girls' sports participation. The paper finds that Title IX had a significant effect on sports participation and subsequent increases in college enrollment and labor force participation for women. \citet{beck_female_2022} is a more recent paper which is similar in spirit to this paper, but differs in application. Studying the All-American Girls Profession Baseball League (AAGPBL), the paper finds that the presence of a professional team raised female labor force participation and employment in the treated cities. \citet{reilly_effects_2024} is the paper I build upon. The paper studies the same question as this one, but uses standard two-way fixed effects methods, which can lead to biased estimates in the presence of heterogeneous treatment effects across cohorts and over time. This paper uses more modern methods to address this concern.
 
-There is also literature on the role model effect of professional athletes and teams on youth sports participation, such as \citet{frick_trickle-down_2016}, which finds that the success of the German national football team increased ameteur football participation in Germany. \citet{fedderson_sports_2009} more directly looked at the effect of individual athletes, finding that while participation grew as German players ascended, they find deterioration as tennis players like Boris Becker and Steffi Graf retired. My paper fits nicely into this literature, as it looks at the effect of a professional sports league, rather than individual athletes, on youth sports participation. 
+There is also literature on the role model effect of professional athletes and teams on youth sports participation, such as \citet{frick_trickle-down_2016}, which finds that the success of the German national football team increased ameteur football participation in Germany. \citet{feddersen_sports_2009} more directly looked at the effect of individual athletes, finding that while participation grew as German players ascended, they find deterioration as tennis players like Boris Becker and Steffi Graf retired. My paper fits nicely into this literature, as it looks at the effect of a professional sports league, rather than individual athletes, on youth sports participation. 
 
 In the econometric literature, this paper heavily employs the methods of \citet{csa_2021}, which is a staggered differences-in-differences estimator that allows for heterogeneous treatment effects across cohorts and over time. This is particularly useful in this context, as the staggered rollout of WNBA teams across states allows for variation in treatment timing, and the presence of never-treated states provides a natural control group for comparison. Under the findings of \citet{goodman-bacon_differences_2021} and \citet{de_chaisemartin_two-way_2020}, we know that the standard two-way fixed effects model as used in \citet{reilly_effects_2024} is biased in a staggered treatment environment. I also apply the synthetic differences-in-differences method of \citet{arkhangelsky_synthetic_2021} as a robustness check, which constructs a synthetic control group for each treated unit based on a weighted average of the characteristics of the control units. 
 
@@ -140,20 +136,26 @@ In the econometric literature, this paper heavily employs the methods of \citet{
 \subsection*{National Federation of State High School Associations (NFHS) Data}
 The primary data source for this analysis is National Federation of State High School Associations (NFHS) data on high school sports participation. The NFHS collects data on the number of participants in various sports at the high school level across the United States. I focus on four sports: basketball, track and field, cross-country, and soccer. These were chosen due to track and cross-country's season not directly competing with basketball, while soccer is a direct competitor for participants. They are also very popular sports and had consistent data availability across the time period studied. 
 
-Data from NFHS spans 1993 to 2016, allowing for a pre-treatment period of four years and a post-treatment period of 6 years. The data is aggregated at the state-year level, and I balance the panel so that each state has observations for all years in the sample. The final dataset includes 47 states and 24 years, results in a total of 1,128 state-year observations. Table \ref{tab:sumstat_treated_vs_control} provides summary statistics for the key variables in the analysis for the treated and never-treated states. Table \ref{tab:sumstat_by_cohort} provides summary statistics for the treated states by cohort, where a cohort is defined as the year in which a state receives its first WNBA team.
+Population level data is normalized by state population, which is obtained from the US Census Bureau. This is done to account for differences in state population sizes, which can influence the number of participants in high school sports. Normalizing by population allows for a more accurate comparison of sports participation across states and over time. The main results are presented as increase in participation per 10,000 people, which is a more interpretable metric than raw participation numbers, especially when comparing across states of varying sizes.
+
+Data from NFHS spans 1993 to 2016, allowing for a pre-treatment period of four years and a post-treatment period of 6 years. The data is aggregated at the state-year level, and I balance the panel so that each state has observations for all year in the sample. The final dataset includes 47 states and 24 years, results in a total of 1,128 state-year observations. Table \ref{tab:sumstat_tv} provides summary statistics for the key variables in the analysis for the treated and never-treated states. We can see here that never-treated states have higher per 10,000 population participation rates across all sports, which is likely a result of the fact that the treated states are generally more populous, and thus have more participants in high school sports, but when normalized by population, the treated states have lower participation rates. The difference is largest in basketball, with a mean difference of approximately six participants per 10,000 people, while the difference is smallest for cross-country, with a mean difference of approximately 0.3 participants per 10,000 people. The differences in participation rates across treatment status highlight the importance of controlling for population size in the analysis, as larger states are more likely to receive a WNBA team and also have higher participation rates in high school sports.
+
+Table \ref{tab:sumstat_cohort} provides summary statistics for the treated states by cohort, where a cohort is defined as the year in which a state receives its first WNBA team. This table highlights that, for the majority of cohorts, mean participation rates are largely stable across cohorts. Later cohorts, which are generally smaller and have fewer treated states, have lower participation rates across all sports, with the exception of the 2003 cohort, Connecticut, which has a very high participation rate in track and field. In three of the four sports, only one cohort has a higher mean participation rate than the never-treated states, which is the 2010 cohort for basketball, Minnesota.
+
 
 \subsection*{WNBA Data}
 The treatment variable in this analysis is the presence of a WNBA team in a given state. If a team is ever active in that state, then the state is considered treated in perpetuity following the year of the team's introduction. Each state that receives a WNBA team is assigned to a cohort based on the year in which the team was introduced. The WNBA data is collected from the league's official website, which provides information on the location and entry year of each franchise. Figure \ref{fig:wnba_map} shows the locations of WNBA franchises by state and entry year. The WNBA had a staggered rollout, with the first teams introduced in 1997 and additional teams introduced in subsequent years, with the most recent team studied introduced in 2010. The staggered nature of the treatment allows for a clean estimation of the average treatment effect on the treated (ATT) using the methods of \cite{csa_2021}, which is robust to heterogeneous treatment effects across cohorts and over time.
 
 \subsection*{Limitations of the Data}
 
-There are some limitations and issues with the data that need to be noted. Firstly, in 2011 the NFHS changed the way they collected and reported participation data, which biases the data upwards slightly. This is a minor concern as in the framework of \cite{csa_2021}, this is absorbed as a year fixed effect. Secondly, Pennsylvania cross-country individually changed its reporting in 2008. This is also worth mentioning but not of much concern as our estimation drops Pennsylvania from the analysis due to the fact it is not balanced. Finally, the NFHS data is only at the state level, which limits the precision of the exercise. Ideally, we would have data more suitable to city level treatment, but this is not available. There is a concern, then, that larger states with a WNBA team may have a more muted effect since the treatment is only in one city, but this is a limitation of the data that cannot be overcome. 
+There are some limitations and issues with the data that need to be noted. Firstly, in 2011 the NFHS changed the way they collected and reported participation data, which biases the data upwards slightly. This is a minor concern as in the framework of \cite{csa_2021}, this is absorbed as a year fixed effect. It was also implemented to impact both never-treated and treated states equally. Thus, we should have no concern surrounding differential reporting. Secondly, Pennsylvania cross-country individually changed its reporting in 2008. This is also worth mentioning but not of much concern as our estimation drops Pennsylvania from the analysis due to the fact it is not balanced. Finally, the NFHS data is only at the state level, which limits the precision of the exercise. Ideally, we would have data more suitable to city level treatment, but this is not available. There is a concern, then, that larger states with a WNBA team may have a more muted effect since the treatment is only in one city, but this is a limitation of the data that cannot be overcome. Lastly, the decennial census interpolation has the potential to introduce measurement error into the population data, especially for fast growing states. However, since this normalization is applied to both treated and control states, and the interpolation is likely to be reasonably accurate at the state level, this is not a major concern for the analysis.
 
 Balancing the panel in a sample like this introduces a tradeoff: we lose some treated units, but we gain the ability to use a more flexible estimation strategy that allows for heterogeneous treatment effects across cohorts and over time. I am comfortable with this tradeoff, as the \cite{csa_2021} estimator is robust to heterogeneous treatment effects, while a two-way fixed effects estimator would not be. We do lose one period of cross-country for a treated unit, California, which is initially concerning. But, California is in the first cohort, which is the largest cohort with seven treated states, so the loss of one treated unit is not as concerning as it would be for a smaller cohort. Further, it is a year post-treatment for California, so the loss of this is not as concerning as it would be if it were a pre-treatment period, which would be more informative for the parallel trends assumption.
 
 \section{Estimation}
 
-Following \cite{csa_2021}, I estimate the following differences-in-differences  model:
+Using a differences-in-differences framework, I estimate the effect of the presence of a WNBA team on girls' sports participation. The staggered rollout of WNBA teams across states allows for variation in treatment timing, and the presence of never-treated states provides a natural control group for comparison. Following \cite{csa_2021}, I estimate the following:
+
 \begin{equation}
   \hat{ATT}_{gt} = (Y_t - Y_{g-1}|G=g) - (Y_t - Y_{g-1}|\text{WNBA}=0)
 \end{equation}
@@ -162,54 +164,52 @@ where \(Y_t\) is the participation in a given sport in year \(t\) for a state wh
 
 This estimator yields group-time average treatment effects, which allows for flexibility in the timing of treatment and does not require the parallel trends to hold for all groups and time periods, but only for the specific group-time pairs being compared. This is particularly useful in this context, as the staggered rollout of WNBA teams across states allows for variation in treatment timing, and the presence of never-treated states provides a natural control group for comparison. I use the simple weighting scheme proposed by \cite{csa_2021}, which weights each group-time pair by cohort size, to aggregate the estimates across cohorts and obtain an overall estimate of the effect of having a WNBA team on girls' sports participation.
 
-For this estimation strategy to be valid, two key assumptions must hold. First, the parallel trends assumption needs to hold, which states that sans treatment, the treated and control states would have followed similar trends in sports participation. I provide evidence in support of this assumption in the results section. Second, there cannot be anticipation of treatment. That is, girls' sports participation should not have increased in anticipation of a preeminent WNBA team coming to their state. Given the nature of the treatment, I am comfortable assuming this is not a concern, but is also shown to be satisfied in the event study results. 
+For this estimation strategy to be valid, two key assumptions must hold. First, the parallel trends assumption needs to hold, which states that, absent treatment, the treated and control states would have followed similar trends in sports participation. I provide evidence in support of this assumption in the results section. Second, there cannot be anticipation of treatment. That is, girls' sports participation should not have increased in anticipation of a preeminent WNBA team coming to their state. Given the nature of the treatment, I am comfortable assuming this is not a concern, but is also shown to be satisfied in the event study results. 
 
 Further, I note that the staggered nature of the treatment and the presence of never-treated states allows for a clean estimation of the ATT which is robust to heterogeneous treatment effects across cohorts and over time. It is worth discussing why I abstain from using a two-way fixed effects estimator in this context. A two-way fixed effects estimator would use units which are already treated as controls for units which are treated later, which can lead to biased estimates if there are heterogeneous treatment effects across cohorts and over time. The \cite{csa_2021} method is thus preferred for reasons mentioned above. 
 
-I also apply the synthetic differences-in-differences method of \cite{arkhangelsky_synthetic_2021} as a robustness check, which constructs a synthetic control group for each treated unit based on a weighted average of the characteristics of the control units.
+I also employ numerous robustness checks. These include the synthetic differences-in-differences method of \cite{arkhangelsky_synthetic_2021}, which constructs a synthetic control group for each treated unit based on a weighted average of the characteristics of the control units, the placebo permutation test in which I randomly assign treatment to states and re-estimate the main results 500 times to obtain a distribution of placebo treatment effects, and a leave-one-out check in which I drop the three most populous states in the sample, which are all in the first cohort, and re-estimate the main results.
 
 \section{Results}
 
-Figure \ref{fig:es_basketball} shows the event study estimates for basketball participation. The estimates support the parallel trends assumption if taken at face value, but there are massive confidence intervals in some periods both pre and post-treatment. However, the results present a clear increase in basketball participation following treatment, with an estimated increase of 2,137 participants per state. The results for track and field (figure \ref{fig:es_track}), cross-country (figure \ref{fig:es_cross_country}), and soccer (figure \ref{fig:es_soccer}) are less clear, with increases in participation that are on the border of statistical significance. The results for track and field are the most promising, with an estimated increase of 3,284 participants per state, while the results for soccer and cross-country are more dubious, with estimated increases of 2,893 and 760 participants per state, respectively.
+Figure \ref{fig:es_basketball} shows the event study estimates for basketball participation. The estimates support the parallel trends assumption if taken at face value, but there are massive confidence intervals in periods both pre and post-treatment. However, the results present a clear increase in basketball participation following treatment, with an estimated increase of two to three participants per 10,000 people. The results for track and field (figure \ref{fig:es_track}), cross-country (figure \ref{fig:es_cross_country}), and soccer (figure \ref{fig:es_soccer}) are less clear, with increases in participation that are on the border of statistical significance. The results for track and field are the most promising, with an estimated increase of approximately 3 participants per 10,000 people, while the results for soccer and cross-country are more dubious, with results indistinguishable from zero. 
 
-When looking at results by cohort, we see that the effect is not uniform across cohorts. For basketball (figure \ref{fig:cohort_basketball}), the effect is largest for the second cohort, in which two states received WNBA teams in 1998, with an estimated increase of 6,829 total participants across the states. The effect becomes more modest as the cohorts progress, with cohort 3 (1999) having a massive confidence interval, and cohorts 4-8 presenting increases of anywhere between zero and 3,000 participants per state.
+When looking at results by cohort, we see that the effect is not uniform across cohorts. For basketball (figure \ref{fig:cohort_basketball}), the effect is largest for the second cohort, in which two states received WNBA teams in 1998, with an estimated increase of nine participants per 10,000 across the states. The effect becomes more modest as the cohorts progress, with cohort 3 (1999) having a massive confidence interval, and cohorts 4-8 presenting increases of anywhere between zero and three participants per 10,000.
 
-For track and field (figure \ref{fig:cohort_track}), the results are more consistent across cohorts, though the first two suffer from large confidence intervals. Cohort 3 (1999) has an estimated increase of 3,062 participants per state, while cohorts 4-8 have increases of between 500-3500 participants per state.
+The results for track and field (figure \ref{fig:cohort_track}) are similar to the basketball estimates across cohorts, with all but one cohort exhibiting increases in participation following treatment, though the confidence intervals are quite large. Only cohorts 2 (1998), 5 (2003), 7 (2008), and 8 (2010) have confidence intervals that do not include zero, with effects ranging from a decrease of one participant per 10,000 people to an increase of about 5 participants per 10,000 people. The other cohorts have confidence intervals that include zero, with point estimates that range from a decrease of one participant per 10,000 people to an increase of two participants per 10,000 people.
 
-The results for cross-country are presented in figure \ref{fig:cohort_cross_country}. The results are quite interesting here. Cohort 1, again, suffers from a large confidence interval, but the point estimate is modest at 465 participants per state. Cohort 2 (1998) has an estimated increase of 1,425 participants per state, while cohorts 3-8 have increases of between 275 and 1,800 participants per state. This result is notable since cross-country is a sport which does not directly compete with basketball for participants, as the season ends in November as basketball season begins. So the consistent increases in cross-country participation across cohorts may be indicative of a general increase in sports participation following the introduction of a WNBA team, rather than an increase specific to basketball. 
+The results for cross-country are presented in figure \ref{fig:cohort_cross_country}. The results are even less promising for cross-country, with only one cohort exhibiting a statistically significant increase in participation following treatment, which is cohort 5 (2003), with an estimated increase of about just under one participant per 10,000 people. The other cohorts have confidence intervals that include zero, with point estimates that range from a decrease of under one participant per 10,000 people to an increase of about one participant per 10,000 people. 
 
-Soccer is also interesting, as the sport directly competes with basketball for participants with both sports being played primarily in the winter. The results shown in figure \ref{fig:cohort_soccer} show that the effect is quite large for cohort 1 (1997), with large confidence intervals, but the point estimate is an increase of 4,473 participants per state. Cohort 2 (1998) has an estimated increase of 2,409 participants per state, while cohorts 3-8 have results which vary significantly. Some cohorts bring insignificant decreases in participation, while others like the 2006 cohort have an estimated increase of 3,300 participants in Illinois. This heterogeneity across cohorts may indicate that rather than substitution between basketball and soccer, the effect of a WNBA team on soccer may be trumped by something like climate, which can influence the popularity of soccer in a given state.
+The results shown in figure \ref{fig:cohort_soccer} show that the effect is also largely null for soccer. Only cohorts 7 (2008) and 8 (2010) experience any effect discernible from zero with increases of just over two participants per 10,000 each. Every other cohort exhibits patterns ranging from decreases of one and a half participants per 10,000 to nearly three.
 
-When looking at the overall ATT estimates by sport (figure \ref{fig:forest_att}), we see that basketball, soccer, and track and field have significant increases in participation following treatment, while cross-country does not exhibit statistically significant effects. The estimated increase in basketball participation is 2,137 participants per state, while the estimated increase in track and field participation is 3,284 participants per state. The estimated increase in cross-country participation is 760 participants per state, while the estimated increase in soccer participation is 2,893 participants per state.
-
-The confidence intervals for the overall ATT estimates are quite large, particularly for soccer and track and field, which may be indicative of heterogeneity in treatment effects across cohorts. The confidence interval cross-country is smaller, but the effect is not distinguishable from zero. The results for basketball are the also imprecise, with a confidence interval that does not include zero, but is still large. These large confidence intervals may be indicative of heterogeneity in treatment effects across cohorts, which is supported by the cohort-level results presented above.
-
-When considering the heterogeneity across cohorts, it is important to consider the path of expansion for the WNBA. The first cohort in 1997 included seven states, which were chosen for their large cities (Los Angeles, Houston, Charlotte, New York), as well as markets which already hosted an NBA team and thus had the infrastructure established. This size and selection of the first cohort may have led to a large increase in participation in the treated states, as the presence of a WNBA team in a large city with an established basketball culture may have had a more pronounced effect on youth sports participation. The subsequent cohorts were smaller and included states with smaller cities, which may have led to more modest increases in participation. Additionally, the later cohorts were introduced during a time when the WNBA was already established and had a national presence, which may have diluted the effect of treatment for these later cohorts.
+Overall, it is hard to draw strong conclusions from the results, as the confidence intervals are very large and there is significant hetereogeneity across cohorts. However, the point estimates are generally in the expected direction, with increases in participation following treatment, though the magnitudes are somewhat smaller than expected. However, the results are not significant at conventional levels, and the confidence intervals are quite large, which suggests that the results are not robust to inference and should be interpreted with caution. The results for basketball are the most promising, with an estimated increase of about two participants per 10,000 people following treatment, but even this result is not statistically significant at conventional levels.
 
 \section{Robustness}
 
-The results above present a view that the presence of a WNBA team in a given state is at worst a null effect and at best a significant increase in girls' sports participation. However, there are some concerns with the estimation strategy that need to be addressed. First, the presence of large confidence intervals in some periods of the event study estimates may indicate that the parallel trends assumption is not satisfied. To address this concern, I apply the synthetic differences-in-differences method of \cite{arkhangelsky_synthetic_2021}, which constructs a synthetic control group for each treated unit based on a weighted average of the characteristics of the control units. 
+The results above present a view that the presence of a WNBA team in a given state is at worst a null effect and at best a potential increase in girls' sports participation. However, there are some concerns with the estimation strategy that need to be addressed. First, the presence of large confidence intervals in some periods of the event study estimates may indicate that the parallel trends assumption is not satisfied. To address this concern, I apply the synthetic differences-in-differences method of \cite{arkhangelsky_synthetic_2021}, which constructs a synthetic control group for each treated unit based on a weighted average of the characteristics of the control units. 
 
-The results from this method are presented in figures \ref{fig:sdid_basketball} through \ref{fig:sdid_soccer}, and show similar patterns to the main results, with increases in participation following treatment, though the magnitudes are somewhat smaller. For figure \ref{fig:sdid_basketball}, the estimated increase in basketball participation following treatment is 1,762 participants per state, which is somewhat smaller than the main estimate of 2,137 participants per state. For track and field (figure \ref{fig:sdid_track}), the estimated increase is 3,413 participants per state, which is larger than the main estimate of 3,284 participants per state. For cross-country (figure \ref{fig:sdid_cross_country}), the estimated increase is 621 participants per state, which is smaller than the main estimate of 760 participants per state. Finally, for soccer (figure \ref{fig:sdid_soccer}), the estimated increase is 2,517 participants per state, which is smaller than the main estimate of 2,893 participants per state. While the mean results are significant and in the expected direction, there is massive heterogeneity across cohorts. Many cohorts have large confidence intervals, and some even have point estimates that are negative. To address the concern that the results may be driven by a few influential cohorts, I perform a permutation placebo test, in which I randomly assign treatment to states and re-estimate the model 500 times. The distribution of the estimated treatment effects from these placebo tests can then be compared to the actual estimated treatment effect to assess whether the observed effect is likely to be due to chance.
+The results from this method are presented in figures \ref{fig:sdid_basketball} through \ref{fig:sdid_soccer}, and show similar patterns to the main results, with increases in participation following treatment for basketball, though the magnitudes are somewhat smaller. For figure \ref{fig:sdid_basketball}, the estimated increase in basketball participation following treatment is about two participants per 10,000 population, which is somewhat smaller than the main estimate of about two and a half participants per 10,000. For track and field (figure \ref{fig:sdid_track}), cross-country (figure \ref{fig:sdid_cross_country}), and soccer (figure \ref{fig:sdid_soccer}), I return a null result, with a mean confidence interval that includes zero and point estimates that are indistinguishable from zero\footnote{Note: for cohorts of size $N=1$, the synthetic differences-in-differences was implemented to recover placebo standard errors instead of bootstrapped standard errors as in larger cohorts.}. This shows that the main results are not uniquely driven by the choice of estimation strategy, and that the main results are robust to a more flexible estimation strategy that does not rely as heavily on the parallel trends assumption.
 
-The results of the permutation placebo test (figures \ref{fig:placebo_basketball} - \ref{fig:placebo_soccer}) show that the actual estimated treatment effect is statistically different than 95\% of the placebo treatment effects for all sports except basketball, which provides evidence that the observed effect is not likely to be due to chance. For basketball, the actual estimated treatment effect is statistically different from 90\% of the estimated treatment effects from the placebo tests, which still provides some evidence that the observed effect is not likely to be due to chance, but is less strong than for the other sports. This result is puzzling, as basketball is the sport that would be expected to have the largest effect from the presence of a WNBA team. One possible explanation for this result is that there may be other factors that are driving the increase in basketball participation in the treated states, such as changes in coaching staff or facilities, which are not accounted for in the model. Another possibility is that the presence of a WNBA team may have a more diffuse effect on sports participation, influencing not only basketball but also other sports, which could dilute the observed effect on basketball participation specifically. There is also a possibility that there is simply more noise in the basketball data. The NFHS data could experience more measurement error for basketball participation than for the other sports due to basketball's popularity.
+The results of the permutation placebo test (figures \ref{fig:placebo_basketball} - \ref{fig:placebo_soccer}) show that the actual estimated treatment effect is not statistically different than 95\% of the placebo treatment effects for all sports. This drives home the point that the results are not stable and are not robust to inference, which is likely a result of the small number of treated units in each cohort, which leads to imprecision in the estimates.
+
+I also perform a leave-one-out check, in which I drop the three most populous states in the sample, which are all in the first cohort, and re-estimate the main results. The results of this robustness check are presented in figure \ref{fig:robustness_drop}, and show that, for basketball, dropping Texas actually very slightly improves percision, while dropping California and New York results in very similar estimates to the baseline. For the other sports, the results are much in line with the baseline, with some minor changes in the point estimates and confidence intervals.  These findings suggest that, while the first cohort is the largest and has the most treated units, the results are likely not being driven by any one state, and that the baseline findings are largely robust to dropping any one of the three most populous states in the sample.
 
 \section{Discussion}
 
-When comparing the results (table \ref{tab:results_comparison}) between a naive two-way fixed effects estimator, the preferred \cite{csa_2021} estimator, and the synthetic differences-in-differences estimator, we see that the results are generally consistent across estimators, with the preferred estimator generally producing larger estimates than the other two estimators. This is likely due to the fact that the \cite{csa_2021} estimator is more flexible in allowing for heterogeneous treatment effects across cohorts and over time, while the two-way fixed effects estimator assumes a constant treatment effect across all treated units and time periods. The synthetic differences-in-differences estimator also allows for some heterogeneity in treatment effects, but is more constrained than the \cite{csa_2021} estimator. 
-
-However, the \cite{csa_2021} estimator also has larger standard errors than the other two estimators, which may be due to the fact that it is more flexible and allows for more variation in the treatment effects. The two-way fixed effects estimator has smaller standard errors, but is likely to be biased if the parallel trends assumption is not satisfied or if there are heterogeneous treatment effects. The synthetic differences-in-differences estimator has standard errors that are generally smaller than the \cite{csa_2021} estimator, and may be generally preferred if the parallel trends assumption is satisfied and if SUTVA holds, but also presents some challenges with some cohorts having very small treatment groups, which can lead to imprecise estimates. 
-
+When comparing results across estimators (Table \ref{tab:results}), the three approaches tell a consistent story. Basketball is the only sport for which all three estimators return a positive point estimate, with ATTs ranging from 2.1 to 2.2 participants per 10,000 population. For soccer, cross country, and track and field, point estimates are small and in some cases negative across all three estimators, providing little evidence of any effect. The consistency across TWFE, Callaway-Sant'Anna, and synthetic DiD is reassuring in one sense, implying that the null result is not an artifact of any particular estimation choice. However, the Callaway-Sant'Anna estimator carries larger standard errors than the other two, reflecting its flexibility in accommodating heterogeneous treatment effects at the cost of precision. With a maximum of seven treated states in any cohort, this imprecision is a fundamental constraint of the data rather than a methodological failure. Even for basketball, where the point estimate is economically suggestive, the permutation p-value of 0.518 indicates the result is indistinguishable from chance under the null. The combined evidence presented suggests a null result under the current research design using state-level data.
 
 \section{Conclusion}
 
-This paper investigates the impact of the WNBA's formation on girls' youth sports participation. Using the methods of \cite{csa_2021}, I find that the presence of a WNBA team in a given state is associated with increases in participation in basketball, track and field, and soccer, while cross-country does not exhibit statistically significant effects. However, there is significant heterogeneity across cohorts, with some cohorts exhibiting large increases in participation while others have more modest increases or even decreases. The results are generally consistent across different estimation strategies, though the \cite{csa_2021} estimator produces larger estimates than the other two estimators. The results are also robust to a permutation placebo test, which provides evidence that the observed effects are not likely to be due to chance.
+Using population-normalized outcomes and permutation-based inference, I find no sport exhibits effects robust to the null hypothesis of no treatment. Basketball returns a consistent positive point estimate of approximately 2.2 participants per 10,000 across all three estimators, but these findings cannot be distinguished from chance. The results suggest that any effect of WNBA franchise entry on girls' sports participation is not detectable at the state level, a finding that is itself informative, as it suggests prior work reporting significant effects in levels may have been capturing population size rather than genuine behavioral change.
 
-The primary issue with the results are the large confidence intervals. This is likely a result of the small number of treated units, with a max of seven treated states in any given cohort, which leads to imprecision in the estimates. To me, this suggests that perhaps another data avenue may be more fruitful for this question, such as survey data on youth sports participation at a more granular level, which could provide more insight into the effects of the WNBA on youth sports participation. As of now, the wide confidence intervals appear to be a fundamental constraint of the data and how it implies treatment assignment. However, the results do suggest this is a question worth exploring further, as the point estimates are generally in the expected direction and are significant for some sports. Future research could also explore the mechanisms through which the presence of a WNBA team influences youth sports participation, such as changes in social norms, increased visibility of female athletes, or changes in the availability of resources for youth sports.
+The primary issue with the results are the large confidence intervals. This is likely a result of the small number of treated units, with a max of seven treated states in any given cohort, which leads to imprecision in the estimates. This suggests that perhaps another data avenue may be more fruitful for this question, such as survey data on youth sports participation at a more granular level, which could provide more insight into the effects of the WNBA on youth sports participation. As of now, the imprecision in estimation appears to be a fundamental constraint of the data and how it implies treatment assignment. 
+
+Future work would surely need to explore other data avenues, with more granular data on youth sports participation, to further investigate the effects of the WNBA on youth sports participation. If those data avenues are available, the methods posed in my paper would be interesting to apply and extend. For instance, I am massively interested in looking into how metrics of success in the WNBA, like league standings or star player performance, affect youth sports participation, which would be a more direct test of the role model effect. I am also interested in looking at the effects of college basketball success on youth sports participation, which would be interesting to compare to the effects of the WNBA, as, in some regions, college basketball is more popular and has more visibility than the WNBA.
 
 \newpage
 \bibliographystyle{plainnat}
 \bibliography{bib_health}
+\newpage
   
 \section*{Tables and Figures}
 
@@ -226,128 +226,128 @@ The primary issue with the results are the large confidence intervals. This is l
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{../Code/trend_basketball.pdf}
-  \caption{Girls' Basketball: Mean Participation by Group}
+  \includegraphics[width=0.8\textwidth]{../Code/trend_overall_rate.pdf}
+  \caption{Girls' Mean Participation by Group}
   \label{fig:participation_trends}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{../Code/es_basketball.pdf}
+    \includegraphics[width=0.8\textwidth]{../Code/es_basketball_r.pdf}
     \caption{Event Study: Girls' Basketball Participation}
     \label{fig:es_basketball}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{../Code/es_track_field.pdf}
+    \includegraphics[width=0.8\textwidth]{../Code/es_track_field_r.pdf}
     \caption{Event Study: Girls' Track \& Field Participation}
     \label{fig:es_track}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{../Code/es_cross_country.pdf}
+    \includegraphics[width=0.8\textwidth]{../Code/es_cross_country_r.pdf}
     \caption{Event Study: Girls' Cross Country Participation}
     \label{fig:es_cross_country}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{../Code/es_soccer.pdf}
+    \includegraphics[width=0.8\textwidth]{../Code/es_soccer_r.pdf}
     \caption{Event Study: Girls' Soccer Participation}
     \label{fig:es_soccer}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{../Code/cohort_basketball.pdf}
+  \includegraphics[width=0.8\textwidth]{../Code/cohort_basketball_r.pdf}
   \caption{ATT by Cohort: Girls' Basketball}
   \label{fig:cohort_basketball}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{../Code/cohort_track_field.pdf}
+  \includegraphics[width=0.8\textwidth]{../Code/cohort_track_field_r.pdf}
   \caption{ATT by Cohort: Girls' Track \& Field}
   \label{fig:cohort_track}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{../Code/cohort_cross_country.pdf}
+  \includegraphics[width=0.8\textwidth]{../Code/cohort_cross_country_r.pdf}
   \caption{ATT by Cohort: Girls' Cross Country}
   \label{fig:cohort_cross_country}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{../Code/cohort_soccer.pdf}
+  \includegraphics[width=0.8\textwidth]{../Code/cohort_soccer_r.pdf}
   \caption{ATT by Cohort: Girls' Soccer}
   \label{fig:cohort_soccer}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{../Code/forest_att.pdf}
-  \caption{ATT Estimates by and Sport}
-  \label{fig:forest_att}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{../Code/sdid_basketball.pdf}
+  \includegraphics[width=0.8\textwidth]{../Code/sdid_basketball_r.pdf}
   \caption{Synthetic DiD by Cohort: Girls' Basketball}
   \label{fig:sdid_basketball}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{../Code/sdid_track_field.pdf}
+  \includegraphics[width=0.8\textwidth]{../Code/sdid_track_field_r.pdf}
   \caption{Synthetic DiD by Cohort: Girls' Track \& Field}
   \label{fig:sdid_track}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{../Code/sdid_cross_country.pdf}
+  \includegraphics[width=0.8\textwidth]{../Code/sdid_cross_country_r.pdf}
   \caption{Synthetic DiD by Cohort: Girls' Cross Country}
   \label{fig:sdid_cross_country}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{../Code/sdid_soccer.pdf}
+  \includegraphics[width=0.8\textwidth]{../Code/sdid_soccer_r.pdf}
   \caption{Synthetic DiD by Cohort: Girls' Soccer}
   \label{fig:sdid_soccer}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{../Code/placebo_basketball.pdf}
+  \includegraphics[width=0.8\textwidth]{../Code/placebo_basketball_r.pdf}
   \caption{Permutation Placebo Test: Basketball}
   \label{fig:placebo_basketball}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{../Code/placebo_track_field.pdf}
+  \includegraphics[width=0.8\textwidth]{../Code/placebo_track_field_r.pdf}
   \caption{Permutation Placebo Test: Track \& Field}
   \label{fig:placebo_track}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{../Code/placebo_cross_country.pdf}
+  \includegraphics[width=0.8\textwidth]{../Code/placebo_cross_country_r.pdf}
   \caption{Permutation Placebo Test: Cross Country}
   \label{fig:placebo_cross_country}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{../Code/placebo_soccer.pdf}
+  \includegraphics[width=0.8\textwidth]{../Code/placebo_soccer_r.pdf}
   \caption{Permutation Placebo Test: Soccer}
   \label{fig:placebo_soccer}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\textwidth]{../Code/robustness_drop_cohort1.pdf}
+  \caption{Robustness: Callaway-Sant\textquotesingle{}Anna ATT After Dropping Large Cohort-1997 States}
+  \label{fig:robustness_drop}
 \end{figure}
 
 \input{../Code/results_comparison.tex}

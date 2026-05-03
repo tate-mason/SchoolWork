@@ -121,6 +121,92 @@ df <- df_wide %>%
     state_id    = as.integer(factor(state))
   )
 
+# ============================================================
+# 1b. STATE POPULATION (Census interpolated)
+# ============================================================
+# Anchor years: 1990, 2000, 2010, 2018 decennial/ACS total population
+# (thousands). Linearly interpolated to all panel years and joined to df.
+# Rate columns: participation per 10,000 total population.
+
+pop_anchors <- tribble(
+  ~state,                    ~p1990, ~p2000,  ~p2010,  ~p2018,
+  "Alabama",                   4040,   4447,    4779,    4888,
+  "Alaska",                     550,    627,     710,     737,
+  "Arizona",                   3665,   5131,    6392,    7172,
+  "Arkansas",                  2351,   2673,    2916,    3013,
+  "California",               29760,  33872,   37254,   39557,
+  "Colorado",                  3294,   4301,    5029,    5695,
+  "Connecticut",               3287,   3406,    3574,    3572,
+  "Delaware",                   666,    784,     898,     967,
+  "District of Columbia",       607,    572,     601,     702,
+  "Florida",                  12938,  15982,   18801,   21299,
+  "Georgia",                   6478,   8186,    9688,   10519,
+  "Hawaii",                    1108,   1212,    1360,    1420,
+  "Idaho",                     1007,   1294,    1568,    1754,
+  "Illinois",                 11430,  12419,   12831,   12741,
+  "Indiana",                   5544,   6080,    6484,    6692,
+  "Iowa",                      2777,   2926,    3046,    3156,
+  "Kansas",                    2478,   2688,    2853,    2912,
+  "Kentucky",                  3686,   4042,    4339,    4468,
+  "Louisiana",                 4220,   4469,    4533,    4660,
+  "Maine",                     1228,   1275,    1328,    1338,
+  "Maryland",                  4781,   5296,    5774,    6043,
+  "Massachusetts",             6016,   6349,    6547,    6902,
+  "Michigan",                  9295,   9938,    9884,    9996,
+  "Minnesota",                 4375,   4919,    5303,    5611,
+  "Mississippi",               2575,   2845,    2967,    2987,
+  "Missouri",                  5117,   5595,    5988,    6126,
+  "Montana",                    799,    902,     989,    1062,
+  "Nebraska",                  1578,   1711,    1826,    1929,
+  "Nevada",                    1202,   1998,    2701,    3034,
+  "New Hampshire",             1109,   1236,    1316,    1357,
+  "New Jersey",                7730,   8414,    8792,    8908,
+  "New Mexico",                1515,   1819,    2059,    2096,
+  "New York",                 17990,  18976,   19378,   19542,
+  "North Carolina",            6629,   8049,    9535,   10384,
+  "North Dakota",               639,    642,     673,     760,
+  "Ohio",                     10847,  11353,   11536,   11689,
+  "Oklahoma",                  3146,   3451,    3751,    3943,
+  "Oregon",                    2842,   3421,    3831,    4142,
+  "Pennsylvania",             11882,  12281,   12702,   12807,
+  "Rhode Island",              1003,   1048,    1053,    1057,
+  "South Carolina",            3487,   4012,    4625,    5084,
+  "South Dakota",               696,    754,     814,     882,
+  "Tennessee",                 4877,   5689,    6346,    6770,
+  "Texas",                    16987,  20852,   25146,   28701,
+  "Utah",                      1723,   2233,    2764,    3162,
+  "Vermont",                    563,    609,     625,     626,
+  "Virginia",                  6187,   7079,    8001,    8518,
+  "Washington",                4887,   5894,    6724,    7536,
+  "West Virginia",             1793,   1808,    1853,    1806,
+  "Wisconsin",                 4892,   5364,    5687,    5814,
+  "Wyoming",                    454,    494,     564,     578
+)
+
+all_panel_years <- sort(unique(df$year))
+
+pop_interp <- pop_anchors %>%
+  pivot_longer(c(p1990, p2000, p2010, p2018),
+               names_to = "yr_str", values_to = "pop_k") %>%
+  mutate(anchor_yr = as.integer(sub("p", "", yr_str))) %>%
+  group_by(state) %>%
+  group_modify(~ {
+    tibble(
+      year  = all_panel_years,
+      pop_k = approx(.x$anchor_yr, .x$pop_k, xout = all_panel_years, rule = 2)$y
+    )
+  }) %>%
+  ungroup()
+
+df <- df %>%
+  left_join(pop_interp, by = c("state", "year")) %>%
+  mutate(
+    basketball_r    = basketball    / pop_k * 10,   # per 10,000 pop
+    cross_country_r = cross_country / pop_k * 10,
+    soccer_r        = soccer        / pop_k * 10,
+    track_field_r   = track_field   / pop_k * 10
+  )
+
 cat("=== Panel structure ===\n")
 cat(
   "States:", n_distinct(df$state), "| Years:", n_distinct(df$year),
@@ -223,14 +309,17 @@ cat("Saved: map_wnba_states.pdf\n")
 # 5. RAW TREND PLOTS (treated vs. never-treated, by sport)
 # ============================================================
 
-plot_trend <- function(sport_col, sport_label, data = df) {
+plot_trend <- function(sport_col, sport_label, data = df, rate = FALSE) {
   # Use only states with complete data in every year (same balanced-panel rule
   # as the DiD). This prevents composition artifacts — year-to-year changes in
   # which states are included — from appearing as fake spikes in the mean.
+  col <- if (rate) paste0(sport_col, "_r") else sport_col
+  ylabel <- if (rate) "Mean participants per 10,000 population" else "Mean participants"
+
   n_all_years <- n_distinct(data$year)
   balanced <- data %>%
     group_by(state) %>%
-    filter(sum(!is.na(.data[[sport_col]])) == n_all_years) %>%
+    filter(sum(!is.na(.data[[col]])) == n_all_years) %>%
     ungroup()
 
   trend_data <- balanced %>%
@@ -238,7 +327,7 @@ plot_trend <- function(sport_col, sport_label, data = df) {
       "WNBA state (ever-treated)", "Never-treated"
     )) %>%
     group_by(group, year) %>%
-    summarise(mean_part = mean(.data[[sport_col]], na.rm = TRUE), .groups = "drop")
+    summarise(mean_part = mean(.data[[col]], na.rm = TRUE), .groups = "drop")
 
   ggplot(trend_data, aes(x = year, y = mean_part, color = group, linetype = group)) +
     geom_line(linewidth = 1.0) +
@@ -254,8 +343,9 @@ plot_trend <- function(sport_col, sport_label, data = df) {
     )) +
     labs(
       title    = paste0("Girls' ", sport_label, ": Mean Participation by Group"),
-      subtitle = "Balanced panel - states with complete data only",
-      x = "Year", y = "Mean participants", color = "", linetype = ""
+      subtitle = if (rate) "Population-normalized (per 10,000) | Balanced panel"
+                 else      "Balanced panel - states with complete data only",
+      x = "Year", y = ylabel, color = "", linetype = ""
     ) +
     theme_minimal(base_size = 12) +
     theme(legend.position = "bottom")
@@ -267,9 +357,19 @@ ggsave("trend_cross_country.pdf", plot_trend("cross_country", "Cross Country"), 
 ggsave("trend_track_field.pdf",   plot_trend("track_field",   "Track & Field"), width = 8, height = 5, dpi = 200)
 cat("Saved trend plots.\n")
 
+# Population-normalized versions (per 10,000 population)
+ggsave("trend_basketball_rate.pdf",    plot_trend("basketball",    "Basketball",    rate = TRUE), width = 8, height = 5, dpi = 200)
+ggsave("trend_soccer_rate.pdf",        plot_trend("soccer",        "Soccer",        rate = TRUE), width = 8, height = 5, dpi = 200)
+ggsave("trend_cross_country_rate.pdf", plot_trend("cross_country", "Cross Country", rate = TRUE), width = 8, height = 5, dpi = 200)
+ggsave("trend_track_field_rate.pdf",   plot_trend("track_field",   "Track & Field", rate = TRUE), width = 8, height = 5, dpi = 200)
+cat("Saved population-normalized trend plots.\n")
+
 # ---- Overall trend: all four sports combined ----
 df_overall_trend <- df %>%
-  mutate(total_part = basketball + cross_country + soccer + track_field) %>%
+  mutate(
+    total_part   = basketball + cross_country + soccer + track_field,
+    total_part_r = total_part / pop_k * 10   # per 10,000
+  ) %>%
   group_by(state) %>%
   filter(all(!is.na(total_part))) %>%
   ungroup()
@@ -280,7 +380,13 @@ ggsave(
     labs(subtitle = "Balanced panel - states with complete data in all four sports"),
   width = 8, height = 5, dpi = 200
 )
-cat("Saved: trend_overall.pdf\n")
+ggsave(
+  "trend_overall_rate.pdf",
+  plot_trend("total_part", "All Four Sports (Total)", data = df_overall_trend, rate = TRUE) +
+    labs(subtitle = "Population-normalized (per 10,000) | Balanced panel, all four sports"),
+  width = 8, height = 5, dpi = 200
+)
+cat("Saved: trend_overall.pdf, trend_overall_rate.pdf\n")
 
 # ============================================================
 # 6. CALLAWAY-SANT'ANNA DiD
@@ -366,7 +472,7 @@ run_cs <- function(yname, sport_label, data = df,
       title    = paste0("Event Study: Girls' ", sport_label, " Participation"),
       subtitle = "Callaway-Sant'Anna (2021) | Never-treated control | 95% uniform CB | Normalized to t=-1",
       x        = "Event time (years relative to first WNBA franchise)",
-      y        = "ATT relative to t=-1 (participants)"
+      y        = "ATT relative to t=-1 (per 10,000 pop.)"
     ) +
     theme_minimal(base_size = 12) +
     theme(plot.title = element_text(face = "bold"), panel.grid.minor = element_blank())
@@ -379,7 +485,7 @@ run_cs <- function(yname, sport_label, data = df,
     labs(
       title    = paste0("ATT by Cohort: Girls' ", sport_label),
       subtitle = "Callaway-Sant'Anna (2021) | Never-treated control",
-      x = "Treatment cohort", y = "ATT (participants)"
+      x = "Treatment cohort", y = "ATT (per 10,000 pop.)"
     ) +
     theme_minimal(base_size = 12) +
     theme(plot.title = element_text(face = "bold"))
@@ -390,10 +496,10 @@ run_cs <- function(yname, sport_label, data = df,
   invisible(list(cs = cs, simple = agg_simple, group = agg_group, dynamic = agg_dyn))
 }
 
-res_bball  <- run_cs("basketball",    "Basketball")
-res_soccer <- run_cs("soccer",        "Soccer")
-res_cc     <- run_cs("cross_country", "Cross Country")
-res_tf     <- run_cs("track_field",   "Track & Field")
+res_bball  <- run_cs("basketball_r",    "Basketball")
+res_soccer <- run_cs("soccer_r",        "Soccer")
+res_cc     <- run_cs("cross_country_r", "Cross Country")
+res_tf     <- run_cs("track_field_r",   "Track & Field")
 
 # ============================================================
 # 7. FOREST PLOT: OVERALL ATTs ACROSS SPORTS
@@ -435,7 +541,7 @@ forest_plot <- ggplot(
   labs(
     title    = "Overall ATT: Effect of WNBA Franchise on Girls' Participation",
     subtitle = "Callaway-Sant'Anna (2021) | Never-treated control | 95% CI",
-    x = "ATT (participants)", y = NULL
+    x = "ATT (per 10,000 population)", y = NULL
   ) +
   theme_minimal(base_size = 12) +
   theme(plot.title = element_text(face = "bold"), panel.grid.minor = element_blank())
@@ -520,19 +626,29 @@ run_sdid_stacked <- function(yname, sport_label, data = df) {
 
     tryCatch({
       tau_hat <- synthdid_estimate(Y_mat, N0 = N0_actual, T0 = T0)
+      
+      se_val <- tryCatch(
+        sqrt(vcov(tau_hat, method = "bootstrap", replications = 200)),
+        error = function(e) NA_real_
+      )
+      if (is.na(se_val)) {
+        se_val <- tryCatch(
+          sqrt(vcov(tau_hat, method = "placebo")),
+          error = function(e) NA_real_
+        )
+      }
+      
       results[[as.character(g)]] <- list(
         cohort    = g,
         n_treated = n_trt_actual,
         tau       = as.numeric(tau_hat),
-        se        = sqrt(vcov(tau_hat, method = "placebo"))
+        se        = se_val
       )
-      cat(sprintf("    ATT = %.1f  (SE = %.1f)\n",
-                  as.numeric(tau_hat),
-                  sqrt(vcov(tau_hat, method = "placebo"))))
+      cat(sprintf("    ATT = %.1f  (SE = %.1f)\n", as.numeric(tau_hat), se_val))
+      
     }, error = function(e) {
       cat("    Error:", conditionMessage(e), "\n")
-    })
-  }
+  }) }
 
   if (length(results) == 0) {
     cat("No cohorts converged.\n")
@@ -572,7 +688,7 @@ run_sdid_stacked <- function(yname, sport_label, data = df) {
       title    = paste0("Synthetic DiD by Cohort: Girls' ", sport_label),
       subtitle = "Arkhangelsky et al. (2021) | Red band = pooled 95% CI | Red line = weighted average ATT",
       x = "Treatment cohort (year of first WNBA franchise)",
-      y = "ATT (participants)"
+      y = "ATT (per 10,000 pop.)"
     ) +
     theme_minimal(base_size = 12) +
     theme(plot.title = element_text(face = "bold"), panel.grid.minor = element_blank())
@@ -584,10 +700,10 @@ run_sdid_stacked <- function(yname, sport_label, data = df) {
   invisible(list(cohorts = res_df, overall_tau = overall_tau, overall_se = overall_se))
 }
 
-sdid_bball  <- run_sdid_stacked("basketball",    "Basketball")
-sdid_soccer <- run_sdid_stacked("soccer",        "Soccer")
-sdid_cc     <- run_sdid_stacked("cross_country", "Cross Country")
-sdid_tf     <- run_sdid_stacked("track_field",   "Track & Field")
+sdid_bball  <- run_sdid_stacked("basketball_r",    "Basketball")
+sdid_soccer <- run_sdid_stacked("soccer_r",        "Soccer")
+sdid_cc     <- run_sdid_stacked("cross_country_r", "Cross Country")
+sdid_tf     <- run_sdid_stacked("track_field_r",   "Track & Field")
 
 # ============================================================
 # 9. TWFE COMPARISON
@@ -640,10 +756,10 @@ run_twfe <- function(yname, sport_label, data = df) {
   invisible(list(twfe = mod, es = mod_es, sport = sport_label, yname = yname))
 }
 
-twfe_bball  <- run_twfe("basketball",    "Basketball")
-twfe_soccer <- run_twfe("soccer",        "Soccer")
-twfe_cc     <- run_twfe("cross_country", "Cross Country")
-twfe_tf     <- run_twfe("track_field",   "Track & Field")
+twfe_bball  <- run_twfe("basketball_r",    "Basketball")
+twfe_soccer <- run_twfe("soccer_r",        "Soccer")
+twfe_cc     <- run_twfe("cross_country_r", "Cross Country")
+twfe_tf     <- run_twfe("track_field_r",   "Track & Field")
 
 # Side-by-side comparison: TWFE vs C-S overall ATT
 comparison_table <- bind_rows(
@@ -693,7 +809,7 @@ compare_plot <- ggplot(
   labs(
     title    = "TWFE vs. Callaway-Sant'Anna: Overall ATT by Sport",
     subtitle = "Staggered DiD - TWFE may be biased due to negative weighting | 95% CI",
-    x = "ATT (participants)", y = NULL,
+    x = "ATT (per 10,000 population)", y = NULL,
     color = "Estimator", shape = "Estimator"
   ) +
   theme_minimal(base_size = 12) +
@@ -739,10 +855,10 @@ run_permutation_test <- function(yname, sport_label, data = df,
 
   # Observed ATT from C-S
   real_att_obj <- switch(yname,
-    basketball    = res_bball$simple,
-    soccer        = res_soccer$simple,
-    cross_country = res_cc$simple,
-    track_field   = res_tf$simple
+    basketball_r    = res_bball$simple,
+    soccer_r        = res_soccer$simple,
+    cross_country_r = res_cc$simple,
+    track_field_r   = res_tf$simple
   )
   real_att <- real_att_obj$overall.att
 
@@ -829,7 +945,7 @@ run_permutation_test <- function(yname, sport_label, data = df,
       title    = paste0("Permutation Placebo: Girls' ", sport_label),
       subtitle = sprintf("Null distribution (R=%d fake treatments) | Permutation p = %.3f",
                          length(null_atts), p_perm),
-      x = "Placebo ATT (participants)", y = "Count"
+      x = "Placebo ATT (per 10,000 pop.)", y = "Count"
     ) +
     theme_minimal(base_size = 12) +
     theme(plot.title = element_text(face = "bold"), panel.grid.minor = element_blank())
@@ -841,10 +957,10 @@ run_permutation_test <- function(yname, sport_label, data = df,
   invisible(list(null = null_atts, real_att = real_att, p = p_perm))
 }
 
-perm_bball  <- run_permutation_test("basketball",    "Basketball",    R = 500)
-perm_soccer <- run_permutation_test("soccer",        "Soccer",        R = 500)
-perm_cc     <- run_permutation_test("cross_country", "Cross Country", R = 500)
-perm_tf     <- run_permutation_test("track_field",   "Track & Field", R = 500)
+perm_bball  <- run_permutation_test("basketball_r",    "Basketball",    R = 500)
+perm_soccer <- run_permutation_test("soccer_r",        "Soccer",        R = 500)
+perm_cc     <- run_permutation_test("cross_country_r", "Cross Country", R = 500)
+perm_tf     <- run_permutation_test("track_field_r",   "Track & Field", R = 500)
 
 # ============================================================
 # 11. COMPOSITE INDEX: TOTAL GIRLS' SPORTS PARTICIPATION
@@ -856,7 +972,8 @@ perm_tf     <- run_permutation_test("track_field",   "Track & Field", R = 500)
 
 df_composite <- df %>%
   mutate(
-    total_part = basketball + cross_country + soccer + track_field
+    total_part   = basketball + cross_country + soccer + track_field,
+    total_part_r = total_part / pop_k * 10
   ) %>%
   group_by(state) %>%
   filter(all(!is.na(total_part))) %>%
@@ -867,11 +984,11 @@ cat("Composite index: states with complete data across all 4 sports\n")
 cat("N states:", n_distinct(df_composite$state), "\n")
 cat(strrep("=", 60), "\n")
 
-res_composite <- run_cs("total_part", "Total (All Sports)", data = df_composite)
+res_composite <- run_cs("total_part_r", "Total (All Sports)", data = df_composite)
 
 # Trend plot for composite
 ggsave("trend_composite.pdf",
-       plot_trend("total_part", "Total (All Sports)", data = df_composite),
+       plot_trend("total_part", "Total (All Sports)", data = df_composite, rate = TRUE),
        width = 8, height = 5, dpi = 200)
 cat("Saved: trend_composite.pdf\n")
 
@@ -933,10 +1050,10 @@ make_spaghetti <- function(sport_col, sport_label, data = df) {
     )
 }
 
-ggsave("spaghetti_basketball.pdf",    make_spaghetti("basketball",    "Basketball"),    width = 9, height = 5.5, dpi = 200)
-ggsave("spaghetti_soccer.pdf",        make_spaghetti("soccer",        "Soccer"),        width = 9, height = 5.5, dpi = 200)
-ggsave("spaghetti_cross_country.pdf", make_spaghetti("cross_country", "Cross Country"), width = 9, height = 5.5, dpi = 200)
-ggsave("spaghetti_track_field.pdf",   make_spaghetti("track_field",   "Track & Field"), width = 9, height = 5.5, dpi = 200)
+ggsave("spaghetti_basketball.pdf",    make_spaghetti("basketball_r",    "Basketball"),    width = 9, height = 5.5, dpi = 200)
+ggsave("spaghetti_soccer.pdf",        make_spaghetti("soccer_r",        "Soccer"),        width = 9, height = 5.5, dpi = 200)
+ggsave("spaghetti_cross_country.pdf", make_spaghetti("cross_country_r", "Cross Country"), width = 9, height = 5.5, dpi = 200)
+ggsave("spaghetti_track_field.pdf",   make_spaghetti("track_field_r",   "Track & Field"), width = 9, height = 5.5, dpi = 200)
 cat("Saved spaghetti plots.\n")
 
 cohort_palette <- c(
@@ -1002,10 +1119,10 @@ make_cohort_trend <- function(sport_col, sport_label, data = df) {
     )
 }
 
-ggsave("cohort_trend_basketball.pdf",    make_cohort_trend("basketball",    "Basketball"),    width = 9, height = 5.5, dpi = 200)
-ggsave("cohort_trend_soccer.pdf",        make_cohort_trend("soccer",        "Soccer"),        width = 9, height = 5.5, dpi = 200)
-ggsave("cohort_trend_cross_country.pdf", make_cohort_trend("cross_country", "Cross Country"), width = 9, height = 5.5, dpi = 200)
-ggsave("cohort_trend_track_field.pdf",   make_cohort_trend("track_field",   "Track & Field"), width = 9, height = 5.5, dpi = 200)
+ggsave("cohort_trend_basketball.pdf",    make_cohort_trend("basketball_r",    "Basketball"),    width = 9, height = 5.5, dpi = 200)
+ggsave("cohort_trend_soccer.pdf",        make_cohort_trend("soccer_r",        "Soccer"),        width = 9, height = 5.5, dpi = 200)
+ggsave("cohort_trend_cross_country.pdf", make_cohort_trend("cross_country_r", "Cross Country"), width = 9, height = 5.5, dpi = 200)
+ggsave("cohort_trend_track_field.pdf",   make_cohort_trend("track_field_r",   "Track & Field"), width = 9, height = 5.5, dpi = 200)
 cat("Saved cohort trend plots.\n")
 
 # Gantt chart
@@ -1075,10 +1192,10 @@ cat("FINAL SUMMARY: ATT across all methods and sports\n")
 cat(strrep("=", 60), "\n\n")
 
 summary_console <- bind_rows(list(
-  tibble(Sport = "Basketball",    CS_ATT = round(res_bball$simple$overall.att,  1), CS_SE = round(res_bball$simple$overall.se,  1), TWFE_ATT = round(coef(twfe_bball$twfe)["has_wnba"],  1), TWFE_SE = round(se(twfe_bball$twfe)["has_wnba"],  1)),
-  tibble(Sport = "Soccer",        CS_ATT = round(res_soccer$simple$overall.att, 1), CS_SE = round(res_soccer$simple$overall.se, 1), TWFE_ATT = round(coef(twfe_soccer$twfe)["has_wnba"], 1), TWFE_SE = round(se(twfe_soccer$twfe)["has_wnba"], 1)),
-  tibble(Sport = "Cross Country", CS_ATT = round(res_cc$simple$overall.att,     1), CS_SE = round(res_cc$simple$overall.se,     1), TWFE_ATT = round(coef(twfe_cc$twfe)["has_wnba"],     1), TWFE_SE = round(se(twfe_cc$twfe)["has_wnba"],     1)),
-  tibble(Sport = "Track & Field", CS_ATT = round(res_tf$simple$overall.att,     1), CS_SE = round(res_tf$simple$overall.se,     1), TWFE_ATT = round(coef(twfe_tf$twfe)["has_wnba"],     1), TWFE_SE = round(se(twfe_tf$twfe)["has_wnba"],     1))
+  tibble(Sport = "Basketball",    CS_ATT = round(res_bball$simple$overall.att,  3), CS_SE = round(res_bball$simple$overall.se,  3), TWFE_ATT = round(coef(twfe_bball$twfe)["has_wnba"],  3), TWFE_SE = round(se(twfe_bball$twfe)["has_wnba"],  3)),
+  tibble(Sport = "Soccer",        CS_ATT = round(res_soccer$simple$overall.att, 3), CS_SE = round(res_soccer$simple$overall.se, 3), TWFE_ATT = round(coef(twfe_soccer$twfe)["has_wnba"], 3), TWFE_SE = round(se(twfe_soccer$twfe)["has_wnba"], 3)),
+  tibble(Sport = "Cross Country", CS_ATT = round(res_cc$simple$overall.att,     3), CS_SE = round(res_cc$simple$overall.se,     3), TWFE_ATT = round(coef(twfe_cc$twfe)["has_wnba"],     3), TWFE_SE = round(se(twfe_cc$twfe)["has_wnba"],     3)),
+  tibble(Sport = "Track & Field", CS_ATT = round(res_tf$simple$overall.att,     3), CS_SE = round(res_tf$simple$overall.se,     3), TWFE_ATT = round(coef(twfe_tf$twfe)["has_wnba"],     3), TWFE_SE = round(se(twfe_tf$twfe)["has_wnba"],     3))
 ))
 print(summary_console)
 
@@ -1107,7 +1224,7 @@ if (!requireNamespace("kableExtra", quietly = TRUE)) {
 }
 library(kableExtra)
 
-sports_cols  <- c("basketball", "cross_country", "soccer", "track_field")
+sports_cols  <- c("basketball_r", "cross_country_r", "soccer_r", "track_field_r")
 sports_names <- c("Basketball", "Cross Country", "Soccer", "Track & Field")
 
 # ---- Table 1: Treated vs. Never-Treated by Sport ----
@@ -1133,18 +1250,18 @@ sumstat_tv <- df %>%
   arrange(sport) %>%
   transmute(
     Sport        = as.character(sport),
-    `NT Mean`    = format(round(`Mean_Never-Treated`, 0), big.mark = ","),
-    `NT SD`      = format(round(`SD_Never-Treated`,   0), big.mark = ","),
-    `ET Mean`    = format(round(`Mean_Ever-Treated`,  0), big.mark = ","),
-    `ET SD`      = format(round(`SD_Ever-Treated`,    0), big.mark = ","),
-    `Difference` = format(round(Diff, 0), big.mark = ",")
+    `NT Mean`    = sprintf("%.2f", `Mean_Never-Treated`),
+    `NT SD`      = sprintf("%.2f", `SD_Never-Treated`),
+    `ET Mean`    = sprintf("%.2f", `Mean_Ever-Treated`),
+    `ET SD`      = sprintf("%.2f", `SD_Ever-Treated`),
+    `Difference` = sprintf("%.2f", Diff)
   )
 
 tbl1 <- kbl(
   sumstat_tv,
   format    = "latex",
   booktabs  = TRUE,
-  caption   = "Summary Statistics: Girls' Sport Participation by Treatment Status",
+  caption   = "Summary Statistics: Girls' Sport Participation Rate by Treatment Status",
   col.names = c("Sport", "Mean", "SD", "Mean", "SD", "Difference"),
   align     = c("l", "r", "r", "r", "r", "r"),
   linesep   = ""
@@ -1152,7 +1269,7 @@ tbl1 <- kbl(
   add_header_above(c(" " = 1, "Never-Treated" = 2, "Ever-Treated" = 2, " " = 1)) %>%
   kable_styling(latex_options = "hold_position", font_size = 11) %>%
   footnote(
-    general           = "Means and SDs pooled across all state-years; participation measured in number of girls. Ever-treated = states that ever hosted a WNBA franchise.",
+    general           = "Means and SDs pooled across all state-years; participation measured as participants per 10,000 total state population (Census-interpolated). Ever-treated = states that ever hosted a WNBA franchise.",
     general_title     = "Note:",
     footnote_as_chunk = TRUE,
     escape            = FALSE
@@ -1179,16 +1296,16 @@ sumstat_cohort <- df %>%
   filter(!is.na(participation)) %>%
   mutate(sport = sports_names[match(sport_col, sports_cols)]) %>%
   group_by(cohort_label, sport) %>%
-  summarise(Mean = round(mean(participation, na.rm = TRUE), 0), .groups = "drop") %>%
+  summarise(Mean = mean(participation, na.rm = TRUE), .groups = "drop") %>%
   pivot_wider(names_from = sport, values_from = Mean) %>%
   left_join(n_by_cohort %>% select(cohort_label, N = n), by = "cohort_label") %>%
   mutate(cohort_label = factor(cohort_label, levels = cohort_order)) %>%
   arrange(cohort_label) %>%
   mutate(
-    Basketball      = format(Basketball,      big.mark = ","),
-    `Cross Country` = format(`Cross Country`, big.mark = ","),
-    Soccer          = format(Soccer,          big.mark = ","),
-    `Track & Field` = format(`Track & Field`, big.mark = ",")
+    Basketball      = sprintf("%.2f", Basketball),
+    `Cross Country` = sprintf("%.2f", `Cross Country`),
+    Soccer          = sprintf("%.2f", Soccer),
+    `Track & Field` = sprintf("%.2f", `Track & Field`)
   ) %>%
   select(Cohort = cohort_label, N, Basketball, `Cross Country`, Soccer, `Track & Field`)
 
@@ -1196,7 +1313,7 @@ tbl2 <- kbl(
   sumstat_cohort,
   format   = "latex",
   booktabs = TRUE,
-  caption  = "Mean Girls' Sport Participation by Treatment Cohort",
+  caption  = "Mean Girls' Sport Participation Rate by Treatment Cohort",
   align    = c("l", "r", "r", "r", "r", "r"),
   linesep  = ""
 ) %>%
@@ -1204,7 +1321,7 @@ tbl2 <- kbl(
   row_spec(nrow(sumstat_cohort) - 1, extra_latex_after = "\\midrule") %>%
   row_spec(nrow(sumstat_cohort), bold = TRUE) %>%
   footnote(
-    general           = "Cell entries are mean participants averaged across all state-years in each cohort.",
+    general           = "Cell entries are mean participation rates (per 10,000 total state population) averaged across all state-years in each cohort.",
     general_title     = "Note:",
     footnote_as_chunk = TRUE,
     escape            = FALSE
@@ -1238,11 +1355,11 @@ for (row_info in list(
 results_df <- bind_rows(results_rows) %>%
   transmute(
     Sport,
-    TWFE = paste0(format(TWFE_ATT, big.mark = ","), " (", format(TWFE_SE, big.mark = ","), ")"),
-    CS   = paste0(format(CS_ATT,   big.mark = ","), " (", format(CS_SE,   big.mark = ","), ")"),
+    TWFE = paste0(sprintf("%.3f", TWFE_ATT), " (", sprintf("%.3f", TWFE_SE), ")"),
+    CS   = paste0(sprintf("%.3f", CS_ATT),   " (", sprintf("%.3f", CS_SE),   ")"),
     SDID = if_else(
       is.na(SDID_ATT), "---",
-      paste0(format(SDID_ATT, big.mark = ","), " (", format(SDID_SE, big.mark = ","), ")")
+      paste0(sprintf("%.3f", SDID_ATT), " (", sprintf("%.3f", SDID_SE), ")")
     )
   )
 
@@ -1257,7 +1374,7 @@ tbl3 <- kbl(
 ) %>%
   kable_styling(latex_options = "hold_position", font_size = 11) %>%
   footnote(
-    general           = "Standard errors in parentheses. ATT = average treatment effect on the treated (participants). TWFE = two-way fixed effects; Callaway-Sant'Anna = staggered DiD with never-treated control; Synthetic DiD = Arkhangelsky et al. (2021) stacked by cohort.",
+    general           = "Standard errors in parentheses. ATT = average treatment effect on the treated, in participants per 10,000 total state population. TWFE = two-way fixed effects; Callaway-Sant'Anna = staggered DiD with never-treated control; Synthetic DiD = Arkhangelsky et al. (2021) stacked by cohort.",
     general_title     = "Note:",
     footnote_as_chunk = TRUE,
     escape            = FALSE
@@ -1265,3 +1382,116 @@ tbl3 <- kbl(
 
 writeLines(strip_kable_preamble(tbl3), "results_comparison.tex")
 cat("Saved: results_comparison.tex\n")
+
+# ============================================================
+# 15. ROBUSTNESS: DROP LARGE COHORT-1997 STATES ONE AT A TIME
+# ============================================================
+# Cohort 1997 contains 7 states; CA, TX, and NY are the three largest and may
+# exert disproportionate leverage on the ATT. We drop each in turn, rerun the
+# Callaway-Sant'Anna estimator for all four sports, and compare to baseline.
+
+drop_states <- c("California", "Texas", "New York")
+
+sports_info <- list(
+  list(yname = "basketball_r",    label = "Basketball"),
+  list(yname = "soccer_r",        label = "Soccer"),
+  list(yname = "cross_country_r", label = "Cross Country"),
+  list(yname = "track_field_r",   label = "Track & Field")
+)
+
+cs_att_simple <- function(yname, data) {
+  n_all_years <- n_distinct(data$year)
+  df_sp <- data %>%
+    filter(!is.na(.data[[yname]])) %>%
+    group_by(state) %>%
+    filter(n_distinct(year) == n_all_years) %>%
+    ungroup() %>%
+    mutate(state_id = as.integer(factor(state))) %>%
+    as.data.frame()
+
+  tryCatch({
+    cs <- att_gt(
+      yname         = yname,
+      tname         = "year",
+      idname        = "state_id",
+      gname         = "first_treat",
+      data          = df_sp,
+      control_group = "nevertreated",
+      est_method    = "reg",
+      panel         = TRUE,
+      clustervars   = "state_id",
+      print_details = FALSE
+    )
+    agg <- aggte(cs, type = "simple")
+    list(att = agg$overall.att, se = agg$overall.se)
+  }, error = function(e) {
+    list(att = NA_real_, se = NA_real_)
+  })
+}
+
+cat("\n", strrep("=", 60), "\n", sep = "")
+cat("ROBUSTNESS: Drop large cohort-1997 states one at a time\n")
+cat(strrep("=", 60), "\n")
+
+baseline_lookup <- list(
+  basketball_r    = list(att = res_bball$simple$overall.att,  se = res_bball$simple$overall.se),
+  soccer_r        = list(att = res_soccer$simple$overall.att, se = res_soccer$simple$overall.se),
+  cross_country_r = list(att = res_cc$simple$overall.att,     se = res_cc$simple$overall.se),
+  track_field_r   = list(att = res_tf$simple$overall.att,     se = res_tf$simple$overall.se)
+)
+
+robustness_rows <- list()
+
+for (sp in sports_info) {
+  cat("\nSport:", sp$label, "\n")
+
+  base <- baseline_lookup[[sp$yname]]
+  cat(sprintf("  Baseline:           ATT = %.3f  (SE = %.3f)\n", base$att, base$se))
+  robustness_rows[[length(robustness_rows) + 1]] <- tibble(
+    Sport  = sp$label,
+    Sample = "Baseline",
+    ATT    = base$att,
+    SE     = base$se
+  )
+
+  for (drop_st in drop_states) {
+    df_drop <- df %>% filter(state != drop_st)
+    res <- cs_att_simple(sp$yname, df_drop)
+    cat(sprintf("  Drop %-14s ATT = %.3f  (SE = %.3f)\n", paste0(drop_st, ":"), res$att, res$se))
+    robustness_rows[[length(robustness_rows) + 1]] <- tibble(
+      Sport  = sp$label,
+      Sample = paste0("Drop ", drop_st),
+      ATT    = res$att,
+      SE     = res$se
+    )
+  }
+}
+
+robustness_df <- bind_rows(robustness_rows) %>%
+  mutate(
+    CI_lo       = ATT - 1.96 * SE,
+    CI_hi       = ATT + 1.96 * SE,
+    is_baseline = Sample == "Baseline",
+    Sample      = factor(Sample, levels = c("Baseline",
+                                            paste0("Drop ", drop_states)))
+  )
+
+rob_plot <- ggplot(robustness_df,
+  aes(x = ATT, y = Sample, color = is_baseline)) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "grey50") +
+  geom_errorbarh(aes(xmin = CI_lo, xmax = CI_hi),
+                 height = 0.25, linewidth = 0.7) +
+  geom_point(size = 3) +
+  scale_color_manual(values = c("TRUE" = "#E41A1C", "FALSE" = "#333333"),
+                     guide  = "none") +
+  facet_wrap(~Sport, scales = "free_x", ncol = 2) +
+  labs(
+    title    = "Robustness: Dropping Large Cohort-1997 States",
+    subtitle = "Callaway-Sant'Anna (2021) | Red = baseline | 95% CI",
+    x = "ATT (per 10,000 population)", y = NULL
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(plot.title = element_text(face = "bold"), panel.grid.minor = element_blank())
+
+ggsave("robustness_drop_cohort1.pdf", rob_plot, width = 10, height = 7, dpi = 200)
+cat("\nSaved: robustness_drop_cohort1.pdf\n")

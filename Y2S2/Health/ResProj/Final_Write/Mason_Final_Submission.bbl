@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -35,6 +35,14 @@ Clément De~Chaisemartin and Xavier D’Haultfœuille.
 \newblock \doi{10.1257/aer.20181169}.
 \newblock URL \url{https://pubs.aeaweb.org/doi/10.1257/aer.20181169}.
 
+\bibitem[Feddersen and Maennig(2009)]{feddersen_sports_2009}
+Arne Feddersen and Wolfgang Maennig.
+\newblock Sports {Heroes} and {Mass} {Sports} {Participation} – the ({Double}) {Paradox} of the '{German} {Tennis} {Boom}'.
+\newblock \emph{SSRN Electronic Journal}, 2009.
+\newblock ISSN 1556-5068.
+\newblock \doi{10.2139/ssrn.1544320}.
+\newblock URL \url{http://www.ssrn.com/abstract=1544320}.
+
 \bibitem[Frick and Wicker(2016)]{frick_trickle-down_2016}
 B.~Frick and P.~Wicker.
 \newblock The trickle-down effect: how elite sporting success affects amateur participation in {German} football.
@@ -67,5 +75,11 @@ Betsey Stevenson.
 \newblock \doi{10.1162/rest.2010.11623}.
 \newblock URL \url{https://doi.org/10.1162/rest.2010.11623}.
 \newblock \_eprint: https://direct.mit.edu/rest/article-pdf/92/2/284/1617566/rest.2010.11623.pdf.
+
+\bibitem[{WNBA}(2024)]{wnba_record_2024}
+{WNBA}.
+\newblock {WNBA} delivers record-setting 2024 season.
+\newblock \url{https://www.wnba.com/news/wnba-delivers-record-setting-2024-season}, September 2024.
+\newblock Official press release. Accessed May 3, 2026.
 
 \end{thebibliography}
