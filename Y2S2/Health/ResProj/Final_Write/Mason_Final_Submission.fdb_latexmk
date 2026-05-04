@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex Mason_Final_Submission"] 1777849606.61977 "Mason_Final_Submission.aux" "Mason_Final_Submission.bbl" "Mason_Final_Submission" 1777850117.46073 0
+["bibtex Mason_Final_Submission"] 1777892999.57433 "Mason_Final_Submission.aux" "Mason_Final_Submission.bbl" "Mason_Final_Submission" 1777893045.81535 0
   "./bib_health.bib" 1777820569.21755 15778 f2f8e35bdf8f05c8570f8c0362a620dc ""
   "/usr/local/texlive/2026/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "Mason_Final_Submission.aux" 1777850117.19156 8052 ebb6625215951c5139eece9e93a8ac9d "pdflatex"
+  "Mason_Final_Submission.aux" 1777893045.53844 8072 497df664206b66a626ea9d2339232d4a "pdflatex"
   (generated)
   "Mason_Final_Submission.bbl"
   "Mason_Final_Submission.blg"
   (rewritten before read)
-["pdflatex"] 1777850116.42184 "Mason_Final_Submission.tex" "Mason_Final_Submission.pdf" "Mason_Final_Submission" 1777850117.4609 0
+["pdflatex"] 1777893044.82239 "Mason_Final_Submission.tex" "Mason_Final_Submission.pdf" "Mason_Final_Submission" 1777893045.81548 0
   "../Code/cohort_basketball_r.pdf" 1777823165.1585 5662 29c7d412a00e2a11f32a3c669831ff1b ""
   "../Code/cohort_cross_country_r.pdf" 1777823166.76935 5652 a9880d190f7839efdb0684b0b869cc97 ""
   "../Code/cohort_soccer_r.pdf" 1777823165.95658 5680 31a4ffd2785ff9973bca2fde8c7cd1e6 ""
@@ -162,10 +162,10 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1774016311 5541377 04880c840ca220163a28f1a3af0ee662 ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1772409757 3636768 9f94d239f422c02416e379a36a852ffd ""
   "/usr/local/texlive/2026/texmf.cnf" 1772409725 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "Mason_Final_Submission.aux" 1777850117.19156 8052 ebb6625215951c5139eece9e93a8ac9d "pdflatex"
-  "Mason_Final_Submission.bbl" 1777849606.72611 4418 8272e684821ba8d9427063ae378b5651 "bibtex Mason_Final_Submission"
-  "Mason_Final_Submission.out" 1777850117.19464 709 4ecf292814b25beac912a84bbcb7abc6 "pdflatex"
-  "Mason_Final_Submission.tex" 1777850114.46983 33661 6f1e0b77d2b803203f63a8a33654d59f ""
+  "Mason_Final_Submission.aux" 1777893045.53844 8072 497df664206b66a626ea9d2339232d4a "pdflatex"
+  "Mason_Final_Submission.bbl" 1777892999.66435 4418 8272e684821ba8d9427063ae378b5651 "bibtex Mason_Final_Submission"
+  "Mason_Final_Submission.out" 1777893045.54151 709 4ecf292814b25beac912a84bbcb7abc6 "pdflatex"
+  "Mason_Final_Submission.tex" 1777893043.0773 34267 61d9abe8448f17bcb2765fdafb185e89 ""
   (generated)
   "Mason_Final_Submission.aux"
   "Mason_Final_Submission.log"
