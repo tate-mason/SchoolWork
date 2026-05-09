@@ -1,0 +1,180 @@
+% ============================================================
+%  Report Template
+% ============================================================
+
+\documentclass[11pt]{article}
+
+% ── Packages ────────────────────────────────────────────────
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{float}
+% code packages
+\usepackage{listings}
+\usepackage{inconsolata}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
+\usepackage{csvsimple}
+\usepackage{booktabs}
+
+% ── Hyperref setup ──────────────────────────────────────────
+\hypersetup{
+    colorlinks = true,
+    linkcolor  = black,
+    citecolor  = black,
+    urlcolor   = blue
+}
+
+% ── Theorem environments ────────────────────────────────────
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+% ── Spacing ─────────────────────────────────────────────────
+\onehalfspacing
+
+% ── Title block ─────────────────────────────────────────────
+\title{Problem Set 3}
+\author{Tate Mason}
+\date{\today}
+
+% ============================================================
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+% ── Abstract ────────────────────────────────────────────────
+
+\newpage
+\setcounter{page}{1}
+
+% ── 1. Introduction ─────────────────────────────────────────
+\section{Introduction}
+
+In problem set 3, I will be evaluating the expansion decisions in the context of Amazon's distribution network. The data given includes both observed data and perturbed data, where the perturbed data includes counterfactuals of entry decisions. I will be using this data familiarize myself with problems where partial identification is the aim, I will use the given moment inqualities to estimate the bounds on parameters $\gamma$ and $\omega$, where $\gamma$ is the disutility of increased distance and $\omega$ is the parameter for population density. 
+
+% ── 2. Accounting Exercise ─────────────────────────────────────────────────
+
+\section{Set Up and Accounting}
+
+For this problem, I had to create the expenditure functions $e_{ijt}$ for each of the four modes of shopping: Amazon, taxed online, untaxed online, and in-store. The expenditures should sum to overall expenditure such that:
+\begin{equation}
+  e = \sum_{j=0}^4 e_{ijt}
+\end{equation}
+where $e$ is the overall expenditure. I then had to calculate the mode specific expenditure, given by:
+
+\begin{align*}
+  e_{i0t} &= \alpha_{i0t} \\
+  e_{i1t} &= \alpha_{i1t} + (1-\sigma)(\log(1+\tau_{i1t}) - \log(1+\tau_{i0t}))
+  \ \text{where} \ \tau_{i1t} = \mathbf{1}\{FC_{it} = 1\} \cdot \tau_{i1t} \\
+  e_{i2t} &= \alpha_{i2t} + (1-\sigma)(\log(1+\tau_{i2t}) - \log(1+\tau_{i0t})) \\
+  e_{i3t} &= \alpha_{i3t} + (1-\sigma)(\log(1) - \log(1+\tau_{i0t})) \\
+\end{align*}
+where $\alpha_{ijt}$ is the mode specific preference and $\tau_{ijt}$ is the tax rate for mode $j$ in market $i$ at time $t$. To recover the outside option's expenditure, I used the fact that the expenditures must sum to overall expenditure, so I calculated $e_{i0t}$ as follows:
+
+\begin{equation}
+  e_{i0t} = \frac{e}{1 + \sum_{j=1}^3 \exp(e_{ijt})}
+\end{equation}
+
+with $e$ corresponding to the data on average annual spending per county. From there, I was able to calculate the discounted sum of the following:
+
+\begin{enumerate}
+  \item Gross Revenue: 
+  \begin{gather*}
+    R_t(a_t) = \sum_iM_{it}e_{i1t}(at)
+  \end{gather*}
+  Estimate: \$417,159,919,051
+  \item Labor Costs:
+  \begin{gather*}
+    C^l_t(a_t) = \sum_iw_{it}\ell_{it}(a_t)
+  \end{gather*}
+  Estimate: \$7,046,187,457
+  \item Land Costs:
+  \begin{gather*}
+    C^k_t(a_t) = \sum_i r_{it} k_{it}(a_t)
+  \end{gather*}
+  \$984,284,350
+  \item Shipping Distance: 15,790,629 county-miles
+  \item Effective Population Density: 180,286 
+  \item Population Weighted Average Tax: 0.01
+\end{enumerate}
+
+Now, when considering the perturbations, I calculated the mean change in the above variables as follows:
+
+\begin{enumerate}
+  \item Change in Gross Revenue: $\approx$-\$108,000,000
+  \item Change in Labor Costs: $\approx$\$-42,000,000
+  \item Change in Land Costs: $\approx$\$-5,000,000
+  \item Change in Shipping Distance: $\approx$+2,000,000 county-miles
+  \item Change in Effective Population Density: $\approx$-24,000
+  \item Change in Population Weighted Average Tax: $\approx$+.0005
+\end{enumerate}
+
+From these results, the perturbed location decisions decrease gross revenue, labor costs, and land costs, while increasing shipping distance, decreasing effective population density, and increasing the population weighted average tax (minorly). This leads to interesting tradeoffs, as the decrease in costs may be offset by the increase in shipping distance and tax rates alongside the already decreased revenue.
+
+Next, I calculated the pairwise correlations between components of profit, given below:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcccccc}
+\toprule
+ & Revenue & Labor & Land & Shipping & Pop. Density & Tax Rate \\
+\midrule
+  Revenue & 1.00 & -0.25 & -0.19 & -0.11 & -0.18 & 0.81 \\
+  Labor & -0.25 & 1.00 & 0.93 & 0.11 & 0.19 & -0.26 \\
+  Land & -0.19 & 0.93 & 1.00 & 0.13 & 0.25 & -0.20 \\
+  Shipping & -0.11 & 0.11 & 0.13 & 1.00 & 0.13 & -0.23 \\
+  Pop. Density & -0.18 & 0.19 & 0.25 & 0.13 & 1.00 & -0.07 \\
+  Tax Rate & 0.81 & -0.26 & -0.20 & -0.23 & -0.07 & 1.00 \\
+\bottomrule
+\end{tabular}
+\caption{Pairwise Correlations Between Components of Profit}
+\end{table}
+
+Some interesting correlations to note are the strong positive correlation between revenue and tax rate, which may be due to the fact that higher tax rates are often found in more populous areas where revenue is higher. Further, the strong positive correlation between labor and land costs is expected, as these costs are often related to the size of the facility and the number of workers needed. The other correlations are mostly what I would expect, with negative correlations between revenue and costs, and positive correlations between costs and shipping distance/population density.
+
+\section{Estimating the Model}
+
+\subsection{Isolating $\gamma$}
+
+To estimate $\gamma$, I used moment inequalities based on the following:
+\begin{equation}
+  M_m(\omega,\gamma) = \frac{1}{S}\sum_s\bar{y}(a^*,a_s) - \gamma\frac{1}{S}\sum_sx^d(a^*,a_s) - \omega\frac{1}{S}\sum_sx^p(a^*,a_s) \geq 0             
+\end{equation}
+where $a^*$ is the observed entry decision and $a_s$ are the perturbed entry decisions. I then calculated the bounds on $\gamma$ by assuming $x^p(a^*,a_s) = 0$ and solving for $\gamma$ such that the moment inequality holds. This gives us the following bounds on $\gamma$:
+
+\begin{gather*}
+  \gamma \in [-113.04, -57.59]
+\end{gather*}
+
+These bounds suggest that increased distance is actually a positive factor in the utility of the distribution centers, which is counterintuitive. This suggests an error in estimation, as we would definitely expect greater distance to result in greater costs, and thus less profit. To counter this, I then refine to groups of swaps that have large changes in distance but low tax changes. I did this because we are dealing with a distance parameter, but just conditioning on large distance changes would influence profit through other channels. So, conditioning on tax as well helps to control for this. This gives us the following bounds on $\gamma$:
+\begin{gather*}
+  \gamma \in [-388.5, 171.05]
+\end{gather*}
+
+These estimates are mixed, as we see that the bounds on $\gamma$ now include both negative and positive values, which is more in line with our expectations. However, the wide range of the bounds suggests that there is still a lot of uncertainty in the estimation of $\gamma$, which may be due to the fact that we are only using a subset of the data to estimate it.
+
+Now, when we do not condition whatsoever, we get the following bounds on $\gamma$:
+\begin{gather*}
+  \gamma \in [-73.17, 26.28]
+\end{gather*}
+
+The bounds here are much tighter than my second set, and include both negative and positive values, which is more in line with our expectations. However, the bounds were tighter in the distance constrained only. This suggests that the conditioning on distance and tax may have been too restrictive, and that we may be better off using the full dataset to estimate $\gamma$. Here, the lower tail of the population density is definitely heavily influential in distance, as less populous areas are more likely to be farther away from distribution centers, so the distance parameter may be picking up some of the effects of population density, which is why the bounds are tighter when we do not condition on tax and distance.
+
+\subsection{Estimating $\gamma$ and $\omega$}
+
+\end{document}
