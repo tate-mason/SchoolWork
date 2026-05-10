@@ -31,71 +31,81 @@ Data dictionary:
        - presence_county1,dummy variable indicating if there is FC in the the county
 """
 
-data_obs = pd.read_csv('../../Data/data_observed.csv', sep='\t')
-data_perturb1 = pd.read_csv('../../Data/perturb_data1.csv', sep='\t')
-data_perturb2 = pd.read_csv('../../Data/perturb_data2.csv', sep='\t')
-data_perturb3 = pd.read_csv('../../Data/perturb_data3.csv', sep='\t')
-data_perturb4 = pd.read_csv('../../Data/perturb_data4.csv', sep='\t')
+sigma = 1.5
+beta = 0.9
+mu = 0.15
+
+# read in data
+obs = pd.read_csv('../../Data/data_observed.csv', sep='\t')
+
+# reshape data to have one row per county/year with alpha for each mode
+obs_piv = obs.pivot_table(
+    index = ['year', 'county'], columns='mode', values=['alpha'], aggfunc='first'
+).reset_index()
+
+obs_piv.columns = ['year', 'county', 'alpha1', 'alpha2', 'alpha3'] # rename columns
+
+other = obs[obs['mode'] == 1][[
+    'year', 'county', 'nb_hh', 'avg_spending_annual_county', 'tax_rate',
+    'pop_density', 'rent', 'wage', 'min_dist0', 'presence_state0',
+    'tot_empl0', 'tot_size0', 'presence_county0'
+]].copy()
+
+df = obs_piv.merge(other, on=['year', 'county'])
+
+# Tax Rates
+
+df['tau0'] = df['tax_rate'] # offline - always taxed (reused for j = 2)
+df['tau1'] = df['tax_rate'] * df['presence_state0'] # amazon - taxed if FC in state
+
+# Expenditure Functions
+
+df['e1_ratio'] = np.exp(
+    df['alpha1'] + (1-sigma)*(np.log(1+df['tau1']) - np.log(1+df['tau0']))
+)
+
+df['e2_ratio'] = np.exp(df['alpha2'])
+df['e3_ratio'] = np.exp(
+    df['alpha3'] + (1-sigma)*(np.log(1) - np.log(1+df['tau0']))
+)
+
+df['e0'] = df['avg_spending_annual_county'] / (1 + df['e1_ratio'] + df['e2_ratio'] + df['e3_ratio'])
+
+df['e1'] = df['e0'] * df['e1_ratio']
+
+# Observed Data
+
+df['rev_obs'] = df['nb_hh'] * df['e1'] # observed gross revenue
+df['lab_obs'] = df['wage'] * df['tot_empl0'] # observed labor cost  
+df['land_obs'] = df['rent'] * df['tot_size0'] # observed capital cost
+df['pop_obs'] = df['pop_density']*df['presence_county0'] # observed population density
+
+df['disc'] = beta ** (df['year'] - df['year'].min()) # discount factor
+ 
+df['nb_tau1'] = df['nb_hh']*df['tau1'] # population adjusted tax rate
+
+def disc_sum(df, col):
+    annual = df.groupby('year')[col].sum()
+    reutrn (annual*(beta**(annual.index - df['year'].min()))).sum()
+
+obs_R = disc_sum(df, 'rev_obs')
+obs_L = disc_sum(df, 'lab_obs')
+obs_K = disc_sum(df, 'land_obs')
+obs_D = disc_sum(df, 'min_dist0')
+obs_P = disc_sum(df, 'pop_obs')
+
+obs_nbhh_disc = disc_sum(df, 'nb_hh')
+obs_tax_sum = disc_sum(df, 'nb_tau1')
+obs_tax_rate = obs_tax_sum / obs_nbhh_disc
+
+print("=== Observed Discounted Sums ===")
+print(f"  Gross Revenue:              ${obs_R:>20,.2f}")
+print(f"  Labor Cost:                 ${obs_L:>20,.2f}")
+print(f"  Land Cost:                  ${obs_K:>20,.2f}")
+print(f"  Shipping Distance:           {obs_D:>20,.2f}  county-miles")
+print(f"  Effective Pop. Density:      {obs_P:>20,.2f}")
+print(f"  Pop.-wtd Avg. Tax (AMZN):    {obs_tax_rate:>20,.2f}")
+
+# === Perturbation === #
 
 
-print("Data Observed:")
-print(data_obs.head())
-
-print("\nPerturbation Data 1:")
-print(data_perturb1.head())
-
-print("\nPerturbation Data 2:")
-print(data_perturb2.head())
-
-print("\nPerturbation Data 3:")
-print(data_perturb3.head())
-
-print("\nPerturbation Data 4:")
-print(data_perturb4.head())
-
-# === Problem 1 === #
-
-mu = 0.15 # discounted revenue
-beta = 0.95 # discount factor
-
-
-mask = data_obs['mode'] == 1
-data_obs_amazon = data_obs[mask].copy()
-offline = data_obs['mode'] == 0
-data_obs_offline = data_obs[offline].copy()
-
-t = data_obs_amazon['year'] - data_obs_amazon['year'].min()
-discount = beta**t
-
-data_obs_amazon['tau'] = data_obs_amazon['tax_rate']*data_obs_amazon['presence_state0']
-data_obs_amazon['choice'] = data_obs_amazon['alpha'] + 2.5*np.log(1 + data_obs_amazon['tau'])
-
-results_obs = {
-    'gross_revenue': np.sum(discount*data_obs_amazon['nb_hh']*np.exp(data_obs_amazon['choice'])),
-    'labor_cost': np.sum(discount*data_obs_amazon['tot_empl0']*data_obs_amazon['wage']),
-    'rent_cost': np.sum(discount*data_obs_amazon['tot_size0']*data_obs_amazon['rent']),
-    'ship_dist': np.sum(discount*data_obs_amazon['min_dist0']),
-    'pop_dens': np.sum(discount*data_obs_amazon['pop_density']),
-    'tax_rate': np.sum(discount*data_obs_amazon['nb_hh'] * data_obs_amazon['tau']) / np.sum(discount*data_obs_amazon['nb_hh'])
-}
-
-print("\nResults for Observed Data:")
-for key, value in results_obs.items():
-    print(f"{key}: {value:.2f}")
-
-for d in [data_perturb1, data_perturb2, data_perturb3, data_perturb4]:
-    d['tau'] = data_obs_amazon['tax_rate']*d['presence_state1']
-    d['choice'] = data_obs_amazon['alpha'] + 2.5*np.log(1 + d['tau'])
-
-    results_obs_d = {
-            'gross_revenue': np.sum(discount*data_obs_amazon['nb_hh']*np.exp(d['choice'])),
-            'labor_cost': np.sum(discount*d['tot_empl1']*data_obs_amazon['wage']),
-            'rent_cost': np.sum(discount*d['tot_size1']*data_obs_amazon['rent']),
-            'ship_dist': np.sum(discount*d['min_dist1']),
-            'pop_dens': np.sum(discount*data_obs_amazon['pop_density']),
-            'tax_rate': np.sum(discount*data_obs_amazon['nb_hh'] * d['tau']) / np.sum(discount*data_obs_amazon['nb_hh'])
-    }
-
-    print("\nResults for Perturbation Data:")
-    for key, value in results_obs_d.items():
-        print(f"{key}: {value:.2f}")

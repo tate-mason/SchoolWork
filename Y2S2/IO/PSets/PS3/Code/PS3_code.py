@@ -1,6 +1,5 @@
 ###############################################################################
-# PS3 Code – Amazon FC Network Partial Identification
-# Econ 8220, Spring 2026 | Tate Byrd
+# PS3 Code – Econ 8220, Spring 2026 | Tate Mason
 ###############################################################################
 
 import pandas as pd
@@ -44,8 +43,6 @@ df = obs_piv.merge(other, on=['year', 'county'])
 #   tau_2 = tax_rate  (taxed online always)
 #   tau_3 = 0         (untaxed online never)
 #
-# log(e_j / e_0) = alpha_j + (1-sigma) * [log(1+tau_j) - log(1+tau_0)]
-#
 # Simplifications:
 #   j=2: tau_2 = tau_0  =>  log ratio = alpha_2  (tax terms cancel exactly)
 #   j=3: tau_3 = 0      =>  log ratio = alpha_3 + (1-sigma)*[log(1) - log(1+tau_0)]
@@ -81,7 +78,6 @@ df['rev_o']  = df['nb_hh'] * df['e1']                        # Amazon gross reve
 df['lab_o']  = df['wage']  * df['tot_empl0']                 # labor cost
 df['land_o'] = df['rent']  * df['tot_size0']                 # land cost
 df['pop_o']  = df['pop_density'] * df['presence_county0']    # effective pop density
-# min_dist0 is shipping distance (used directly)
 
 df['disc'] = beta ** (df['year'] - base_yr)
 
@@ -151,7 +147,6 @@ pm['land_p'] = pm['rent']  * pm['tot_size1']
 pm['pop_p']  = pm['pop_density'] * pm['presence_county1']
 
 # Discounted deltas: (observed - perturbed) * discount factor
-# Positive delta_X means observed network has MORE of X than the swap.
 for col, obs_c, pert_c in [
     ('rev',  'rev_o',   'rev_p'),
     ('lab',  'lab_o',   'lab_p'),
@@ -194,22 +189,19 @@ panel['obs_dist'] = obs_D
 panel['obs_pop']  = obs_P
 
 # Columns 6-10: perturbed = observed + (perturbed - observed)
-#   Note: ddelta = obs - pert  =>  pert = obs - ddelta
 panel['pert_rev']  = obs_R - swap['ddelta_rev']
 panel['pert_lab']  = obs_L - swap['ddelta_lab']
 panel['pert_land'] = obs_K - swap['ddelta_land']
 panel['pert_dist'] = obs_D - swap['ddelta_dist']
 panel['pert_pop']  = obs_P - swap['ddelta_pop']
 
-# Differences (a* minus a^s): positive means observed > perturbed
-panel['delta_rev']  = panel['obs_rev']  - panel['pert_rev']   # = ddelta_rev
+panel['delta_rev']  = panel['obs_rev']  - panel['pert_rev']
 panel['delta_lab']  = panel['obs_lab']  - panel['pert_lab']
 panel['delta_land'] = panel['obs_land'] - panel['pert_land']
 panel['delta_dist'] = panel['obs_dist'] - panel['pert_dist']
 panel['delta_pop']  = panel['obs_pop']  - panel['pert_pop']
 
 # Estimation variables from the revealed-preference inequality:
-#   y_tilde - gamma * x_d - omega * x_p >= 0
 panel['y_tilde'] = mu * panel['delta_rev'] - panel['delta_lab'] - panel['delta_land']
 panel['x_d']     = panel['delta_dist']
 panel['x_p']     = panel['delta_pop']
@@ -249,10 +241,7 @@ sub_a   = panel[abs_xp <= p25_xp]
 pos_a   = sub_a[sub_a['x_d'] > 0]   # observed has longer distance → UB on gamma
 neg_a   = sub_a[sub_a['x_d'] < 0]   # observed has shorter distance → LB on gamma
 
-# Aggregate moment: (1/S)*sum(y) - gamma*(1/S)*sum(x_d) >= 0
 # Rearranging by sign of sum(x_d):
-#   sum(x_d) > 0: gamma <= sum(y) / sum(x_d)   [upper bound]
-#   sum(x_d) < 0: gamma >= sum(y) / sum(x_d)   [lower bound]
 ub_a = pos_a['y_tilde'].sum() / pos_a['x_d'].sum()
 lb_a = neg_a['y_tilde'].sum() / neg_a['x_d'].sum()
 
@@ -261,8 +250,6 @@ print(f"  Swaps used: {len(sub_a)} total ({len(pos_a)} with x_d>0, {len(neg_a)} 
 print(f"  Upper bound on gamma (x_d>0 group): {ub_a:.4f}")
 print(f"  Lower bound on gamma (x_d<0 group): {lb_a:.4f}")
 print(f"  Identified interval: [{min(lb_a, ub_a):.4f}, {max(lb_a, ub_a):.4f}]")
-if lb_a > ub_a:
-    print("  NOTE: LB > UB → formally empty set (see writeup discussion).")
 
 panel['delta_tax'] = panel['tax_rate_pert'] - obs_tax_rate  # or however you stored it
 
@@ -270,8 +257,8 @@ abs_xd      = panel['x_d'].abs()
 abs_dtax    = panel['delta_tax'].abs()
 
 # Thresholds — tune these
-xd_thresh   = abs_xd.quantile(0.50)      # keep large-distance swaps
-tax_thresh  = abs_dtax.quantile(0.25)    # keep low-tax-change swaps
+xd_thresh   = abs_xd.quantile(0.50)      
+tax_thresh  = abs_dtax.quantile(0.25)    
 
 # Refined groups
 pos_refined = panel[(panel['x_d'] > xd_thresh) & (abs_dtax <= tax_thresh)]
@@ -286,8 +273,6 @@ print(f"  Swaps used: {len(pos_refined)} with x_d > {xd_thresh:.2f}, {len(neg_re
 print(f"  Upper bound on gamma: {ub_refined:.4f}")
 print(f"  Lower bound on gamma: {lb_refined:.4f}")
 print(f"  Identified interval: [{min(lb_refined, ub_refined):.4f}, {max(lb_refined, ub_refined):.4f}]")
-if lb_refined > ub_refined:
-    print("  NOTE: LB > UB → formally empty set (see writeup discussion).")
 # ===========================================================================
 # Exercise 3.1(b). Gamma bounds — all swaps, no conditioning
 # ===========================================================================
@@ -303,92 +288,3 @@ print(f"  Upper bound on gamma: {ub_b:.4f}")
 print(f"  Lower bound on gamma: {lb_b:.4f}")
 print(f"  Identified interval: [{min(lb_b, ub_b):.4f}, {max(lb_b, ub_b):.4f}]")
 
-# ===========================================================================
-# Exercise 3.2(a). Four moments for simultaneous (gamma, omega) estimation
-# ===========================================================================
-# Selection logic:
-#   m1 (gamma UB): x_d > 0 AND |x_p| < p25  — obs worse on distance, density ~fixed
-#   m2 (gamma LB): x_d < 0 AND |x_p| < p25  — obs better on distance, density ~fixed
-#   m3 (omega UB): x_p > 0 AND |x_d| < p25  — obs in denser area, distance ~fixed
-#   m4 (omega LB): x_p < 0 AND |x_d| < p25  — obs in less dense area, distance ~fixed
-
-abs_xd = panel['x_d'].abs()
-p25_xd = abs_xd.quantile(0.25)
-
-m1 = panel[(panel['x_d'] > 0) & (abs_xp <= p25_xp)]
-m2 = panel[(panel['x_d'] < 0) & (abs_xp <= p25_xp)]
-m3 = panel[(panel['x_p'] > 0) & (abs_xd <= p25_xd)]
-m4 = panel[(panel['x_p'] < 0) & (abs_xd <= p25_xd)]
-
-print("\n=== Exercise 3.2: Moment Summary ===")
-for label, sub in [('m1 (gamma UB)', m1), ('m2 (gamma LB)', m2),
-                   ('m3 (omega UB)', m3), ('m4 (omega LB)', m4)]:
-    print(f"  {label}: n={len(sub):4d}  "
-          f"mean(y)={sub['y_tilde'].mean():+.3e}  "
-          f"mean(xd)={sub['x_d'].mean():+.3e}  "
-          f"mean(xp)={sub['x_p'].mean():+.3e}")
-
-# Precompute moment means for efficiency
-m_data = {
-    'm1': {'y': m1['y_tilde'].mean(), 'xd': m1['x_d'].mean(), 'xp': m1['x_p'].mean()},
-    'm2': {'y': m2['y_tilde'].mean(), 'xd': m2['x_d'].mean(), 'xp': m2['x_p'].mean()},
-    'm3': {'y': m3['y_tilde'].mean(), 'xd': m3['x_d'].mean(), 'xp': m3['x_p'].mean()},
-    'm4': {'y': m4['y_tilde'].mean(), 'xd': m4['x_d'].mean(), 'xp': m4['x_p'].mean()},
-}
-
-# ===========================================================================
-# Exercise 3.2(b). Grid search over (gamma, omega)
-# ===========================================================================
-gamma_grid = np.linspace(-500, 500, 201)
-omega_grid = np.linspace(-100_000, 100_000, 201)
-
-print(f"\nRunning {len(gamma_grid) * len(omega_grid):,}-point grid search...")
-
-results = []
-for gamma in gamma_grid:
-    for omega in omega_grid:
-        Q = 0.0
-        mom_vals = {}
-        for k, m in m_data.items():
-            # M_m(gamma, omega) = mean(y) - gamma*mean(xd) - omega*mean(xp)
-            M = m['y'] - gamma * m['xd'] - omega * m['xp']
-            mom_vals[k] = M
-            Q += min(0.0, M) ** 2   # only penalizes violations (M < 0)
-        results.append({
-            'gamma':  gamma,
-            'omega':  omega,
-            'M_m1':   mom_vals['m1'],
-            'M_m2':   mom_vals['m2'],
-            'M_m3':   mom_vals['m3'],
-            'M_m4':   mom_vals['m4'],
-            'Q':      Q,
-        })
-
-grid_df = pd.DataFrame(results)
-grid_df.to_csv('../Data/grid_results.csv', index=False)
-print("Grid results saved to grid_results.csv")
-
-# ===========================================================================
-# Exercise 3.2(c). Identified set
-# ===========================================================================
-Q_min   = grid_df['Q'].min()
-argmin  = grid_df.loc[grid_df['Q'].idxmin()]
-near    = grid_df[grid_df['Q'] <= Q_min * 1.01 + 1e-20]
-
-print("\n=== Exercise 3.2(c): Identified Set ===")
-print(f"  Q_min = {Q_min:.4e}")
-if Q_min == 0:
-    print("  Identified set (Q = 0):")
-    print(f"    gamma in [{near['gamma'].min():.2f}, {near['gamma'].max():.2f}]")
-    print(f"    omega in [{near['omega'].min():.2f}, {near['omega'].max():.2f}]")
-else:
-    print("  Q_min > 0: moments are mutually inconsistent; identified set (Q=0) is empty.")
-    print(f"  Argmin: gamma = {argmin['gamma']:.2f},  omega = {argmin['omega']:.2f}")
-    print(f"  Moments at argmin:")
-    for m in ['M_m1', 'M_m2', 'M_m3', 'M_m4']:
-        val = argmin[m]
-        status = 'violated' if val < 0 else 'satisfied'
-        print(f"    {m} = {val:.4e}  ({status})")
-    print(f"\n  Near-minimum set (Q <= 1.01 * Q_min):")
-    print(f"    gamma in [{near['gamma'].min():.2f}, {near['gamma'].max():.2f}]")
-    print(f"    omega in [{near['omega'].min():.2f}, {near['omega'].max():.2f}]")
