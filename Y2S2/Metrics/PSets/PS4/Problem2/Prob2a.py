@@ -15,11 +15,11 @@ Panel logit estimation using MLE
 """
 
 def panel_log(b, X, Z, Y):
-    N, T =  Y.shape # number of individuals and time periods
-    xK = X.shape[1] # dimensions of individuals and characteristics
-    beta = b[:xK] # coefficients for the covariates
-    gamma = b[xK] # coefficient for Zdist
-    delta = b[xK+1] # coefficient for diff in log-odds
+    N, T     = Y.shape # number of individuals and time periods
+    xK       = X.shape[1] # dimensions of individuals and characteristics
+    beta     = b[:xK] # coefficients for the covariates
+    gamma    = b[xK] # coefficient for Zdist
+    delta    = b[xK+1] # coefficient for diff in log-odds
     logit_pi = b[xK+2] # log-odds for pi2
 
     pi2 = expit(logit_pi) # convert log-odds to probability
